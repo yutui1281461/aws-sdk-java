@@ -122,24 +122,11 @@ checklist below:
 * [ ] Git commit message is detailed and includes context behind the change
 * [ ] If the change is related to an existing Bug Report or Feature Request,
   the issue number is referenced
-* [ ] A short description of the change added to
-  [CHANGELOG.md](./CHANGELOG.md). Adding a new entry can be accomplished by
-  running the `scripts/new-change` script and following the instructions.
-  Commit the new file created by the script in `.changes/next-release` with
-  your changes.
 
 __Note__: Some changes have additional requirements. Refer to the section below
 to see if your change will require additional work to be accepted.
 
 #### Additional Pull Request Requirements
-##### Reactive Streams
-If the change includes implementations of the [Reactive Streams
-interfaces](https://github.com/reactive-streams/reactive-streams-jvm), the
-change must also contain verification tests using the [Reactive Streams
-Technology Compatibility
-Kit](https://github.com/reactive-streams/reactive-streams-jvm/tree/master/tck)
-to ensure specificiation compliance.
-
 ### Getting Your Pull Request Merged
 All Pull Requests must be approved by at least one member of the SDK team
 before it can be merged in. The members only have limited bandwitdth to review
@@ -151,11 +138,6 @@ member to ask for a review.
 If your branch has more than one commit when it's approved, you will also be
 asked to [squash][git-rewriting-history] them into a single commit before it is
 merged in.
-
-## Additional Resources
-We maintain a [wiki][wiki] where information like design decisions, internal
-architecture, and style conventions are documented that you may find helpful
-when contributing to the SDK.
 
 ## Getting in Contact
 * Come chat with us on [Gitter][gitter]!
