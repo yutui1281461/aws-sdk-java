@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -42,13 +42,10 @@ public class XssMatchTuple implements Serializable, Cloneable, StructuredPojo {
      * before inspecting a request for a match.
      * </p>
      * <p>
-     * You can only specify a single type of TextTransformation.
-     * </p>
-     * <p>
      * <b>CMD_LINE</b>
      * </p>
      * <p>
-     * When you're concerned that attackers are injecting an operating system command line command and using unusual
+     * When you're concerned that attackers are injecting an operating system commandline command and using unusual
      * formatting to disguise some or all of the command, use this option to perform the following transformations:
      * </p>
      * <ul>
@@ -228,13 +225,10 @@ public class XssMatchTuple implements Serializable, Cloneable, StructuredPojo {
      * before inspecting a request for a match.
      * </p>
      * <p>
-     * You can only specify a single type of TextTransformation.
-     * </p>
-     * <p>
      * <b>CMD_LINE</b>
      * </p>
      * <p>
-     * When you're concerned that attackers are injecting an operating system command line command and using unusual
+     * When you're concerned that attackers are injecting an operating system commandline command and using unusual
      * formatting to disguise some or all of the command, use this option to perform the following transformations:
      * </p>
      * <ul>
@@ -370,13 +364,10 @@ public class XssMatchTuple implements Serializable, Cloneable, StructuredPojo {
      *        effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on
      *        <code>FieldToMatch</code> before inspecting a request for a match.</p>
      *        <p>
-     *        You can only specify a single type of TextTransformation.
-     *        </p>
-     *        <p>
      *        <b>CMD_LINE</b>
      *        </p>
      *        <p>
-     *        When you're concerned that attackers are injecting an operating system command line command and using
+     *        When you're concerned that attackers are injecting an operating system commandline command and using
      *        unusual formatting to disguise some or all of the command, use this option to perform the following
      *        transformations:
      *        </p>
@@ -520,13 +511,10 @@ public class XssMatchTuple implements Serializable, Cloneable, StructuredPojo {
      * before inspecting a request for a match.
      * </p>
      * <p>
-     * You can only specify a single type of TextTransformation.
-     * </p>
-     * <p>
      * <b>CMD_LINE</b>
      * </p>
      * <p>
-     * When you're concerned that attackers are injecting an operating system command line command and using unusual
+     * When you're concerned that attackers are injecting an operating system commandline command and using unusual
      * formatting to disguise some or all of the command, use this option to perform the following transformations:
      * </p>
      * <ul>
@@ -661,13 +649,10 @@ public class XssMatchTuple implements Serializable, Cloneable, StructuredPojo {
      *         effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on
      *         <code>FieldToMatch</code> before inspecting a request for a match.</p>
      *         <p>
-     *         You can only specify a single type of TextTransformation.
-     *         </p>
-     *         <p>
      *         <b>CMD_LINE</b>
      *         </p>
      *         <p>
-     *         When you're concerned that attackers are injecting an operating system command line command and using
+     *         When you're concerned that attackers are injecting an operating system commandline command and using
      *         unusual formatting to disguise some or all of the command, use this option to perform the following
      *         transformations:
      *         </p>
@@ -811,13 +796,10 @@ public class XssMatchTuple implements Serializable, Cloneable, StructuredPojo {
      * before inspecting a request for a match.
      * </p>
      * <p>
-     * You can only specify a single type of TextTransformation.
-     * </p>
-     * <p>
      * <b>CMD_LINE</b>
      * </p>
      * <p>
-     * When you're concerned that attackers are injecting an operating system command line command and using unusual
+     * When you're concerned that attackers are injecting an operating system commandline command and using unusual
      * formatting to disguise some or all of the command, use this option to perform the following transformations:
      * </p>
      * <ul>
@@ -953,13 +935,10 @@ public class XssMatchTuple implements Serializable, Cloneable, StructuredPojo {
      *        effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on
      *        <code>FieldToMatch</code> before inspecting a request for a match.</p>
      *        <p>
-     *        You can only specify a single type of TextTransformation.
-     *        </p>
-     *        <p>
      *        <b>CMD_LINE</b>
      *        </p>
      *        <p>
-     *        When you're concerned that attackers are injecting an operating system command line command and using
+     *        When you're concerned that attackers are injecting an operating system commandline command and using
      *        unusual formatting to disguise some or all of the command, use this option to perform the following
      *        transformations:
      *        </p>
@@ -1105,13 +1084,10 @@ public class XssMatchTuple implements Serializable, Cloneable, StructuredPojo {
      * before inspecting a request for a match.
      * </p>
      * <p>
-     * You can only specify a single type of TextTransformation.
-     * </p>
-     * <p>
      * <b>CMD_LINE</b>
      * </p>
      * <p>
-     * When you're concerned that attackers are injecting an operating system command line command and using unusual
+     * When you're concerned that attackers are injecting an operating system commandline command and using unusual
      * formatting to disguise some or all of the command, use this option to perform the following transformations:
      * </p>
      * <ul>
@@ -1247,13 +1223,10 @@ public class XssMatchTuple implements Serializable, Cloneable, StructuredPojo {
      *        effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on
      *        <code>FieldToMatch</code> before inspecting a request for a match.</p>
      *        <p>
-     *        You can only specify a single type of TextTransformation.
-     *        </p>
-     *        <p>
      *        <b>CMD_LINE</b>
      *        </p>
      *        <p>
-     *        When you're concerned that attackers are injecting an operating system command line command and using
+     *        When you're concerned that attackers are injecting an operating system commandline command and using
      *        unusual formatting to disguise some or all of the command, use this option to perform the following
      *        transformations:
      *        </p>
@@ -1397,13 +1370,10 @@ public class XssMatchTuple implements Serializable, Cloneable, StructuredPojo {
      * before inspecting a request for a match.
      * </p>
      * <p>
-     * You can only specify a single type of TextTransformation.
-     * </p>
-     * <p>
      * <b>CMD_LINE</b>
      * </p>
      * <p>
-     * When you're concerned that attackers are injecting an operating system command line command and using unusual
+     * When you're concerned that attackers are injecting an operating system commandline command and using unusual
      * formatting to disguise some or all of the command, use this option to perform the following transformations:
      * </p>
      * <ul>
@@ -1539,13 +1509,10 @@ public class XssMatchTuple implements Serializable, Cloneable, StructuredPojo {
      *        effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on
      *        <code>FieldToMatch</code> before inspecting a request for a match.</p>
      *        <p>
-     *        You can only specify a single type of TextTransformation.
-     *        </p>
-     *        <p>
      *        <b>CMD_LINE</b>
      *        </p>
      *        <p>
-     *        When you're concerned that attackers are injecting an operating system command line command and using
+     *        When you're concerned that attackers are injecting an operating system commandline command and using
      *        unusual formatting to disguise some or all of the command, use this option to perform the following
      *        transformations:
      *        </p>
@@ -1685,8 +1652,7 @@ public class XssMatchTuple implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

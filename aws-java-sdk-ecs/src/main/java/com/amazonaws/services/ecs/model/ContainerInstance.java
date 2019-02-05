@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,7 +31,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * The Amazon Resource Name (ARN) of the container instance. The ARN contains the <code>arn:aws:ecs</code>
-     * namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner,
+     * namespace, followed by the region of the container instance, the AWS account ID of the container instance owner,
      * the <code>container-instance</code> namespace, and then the container instance ID. For example,
      * <code>arn:aws:ecs:<i>region</i>:<i>aws_account_id</i>:container-instance/<i>container_instance_ID</i> </code>.
      * </p>
@@ -72,7 +72,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * For CPU and memory resource types, this parameter describes the amount of each resource that was available on the
-     * container instance when the container agent registered it with Amazon ECS. This value represents the total amount
+     * container instance when the container agent registered it with Amazon ECS; this value represents the total amount
      * of CPU and memory that can be allocated on this container instance to tasks. For port resource types, this
      * parameter describes the ports that were reserved by the Amazon ECS container agent when it registered the
      * container instance with Amazon ECS.
@@ -93,8 +93,8 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * This parameter returns <code>true</code> if the agent is connected to Amazon ECS. Registered instances with an
-     * agent that may be unhealthy or stopped return <code>false</code>. Only instances connected to an agent can accept
-     * placement requests.
+     * agent that may be unhealthy or stopped return <code>false</code>. Instances without a connected agent can't
+     * accept placement requests.
      * </p>
      */
     private Boolean agentConnected;
@@ -126,36 +126,28 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     private com.amazonaws.internal.SdkInternalList<Attribute> attributes;
     /**
      * <p>
-     * The Unix timestamp for when the container instance was registered.
+     * The Unix time stamp for when the container instance was registered.
      * </p>
      */
     private java.util.Date registeredAt;
     /**
      * <p>
-     * The elastic network interfaces associated with the container instance.
+     * The Elastic Network Interfaces associated with the container instance.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<Attachment> attachments;
-    /**
-     * <p>
-     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
-     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
-     * characters, and tag values can have a maximum length of 256 characters.
-     * </p>
-     */
-    private com.amazonaws.internal.SdkInternalList<Tag> tags;
 
     /**
      * <p>
      * The Amazon Resource Name (ARN) of the container instance. The ARN contains the <code>arn:aws:ecs</code>
-     * namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner,
+     * namespace, followed by the region of the container instance, the AWS account ID of the container instance owner,
      * the <code>container-instance</code> namespace, and then the container instance ID. For example,
      * <code>arn:aws:ecs:<i>region</i>:<i>aws_account_id</i>:container-instance/<i>container_instance_ID</i> </code>.
      * </p>
      * 
      * @param containerInstanceArn
      *        The Amazon Resource Name (ARN) of the container instance. The ARN contains the <code>arn:aws:ecs</code>
-     *        namespace, followed by the Region of the container instance, the AWS account ID of the container instance
+     *        namespace, followed by the region of the container instance, the AWS account ID of the container instance
      *        owner, the <code>container-instance</code> namespace, and then the container instance ID. For example,
      *        <code>arn:aws:ecs:<i>region</i>:<i>aws_account_id</i>:container-instance/<i>container_instance_ID</i> </code>
      *        .
@@ -168,13 +160,13 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * The Amazon Resource Name (ARN) of the container instance. The ARN contains the <code>arn:aws:ecs</code>
-     * namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner,
+     * namespace, followed by the region of the container instance, the AWS account ID of the container instance owner,
      * the <code>container-instance</code> namespace, and then the container instance ID. For example,
      * <code>arn:aws:ecs:<i>region</i>:<i>aws_account_id</i>:container-instance/<i>container_instance_ID</i> </code>.
      * </p>
      * 
      * @return The Amazon Resource Name (ARN) of the container instance. The ARN contains the <code>arn:aws:ecs</code>
-     *         namespace, followed by the Region of the container instance, the AWS account ID of the container instance
+     *         namespace, followed by the region of the container instance, the AWS account ID of the container instance
      *         owner, the <code>container-instance</code> namespace, and then the container instance ID. For example,
      *         <code>arn:aws:ecs:<i>region</i>:<i>aws_account_id</i>:container-instance/<i>container_instance_ID</i> </code>
      *         .
@@ -187,14 +179,14 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * The Amazon Resource Name (ARN) of the container instance. The ARN contains the <code>arn:aws:ecs</code>
-     * namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner,
+     * namespace, followed by the region of the container instance, the AWS account ID of the container instance owner,
      * the <code>container-instance</code> namespace, and then the container instance ID. For example,
      * <code>arn:aws:ecs:<i>region</i>:<i>aws_account_id</i>:container-instance/<i>container_instance_ID</i> </code>.
      * </p>
      * 
      * @param containerInstanceArn
      *        The Amazon Resource Name (ARN) of the container instance. The ARN contains the <code>arn:aws:ecs</code>
-     *        namespace, followed by the Region of the container instance, the AWS account ID of the container instance
+     *        namespace, followed by the region of the container instance, the AWS account ID of the container instance
      *        owner, the <code>container-instance</code> namespace, and then the container instance ID. For example,
      *        <code>arn:aws:ecs:<i>region</i>:<i>aws_account_id</i>:container-instance/<i>container_instance_ID</i> </code>
      *        .
@@ -465,14 +457,14 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * For CPU and memory resource types, this parameter describes the amount of each resource that was available on the
-     * container instance when the container agent registered it with Amazon ECS. This value represents the total amount
+     * container instance when the container agent registered it with Amazon ECS; this value represents the total amount
      * of CPU and memory that can be allocated on this container instance to tasks. For port resource types, this
      * parameter describes the ports that were reserved by the Amazon ECS container agent when it registered the
      * container instance with Amazon ECS.
      * </p>
      * 
      * @return For CPU and memory resource types, this parameter describes the amount of each resource that was
-     *         available on the container instance when the container agent registered it with Amazon ECS. This value
+     *         available on the container instance when the container agent registered it with Amazon ECS; this value
      *         represents the total amount of CPU and memory that can be allocated on this container instance to tasks.
      *         For port resource types, this parameter describes the ports that were reserved by the Amazon ECS
      *         container agent when it registered the container instance with Amazon ECS.
@@ -488,7 +480,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * For CPU and memory resource types, this parameter describes the amount of each resource that was available on the
-     * container instance when the container agent registered it with Amazon ECS. This value represents the total amount
+     * container instance when the container agent registered it with Amazon ECS; this value represents the total amount
      * of CPU and memory that can be allocated on this container instance to tasks. For port resource types, this
      * parameter describes the ports that were reserved by the Amazon ECS container agent when it registered the
      * container instance with Amazon ECS.
@@ -496,7 +488,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      * 
      * @param registeredResources
      *        For CPU and memory resource types, this parameter describes the amount of each resource that was available
-     *        on the container instance when the container agent registered it with Amazon ECS. This value represents
+     *        on the container instance when the container agent registered it with Amazon ECS; this value represents
      *        the total amount of CPU and memory that can be allocated on this container instance to tasks. For port
      *        resource types, this parameter describes the ports that were reserved by the Amazon ECS container agent
      *        when it registered the container instance with Amazon ECS.
@@ -514,7 +506,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * For CPU and memory resource types, this parameter describes the amount of each resource that was available on the
-     * container instance when the container agent registered it with Amazon ECS. This value represents the total amount
+     * container instance when the container agent registered it with Amazon ECS; this value represents the total amount
      * of CPU and memory that can be allocated on this container instance to tasks. For port resource types, this
      * parameter describes the ports that were reserved by the Amazon ECS container agent when it registered the
      * container instance with Amazon ECS.
@@ -527,7 +519,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      * 
      * @param registeredResources
      *        For CPU and memory resource types, this parameter describes the amount of each resource that was available
-     *        on the container instance when the container agent registered it with Amazon ECS. This value represents
+     *        on the container instance when the container agent registered it with Amazon ECS; this value represents
      *        the total amount of CPU and memory that can be allocated on this container instance to tasks. For port
      *        resource types, this parameter describes the ports that were reserved by the Amazon ECS container agent
      *        when it registered the container instance with Amazon ECS.
@@ -547,7 +539,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * For CPU and memory resource types, this parameter describes the amount of each resource that was available on the
-     * container instance when the container agent registered it with Amazon ECS. This value represents the total amount
+     * container instance when the container agent registered it with Amazon ECS; this value represents the total amount
      * of CPU and memory that can be allocated on this container instance to tasks. For port resource types, this
      * parameter describes the ports that were reserved by the Amazon ECS container agent when it registered the
      * container instance with Amazon ECS.
@@ -555,7 +547,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      * 
      * @param registeredResources
      *        For CPU and memory resource types, this parameter describes the amount of each resource that was available
-     *        on the container instance when the container agent registered it with Amazon ECS. This value represents
+     *        on the container instance when the container agent registered it with Amazon ECS; this value represents
      *        the total amount of CPU and memory that can be allocated on this container instance to tasks. For port
      *        resource types, this parameter describes the ports that were reserved by the Amazon ECS container agent
      *        when it registered the container instance with Amazon ECS.
@@ -640,14 +632,14 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * This parameter returns <code>true</code> if the agent is connected to Amazon ECS. Registered instances with an
-     * agent that may be unhealthy or stopped return <code>false</code>. Only instances connected to an agent can accept
-     * placement requests.
+     * agent that may be unhealthy or stopped return <code>false</code>. Instances without a connected agent can't
+     * accept placement requests.
      * </p>
      * 
      * @param agentConnected
      *        This parameter returns <code>true</code> if the agent is connected to Amazon ECS. Registered instances
-     *        with an agent that may be unhealthy or stopped return <code>false</code>. Only instances connected to an
-     *        agent can accept placement requests.
+     *        with an agent that may be unhealthy or stopped return <code>false</code>. Instances without a connected
+     *        agent can't accept placement requests.
      */
 
     public void setAgentConnected(Boolean agentConnected) {
@@ -657,13 +649,13 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * This parameter returns <code>true</code> if the agent is connected to Amazon ECS. Registered instances with an
-     * agent that may be unhealthy or stopped return <code>false</code>. Only instances connected to an agent can accept
-     * placement requests.
+     * agent that may be unhealthy or stopped return <code>false</code>. Instances without a connected agent can't
+     * accept placement requests.
      * </p>
      * 
      * @return This parameter returns <code>true</code> if the agent is connected to Amazon ECS. Registered instances
-     *         with an agent that may be unhealthy or stopped return <code>false</code>. Only instances connected to an
-     *         agent can accept placement requests.
+     *         with an agent that may be unhealthy or stopped return <code>false</code>. Instances without a connected
+     *         agent can't accept placement requests.
      */
 
     public Boolean getAgentConnected() {
@@ -673,14 +665,14 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * This parameter returns <code>true</code> if the agent is connected to Amazon ECS. Registered instances with an
-     * agent that may be unhealthy or stopped return <code>false</code>. Only instances connected to an agent can accept
-     * placement requests.
+     * agent that may be unhealthy or stopped return <code>false</code>. Instances without a connected agent can't
+     * accept placement requests.
      * </p>
      * 
      * @param agentConnected
      *        This parameter returns <code>true</code> if the agent is connected to Amazon ECS. Registered instances
-     *        with an agent that may be unhealthy or stopped return <code>false</code>. Only instances connected to an
-     *        agent can accept placement requests.
+     *        with an agent that may be unhealthy or stopped return <code>false</code>. Instances without a connected
+     *        agent can't accept placement requests.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -692,13 +684,13 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     /**
      * <p>
      * This parameter returns <code>true</code> if the agent is connected to Amazon ECS. Registered instances with an
-     * agent that may be unhealthy or stopped return <code>false</code>. Only instances connected to an agent can accept
-     * placement requests.
+     * agent that may be unhealthy or stopped return <code>false</code>. Instances without a connected agent can't
+     * accept placement requests.
      * </p>
      * 
      * @return This parameter returns <code>true</code> if the agent is connected to Amazon ECS. Registered instances
-     *         with an agent that may be unhealthy or stopped return <code>false</code>. Only instances connected to an
-     *         agent can accept placement requests.
+     *         with an agent that may be unhealthy or stopped return <code>false</code>. Instances without a connected
+     *         agent can't accept placement requests.
      */
 
     public Boolean isAgentConnected() {
@@ -951,11 +943,11 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * The Unix timestamp for when the container instance was registered.
+     * The Unix time stamp for when the container instance was registered.
      * </p>
      * 
      * @param registeredAt
-     *        The Unix timestamp for when the container instance was registered.
+     *        The Unix time stamp for when the container instance was registered.
      */
 
     public void setRegisteredAt(java.util.Date registeredAt) {
@@ -964,10 +956,10 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * The Unix timestamp for when the container instance was registered.
+     * The Unix time stamp for when the container instance was registered.
      * </p>
      * 
-     * @return The Unix timestamp for when the container instance was registered.
+     * @return The Unix time stamp for when the container instance was registered.
      */
 
     public java.util.Date getRegisteredAt() {
@@ -976,11 +968,11 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * The Unix timestamp for when the container instance was registered.
+     * The Unix time stamp for when the container instance was registered.
      * </p>
      * 
      * @param registeredAt
-     *        The Unix timestamp for when the container instance was registered.
+     *        The Unix time stamp for when the container instance was registered.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -991,10 +983,10 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * The elastic network interfaces associated with the container instance.
+     * The Elastic Network Interfaces associated with the container instance.
      * </p>
      * 
-     * @return The elastic network interfaces associated with the container instance.
+     * @return The Elastic Network Interfaces associated with the container instance.
      */
 
     public java.util.List<Attachment> getAttachments() {
@@ -1006,11 +998,11 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * The elastic network interfaces associated with the container instance.
+     * The Elastic Network Interfaces associated with the container instance.
      * </p>
      * 
      * @param attachments
-     *        The elastic network interfaces associated with the container instance.
+     *        The Elastic Network Interfaces associated with the container instance.
      */
 
     public void setAttachments(java.util.Collection<Attachment> attachments) {
@@ -1024,7 +1016,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * The elastic network interfaces associated with the container instance.
+     * The Elastic Network Interfaces associated with the container instance.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -1033,7 +1025,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
      * </p>
      * 
      * @param attachments
-     *        The elastic network interfaces associated with the container instance.
+     *        The Elastic Network Interfaces associated with the container instance.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1049,11 +1041,11 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
 
     /**
      * <p>
-     * The elastic network interfaces associated with the container instance.
+     * The Elastic Network Interfaces associated with the container instance.
      * </p>
      * 
      * @param attachments
-     *        The elastic network interfaces associated with the container instance.
+     *        The Elastic Network Interfaces associated with the container instance.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1063,97 +1055,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * <p>
-     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
-     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
-     * characters, and tag values can have a maximum length of 256 characters.
-     * </p>
-     * 
-     * @return The metadata that you apply to the container instance to help you categorize and organize them. Each tag
-     *         consists of a key and an optional value, both of which you define. Tag keys can have a maximum character
-     *         length of 128 characters, and tag values can have a maximum length of 256 characters.
-     */
-
-    public java.util.List<Tag> getTags() {
-        if (tags == null) {
-            tags = new com.amazonaws.internal.SdkInternalList<Tag>();
-        }
-        return tags;
-    }
-
-    /**
-     * <p>
-     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
-     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
-     * characters, and tag values can have a maximum length of 256 characters.
-     * </p>
-     * 
-     * @param tags
-     *        The metadata that you apply to the container instance to help you categorize and organize them. Each tag
-     *        consists of a key and an optional value, both of which you define. Tag keys can have a maximum character
-     *        length of 128 characters, and tag values can have a maximum length of 256 characters.
-     */
-
-    public void setTags(java.util.Collection<Tag> tags) {
-        if (tags == null) {
-            this.tags = null;
-            return;
-        }
-
-        this.tags = new com.amazonaws.internal.SdkInternalList<Tag>(tags);
-    }
-
-    /**
-     * <p>
-     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
-     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
-     * characters, and tag values can have a maximum length of 256 characters.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setTags(java.util.Collection)} or {@link #withTags(java.util.Collection)} if you want to override the
-     * existing values.
-     * </p>
-     * 
-     * @param tags
-     *        The metadata that you apply to the container instance to help you categorize and organize them. Each tag
-     *        consists of a key and an optional value, both of which you define. Tag keys can have a maximum character
-     *        length of 128 characters, and tag values can have a maximum length of 256 characters.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public ContainerInstance withTags(Tag... tags) {
-        if (this.tags == null) {
-            setTags(new com.amazonaws.internal.SdkInternalList<Tag>(tags.length));
-        }
-        for (Tag ele : tags) {
-            this.tags.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
-     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
-     * characters, and tag values can have a maximum length of 256 characters.
-     * </p>
-     * 
-     * @param tags
-     *        The metadata that you apply to the container instance to help you categorize and organize them. Each tag
-     *        consists of a key and an optional value, both of which you define. Tag keys can have a maximum character
-     *        length of 128 characters, and tag values can have a maximum length of 256 characters.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public ContainerInstance withTags(java.util.Collection<Tag> tags) {
-        setTags(tags);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1190,9 +1092,7 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
         if (getRegisteredAt() != null)
             sb.append("RegisteredAt: ").append(getRegisteredAt()).append(",");
         if (getAttachments() != null)
-            sb.append("Attachments: ").append(getAttachments()).append(",");
-        if (getTags() != null)
-            sb.append("Tags: ").append(getTags());
+            sb.append("Attachments: ").append(getAttachments());
         sb.append("}");
         return sb.toString();
     }
@@ -1263,10 +1163,6 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
             return false;
         if (other.getAttachments() != null && other.getAttachments().equals(this.getAttachments()) == false)
             return false;
-        if (other.getTags() == null ^ this.getTags() == null)
-            return false;
-        if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
-            return false;
         return true;
     }
 
@@ -1289,7 +1185,6 @@ public class ContainerInstance implements Serializable, Cloneable, StructuredPoj
         hashCode = prime * hashCode + ((getAttributes() == null) ? 0 : getAttributes().hashCode());
         hashCode = prime * hashCode + ((getRegisteredAt() == null) ? 0 : getRegisteredAt().hashCode());
         hashCode = prime * hashCode + ((getAttachments() == null) ? 0 : getAttachments().hashCode());
-        hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         return hashCode;
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,8 +37,6 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
-import com.amazonaws.client.builder.AdvancedConfig;
-
 import com.amazonaws.services.inspector.AmazonInspectorClientBuilder;
 
 import com.amazonaws.AmazonServiceException;
@@ -61,7 +59,6 @@ import com.amazonaws.services.inspector.model.transform.*;
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class AmazonInspectorClient extends AmazonWebServiceClient implements AmazonInspector {
-
     /** Provider for AWS credentials. */
     private final AWSCredentialsProvider awsCredentialsProvider;
 
@@ -72,8 +69,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
-
-    private final AdvancedConfig advancedConfig;
 
     private static final com.amazonaws.protocol.json.SdkJsonProtocolFactory protocolFactory = new com.amazonaws.protocol.json.SdkJsonProtocolFactory(
             new JsonClientMetadata()
@@ -90,9 +85,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                             new JsonErrorShapeMetadata().withErrorCode("LimitExceededException").withModeledClass(
                                     com.amazonaws.services.inspector.model.LimitExceededException.class))
                     .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("ServiceTemporarilyUnavailableException").withModeledClass(
-                                    com.amazonaws.services.inspector.model.ServiceTemporarilyUnavailableException.class))
-                    .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("AccessDeniedException").withModeledClass(
                                     com.amazonaws.services.inspector.model.AccessDeniedException.class))
                     .addErrorMetadata(
@@ -104,9 +96,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("AgentsAlreadyRunningAssessmentException").withModeledClass(
                                     com.amazonaws.services.inspector.model.AgentsAlreadyRunningAssessmentException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("PreviewGenerationInProgressException").withModeledClass(
-                                    com.amazonaws.services.inspector.model.PreviewGenerationInProgressException.class))
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("InvalidCrossAccountRoleException").withModeledClass(
                                     com.amazonaws.services.inspector.model.InvalidCrossAccountRoleException.class))
@@ -199,7 +188,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
     public AmazonInspectorClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -265,7 +253,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -284,23 +271,8 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      *        Object providing client parameters.
      */
     AmazonInspectorClient(AwsSyncClientParams clientParams) {
-        this(clientParams, false);
-    }
-
-    /**
-     * Constructs a new client to invoke service methods on Amazon Inspector using the specified parameters.
-     *
-     * <p>
-     * All service calls made using this new client object are blocking, and will not return until the service call
-     * completes.
-     *
-     * @param clientParams
-     *        Object providing client parameters.
-     */
-    AmazonInspectorClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -331,8 +303,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws NoSuchEntityException
      *         The request was rejected because it referenced an entity that does not exist. The error code describes
      *         the entity.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.AddAttributesToFindings
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/AddAttributesToFindings"
      *      target="_top">AWS API Documentation</a>
@@ -360,9 +330,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AddAttributesToFindings");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -383,12 +350,11 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
     /**
      * <p>
      * Creates a new assessment target using the ARN of the resource group that is generated by
-     * <a>CreateResourceGroup</a>. If resourceGroupArn is not specified, all EC2 instances in the current AWS account
-     * and region are included in the assessment target. If the <a
+     * <a>CreateResourceGroup</a>. If the <a
      * href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_slr.html">service-linked role</a> isn’t
-     * already registered, this action also creates and registers a service-linked role to grant Amazon Inspector access
-     * to AWS Services needed to perform security assessments. You can create up to 50 assessment targets per AWS
-     * account. You can run up to 500 concurrent agents per AWS account. For more information, see <a
+     * already registered, also creates and registers a service-linked role to grant Amazon Inspector access to AWS
+     * Services needed to perform security assessments. You can create up to 50 assessment targets per AWS account. You
+     * can run up to 500 concurrent agents per AWS account. For more information, see <a
      * href="http://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html"> Amazon Inspector
      * Assessment Targets</a>.
      * </p>
@@ -410,8 +376,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws InvalidCrossAccountRoleException
      *         Amazon Inspector cannot assume the cross-account role that it needs to list your EC2 instances during the
      *         assessment run.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.CreateAssessmentTarget
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/CreateAssessmentTarget"
      *      target="_top">AWS API Documentation</a>
@@ -438,9 +402,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateAssessmentTarget");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -462,8 +423,8 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * <p>
      * Creates an assessment template for the assessment target that is specified by the ARN of the assessment target.
      * If the <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_slr.html">service-linked
-     * role</a> isn’t already registered, this action also creates and registers a service-linked role to grant Amazon
-     * Inspector access to AWS Services needed to perform security assessments.
+     * role</a> isn’t already registered, also creates and registers a service-linked role to grant Amazon Inspector
+     * access to AWS Services needed to perform security assessments.
      * </p>
      * 
      * @param createAssessmentTemplateRequest
@@ -480,8 +441,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws NoSuchEntityException
      *         The request was rejected because it referenced an entity that does not exist. The error code describes
      *         the entity.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.CreateAssessmentTemplate
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/CreateAssessmentTemplate"
      *      target="_top">AWS API Documentation</a>
@@ -509,9 +468,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateAssessmentTemplate");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -519,74 +475,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
             HttpResponseHandler<AmazonWebServiceResponse<CreateAssessmentTemplateResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
                     new CreateAssessmentTemplateResultJsonUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
-     * Starts the generation of an exclusions preview for the specified assessment template. The exclusions preview
-     * lists the potential exclusions (ExclusionPreview) that Inspector can detect before it runs the assessment.
-     * </p>
-     * 
-     * @param createExclusionsPreviewRequest
-     * @return Result of the CreateExclusionsPreview operation returned by the service.
-     * @throws InvalidInputException
-     *         The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
-     * @throws PreviewGenerationInProgressException
-     *         The request is rejected. The specified assessment template is currently generating an exclusions preview.
-     * @throws InternalException
-     *         Internal server error.
-     * @throws AccessDeniedException
-     *         You do not have required permissions to access the requested resource.
-     * @throws NoSuchEntityException
-     *         The request was rejected because it referenced an entity that does not exist. The error code describes
-     *         the entity.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
-     * @sample AmazonInspector.CreateExclusionsPreview
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/CreateExclusionsPreview"
-     *      target="_top">AWS API Documentation</a>
-     */
-    @Override
-    public CreateExclusionsPreviewResult createExclusionsPreview(CreateExclusionsPreviewRequest request) {
-        request = beforeClientExecution(request);
-        return executeCreateExclusionsPreview(request);
-    }
-
-    @SdkInternalApi
-    final CreateExclusionsPreviewResult executeCreateExclusionsPreview(CreateExclusionsPreviewRequest createExclusionsPreviewRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(createExclusionsPreviewRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<CreateExclusionsPreviewRequest> request = null;
-        Response<CreateExclusionsPreviewResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new CreateExclusionsPreviewRequestProtocolMarshaller(protocolFactory).marshall(super
-                        .beforeMarshalling(createExclusionsPreviewRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateExclusionsPreview");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            HttpResponseHandler<AmazonWebServiceResponse<CreateExclusionsPreviewResult>> responseHandler = protocolFactory.createResponseHandler(
-                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
-                    new CreateExclusionsPreviewResultJsonUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
 
             return response.getAwsResponse();
@@ -615,8 +503,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      *         The error code describes the limit exceeded.
      * @throws AccessDeniedException
      *         You do not have required permissions to access the requested resource.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.CreateResourceGroup
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/CreateResourceGroup" target="_top">AWS
      *      API Documentation</a>
@@ -643,9 +529,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateResourceGroup");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -680,8 +563,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws NoSuchEntityException
      *         The request was rejected because it referenced an entity that does not exist. The error code describes
      *         the entity.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.DeleteAssessmentRun
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/DeleteAssessmentRun" target="_top">AWS
      *      API Documentation</a>
@@ -708,9 +589,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteAssessmentRun");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -745,8 +623,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws NoSuchEntityException
      *         The request was rejected because it referenced an entity that does not exist. The error code describes
      *         the entity.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.DeleteAssessmentTarget
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/DeleteAssessmentTarget"
      *      target="_top">AWS API Documentation</a>
@@ -773,9 +649,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteAssessmentTarget");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -811,8 +684,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws NoSuchEntityException
      *         The request was rejected because it referenced an entity that does not exist. The error code describes
      *         the entity.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.DeleteAssessmentTemplate
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/DeleteAssessmentTemplate"
      *      target="_top">AWS API Documentation</a>
@@ -840,9 +711,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteAssessmentTemplate");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -897,9 +765,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeAssessmentRuns");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -955,9 +820,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeAssessmentTargets");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1013,9 +875,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeAssessmentTemplates");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1069,9 +928,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeCrossAccountAccessRole");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1079,62 +935,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
             HttpResponseHandler<AmazonWebServiceResponse<DescribeCrossAccountAccessRoleResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
                     new DescribeCrossAccountAccessRoleResultJsonUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
-     * Describes the exclusions that are specified by the exclusions' ARNs.
-     * </p>
-     * 
-     * @param describeExclusionsRequest
-     * @return Result of the DescribeExclusions operation returned by the service.
-     * @throws InternalException
-     *         Internal server error.
-     * @throws InvalidInputException
-     *         The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
-     * @sample AmazonInspector.DescribeExclusions
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/DescribeExclusions" target="_top">AWS
-     *      API Documentation</a>
-     */
-    @Override
-    public DescribeExclusionsResult describeExclusions(DescribeExclusionsRequest request) {
-        request = beforeClientExecution(request);
-        return executeDescribeExclusions(request);
-    }
-
-    @SdkInternalApi
-    final DescribeExclusionsResult executeDescribeExclusions(DescribeExclusionsRequest describeExclusionsRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(describeExclusionsRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<DescribeExclusionsRequest> request = null;
-        Response<DescribeExclusionsResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new DescribeExclusionsRequestProtocolMarshaller(protocolFactory).marshall(super.beforeMarshalling(describeExclusionsRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeExclusions");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            HttpResponseHandler<AmazonWebServiceResponse<DescribeExclusionsResult>> responseHandler = protocolFactory.createResponseHandler(
-                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new DescribeExclusionsResultJsonUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
 
             return response.getAwsResponse();
@@ -1182,9 +982,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeFindings");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1238,9 +1035,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeResourceGroups");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1295,9 +1089,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeRulesPackages");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1338,8 +1129,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      *         report for an assessment run that existed before reporting was supported in Amazon Inspector. You can
      *         only generate reports for assessment runs that took place or will take place after generating reports in
      *         Amazon Inspector became available.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.GetAssessmentReport
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/GetAssessmentReport" target="_top">AWS
      *      API Documentation</a>
@@ -1366,77 +1155,12 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetAssessmentReport");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
 
             HttpResponseHandler<AmazonWebServiceResponse<GetAssessmentReportResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new GetAssessmentReportResultJsonUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
-     * Retrieves the exclusions preview (a list of ExclusionPreview objects) specified by the preview token. You can
-     * obtain the preview token by running the CreateExclusionsPreview API.
-     * </p>
-     * 
-     * @param getExclusionsPreviewRequest
-     * @return Result of the GetExclusionsPreview operation returned by the service.
-     * @throws InvalidInputException
-     *         The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
-     * @throws InternalException
-     *         Internal server error.
-     * @throws AccessDeniedException
-     *         You do not have required permissions to access the requested resource.
-     * @throws NoSuchEntityException
-     *         The request was rejected because it referenced an entity that does not exist. The error code describes
-     *         the entity.
-     * @sample AmazonInspector.GetExclusionsPreview
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/GetExclusionsPreview" target="_top">AWS
-     *      API Documentation</a>
-     */
-    @Override
-    public GetExclusionsPreviewResult getExclusionsPreview(GetExclusionsPreviewRequest request) {
-        request = beforeClientExecution(request);
-        return executeGetExclusionsPreview(request);
-    }
-
-    @SdkInternalApi
-    final GetExclusionsPreviewResult executeGetExclusionsPreview(GetExclusionsPreviewRequest getExclusionsPreviewRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(getExclusionsPreviewRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<GetExclusionsPreviewRequest> request = null;
-        Response<GetExclusionsPreviewResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new GetExclusionsPreviewRequestProtocolMarshaller(protocolFactory).marshall(super.beforeMarshalling(getExclusionsPreviewRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetExclusionsPreview");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            HttpResponseHandler<AmazonWebServiceResponse<GetExclusionsPreviewResult>> responseHandler = protocolFactory.createResponseHandler(
-                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new GetExclusionsPreviewResultJsonUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
 
             return response.getAwsResponse();
@@ -1489,9 +1213,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetTelemetryMetadata");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1551,9 +1272,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListAssessmentRunAgents");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1614,9 +1332,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListAssessmentRuns");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1674,9 +1389,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListAssessmentTargets");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1738,9 +1450,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListAssessmentTemplates");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1801,9 +1510,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListEventSubscriptions");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1811,67 +1517,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
             HttpResponseHandler<AmazonWebServiceResponse<ListEventSubscriptionsResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
                     new ListEventSubscriptionsResultJsonUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
-     * List exclusions that are generated by the assessment run.
-     * </p>
-     * 
-     * @param listExclusionsRequest
-     * @return Result of the ListExclusions operation returned by the service.
-     * @throws InternalException
-     *         Internal server error.
-     * @throws InvalidInputException
-     *         The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
-     * @throws AccessDeniedException
-     *         You do not have required permissions to access the requested resource.
-     * @throws NoSuchEntityException
-     *         The request was rejected because it referenced an entity that does not exist. The error code describes
-     *         the entity.
-     * @sample AmazonInspector.ListExclusions
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/ListExclusions" target="_top">AWS API
-     *      Documentation</a>
-     */
-    @Override
-    public ListExclusionsResult listExclusions(ListExclusionsRequest request) {
-        request = beforeClientExecution(request);
-        return executeListExclusions(request);
-    }
-
-    @SdkInternalApi
-    final ListExclusionsResult executeListExclusions(ListExclusionsRequest listExclusionsRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(listExclusionsRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<ListExclusionsRequest> request = null;
-        Response<ListExclusionsResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new ListExclusionsRequestProtocolMarshaller(protocolFactory).marshall(super.beforeMarshalling(listExclusionsRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListExclusions");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            HttpResponseHandler<AmazonWebServiceResponse<ListExclusionsResult>> responseHandler = protocolFactory.createResponseHandler(
-                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new ListExclusionsResultJsonUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
 
             return response.getAwsResponse();
@@ -1924,9 +1569,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListFindings");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1982,9 +1624,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListRulesPackages");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2043,9 +1682,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListTagsForResource");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2107,9 +1743,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PreviewAgents");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2143,8 +1776,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws InvalidCrossAccountRoleException
      *         Amazon Inspector cannot assume the cross-account role that it needs to list your EC2 instances during the
      *         assessment run.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.RegisterCrossAccountAccessRole
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/RegisterCrossAccountAccessRole"
      *      target="_top">AWS API Documentation</a>
@@ -2172,9 +1803,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RegisterCrossAccountAccessRole");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2209,8 +1837,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws NoSuchEntityException
      *         The request was rejected because it referenced an entity that does not exist. The error code describes
      *         the entity.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.RemoveAttributesFromFindings
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/RemoveAttributesFromFindings"
      *      target="_top">AWS API Documentation</a>
@@ -2238,9 +1864,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RemoveAttributesFromFindings");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2275,8 +1898,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws NoSuchEntityException
      *         The request was rejected because it referenced an entity that does not exist. The error code describes
      *         the entity.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.SetTagsForResource
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/SetTagsForResource" target="_top">AWS
      *      API Documentation</a>
@@ -2303,9 +1924,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetTagsForResource");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2348,8 +1966,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws AgentsAlreadyRunningAssessmentException
      *         You started an assessment run, but one of the instances is already participating in another assessment
      *         run.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.StartAssessmentRun
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/StartAssessmentRun" target="_top">AWS
      *      API Documentation</a>
@@ -2376,9 +1992,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "StartAssessmentRun");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2411,8 +2024,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws NoSuchEntityException
      *         The request was rejected because it referenced an entity that does not exist. The error code describes
      *         the entity.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.StopAssessmentRun
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/StopAssessmentRun" target="_top">AWS
      *      API Documentation</a>
@@ -2439,9 +2050,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "StopAssessmentRun");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2478,8 +2086,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws NoSuchEntityException
      *         The request was rejected because it referenced an entity that does not exist. The error code describes
      *         the entity.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.SubscribeToEvent
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/SubscribeToEvent" target="_top">AWS API
      *      Documentation</a>
@@ -2506,9 +2112,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SubscribeToEvent");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2542,8 +2145,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws NoSuchEntityException
      *         The request was rejected because it referenced an entity that does not exist. The error code describes
      *         the entity.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.UnsubscribeFromEvent
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/UnsubscribeFromEvent" target="_top">AWS
      *      API Documentation</a>
@@ -2570,9 +2171,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UnsubscribeFromEvent");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2593,10 +2191,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * <p>
      * Updates the assessment target that is specified by the ARN of the assessment target.
      * </p>
-     * <p>
-     * If resourceGroupArn is not specified, all EC2 instances in the current AWS account and region are included in the
-     * assessment target.
-     * </p>
      * 
      * @param updateAssessmentTargetRequest
      * @return Result of the UpdateAssessmentTarget operation returned by the service.
@@ -2609,8 +2203,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * @throws NoSuchEntityException
      *         The request was rejected because it referenced an entity that does not exist. The error code describes
      *         the entity.
-     * @throws ServiceTemporarilyUnavailableException
-     *         The serice is temporary unavailable.
      * @sample AmazonInspector.UpdateAssessmentTarget
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/inspector-2016-02-16/UpdateAssessmentTarget"
      *      target="_top">AWS API Documentation</a>
@@ -2637,9 +2229,6 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Inspector");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateAssessmentTarget");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2681,18 +2270,9 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null, null);
-    }
-
-    /**
-     * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
-     **/
-    private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
-
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -2702,7 +2282,7 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null, null);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -2710,17 +2290,8 @@ public class AmazonInspectorClient extends AmazonWebServiceClient implements Ama
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
-
-        if (discoveredEndpoint != null) {
-            request.setEndpoint(discoveredEndpoint);
-            request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
-        } else if (uriFromEndpointTrait != null) {
-            request.setEndpoint(uriFromEndpointTrait);
-        } else {
-            request.setEndpoint(endpoint);
-        }
-
+            ExecutionContext executionContext) {
+        request.setEndpoint(endpoint);
         request.setTimeOffset(timeOffset);
 
         HttpResponseHandler<AmazonServiceException> errorResponseHandler = protocolFactory.createErrorResponseHandler(new JsonErrorResponseMetadata());

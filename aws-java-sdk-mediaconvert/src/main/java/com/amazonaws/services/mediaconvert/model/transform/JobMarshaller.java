@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -29,14 +29,10 @@ import com.amazonaws.annotation.SdkInternalApi;
 @SdkInternalApi
 public class JobMarshaller {
 
-    private static final MarshallingInfo<StructuredPojo> ACCELERATIONSETTINGS_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("accelerationSettings").build();
     private static final MarshallingInfo<String> ARN_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("arn").build();
-    private static final MarshallingInfo<String> BILLINGTAGSSOURCE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("billingTagsSource").build();
     private static final MarshallingInfo<java.util.Date> CREATEDAT_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("createdAt").timestampFormat("unixTimestamp").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("createdAt").build();
     private static final MarshallingInfo<Integer> ERRORCODE_BINDING = MarshallingInfo.builder(MarshallingType.INTEGER)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("errorCode").build();
     private static final MarshallingInfo<String> ERRORMESSAGE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
@@ -76,9 +72,7 @@ public class JobMarshaller {
         }
 
         try {
-            protocolMarshaller.marshall(job.getAccelerationSettings(), ACCELERATIONSETTINGS_BINDING);
             protocolMarshaller.marshall(job.getArn(), ARN_BINDING);
-            protocolMarshaller.marshall(job.getBillingTagsSource(), BILLINGTAGSSOURCE_BINDING);
             protocolMarshaller.marshall(job.getCreatedAt(), CREATEDAT_BINDING);
             protocolMarshaller.marshall(job.getErrorCode(), ERRORCODE_BINDING);
             protocolMarshaller.marshall(job.getErrorMessage(), ERRORMESSAGE_BINDING);

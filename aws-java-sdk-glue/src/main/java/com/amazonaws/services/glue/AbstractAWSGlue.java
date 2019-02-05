@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -103,11 +103,6 @@ public class AbstractAWSGlue implements AWSGlue {
     }
 
     @Override
-    public CreateSecurityConfigurationResult createSecurityConfiguration(CreateSecurityConfigurationRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public CreateTableResult createTable(CreateTableRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -154,16 +149,6 @@ public class AbstractAWSGlue implements AWSGlue {
 
     @Override
     public DeletePartitionResult deletePartition(DeletePartitionRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DeleteResourcePolicyResult deleteResourcePolicy(DeleteResourcePolicyRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DeleteSecurityConfigurationResult deleteSecurityConfiguration(DeleteSecurityConfigurationRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -224,11 +209,6 @@ public class AbstractAWSGlue implements AWSGlue {
 
     @Override
     public GetCrawlersResult getCrawlers(GetCrawlersRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public GetDataCatalogEncryptionSettingsResult getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -298,21 +278,6 @@ public class AbstractAWSGlue implements AWSGlue {
     }
 
     @Override
-    public GetResourcePolicyResult getResourcePolicy(GetResourcePolicyRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public GetSecurityConfigurationResult getSecurityConfiguration(GetSecurityConfigurationRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public GetSecurityConfigurationsResult getSecurityConfigurations(GetSecurityConfigurationsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public GetTableResult getTable(GetTableRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -354,16 +319,6 @@ public class AbstractAWSGlue implements AWSGlue {
 
     @Override
     public ImportCatalogToGlueResult importCatalogToGlue(ImportCatalogToGlueRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public PutDataCatalogEncryptionSettingsResult putDataCatalogEncryptionSettings(PutDataCatalogEncryptionSettingsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public PutResourcePolicyResult putResourcePolicy(PutResourcePolicyRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 

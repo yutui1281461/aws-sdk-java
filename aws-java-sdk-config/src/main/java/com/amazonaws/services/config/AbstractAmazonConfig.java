@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -34,11 +34,6 @@ public class AbstractAmazonConfig implements AmazonConfig {
 
     @Override
     public void setRegion(com.amazonaws.regions.Region region) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public BatchGetAggregateResourceConfigResult batchGetAggregateResourceConfig(BatchGetAggregateResourceConfigRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -79,11 +74,6 @@ public class AbstractAmazonConfig implements AmazonConfig {
 
     @Override
     public DeletePendingAggregationRequestResult deletePendingAggregationRequest(DeletePendingAggregationRequestRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DeleteRetentionConfigurationResult deleteRetentionConfiguration(DeleteRetentionConfigurationRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -199,27 +189,12 @@ public class AbstractAmazonConfig implements AmazonConfig {
     }
 
     @Override
-    public DescribeRetentionConfigurationsResult describeRetentionConfigurations(DescribeRetentionConfigurationsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public GetAggregateComplianceDetailsByConfigRuleResult getAggregateComplianceDetailsByConfigRule(GetAggregateComplianceDetailsByConfigRuleRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
     @Override
     public GetAggregateConfigRuleComplianceSummaryResult getAggregateConfigRuleComplianceSummary(GetAggregateConfigRuleComplianceSummaryRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public GetAggregateDiscoveredResourceCountsResult getAggregateDiscoveredResourceCounts(GetAggregateDiscoveredResourceCountsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public GetAggregateResourceConfigResult getAggregateResourceConfig(GetAggregateResourceConfigRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -264,11 +239,6 @@ public class AbstractAmazonConfig implements AmazonConfig {
     }
 
     @Override
-    public ListAggregateDiscoveredResourcesResult listAggregateDiscoveredResources(ListAggregateDiscoveredResourcesRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public ListDiscoveredResourcesResult listDiscoveredResources(ListDiscoveredResourcesRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -300,11 +270,6 @@ public class AbstractAmazonConfig implements AmazonConfig {
 
     @Override
     public PutEvaluationsResult putEvaluations(PutEvaluationsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public PutRetentionConfigurationResult putRetentionConfiguration(PutRetentionConfigurationRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 

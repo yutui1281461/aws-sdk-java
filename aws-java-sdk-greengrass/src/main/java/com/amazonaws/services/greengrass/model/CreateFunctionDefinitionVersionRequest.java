@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -28,8 +28,6 @@ public class CreateFunctionDefinitionVersionRequest extends com.amazonaws.Amazon
 
     /** A client token used to correlate requests and responses. */
     private String amznClientToken;
-    /** Default configuration that will apply to all Lambda functions in this function definition version */
-    private FunctionDefaultConfig defaultConfig;
     /** The ID of the Lambda function definition. */
     private String functionDefinitionId;
     /** A list of Lambda functions in this function definition version. */
@@ -66,40 +64,6 @@ public class CreateFunctionDefinitionVersionRequest extends com.amazonaws.Amazon
 
     public CreateFunctionDefinitionVersionRequest withAmznClientToken(String amznClientToken) {
         setAmznClientToken(amznClientToken);
-        return this;
-    }
-
-    /**
-     * Default configuration that will apply to all Lambda functions in this function definition version
-     * 
-     * @param defaultConfig
-     *        Default configuration that will apply to all Lambda functions in this function definition version
-     */
-
-    public void setDefaultConfig(FunctionDefaultConfig defaultConfig) {
-        this.defaultConfig = defaultConfig;
-    }
-
-    /**
-     * Default configuration that will apply to all Lambda functions in this function definition version
-     * 
-     * @return Default configuration that will apply to all Lambda functions in this function definition version
-     */
-
-    public FunctionDefaultConfig getDefaultConfig() {
-        return this.defaultConfig;
-    }
-
-    /**
-     * Default configuration that will apply to all Lambda functions in this function definition version
-     * 
-     * @param defaultConfig
-     *        Default configuration that will apply to all Lambda functions in this function definition version
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateFunctionDefinitionVersionRequest withDefaultConfig(FunctionDefaultConfig defaultConfig) {
-        setDefaultConfig(defaultConfig);
         return this;
     }
 
@@ -200,8 +164,7 @@ public class CreateFunctionDefinitionVersionRequest extends com.amazonaws.Amazon
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -213,8 +176,6 @@ public class CreateFunctionDefinitionVersionRequest extends com.amazonaws.Amazon
         sb.append("{");
         if (getAmznClientToken() != null)
             sb.append("AmznClientToken: ").append(getAmznClientToken()).append(",");
-        if (getDefaultConfig() != null)
-            sb.append("DefaultConfig: ").append(getDefaultConfig()).append(",");
         if (getFunctionDefinitionId() != null)
             sb.append("FunctionDefinitionId: ").append(getFunctionDefinitionId()).append(",");
         if (getFunctions() != null)
@@ -237,10 +198,6 @@ public class CreateFunctionDefinitionVersionRequest extends com.amazonaws.Amazon
             return false;
         if (other.getAmznClientToken() != null && other.getAmznClientToken().equals(this.getAmznClientToken()) == false)
             return false;
-        if (other.getDefaultConfig() == null ^ this.getDefaultConfig() == null)
-            return false;
-        if (other.getDefaultConfig() != null && other.getDefaultConfig().equals(this.getDefaultConfig()) == false)
-            return false;
         if (other.getFunctionDefinitionId() == null ^ this.getFunctionDefinitionId() == null)
             return false;
         if (other.getFunctionDefinitionId() != null && other.getFunctionDefinitionId().equals(this.getFunctionDefinitionId()) == false)
@@ -258,7 +215,6 @@ public class CreateFunctionDefinitionVersionRequest extends com.amazonaws.Amazon
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getAmznClientToken() == null) ? 0 : getAmznClientToken().hashCode());
-        hashCode = prime * hashCode + ((getDefaultConfig() == null) ? 0 : getDefaultConfig().hashCode());
         hashCode = prime * hashCode + ((getFunctionDefinitionId() == null) ? 0 : getFunctionDefinitionId().hashCode());
         hashCode = prime * hashCode + ((getFunctions() == null) ? 0 : getFunctions().hashCode());
         return hashCode;

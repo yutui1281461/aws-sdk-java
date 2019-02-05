@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,9 +30,22 @@ public class ApplicationPolicyStatement implements Serializable, Cloneable, Stru
 
     /**
      * <p>
-     * For the list of actions supported for this operation, see <a href=
-     * "https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions"
-     * >Application Permissions</a>.
+     * A list of supported actions:
+     * </p>
+     * <p>
+     * GetApplication
+     * </p>
+     * <p>
+     * CreateCloudFormationChangeSet
+     * </p>
+     * <p>
+     * ListApplicationVersions
+     * </p>
+     * <p>
+     * SearchApplications
+     * </p>
+     * <p>
+     * Deploy (Note: This action enables all other actions above.)
      * </p>
      */
     private java.util.List<String> actions;
@@ -51,14 +64,39 @@ public class ApplicationPolicyStatement implements Serializable, Cloneable, Stru
 
     /**
      * <p>
-     * For the list of actions supported for this operation, see <a href=
-     * "https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions"
-     * >Application Permissions</a>.
+     * A list of supported actions:
+     * </p>
+     * <p>
+     * GetApplication
+     * </p>
+     * <p>
+     * CreateCloudFormationChangeSet
+     * </p>
+     * <p>
+     * ListApplicationVersions
+     * </p>
+     * <p>
+     * SearchApplications
+     * </p>
+     * <p>
+     * Deploy (Note: This action enables all other actions above.)
      * </p>
      * 
-     * @return For the list of actions supported for this operation, see <a href=
-     *         "https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions"
-     *         >Application Permissions</a>.
+     * @return A list of supported actions:</p>
+     *         <p>
+     *         GetApplication
+     *         </p>
+     *         <p>
+     *         CreateCloudFormationChangeSet
+     *         </p>
+     *         <p>
+     *         ListApplicationVersions
+     *         </p>
+     *         <p>
+     *         SearchApplications
+     *         </p>
+     *         <p>
+     *         Deploy (Note: This action enables all other actions above.)
      */
 
     public java.util.List<String> getActions() {
@@ -67,15 +105,40 @@ public class ApplicationPolicyStatement implements Serializable, Cloneable, Stru
 
     /**
      * <p>
-     * For the list of actions supported for this operation, see <a href=
-     * "https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions"
-     * >Application Permissions</a>.
+     * A list of supported actions:
+     * </p>
+     * <p>
+     * GetApplication
+     * </p>
+     * <p>
+     * CreateCloudFormationChangeSet
+     * </p>
+     * <p>
+     * ListApplicationVersions
+     * </p>
+     * <p>
+     * SearchApplications
+     * </p>
+     * <p>
+     * Deploy (Note: This action enables all other actions above.)
      * </p>
      * 
      * @param actions
-     *        For the list of actions supported for this operation, see <a href=
-     *        "https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions"
-     *        >Application Permissions</a>.
+     *        A list of supported actions:</p>
+     *        <p>
+     *        GetApplication
+     *        </p>
+     *        <p>
+     *        CreateCloudFormationChangeSet
+     *        </p>
+     *        <p>
+     *        ListApplicationVersions
+     *        </p>
+     *        <p>
+     *        SearchApplications
+     *        </p>
+     *        <p>
+     *        Deploy (Note: This action enables all other actions above.)
      */
 
     public void setActions(java.util.Collection<String> actions) {
@@ -89,9 +152,22 @@ public class ApplicationPolicyStatement implements Serializable, Cloneable, Stru
 
     /**
      * <p>
-     * For the list of actions supported for this operation, see <a href=
-     * "https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions"
-     * >Application Permissions</a>.
+     * A list of supported actions:
+     * </p>
+     * <p>
+     * GetApplication
+     * </p>
+     * <p>
+     * CreateCloudFormationChangeSet
+     * </p>
+     * <p>
+     * ListApplicationVersions
+     * </p>
+     * <p>
+     * SearchApplications
+     * </p>
+     * <p>
+     * Deploy (Note: This action enables all other actions above.)
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -100,9 +176,21 @@ public class ApplicationPolicyStatement implements Serializable, Cloneable, Stru
      * </p>
      * 
      * @param actions
-     *        For the list of actions supported for this operation, see <a href=
-     *        "https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions"
-     *        >Application Permissions</a>.
+     *        A list of supported actions:</p>
+     *        <p>
+     *        GetApplication
+     *        </p>
+     *        <p>
+     *        CreateCloudFormationChangeSet
+     *        </p>
+     *        <p>
+     *        ListApplicationVersions
+     *        </p>
+     *        <p>
+     *        SearchApplications
+     *        </p>
+     *        <p>
+     *        Deploy (Note: This action enables all other actions above.)
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -118,15 +206,40 @@ public class ApplicationPolicyStatement implements Serializable, Cloneable, Stru
 
     /**
      * <p>
-     * For the list of actions supported for this operation, see <a href=
-     * "https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions"
-     * >Application Permissions</a>.
+     * A list of supported actions:
+     * </p>
+     * <p>
+     * GetApplication
+     * </p>
+     * <p>
+     * CreateCloudFormationChangeSet
+     * </p>
+     * <p>
+     * ListApplicationVersions
+     * </p>
+     * <p>
+     * SearchApplications
+     * </p>
+     * <p>
+     * Deploy (Note: This action enables all other actions above.)
      * </p>
      * 
      * @param actions
-     *        For the list of actions supported for this operation, see <a href=
-     *        "https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions"
-     *        >Application Permissions</a>.
+     *        A list of supported actions:</p>
+     *        <p>
+     *        GetApplication
+     *        </p>
+     *        <p>
+     *        CreateCloudFormationChangeSet
+     *        </p>
+     *        <p>
+     *        ListApplicationVersions
+     *        </p>
+     *        <p>
+     *        SearchApplications
+     *        </p>
+     *        <p>
+     *        Deploy (Note: This action enables all other actions above.)
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -246,8 +359,7 @@ public class ApplicationPolicyStatement implements Serializable, Cloneable, Stru
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

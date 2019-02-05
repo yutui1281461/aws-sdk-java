@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -60,8 +60,7 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
     private String yarnEndpointAddress;
     /**
      * <p>
-     * A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one. The
-     * PrivateAddress field is present only when you create the DevEndpoint within your virtual private cloud (VPC).
+     * The private address used by this DevEndpoint.
      * </p>
      */
     private String privateAddress;
@@ -73,8 +72,7 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
     private Integer zeppelinRemoteSparkInterpreterPort;
     /**
      * <p>
-     * The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a non-VPC
-     * (virtual private cloud) DevEndpoint.
+     * The public VPC address used by this DevEndpoint.
      * </p>
      */
     private String publicAddress;
@@ -149,31 +147,10 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
     private java.util.Date lastModifiedTimestamp;
     /**
      * <p>
-     * The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
-     * compatibility, as the recommended attribute to use is public keys.
+     * The public key to be used by this DevEndpoint for authentication.
      * </p>
      */
     private String publicKey;
-    /**
-     * <p>
-     * A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is preferred
-     * over a single public key because the public keys allow you to have a different private key per client.
-     * </p>
-     * <note>
-     * <p>
-     * If you previously created an endpoint with a public key, you must remove that key to be able to set a list of
-     * public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
-     * <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.
-     * </p>
-     * </note>
-     */
-    private java.util.List<String> publicKeys;
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure to be used with this DevEndpoint.
-     * </p>
-     */
-    private String securityConfiguration;
 
     /**
      * <p>
@@ -407,14 +384,11 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one. The
-     * PrivateAddress field is present only when you create the DevEndpoint within your virtual private cloud (VPC).
+     * The private address used by this DevEndpoint.
      * </p>
      * 
      * @param privateAddress
-     *        A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one. The
-     *        PrivateAddress field is present only when you create the DevEndpoint within your virtual private cloud
-     *        (VPC).
+     *        The private address used by this DevEndpoint.
      */
 
     public void setPrivateAddress(String privateAddress) {
@@ -423,13 +397,10 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one. The
-     * PrivateAddress field is present only when you create the DevEndpoint within your virtual private cloud (VPC).
+     * The private address used by this DevEndpoint.
      * </p>
      * 
-     * @return A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one.
-     *         The PrivateAddress field is present only when you create the DevEndpoint within your virtual private
-     *         cloud (VPC).
+     * @return The private address used by this DevEndpoint.
      */
 
     public String getPrivateAddress() {
@@ -438,14 +409,11 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one. The
-     * PrivateAddress field is present only when you create the DevEndpoint within your virtual private cloud (VPC).
+     * The private address used by this DevEndpoint.
      * </p>
      * 
      * @param privateAddress
-     *        A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one. The
-     *        PrivateAddress field is present only when you create the DevEndpoint within your virtual private cloud
-     *        (VPC).
+     *        The private address used by this DevEndpoint.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -496,13 +464,11 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a non-VPC
-     * (virtual private cloud) DevEndpoint.
+     * The public VPC address used by this DevEndpoint.
      * </p>
      * 
      * @param publicAddress
-     *        The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a
-     *        non-VPC (virtual private cloud) DevEndpoint.
+     *        The public VPC address used by this DevEndpoint.
      */
 
     public void setPublicAddress(String publicAddress) {
@@ -511,12 +477,10 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a non-VPC
-     * (virtual private cloud) DevEndpoint.
+     * The public VPC address used by this DevEndpoint.
      * </p>
      * 
-     * @return The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a
-     *         non-VPC (virtual private cloud) DevEndpoint.
+     * @return The public VPC address used by this DevEndpoint.
      */
 
     public String getPublicAddress() {
@@ -525,13 +489,11 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a non-VPC
-     * (virtual private cloud) DevEndpoint.
+     * The public VPC address used by this DevEndpoint.
      * </p>
      * 
      * @param publicAddress
-     *        The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a
-     *        non-VPC (virtual private cloud) DevEndpoint.
+     *        The public VPC address used by this DevEndpoint.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -990,13 +952,11 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
-     * compatibility, as the recommended attribute to use is public keys.
+     * The public key to be used by this DevEndpoint for authentication.
      * </p>
      * 
      * @param publicKey
-     *        The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
-     *        compatibility, as the recommended attribute to use is public keys.
+     *        The public key to be used by this DevEndpoint for authentication.
      */
 
     public void setPublicKey(String publicKey) {
@@ -1005,12 +965,10 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
-     * compatibility, as the recommended attribute to use is public keys.
+     * The public key to be used by this DevEndpoint for authentication.
      * </p>
      * 
-     * @return The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
-     *         compatibility, as the recommended attribute to use is public keys.
+     * @return The public key to be used by this DevEndpoint for authentication.
      */
 
     public String getPublicKey() {
@@ -1019,13 +977,11 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
-     * compatibility, as the recommended attribute to use is public keys.
+     * The public key to be used by this DevEndpoint for authentication.
      * </p>
      * 
      * @param publicKey
-     *        The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
-     *        compatibility, as the recommended attribute to use is public keys.
+     *        The public key to be used by this DevEndpoint for authentication.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1035,182 +991,7 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is preferred
-     * over a single public key because the public keys allow you to have a different private key per client.
-     * </p>
-     * <note>
-     * <p>
-     * If you previously created an endpoint with a public key, you must remove that key to be able to set a list of
-     * public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
-     * <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.
-     * </p>
-     * </note>
-     * 
-     * @return A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is
-     *         preferred over a single public key because the public keys allow you to have a different private key per
-     *         client.</p> <note>
-     *         <p>
-     *         If you previously created an endpoint with a public key, you must remove that key to be able to set a
-     *         list of public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
-     *         <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code>
-     *         attribute.
-     *         </p>
-     */
-
-    public java.util.List<String> getPublicKeys() {
-        return publicKeys;
-    }
-
-    /**
-     * <p>
-     * A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is preferred
-     * over a single public key because the public keys allow you to have a different private key per client.
-     * </p>
-     * <note>
-     * <p>
-     * If you previously created an endpoint with a public key, you must remove that key to be able to set a list of
-     * public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
-     * <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.
-     * </p>
-     * </note>
-     * 
-     * @param publicKeys
-     *        A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is
-     *        preferred over a single public key because the public keys allow you to have a different private key per
-     *        client.</p> <note>
-     *        <p>
-     *        If you previously created an endpoint with a public key, you must remove that key to be able to set a list
-     *        of public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
-     *        <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code>
-     *        attribute.
-     *        </p>
-     */
-
-    public void setPublicKeys(java.util.Collection<String> publicKeys) {
-        if (publicKeys == null) {
-            this.publicKeys = null;
-            return;
-        }
-
-        this.publicKeys = new java.util.ArrayList<String>(publicKeys);
-    }
-
-    /**
-     * <p>
-     * A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is preferred
-     * over a single public key because the public keys allow you to have a different private key per client.
-     * </p>
-     * <note>
-     * <p>
-     * If you previously created an endpoint with a public key, you must remove that key to be able to set a list of
-     * public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
-     * <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.
-     * </p>
-     * </note>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setPublicKeys(java.util.Collection)} or {@link #withPublicKeys(java.util.Collection)} if you want to
-     * override the existing values.
-     * </p>
-     * 
-     * @param publicKeys
-     *        A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is
-     *        preferred over a single public key because the public keys allow you to have a different private key per
-     *        client.</p> <note>
-     *        <p>
-     *        If you previously created an endpoint with a public key, you must remove that key to be able to set a list
-     *        of public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
-     *        <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code>
-     *        attribute.
-     *        </p>
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DevEndpoint withPublicKeys(String... publicKeys) {
-        if (this.publicKeys == null) {
-            setPublicKeys(new java.util.ArrayList<String>(publicKeys.length));
-        }
-        for (String ele : publicKeys) {
-            this.publicKeys.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is preferred
-     * over a single public key because the public keys allow you to have a different private key per client.
-     * </p>
-     * <note>
-     * <p>
-     * If you previously created an endpoint with a public key, you must remove that key to be able to set a list of
-     * public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
-     * <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.
-     * </p>
-     * </note>
-     * 
-     * @param publicKeys
-     *        A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is
-     *        preferred over a single public key because the public keys allow you to have a different private key per
-     *        client.</p> <note>
-     *        <p>
-     *        If you previously created an endpoint with a public key, you must remove that key to be able to set a list
-     *        of public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
-     *        <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code>
-     *        attribute.
-     *        </p>
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DevEndpoint withPublicKeys(java.util.Collection<String> publicKeys) {
-        setPublicKeys(publicKeys);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure to be used with this DevEndpoint.
-     * </p>
-     * 
-     * @param securityConfiguration
-     *        The name of the SecurityConfiguration structure to be used with this DevEndpoint.
-     */
-
-    public void setSecurityConfiguration(String securityConfiguration) {
-        this.securityConfiguration = securityConfiguration;
-    }
-
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure to be used with this DevEndpoint.
-     * </p>
-     * 
-     * @return The name of the SecurityConfiguration structure to be used with this DevEndpoint.
-     */
-
-    public String getSecurityConfiguration() {
-        return this.securityConfiguration;
-    }
-
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure to be used with this DevEndpoint.
-     * </p>
-     * 
-     * @param securityConfiguration
-     *        The name of the SecurityConfiguration structure to be used with this DevEndpoint.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DevEndpoint withSecurityConfiguration(String securityConfiguration) {
-        setSecurityConfiguration(securityConfiguration);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1257,11 +1038,7 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
         if (getLastModifiedTimestamp() != null)
             sb.append("LastModifiedTimestamp: ").append(getLastModifiedTimestamp()).append(",");
         if (getPublicKey() != null)
-            sb.append("PublicKey: ").append(getPublicKey()).append(",");
-        if (getPublicKeys() != null)
-            sb.append("PublicKeys: ").append(getPublicKeys()).append(",");
-        if (getSecurityConfiguration() != null)
-            sb.append("SecurityConfiguration: ").append(getSecurityConfiguration());
+            sb.append("PublicKey: ").append(getPublicKey());
         sb.append("}");
         return sb.toString();
     }
@@ -1353,14 +1130,6 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getPublicKey() != null && other.getPublicKey().equals(this.getPublicKey()) == false)
             return false;
-        if (other.getPublicKeys() == null ^ this.getPublicKeys() == null)
-            return false;
-        if (other.getPublicKeys() != null && other.getPublicKeys().equals(this.getPublicKeys()) == false)
-            return false;
-        if (other.getSecurityConfiguration() == null ^ this.getSecurityConfiguration() == null)
-            return false;
-        if (other.getSecurityConfiguration() != null && other.getSecurityConfiguration().equals(this.getSecurityConfiguration()) == false)
-            return false;
         return true;
     }
 
@@ -1388,8 +1157,6 @@ public class DevEndpoint implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getCreatedTimestamp() == null) ? 0 : getCreatedTimestamp().hashCode());
         hashCode = prime * hashCode + ((getLastModifiedTimestamp() == null) ? 0 : getLastModifiedTimestamp().hashCode());
         hashCode = prime * hashCode + ((getPublicKey() == null) ? 0 : getPublicKey().hashCode());
-        hashCode = prime * hashCode + ((getPublicKeys() == null) ? 0 : getPublicKeys().hashCode());
-        hashCode = prime * hashCode + ((getSecurityConfiguration() == null) ? 0 : getSecurityConfiguration().hashCode());
         return hashCode;
     }
 

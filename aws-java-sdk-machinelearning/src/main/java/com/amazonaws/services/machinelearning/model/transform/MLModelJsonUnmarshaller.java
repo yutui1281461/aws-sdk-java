@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -62,11 +62,11 @@ public class MLModelJsonUnmarshaller implements Unmarshaller<MLModel, JsonUnmars
                 }
                 if (context.testExpression("CreatedAt", targetDepth)) {
                     context.nextToken();
-                    mLModel.setCreatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    mLModel.setCreatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("LastUpdatedAt", targetDepth)) {
                     context.nextToken();
-                    mLModel.setLastUpdatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    mLModel.setLastUpdatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("Name", targetDepth)) {
                     context.nextToken();
@@ -107,7 +107,7 @@ public class MLModelJsonUnmarshaller implements Unmarshaller<MLModel, JsonUnmars
                 }
                 if (context.testExpression("ScoreThresholdLastUpdatedAt", targetDepth)) {
                     context.nextToken();
-                    mLModel.setScoreThresholdLastUpdatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    mLModel.setScoreThresholdLastUpdatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("Message", targetDepth)) {
                     context.nextToken();
@@ -119,11 +119,11 @@ public class MLModelJsonUnmarshaller implements Unmarshaller<MLModel, JsonUnmars
                 }
                 if (context.testExpression("FinishedAt", targetDepth)) {
                     context.nextToken();
-                    mLModel.setFinishedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    mLModel.setFinishedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("StartedAt", targetDepth)) {
                     context.nextToken();
-                    mLModel.setStartedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    mLModel.setStartedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

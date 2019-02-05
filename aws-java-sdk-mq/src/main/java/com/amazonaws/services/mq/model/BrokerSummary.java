@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -36,13 +36,18 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
      * special characters.
      */
     private String brokerName;
-    /** The status of the broker. */
+    /**
+     * The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING,
+     * REBOOT_IN_PROGRESS
+     */
     private String brokerState;
-    /** The time when the broker was created. */
-    private java.util.Date created;
-    /** Required. The deployment mode of the broker. */
+    /**
+     * Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     * SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates
+     * an active/standby broker for high availability.
+     */
     private String deploymentMode;
-    /** The broker's instance type. */
+    /** The broker's instance type. Possible values: mq.t2.micro, mq.m4.large */
     private String hostInstanceType;
 
     /**
@@ -160,10 +165,12 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The status of the broker.
+     * The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING,
+     * REBOOT_IN_PROGRESS
      * 
      * @param brokerState
-     *        The status of the broker.
+     *        The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS,
+     *        RUNNING, REBOOT_IN_PROGRESS
      * @see BrokerState
      */
 
@@ -172,9 +179,11 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The status of the broker.
+     * The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING,
+     * REBOOT_IN_PROGRESS
      * 
-     * @return The status of the broker.
+     * @return The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS,
+     *         RUNNING, REBOOT_IN_PROGRESS
      * @see BrokerState
      */
 
@@ -183,10 +192,12 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The status of the broker.
+     * The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING,
+     * REBOOT_IN_PROGRESS
      * 
      * @param brokerState
-     *        The status of the broker.
+     *        The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS,
+     *        RUNNING, REBOOT_IN_PROGRESS
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see BrokerState
      */
@@ -197,10 +208,12 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The status of the broker.
+     * The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING,
+     * REBOOT_IN_PROGRESS
      * 
      * @param brokerState
-     *        The status of the broker.
+     *        The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS,
+     *        RUNNING, REBOOT_IN_PROGRESS
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see BrokerState
      */
@@ -211,44 +224,14 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The time when the broker was created.
-     * 
-     * @param created
-     *        The time when the broker was created.
-     */
-
-    public void setCreated(java.util.Date created) {
-        this.created = created;
-    }
-
-    /**
-     * The time when the broker was created.
-     * 
-     * @return The time when the broker was created.
-     */
-
-    public java.util.Date getCreated() {
-        return this.created;
-    }
-
-    /**
-     * The time when the broker was created.
-     * 
-     * @param created
-     *        The time when the broker was created.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public BrokerSummary withCreated(java.util.Date created) {
-        setCreated(created);
-        return this;
-    }
-
-    /**
-     * Required. The deployment mode of the broker.
+     * Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     * SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates
+     * an active/standby broker for high availability.
      * 
      * @param deploymentMode
-     *        Required. The deployment mode of the broker.
+     *        Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     *        SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ
+     *        creates an active/standby broker for high availability.
      * @see DeploymentMode
      */
 
@@ -257,9 +240,13 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Required. The deployment mode of the broker.
+     * Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     * SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates
+     * an active/standby broker for high availability.
      * 
-     * @return Required. The deployment mode of the broker.
+     * @return Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     *         SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ
+     *         creates an active/standby broker for high availability.
      * @see DeploymentMode
      */
 
@@ -268,10 +255,14 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Required. The deployment mode of the broker.
+     * Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     * SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates
+     * an active/standby broker for high availability.
      * 
      * @param deploymentMode
-     *        Required. The deployment mode of the broker.
+     *        Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     *        SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ
+     *        creates an active/standby broker for high availability.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DeploymentMode
      */
@@ -282,10 +273,14 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Required. The deployment mode of the broker.
+     * Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     * SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates
+     * an active/standby broker for high availability.
      * 
      * @param deploymentMode
-     *        Required. The deployment mode of the broker.
+     *        Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     *        SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ
+     *        creates an active/standby broker for high availability.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DeploymentMode
      */
@@ -296,10 +291,10 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The broker's instance type.
+     * The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
      * 
      * @param hostInstanceType
-     *        The broker's instance type.
+     *        The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
      */
 
     public void setHostInstanceType(String hostInstanceType) {
@@ -307,9 +302,9 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The broker's instance type.
+     * The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
      * 
-     * @return The broker's instance type.
+     * @return The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
      */
 
     public String getHostInstanceType() {
@@ -317,10 +312,10 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The broker's instance type.
+     * The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
      * 
      * @param hostInstanceType
-     *        The broker's instance type.
+     *        The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -330,8 +325,7 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -349,8 +343,6 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
             sb.append("BrokerName: ").append(getBrokerName()).append(",");
         if (getBrokerState() != null)
             sb.append("BrokerState: ").append(getBrokerState()).append(",");
-        if (getCreated() != null)
-            sb.append("Created: ").append(getCreated()).append(",");
         if (getDeploymentMode() != null)
             sb.append("DeploymentMode: ").append(getDeploymentMode()).append(",");
         if (getHostInstanceType() != null)
@@ -385,10 +377,6 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getBrokerState() != null && other.getBrokerState().equals(this.getBrokerState()) == false)
             return false;
-        if (other.getCreated() == null ^ this.getCreated() == null)
-            return false;
-        if (other.getCreated() != null && other.getCreated().equals(this.getCreated()) == false)
-            return false;
         if (other.getDeploymentMode() == null ^ this.getDeploymentMode() == null)
             return false;
         if (other.getDeploymentMode() != null && other.getDeploymentMode().equals(this.getDeploymentMode()) == false)
@@ -409,7 +397,6 @@ public class BrokerSummary implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getBrokerId() == null) ? 0 : getBrokerId().hashCode());
         hashCode = prime * hashCode + ((getBrokerName() == null) ? 0 : getBrokerName().hashCode());
         hashCode = prime * hashCode + ((getBrokerState() == null) ? 0 : getBrokerState().hashCode());
-        hashCode = prime * hashCode + ((getCreated() == null) ? 0 : getCreated().hashCode());
         hashCode = prime * hashCode + ((getDeploymentMode() == null) ? 0 : getDeploymentMode().hashCode());
         hashCode = prime * hashCode + ((getHostInstanceType() == null) ? 0 : getHostInstanceType().hashCode());
         return hashCode;

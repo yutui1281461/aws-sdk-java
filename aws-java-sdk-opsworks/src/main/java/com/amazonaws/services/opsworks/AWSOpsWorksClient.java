@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,8 +37,6 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
-import com.amazonaws.client.builder.AdvancedConfig;
-
 import com.amazonaws.services.opsworks.AWSOpsWorksClientBuilder;
 import com.amazonaws.services.opsworks.waiters.AWSOpsWorksWaiters;
 
@@ -211,7 +209,6 @@ import com.amazonaws.services.opsworks.model.transform.*;
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsWorks {
-
     /** Provider for AWS credentials. */
     private final AWSCredentialsProvider awsCredentialsProvider;
 
@@ -224,8 +221,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
-
-    private final AdvancedConfig advancedConfig;
 
     private static final com.amazonaws.protocol.json.SdkJsonProtocolFactory protocolFactory = new com.amazonaws.protocol.json.SdkJsonProtocolFactory(
             new JsonClientMetadata()
@@ -323,7 +318,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
     public AWSOpsWorksClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -389,7 +383,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -408,23 +401,8 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      *        Object providing client parameters.
      */
     AWSOpsWorksClient(AwsSyncClientParams clientParams) {
-        this(clientParams, false);
-    }
-
-    /**
-     * Constructs a new client to invoke service methods on AWS OpsWorks using the specified parameters.
-     *
-     * <p>
-     * All service calls made using this new client object are blocking, and will not return until the service call
-     * completes.
-     *
-     * @param clientParams
-     *        Object providing client parameters.
-     */
-    AWSOpsWorksClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -500,9 +478,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AssignInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -565,9 +540,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AssignVolume");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -629,9 +601,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AssociateElasticIp");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -702,9 +671,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AttachElasticLoadBalancer");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -730,7 +696,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -767,9 +733,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CloneStack");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -830,9 +793,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateApp");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -894,9 +854,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateDeployment");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -958,9 +915,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1030,9 +984,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateLayer");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1056,7 +1007,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -1091,9 +1042,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateStack");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1116,7 +1064,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -1151,9 +1099,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateUserProfile");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1213,9 +1158,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteApp");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1280,9 +1222,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1345,9 +1284,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteLayer");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1409,9 +1345,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteStack");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1434,7 +1367,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -1471,9 +1404,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteUserProfile");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1535,9 +1465,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeregisterEcsCluster");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1599,9 +1526,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeregisterElasticIp");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1621,7 +1545,8 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
     /**
      * <p>
      * Deregister a registered Amazon EC2 or on-premises instance. This action removes the instance from the stack and
-     * returns it to your control. This action cannot be used with instances that were created with AWS OpsWorks Stacks.
+     * returns it to your control. This action can not be used with instances that were created with AWS OpsWorks
+     * Stacks.
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions level for the stack
@@ -1662,9 +1587,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeregisterInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1725,9 +1647,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeregisterRdsDbInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1789,9 +1708,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeregisterVolume");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1847,9 +1763,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeAgentVersions");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1878,7 +1791,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1916,9 +1829,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeApps");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1946,7 +1856,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1984,9 +1894,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeCommands");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2014,7 +1921,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2052,9 +1959,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeDeployments");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2079,7 +1983,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack or an attached policy that explicitly grants permission. For more information about user
+     * level for the stack or an attached policy that explicitly grants permission. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2120,9 +2024,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeEcsClusters");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2151,7 +2052,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2189,9 +2090,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeElasticIps");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2219,7 +2117,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2258,9 +2156,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeElasticLoadBalancers");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2289,7 +2184,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2327,9 +2222,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeInstances");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2357,7 +2249,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2395,9 +2287,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeLayers");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2425,7 +2314,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2464,9 +2353,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeLoadBasedAutoScaling");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2490,7 +2376,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have self-management enabled or an attached
-     * policy that explicitly grants permissions. For more information about user permissions, see <a
+     * policy that explicitly grants permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -2523,9 +2409,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeMyUserProfile");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2577,9 +2460,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeOperatingSystems");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2640,9 +2520,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribePermissions");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2670,7 +2547,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2708,9 +2585,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeRaidArrays");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2733,7 +2607,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2774,9 +2648,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeRdsDbInstances");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2800,7 +2671,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2841,9 +2712,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeServiceErrors");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2867,7 +2735,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2907,9 +2775,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeStackProvisioningParameters");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2934,7 +2799,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2972,9 +2837,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeStackSummary");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2997,7 +2859,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -3035,9 +2897,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeStacks");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3065,7 +2924,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -3104,9 +2963,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeTimeBasedAutoScaling");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3130,7 +2986,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -3167,9 +3023,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeUserProfiles");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3197,7 +3050,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -3235,9 +3088,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeVolumes");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3296,9 +3146,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DetachElasticLoadBalancer");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3361,9 +3208,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DisassociateElasticIp");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3424,9 +3268,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetHostnameSuggestion");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3486,9 +3327,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GrantAccess");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3542,9 +3380,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListTags");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3606,9 +3441,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RebootInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3671,9 +3503,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RegisterEcsCluster");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3736,9 +3565,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RegisterElasticIp");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3816,9 +3642,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RegisterInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3878,9 +3701,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RegisterRdsDbInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3944,9 +3764,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RegisterVolume");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4016,9 +3833,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetLoadBasedAutoScaling");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4080,9 +3894,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetPermission");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4145,9 +3956,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetTimeBasedAutoScaling");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4210,9 +4018,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "StartInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4272,9 +4077,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "StartStack");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4337,9 +4139,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "StopInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4399,9 +4198,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "StopStack");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4457,9 +4253,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "TagResource");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4478,13 +4271,13 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
 
     /**
      * <p>
-     * Unassigns a registered instance from all layers that are using the instance. The instance remains in the stack as
-     * an unassigned instance, and can be assigned to another layer as needed. You cannot use this action with instances
-     * that were created with AWS OpsWorks Stacks.
+     * Unassigns a registered instance from all of it's layers. The instance remains in the stack as an unassigned
+     * instance and can be assigned to another layer, as needed. You cannot use this action with instances that were
+     * created with AWS OpsWorks Stacks.
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions level for the stack
-     * or an attached policy that explicitly grants permissions. For more information about user permissions, see <a
+     * or an attached policy that explicitly grants permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -4521,9 +4314,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UnassignInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4584,9 +4374,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UnassignVolume");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4640,9 +4427,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UntagResource");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4702,9 +4486,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateApp");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4765,9 +4546,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateElasticIp");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4827,9 +4605,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4889,9 +4664,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateLayer");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -4914,7 +4686,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have self-management enabled or an attached
-     * policy that explicitly grants permissions. For more information about user permissions, see <a
+     * policy that explicitly grants permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -4949,9 +4721,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateMyUserProfile");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -5011,9 +4780,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateRdsDbInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -5073,9 +4839,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateStack");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -5098,7 +4861,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -5135,9 +4898,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateUserProfile");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -5198,9 +4958,6 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "OpsWorks");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateVolume");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -5241,18 +4998,9 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null, null);
-    }
-
-    /**
-     * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
-     **/
-    private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
-
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -5262,7 +5010,7 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null, null);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -5270,17 +5018,8 @@ public class AWSOpsWorksClient extends AmazonWebServiceClient implements AWSOpsW
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
-
-        if (discoveredEndpoint != null) {
-            request.setEndpoint(discoveredEndpoint);
-            request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
-        } else if (uriFromEndpointTrait != null) {
-            request.setEndpoint(uriFromEndpointTrait);
-        } else {
-            request.setEndpoint(endpoint);
-        }
-
+            ExecutionContext executionContext) {
+        request.setEndpoint(endpoint);
         request.setTimeOffset(timeOffset);
 
         HttpResponseHandler<AmazonServiceException> errorResponseHandler = protocolFactory.createErrorResponseHandler(new JsonErrorResponseMetadata());

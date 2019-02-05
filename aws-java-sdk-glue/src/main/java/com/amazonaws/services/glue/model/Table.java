@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -92,13 +92,6 @@ public class Table implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
      * </p>
-     * <p>
-     * When creating a table used by Athena, and you do not specify any <code>partitionKeys</code>, you must at least
-     * set the value of <code>partitionKeys</code> to an empty list. For example:
-     * </p>
-     * <p>
-     * <code>"PartitionKeys": []</code>
-     * </p>
      */
     private java.util.List<Column> partitionKeys;
     /**
@@ -121,7 +114,7 @@ public class Table implements Serializable, Cloneable, StructuredPojo {
     private String tableType;
     /**
      * <p>
-     * These key-value pairs define properties associated with the table.
+     * Properties associated with this table, as a list of key-value pairs.
      * </p>
      */
     private java.util.Map<String, String> parameters;
@@ -542,22 +535,9 @@ public class Table implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
      * </p>
-     * <p>
-     * When creating a table used by Athena, and you do not specify any <code>partitionKeys</code>, you must at least
-     * set the value of <code>partitionKeys</code> to an empty list. For example:
-     * </p>
-     * <p>
-     * <code>"PartitionKeys": []</code>
-     * </p>
      * 
      * @return A list of columns by which the table is partitioned. Only primitive types are supported as partition
-     *         keys.</p>
-     *         <p>
-     *         When creating a table used by Athena, and you do not specify any <code>partitionKeys</code>, you must at
-     *         least set the value of <code>partitionKeys</code> to an empty list. For example:
-     *         </p>
-     *         <p>
-     *         <code>"PartitionKeys": []</code>
+     *         keys.
      */
 
     public java.util.List<Column> getPartitionKeys() {
@@ -568,23 +548,9 @@ public class Table implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
      * </p>
-     * <p>
-     * When creating a table used by Athena, and you do not specify any <code>partitionKeys</code>, you must at least
-     * set the value of <code>partitionKeys</code> to an empty list. For example:
-     * </p>
-     * <p>
-     * <code>"PartitionKeys": []</code>
-     * </p>
      * 
      * @param partitionKeys
-     *        A list of columns by which the table is partitioned. Only primitive types are supported as partition
-     *        keys.</p>
-     *        <p>
-     *        When creating a table used by Athena, and you do not specify any <code>partitionKeys</code>, you must at
-     *        least set the value of <code>partitionKeys</code> to an empty list. For example:
-     *        </p>
-     *        <p>
-     *        <code>"PartitionKeys": []</code>
+     *        A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
      */
 
     public void setPartitionKeys(java.util.Collection<Column> partitionKeys) {
@@ -601,27 +567,13 @@ public class Table implements Serializable, Cloneable, StructuredPojo {
      * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
      * </p>
      * <p>
-     * When creating a table used by Athena, and you do not specify any <code>partitionKeys</code>, you must at least
-     * set the value of <code>partitionKeys</code> to an empty list. For example:
-     * </p>
-     * <p>
-     * <code>"PartitionKeys": []</code>
-     * </p>
-     * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
      * {@link #setPartitionKeys(java.util.Collection)} or {@link #withPartitionKeys(java.util.Collection)} if you want
      * to override the existing values.
      * </p>
      * 
      * @param partitionKeys
-     *        A list of columns by which the table is partitioned. Only primitive types are supported as partition
-     *        keys.</p>
-     *        <p>
-     *        When creating a table used by Athena, and you do not specify any <code>partitionKeys</code>, you must at
-     *        least set the value of <code>partitionKeys</code> to an empty list. For example:
-     *        </p>
-     *        <p>
-     *        <code>"PartitionKeys": []</code>
+     *        A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -639,23 +591,9 @@ public class Table implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
      * </p>
-     * <p>
-     * When creating a table used by Athena, and you do not specify any <code>partitionKeys</code>, you must at least
-     * set the value of <code>partitionKeys</code> to an empty list. For example:
-     * </p>
-     * <p>
-     * <code>"PartitionKeys": []</code>
-     * </p>
      * 
      * @param partitionKeys
-     *        A list of columns by which the table is partitioned. Only primitive types are supported as partition
-     *        keys.</p>
-     *        <p>
-     *        When creating a table used by Athena, and you do not specify any <code>partitionKeys</code>, you must at
-     *        least set the value of <code>partitionKeys</code> to an empty list. For example:
-     *        </p>
-     *        <p>
-     *        <code>"PartitionKeys": []</code>
+     *        A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -786,10 +724,10 @@ public class Table implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * These key-value pairs define properties associated with the table.
+     * Properties associated with this table, as a list of key-value pairs.
      * </p>
      * 
-     * @return These key-value pairs define properties associated with the table.
+     * @return Properties associated with this table, as a list of key-value pairs.
      */
 
     public java.util.Map<String, String> getParameters() {
@@ -798,11 +736,11 @@ public class Table implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * These key-value pairs define properties associated with the table.
+     * Properties associated with this table, as a list of key-value pairs.
      * </p>
      * 
      * @param parameters
-     *        These key-value pairs define properties associated with the table.
+     *        Properties associated with this table, as a list of key-value pairs.
      */
 
     public void setParameters(java.util.Map<String, String> parameters) {
@@ -811,11 +749,11 @@ public class Table implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * These key-value pairs define properties associated with the table.
+     * Properties associated with this table, as a list of key-value pairs.
      * </p>
      * 
      * @param parameters
-     *        These key-value pairs define properties associated with the table.
+     *        Properties associated with this table, as a list of key-value pairs.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -886,8 +824,7 @@ public class Table implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

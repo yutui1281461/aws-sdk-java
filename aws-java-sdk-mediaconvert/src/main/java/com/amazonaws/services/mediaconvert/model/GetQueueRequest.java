@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -25,14 +25,14 @@ import com.amazonaws.AmazonWebServiceRequest;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class GetQueueRequest extends com.amazonaws.AmazonWebServiceRequest implements Serializable, Cloneable {
 
-    /** The name of the queue that you want information about. */
+    /** The name of the queue. */
     private String name;
 
     /**
-     * The name of the queue that you want information about.
+     * The name of the queue.
      * 
      * @param name
-     *        The name of the queue that you want information about.
+     *        The name of the queue.
      */
 
     public void setName(String name) {
@@ -40,9 +40,9 @@ public class GetQueueRequest extends com.amazonaws.AmazonWebServiceRequest imple
     }
 
     /**
-     * The name of the queue that you want information about.
+     * The name of the queue.
      * 
-     * @return The name of the queue that you want information about.
+     * @return The name of the queue.
      */
 
     public String getName() {
@@ -50,10 +50,10 @@ public class GetQueueRequest extends com.amazonaws.AmazonWebServiceRequest imple
     }
 
     /**
-     * The name of the queue that you want information about.
+     * The name of the queue.
      * 
      * @param name
-     *        The name of the queue that you want information about.
+     *        The name of the queue.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -63,8 +63,7 @@ public class GetQueueRequest extends com.amazonaws.AmazonWebServiceRequest imple
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -16,6 +16,9 @@ import java.io.Serializable;
 import javax.annotation.Generated;
 
 /**
+ * <p>
+ * Contains a list of event sources (see <a>EventSourceMappingConfiguration</a>)
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListEventSourceMappings" target="_top">AWS API
  *      Documentation</a>
@@ -25,24 +28,24 @@ public class ListEventSourceMappingsResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * A pagination token that's returned when the response doesn't contain all event source mappings.
+     * A string, present if there are more event source mappings.
      * </p>
      */
     private String nextMarker;
     /**
      * <p>
-     * A list of event source mappings.
+     * An array of <code>EventSourceMappingConfiguration</code> objects.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<EventSourceMappingConfiguration> eventSourceMappings;
 
     /**
      * <p>
-     * A pagination token that's returned when the response doesn't contain all event source mappings.
+     * A string, present if there are more event source mappings.
      * </p>
      * 
      * @param nextMarker
-     *        A pagination token that's returned when the response doesn't contain all event source mappings.
+     *        A string, present if there are more event source mappings.
      */
 
     public void setNextMarker(String nextMarker) {
@@ -51,10 +54,10 @@ public class ListEventSourceMappingsResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * A pagination token that's returned when the response doesn't contain all event source mappings.
+     * A string, present if there are more event source mappings.
      * </p>
      * 
-     * @return A pagination token that's returned when the response doesn't contain all event source mappings.
+     * @return A string, present if there are more event source mappings.
      */
 
     public String getNextMarker() {
@@ -63,11 +66,11 @@ public class ListEventSourceMappingsResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * A pagination token that's returned when the response doesn't contain all event source mappings.
+     * A string, present if there are more event source mappings.
      * </p>
      * 
      * @param nextMarker
-     *        A pagination token that's returned when the response doesn't contain all event source mappings.
+     *        A string, present if there are more event source mappings.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -78,10 +81,10 @@ public class ListEventSourceMappingsResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * A list of event source mappings.
+     * An array of <code>EventSourceMappingConfiguration</code> objects.
      * </p>
      * 
-     * @return A list of event source mappings.
+     * @return An array of <code>EventSourceMappingConfiguration</code> objects.
      */
 
     public java.util.List<EventSourceMappingConfiguration> getEventSourceMappings() {
@@ -93,11 +96,11 @@ public class ListEventSourceMappingsResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * A list of event source mappings.
+     * An array of <code>EventSourceMappingConfiguration</code> objects.
      * </p>
      * 
      * @param eventSourceMappings
-     *        A list of event source mappings.
+     *        An array of <code>EventSourceMappingConfiguration</code> objects.
      */
 
     public void setEventSourceMappings(java.util.Collection<EventSourceMappingConfiguration> eventSourceMappings) {
@@ -111,7 +114,7 @@ public class ListEventSourceMappingsResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * A list of event source mappings.
+     * An array of <code>EventSourceMappingConfiguration</code> objects.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -120,7 +123,7 @@ public class ListEventSourceMappingsResult extends com.amazonaws.AmazonWebServic
      * </p>
      * 
      * @param eventSourceMappings
-     *        A list of event source mappings.
+     *        An array of <code>EventSourceMappingConfiguration</code> objects.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -136,11 +139,11 @@ public class ListEventSourceMappingsResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * A list of event source mappings.
+     * An array of <code>EventSourceMappingConfiguration</code> objects.
      * </p>
      * 
      * @param eventSourceMappings
-     *        A list of event source mappings.
+     *        An array of <code>EventSourceMappingConfiguration</code> objects.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -150,8 +153,7 @@ public class ListEventSourceMappingsResult extends com.amazonaws.AmazonWebServic
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

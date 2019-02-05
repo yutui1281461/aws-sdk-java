@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,9 +33,7 @@ public class UpdateStateMachineRequest extends com.amazonaws.AmazonWebServiceReq
     private String stateMachineArn;
     /**
      * <p>
-     * The Amazon States Language definition of the state machine. See <a
-     * href="http://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States
-     * Language</a>.
+     * The Amazon States Language definition of the state machine.
      * </p>
      */
     private String definition;
@@ -88,15 +86,11 @@ public class UpdateStateMachineRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The Amazon States Language definition of the state machine. See <a
-     * href="http://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States
-     * Language</a>.
+     * The Amazon States Language definition of the state machine.
      * </p>
      * 
      * @param definition
-     *        The Amazon States Language definition of the state machine. See <a
-     *        href="http://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
-     *        States Language</a>.
+     *        The Amazon States Language definition of the state machine.
      */
 
     public void setDefinition(String definition) {
@@ -105,14 +99,10 @@ public class UpdateStateMachineRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The Amazon States Language definition of the state machine. See <a
-     * href="http://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States
-     * Language</a>.
+     * The Amazon States Language definition of the state machine.
      * </p>
      * 
-     * @return The Amazon States Language definition of the state machine. See <a
-     *         href="http://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
-     *         States Language</a>.
+     * @return The Amazon States Language definition of the state machine.
      */
 
     public String getDefinition() {
@@ -121,15 +111,11 @@ public class UpdateStateMachineRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The Amazon States Language definition of the state machine. See <a
-     * href="http://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States
-     * Language</a>.
+     * The Amazon States Language definition of the state machine.
      * </p>
      * 
      * @param definition
-     *        The Amazon States Language definition of the state machine. See <a
-     *        href="http://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
-     *        States Language</a>.
+     *        The Amazon States Language definition of the state machine.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -179,8 +165,7 @@ public class UpdateStateMachineRequest extends com.amazonaws.AmazonWebServiceReq
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -193,7 +178,7 @@ public class UpdateStateMachineRequest extends com.amazonaws.AmazonWebServiceReq
         if (getStateMachineArn() != null)
             sb.append("StateMachineArn: ").append(getStateMachineArn()).append(",");
         if (getDefinition() != null)
-            sb.append("Definition: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("Definition: ").append(getDefinition()).append(",");
         if (getRoleArn() != null)
             sb.append("RoleArn: ").append(getRoleArn());
         sb.append("}");

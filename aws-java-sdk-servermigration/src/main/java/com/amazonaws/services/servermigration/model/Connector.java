@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,9 +18,7 @@ import com.amazonaws.protocol.StructuredPojo;
 import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
- * <p>
- * Represents a connector.
- * </p>
+ * Object representing a Connector
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sms-2016-10-24/Connector" target="_top">AWS API
  *      Documentation</a>
@@ -28,74 +26,28 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class Connector implements Serializable, Cloneable, StructuredPojo {
 
-    /**
-     * <p>
-     * The identifier of the connector.
-     * </p>
-     */
     private String connectorId;
-    /**
-     * <p>
-     * The connector version.
-     * </p>
-     */
+
     private String version;
-    /**
-     * <p>
-     * The status of the connector.
-     * </p>
-     */
+
     private String status;
-    /**
-     * <p>
-     * The capabilities of the connector.
-     * </p>
-     */
+
     private java.util.List<String> capabilityList;
-    /**
-     * <p>
-     * The name of the VM manager.
-     * </p>
-     */
+
     private String vmManagerName;
-    /**
-     * <p>
-     * The VM management product.
-     * </p>
-     */
+
     private String vmManagerType;
-    /**
-     * <p>
-     * The identifier of the VM manager.
-     * </p>
-     */
+
     private String vmManagerId;
-    /**
-     * <p>
-     * The IP address of the connector.
-     * </p>
-     */
+
     private String ipAddress;
-    /**
-     * <p>
-     * The MAC address of the connector.
-     * </p>
-     */
+
     private String macAddress;
-    /**
-     * <p>
-     * The time the connector was associated.
-     * </p>
-     */
+
     private java.util.Date associatedOn;
 
     /**
-     * <p>
-     * The identifier of the connector.
-     * </p>
-     * 
      * @param connectorId
-     *        The identifier of the connector.
      */
 
     public void setConnectorId(String connectorId) {
@@ -103,11 +55,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The identifier of the connector.
-     * </p>
-     * 
-     * @return The identifier of the connector.
+     * @return
      */
 
     public String getConnectorId() {
@@ -115,12 +63,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The identifier of the connector.
-     * </p>
-     * 
      * @param connectorId
-     *        The identifier of the connector.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -130,12 +73,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The connector version.
-     * </p>
-     * 
      * @param version
-     *        The connector version.
      */
 
     public void setVersion(String version) {
@@ -143,11 +81,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The connector version.
-     * </p>
-     * 
-     * @return The connector version.
+     * @return
      */
 
     public String getVersion() {
@@ -155,12 +89,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The connector version.
-     * </p>
-     * 
      * @param version
-     *        The connector version.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -170,12 +99,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The status of the connector.
-     * </p>
-     * 
      * @param status
-     *        The status of the connector.
      * @see ConnectorStatus
      */
 
@@ -184,11 +108,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The status of the connector.
-     * </p>
-     * 
-     * @return The status of the connector.
+     * @return
      * @see ConnectorStatus
      */
 
@@ -197,12 +117,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The status of the connector.
-     * </p>
-     * 
      * @param status
-     *        The status of the connector.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ConnectorStatus
      */
@@ -213,12 +128,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The status of the connector.
-     * </p>
-     * 
      * @param status
-     *        The status of the connector.
      * @see ConnectorStatus
      */
 
@@ -227,12 +137,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The status of the connector.
-     * </p>
-     * 
      * @param status
-     *        The status of the connector.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ConnectorStatus
      */
@@ -243,11 +148,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The capabilities of the connector.
-     * </p>
-     * 
-     * @return The capabilities of the connector.
+     * @return
      * @see ConnectorCapability
      */
 
@@ -256,12 +157,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The capabilities of the connector.
-     * </p>
-     * 
      * @param capabilityList
-     *        The capabilities of the connector.
      * @see ConnectorCapability
      */
 
@@ -276,16 +172,12 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The capabilities of the connector.
-     * </p>
-     * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
      * {@link #setCapabilityList(java.util.Collection)} or {@link #withCapabilityList(java.util.Collection)} if you want
      * to override the existing values.
      * </p>
      * 
      * @param capabilityList
-     *        The capabilities of the connector.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ConnectorCapability
      */
@@ -301,12 +193,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The capabilities of the connector.
-     * </p>
-     * 
      * @param capabilityList
-     *        The capabilities of the connector.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ConnectorCapability
      */
@@ -317,12 +204,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The capabilities of the connector.
-     * </p>
-     * 
      * @param capabilityList
-     *        The capabilities of the connector.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ConnectorCapability
      */
@@ -341,12 +223,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The name of the VM manager.
-     * </p>
-     * 
      * @param vmManagerName
-     *        The name of the VM manager.
      */
 
     public void setVmManagerName(String vmManagerName) {
@@ -354,11 +231,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The name of the VM manager.
-     * </p>
-     * 
-     * @return The name of the VM manager.
+     * @return
      */
 
     public String getVmManagerName() {
@@ -366,12 +239,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The name of the VM manager.
-     * </p>
-     * 
      * @param vmManagerName
-     *        The name of the VM manager.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -381,12 +249,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The VM management product.
-     * </p>
-     * 
      * @param vmManagerType
-     *        The VM management product.
      * @see VmManagerType
      */
 
@@ -395,11 +258,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The VM management product.
-     * </p>
-     * 
-     * @return The VM management product.
+     * @return
      * @see VmManagerType
      */
 
@@ -408,12 +267,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The VM management product.
-     * </p>
-     * 
      * @param vmManagerType
-     *        The VM management product.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see VmManagerType
      */
@@ -424,12 +278,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The VM management product.
-     * </p>
-     * 
      * @param vmManagerType
-     *        The VM management product.
      * @see VmManagerType
      */
 
@@ -438,12 +287,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The VM management product.
-     * </p>
-     * 
      * @param vmManagerType
-     *        The VM management product.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see VmManagerType
      */
@@ -454,12 +298,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The identifier of the VM manager.
-     * </p>
-     * 
      * @param vmManagerId
-     *        The identifier of the VM manager.
      */
 
     public void setVmManagerId(String vmManagerId) {
@@ -467,11 +306,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The identifier of the VM manager.
-     * </p>
-     * 
-     * @return The identifier of the VM manager.
+     * @return
      */
 
     public String getVmManagerId() {
@@ -479,12 +314,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The identifier of the VM manager.
-     * </p>
-     * 
      * @param vmManagerId
-     *        The identifier of the VM manager.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -494,12 +324,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The IP address of the connector.
-     * </p>
-     * 
      * @param ipAddress
-     *        The IP address of the connector.
      */
 
     public void setIpAddress(String ipAddress) {
@@ -507,11 +332,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The IP address of the connector.
-     * </p>
-     * 
-     * @return The IP address of the connector.
+     * @return
      */
 
     public String getIpAddress() {
@@ -519,12 +340,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The IP address of the connector.
-     * </p>
-     * 
      * @param ipAddress
-     *        The IP address of the connector.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -534,12 +350,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The MAC address of the connector.
-     * </p>
-     * 
      * @param macAddress
-     *        The MAC address of the connector.
      */
 
     public void setMacAddress(String macAddress) {
@@ -547,11 +358,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The MAC address of the connector.
-     * </p>
-     * 
-     * @return The MAC address of the connector.
+     * @return
      */
 
     public String getMacAddress() {
@@ -559,12 +366,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The MAC address of the connector.
-     * </p>
-     * 
      * @param macAddress
-     *        The MAC address of the connector.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -574,12 +376,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The time the connector was associated.
-     * </p>
-     * 
      * @param associatedOn
-     *        The time the connector was associated.
      */
 
     public void setAssociatedOn(java.util.Date associatedOn) {
@@ -587,11 +384,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The time the connector was associated.
-     * </p>
-     * 
-     * @return The time the connector was associated.
+     * @return
      */
 
     public java.util.Date getAssociatedOn() {
@@ -599,12 +392,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The time the connector was associated.
-     * </p>
-     * 
      * @param associatedOn
-     *        The time the connector was associated.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -614,8 +402,7 @@ public class Connector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -333,9 +333,7 @@ public interface AmazonKinesisVideo {
      *         The caller is not authorized to perform this operation.
      * @throws VersionMismatchException
      *         The stream version that you specified is not the latest version. To get the latest version, use the <a
-     *         href
-     *         ="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
-     *         API.
+     *         href="http://docs.aws.amazon.com/kinesisvideo/latest/dg/API_DescribeStream.html">DescribeStream</a> API.
      * @sample AmazonKinesisVideo.UpdateDataRetention
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/kinesisvideo-2017-09-30/UpdateDataRetention"
      *      target="_top">AWS API Documentation</a>
@@ -373,9 +371,7 @@ public interface AmazonKinesisVideo {
      *         The caller is not authorized to perform this operation.
      * @throws VersionMismatchException
      *         The stream version that you specified is not the latest version. To get the latest version, use the <a
-     *         href
-     *         ="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
-     *         API.
+     *         href="http://docs.aws.amazon.com/kinesisvideo/latest/dg/API_DescribeStream.html">DescribeStream</a> API.
      * @sample AmazonKinesisVideo.UpdateStream
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/kinesisvideo-2017-09-30/UpdateStream" target="_top">AWS API
      *      Documentation</a>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -39,13 +39,21 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
     private String serverName;
     /**
      * <p>
-     * This is not currently implemented for <code>DescribeBackups</code> requests.
+     * NextToken is a string that is returned in some command responses. It indicates that not all entries have been
+     * returned, and that you must run at least one more request to get remaining items. To get remaining results, call
+     * <code>DescribeBackups</code> again, and assign the token from the previous results as the value of the
+     * <code>nextToken</code> parameter. If there are no more results, the response object's <code>nextToken</code>
+     * parameter value is <code>null</code>. Setting a <code>nextToken</code> value that was not returned in your
+     * previous results causes an <code>InvalidNextTokenException</code> to occur.
      * </p>
      */
     private String nextToken;
     /**
      * <p>
-     * This is not currently implemented for <code>DescribeBackups</code> requests.
+     * To receive a paginated response, use this parameter to specify the maximum number of results to be returned with
+     * a single call. If the number of available results exceeds this maximum, the response includes a
+     * <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next
+     * set of results.
      * </p>
      */
     private Integer maxResults;
@@ -132,11 +140,21 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * This is not currently implemented for <code>DescribeBackups</code> requests.
+     * NextToken is a string that is returned in some command responses. It indicates that not all entries have been
+     * returned, and that you must run at least one more request to get remaining items. To get remaining results, call
+     * <code>DescribeBackups</code> again, and assign the token from the previous results as the value of the
+     * <code>nextToken</code> parameter. If there are no more results, the response object's <code>nextToken</code>
+     * parameter value is <code>null</code>. Setting a <code>nextToken</code> value that was not returned in your
+     * previous results causes an <code>InvalidNextTokenException</code> to occur.
      * </p>
      * 
      * @param nextToken
-     *        This is not currently implemented for <code>DescribeBackups</code> requests.
+     *        NextToken is a string that is returned in some command responses. It indicates that not all entries have
+     *        been returned, and that you must run at least one more request to get remaining items. To get remaining
+     *        results, call <code>DescribeBackups</code> again, and assign the token from the previous results as the
+     *        value of the <code>nextToken</code> parameter. If there are no more results, the response object's
+     *        <code>nextToken</code> parameter value is <code>null</code>. Setting a <code>nextToken</code> value that
+     *        was not returned in your previous results causes an <code>InvalidNextTokenException</code> to occur.
      */
 
     public void setNextToken(String nextToken) {
@@ -145,10 +163,20 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * This is not currently implemented for <code>DescribeBackups</code> requests.
+     * NextToken is a string that is returned in some command responses. It indicates that not all entries have been
+     * returned, and that you must run at least one more request to get remaining items. To get remaining results, call
+     * <code>DescribeBackups</code> again, and assign the token from the previous results as the value of the
+     * <code>nextToken</code> parameter. If there are no more results, the response object's <code>nextToken</code>
+     * parameter value is <code>null</code>. Setting a <code>nextToken</code> value that was not returned in your
+     * previous results causes an <code>InvalidNextTokenException</code> to occur.
      * </p>
      * 
-     * @return This is not currently implemented for <code>DescribeBackups</code> requests.
+     * @return NextToken is a string that is returned in some command responses. It indicates that not all entries have
+     *         been returned, and that you must run at least one more request to get remaining items. To get remaining
+     *         results, call <code>DescribeBackups</code> again, and assign the token from the previous results as the
+     *         value of the <code>nextToken</code> parameter. If there are no more results, the response object's
+     *         <code>nextToken</code> parameter value is <code>null</code>. Setting a <code>nextToken</code> value that
+     *         was not returned in your previous results causes an <code>InvalidNextTokenException</code> to occur.
      */
 
     public String getNextToken() {
@@ -157,11 +185,21 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * This is not currently implemented for <code>DescribeBackups</code> requests.
+     * NextToken is a string that is returned in some command responses. It indicates that not all entries have been
+     * returned, and that you must run at least one more request to get remaining items. To get remaining results, call
+     * <code>DescribeBackups</code> again, and assign the token from the previous results as the value of the
+     * <code>nextToken</code> parameter. If there are no more results, the response object's <code>nextToken</code>
+     * parameter value is <code>null</code>. Setting a <code>nextToken</code> value that was not returned in your
+     * previous results causes an <code>InvalidNextTokenException</code> to occur.
      * </p>
      * 
      * @param nextToken
-     *        This is not currently implemented for <code>DescribeBackups</code> requests.
+     *        NextToken is a string that is returned in some command responses. It indicates that not all entries have
+     *        been returned, and that you must run at least one more request to get remaining items. To get remaining
+     *        results, call <code>DescribeBackups</code> again, and assign the token from the previous results as the
+     *        value of the <code>nextToken</code> parameter. If there are no more results, the response object's
+     *        <code>nextToken</code> parameter value is <code>null</code>. Setting a <code>nextToken</code> value that
+     *        was not returned in your previous results causes an <code>InvalidNextTokenException</code> to occur.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -172,11 +210,17 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * This is not currently implemented for <code>DescribeBackups</code> requests.
+     * To receive a paginated response, use this parameter to specify the maximum number of results to be returned with
+     * a single call. If the number of available results exceeds this maximum, the response includes a
+     * <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next
+     * set of results.
      * </p>
      * 
      * @param maxResults
-     *        This is not currently implemented for <code>DescribeBackups</code> requests.
+     *        To receive a paginated response, use this parameter to specify the maximum number of results to be
+     *        returned with a single call. If the number of available results exceeds this maximum, the response
+     *        includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request
+     *        parameter to get the next set of results.
      */
 
     public void setMaxResults(Integer maxResults) {
@@ -185,10 +229,16 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * This is not currently implemented for <code>DescribeBackups</code> requests.
+     * To receive a paginated response, use this parameter to specify the maximum number of results to be returned with
+     * a single call. If the number of available results exceeds this maximum, the response includes a
+     * <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next
+     * set of results.
      * </p>
      * 
-     * @return This is not currently implemented for <code>DescribeBackups</code> requests.
+     * @return To receive a paginated response, use this parameter to specify the maximum number of results to be
+     *         returned with a single call. If the number of available results exceeds this maximum, the response
+     *         includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request
+     *         parameter to get the next set of results.
      */
 
     public Integer getMaxResults() {
@@ -197,11 +247,17 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * This is not currently implemented for <code>DescribeBackups</code> requests.
+     * To receive a paginated response, use this parameter to specify the maximum number of results to be returned with
+     * a single call. If the number of available results exceeds this maximum, the response includes a
+     * <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next
+     * set of results.
      * </p>
      * 
      * @param maxResults
-     *        This is not currently implemented for <code>DescribeBackups</code> requests.
+     *        To receive a paginated response, use this parameter to specify the maximum number of results to be
+     *        returned with a single call. If the number of available results exceeds this maximum, the response
+     *        includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request
+     *        parameter to get the next set of results.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -211,8 +267,7 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

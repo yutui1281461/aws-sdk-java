@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -23,20 +23,10 @@ import javax.annotation.Generated;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class UpdateHealthCheckResult extends com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata> implements Serializable, Cloneable {
 
-    /**
-     * <p>
-     * A complex type that contains the response to an <code>UpdateHealthCheck</code> request.
-     * </p>
-     */
     private HealthCheck healthCheck;
 
     /**
-     * <p>
-     * A complex type that contains the response to an <code>UpdateHealthCheck</code> request.
-     * </p>
-     * 
      * @param healthCheck
-     *        A complex type that contains the response to an <code>UpdateHealthCheck</code> request.
      */
 
     public void setHealthCheck(HealthCheck healthCheck) {
@@ -44,11 +34,7 @@ public class UpdateHealthCheckResult extends com.amazonaws.AmazonWebServiceResul
     }
 
     /**
-     * <p>
-     * A complex type that contains the response to an <code>UpdateHealthCheck</code> request.
-     * </p>
-     * 
-     * @return A complex type that contains the response to an <code>UpdateHealthCheck</code> request.
+     * @return
      */
 
     public HealthCheck getHealthCheck() {
@@ -56,12 +42,7 @@ public class UpdateHealthCheckResult extends com.amazonaws.AmazonWebServiceResul
     }
 
     /**
-     * <p>
-     * A complex type that contains the response to an <code>UpdateHealthCheck</code> request.
-     * </p>
-     * 
      * @param healthCheck
-     *        A complex type that contains the response to an <code>UpdateHealthCheck</code> request.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -71,8 +52,7 @@ public class UpdateHealthCheckResult extends com.amazonaws.AmazonWebServiceResul
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

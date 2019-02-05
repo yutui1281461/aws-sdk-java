@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,25 +33,17 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
     private String autoScalingGroupName;
     /**
      * <p>
-     * The name of the launch configuration. If you specify this parameter, you can't specify a launch template or a
-     * mixed instances policy.
+     * The name of the launch configuration. If you specify a launch configuration, you can't specify a launch template.
      * </p>
      */
     private String launchConfigurationName;
     /**
      * <p>
-     * The launch template and version to use to specify the updates. If you specify this parameter, you can't specify a
-     * launch configuration or a mixed instances policy.
+     * The launch template to use to specify the updates. If you specify a launch template, you can't specify a launch
+     * configuration.
      * </p>
      */
     private LaunchTemplateSpecification launchTemplate;
-    /**
-     * <p>
-     * The mixed instances policy to use to specify the updates. If you specify this parameter, you can't specify a
-     * launch configuration or a launch template.
-     * </p>
-     */
-    private MixedInstancesPolicy mixedInstancesPolicy;
     /**
      * <p>
      * The minimum size of the Auto Scaling group.
@@ -77,8 +69,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      * default is 300.
      * </p>
      * <p>
-     * For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
-     * Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto
+     * Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      */
     private Integer defaultCooldown;
@@ -96,18 +88,19 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
     private String healthCheckType;
     /**
      * <p>
-     * The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2
-     * instance that has come into service. The default is 0.
+     * The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2 instance that
+     * has come into service. The default is 0.
      * </p>
      * <p>
-     * For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-     * Checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * For more information, see <a
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health Checks</a> in the <i>Auto
+     * Scaling User Guide</i>.
      * </p>
      */
     private Integer healthCheckGracePeriod;
     /**
      * <p>
-     * The name of the placement group into which to launch your instances, if any. For more information, see <a
+     * The name of the placement group into which you'll launch your instances, if any. For more information, see <a
      * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the
      * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
@@ -123,8 +116,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling Instances in a
-     * VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching Auto Scaling Instances
+     * in a VPC</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      */
     private String vPCZoneIdentifier;
@@ -135,7 +128,7 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling Which
      * Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      */
@@ -196,13 +189,12 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The name of the launch configuration. If you specify this parameter, you can't specify a launch template or a
-     * mixed instances policy.
+     * The name of the launch configuration. If you specify a launch configuration, you can't specify a launch template.
      * </p>
      * 
      * @param launchConfigurationName
-     *        The name of the launch configuration. If you specify this parameter, you can't specify a launch template
-     *        or a mixed instances policy.
+     *        The name of the launch configuration. If you specify a launch configuration, you can't specify a launch
+     *        template.
      */
 
     public void setLaunchConfigurationName(String launchConfigurationName) {
@@ -211,12 +203,11 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The name of the launch configuration. If you specify this parameter, you can't specify a launch template or a
-     * mixed instances policy.
+     * The name of the launch configuration. If you specify a launch configuration, you can't specify a launch template.
      * </p>
      * 
-     * @return The name of the launch configuration. If you specify this parameter, you can't specify a launch template
-     *         or a mixed instances policy.
+     * @return The name of the launch configuration. If you specify a launch configuration, you can't specify a launch
+     *         template.
      */
 
     public String getLaunchConfigurationName() {
@@ -225,13 +216,12 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The name of the launch configuration. If you specify this parameter, you can't specify a launch template or a
-     * mixed instances policy.
+     * The name of the launch configuration. If you specify a launch configuration, you can't specify a launch template.
      * </p>
      * 
      * @param launchConfigurationName
-     *        The name of the launch configuration. If you specify this parameter, you can't specify a launch template
-     *        or a mixed instances policy.
+     *        The name of the launch configuration. If you specify a launch configuration, you can't specify a launch
+     *        template.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -242,13 +232,13 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The launch template and version to use to specify the updates. If you specify this parameter, you can't specify a
-     * launch configuration or a mixed instances policy.
+     * The launch template to use to specify the updates. If you specify a launch template, you can't specify a launch
+     * configuration.
      * </p>
      * 
      * @param launchTemplate
-     *        The launch template and version to use to specify the updates. If you specify this parameter, you can't
-     *        specify a launch configuration or a mixed instances policy.
+     *        The launch template to use to specify the updates. If you specify a launch template, you can't specify a
+     *        launch configuration.
      */
 
     public void setLaunchTemplate(LaunchTemplateSpecification launchTemplate) {
@@ -257,12 +247,12 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The launch template and version to use to specify the updates. If you specify this parameter, you can't specify a
-     * launch configuration or a mixed instances policy.
+     * The launch template to use to specify the updates. If you specify a launch template, you can't specify a launch
+     * configuration.
      * </p>
      * 
-     * @return The launch template and version to use to specify the updates. If you specify this parameter, you can't
-     *         specify a launch configuration or a mixed instances policy.
+     * @return The launch template to use to specify the updates. If you specify a launch template, you can't specify a
+     *         launch configuration.
      */
 
     public LaunchTemplateSpecification getLaunchTemplate() {
@@ -271,64 +261,18 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The launch template and version to use to specify the updates. If you specify this parameter, you can't specify a
-     * launch configuration or a mixed instances policy.
+     * The launch template to use to specify the updates. If you specify a launch template, you can't specify a launch
+     * configuration.
      * </p>
      * 
      * @param launchTemplate
-     *        The launch template and version to use to specify the updates. If you specify this parameter, you can't
-     *        specify a launch configuration or a mixed instances policy.
+     *        The launch template to use to specify the updates. If you specify a launch template, you can't specify a
+     *        launch configuration.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
     public UpdateAutoScalingGroupRequest withLaunchTemplate(LaunchTemplateSpecification launchTemplate) {
         setLaunchTemplate(launchTemplate);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The mixed instances policy to use to specify the updates. If you specify this parameter, you can't specify a
-     * launch configuration or a launch template.
-     * </p>
-     * 
-     * @param mixedInstancesPolicy
-     *        The mixed instances policy to use to specify the updates. If you specify this parameter, you can't specify
-     *        a launch configuration or a launch template.
-     */
-
-    public void setMixedInstancesPolicy(MixedInstancesPolicy mixedInstancesPolicy) {
-        this.mixedInstancesPolicy = mixedInstancesPolicy;
-    }
-
-    /**
-     * <p>
-     * The mixed instances policy to use to specify the updates. If you specify this parameter, you can't specify a
-     * launch configuration or a launch template.
-     * </p>
-     * 
-     * @return The mixed instances policy to use to specify the updates. If you specify this parameter, you can't
-     *         specify a launch configuration or a launch template.
-     */
-
-    public MixedInstancesPolicy getMixedInstancesPolicy() {
-        return this.mixedInstancesPolicy;
-    }
-
-    /**
-     * <p>
-     * The mixed instances policy to use to specify the updates. If you specify this parameter, you can't specify a
-     * launch configuration or a launch template.
-     * </p>
-     * 
-     * @param mixedInstancesPolicy
-     *        The mixed instances policy to use to specify the updates. If you specify this parameter, you can't specify
-     *        a launch configuration or a launch template.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public UpdateAutoScalingGroupRequest withMixedInstancesPolicy(MixedInstancesPolicy mixedInstancesPolicy) {
-        setMixedInstancesPolicy(mixedInstancesPolicy);
         return this;
     }
 
@@ -464,8 +408,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      * default is 300.
      * </p>
      * <p>
-     * For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
-     * Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto
+     * Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param defaultCooldown
@@ -473,8 +417,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      *        start. The default is 300.</p>
      *        <p>
      *        For more information, see <a
-     *        href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling Cooldowns</a> in the
-     *        <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *        href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto Scaling Cooldowns</a> in
+     *        the <i>Auto Scaling User Guide</i>.
      */
 
     public void setDefaultCooldown(Integer defaultCooldown) {
@@ -487,16 +431,16 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      * default is 300.
      * </p>
      * <p>
-     * For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
-     * Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto
+     * Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @return The amount of time, in seconds, after a scaling activity completes before another scaling activity can
      *         start. The default is 300.</p>
      *         <p>
      *         For more information, see <a
-     *         href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling Cooldowns</a> in the
-     *         <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *         href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto Scaling Cooldowns</a>
+     *         in the <i>Auto Scaling User Guide</i>.
      */
 
     public Integer getDefaultCooldown() {
@@ -509,8 +453,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      * default is 300.
      * </p>
      * <p>
-     * For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
-     * Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto
+     * Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param defaultCooldown
@@ -518,8 +462,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      *        start. The default is 300.</p>
      *        <p>
      *        For more information, see <a
-     *        href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling Cooldowns</a> in the
-     *        <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *        href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto Scaling Cooldowns</a> in
+     *        the <i>Auto Scaling User Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -643,21 +587,22 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2
-     * instance that has come into service. The default is 0.
+     * The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2 instance that
+     * has come into service. The default is 0.
      * </p>
      * <p>
-     * For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-     * Checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * For more information, see <a
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health Checks</a> in the <i>Auto
+     * Scaling User Guide</i>.
      * </p>
      * 
      * @param healthCheckGracePeriod
-     *        The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an
-     *        EC2 instance that has come into service. The default is 0.</p>
+     *        The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2
+     *        instance that has come into service. The default is 0.</p>
      *        <p>
      *        For more information, see <a
-     *        href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health Checks</a> in the
-     *        <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *        href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health Checks</a> in the
+     *        <i>Auto Scaling User Guide</i>.
      */
 
     public void setHealthCheckGracePeriod(Integer healthCheckGracePeriod) {
@@ -666,20 +611,21 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2
-     * instance that has come into service. The default is 0.
+     * The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2 instance that
+     * has come into service. The default is 0.
      * </p>
      * <p>
-     * For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-     * Checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * For more information, see <a
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health Checks</a> in the <i>Auto
+     * Scaling User Guide</i>.
      * </p>
      * 
-     * @return The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of
-     *         an EC2 instance that has come into service. The default is 0.</p>
+     * @return The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2
+     *         instance that has come into service. The default is 0.</p>
      *         <p>
      *         For more information, see <a
-     *         href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health Checks</a> in the
-     *         <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *         href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health Checks</a> in the
+     *         <i>Auto Scaling User Guide</i>.
      */
 
     public Integer getHealthCheckGracePeriod() {
@@ -688,21 +634,22 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2
-     * instance that has come into service. The default is 0.
+     * The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2 instance that
+     * has come into service. The default is 0.
      * </p>
      * <p>
-     * For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-     * Checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * For more information, see <a
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health Checks</a> in the <i>Auto
+     * Scaling User Guide</i>.
      * </p>
      * 
      * @param healthCheckGracePeriod
-     *        The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an
-     *        EC2 instance that has come into service. The default is 0.</p>
+     *        The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2
+     *        instance that has come into service. The default is 0.</p>
      *        <p>
      *        For more information, see <a
-     *        href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health Checks</a> in the
-     *        <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *        href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health Checks</a> in the
+     *        <i>Auto Scaling User Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -713,14 +660,14 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The name of the placement group into which to launch your instances, if any. For more information, see <a
+     * The name of the placement group into which you'll launch your instances, if any. For more information, see <a
      * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the
      * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * 
      * @param placementGroup
-     *        The name of the placement group into which to launch your instances, if any. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in
+     *        The name of the placement group into which you'll launch your instances, if any. For more information, see
+     *        <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in
      *        the <i>Amazon Elastic Compute Cloud User Guide</i>.
      */
 
@@ -730,14 +677,14 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The name of the placement group into which to launch your instances, if any. For more information, see <a
+     * The name of the placement group into which you'll launch your instances, if any. For more information, see <a
      * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the
      * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * 
-     * @return The name of the placement group into which to launch your instances, if any. For more information, see <a
-     *         href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in
-     *         the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * @return The name of the placement group into which you'll launch your instances, if any. For more information,
+     *         see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+     *         Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      */
 
     public String getPlacementGroup() {
@@ -746,14 +693,14 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The name of the placement group into which to launch your instances, if any. For more information, see <a
+     * The name of the placement group into which you'll launch your instances, if any. For more information, see <a
      * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the
      * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * 
      * @param placementGroup
-     *        The name of the placement group into which to launch your instances, if any. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in
+     *        The name of the placement group into which you'll launch your instances, if any. For more information, see
+     *        <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in
      *        the <i>Amazon Elastic Compute Cloud User Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -773,8 +720,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling Instances in a
-     * VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching Auto Scaling Instances
+     * in a VPC</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param vPCZoneIdentifier
@@ -786,8 +733,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      *        </p>
      *        <p>
      *        For more information, see <a
-     *        href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling
-     *        Instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *        href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching Auto Scaling
+     *        Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.
      */
 
     public void setVPCZoneIdentifier(String vPCZoneIdentifier) {
@@ -804,8 +751,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling Instances in a
-     * VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching Auto Scaling Instances
+     * in a VPC</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @return The ID of the subnet, if you are launching into a VPC. You can specify several subnets in a
@@ -816,8 +763,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      *         </p>
      *         <p>
      *         For more information, see <a
-     *         href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling
-     *         Instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *         href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching Auto Scaling
+     *         Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.
      */
 
     public String getVPCZoneIdentifier() {
@@ -834,8 +781,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling Instances in a
-     * VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching Auto Scaling Instances
+     * in a VPC</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param vPCZoneIdentifier
@@ -847,8 +794,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      *        </p>
      *        <p>
      *        For more information, see <a
-     *        href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling
-     *        Instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *        href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching Auto Scaling
+     *        Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -864,7 +811,7 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling Which
      * Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
@@ -872,7 +819,7 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      *         terminate. The policies are executed in the order that they are listed.</p>
      *         <p>
      *         For more information, see <a
-     *         href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling
+     *         href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling
      *         Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.
      */
 
@@ -890,7 +837,7 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling Which
      * Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
@@ -899,8 +846,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      *        terminate. The policies are executed in the order that they are listed.</p>
      *        <p>
      *        For more information, see <a
-     *        href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which
-     *        Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.
+     *        href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling
+     *        Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.
      */
 
     public void setTerminationPolicies(java.util.Collection<String> terminationPolicies) {
@@ -919,7 +866,7 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling Which
      * Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * <p>
@@ -933,8 +880,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      *        terminate. The policies are executed in the order that they are listed.</p>
      *        <p>
      *        For more information, see <a
-     *        href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which
-     *        Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.
+     *        href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling
+     *        Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -955,7 +902,7 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling Which
      * Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
@@ -964,8 +911,8 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
      *        terminate. The policies are executed in the order that they are listed.</p>
      *        <p>
      *        For more information, see <a
-     *        href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which
-     *        Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.
+     *        href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling
+     *        Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1075,8 +1022,7 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1092,8 +1038,6 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
             sb.append("LaunchConfigurationName: ").append(getLaunchConfigurationName()).append(",");
         if (getLaunchTemplate() != null)
             sb.append("LaunchTemplate: ").append(getLaunchTemplate()).append(",");
-        if (getMixedInstancesPolicy() != null)
-            sb.append("MixedInstancesPolicy: ").append(getMixedInstancesPolicy()).append(",");
         if (getMinSize() != null)
             sb.append("MinSize: ").append(getMinSize()).append(",");
         if (getMaxSize() != null)
@@ -1143,10 +1087,6 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
         if (other.getLaunchTemplate() == null ^ this.getLaunchTemplate() == null)
             return false;
         if (other.getLaunchTemplate() != null && other.getLaunchTemplate().equals(this.getLaunchTemplate()) == false)
-            return false;
-        if (other.getMixedInstancesPolicy() == null ^ this.getMixedInstancesPolicy() == null)
-            return false;
-        if (other.getMixedInstancesPolicy() != null && other.getMixedInstancesPolicy().equals(this.getMixedInstancesPolicy()) == false)
             return false;
         if (other.getMinSize() == null ^ this.getMinSize() == null)
             return false;
@@ -1208,7 +1148,6 @@ public class UpdateAutoScalingGroupRequest extends com.amazonaws.AmazonWebServic
         hashCode = prime * hashCode + ((getAutoScalingGroupName() == null) ? 0 : getAutoScalingGroupName().hashCode());
         hashCode = prime * hashCode + ((getLaunchConfigurationName() == null) ? 0 : getLaunchConfigurationName().hashCode());
         hashCode = prime * hashCode + ((getLaunchTemplate() == null) ? 0 : getLaunchTemplate().hashCode());
-        hashCode = prime * hashCode + ((getMixedInstancesPolicy() == null) ? 0 : getMixedInstancesPolicy().hashCode());
         hashCode = prime * hashCode + ((getMinSize() == null) ? 0 : getMinSize().hashCode());
         hashCode = prime * hashCode + ((getMaxSize() == null) ? 0 : getMaxSize().hashCode());
         hashCode = prime * hashCode + ((getDesiredCapacity() == null) ? 0 : getDesiredCapacity().hashCode());

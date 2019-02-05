@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,53 +18,25 @@ import com.amazonaws.protocol.StructuredPojo;
 import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
- * <p>
- * Represents a VM server.
- * </p>
+ * Object representing a VM server
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sms-2016-10-24/VmServer" target="_top">AWS API Documentation</a>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class VmServer implements Serializable, Cloneable, StructuredPojo {
 
-    /**
-     * <p>
-     * Information about the VM server location.
-     * </p>
-     */
     private VmServerAddress vmServerAddress;
-    /**
-     * <p>
-     * The name of the VM.
-     * </p>
-     */
+
     private String vmName;
-    /**
-     * <p>
-     * The name of the VM manager.
-     * </p>
-     */
+
     private String vmManagerName;
-    /**
-     * <p>
-     * The type of VM management product.
-     * </p>
-     */
+
     private String vmManagerType;
-    /**
-     * <p>
-     * The VM folder path in the vCenter Server virtual machine inventory tree.
-     * </p>
-     */
+
     private String vmPath;
 
     /**
-     * <p>
-     * Information about the VM server location.
-     * </p>
-     * 
      * @param vmServerAddress
-     *        Information about the VM server location.
      */
 
     public void setVmServerAddress(VmServerAddress vmServerAddress) {
@@ -72,11 +44,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * Information about the VM server location.
-     * </p>
-     * 
-     * @return Information about the VM server location.
+     * @return
      */
 
     public VmServerAddress getVmServerAddress() {
@@ -84,12 +52,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * Information about the VM server location.
-     * </p>
-     * 
      * @param vmServerAddress
-     *        Information about the VM server location.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -99,12 +62,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The name of the VM.
-     * </p>
-     * 
      * @param vmName
-     *        The name of the VM.
      */
 
     public void setVmName(String vmName) {
@@ -112,11 +70,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The name of the VM.
-     * </p>
-     * 
-     * @return The name of the VM.
+     * @return
      */
 
     public String getVmName() {
@@ -124,12 +78,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The name of the VM.
-     * </p>
-     * 
      * @param vmName
-     *        The name of the VM.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -139,12 +88,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The name of the VM manager.
-     * </p>
-     * 
      * @param vmManagerName
-     *        The name of the VM manager.
      */
 
     public void setVmManagerName(String vmManagerName) {
@@ -152,11 +96,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The name of the VM manager.
-     * </p>
-     * 
-     * @return The name of the VM manager.
+     * @return
      */
 
     public String getVmManagerName() {
@@ -164,12 +104,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The name of the VM manager.
-     * </p>
-     * 
      * @param vmManagerName
-     *        The name of the VM manager.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -179,12 +114,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The type of VM management product.
-     * </p>
-     * 
      * @param vmManagerType
-     *        The type of VM management product.
      * @see VmManagerType
      */
 
@@ -193,11 +123,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The type of VM management product.
-     * </p>
-     * 
-     * @return The type of VM management product.
+     * @return
      * @see VmManagerType
      */
 
@@ -206,12 +132,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The type of VM management product.
-     * </p>
-     * 
      * @param vmManagerType
-     *        The type of VM management product.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see VmManagerType
      */
@@ -222,12 +143,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The type of VM management product.
-     * </p>
-     * 
      * @param vmManagerType
-     *        The type of VM management product.
      * @see VmManagerType
      */
 
@@ -236,12 +152,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The type of VM management product.
-     * </p>
-     * 
      * @param vmManagerType
-     *        The type of VM management product.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see VmManagerType
      */
@@ -252,12 +163,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The VM folder path in the vCenter Server virtual machine inventory tree.
-     * </p>
-     * 
      * @param vmPath
-     *        The VM folder path in the vCenter Server virtual machine inventory tree.
      */
 
     public void setVmPath(String vmPath) {
@@ -265,11 +171,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The VM folder path in the vCenter Server virtual machine inventory tree.
-     * </p>
-     * 
-     * @return The VM folder path in the vCenter Server virtual machine inventory tree.
+     * @return
      */
 
     public String getVmPath() {
@@ -277,12 +179,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The VM folder path in the vCenter Server virtual machine inventory tree.
-     * </p>
-     * 
      * @param vmPath
-     *        The VM folder path in the vCenter Server virtual machine inventory tree.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -292,8 +189,7 @@ public class VmServer implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

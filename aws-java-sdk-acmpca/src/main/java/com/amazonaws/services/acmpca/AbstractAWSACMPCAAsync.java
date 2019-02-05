@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -186,19 +186,6 @@ public class AbstractAWSACMPCAAsync extends AbstractAWSACMPCA implements AWSACMP
     @Override
     public java.util.concurrent.Future<ListTagsResult> listTagsAsync(ListTagsRequest request,
             com.amazonaws.handlers.AsyncHandler<ListTagsRequest, ListTagsResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<RestoreCertificateAuthorityResult> restoreCertificateAuthorityAsync(RestoreCertificateAuthorityRequest request) {
-
-        return restoreCertificateAuthorityAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<RestoreCertificateAuthorityResult> restoreCertificateAuthorityAsync(RestoreCertificateAuthorityRequest request,
-            com.amazonaws.handlers.AsyncHandler<RestoreCertificateAuthorityRequest, RestoreCertificateAuthorityResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }

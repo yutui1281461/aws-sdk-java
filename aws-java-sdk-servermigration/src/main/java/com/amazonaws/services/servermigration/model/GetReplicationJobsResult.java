@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -23,26 +23,12 @@ import javax.annotation.Generated;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class GetReplicationJobsResult extends com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata> implements Serializable, Cloneable {
 
-    /**
-     * <p>
-     * Information about the replication jobs.
-     * </p>
-     */
     private java.util.List<ReplicationJob> replicationJobList;
-    /**
-     * <p>
-     * The token required to retrieve the next set of results. This value is null when there are no more results to
-     * return.
-     * </p>
-     */
+
     private String nextToken;
 
     /**
-     * <p>
-     * Information about the replication jobs.
-     * </p>
-     * 
-     * @return Information about the replication jobs.
+     * @return
      */
 
     public java.util.List<ReplicationJob> getReplicationJobList() {
@@ -50,12 +36,7 @@ public class GetReplicationJobsResult extends com.amazonaws.AmazonWebServiceResu
     }
 
     /**
-     * <p>
-     * Information about the replication jobs.
-     * </p>
-     * 
      * @param replicationJobList
-     *        Information about the replication jobs.
      */
 
     public void setReplicationJobList(java.util.Collection<ReplicationJob> replicationJobList) {
@@ -69,16 +50,12 @@ public class GetReplicationJobsResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * Information about the replication jobs.
-     * </p>
-     * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
      * {@link #setReplicationJobList(java.util.Collection)} or {@link #withReplicationJobList(java.util.Collection)} if
      * you want to override the existing values.
      * </p>
      * 
      * @param replicationJobList
-     *        Information about the replication jobs.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -93,12 +70,7 @@ public class GetReplicationJobsResult extends com.amazonaws.AmazonWebServiceResu
     }
 
     /**
-     * <p>
-     * Information about the replication jobs.
-     * </p>
-     * 
      * @param replicationJobList
-     *        Information about the replication jobs.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -108,14 +80,7 @@ public class GetReplicationJobsResult extends com.amazonaws.AmazonWebServiceResu
     }
 
     /**
-     * <p>
-     * The token required to retrieve the next set of results. This value is null when there are no more results to
-     * return.
-     * </p>
-     * 
      * @param nextToken
-     *        The token required to retrieve the next set of results. This value is null when there are no more results
-     *        to return.
      */
 
     public void setNextToken(String nextToken) {
@@ -123,13 +88,7 @@ public class GetReplicationJobsResult extends com.amazonaws.AmazonWebServiceResu
     }
 
     /**
-     * <p>
-     * The token required to retrieve the next set of results. This value is null when there are no more results to
-     * return.
-     * </p>
-     * 
-     * @return The token required to retrieve the next set of results. This value is null when there are no more results
-     *         to return.
+     * @return
      */
 
     public String getNextToken() {
@@ -137,14 +96,7 @@ public class GetReplicationJobsResult extends com.amazonaws.AmazonWebServiceResu
     }
 
     /**
-     * <p>
-     * The token required to retrieve the next set of results. This value is null when there are no more results to
-     * return.
-     * </p>
-     * 
      * @param nextToken
-     *        The token required to retrieve the next set of results. This value is null when there are no more results
-     *        to return.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -154,8 +106,7 @@ public class GetReplicationJobsResult extends com.amazonaws.AmazonWebServiceResu
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

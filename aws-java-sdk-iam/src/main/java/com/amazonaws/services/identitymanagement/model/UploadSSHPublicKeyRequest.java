@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,7 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
      * The name of the IAM user to associate the SSH public key with.
      * </p>
      * <p>
-     * This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     * This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
      * characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of
      * the following characters: _+=,.@-
      * </p>
@@ -38,9 +38,7 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
     private String userName;
     /**
      * <p>
-     * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the
-     * public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes
-     * long.
+     * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      * </p>
      * <p>
      * The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of
@@ -71,7 +69,7 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
      * The name of the IAM user to associate the SSH public key with.
      * </p>
      * <p>
-     * This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     * This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
      * characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of
      * the following characters: _+=,.@-
      * </p>
@@ -79,9 +77,9 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
      * @param userName
      *        The name of the IAM user to associate the SSH public key with.</p>
      *        <p>
-     *        This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string
-     *        of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also
-     *        include any of the following characters: _+=,.@-
+     *        This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     *        characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include
+     *        any of the following characters: _+=,.@-
      */
 
     public void setUserName(String userName) {
@@ -93,16 +91,16 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
      * The name of the IAM user to associate the SSH public key with.
      * </p>
      * <p>
-     * This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     * This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
      * characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of
      * the following characters: _+=,.@-
      * </p>
      * 
      * @return The name of the IAM user to associate the SSH public key with.</p>
      *         <p>
-     *         This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string
-     *         of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also
-     *         include any of the following characters: _+=,.@-
+     *         This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     *         characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include
+     *         any of the following characters: _+=,.@-
      */
 
     public String getUserName() {
@@ -114,7 +112,7 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
      * The name of the IAM user to associate the SSH public key with.
      * </p>
      * <p>
-     * This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     * This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
      * characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of
      * the following characters: _+=,.@-
      * </p>
@@ -122,9 +120,9 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
      * @param userName
      *        The name of the IAM user to associate the SSH public key with.</p>
      *        <p>
-     *        This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string
-     *        of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also
-     *        include any of the following characters: _+=,.@-
+     *        This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     *        characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include
+     *        any of the following characters: _+=,.@-
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -135,9 +133,7 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the
-     * public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes
-     * long.
+     * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      * </p>
      * <p>
      * The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of
@@ -162,9 +158,7 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
      * </ul>
      * 
      * @param sSHPublicKeyBody
-     *        The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length
-     *        of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file
-     *        is 1679 bytes long.</p>
+     *        The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.</p>
      *        <p>
      *        The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a
      *        string of characters consisting of the following:
@@ -194,9 +188,7 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the
-     * public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes
-     * long.
+     * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      * </p>
      * <p>
      * The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of
@@ -220,9 +212,7 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
      * </li>
      * </ul>
      * 
-     * @return The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum
-     *         bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the
-     *         resulting PEM file is 1679 bytes long.</p>
+     * @return The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.</p>
      *         <p>
      *         The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a
      *         string of characters consisting of the following:
@@ -252,9 +242,7 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the
-     * public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes
-     * long.
+     * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      * </p>
      * <p>
      * The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of
@@ -279,9 +267,7 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
      * </ul>
      * 
      * @param sSHPublicKeyBody
-     *        The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length
-     *        of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file
-     *        is 1679 bytes long.</p>
+     *        The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.</p>
      *        <p>
      *        The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a
      *        string of characters consisting of the following:
@@ -312,8 +298,7 @@ public class UploadSSHPublicKeyRequest extends com.amazonaws.AmazonWebServiceReq
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -39,7 +39,7 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
     private String masterInstanceType;
     /**
      * <p>
-     * The EC2 instance type of the core and task nodes.
+     * The EC2 instance type of the slave nodes.
      * </p>
      */
     private String slaveInstanceType;
@@ -94,10 +94,10 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
     private Boolean terminationProtected;
     /**
      * <p>
-     * Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs
-     * are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do
-     * not set this value, the default of 0.18 is used, unless the <code>AmiVersion</code> parameter is set in the
-     * RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+     * The Hadoop version for the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205"
+     * (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the
+     * AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI
+     * version is used.
      * </p>
      */
     private String hadoopVersion;
@@ -136,7 +136,7 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
     private String emrManagedMasterSecurityGroup;
     /**
      * <p>
-     * The identifier of the Amazon EC2 security group for the core and task nodes.
+     * The identifier of the Amazon EC2 security group for the slave nodes.
      * </p>
      */
     private String emrManagedSlaveSecurityGroup;
@@ -155,7 +155,7 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
     private com.amazonaws.internal.SdkInternalList<String> additionalMasterSecurityGroups;
     /**
      * <p>
-     * A list of additional Amazon EC2 security group IDs for the core and task nodes.
+     * A list of additional Amazon EC2 security group IDs for the slave nodes.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> additionalSlaveSecurityGroups;
@@ -202,11 +202,11 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * The EC2 instance type of the core and task nodes.
+     * The EC2 instance type of the slave nodes.
      * </p>
      * 
      * @param slaveInstanceType
-     *        The EC2 instance type of the core and task nodes.
+     *        The EC2 instance type of the slave nodes.
      */
 
     public void setSlaveInstanceType(String slaveInstanceType) {
@@ -215,10 +215,10 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * The EC2 instance type of the core and task nodes.
+     * The EC2 instance type of the slave nodes.
      * </p>
      * 
-     * @return The EC2 instance type of the core and task nodes.
+     * @return The EC2 instance type of the slave nodes.
      */
 
     public String getSlaveInstanceType() {
@@ -227,11 +227,11 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * The EC2 instance type of the core and task nodes.
+     * The EC2 instance type of the slave nodes.
      * </p>
      * 
      * @param slaveInstanceType
-     *        The EC2 instance type of the core and task nodes.
+     *        The EC2 instance type of the slave nodes.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -672,18 +672,17 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs
-     * are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do
-     * not set this value, the default of 0.18 is used, unless the <code>AmiVersion</code> parameter is set in the
-     * RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+     * The Hadoop version for the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205"
+     * (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the
+     * AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI
+     * version is used.
      * </p>
      * 
      * @param hadoopVersion
-     *        Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid
-     *        inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or
-     *        "2.4.0". If you do not set this value, the default of 0.18 is used, unless the <code>AmiVersion</code>
-     *        parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version
-     *        is used.
+     *        The Hadoop version for the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205"
+     *        (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used,
+     *        unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop
+     *        for that AMI version is used.
      */
 
     public void setHadoopVersion(String hadoopVersion) {
@@ -692,17 +691,16 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs
-     * are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do
-     * not set this value, the default of 0.18 is used, unless the <code>AmiVersion</code> parameter is set in the
-     * RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+     * The Hadoop version for the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205"
+     * (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the
+     * AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI
+     * version is used.
      * </p>
      * 
-     * @return Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid
-     *         inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or
-     *         "2.4.0". If you do not set this value, the default of 0.18 is used, unless the <code>AmiVersion</code>
-     *         parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version
-     *         is used.
+     * @return The Hadoop version for the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205"
+     *         (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used,
+     *         unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of
+     *         Hadoop for that AMI version is used.
      */
 
     public String getHadoopVersion() {
@@ -711,18 +709,17 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs
-     * are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do
-     * not set this value, the default of 0.18 is used, unless the <code>AmiVersion</code> parameter is set in the
-     * RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+     * The Hadoop version for the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205"
+     * (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the
+     * AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI
+     * version is used.
      * </p>
      * 
      * @param hadoopVersion
-     *        Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid
-     *        inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or
-     *        "2.4.0". If you do not set this value, the default of 0.18 is used, unless the <code>AmiVersion</code>
-     *        parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version
-     *        is used.
+     *        The Hadoop version for the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205"
+     *        (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used,
+     *        unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop
+     *        for that AMI version is used.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -979,11 +976,11 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * The identifier of the Amazon EC2 security group for the core and task nodes.
+     * The identifier of the Amazon EC2 security group for the slave nodes.
      * </p>
      * 
      * @param emrManagedSlaveSecurityGroup
-     *        The identifier of the Amazon EC2 security group for the core and task nodes.
+     *        The identifier of the Amazon EC2 security group for the slave nodes.
      */
 
     public void setEmrManagedSlaveSecurityGroup(String emrManagedSlaveSecurityGroup) {
@@ -992,10 +989,10 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * The identifier of the Amazon EC2 security group for the core and task nodes.
+     * The identifier of the Amazon EC2 security group for the slave nodes.
      * </p>
      * 
-     * @return The identifier of the Amazon EC2 security group for the core and task nodes.
+     * @return The identifier of the Amazon EC2 security group for the slave nodes.
      */
 
     public String getEmrManagedSlaveSecurityGroup() {
@@ -1004,11 +1001,11 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * The identifier of the Amazon EC2 security group for the core and task nodes.
+     * The identifier of the Amazon EC2 security group for the slave nodes.
      * </p>
      * 
      * @param emrManagedSlaveSecurityGroup
-     *        The identifier of the Amazon EC2 security group for the core and task nodes.
+     *        The identifier of the Amazon EC2 security group for the slave nodes.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1138,10 +1135,10 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * A list of additional Amazon EC2 security group IDs for the core and task nodes.
+     * A list of additional Amazon EC2 security group IDs for the slave nodes.
      * </p>
      * 
-     * @return A list of additional Amazon EC2 security group IDs for the core and task nodes.
+     * @return A list of additional Amazon EC2 security group IDs for the slave nodes.
      */
 
     public java.util.List<String> getAdditionalSlaveSecurityGroups() {
@@ -1153,11 +1150,11 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * A list of additional Amazon EC2 security group IDs for the core and task nodes.
+     * A list of additional Amazon EC2 security group IDs for the slave nodes.
      * </p>
      * 
      * @param additionalSlaveSecurityGroups
-     *        A list of additional Amazon EC2 security group IDs for the core and task nodes.
+     *        A list of additional Amazon EC2 security group IDs for the slave nodes.
      */
 
     public void setAdditionalSlaveSecurityGroups(java.util.Collection<String> additionalSlaveSecurityGroups) {
@@ -1171,7 +1168,7 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * A list of additional Amazon EC2 security group IDs for the core and task nodes.
+     * A list of additional Amazon EC2 security group IDs for the slave nodes.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -1180,7 +1177,7 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
      * </p>
      * 
      * @param additionalSlaveSecurityGroups
-     *        A list of additional Amazon EC2 security group IDs for the core and task nodes.
+     *        A list of additional Amazon EC2 security group IDs for the slave nodes.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1196,11 +1193,11 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * A list of additional Amazon EC2 security group IDs for the core and task nodes.
+     * A list of additional Amazon EC2 security group IDs for the slave nodes.
      * </p>
      * 
      * @param additionalSlaveSecurityGroups
-     *        A list of additional Amazon EC2 security group IDs for the core and task nodes.
+     *        A list of additional Amazon EC2 security group IDs for the slave nodes.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1210,8 +1207,7 @@ public class JobFlowInstancesConfig implements Serializable, Cloneable, Structur
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

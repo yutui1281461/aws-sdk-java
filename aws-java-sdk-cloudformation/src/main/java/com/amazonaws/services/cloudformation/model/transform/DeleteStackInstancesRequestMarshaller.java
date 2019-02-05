@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -81,46 +81,42 @@ public class DeleteStackInstancesRequestMarshaller implements Marshaller<Request
             }
         }
 
-        {
-            StackSetOperationPreferences operationPreferences = deleteStackInstancesRequest.getOperationPreferences();
-            if (operationPreferences != null) {
+        StackSetOperationPreferences operationPreferences = deleteStackInstancesRequest.getOperationPreferences();
+        if (operationPreferences != null) {
 
-                if (operationPreferences.getRegionOrder().isEmpty()
-                        && !((com.amazonaws.internal.SdkInternalList<String>) operationPreferences.getRegionOrder()).isAutoConstruct()) {
-                    request.addParameter("OperationPreferences.RegionOrder", "");
-                }
-                if (!operationPreferences.getRegionOrder().isEmpty()
-                        || !((com.amazonaws.internal.SdkInternalList<String>) operationPreferences.getRegionOrder()).isAutoConstruct()) {
-                    com.amazonaws.internal.SdkInternalList<String> regionOrderList = (com.amazonaws.internal.SdkInternalList<String>) operationPreferences
-                            .getRegionOrder();
-                    int regionOrderListIndex = 1;
+            if (operationPreferences.getRegionOrder().isEmpty()
+                    && !((com.amazonaws.internal.SdkInternalList<String>) operationPreferences.getRegionOrder()).isAutoConstruct()) {
+                request.addParameter("OperationPreferences.RegionOrder", "");
+            }
+            if (!operationPreferences.getRegionOrder().isEmpty()
+                    || !((com.amazonaws.internal.SdkInternalList<String>) operationPreferences.getRegionOrder()).isAutoConstruct()) {
+                com.amazonaws.internal.SdkInternalList<String> regionOrderList = (com.amazonaws.internal.SdkInternalList<String>) operationPreferences
+                        .getRegionOrder();
+                int regionOrderListIndex = 1;
 
-                    for (String regionOrderListValue : regionOrderList) {
-                        if (regionOrderListValue != null) {
-                            request.addParameter("OperationPreferences.RegionOrder.member." + regionOrderListIndex,
-                                    StringUtils.fromString(regionOrderListValue));
-                        }
-                        regionOrderListIndex++;
+                for (String regionOrderListValue : regionOrderList) {
+                    if (regionOrderListValue != null) {
+                        request.addParameter("OperationPreferences.RegionOrder.member." + regionOrderListIndex, StringUtils.fromString(regionOrderListValue));
                     }
+                    regionOrderListIndex++;
                 }
+            }
 
-                if (operationPreferences.getFailureToleranceCount() != null) {
-                    request.addParameter("OperationPreferences.FailureToleranceCount", StringUtils.fromInteger(operationPreferences.getFailureToleranceCount()));
-                }
+            if (operationPreferences.getFailureToleranceCount() != null) {
+                request.addParameter("OperationPreferences.FailureToleranceCount", StringUtils.fromInteger(operationPreferences.getFailureToleranceCount()));
+            }
 
-                if (operationPreferences.getFailureTolerancePercentage() != null) {
-                    request.addParameter("OperationPreferences.FailureTolerancePercentage",
-                            StringUtils.fromInteger(operationPreferences.getFailureTolerancePercentage()));
-                }
+            if (operationPreferences.getFailureTolerancePercentage() != null) {
+                request.addParameter("OperationPreferences.FailureTolerancePercentage",
+                        StringUtils.fromInteger(operationPreferences.getFailureTolerancePercentage()));
+            }
 
-                if (operationPreferences.getMaxConcurrentCount() != null) {
-                    request.addParameter("OperationPreferences.MaxConcurrentCount", StringUtils.fromInteger(operationPreferences.getMaxConcurrentCount()));
-                }
+            if (operationPreferences.getMaxConcurrentCount() != null) {
+                request.addParameter("OperationPreferences.MaxConcurrentCount", StringUtils.fromInteger(operationPreferences.getMaxConcurrentCount()));
+            }
 
-                if (operationPreferences.getMaxConcurrentPercentage() != null) {
-                    request.addParameter("OperationPreferences.MaxConcurrentPercentage",
-                            StringUtils.fromInteger(operationPreferences.getMaxConcurrentPercentage()));
-                }
+            if (operationPreferences.getMaxConcurrentPercentage() != null) {
+                request.addParameter("OperationPreferences.MaxConcurrentPercentage", StringUtils.fromInteger(operationPreferences.getMaxConcurrentPercentage()));
             }
         }
 

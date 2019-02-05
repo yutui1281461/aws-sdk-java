@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -41,8 +41,6 @@ public class SegmentResponseMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("LastModifiedDate").build();
     private static final MarshallingInfo<String> NAME_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("Name").build();
-    private static final MarshallingInfo<StructuredPojo> SEGMENTGROUPS_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("SegmentGroups").build();
     private static final MarshallingInfo<String> SEGMENTTYPE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("SegmentType").build();
     private static final MarshallingInfo<Integer> VERSION_BINDING = MarshallingInfo.builder(MarshallingType.INTEGER).marshallLocation(MarshallLocation.PAYLOAD)
@@ -71,7 +69,6 @@ public class SegmentResponseMarshaller {
             protocolMarshaller.marshall(segmentResponse.getImportDefinition(), IMPORTDEFINITION_BINDING);
             protocolMarshaller.marshall(segmentResponse.getLastModifiedDate(), LASTMODIFIEDDATE_BINDING);
             protocolMarshaller.marshall(segmentResponse.getName(), NAME_BINDING);
-            protocolMarshaller.marshall(segmentResponse.getSegmentGroups(), SEGMENTGROUPS_BINDING);
             protocolMarshaller.marshall(segmentResponse.getSegmentType(), SEGMENTTYPE_BINDING);
             protocolMarshaller.marshall(segmentResponse.getVersion(), VERSION_BINDING);
         } catch (Exception e) {

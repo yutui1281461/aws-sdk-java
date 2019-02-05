@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -133,10 +133,6 @@ public class RestoreFromClusterSnapshotRequestMarshaller implements Marshaller<R
                     StringUtils.fromInteger(restoreFromClusterSnapshotRequest.getAutomatedSnapshotRetentionPeriod()));
         }
 
-        if (restoreFromClusterSnapshotRequest.getManualSnapshotRetentionPeriod() != null) {
-            request.addParameter("ManualSnapshotRetentionPeriod", StringUtils.fromInteger(restoreFromClusterSnapshotRequest.getManualSnapshotRetentionPeriod()));
-        }
-
         if (restoreFromClusterSnapshotRequest.getKmsKeyId() != null) {
             request.addParameter("KmsKeyId", StringUtils.fromString(restoreFromClusterSnapshotRequest.getKmsKeyId()));
         }
@@ -165,14 +161,6 @@ public class RestoreFromClusterSnapshotRequestMarshaller implements Marshaller<R
                 }
                 iamRolesListIndex++;
             }
-        }
-
-        if (restoreFromClusterSnapshotRequest.getMaintenanceTrackName() != null) {
-            request.addParameter("MaintenanceTrackName", StringUtils.fromString(restoreFromClusterSnapshotRequest.getMaintenanceTrackName()));
-        }
-
-        if (restoreFromClusterSnapshotRequest.getSnapshotScheduleIdentifier() != null) {
-            request.addParameter("SnapshotScheduleIdentifier", StringUtils.fromString(restoreFromClusterSnapshotRequest.getSnapshotScheduleIdentifier()));
         }
 
         return request;

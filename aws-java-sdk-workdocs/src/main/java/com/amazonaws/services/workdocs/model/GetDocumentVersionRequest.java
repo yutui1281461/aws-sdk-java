@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -276,8 +276,7 @@ public class GetDocumentVersionRequest extends com.amazonaws.AmazonWebServiceReq
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -288,7 +287,7 @@ public class GetDocumentVersionRequest extends com.amazonaws.AmazonWebServiceReq
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         if (getAuthenticationToken() != null)
-            sb.append("AuthenticationToken: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("AuthenticationToken: ").append(getAuthenticationToken()).append(",");
         if (getDocumentId() != null)
             sb.append("DocumentId: ").append(getDocumentId()).append(",");
         if (getVersionId() != null)

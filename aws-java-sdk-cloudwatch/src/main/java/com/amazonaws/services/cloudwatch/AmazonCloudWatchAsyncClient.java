@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -617,39 +617,6 @@ public class AmazonCloudWatchAsyncClient extends AmazonCloudWatchClient implemen
 
                 try {
                     result = executeGetMetricStatistics(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetMetricWidgetImageResult> getMetricWidgetImageAsync(GetMetricWidgetImageRequest request) {
-
-        return getMetricWidgetImageAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetMetricWidgetImageResult> getMetricWidgetImageAsync(final GetMetricWidgetImageRequest request,
-            final com.amazonaws.handlers.AsyncHandler<GetMetricWidgetImageRequest, GetMetricWidgetImageResult> asyncHandler) {
-        final GetMetricWidgetImageRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<GetMetricWidgetImageResult>() {
-            @Override
-            public GetMetricWidgetImageResult call() throws Exception {
-                GetMetricWidgetImageResult result = null;
-
-                try {
-                    result = executeGetMetricWidgetImage(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);

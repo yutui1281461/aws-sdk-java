@@ -97,7 +97,6 @@ public class TypeUtils {
         marshallingTypeMappings.put("Boolean", "BOOLEAN");
         marshallingTypeMappings.put("BigDecimal", "BIG_DECIMAL");
         marshallingTypeMappings.put("InputStream", "STREAM");
-        marshallingTypeMappings.put("Short", "SHORT");
         marshallingTypeMappings.put(null, "NULL");
     }
 

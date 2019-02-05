@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,9 +18,7 @@ import com.amazonaws.protocol.StructuredPojo;
 import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
- * <p>
- * Represents a VM server location.
- * </p>
+ * Object representing a server's location
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sms-2016-10-24/VmServerAddress" target="_top">AWS API
  *      Documentation</a>
@@ -28,26 +26,12 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class VmServerAddress implements Serializable, Cloneable, StructuredPojo {
 
-    /**
-     * <p>
-     * The identifier of the VM manager.
-     * </p>
-     */
     private String vmManagerId;
-    /**
-     * <p>
-     * The identifier of the VM.
-     * </p>
-     */
+
     private String vmId;
 
     /**
-     * <p>
-     * The identifier of the VM manager.
-     * </p>
-     * 
      * @param vmManagerId
-     *        The identifier of the VM manager.
      */
 
     public void setVmManagerId(String vmManagerId) {
@@ -55,11 +39,7 @@ public class VmServerAddress implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * <p>
-     * The identifier of the VM manager.
-     * </p>
-     * 
-     * @return The identifier of the VM manager.
+     * @return
      */
 
     public String getVmManagerId() {
@@ -67,12 +47,7 @@ public class VmServerAddress implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * <p>
-     * The identifier of the VM manager.
-     * </p>
-     * 
      * @param vmManagerId
-     *        The identifier of the VM manager.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -82,12 +57,7 @@ public class VmServerAddress implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * <p>
-     * The identifier of the VM.
-     * </p>
-     * 
      * @param vmId
-     *        The identifier of the VM.
      */
 
     public void setVmId(String vmId) {
@@ -95,11 +65,7 @@ public class VmServerAddress implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * <p>
-     * The identifier of the VM.
-     * </p>
-     * 
-     * @return The identifier of the VM.
+     * @return
      */
 
     public String getVmId() {
@@ -107,12 +73,7 @@ public class VmServerAddress implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * <p>
-     * The identifier of the VM.
-     * </p>
-     * 
      * @param vmId
-     *        The identifier of the VM.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -122,8 +83,7 @@ public class VmServerAddress implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

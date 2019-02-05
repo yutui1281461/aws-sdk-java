@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2016-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
  */
 package com.amazonaws.http.apache;
 
-import com.amazonaws.Protocol;
 import org.apache.http.HttpException;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpRequest;
@@ -28,7 +27,7 @@ import com.amazonaws.util.StringUtils;
 
 /**
  * SdkProxyRoutePlanner delegates a Proxy Route Planner from the settings instead of the
- * system properties. It will use the proxy created from proxyHost, proxyPort, and proxyProtocol and
+ * system properties. It will use the proxy created from proxyHost and proxyPort and
  * filter the hosts who matches nonProxyHosts pattern.
  *
  * @see ApacheHttpClientFactory#create(com.amazonaws.http.settings.HttpClientSettings)
@@ -38,9 +37,9 @@ public class SdkProxyRoutePlanner extends DefaultRoutePlanner {
     private HttpHost proxy;
     private String[] hostPatterns;
 
-    public SdkProxyRoutePlanner(String proxyHost, int proxyPort, Protocol proxyProtocol, String nonProxyHosts) {
+    public SdkProxyRoutePlanner(String proxyHost, int proxyPort, String nonProxyHosts) {
         super(DefaultSchemePortResolver.INSTANCE);
-        proxy = new HttpHost(proxyHost, proxyPort, proxyProtocol.toString());
+        proxy = new HttpHost(proxyHost, proxyPort);
         parseNonProxyHosts(nonProxyHosts);
     }
 

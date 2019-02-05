@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -45,8 +45,7 @@ public class GetTableVersionRequest extends com.amazonaws.AmazonWebServiceReques
     private String tableName;
     /**
      * <p>
-     * The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of an
-     * integer. Each version is incremented by 1.
+     * The ID value of the table version to be retrieved.
      * </p>
      */
     private String versionId;
@@ -179,13 +178,11 @@ public class GetTableVersionRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of an
-     * integer. Each version is incremented by 1.
+     * The ID value of the table version to be retrieved.
      * </p>
      * 
      * @param versionId
-     *        The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of
-     *        an integer. Each version is incremented by 1.
+     *        The ID value of the table version to be retrieved.
      */
 
     public void setVersionId(String versionId) {
@@ -194,12 +191,10 @@ public class GetTableVersionRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of an
-     * integer. Each version is incremented by 1.
+     * The ID value of the table version to be retrieved.
      * </p>
      * 
-     * @return The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of
-     *         an integer. Each version is incremented by 1.
+     * @return The ID value of the table version to be retrieved.
      */
 
     public String getVersionId() {
@@ -208,13 +203,11 @@ public class GetTableVersionRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of an
-     * integer. Each version is incremented by 1.
+     * The ID value of the table version to be retrieved.
      * </p>
      * 
      * @param versionId
-     *        The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of
-     *        an integer. Each version is incremented by 1.
+     *        The ID value of the table version to be retrieved.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -224,8 +217,7 @@ public class GetTableVersionRequest extends com.amazonaws.AmazonWebServiceReques
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

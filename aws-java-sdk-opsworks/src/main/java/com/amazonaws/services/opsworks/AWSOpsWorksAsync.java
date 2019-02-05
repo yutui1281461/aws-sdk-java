@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -433,7 +433,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -454,7 +454,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -681,7 +681,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -701,7 +701,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -725,7 +725,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -744,7 +744,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -960,7 +960,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -979,7 +979,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -1094,7 +1094,8 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
     /**
      * <p>
      * Deregister a registered Amazon EC2 or on-premises instance. This action removes the instance from the stack and
-     * returns it to your control. This action cannot be used with instances that were created with AWS OpsWorks Stacks.
+     * returns it to your control. This action can not be used with instances that were created with AWS OpsWorks
+     * Stacks.
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions level for the stack
@@ -1114,7 +1115,8 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
     /**
      * <p>
      * Deregister a registered Amazon EC2 or on-premises instance. This action removes the instance from the stack and
-     * returns it to your control. This action cannot be used with instances that were created with AWS OpsWorks Stacks.
+     * returns it to your control. This action can not be used with instances that were created with AWS OpsWorks
+     * Stacks.
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions level for the stack
@@ -1270,7 +1272,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1295,7 +1297,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1325,7 +1327,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1350,7 +1352,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1380,7 +1382,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1405,7 +1407,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1432,7 +1434,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack or an attached policy that explicitly grants permission. For more information about user
+     * level for the stack or an attached policy that explicitly grants permission. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1457,7 +1459,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack or an attached policy that explicitly grants permission. For more information about user
+     * level for the stack or an attached policy that explicitly grants permission. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1491,7 +1493,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1517,7 +1519,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1547,7 +1549,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1574,7 +1576,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1606,7 +1608,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1631,7 +1633,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1661,7 +1663,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1686,7 +1688,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1716,7 +1718,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1743,7 +1745,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1770,7 +1772,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have self-management enabled or an attached
-     * policy that explicitly grants permissions. For more information about user permissions, see <a
+     * policy that explicitly grants permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -1789,7 +1791,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have self-management enabled or an attached
-     * policy that explicitly grants permissions. For more information about user permissions, see <a
+     * policy that explicitly grants permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -1892,7 +1894,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1917,7 +1919,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1942,7 +1944,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1965,7 +1967,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -1993,7 +1995,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2016,7 +2018,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2044,7 +2046,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2066,7 +2068,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2094,7 +2096,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2115,7 +2117,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2140,7 +2142,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2160,7 +2162,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2190,7 +2192,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2217,7 +2219,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2244,7 +2246,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -2263,7 +2265,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -2292,7 +2294,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -2317,7 +2319,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </note>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or Manage permissions
-     * level for the stack, or an attached policy that explicitly grants permissions. For more information about user
+     * level for the stack, or an attached policy that explicitly grants permissions. For more information on user
      * permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
@@ -3231,13 +3233,13 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
 
     /**
      * <p>
-     * Unassigns a registered instance from all layers that are using the instance. The instance remains in the stack as
-     * an unassigned instance, and can be assigned to another layer as needed. You cannot use this action with instances
-     * that were created with AWS OpsWorks Stacks.
+     * Unassigns a registered instance from all of it's layers. The instance remains in the stack as an unassigned
+     * instance and can be assigned to another layer, as needed. You cannot use this action with instances that were
+     * created with AWS OpsWorks Stacks.
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions level for the stack
-     * or an attached policy that explicitly grants permissions. For more information about user permissions, see <a
+     * or an attached policy that explicitly grants permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -3252,13 +3254,13 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
 
     /**
      * <p>
-     * Unassigns a registered instance from all layers that are using the instance. The instance remains in the stack as
-     * an unassigned instance, and can be assigned to another layer as needed. You cannot use this action with instances
-     * that were created with AWS OpsWorks Stacks.
+     * Unassigns a registered instance from all of it's layers. The instance remains in the stack as an unassigned
+     * instance and can be assigned to another layer, as needed. You cannot use this action with instances that were
+     * created with AWS OpsWorks Stacks.
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions level for the stack
-     * or an attached policy that explicitly grants permissions. For more information about user permissions, see <a
+     * or an attached policy that explicitly grants permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -3532,7 +3534,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have self-management enabled or an attached
-     * policy that explicitly grants permissions. For more information about user permissions, see <a
+     * policy that explicitly grants permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -3551,7 +3553,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have self-management enabled or an attached
-     * policy that explicitly grants permissions. For more information about user permissions, see <a
+     * policy that explicitly grants permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -3661,7 +3663,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>
@@ -3680,7 +3682,7 @@ public interface AWSOpsWorksAsync extends AWSOpsWorks {
      * </p>
      * <p>
      * <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy that explicitly grants
-     * permissions. For more information about user permissions, see <a
+     * permissions. For more information on user permissions, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
      * Permissions</a>.
      * </p>

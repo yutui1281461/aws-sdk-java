@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -20,17 +20,16 @@ import com.amazonaws.Request;
 import com.amazonaws.services.ec2.model.transform.DeleteTagsRequestMarshaller;
 
 /**
- * 
+ * <p>
+ * Contains the parameters for DeleteTags.
+ * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class DeleteTagsRequest extends AmazonWebServiceRequest implements Serializable, Cloneable, DryRunSupportedRequest<DeleteTagsRequest> {
 
     /**
      * <p>
-     * The IDs of one or more resources, separated by spaces.
-     * </p>
-     * <p>
-     * Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+     * The IDs of one or more resources.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> resources;
@@ -59,9 +58,7 @@ public class DeleteTagsRequest extends AmazonWebServiceRequest implements Serial
      * initialize any additional object members.
      * 
      * @param resources
-     *        The IDs of one or more resources, separated by spaces.</p>
-     *        <p>
-     *        Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+     *        The IDs of one or more resources.
      */
     public DeleteTagsRequest(java.util.List<String> resources) {
         setResources(resources);
@@ -69,15 +66,10 @@ public class DeleteTagsRequest extends AmazonWebServiceRequest implements Serial
 
     /**
      * <p>
-     * The IDs of one or more resources, separated by spaces.
-     * </p>
-     * <p>
-     * Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+     * The IDs of one or more resources.
      * </p>
      * 
-     * @return The IDs of one or more resources, separated by spaces.</p>
-     *         <p>
-     *         Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+     * @return The IDs of one or more resources.
      */
 
     public java.util.List<String> getResources() {
@@ -89,16 +81,11 @@ public class DeleteTagsRequest extends AmazonWebServiceRequest implements Serial
 
     /**
      * <p>
-     * The IDs of one or more resources, separated by spaces.
-     * </p>
-     * <p>
-     * Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+     * The IDs of one or more resources.
      * </p>
      * 
      * @param resources
-     *        The IDs of one or more resources, separated by spaces.</p>
-     *        <p>
-     *        Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+     *        The IDs of one or more resources.
      */
 
     public void setResources(java.util.Collection<String> resources) {
@@ -112,10 +99,7 @@ public class DeleteTagsRequest extends AmazonWebServiceRequest implements Serial
 
     /**
      * <p>
-     * The IDs of one or more resources, separated by spaces.
-     * </p>
-     * <p>
-     * Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+     * The IDs of one or more resources.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -124,9 +108,7 @@ public class DeleteTagsRequest extends AmazonWebServiceRequest implements Serial
      * </p>
      * 
      * @param resources
-     *        The IDs of one or more resources, separated by spaces.</p>
-     *        <p>
-     *        Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+     *        The IDs of one or more resources.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -142,16 +124,11 @@ public class DeleteTagsRequest extends AmazonWebServiceRequest implements Serial
 
     /**
      * <p>
-     * The IDs of one or more resources, separated by spaces.
-     * </p>
-     * <p>
-     * Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+     * The IDs of one or more resources.
      * </p>
      * 
      * @param resources
-     *        The IDs of one or more resources, separated by spaces.</p>
-     *        <p>
-     *        Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+     *        The IDs of one or more resources.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -293,8 +270,7 @@ public class DeleteTagsRequest extends AmazonWebServiceRequest implements Serial
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

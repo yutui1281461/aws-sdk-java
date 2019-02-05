@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -66,11 +66,11 @@ public class GetDataSourceResultJsonUnmarshaller implements Unmarshaller<GetData
                 }
                 if (context.testExpression("CreatedAt", targetDepth)) {
                     context.nextToken();
-                    getDataSourceResult.setCreatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    getDataSourceResult.setCreatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("LastUpdatedAt", targetDepth)) {
                     context.nextToken();
-                    getDataSourceResult.setLastUpdatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    getDataSourceResult.setLastUpdatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("DataSizeInBytes", targetDepth)) {
                     context.nextToken();
@@ -118,11 +118,11 @@ public class GetDataSourceResultJsonUnmarshaller implements Unmarshaller<GetData
                 }
                 if (context.testExpression("FinishedAt", targetDepth)) {
                     context.nextToken();
-                    getDataSourceResult.setFinishedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    getDataSourceResult.setFinishedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("StartedAt", targetDepth)) {
                     context.nextToken();
-                    getDataSourceResult.setStartedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    getDataSourceResult.setStartedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("DataSourceSchema", targetDepth)) {
                     context.nextToken();

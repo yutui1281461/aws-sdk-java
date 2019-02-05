@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -17,7 +17,7 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * Describes an internet gateway.
+ * Describes an Internet gateway.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/InternetGateway" target="_top">AWS API
@@ -28,35 +28,29 @@ public class InternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Any VPCs attached to the internet gateway.
+     * Any VPCs attached to the Internet gateway.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<InternetGatewayAttachment> attachments;
     /**
      * <p>
-     * The ID of the internet gateway.
+     * The ID of the Internet gateway.
      * </p>
      */
     private String internetGatewayId;
     /**
      * <p>
-     * The ID of the AWS account that owns the internet gateway.
-     * </p>
-     */
-    private String ownerId;
-    /**
-     * <p>
-     * Any tags assigned to the internet gateway.
+     * Any tags assigned to the Internet gateway.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<Tag> tags;
 
     /**
      * <p>
-     * Any VPCs attached to the internet gateway.
+     * Any VPCs attached to the Internet gateway.
      * </p>
      * 
-     * @return Any VPCs attached to the internet gateway.
+     * @return Any VPCs attached to the Internet gateway.
      */
 
     public java.util.List<InternetGatewayAttachment> getAttachments() {
@@ -68,11 +62,11 @@ public class InternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Any VPCs attached to the internet gateway.
+     * Any VPCs attached to the Internet gateway.
      * </p>
      * 
      * @param attachments
-     *        Any VPCs attached to the internet gateway.
+     *        Any VPCs attached to the Internet gateway.
      */
 
     public void setAttachments(java.util.Collection<InternetGatewayAttachment> attachments) {
@@ -86,7 +80,7 @@ public class InternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Any VPCs attached to the internet gateway.
+     * Any VPCs attached to the Internet gateway.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -95,7 +89,7 @@ public class InternetGateway implements Serializable, Cloneable {
      * </p>
      * 
      * @param attachments
-     *        Any VPCs attached to the internet gateway.
+     *        Any VPCs attached to the Internet gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -111,11 +105,11 @@ public class InternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Any VPCs attached to the internet gateway.
+     * Any VPCs attached to the Internet gateway.
      * </p>
      * 
      * @param attachments
-     *        Any VPCs attached to the internet gateway.
+     *        Any VPCs attached to the Internet gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -126,11 +120,11 @@ public class InternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the internet gateway.
+     * The ID of the Internet gateway.
      * </p>
      * 
      * @param internetGatewayId
-     *        The ID of the internet gateway.
+     *        The ID of the Internet gateway.
      */
 
     public void setInternetGatewayId(String internetGatewayId) {
@@ -139,10 +133,10 @@ public class InternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the internet gateway.
+     * The ID of the Internet gateway.
      * </p>
      * 
-     * @return The ID of the internet gateway.
+     * @return The ID of the Internet gateway.
      */
 
     public String getInternetGatewayId() {
@@ -151,11 +145,11 @@ public class InternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the internet gateway.
+     * The ID of the Internet gateway.
      * </p>
      * 
      * @param internetGatewayId
-     *        The ID of the internet gateway.
+     *        The ID of the Internet gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -166,50 +160,10 @@ public class InternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the AWS account that owns the internet gateway.
+     * Any tags assigned to the Internet gateway.
      * </p>
      * 
-     * @param ownerId
-     *        The ID of the AWS account that owns the internet gateway.
-     */
-
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    /**
-     * <p>
-     * The ID of the AWS account that owns the internet gateway.
-     * </p>
-     * 
-     * @return The ID of the AWS account that owns the internet gateway.
-     */
-
-    public String getOwnerId() {
-        return this.ownerId;
-    }
-
-    /**
-     * <p>
-     * The ID of the AWS account that owns the internet gateway.
-     * </p>
-     * 
-     * @param ownerId
-     *        The ID of the AWS account that owns the internet gateway.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public InternetGateway withOwnerId(String ownerId) {
-        setOwnerId(ownerId);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Any tags assigned to the internet gateway.
-     * </p>
-     * 
-     * @return Any tags assigned to the internet gateway.
+     * @return Any tags assigned to the Internet gateway.
      */
 
     public java.util.List<Tag> getTags() {
@@ -221,11 +175,11 @@ public class InternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Any tags assigned to the internet gateway.
+     * Any tags assigned to the Internet gateway.
      * </p>
      * 
      * @param tags
-     *        Any tags assigned to the internet gateway.
+     *        Any tags assigned to the Internet gateway.
      */
 
     public void setTags(java.util.Collection<Tag> tags) {
@@ -239,7 +193,7 @@ public class InternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Any tags assigned to the internet gateway.
+     * Any tags assigned to the Internet gateway.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -248,7 +202,7 @@ public class InternetGateway implements Serializable, Cloneable {
      * </p>
      * 
      * @param tags
-     *        Any tags assigned to the internet gateway.
+     *        Any tags assigned to the Internet gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -264,11 +218,11 @@ public class InternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Any tags assigned to the internet gateway.
+     * Any tags assigned to the Internet gateway.
      * </p>
      * 
      * @param tags
-     *        Any tags assigned to the internet gateway.
+     *        Any tags assigned to the Internet gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -278,8 +232,7 @@ public class InternetGateway implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -293,8 +246,6 @@ public class InternetGateway implements Serializable, Cloneable {
             sb.append("Attachments: ").append(getAttachments()).append(",");
         if (getInternetGatewayId() != null)
             sb.append("InternetGatewayId: ").append(getInternetGatewayId()).append(",");
-        if (getOwnerId() != null)
-            sb.append("OwnerId: ").append(getOwnerId()).append(",");
         if (getTags() != null)
             sb.append("Tags: ").append(getTags());
         sb.append("}");
@@ -319,10 +270,6 @@ public class InternetGateway implements Serializable, Cloneable {
             return false;
         if (other.getInternetGatewayId() != null && other.getInternetGatewayId().equals(this.getInternetGatewayId()) == false)
             return false;
-        if (other.getOwnerId() == null ^ this.getOwnerId() == null)
-            return false;
-        if (other.getOwnerId() != null && other.getOwnerId().equals(this.getOwnerId()) == false)
-            return false;
         if (other.getTags() == null ^ this.getTags() == null)
             return false;
         if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
@@ -337,7 +284,6 @@ public class InternetGateway implements Serializable, Cloneable {
 
         hashCode = prime * hashCode + ((getAttachments() == null) ? 0 : getAttachments().hashCode());
         hashCode = prime * hashCode + ((getInternetGatewayId() == null) ? 0 : getInternetGatewayId().hashCode());
-        hashCode = prime * hashCode + ((getOwnerId() == null) ? 0 : getOwnerId().hashCode());
         hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         return hashCode;
     }

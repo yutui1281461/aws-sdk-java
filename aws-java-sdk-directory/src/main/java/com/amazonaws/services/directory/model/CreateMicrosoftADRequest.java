@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.AmazonWebServiceRequest;
 
 /**
  * <p>
- * Creates an AWS Managed Microsoft AD directory.
+ * Creates a Microsoft AD in the AWS cloud.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ds-2015-04-16/CreateMicrosoftAD" target="_top">AWS API
@@ -64,7 +64,7 @@ public class CreateMicrosoftADRequest extends com.amazonaws.AmazonWebServiceRequ
     private DirectoryVpcSettings vpcSettings;
     /**
      * <p>
-     * AWS Managed Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
+     * AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
      * </p>
      */
     private String edition;
@@ -295,11 +295,11 @@ public class CreateMicrosoftADRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * AWS Managed Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
+     * AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
      * </p>
      * 
      * @param edition
-     *        AWS Managed Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
+     *        AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
      * @see DirectoryEdition
      */
 
@@ -309,11 +309,10 @@ public class CreateMicrosoftADRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * AWS Managed Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
+     * AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
      * </p>
      * 
-     * @return AWS Managed Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the
-     *         default.
+     * @return AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
      * @see DirectoryEdition
      */
 
@@ -323,11 +322,11 @@ public class CreateMicrosoftADRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * AWS Managed Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
+     * AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
      * </p>
      * 
      * @param edition
-     *        AWS Managed Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
+     *        AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DirectoryEdition
      */
@@ -339,11 +338,11 @@ public class CreateMicrosoftADRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * AWS Managed Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
+     * AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
      * </p>
      * 
      * @param edition
-     *        AWS Managed Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
+     *        AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DirectoryEdition
      */
@@ -354,8 +353,7 @@ public class CreateMicrosoftADRequest extends com.amazonaws.AmazonWebServiceRequ
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -370,7 +368,7 @@ public class CreateMicrosoftADRequest extends com.amazonaws.AmazonWebServiceRequ
         if (getShortName() != null)
             sb.append("ShortName: ").append(getShortName()).append(",");
         if (getPassword() != null)
-            sb.append("Password: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("Password: ").append(getPassword()).append(",");
         if (getDescription() != null)
             sb.append("Description: ").append(getDescription()).append(",");
         if (getVpcSettings() != null)

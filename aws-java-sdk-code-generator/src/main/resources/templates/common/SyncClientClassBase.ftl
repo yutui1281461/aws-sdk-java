@@ -14,8 +14,6 @@ import javax.annotation.Generated;
 
 import org.apache.commons.logging.*;
 
-import com.amazonaws.cache.EndpointDiscoveryRefreshCache;
-import ${metadata.packageName}.endpointdiscovery.${metadata.syncInterface}EndpointCache;
 import com.amazonaws.*;
 import com.amazonaws.annotation.SdkInternalApi;
 import com.amazonaws.auth.*;
@@ -32,8 +30,6 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
-import com.amazonaws.client.builder.AdvancedConfig;
-import com.amazonaws.cache.EndpointDiscoveryCache;
 import ${metadata.packageName}.${metadata.syncClientBuilderClassName};
 <#if hasWaiters>
 import ${metadata.packageName}.waiters.${metadata.syncInterface}Waiters;
@@ -66,12 +62,6 @@ public class ${metadata.syncClient} extends AmazonWebServiceClient implements ${
         AwsSdkMetrics.addAll(Arrays.asList(${customizationConfig.requestMetrics}.values()));
     }
 </#if>
-
-<#if endpointOperation?has_content>
-    protected ${metadata.syncInterface}EndpointCache cache;
-
-    private final boolean endpointDiscoveryEnabled;
- </#if>
     /** Provider for AWS credentials. */
     private final AWSCredentialsProvider awsCredentialsProvider;
 
@@ -86,8 +76,6 @@ public class ${metadata.syncClient} extends AmazonWebServiceClient implements ${
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ${clientConfigFactory} configFactory = new ${clientConfigFactory}();
-
-    private final AdvancedConfig advancedConfig;
 
     <@AdditionalSyncClientFieldsMacro.content .data_model />
 
@@ -178,11 +166,7 @@ public class ${metadata.syncClient} extends AmazonWebServiceClient implements ${
     @Deprecated
     public ${metadata.syncClient}(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
-        <#if endpointOperation?has_content>
-        this.endpointDiscoveryEnabled = false;
-        </#if>
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -253,10 +237,6 @@ public class ${metadata.syncClient} extends AmazonWebServiceClient implements ${
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
-        <#if endpointOperation?has_content>
-        this.endpointDiscoveryEnabled = false;
-        </#if>
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 </#if>
@@ -276,26 +256,8 @@ public class ${metadata.syncClient} extends AmazonWebServiceClient implements ${
      * @param clientParams Object providing client parameters.
      */
     ${metadata.syncClient}(AwsSyncClientParams clientParams) {
-        this(clientParams, false);
-    }
-
-    /**
-     * Constructs a new client to invoke service methods on
-     * ${serviceAbbreviation} using the specified parameters.
-     *
-     * <p>
-     * All service calls made using this new client object are blocking, and will not
-     * return until the service call completes.
-     *
-     * @param clientParams Object providing client parameters.
-     */
-    ${metadata.syncClient}(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        <#if endpointOperation?has_content>
-        this.endpointDiscoveryEnabled = endpointDiscoveryEnabled;
-        </#if>
-        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -363,21 +325,10 @@ public class ${metadata.syncClient} extends AmazonWebServiceClient implements ${
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null, null);
-    }
-
-    /**
-     * Normal invoke with authentication. Credentials are required and may be overriden at the
-     * request level.
-     **/
-    private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request,
-            HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
-
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider
             (request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -388,7 +339,7 @@ public class ${metadata.syncClient} extends AmazonWebServiceClient implements ${
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null, null);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -397,19 +348,8 @@ public class ${metadata.syncClient} extends AmazonWebServiceClient implements ${
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext,
-            URI discoveredEndpoint,
-            URI uriFromEndpointTrait) {
-
-        if (discoveredEndpoint != null) {
-            request.setEndpoint(discoveredEndpoint);
-            request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
-        } else if (uriFromEndpointTrait != null) {
-            request.setEndpoint(uriFromEndpointTrait);
-        } else {
-            request.setEndpoint(endpoint);
-        }
-
+            ExecutionContext executionContext) {
+        request.setEndpoint(endpoint);
         request.setTimeOffset(timeOffset);
 
         <@ClientInvokeMethodErrorResponseHandlerCreation.content metadata customizationConfig />
@@ -444,11 +384,6 @@ public class ${metadata.syncClient} extends AmazonWebServiceClient implements ${
         if (waiters != null) {
             waiters.shutdown();
         }
-        <#if endpointOperation?has_content>
-        if (cache != null) {
-            cache.shutdown();
-        }
-        </#if>
     }
     </#if>
 

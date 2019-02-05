@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -20,7 +20,9 @@ import com.amazonaws.Request;
 import com.amazonaws.services.ec2.model.transform.AllocateHostsRequestMarshaller;
 
 /**
- * 
+ * <p>
+ * Contains the parameters for AllocateHosts.
+ * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class AllocateHostsRequest extends AmazonWebServiceRequest implements Serializable, Cloneable, DryRunSupportedRequest<AllocateHostsRequest> {
@@ -43,31 +45,25 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
     private String availabilityZone;
     /**
      * <p>
-     * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
-     * information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+     * Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      */
     private String clientToken;
     /**
      * <p>
-     * Specify the instance type for which to configure your Dedicated Hosts. When you specify the instance type, that
-     * is the only instance type that you can launch onto that host.
+     * Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the instance
+     * type, that is the only instance type that you can launch onto that host.
      * </p>
      */
     private String instanceType;
     /**
      * <p>
-     * The number of Dedicated Hosts to allocate to your account with these parameters.
+     * The number of Dedicated Hosts you want to allocate to your account with these parameters.
      * </p>
      */
     private Integer quantity;
-    /**
-     * <p>
-     * The tags to apply to the Dedicated Host during creation.
-     * </p>
-     */
-    private com.amazonaws.internal.SdkInternalList<TagSpecification> tagSpecifications;
 
     /**
      * <p>
@@ -219,16 +215,15 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
 
     /**
      * <p>
-     * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
-     * information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+     * Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * 
      * @param clientToken
-     *        Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
-     *        information, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-     *        Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     *        Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information,
+     *        see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to
+     *        Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      */
 
     public void setClientToken(String clientToken) {
@@ -237,15 +232,14 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
 
     /**
      * <p>
-     * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
-     * information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+     * Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * 
-     * @return Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
-     *         information, see <a
-     *         href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-     *         Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * @return Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information,
+     *         see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to
+     *         Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      */
 
     public String getClientToken() {
@@ -254,16 +248,15 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
 
     /**
      * <p>
-     * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
-     * information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+     * Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * 
      * @param clientToken
-     *        Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
-     *        information, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-     *        Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     *        Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information,
+     *        see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to
+     *        Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -274,13 +267,13 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
 
     /**
      * <p>
-     * Specify the instance type for which to configure your Dedicated Hosts. When you specify the instance type, that
-     * is the only instance type that you can launch onto that host.
+     * Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the instance
+     * type, that is the only instance type that you can launch onto that host.
      * </p>
      * 
      * @param instanceType
-     *        Specify the instance type for which to configure your Dedicated Hosts. When you specify the instance type,
-     *        that is the only instance type that you can launch onto that host.
+     *        Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the
+     *        instance type, that is the only instance type that you can launch onto that host.
      */
 
     public void setInstanceType(String instanceType) {
@@ -289,12 +282,12 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
 
     /**
      * <p>
-     * Specify the instance type for which to configure your Dedicated Hosts. When you specify the instance type, that
-     * is the only instance type that you can launch onto that host.
+     * Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the instance
+     * type, that is the only instance type that you can launch onto that host.
      * </p>
      * 
-     * @return Specify the instance type for which to configure your Dedicated Hosts. When you specify the instance
-     *         type, that is the only instance type that you can launch onto that host.
+     * @return Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the
+     *         instance type, that is the only instance type that you can launch onto that host.
      */
 
     public String getInstanceType() {
@@ -303,13 +296,13 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
 
     /**
      * <p>
-     * Specify the instance type for which to configure your Dedicated Hosts. When you specify the instance type, that
-     * is the only instance type that you can launch onto that host.
+     * Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the instance
+     * type, that is the only instance type that you can launch onto that host.
      * </p>
      * 
      * @param instanceType
-     *        Specify the instance type for which to configure your Dedicated Hosts. When you specify the instance type,
-     *        that is the only instance type that you can launch onto that host.
+     *        Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the
+     *        instance type, that is the only instance type that you can launch onto that host.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -320,11 +313,11 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
 
     /**
      * <p>
-     * The number of Dedicated Hosts to allocate to your account with these parameters.
+     * The number of Dedicated Hosts you want to allocate to your account with these parameters.
      * </p>
      * 
      * @param quantity
-     *        The number of Dedicated Hosts to allocate to your account with these parameters.
+     *        The number of Dedicated Hosts you want to allocate to your account with these parameters.
      */
 
     public void setQuantity(Integer quantity) {
@@ -333,10 +326,10 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
 
     /**
      * <p>
-     * The number of Dedicated Hosts to allocate to your account with these parameters.
+     * The number of Dedicated Hosts you want to allocate to your account with these parameters.
      * </p>
      * 
-     * @return The number of Dedicated Hosts to allocate to your account with these parameters.
+     * @return The number of Dedicated Hosts you want to allocate to your account with these parameters.
      */
 
     public Integer getQuantity() {
@@ -345,89 +338,16 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
 
     /**
      * <p>
-     * The number of Dedicated Hosts to allocate to your account with these parameters.
+     * The number of Dedicated Hosts you want to allocate to your account with these parameters.
      * </p>
      * 
      * @param quantity
-     *        The number of Dedicated Hosts to allocate to your account with these parameters.
+     *        The number of Dedicated Hosts you want to allocate to your account with these parameters.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
     public AllocateHostsRequest withQuantity(Integer quantity) {
         setQuantity(quantity);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The tags to apply to the Dedicated Host during creation.
-     * </p>
-     * 
-     * @return The tags to apply to the Dedicated Host during creation.
-     */
-
-    public java.util.List<TagSpecification> getTagSpecifications() {
-        if (tagSpecifications == null) {
-            tagSpecifications = new com.amazonaws.internal.SdkInternalList<TagSpecification>();
-        }
-        return tagSpecifications;
-    }
-
-    /**
-     * <p>
-     * The tags to apply to the Dedicated Host during creation.
-     * </p>
-     * 
-     * @param tagSpecifications
-     *        The tags to apply to the Dedicated Host during creation.
-     */
-
-    public void setTagSpecifications(java.util.Collection<TagSpecification> tagSpecifications) {
-        if (tagSpecifications == null) {
-            this.tagSpecifications = null;
-            return;
-        }
-
-        this.tagSpecifications = new com.amazonaws.internal.SdkInternalList<TagSpecification>(tagSpecifications);
-    }
-
-    /**
-     * <p>
-     * The tags to apply to the Dedicated Host during creation.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setTagSpecifications(java.util.Collection)} or {@link #withTagSpecifications(java.util.Collection)} if
-     * you want to override the existing values.
-     * </p>
-     * 
-     * @param tagSpecifications
-     *        The tags to apply to the Dedicated Host during creation.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public AllocateHostsRequest withTagSpecifications(TagSpecification... tagSpecifications) {
-        if (this.tagSpecifications == null) {
-            setTagSpecifications(new com.amazonaws.internal.SdkInternalList<TagSpecification>(tagSpecifications.length));
-        }
-        for (TagSpecification ele : tagSpecifications) {
-            this.tagSpecifications.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * The tags to apply to the Dedicated Host during creation.
-     * </p>
-     * 
-     * @param tagSpecifications
-     *        The tags to apply to the Dedicated Host during creation.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public AllocateHostsRequest withTagSpecifications(java.util.Collection<TagSpecification> tagSpecifications) {
-        setTagSpecifications(tagSpecifications);
         return this;
     }
 
@@ -443,8 +363,7 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -463,9 +382,7 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
         if (getInstanceType() != null)
             sb.append("InstanceType: ").append(getInstanceType()).append(",");
         if (getQuantity() != null)
-            sb.append("Quantity: ").append(getQuantity()).append(",");
-        if (getTagSpecifications() != null)
-            sb.append("TagSpecifications: ").append(getTagSpecifications());
+            sb.append("Quantity: ").append(getQuantity());
         sb.append("}");
         return sb.toString();
     }
@@ -500,10 +417,6 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
             return false;
         if (other.getQuantity() != null && other.getQuantity().equals(this.getQuantity()) == false)
             return false;
-        if (other.getTagSpecifications() == null ^ this.getTagSpecifications() == null)
-            return false;
-        if (other.getTagSpecifications() != null && other.getTagSpecifications().equals(this.getTagSpecifications()) == false)
-            return false;
         return true;
     }
 
@@ -517,7 +430,6 @@ public class AllocateHostsRequest extends AmazonWebServiceRequest implements Ser
         hashCode = prime * hashCode + ((getClientToken() == null) ? 0 : getClientToken().hashCode());
         hashCode = prime * hashCode + ((getInstanceType() == null) ? 0 : getInstanceType().hashCode());
         hashCode = prime * hashCode + ((getQuantity() == null) ? 0 : getQuantity().hashCode());
-        hashCode = prime * hashCode + ((getTagSpecifications() == null) ? 0 : getTagSpecifications().hashCode());
         return hashCode;
     }
 

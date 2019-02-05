@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -17,7 +17,7 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * A list of Lambda functions.
+ * Contains a list of AWS Lambda function configurations (see <a>FunctionConfiguration</a>.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListFunctions" target="_top">AWS API
@@ -28,7 +28,7 @@ public class ListFunctionsResult extends com.amazonaws.AmazonWebServiceResult<co
 
     /**
      * <p>
-     * Pagination token included if more results are available.
+     * A string, present if there are more functions.
      * </p>
      */
     private String nextMarker;
@@ -41,11 +41,11 @@ public class ListFunctionsResult extends com.amazonaws.AmazonWebServiceResult<co
 
     /**
      * <p>
-     * Pagination token included if more results are available.
+     * A string, present if there are more functions.
      * </p>
      * 
      * @param nextMarker
-     *        Pagination token included if more results are available.
+     *        A string, present if there are more functions.
      */
 
     public void setNextMarker(String nextMarker) {
@@ -54,10 +54,10 @@ public class ListFunctionsResult extends com.amazonaws.AmazonWebServiceResult<co
 
     /**
      * <p>
-     * Pagination token included if more results are available.
+     * A string, present if there are more functions.
      * </p>
      * 
-     * @return Pagination token included if more results are available.
+     * @return A string, present if there are more functions.
      */
 
     public String getNextMarker() {
@@ -66,11 +66,11 @@ public class ListFunctionsResult extends com.amazonaws.AmazonWebServiceResult<co
 
     /**
      * <p>
-     * Pagination token included if more results are available.
+     * A string, present if there are more functions.
      * </p>
      * 
      * @param nextMarker
-     *        Pagination token included if more results are available.
+     *        A string, present if there are more functions.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -153,8 +153,7 @@ public class ListFunctionsResult extends com.amazonaws.AmazonWebServiceResult<co
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

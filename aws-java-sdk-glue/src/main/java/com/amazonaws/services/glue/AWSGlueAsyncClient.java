@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -558,39 +558,6 @@ public class AWSGlueAsyncClient extends AWSGlueClient implements AWSGlueAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<CreateSecurityConfigurationResult> createSecurityConfigurationAsync(CreateSecurityConfigurationRequest request) {
-
-        return createSecurityConfigurationAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<CreateSecurityConfigurationResult> createSecurityConfigurationAsync(final CreateSecurityConfigurationRequest request,
-            final com.amazonaws.handlers.AsyncHandler<CreateSecurityConfigurationRequest, CreateSecurityConfigurationResult> asyncHandler) {
-        final CreateSecurityConfigurationRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<CreateSecurityConfigurationResult>() {
-            @Override
-            public CreateSecurityConfigurationResult call() throws Exception {
-                CreateSecurityConfigurationResult result = null;
-
-                try {
-                    result = executeCreateSecurityConfiguration(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
     public java.util.concurrent.Future<CreateTableResult> createTableAsync(CreateTableRequest request) {
 
         return createTableAsync(request, null);
@@ -905,72 +872,6 @@ public class AWSGlueAsyncClient extends AWSGlueClient implements AWSGlueAsync {
 
                 try {
                     result = executeDeletePartition(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
-    public java.util.concurrent.Future<DeleteResourcePolicyResult> deleteResourcePolicyAsync(DeleteResourcePolicyRequest request) {
-
-        return deleteResourcePolicyAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<DeleteResourcePolicyResult> deleteResourcePolicyAsync(final DeleteResourcePolicyRequest request,
-            final com.amazonaws.handlers.AsyncHandler<DeleteResourcePolicyRequest, DeleteResourcePolicyResult> asyncHandler) {
-        final DeleteResourcePolicyRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<DeleteResourcePolicyResult>() {
-            @Override
-            public DeleteResourcePolicyResult call() throws Exception {
-                DeleteResourcePolicyResult result = null;
-
-                try {
-                    result = executeDeleteResourcePolicy(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
-    public java.util.concurrent.Future<DeleteSecurityConfigurationResult> deleteSecurityConfigurationAsync(DeleteSecurityConfigurationRequest request) {
-
-        return deleteSecurityConfigurationAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<DeleteSecurityConfigurationResult> deleteSecurityConfigurationAsync(final DeleteSecurityConfigurationRequest request,
-            final com.amazonaws.handlers.AsyncHandler<DeleteSecurityConfigurationRequest, DeleteSecurityConfigurationResult> asyncHandler) {
-        final DeleteSecurityConfigurationRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<DeleteSecurityConfigurationResult>() {
-            @Override
-            public DeleteSecurityConfigurationResult call() throws Exception {
-                DeleteSecurityConfigurationResult result = null;
-
-                try {
-                    result = executeDeleteSecurityConfiguration(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);
@@ -1367,41 +1268,6 @@ public class AWSGlueAsyncClient extends AWSGlueClient implements AWSGlueAsync {
 
                 try {
                     result = executeGetCrawlers(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettingsAsync(
-            GetDataCatalogEncryptionSettingsRequest request) {
-
-        return getDataCatalogEncryptionSettingsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettingsAsync(
-            final GetDataCatalogEncryptionSettingsRequest request,
-            final com.amazonaws.handlers.AsyncHandler<GetDataCatalogEncryptionSettingsRequest, GetDataCatalogEncryptionSettingsResult> asyncHandler) {
-        final GetDataCatalogEncryptionSettingsRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<GetDataCatalogEncryptionSettingsResult>() {
-            @Override
-            public GetDataCatalogEncryptionSettingsResult call() throws Exception {
-                GetDataCatalogEncryptionSettingsResult result = null;
-
-                try {
-                    result = executeGetDataCatalogEncryptionSettings(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);
@@ -1847,105 +1713,6 @@ public class AWSGlueAsyncClient extends AWSGlueClient implements AWSGlueAsync {
     }
 
     @Override
-    public java.util.concurrent.Future<GetResourcePolicyResult> getResourcePolicyAsync(GetResourcePolicyRequest request) {
-
-        return getResourcePolicyAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetResourcePolicyResult> getResourcePolicyAsync(final GetResourcePolicyRequest request,
-            final com.amazonaws.handlers.AsyncHandler<GetResourcePolicyRequest, GetResourcePolicyResult> asyncHandler) {
-        final GetResourcePolicyRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<GetResourcePolicyResult>() {
-            @Override
-            public GetResourcePolicyResult call() throws Exception {
-                GetResourcePolicyResult result = null;
-
-                try {
-                    result = executeGetResourcePolicy(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetSecurityConfigurationResult> getSecurityConfigurationAsync(GetSecurityConfigurationRequest request) {
-
-        return getSecurityConfigurationAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetSecurityConfigurationResult> getSecurityConfigurationAsync(final GetSecurityConfigurationRequest request,
-            final com.amazonaws.handlers.AsyncHandler<GetSecurityConfigurationRequest, GetSecurityConfigurationResult> asyncHandler) {
-        final GetSecurityConfigurationRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<GetSecurityConfigurationResult>() {
-            @Override
-            public GetSecurityConfigurationResult call() throws Exception {
-                GetSecurityConfigurationResult result = null;
-
-                try {
-                    result = executeGetSecurityConfiguration(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetSecurityConfigurationsResult> getSecurityConfigurationsAsync(GetSecurityConfigurationsRequest request) {
-
-        return getSecurityConfigurationsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetSecurityConfigurationsResult> getSecurityConfigurationsAsync(final GetSecurityConfigurationsRequest request,
-            final com.amazonaws.handlers.AsyncHandler<GetSecurityConfigurationsRequest, GetSecurityConfigurationsResult> asyncHandler) {
-        final GetSecurityConfigurationsRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<GetSecurityConfigurationsResult>() {
-            @Override
-            public GetSecurityConfigurationsResult call() throws Exception {
-                GetSecurityConfigurationsResult result = null;
-
-                try {
-                    result = executeGetSecurityConfigurations(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
     public java.util.concurrent.Future<GetTableResult> getTableAsync(GetTableRequest request) {
 
         return getTableAsync(request, null);
@@ -2227,74 +1994,6 @@ public class AWSGlueAsyncClient extends AWSGlueClient implements AWSGlueAsync {
 
                 try {
                     result = executeImportCatalogToGlue(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
-    public java.util.concurrent.Future<PutDataCatalogEncryptionSettingsResult> putDataCatalogEncryptionSettingsAsync(
-            PutDataCatalogEncryptionSettingsRequest request) {
-
-        return putDataCatalogEncryptionSettingsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<PutDataCatalogEncryptionSettingsResult> putDataCatalogEncryptionSettingsAsync(
-            final PutDataCatalogEncryptionSettingsRequest request,
-            final com.amazonaws.handlers.AsyncHandler<PutDataCatalogEncryptionSettingsRequest, PutDataCatalogEncryptionSettingsResult> asyncHandler) {
-        final PutDataCatalogEncryptionSettingsRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<PutDataCatalogEncryptionSettingsResult>() {
-            @Override
-            public PutDataCatalogEncryptionSettingsResult call() throws Exception {
-                PutDataCatalogEncryptionSettingsResult result = null;
-
-                try {
-                    result = executePutDataCatalogEncryptionSettings(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
-    public java.util.concurrent.Future<PutResourcePolicyResult> putResourcePolicyAsync(PutResourcePolicyRequest request) {
-
-        return putResourcePolicyAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<PutResourcePolicyResult> putResourcePolicyAsync(final PutResourcePolicyRequest request,
-            final com.amazonaws.handlers.AsyncHandler<PutResourcePolicyRequest, PutResourcePolicyResult> asyncHandler) {
-        final PutResourcePolicyRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<PutResourcePolicyResult>() {
-            @Override
-            public PutResourcePolicyResult call() throws Exception {
-                PutResourcePolicyResult result = null;
-
-                try {
-                    result = executePutResourcePolicy(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);

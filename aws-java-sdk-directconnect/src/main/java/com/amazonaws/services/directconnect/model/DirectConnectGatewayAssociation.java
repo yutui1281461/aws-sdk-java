@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Information about an association between a Direct Connect gateway and a virtual private gateway.
+ * The association between a direct connect gateway and virtual private gateway.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DirectConnectGatewayAssociation"
@@ -28,74 +28,24 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class DirectConnectGatewayAssociation implements Serializable, Cloneable, StructuredPojo {
 
-    /**
-     * <p>
-     * The ID of the Direct Connect gateway.
-     * </p>
-     */
     private String directConnectGatewayId;
-    /**
-     * <p>
-     * The ID of the virtual private gateway. Applies only to private virtual interfaces.
-     * </p>
-     */
+
     private String virtualGatewayId;
-    /**
-     * <p>
-     * The AWS Region where the virtual private gateway is located.
-     * </p>
-     */
+
     private String virtualGatewayRegion;
     /**
      * <p>
-     * The ID of the AWS account that owns the virtual private gateway.
+     * The AWS account ID of the owner of the virtual private gateway.
      * </p>
      */
     private String virtualGatewayOwnerAccount;
-    /**
-     * <p>
-     * The state of the association. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>associating</code>: The initial state after calling <a>CreateDirectConnectGatewayAssociation</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>associated</code>: The Direct Connect gateway and virtual private gateway are successfully associated and
-     * ready to pass traffic.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>disassociating</code>: The initial state after calling <a>DeleteDirectConnectGatewayAssociation</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>disassociated</code>: The virtual private gateway is disassociated from the Direct Connect gateway. Traffic
-     * flow between the Direct Connect gateway and virtual private gateway is stopped.
-     * </p>
-     * </li>
-     * </ul>
-     */
+
     private String associationState;
-    /**
-     * <p>
-     * The error message if the state of an object failed to advance.
-     * </p>
-     */
+
     private String stateChangeError;
 
     /**
-     * <p>
-     * The ID of the Direct Connect gateway.
-     * </p>
-     * 
      * @param directConnectGatewayId
-     *        The ID of the Direct Connect gateway.
      */
 
     public void setDirectConnectGatewayId(String directConnectGatewayId) {
@@ -103,11 +53,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The ID of the Direct Connect gateway.
-     * </p>
-     * 
-     * @return The ID of the Direct Connect gateway.
+     * @return
      */
 
     public String getDirectConnectGatewayId() {
@@ -115,12 +61,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The ID of the Direct Connect gateway.
-     * </p>
-     * 
      * @param directConnectGatewayId
-     *        The ID of the Direct Connect gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -130,12 +71,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The ID of the virtual private gateway. Applies only to private virtual interfaces.
-     * </p>
-     * 
      * @param virtualGatewayId
-     *        The ID of the virtual private gateway. Applies only to private virtual interfaces.
      */
 
     public void setVirtualGatewayId(String virtualGatewayId) {
@@ -143,11 +79,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The ID of the virtual private gateway. Applies only to private virtual interfaces.
-     * </p>
-     * 
-     * @return The ID of the virtual private gateway. Applies only to private virtual interfaces.
+     * @return
      */
 
     public String getVirtualGatewayId() {
@@ -155,12 +87,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The ID of the virtual private gateway. Applies only to private virtual interfaces.
-     * </p>
-     * 
      * @param virtualGatewayId
-     *        The ID of the virtual private gateway. Applies only to private virtual interfaces.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -170,12 +97,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The AWS Region where the virtual private gateway is located.
-     * </p>
-     * 
      * @param virtualGatewayRegion
-     *        The AWS Region where the virtual private gateway is located.
      */
 
     public void setVirtualGatewayRegion(String virtualGatewayRegion) {
@@ -183,11 +105,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The AWS Region where the virtual private gateway is located.
-     * </p>
-     * 
-     * @return The AWS Region where the virtual private gateway is located.
+     * @return
      */
 
     public String getVirtualGatewayRegion() {
@@ -195,12 +113,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The AWS Region where the virtual private gateway is located.
-     * </p>
-     * 
      * @param virtualGatewayRegion
-     *        The AWS Region where the virtual private gateway is located.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -211,11 +124,11 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
 
     /**
      * <p>
-     * The ID of the AWS account that owns the virtual private gateway.
+     * The AWS account ID of the owner of the virtual private gateway.
      * </p>
      * 
      * @param virtualGatewayOwnerAccount
-     *        The ID of the AWS account that owns the virtual private gateway.
+     *        The AWS account ID of the owner of the virtual private gateway.
      */
 
     public void setVirtualGatewayOwnerAccount(String virtualGatewayOwnerAccount) {
@@ -224,10 +137,10 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
 
     /**
      * <p>
-     * The ID of the AWS account that owns the virtual private gateway.
+     * The AWS account ID of the owner of the virtual private gateway.
      * </p>
      * 
-     * @return The ID of the AWS account that owns the virtual private gateway.
+     * @return The AWS account ID of the owner of the virtual private gateway.
      */
 
     public String getVirtualGatewayOwnerAccount() {
@@ -236,11 +149,11 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
 
     /**
      * <p>
-     * The ID of the AWS account that owns the virtual private gateway.
+     * The AWS account ID of the owner of the virtual private gateway.
      * </p>
      * 
      * @param virtualGatewayOwnerAccount
-     *        The ID of the AWS account that owns the virtual private gateway.
+     *        The AWS account ID of the owner of the virtual private gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -250,59 +163,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The state of the association. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>associating</code>: The initial state after calling <a>CreateDirectConnectGatewayAssociation</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>associated</code>: The Direct Connect gateway and virtual private gateway are successfully associated and
-     * ready to pass traffic.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>disassociating</code>: The initial state after calling <a>DeleteDirectConnectGatewayAssociation</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>disassociated</code>: The virtual private gateway is disassociated from the Direct Connect gateway. Traffic
-     * flow between the Direct Connect gateway and virtual private gateway is stopped.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param associationState
-     *        The state of the association. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>associating</code>: The initial state after calling <a>CreateDirectConnectGatewayAssociation</a>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>associated</code>: The Direct Connect gateway and virtual private gateway are successfully
-     *        associated and ready to pass traffic.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>disassociating</code>: The initial state after calling <a>DeleteDirectConnectGatewayAssociation</a>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>disassociated</code>: The virtual private gateway is disassociated from the Direct Connect gateway.
-     *        Traffic flow between the Direct Connect gateway and virtual private gateway is stopped.
-     *        </p>
-     *        </li>
      * @see DirectConnectGatewayAssociationState
      */
 
@@ -311,59 +172,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The state of the association. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>associating</code>: The initial state after calling <a>CreateDirectConnectGatewayAssociation</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>associated</code>: The Direct Connect gateway and virtual private gateway are successfully associated and
-     * ready to pass traffic.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>disassociating</code>: The initial state after calling <a>DeleteDirectConnectGatewayAssociation</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>disassociated</code>: The virtual private gateway is disassociated from the Direct Connect gateway. Traffic
-     * flow between the Direct Connect gateway and virtual private gateway is stopped.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @return The state of the association. The following are the possible values:</p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         <code>associating</code>: The initial state after calling <a>CreateDirectConnectGatewayAssociation</a>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>associated</code>: The Direct Connect gateway and virtual private gateway are successfully
-     *         associated and ready to pass traffic.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>disassociating</code>: The initial state after calling
-     *         <a>DeleteDirectConnectGatewayAssociation</a>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>disassociated</code>: The virtual private gateway is disassociated from the Direct Connect gateway.
-     *         Traffic flow between the Direct Connect gateway and virtual private gateway is stopped.
-     *         </p>
-     *         </li>
+     * @return
      * @see DirectConnectGatewayAssociationState
      */
 
@@ -372,59 +181,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The state of the association. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>associating</code>: The initial state after calling <a>CreateDirectConnectGatewayAssociation</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>associated</code>: The Direct Connect gateway and virtual private gateway are successfully associated and
-     * ready to pass traffic.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>disassociating</code>: The initial state after calling <a>DeleteDirectConnectGatewayAssociation</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>disassociated</code>: The virtual private gateway is disassociated from the Direct Connect gateway. Traffic
-     * flow between the Direct Connect gateway and virtual private gateway is stopped.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param associationState
-     *        The state of the association. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>associating</code>: The initial state after calling <a>CreateDirectConnectGatewayAssociation</a>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>associated</code>: The Direct Connect gateway and virtual private gateway are successfully
-     *        associated and ready to pass traffic.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>disassociating</code>: The initial state after calling <a>DeleteDirectConnectGatewayAssociation</a>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>disassociated</code>: The virtual private gateway is disassociated from the Direct Connect gateway.
-     *        Traffic flow between the Direct Connect gateway and virtual private gateway is stopped.
-     *        </p>
-     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DirectConnectGatewayAssociationState
      */
@@ -435,59 +192,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The state of the association. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>associating</code>: The initial state after calling <a>CreateDirectConnectGatewayAssociation</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>associated</code>: The Direct Connect gateway and virtual private gateway are successfully associated and
-     * ready to pass traffic.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>disassociating</code>: The initial state after calling <a>DeleteDirectConnectGatewayAssociation</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>disassociated</code>: The virtual private gateway is disassociated from the Direct Connect gateway. Traffic
-     * flow between the Direct Connect gateway and virtual private gateway is stopped.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param associationState
-     *        The state of the association. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>associating</code>: The initial state after calling <a>CreateDirectConnectGatewayAssociation</a>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>associated</code>: The Direct Connect gateway and virtual private gateway are successfully
-     *        associated and ready to pass traffic.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>disassociating</code>: The initial state after calling <a>DeleteDirectConnectGatewayAssociation</a>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>disassociated</code>: The virtual private gateway is disassociated from the Direct Connect gateway.
-     *        Traffic flow between the Direct Connect gateway and virtual private gateway is stopped.
-     *        </p>
-     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DirectConnectGatewayAssociationState
      */
@@ -498,12 +203,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The error message if the state of an object failed to advance.
-     * </p>
-     * 
      * @param stateChangeError
-     *        The error message if the state of an object failed to advance.
      */
 
     public void setStateChangeError(String stateChangeError) {
@@ -511,11 +211,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The error message if the state of an object failed to advance.
-     * </p>
-     * 
-     * @return The error message if the state of an object failed to advance.
+     * @return
      */
 
     public String getStateChangeError() {
@@ -523,12 +219,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * <p>
-     * The error message if the state of an object failed to advance.
-     * </p>
-     * 
      * @param stateChangeError
-     *        The error message if the state of an object failed to advance.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -538,8 +229,7 @@ public class DirectConnectGatewayAssociation implements Serializable, Cloneable,
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

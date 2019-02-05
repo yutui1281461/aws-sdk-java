@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -64,14 +64,6 @@ public class JobJsonUnmarshaller implements Unmarshaller<Job, JsonUnmarshallerCo
                     context.nextToken();
                     job.setStatus(context.getUnmarshaller(String.class).unmarshall(context));
                 }
-                if (context.testExpression("forceCanceled", targetDepth)) {
-                    context.nextToken();
-                    job.setForceCanceled(context.getUnmarshaller(Boolean.class).unmarshall(context));
-                }
-                if (context.testExpression("reasonCode", targetDepth)) {
-                    context.nextToken();
-                    job.setReasonCode(context.getUnmarshaller(String.class).unmarshall(context));
-                }
                 if (context.testExpression("comment", targetDepth)) {
                     context.nextToken();
                     job.setComment(context.getUnmarshaller(String.class).unmarshall(context));
@@ -92,29 +84,26 @@ public class JobJsonUnmarshaller implements Unmarshaller<Job, JsonUnmarshallerCo
                     context.nextToken();
                     job.setJobExecutionsRolloutConfig(JobExecutionsRolloutConfigJsonUnmarshaller.getInstance().unmarshall(context));
                 }
-                if (context.testExpression("abortConfig", targetDepth)) {
-                    context.nextToken();
-                    job.setAbortConfig(AbortConfigJsonUnmarshaller.getInstance().unmarshall(context));
-                }
                 if (context.testExpression("createdAt", targetDepth)) {
                     context.nextToken();
-                    job.setCreatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    job.setCreatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("lastUpdatedAt", targetDepth)) {
                     context.nextToken();
-                    job.setLastUpdatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    job.setLastUpdatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("completedAt", targetDepth)) {
                     context.nextToken();
-                    job.setCompletedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    job.setCompletedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("jobProcessDetails", targetDepth)) {
                     context.nextToken();
                     job.setJobProcessDetails(JobProcessDetailsJsonUnmarshaller.getInstance().unmarshall(context));
                 }
-                if (context.testExpression("timeoutConfig", targetDepth)) {
+                if (context.testExpression("documentParameters", targetDepth)) {
                     context.nextToken();
-                    job.setTimeoutConfig(TimeoutConfigJsonUnmarshaller.getInstance().unmarshall(context));
+                    job.setDocumentParameters(new MapUnmarshaller<String, String>(context.getUnmarshaller(String.class), context.getUnmarshaller(String.class))
+                            .unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

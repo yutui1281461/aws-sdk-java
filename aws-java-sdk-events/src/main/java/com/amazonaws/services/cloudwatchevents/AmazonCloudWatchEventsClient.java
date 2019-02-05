@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,8 +37,6 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
-import com.amazonaws.client.builder.AdvancedConfig;
-
 import com.amazonaws.services.cloudwatchevents.AmazonCloudWatchEventsClientBuilder;
 
 import com.amazonaws.AmazonServiceException;
@@ -53,7 +51,7 @@ import com.amazonaws.services.cloudwatchevents.model.transform.*;
  * <p>
  * Amazon CloudWatch Events helps you to respond to state changes in your AWS resources. When your resources change
  * state, they automatically send events into an event stream. You can create rules that match selected events in the
- * stream and route them to targets to take action. You can also use rules to take action on a predetermined schedule.
+ * stream and route them to targets to take action. You can also use rules to take action on a pre-determined schedule.
  * For example, you can configure rules to:
  * </p>
  * <ul>
@@ -65,8 +63,8 @@ import com.amazonaws.services.cloudwatchevents.model.transform.*;
  * </li>
  * <li>
  * <p>
- * Direct specific API records from AWS CloudTrail to an Amazon Kinesis data stream for detailed analysis of potential
- * security or availability risks.
+ * Direct specific API records from CloudTrail to an Amazon Kinesis stream for detailed analysis of potential security
+ * or availability risks.
  * </p>
  * </li>
  * <li>
@@ -83,7 +81,6 @@ import com.amazonaws.services.cloudwatchevents.model.transform.*;
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient implements AmazonCloudWatchEvents {
-
     /** Provider for AWS credentials. */
     private final AWSCredentialsProvider awsCredentialsProvider;
 
@@ -94,8 +91,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
-
-    private final AdvancedConfig advancedConfig;
 
     private static final com.amazonaws.protocol.json.SdkJsonProtocolFactory protocolFactory = new com.amazonaws.protocol.json.SdkJsonProtocolFactory(
             new JsonClientMetadata()
@@ -117,9 +112,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("InternalException").withModeledClass(
                                     com.amazonaws.services.cloudwatchevents.model.InternalException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("ManagedRuleException").withModeledClass(
-                                    com.amazonaws.services.cloudwatchevents.model.ManagedRuleException.class))
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("LimitExceededException").withModeledClass(
                                     com.amazonaws.services.cloudwatchevents.model.LimitExceededException.class))
@@ -209,7 +201,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
     public AmazonCloudWatchEventsClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -275,7 +266,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -294,23 +284,8 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      *        Object providing client parameters.
      */
     AmazonCloudWatchEventsClient(AwsSyncClientParams clientParams) {
-        this(clientParams, false);
-    }
-
-    /**
-     * Constructs a new client to invoke service methods on Amazon CloudWatch Events using the specified parameters.
-     *
-     * <p>
-     * All service calls made using this new client object are blocking, and will not return until the service call
-     * completes.
-     *
-     * @param clientParams
-     *        Object providing client parameters.
-     */
-    AmazonCloudWatchEventsClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -330,29 +305,17 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      * Deletes the specified rule.
      * </p>
      * <p>
-     * Before you can delete the rule, you must remove all targets, using <a>RemoveTargets</a>.
+     * You must remove all targets from a rule using <a>RemoveTargets</a> before you can delete the rule.
      * </p>
      * <p>
-     * When you delete a rule, incoming events might continue to match to the deleted rule. Allow a short period of time
-     * for changes to take effect.
-     * </p>
-     * <p>
-     * Managed rules are rules created and managed by another AWS service on your behalf. These rules are created by
-     * those other AWS services to support functionality in those services. You can delete these rules using the
-     * <code>Force</code> option, but you should do so only if you are sure the other service is not still using that
-     * rule.
+     * When you delete a rule, incoming events might continue to match to the deleted rule. Please allow a short period
+     * of time for changes to take effect.
      * </p>
      * 
      * @param deleteRuleRequest
      * @return Result of the DeleteRule operation returned by the service.
      * @throws ConcurrentModificationException
      *         There is concurrent modification on a rule or target.
-     * @throws ManagedRuleException
-     *         This rule was created by an AWS service on behalf of your account. It is managed by that service. If you
-     *         see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the
-     *         <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You
-     *         cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>,
-     *         <code>PutTargets</code>, or <code>PutRule</code>.
      * @throws InternalException
      *         This exception occurs due to unexpected causes.
      * @sample AmazonCloudWatchEvents.DeleteRule
@@ -381,9 +344,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteRule");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -439,9 +399,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeEventBus");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -461,10 +418,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
     /**
      * <p>
      * Describes the specified rule.
-     * </p>
-     * <p>
-     * DescribeRule does not list the targets of a rule. To see the targets associated with a rule, use
-     * <a>ListTargetsByRule</a>.
      * </p>
      * 
      * @param describeRuleRequest
@@ -499,9 +452,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeRule");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -524,8 +474,8 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      * expression.
      * </p>
      * <p>
-     * When you disable a rule, incoming events might continue to match to the disabled rule. Allow a short period of
-     * time for changes to take effect.
+     * When you disable a rule, incoming events might continue to match to the disabled rule. Please allow a short
+     * period of time for changes to take effect.
      * </p>
      * 
      * @param disableRuleRequest
@@ -534,12 +484,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      *         An entity that you specified does not exist.
      * @throws ConcurrentModificationException
      *         There is concurrent modification on a rule or target.
-     * @throws ManagedRuleException
-     *         This rule was created by an AWS service on behalf of your account. It is managed by that service. If you
-     *         see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the
-     *         <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You
-     *         cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>,
-     *         <code>PutTargets</code>, or <code>PutRule</code>.
      * @throws InternalException
      *         This exception occurs due to unexpected causes.
      * @sample AmazonCloudWatchEvents.DisableRule
@@ -568,9 +512,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DisableRule");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -592,8 +533,8 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      * Enables the specified rule. If the rule does not exist, the operation fails.
      * </p>
      * <p>
-     * When you enable a rule, incoming events might not immediately start matching to a newly enabled rule. Allow a
-     * short period of time for changes to take effect.
+     * When you enable a rule, incoming events might not immediately start matching to a newly enabled rule. Please
+     * allow a short period of time for changes to take effect.
      * </p>
      * 
      * @param enableRuleRequest
@@ -602,12 +543,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      *         An entity that you specified does not exist.
      * @throws ConcurrentModificationException
      *         There is concurrent modification on a rule or target.
-     * @throws ManagedRuleException
-     *         This rule was created by an AWS service on behalf of your account. It is managed by that service. If you
-     *         see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the
-     *         <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You
-     *         cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>,
-     *         <code>PutTargets</code>, or <code>PutRule</code>.
      * @throws InternalException
      *         This exception occurs due to unexpected causes.
      * @sample AmazonCloudWatchEvents.EnableRule
@@ -636,9 +571,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "EnableRule");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -691,9 +623,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListRuleNamesByTarget");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -715,10 +644,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      * <p>
      * Lists your Amazon CloudWatch Events rules. You can either list all the rules or you can provide a prefix to match
      * to the rule names.
-     * </p>
-     * <p>
-     * ListRules does not list the targets of a rule. To see the targets associated with a rule, use
-     * <a>ListTargetsByRule</a>.
      * </p>
      * 
      * @param listRulesRequest
@@ -751,9 +676,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListRules");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -807,9 +729,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListTargetsByRule");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -861,9 +780,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutEvents");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -882,9 +798,9 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
 
     /**
      * <p>
-     * Running <code>PutPermission</code> permits the specified AWS account or AWS organization to put events to your
-     * account's default <i>event bus</i>. CloudWatch Events rules in your account are triggered by these events
-     * arriving to your default event bus.
+     * Running <code>PutPermission</code> permits the specified AWS account to put events to your account's default
+     * <i>event bus</i>. CloudWatch Events rules in your account are triggered by these events arriving to your default
+     * event bus.
      * </p>
      * <p>
      * For another account to send events to your account, that external account must have a CloudWatch Events rule with
@@ -892,19 +808,10 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      * </p>
      * <p>
      * To enable multiple AWS accounts to put events to your default event bus, run <code>PutPermission</code> once for
-     * each of these accounts. Or, if all the accounts are members of the same AWS organization, you can run
-     * <code>PutPermission</code> once specifying <code>Principal</code> as "*" and specifying the AWS organization ID
-     * in <code>Condition</code>, to grant permissions to all accounts in that organization.
+     * each of these accounts.
      * </p>
      * <p>
-     * If you grant permissions using an organization, then accounts in that organization must specify a
-     * <code>RoleArn</code> with proper permissions when they use <code>PutTarget</code> to add your account's event bus
-     * as a target. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html"
-     * >Sending and Receiving Events Between AWS Accounts</a> in the <i>Amazon CloudWatch Events User Guide</i>.
-     * </p>
-     * <p>
-     * The permission policy on the default event bus cannot exceed 10 KB in size.
+     * The permission policy on the default event bus cannot exceed 10KB in size.
      * </p>
      * 
      * @param putPermissionRequest
@@ -943,9 +850,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutPermission");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -968,13 +872,13 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      * disable a rule using <a>DisableRule</a>.
      * </p>
      * <p>
-     * If you are updating an existing rule, the rule is replaced with what you specify in this <code>PutRule</code>
-     * command. If you omit arguments in <code>PutRule</code>, the old values for those arguments are not kept. Instead,
-     * they are replaced with null values.
+     * If you are updating an existing rule, the rule is completely replaced with what you specify in this
+     * <code>PutRule</code> command. If you omit arguments in <code>PutRule</code>, the old values for those arguments
+     * are not kept. Instead, they are replaced with null values.
      * </p>
      * <p>
      * When you create or update a rule, incoming events might not immediately start matching to new or updated rules.
-     * Allow a short period of time for changes to take effect.
+     * Please allow a short period of time for changes to take effect.
      * </p>
      * <p>
      * A rule must contain at least an EventPattern or ScheduleExpression. Rules with EventPatterns are triggered when a
@@ -987,22 +891,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      * Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating
      * event patterns so that they match the ARN syntax in the event you want to match.
      * </p>
-     * <p>
-     * In CloudWatch Events, it is possible to create rules that lead to infinite loops, where a rule is fired
-     * repeatedly. For example, a rule might detect that ACLs have changed on an S3 bucket, and trigger software to
-     * change them to the desired state. If the rule is not written carefully, the subsequent change to the ACLs fires
-     * the rule again, creating an infinite loop.
-     * </p>
-     * <p>
-     * To prevent this, write the rules so that the triggered actions do not re-fire the same rule. For example, your
-     * rule could fire only if ACLs are found to be in a bad state, instead of after any change.
-     * </p>
-     * <p>
-     * An infinite loop can quickly cause higher than expected charges. We recommend that you use budgeting, which
-     * alerts you when charges exceed your specified limit. For more information, see <a
-     * href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html">Managing Your
-     * Costs with Budgets</a>.
-     * </p>
      * 
      * @param putRuleRequest
      * @return Result of the PutRule operation returned by the service.
@@ -1012,12 +900,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      *         You tried to create more rules or add more targets to a rule than is allowed.
      * @throws ConcurrentModificationException
      *         There is concurrent modification on a rule or target.
-     * @throws ManagedRuleException
-     *         This rule was created by an AWS service on behalf of your account. It is managed by that service. If you
-     *         see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the
-     *         <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You
-     *         cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>,
-     *         <code>PutTargets</code>, or <code>PutRule</code>.
      * @throws InternalException
      *         This exception occurs due to unexpected causes.
      * @sample AmazonCloudWatchEvents.PutRule
@@ -1046,9 +928,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutRule");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1084,27 +963,17 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      * </li>
      * <li>
      * <p>
-     * SSM Run Command
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * SSM Automation
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * AWS Lambda functions
      * </p>
      * </li>
      * <li>
      * <p>
-     * Data streams in Amazon Kinesis Data Streams
+     * Streams in Amazon Kinesis Streams
      * </p>
      * </li>
      * <li>
      * <p>
-     * Data delivery streams in Amazon Kinesis Data Firehose
+     * Delivery streams in Amazon Kinesis Firehose
      * </p>
      * </li>
      * <li>
@@ -1124,12 +993,7 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      * </li>
      * <li>
      * <p>
-     * AWS CodeBuild projects
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Pipelines in AWS CodePipeline
+     * Pipelines in Amazon Code Pipeline
      * </p>
      * </li>
      * <li>
@@ -1154,52 +1018,43 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      * </li>
      * </ul>
      * <p>
-     * Creating rules with built-in targets is supported only in the AWS Management Console. The built-in targets are
-     * <code>EC2 CreateSnapshot API call</code>, <code>EC2 RebootInstances API call</code>,
-     * <code>EC2 StopInstances API call</code>, and <code>EC2 TerminateInstances API call</code>.
+     * Note that creating rules with built-in targets is supported only in the AWS Management Console.
      * </p>
      * <p>
-     * For some target types, <code>PutTargets</code> provides target-specific parameters. If the target is a Kinesis
-     * data stream, you can optionally specify which shard the event goes to by using the <code>KinesisParameters</code>
-     * argument. To invoke a command on multiple EC2 instances with one rule, you can use the
-     * <code>RunCommandParameters</code> field.
+     * For some target types, <code>PutTargets</code> provides target-specific parameters. If the target is an Amazon
+     * Kinesis stream, you can optionally specify which shard the event goes to by using the
+     * <code>KinesisParameters</code> argument. To invoke a command on multiple EC2 instances with one rule, you can use
+     * the <code>RunCommandParameters</code> field.
      * </p>
      * <p>
      * To be able to make API calls against the resources that you own, Amazon CloudWatch Events needs the appropriate
      * permissions. For AWS Lambda and Amazon SNS resources, CloudWatch Events relies on resource-based policies. For
-     * EC2 instances, Kinesis data streams, and AWS Step Functions state machines, CloudWatch Events relies on IAM roles
-     * that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html">Authentication
-     * and Access Control</a> in the <i>Amazon CloudWatch Events User Guide</i>.
+     * EC2 instances, Amazon Kinesis streams, and AWS Step Functions state machines, CloudWatch Events relies on IAM
+     * roles that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>. For more information, see
+     * <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html">
+     * Authentication and Access Control</a> in the <i>Amazon CloudWatch Events User Guide</i>.
      * </p>
      * <p>
      * If another AWS account is in the same region and has granted you permission (using <code>PutPermission</code>),
-     * you can send events to that account. Set that account's event bus as a target of the rules in your account. To
-     * send the matched events to the other account, specify that account's event bus as the <code>Arn</code> value when
+     * you can send events to that account by setting that account's event bus as a target of the rules in your account.
+     * To send the matched events to the other account, specify that account's event bus as the <code>Arn</code> when
      * you run <code>PutTargets</code>. If your account sends events to another account, your account is charged for
-     * each sent event. Each event sent to another account is charged as a custom event. The account receiving the event
-     * is not charged. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
-     * Pricing</a>.
-     * </p>
-     * <p>
-     * If you are setting the event bus of another account as the target, and that account granted permission to your
-     * account through an organization instead of directly by the account ID, then you must specify a
-     * <code>RoleArn</code> with proper permissions in the <code>Target</code> structure. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html">
-     * Sending and Receiving Events Between AWS Accounts</a> in the <i>Amazon CloudWatch Events User Guide</i>.
+     * each sent event. Each event sent to antoher account is charged as a custom event. The account receiving the event
+     * is not charged. For more information on pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon
+     * CloudWatch Pricing</a>.
      * </p>
      * <p>
      * For more information about enabling cross-account events, see <a>PutPermission</a>.
      * </p>
      * <p>
-     * <b>Input</b>, <b>InputPath</b>, and <b>InputTransformer</b> are mutually exclusive and optional parameters of a
+     * <b>Input</b>, <b>InputPath</b> and <b>InputTransformer</b> are mutually exclusive and optional parameters of a
      * target. When a rule is triggered due to a matched event:
      * </p>
      * <ul>
      * <li>
      * <p>
      * If none of the following arguments are specified for a target, then the entire event is passed to the target in
-     * JSON format (unless the target is Amazon EC2 Run Command or Amazon ECS task, in which case nothing from the event
+     * JSON form (unless the target is Amazon EC2 Run Command or Amazon ECS task, in which case nothing from the event
      * is passed to the target).
      * </p>
      * </li>
@@ -1228,7 +1083,7 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      * </p>
      * <p>
      * When you add targets to a rule and the associated rule triggers soon after, new or updated targets might not be
-     * immediately invoked. Allow a short period of time for changes to take effect.
+     * immediately invoked. Please allow a short period of time for changes to take effect.
      * </p>
      * <p>
      * This action can partially fail if too many requests are made at the same time. If that happens,
@@ -1244,12 +1099,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      *         There is concurrent modification on a rule or target.
      * @throws LimitExceededException
      *         You tried to create more rules or add more targets to a rule than is allowed.
-     * @throws ManagedRuleException
-     *         This rule was created by an AWS service on behalf of your account. It is managed by that service. If you
-     *         see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the
-     *         <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You
-     *         cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>,
-     *         <code>PutTargets</code>, or <code>PutRule</code>.
      * @throws InternalException
      *         This exception occurs due to unexpected causes.
      * @sample AmazonCloudWatchEvents.PutTargets
@@ -1278,9 +1127,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutTargets");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1339,9 +1185,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RemovePermission");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1364,8 +1207,8 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      * invoked.
      * </p>
      * <p>
-     * When you remove a target, when the associated rule triggers, removed targets might continue to be invoked. Allow
-     * a short period of time for changes to take effect.
+     * When you remove a target, when the associated rule triggers, removed targets might continue to be invoked. Please
+     * allow a short period of time for changes to take effect.
      * </p>
      * <p>
      * This action can partially fail if too many requests are made at the same time. If that happens,
@@ -1379,12 +1222,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      *         An entity that you specified does not exist.
      * @throws ConcurrentModificationException
      *         There is concurrent modification on a rule or target.
-     * @throws ManagedRuleException
-     *         This rule was created by an AWS service on behalf of your account. It is managed by that service. If you
-     *         see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the
-     *         <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You
-     *         cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>,
-     *         <code>PutTargets</code>, or <code>PutRule</code>.
      * @throws InternalException
      *         This exception occurs due to unexpected causes.
      * @sample AmazonCloudWatchEvents.RemoveTargets
@@ -1413,9 +1250,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RemoveTargets");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1474,9 +1308,6 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CloudWatch Events");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "TestEventPattern");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1517,18 +1348,9 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null, null);
-    }
-
-    /**
-     * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
-     **/
-    private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
-
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -1538,7 +1360,7 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null, null);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -1546,17 +1368,8 @@ public class AmazonCloudWatchEventsClient extends AmazonWebServiceClient impleme
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
-
-        if (discoveredEndpoint != null) {
-            request.setEndpoint(discoveredEndpoint);
-            request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
-        } else if (uriFromEndpointTrait != null) {
-            request.setEndpoint(uriFromEndpointTrait);
-        } else {
-            request.setEndpoint(endpoint);
-        }
-
+            ExecutionContext executionContext) {
+        request.setEndpoint(endpoint);
         request.setTimeOffset(timeOffset);
 
         HttpResponseHandler<AmazonServiceException> errorResponseHandler = protocolFactory.createErrorResponseHandler(new JsonErrorResponseMetadata());

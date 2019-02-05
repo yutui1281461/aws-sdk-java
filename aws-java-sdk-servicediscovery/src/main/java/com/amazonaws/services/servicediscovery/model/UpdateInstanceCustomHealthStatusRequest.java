@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -25,35 +25,14 @@ import com.amazonaws.AmazonWebServiceRequest;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class UpdateInstanceCustomHealthStatusRequest extends com.amazonaws.AmazonWebServiceRequest implements Serializable, Cloneable {
 
-    /**
-     * <p>
-     * The ID of the service that includes the configuration for the custom health check that you want to change the
-     * status for.
-     * </p>
-     */
     private String serviceId;
-    /**
-     * <p>
-     * The ID of the instance that you want to change the health status for.
-     * </p>
-     */
+
     private String instanceId;
-    /**
-     * <p>
-     * The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.
-     * </p>
-     */
+
     private String status;
 
     /**
-     * <p>
-     * The ID of the service that includes the configuration for the custom health check that you want to change the
-     * status for.
-     * </p>
-     * 
      * @param serviceId
-     *        The ID of the service that includes the configuration for the custom health check that you want to change
-     *        the status for.
      */
 
     public void setServiceId(String serviceId) {
@@ -61,13 +40,7 @@ public class UpdateInstanceCustomHealthStatusRequest extends com.amazonaws.Amazo
     }
 
     /**
-     * <p>
-     * The ID of the service that includes the configuration for the custom health check that you want to change the
-     * status for.
-     * </p>
-     * 
-     * @return The ID of the service that includes the configuration for the custom health check that you want to change
-     *         the status for.
+     * @return
      */
 
     public String getServiceId() {
@@ -75,14 +48,7 @@ public class UpdateInstanceCustomHealthStatusRequest extends com.amazonaws.Amazo
     }
 
     /**
-     * <p>
-     * The ID of the service that includes the configuration for the custom health check that you want to change the
-     * status for.
-     * </p>
-     * 
      * @param serviceId
-     *        The ID of the service that includes the configuration for the custom health check that you want to change
-     *        the status for.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -92,12 +58,7 @@ public class UpdateInstanceCustomHealthStatusRequest extends com.amazonaws.Amazo
     }
 
     /**
-     * <p>
-     * The ID of the instance that you want to change the health status for.
-     * </p>
-     * 
      * @param instanceId
-     *        The ID of the instance that you want to change the health status for.
      */
 
     public void setInstanceId(String instanceId) {
@@ -105,11 +66,7 @@ public class UpdateInstanceCustomHealthStatusRequest extends com.amazonaws.Amazo
     }
 
     /**
-     * <p>
-     * The ID of the instance that you want to change the health status for.
-     * </p>
-     * 
-     * @return The ID of the instance that you want to change the health status for.
+     * @return
      */
 
     public String getInstanceId() {
@@ -117,12 +74,7 @@ public class UpdateInstanceCustomHealthStatusRequest extends com.amazonaws.Amazo
     }
 
     /**
-     * <p>
-     * The ID of the instance that you want to change the health status for.
-     * </p>
-     * 
      * @param instanceId
-     *        The ID of the instance that you want to change the health status for.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -132,12 +84,7 @@ public class UpdateInstanceCustomHealthStatusRequest extends com.amazonaws.Amazo
     }
 
     /**
-     * <p>
-     * The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.
-     * </p>
-     * 
      * @param status
-     *        The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.
      * @see CustomHealthStatus
      */
 
@@ -146,11 +93,7 @@ public class UpdateInstanceCustomHealthStatusRequest extends com.amazonaws.Amazo
     }
 
     /**
-     * <p>
-     * The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.
-     * </p>
-     * 
-     * @return The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.
+     * @return
      * @see CustomHealthStatus
      */
 
@@ -159,12 +102,7 @@ public class UpdateInstanceCustomHealthStatusRequest extends com.amazonaws.Amazo
     }
 
     /**
-     * <p>
-     * The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.
-     * </p>
-     * 
      * @param status
-     *        The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see CustomHealthStatus
      */
@@ -175,12 +113,7 @@ public class UpdateInstanceCustomHealthStatusRequest extends com.amazonaws.Amazo
     }
 
     /**
-     * <p>
-     * The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.
-     * </p>
-     * 
      * @param status
-     *        The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see CustomHealthStatus
      */
@@ -191,8 +124,7 @@ public class UpdateInstanceCustomHealthStatusRequest extends com.amazonaws.Amazo
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

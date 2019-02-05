@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -36,7 +36,7 @@ public class CreateOrganizationRequest extends com.amazonaws.AmazonWebServiceReq
      * <i>CONSOLIDATED_BILLING</i>: All member accounts have their bills consolidated to and paid by the master account.
      * For more information, see <a href=
      * "http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only"
-     * >Consolidated billing</a> in the <i>AWS Organizations User Guide</i>.
+     * >Consolidated Billing</a> in the <i>AWS Organizations User Guide</i>.
      * </p>
      * </li>
      * <li>
@@ -62,7 +62,7 @@ public class CreateOrganizationRequest extends com.amazonaws.AmazonWebServiceReq
      * <i>CONSOLIDATED_BILLING</i>: All member accounts have their bills consolidated to and paid by the master account.
      * For more information, see <a href=
      * "http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only"
-     * >Consolidated billing</a> in the <i>AWS Organizations User Guide</i>.
+     * >Consolidated Billing</a> in the <i>AWS Organizations User Guide</i>.
      * </p>
      * </li>
      * <li>
@@ -84,7 +84,7 @@ public class CreateOrganizationRequest extends com.amazonaws.AmazonWebServiceReq
      *        <i>CONSOLIDATED_BILLING</i>: All member accounts have their bills consolidated to and paid by the master
      *        account. For more information, see <a href=
      *        "http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only"
-     *        >Consolidated billing</a> in the <i>AWS Organizations User Guide</i>.
+     *        >Consolidated Billing</a> in the <i>AWS Organizations User Guide</i>.
      *        </p>
      *        </li>
      *        <li>
@@ -114,7 +114,7 @@ public class CreateOrganizationRequest extends com.amazonaws.AmazonWebServiceReq
      * <i>CONSOLIDATED_BILLING</i>: All member accounts have their bills consolidated to and paid by the master account.
      * For more information, see <a href=
      * "http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only"
-     * >Consolidated billing</a> in the <i>AWS Organizations User Guide</i>.
+     * >Consolidated Billing</a> in the <i>AWS Organizations User Guide</i>.
      * </p>
      * </li>
      * <li>
@@ -135,7 +135,7 @@ public class CreateOrganizationRequest extends com.amazonaws.AmazonWebServiceReq
      *         <i>CONSOLIDATED_BILLING</i>: All member accounts have their bills consolidated to and paid by the master
      *         account. For more information, see <a href=
      *         "http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only"
-     *         >Consolidated billing</a> in the <i>AWS Organizations User Guide</i>.
+     *         >Consolidated Billing</a> in the <i>AWS Organizations User Guide</i>.
      *         </p>
      *         </li>
      *         <li>
@@ -165,7 +165,7 @@ public class CreateOrganizationRequest extends com.amazonaws.AmazonWebServiceReq
      * <i>CONSOLIDATED_BILLING</i>: All member accounts have their bills consolidated to and paid by the master account.
      * For more information, see <a href=
      * "http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only"
-     * >Consolidated billing</a> in the <i>AWS Organizations User Guide</i>.
+     * >Consolidated Billing</a> in the <i>AWS Organizations User Guide</i>.
      * </p>
      * </li>
      * <li>
@@ -187,7 +187,7 @@ public class CreateOrganizationRequest extends com.amazonaws.AmazonWebServiceReq
      *        <i>CONSOLIDATED_BILLING</i>: All member accounts have their bills consolidated to and paid by the master
      *        account. For more information, see <a href=
      *        "http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only"
-     *        >Consolidated billing</a> in the <i>AWS Organizations User Guide</i>.
+     *        >Consolidated Billing</a> in the <i>AWS Organizations User Guide</i>.
      *        </p>
      *        </li>
      *        <li>
@@ -219,7 +219,7 @@ public class CreateOrganizationRequest extends com.amazonaws.AmazonWebServiceReq
      * <i>CONSOLIDATED_BILLING</i>: All member accounts have their bills consolidated to and paid by the master account.
      * For more information, see <a href=
      * "http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only"
-     * >Consolidated billing</a> in the <i>AWS Organizations User Guide</i>.
+     * >Consolidated Billing</a> in the <i>AWS Organizations User Guide</i>.
      * </p>
      * </li>
      * <li>
@@ -241,7 +241,7 @@ public class CreateOrganizationRequest extends com.amazonaws.AmazonWebServiceReq
      *        <i>CONSOLIDATED_BILLING</i>: All member accounts have their bills consolidated to and paid by the master
      *        account. For more information, see <a href=
      *        "http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only"
-     *        >Consolidated billing</a> in the <i>AWS Organizations User Guide</i>.
+     *        >Consolidated Billing</a> in the <i>AWS Organizations User Guide</i>.
      *        </p>
      *        </li>
      *        <li>
@@ -271,7 +271,7 @@ public class CreateOrganizationRequest extends com.amazonaws.AmazonWebServiceReq
      * <i>CONSOLIDATED_BILLING</i>: All member accounts have their bills consolidated to and paid by the master account.
      * For more information, see <a href=
      * "http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only"
-     * >Consolidated billing</a> in the <i>AWS Organizations User Guide</i>.
+     * >Consolidated Billing</a> in the <i>AWS Organizations User Guide</i>.
      * </p>
      * </li>
      * <li>
@@ -293,7 +293,7 @@ public class CreateOrganizationRequest extends com.amazonaws.AmazonWebServiceReq
      *        <i>CONSOLIDATED_BILLING</i>: All member accounts have their bills consolidated to and paid by the master
      *        account. For more information, see <a href=
      *        "http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only"
-     *        >Consolidated billing</a> in the <i>AWS Organizations User Guide</i>.
+     *        >Consolidated Billing</a> in the <i>AWS Organizations User Guide</i>.
      *        </p>
      *        </li>
      *        <li>
@@ -315,8 +315,7 @@ public class CreateOrganizationRequest extends com.amazonaws.AmazonWebServiceReq
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

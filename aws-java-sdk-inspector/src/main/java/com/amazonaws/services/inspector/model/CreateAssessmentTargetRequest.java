@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -34,8 +34,7 @@ public class CreateAssessmentTargetRequest extends com.amazonaws.AmazonWebServic
     private String assessmentTargetName;
     /**
      * <p>
-     * The ARN that specifies the resource group that is used to create the assessment target. If resourceGroupArn is
-     * not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     * The ARN that specifies the resource group that is used to create the assessment target.
      * </p>
      */
     private String resourceGroupArn;
@@ -88,14 +87,11 @@ public class CreateAssessmentTargetRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The ARN that specifies the resource group that is used to create the assessment target. If resourceGroupArn is
-     * not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     * The ARN that specifies the resource group that is used to create the assessment target.
      * </p>
      * 
      * @param resourceGroupArn
-     *        The ARN that specifies the resource group that is used to create the assessment target. If
-     *        resourceGroupArn is not specified, all EC2 instances in the current AWS account and region are included in
-     *        the assessment target.
+     *        The ARN that specifies the resource group that is used to create the assessment target.
      */
 
     public void setResourceGroupArn(String resourceGroupArn) {
@@ -104,13 +100,10 @@ public class CreateAssessmentTargetRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The ARN that specifies the resource group that is used to create the assessment target. If resourceGroupArn is
-     * not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     * The ARN that specifies the resource group that is used to create the assessment target.
      * </p>
      * 
-     * @return The ARN that specifies the resource group that is used to create the assessment target. If
-     *         resourceGroupArn is not specified, all EC2 instances in the current AWS account and region are included
-     *         in the assessment target.
+     * @return The ARN that specifies the resource group that is used to create the assessment target.
      */
 
     public String getResourceGroupArn() {
@@ -119,14 +112,11 @@ public class CreateAssessmentTargetRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The ARN that specifies the resource group that is used to create the assessment target. If resourceGroupArn is
-     * not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     * The ARN that specifies the resource group that is used to create the assessment target.
      * </p>
      * 
      * @param resourceGroupArn
-     *        The ARN that specifies the resource group that is used to create the assessment target. If
-     *        resourceGroupArn is not specified, all EC2 instances in the current AWS account and region are included in
-     *        the assessment target.
+     *        The ARN that specifies the resource group that is used to create the assessment target.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -136,8 +126,7 @@ public class CreateAssessmentTargetRequest extends com.amazonaws.AmazonWebServic
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

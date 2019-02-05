@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -16,7 +16,6 @@ import javax.annotation.Generated;
 
 import com.amazonaws.services.acmpca.model.*;
 import com.amazonaws.*;
-import com.amazonaws.services.acmpca.waiters.AWSACMPCAWaiters;
 
 /**
  * Abstract implementation of {@code AWSACMPCA}. Convenient method forms pass through to the corresponding overload that
@@ -89,11 +88,6 @@ public class AbstractAWSACMPCA implements AWSACMPCA {
     }
 
     @Override
-    public RestoreCertificateAuthorityResult restoreCertificateAuthority(RestoreCertificateAuthorityRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public RevokeCertificateResult revokeCertificate(RevokeCertificateRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -120,11 +114,6 @@ public class AbstractAWSACMPCA implements AWSACMPCA {
 
     @Override
     public com.amazonaws.ResponseMetadata getCachedResponseMetadata(com.amazonaws.AmazonWebServiceRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public AWSACMPCAWaiters waiters() {
         throw new java.lang.UnsupportedOperationException();
     }
 

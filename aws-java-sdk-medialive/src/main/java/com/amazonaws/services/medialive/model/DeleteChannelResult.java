@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -41,8 +41,6 @@ public class DeleteChannelResult extends com.amazonaws.AmazonWebServiceResult<co
     private java.util.List<InputAttachment> inputAttachments;
 
     private InputSpecification inputSpecification;
-    /** The log level being written to CloudWatch Logs. */
-    private String logLevel;
     /** The name of the channel. (user-mutable) */
     private String name;
     /** The number of currently healthy pipelines. */
@@ -368,57 +366,6 @@ public class DeleteChannelResult extends com.amazonaws.AmazonWebServiceResult<co
     }
 
     /**
-     * The log level being written to CloudWatch Logs.
-     * 
-     * @param logLevel
-     *        The log level being written to CloudWatch Logs.
-     * @see LogLevel
-     */
-
-    public void setLogLevel(String logLevel) {
-        this.logLevel = logLevel;
-    }
-
-    /**
-     * The log level being written to CloudWatch Logs.
-     * 
-     * @return The log level being written to CloudWatch Logs.
-     * @see LogLevel
-     */
-
-    public String getLogLevel() {
-        return this.logLevel;
-    }
-
-    /**
-     * The log level being written to CloudWatch Logs.
-     * 
-     * @param logLevel
-     *        The log level being written to CloudWatch Logs.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see LogLevel
-     */
-
-    public DeleteChannelResult withLogLevel(String logLevel) {
-        setLogLevel(logLevel);
-        return this;
-    }
-
-    /**
-     * The log level being written to CloudWatch Logs.
-     * 
-     * @param logLevel
-     *        The log level being written to CloudWatch Logs.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see LogLevel
-     */
-
-    public DeleteChannelResult withLogLevel(LogLevel logLevel) {
-        this.logLevel = logLevel.toString();
-        return this;
-    }
-
-    /**
      * The name of the channel. (user-mutable)
      * 
      * @param name
@@ -561,8 +508,7 @@ public class DeleteChannelResult extends com.amazonaws.AmazonWebServiceResult<co
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -586,8 +532,6 @@ public class DeleteChannelResult extends com.amazonaws.AmazonWebServiceResult<co
             sb.append("InputAttachments: ").append(getInputAttachments()).append(",");
         if (getInputSpecification() != null)
             sb.append("InputSpecification: ").append(getInputSpecification()).append(",");
-        if (getLogLevel() != null)
-            sb.append("LogLevel: ").append(getLogLevel()).append(",");
         if (getName() != null)
             sb.append("Name: ").append(getName()).append(",");
         if (getPipelinesRunningCount() != null)
@@ -638,10 +582,6 @@ public class DeleteChannelResult extends com.amazonaws.AmazonWebServiceResult<co
             return false;
         if (other.getInputSpecification() != null && other.getInputSpecification().equals(this.getInputSpecification()) == false)
             return false;
-        if (other.getLogLevel() == null ^ this.getLogLevel() == null)
-            return false;
-        if (other.getLogLevel() != null && other.getLogLevel().equals(this.getLogLevel()) == false)
-            return false;
         if (other.getName() == null ^ this.getName() == null)
             return false;
         if (other.getName() != null && other.getName().equals(this.getName()) == false)
@@ -673,7 +613,6 @@ public class DeleteChannelResult extends com.amazonaws.AmazonWebServiceResult<co
         hashCode = prime * hashCode + ((getId() == null) ? 0 : getId().hashCode());
         hashCode = prime * hashCode + ((getInputAttachments() == null) ? 0 : getInputAttachments().hashCode());
         hashCode = prime * hashCode + ((getInputSpecification() == null) ? 0 : getInputSpecification().hashCode());
-        hashCode = prime * hashCode + ((getLogLevel() == null) ? 0 : getLogLevel().hashCode());
         hashCode = prime * hashCode + ((getName() == null) ? 0 : getName().hashCode());
         hashCode = prime * hashCode + ((getPipelinesRunningCount() == null) ? 0 : getPipelinesRunningCount().hashCode());
         hashCode = prime * hashCode + ((getRoleArn() == null) ? 0 : getRoleArn().hashCode());

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,13 +37,6 @@ public class DescribeDocumentRequest extends com.amazonaws.AmazonWebServiceReque
      * </p>
      */
     private String documentVersion;
-    /**
-     * <p>
-     * An optional field specifying the version of the artifact associated with the document. For example,
-     * "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
-     * </p>
-     */
-    private String versionName;
 
     /**
      * <p>
@@ -126,54 +119,7 @@ public class DescribeDocumentRequest extends com.amazonaws.AmazonWebServiceReque
     }
 
     /**
-     * <p>
-     * An optional field specifying the version of the artifact associated with the document. For example,
-     * "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
-     * </p>
-     * 
-     * @param versionName
-     *        An optional field specifying the version of the artifact associated with the document. For example,
-     *        "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
-     */
-
-    public void setVersionName(String versionName) {
-        this.versionName = versionName;
-    }
-
-    /**
-     * <p>
-     * An optional field specifying the version of the artifact associated with the document. For example,
-     * "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
-     * </p>
-     * 
-     * @return An optional field specifying the version of the artifact associated with the document. For example,
-     *         "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
-     */
-
-    public String getVersionName() {
-        return this.versionName;
-    }
-
-    /**
-     * <p>
-     * An optional field specifying the version of the artifact associated with the document. For example,
-     * "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
-     * </p>
-     * 
-     * @param versionName
-     *        An optional field specifying the version of the artifact associated with the document. For example,
-     *        "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DescribeDocumentRequest withVersionName(String versionName) {
-        setVersionName(versionName);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -186,9 +132,7 @@ public class DescribeDocumentRequest extends com.amazonaws.AmazonWebServiceReque
         if (getName() != null)
             sb.append("Name: ").append(getName()).append(",");
         if (getDocumentVersion() != null)
-            sb.append("DocumentVersion: ").append(getDocumentVersion()).append(",");
-        if (getVersionName() != null)
-            sb.append("VersionName: ").append(getVersionName());
+            sb.append("DocumentVersion: ").append(getDocumentVersion());
         sb.append("}");
         return sb.toString();
     }
@@ -211,10 +155,6 @@ public class DescribeDocumentRequest extends com.amazonaws.AmazonWebServiceReque
             return false;
         if (other.getDocumentVersion() != null && other.getDocumentVersion().equals(this.getDocumentVersion()) == false)
             return false;
-        if (other.getVersionName() == null ^ this.getVersionName() == null)
-            return false;
-        if (other.getVersionName() != null && other.getVersionName().equals(this.getVersionName()) == false)
-            return false;
         return true;
     }
 
@@ -225,7 +165,6 @@ public class DescribeDocumentRequest extends com.amazonaws.AmazonWebServiceReque
 
         hashCode = prime * hashCode + ((getName() == null) ? 0 : getName().hashCode());
         hashCode = prime * hashCode + ((getDocumentVersion() == null) ? 0 : getDocumentVersion().hashCode());
-        hashCode = prime * hashCode + ((getVersionName() == null) ? 0 : getVersionName().hashCode());
         return hashCode;
     }
 

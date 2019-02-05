@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,44 +31,9 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      * the complete hierarchy of the parameter path and name. For example: <code>/Dev/DBServer/MySQL/db-string13</code>
      * </p>
      * <p>
-     * Naming Constraints:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * Parameter names are case sensitive.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A parameter name must be unique within an AWS Region
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A parameter name can't be prefixed with "aws" or "ssm" (case-insensitive).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Parameter names can include only the following symbols and letters: <code>a-zA-Z0-9_.-/</code>
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A parameter name can't include spaces.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Parameter hierarchies are limited to a maximum depth of fifteen levels.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * For additional information about valid values for parameter names, see <a
-     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html"
-     * >Requirements and Constraints for Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>.
+     * For information about parameter name requirements and restrictions, see <a href=
+     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramstore-su-create-about"
+     * >About Creating Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * <note>
      * <p>
@@ -80,7 +45,7 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
     private String name;
     /**
      * <p>
-     * Information about the parameter that you want to add to the system. Optional but recommended.
+     * Information about the parameter that you want to add to the system.
      * </p>
      * <important>
      * <p>
@@ -99,41 +64,13 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      * <p>
      * The type of parameter that you want to add to the system.
      * </p>
-     * <p>
-     * Items in a <code>StringList</code> must be separated by a comma (,). You can't use other punctuation or special
-     * character to escape items in the list. If you have a parameter value that requires a comma, then use the
-     * <code>String</code> data type.
-     * </p>
-     * <note>
-     * <p>
-     * <code>SecureString</code> is not currently supported for AWS CloudFormation templates or in the China Regions.
-     * </p>
-     * </note>
      */
     private String type;
     /**
      * <p>
-     * The KMS Key ID that you want to use to encrypt a parameter. Either the default AWS Key Management Service (AWS
-     * KMS) key automatically assigned to your AWS account or a custom key. Required for parameters that use the
-     * <code>SecureString</code> data type.
+     * The KMS Key ID that you want to use to encrypt a parameter when you choose the SecureString data type. If you
+     * don't specify a key ID, the system uses the default key associated with your AWS account.
      * </p>
-     * <p>
-     * If you don't specify a key ID, the system uses the default key associated with your AWS account.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * To use your default AWS KMS key, choose the <code>SecureString</code> data type, and do <i>not</i> specify the
-     * <code>Key ID</code> when you create the parameter. The system automatically populates <code>Key ID</code> with
-     * your default KMS key.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * To use a custom KMS key, choose the <code>SecureString</code> data type with the <code>Key ID</code> parameter.
-     * </p>
-     * </li>
-     * </ul>
      */
     private String keyId;
     /**
@@ -156,44 +93,9 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      * the complete hierarchy of the parameter path and name. For example: <code>/Dev/DBServer/MySQL/db-string13</code>
      * </p>
      * <p>
-     * Naming Constraints:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * Parameter names are case sensitive.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A parameter name must be unique within an AWS Region
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A parameter name can't be prefixed with "aws" or "ssm" (case-insensitive).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Parameter names can include only the following symbols and letters: <code>a-zA-Z0-9_.-/</code>
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A parameter name can't include spaces.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Parameter hierarchies are limited to a maximum depth of fifteen levels.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * For additional information about valid values for parameter names, see <a
-     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html"
-     * >Requirements and Constraints for Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>.
+     * For information about parameter name requirements and restrictions, see <a href=
+     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramstore-su-create-about"
+     * >About Creating Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * <note>
      * <p>
@@ -207,44 +109,9 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      *        includes the complete hierarchy of the parameter path and name. For example:
      *        <code>/Dev/DBServer/MySQL/db-string13</code> </p>
      *        <p>
-     *        Naming Constraints:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        Parameter names are case sensitive.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        A parameter name must be unique within an AWS Region
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        A parameter name can't be prefixed with "aws" or "ssm" (case-insensitive).
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        Parameter names can include only the following symbols and letters: <code>a-zA-Z0-9_.-/</code>
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        A parameter name can't include spaces.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        Parameter hierarchies are limited to a maximum depth of fifteen levels.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        For additional information about valid values for parameter names, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html"
-     *        >Requirements and Constraints for Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>.
+     *        For information about parameter name requirements and restrictions, see <a href=
+     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramstore-su-create-about"
+     *        >About Creating Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>.
      *        </p>
      *        <note>
      *        <p>
@@ -263,44 +130,9 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      * the complete hierarchy of the parameter path and name. For example: <code>/Dev/DBServer/MySQL/db-string13</code>
      * </p>
      * <p>
-     * Naming Constraints:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * Parameter names are case sensitive.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A parameter name must be unique within an AWS Region
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A parameter name can't be prefixed with "aws" or "ssm" (case-insensitive).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Parameter names can include only the following symbols and letters: <code>a-zA-Z0-9_.-/</code>
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A parameter name can't include spaces.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Parameter hierarchies are limited to a maximum depth of fifteen levels.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * For additional information about valid values for parameter names, see <a
-     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html"
-     * >Requirements and Constraints for Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>.
+     * For information about parameter name requirements and restrictions, see <a href=
+     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramstore-su-create-about"
+     * >About Creating Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * <note>
      * <p>
@@ -313,44 +145,9 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      *         includes the complete hierarchy of the parameter path and name. For example:
      *         <code>/Dev/DBServer/MySQL/db-string13</code> </p>
      *         <p>
-     *         Naming Constraints:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         Parameter names are case sensitive.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         A parameter name must be unique within an AWS Region
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         A parameter name can't be prefixed with "aws" or "ssm" (case-insensitive).
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         Parameter names can include only the following symbols and letters: <code>a-zA-Z0-9_.-/</code>
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         A parameter name can't include spaces.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         Parameter hierarchies are limited to a maximum depth of fifteen levels.
-     *         </p>
-     *         </li>
-     *         </ul>
-     *         <p>
-     *         For additional information about valid values for parameter names, see <a href=
-     *         "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html"
-     *         >Requirements and Constraints for Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>.
+     *         For information about parameter name requirements and restrictions, see <a href=
+     *         "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramstore-su-create-about"
+     *         >About Creating Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>.
      *         </p>
      *         <note>
      *         <p>
@@ -369,44 +166,9 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      * the complete hierarchy of the parameter path and name. For example: <code>/Dev/DBServer/MySQL/db-string13</code>
      * </p>
      * <p>
-     * Naming Constraints:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * Parameter names are case sensitive.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A parameter name must be unique within an AWS Region
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A parameter name can't be prefixed with "aws" or "ssm" (case-insensitive).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Parameter names can include only the following symbols and letters: <code>a-zA-Z0-9_.-/</code>
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A parameter name can't include spaces.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Parameter hierarchies are limited to a maximum depth of fifteen levels.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * For additional information about valid values for parameter names, see <a
-     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html"
-     * >Requirements and Constraints for Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>.
+     * For information about parameter name requirements and restrictions, see <a href=
+     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramstore-su-create-about"
+     * >About Creating Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>.
      * </p>
      * <note>
      * <p>
@@ -420,44 +182,9 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      *        includes the complete hierarchy of the parameter path and name. For example:
      *        <code>/Dev/DBServer/MySQL/db-string13</code> </p>
      *        <p>
-     *        Naming Constraints:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        Parameter names are case sensitive.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        A parameter name must be unique within an AWS Region
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        A parameter name can't be prefixed with "aws" or "ssm" (case-insensitive).
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        Parameter names can include only the following symbols and letters: <code>a-zA-Z0-9_.-/</code>
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        A parameter name can't include spaces.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        Parameter hierarchies are limited to a maximum depth of fifteen levels.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        For additional information about valid values for parameter names, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html"
-     *        >Requirements and Constraints for Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>.
+     *        For information about parameter name requirements and restrictions, see <a href=
+     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramstore-su-create-about"
+     *        >About Creating Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>.
      *        </p>
      *        <note>
      *        <p>
@@ -474,7 +201,7 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * Information about the parameter that you want to add to the system. Optional but recommended.
+     * Information about the parameter that you want to add to the system.
      * </p>
      * <important>
      * <p>
@@ -483,8 +210,7 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      * </important>
      * 
      * @param description
-     *        Information about the parameter that you want to add to the system. Optional but recommended.</p>
-     *        <important>
+     *        Information about the parameter that you want to add to the system.</p> <important>
      *        <p>
      *        Do not enter personally identifiable information in this field.
      *        </p>
@@ -496,7 +222,7 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * Information about the parameter that you want to add to the system. Optional but recommended.
+     * Information about the parameter that you want to add to the system.
      * </p>
      * <important>
      * <p>
@@ -504,8 +230,7 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      * </p>
      * </important>
      * 
-     * @return Information about the parameter that you want to add to the system. Optional but recommended.</p>
-     *         <important>
+     * @return Information about the parameter that you want to add to the system.</p> <important>
      *         <p>
      *         Do not enter personally identifiable information in this field.
      *         </p>
@@ -517,7 +242,7 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * Information about the parameter that you want to add to the system. Optional but recommended.
+     * Information about the parameter that you want to add to the system.
      * </p>
      * <important>
      * <p>
@@ -526,8 +251,7 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      * </important>
      * 
      * @param description
-     *        Information about the parameter that you want to add to the system. Optional but recommended.</p>
-     *        <important>
+     *        Information about the parameter that you want to add to the system.</p> <important>
      *        <p>
      *        Do not enter personally identifiable information in this field.
      *        </p>
@@ -583,29 +307,9 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      * <p>
      * The type of parameter that you want to add to the system.
      * </p>
-     * <p>
-     * Items in a <code>StringList</code> must be separated by a comma (,). You can't use other punctuation or special
-     * character to escape items in the list. If you have a parameter value that requires a comma, then use the
-     * <code>String</code> data type.
-     * </p>
-     * <note>
-     * <p>
-     * <code>SecureString</code> is not currently supported for AWS CloudFormation templates or in the China Regions.
-     * </p>
-     * </note>
      * 
      * @param type
-     *        The type of parameter that you want to add to the system.</p>
-     *        <p>
-     *        Items in a <code>StringList</code> must be separated by a comma (,). You can't use other punctuation or
-     *        special character to escape items in the list. If you have a parameter value that requires a comma, then
-     *        use the <code>String</code> data type.
-     *        </p>
-     *        <note>
-     *        <p>
-     *        <code>SecureString</code> is not currently supported for AWS CloudFormation templates or in the China
-     *        Regions.
-     *        </p>
+     *        The type of parameter that you want to add to the system.
      * @see ParameterType
      */
 
@@ -617,28 +321,8 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      * <p>
      * The type of parameter that you want to add to the system.
      * </p>
-     * <p>
-     * Items in a <code>StringList</code> must be separated by a comma (,). You can't use other punctuation or special
-     * character to escape items in the list. If you have a parameter value that requires a comma, then use the
-     * <code>String</code> data type.
-     * </p>
-     * <note>
-     * <p>
-     * <code>SecureString</code> is not currently supported for AWS CloudFormation templates or in the China Regions.
-     * </p>
-     * </note>
      * 
-     * @return The type of parameter that you want to add to the system.</p>
-     *         <p>
-     *         Items in a <code>StringList</code> must be separated by a comma (,). You can't use other punctuation or
-     *         special character to escape items in the list. If you have a parameter value that requires a comma, then
-     *         use the <code>String</code> data type.
-     *         </p>
-     *         <note>
-     *         <p>
-     *         <code>SecureString</code> is not currently supported for AWS CloudFormation templates or in the China
-     *         Regions.
-     *         </p>
+     * @return The type of parameter that you want to add to the system.
      * @see ParameterType
      */
 
@@ -650,29 +334,9 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      * <p>
      * The type of parameter that you want to add to the system.
      * </p>
-     * <p>
-     * Items in a <code>StringList</code> must be separated by a comma (,). You can't use other punctuation or special
-     * character to escape items in the list. If you have a parameter value that requires a comma, then use the
-     * <code>String</code> data type.
-     * </p>
-     * <note>
-     * <p>
-     * <code>SecureString</code> is not currently supported for AWS CloudFormation templates or in the China Regions.
-     * </p>
-     * </note>
      * 
      * @param type
-     *        The type of parameter that you want to add to the system.</p>
-     *        <p>
-     *        Items in a <code>StringList</code> must be separated by a comma (,). You can't use other punctuation or
-     *        special character to escape items in the list. If you have a parameter value that requires a comma, then
-     *        use the <code>String</code> data type.
-     *        </p>
-     *        <note>
-     *        <p>
-     *        <code>SecureString</code> is not currently supported for AWS CloudFormation templates or in the China
-     *        Regions.
-     *        </p>
+     *        The type of parameter that you want to add to the system.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ParameterType
      */
@@ -686,29 +350,9 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      * <p>
      * The type of parameter that you want to add to the system.
      * </p>
-     * <p>
-     * Items in a <code>StringList</code> must be separated by a comma (,). You can't use other punctuation or special
-     * character to escape items in the list. If you have a parameter value that requires a comma, then use the
-     * <code>String</code> data type.
-     * </p>
-     * <note>
-     * <p>
-     * <code>SecureString</code> is not currently supported for AWS CloudFormation templates or in the China Regions.
-     * </p>
-     * </note>
      * 
      * @param type
-     *        The type of parameter that you want to add to the system.</p>
-     *        <p>
-     *        Items in a <code>StringList</code> must be separated by a comma (,). You can't use other punctuation or
-     *        special character to escape items in the list. If you have a parameter value that requires a comma, then
-     *        use the <code>String</code> data type.
-     *        </p>
-     *        <note>
-     *        <p>
-     *        <code>SecureString</code> is not currently supported for AWS CloudFormation templates or in the China
-     *        Regions.
-     *        </p>
+     *        The type of parameter that you want to add to the system.
      * @see ParameterType
      */
 
@@ -720,29 +364,9 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
      * <p>
      * The type of parameter that you want to add to the system.
      * </p>
-     * <p>
-     * Items in a <code>StringList</code> must be separated by a comma (,). You can't use other punctuation or special
-     * character to escape items in the list. If you have a parameter value that requires a comma, then use the
-     * <code>String</code> data type.
-     * </p>
-     * <note>
-     * <p>
-     * <code>SecureString</code> is not currently supported for AWS CloudFormation templates or in the China Regions.
-     * </p>
-     * </note>
      * 
      * @param type
-     *        The type of parameter that you want to add to the system.</p>
-     *        <p>
-     *        Items in a <code>StringList</code> must be separated by a comma (,). You can't use other punctuation or
-     *        special character to escape items in the list. If you have a parameter value that requires a comma, then
-     *        use the <code>String</code> data type.
-     *        </p>
-     *        <note>
-     *        <p>
-     *        <code>SecureString</code> is not currently supported for AWS CloudFormation templates or in the China
-     *        Regions.
-     *        </p>
+     *        The type of parameter that you want to add to the system.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ParameterType
      */
@@ -754,49 +378,13 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * The KMS Key ID that you want to use to encrypt a parameter. Either the default AWS Key Management Service (AWS
-     * KMS) key automatically assigned to your AWS account or a custom key. Required for parameters that use the
-     * <code>SecureString</code> data type.
+     * The KMS Key ID that you want to use to encrypt a parameter when you choose the SecureString data type. If you
+     * don't specify a key ID, the system uses the default key associated with your AWS account.
      * </p>
-     * <p>
-     * If you don't specify a key ID, the system uses the default key associated with your AWS account.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * To use your default AWS KMS key, choose the <code>SecureString</code> data type, and do <i>not</i> specify the
-     * <code>Key ID</code> when you create the parameter. The system automatically populates <code>Key ID</code> with
-     * your default KMS key.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * To use a custom KMS key, choose the <code>SecureString</code> data type with the <code>Key ID</code> parameter.
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param keyId
-     *        The KMS Key ID that you want to use to encrypt a parameter. Either the default AWS Key Management Service
-     *        (AWS KMS) key automatically assigned to your AWS account or a custom key. Required for parameters that use
-     *        the <code>SecureString</code> data type.</p>
-     *        <p>
-     *        If you don't specify a key ID, the system uses the default key associated with your AWS account.
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        To use your default AWS KMS key, choose the <code>SecureString</code> data type, and do <i>not</i> specify
-     *        the <code>Key ID</code> when you create the parameter. The system automatically populates
-     *        <code>Key ID</code> with your default KMS key.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        To use a custom KMS key, choose the <code>SecureString</code> data type with the <code>Key ID</code>
-     *        parameter.
-     *        </p>
-     *        </li>
+     *        The KMS Key ID that you want to use to encrypt a parameter when you choose the SecureString data type. If
+     *        you don't specify a key ID, the system uses the default key associated with your AWS account.
      */
 
     public void setKeyId(String keyId) {
@@ -805,48 +393,12 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * The KMS Key ID that you want to use to encrypt a parameter. Either the default AWS Key Management Service (AWS
-     * KMS) key automatically assigned to your AWS account or a custom key. Required for parameters that use the
-     * <code>SecureString</code> data type.
+     * The KMS Key ID that you want to use to encrypt a parameter when you choose the SecureString data type. If you
+     * don't specify a key ID, the system uses the default key associated with your AWS account.
      * </p>
-     * <p>
-     * If you don't specify a key ID, the system uses the default key associated with your AWS account.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * To use your default AWS KMS key, choose the <code>SecureString</code> data type, and do <i>not</i> specify the
-     * <code>Key ID</code> when you create the parameter. The system automatically populates <code>Key ID</code> with
-     * your default KMS key.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * To use a custom KMS key, choose the <code>SecureString</code> data type with the <code>Key ID</code> parameter.
-     * </p>
-     * </li>
-     * </ul>
      * 
-     * @return The KMS Key ID that you want to use to encrypt a parameter. Either the default AWS Key Management Service
-     *         (AWS KMS) key automatically assigned to your AWS account or a custom key. Required for parameters that
-     *         use the <code>SecureString</code> data type.</p>
-     *         <p>
-     *         If you don't specify a key ID, the system uses the default key associated with your AWS account.
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         To use your default AWS KMS key, choose the <code>SecureString</code> data type, and do <i>not</i>
-     *         specify the <code>Key ID</code> when you create the parameter. The system automatically populates
-     *         <code>Key ID</code> with your default KMS key.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         To use a custom KMS key, choose the <code>SecureString</code> data type with the <code>Key ID</code>
-     *         parameter.
-     *         </p>
-     *         </li>
+     * @return The KMS Key ID that you want to use to encrypt a parameter when you choose the SecureString data type. If
+     *         you don't specify a key ID, the system uses the default key associated with your AWS account.
      */
 
     public String getKeyId() {
@@ -855,49 +407,13 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * The KMS Key ID that you want to use to encrypt a parameter. Either the default AWS Key Management Service (AWS
-     * KMS) key automatically assigned to your AWS account or a custom key. Required for parameters that use the
-     * <code>SecureString</code> data type.
+     * The KMS Key ID that you want to use to encrypt a parameter when you choose the SecureString data type. If you
+     * don't specify a key ID, the system uses the default key associated with your AWS account.
      * </p>
-     * <p>
-     * If you don't specify a key ID, the system uses the default key associated with your AWS account.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * To use your default AWS KMS key, choose the <code>SecureString</code> data type, and do <i>not</i> specify the
-     * <code>Key ID</code> when you create the parameter. The system automatically populates <code>Key ID</code> with
-     * your default KMS key.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * To use a custom KMS key, choose the <code>SecureString</code> data type with the <code>Key ID</code> parameter.
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param keyId
-     *        The KMS Key ID that you want to use to encrypt a parameter. Either the default AWS Key Management Service
-     *        (AWS KMS) key automatically assigned to your AWS account or a custom key. Required for parameters that use
-     *        the <code>SecureString</code> data type.</p>
-     *        <p>
-     *        If you don't specify a key ID, the system uses the default key associated with your AWS account.
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        To use your default AWS KMS key, choose the <code>SecureString</code> data type, and do <i>not</i> specify
-     *        the <code>Key ID</code> when you create the parameter. The system automatically populates
-     *        <code>Key ID</code> with your default KMS key.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        To use a custom KMS key, choose the <code>SecureString</code> data type with the <code>Key ID</code>
-     *        parameter.
-     *        </p>
-     *        </li>
+     *        The KMS Key ID that you want to use to encrypt a parameter when you choose the SecureString data type. If
+     *        you don't specify a key ID, the system uses the default key associated with your AWS account.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1005,8 +521,7 @@ public class PutParameterRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

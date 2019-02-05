@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Information about a webhook that connects repository events to a build project in AWS CodeBuild.
+ * Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/Webhook" target="_top">AWS API
@@ -36,7 +36,7 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
     private String url;
     /**
      * <p>
-     * The AWS CodeBuild endpoint where webhook events are sent.
+     * The CodeBuild endpoint where webhook events are sent.
      * </p>
      */
     private String payloadUrl;
@@ -44,24 +44,19 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * The secret token of the associated repository.
      * </p>
-     * <note>
-     * <p>
-     * A Bitbucket webhook does not support <code>secret</code>.
-     * </p>
-     * </note>
      */
     private String secret;
     /**
      * <p>
-     * A regular expression used to determine which repository branches are built when a webhook is triggered. If the
-     * name of a branch matches the regular expression, then it is built. If <code>branchFilter</code> is empty, then
-     * all branches are built.
+     * A regular expression used to determine which branches in a repository are built when a webhook is triggered. If
+     * the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If
+     * branchFilter is empty, then all branches are built.
      * </p>
      */
     private String branchFilter;
     /**
      * <p>
-     * A timestamp that indicates the last time a repository's secret token was modified.
+     * A timestamp indicating the last time a repository's secret token was modified.
      * </p>
      */
     private java.util.Date lastModifiedSecret;
@@ -108,11 +103,11 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The AWS CodeBuild endpoint where webhook events are sent.
+     * The CodeBuild endpoint where webhook events are sent.
      * </p>
      * 
      * @param payloadUrl
-     *        The AWS CodeBuild endpoint where webhook events are sent.
+     *        The CodeBuild endpoint where webhook events are sent.
      */
 
     public void setPayloadUrl(String payloadUrl) {
@@ -121,10 +116,10 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The AWS CodeBuild endpoint where webhook events are sent.
+     * The CodeBuild endpoint where webhook events are sent.
      * </p>
      * 
-     * @return The AWS CodeBuild endpoint where webhook events are sent.
+     * @return The CodeBuild endpoint where webhook events are sent.
      */
 
     public String getPayloadUrl() {
@@ -133,11 +128,11 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The AWS CodeBuild endpoint where webhook events are sent.
+     * The CodeBuild endpoint where webhook events are sent.
      * </p>
      * 
      * @param payloadUrl
-     *        The AWS CodeBuild endpoint where webhook events are sent.
+     *        The CodeBuild endpoint where webhook events are sent.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -150,17 +145,9 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * The secret token of the associated repository.
      * </p>
-     * <note>
-     * <p>
-     * A Bitbucket webhook does not support <code>secret</code>.
-     * </p>
-     * </note>
      * 
      * @param secret
-     *        The secret token of the associated repository. </p> <note>
-     *        <p>
-     *        A Bitbucket webhook does not support <code>secret</code>.
-     *        </p>
+     *        The secret token of the associated repository.
      */
 
     public void setSecret(String secret) {
@@ -171,16 +158,8 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * The secret token of the associated repository.
      * </p>
-     * <note>
-     * <p>
-     * A Bitbucket webhook does not support <code>secret</code>.
-     * </p>
-     * </note>
      * 
-     * @return The secret token of the associated repository. </p> <note>
-     *         <p>
-     *         A Bitbucket webhook does not support <code>secret</code>.
-     *         </p>
+     * @return The secret token of the associated repository.
      */
 
     public String getSecret() {
@@ -191,17 +170,9 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * The secret token of the associated repository.
      * </p>
-     * <note>
-     * <p>
-     * A Bitbucket webhook does not support <code>secret</code>.
-     * </p>
-     * </note>
      * 
      * @param secret
-     *        The secret token of the associated repository. </p> <note>
-     *        <p>
-     *        A Bitbucket webhook does not support <code>secret</code>.
-     *        </p>
+     *        The secret token of the associated repository.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -212,15 +183,15 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A regular expression used to determine which repository branches are built when a webhook is triggered. If the
-     * name of a branch matches the regular expression, then it is built. If <code>branchFilter</code> is empty, then
-     * all branches are built.
+     * A regular expression used to determine which branches in a repository are built when a webhook is triggered. If
+     * the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If
+     * branchFilter is empty, then all branches are built.
      * </p>
      * 
      * @param branchFilter
-     *        A regular expression used to determine which repository branches are built when a webhook is triggered. If
-     *        the name of a branch matches the regular expression, then it is built. If <code>branchFilter</code> is
-     *        empty, then all branches are built.
+     *        A regular expression used to determine which branches in a repository are built when a webhook is
+     *        triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match,
+     *        then it is not. If branchFilter is empty, then all branches are built.
      */
 
     public void setBranchFilter(String branchFilter) {
@@ -229,14 +200,14 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A regular expression used to determine which repository branches are built when a webhook is triggered. If the
-     * name of a branch matches the regular expression, then it is built. If <code>branchFilter</code> is empty, then
-     * all branches are built.
+     * A regular expression used to determine which branches in a repository are built when a webhook is triggered. If
+     * the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If
+     * branchFilter is empty, then all branches are built.
      * </p>
      * 
-     * @return A regular expression used to determine which repository branches are built when a webhook is triggered.
-     *         If the name of a branch matches the regular expression, then it is built. If <code>branchFilter</code> is
-     *         empty, then all branches are built.
+     * @return A regular expression used to determine which branches in a repository are built when a webhook is
+     *         triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match,
+     *         then it is not. If branchFilter is empty, then all branches are built.
      */
 
     public String getBranchFilter() {
@@ -245,15 +216,15 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A regular expression used to determine which repository branches are built when a webhook is triggered. If the
-     * name of a branch matches the regular expression, then it is built. If <code>branchFilter</code> is empty, then
-     * all branches are built.
+     * A regular expression used to determine which branches in a repository are built when a webhook is triggered. If
+     * the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If
+     * branchFilter is empty, then all branches are built.
      * </p>
      * 
      * @param branchFilter
-     *        A regular expression used to determine which repository branches are built when a webhook is triggered. If
-     *        the name of a branch matches the regular expression, then it is built. If <code>branchFilter</code> is
-     *        empty, then all branches are built.
+     *        A regular expression used to determine which branches in a repository are built when a webhook is
+     *        triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match,
+     *        then it is not. If branchFilter is empty, then all branches are built.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -264,11 +235,11 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A timestamp that indicates the last time a repository's secret token was modified.
+     * A timestamp indicating the last time a repository's secret token was modified.
      * </p>
      * 
      * @param lastModifiedSecret
-     *        A timestamp that indicates the last time a repository's secret token was modified.
+     *        A timestamp indicating the last time a repository's secret token was modified.
      */
 
     public void setLastModifiedSecret(java.util.Date lastModifiedSecret) {
@@ -277,10 +248,10 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A timestamp that indicates the last time a repository's secret token was modified.
+     * A timestamp indicating the last time a repository's secret token was modified.
      * </p>
      * 
-     * @return A timestamp that indicates the last time a repository's secret token was modified.
+     * @return A timestamp indicating the last time a repository's secret token was modified.
      */
 
     public java.util.Date getLastModifiedSecret() {
@@ -289,11 +260,11 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A timestamp that indicates the last time a repository's secret token was modified.
+     * A timestamp indicating the last time a repository's secret token was modified.
      * </p>
      * 
      * @param lastModifiedSecret
-     *        A timestamp that indicates the last time a repository's secret token was modified.
+     *        A timestamp indicating the last time a repository's secret token was modified.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -303,8 +274,7 @@ public class Webhook implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

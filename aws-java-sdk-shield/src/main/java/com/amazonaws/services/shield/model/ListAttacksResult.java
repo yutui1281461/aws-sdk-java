@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -34,11 +34,6 @@ public class ListAttacksResult extends com.amazonaws.AmazonWebServiceResult<com.
      * The token returned by a previous call to indicate that there is more data available. If not null, more results
      * are available. Pass this value for the <code>NextMarker</code> parameter in a subsequent call to
      * <code>ListAttacks</code> to retrieve the next set of items.
-     * </p>
-     * <p>
-     * AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by
-     * MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a
-     * <code>NextToken</code>.
      * </p>
      */
     private String nextToken;
@@ -119,20 +114,11 @@ public class ListAttacksResult extends com.amazonaws.AmazonWebServiceResult<com.
      * are available. Pass this value for the <code>NextMarker</code> parameter in a subsequent call to
      * <code>ListAttacks</code> to retrieve the next set of items.
      * </p>
-     * <p>
-     * AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by
-     * MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a
-     * <code>NextToken</code>.
-     * </p>
      * 
      * @param nextToken
      *        The token returned by a previous call to indicate that there is more data available. If not null, more
      *        results are available. Pass this value for the <code>NextMarker</code> parameter in a subsequent call to
-     *        <code>ListAttacks</code> to retrieve the next set of items.</p>
-     *        <p>
-     *        AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified
-     *        by MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a
-     *        <code>NextToken</code>.
+     *        <code>ListAttacks</code> to retrieve the next set of items.
      */
 
     public void setNextToken(String nextToken) {
@@ -145,19 +131,10 @@ public class ListAttacksResult extends com.amazonaws.AmazonWebServiceResult<com.
      * are available. Pass this value for the <code>NextMarker</code> parameter in a subsequent call to
      * <code>ListAttacks</code> to retrieve the next set of items.
      * </p>
-     * <p>
-     * AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by
-     * MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a
-     * <code>NextToken</code>.
-     * </p>
      * 
      * @return The token returned by a previous call to indicate that there is more data available. If not null, more
      *         results are available. Pass this value for the <code>NextMarker</code> parameter in a subsequent call to
-     *         <code>ListAttacks</code> to retrieve the next set of items.</p>
-     *         <p>
-     *         AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number
-     *         specified by MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always
-     *         also return a <code>NextToken</code>.
+     *         <code>ListAttacks</code> to retrieve the next set of items.
      */
 
     public String getNextToken() {
@@ -170,20 +147,11 @@ public class ListAttacksResult extends com.amazonaws.AmazonWebServiceResult<com.
      * are available. Pass this value for the <code>NextMarker</code> parameter in a subsequent call to
      * <code>ListAttacks</code> to retrieve the next set of items.
      * </p>
-     * <p>
-     * AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by
-     * MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a
-     * <code>NextToken</code>.
-     * </p>
      * 
      * @param nextToken
      *        The token returned by a previous call to indicate that there is more data available. If not null, more
      *        results are available. Pass this value for the <code>NextMarker</code> parameter in a subsequent call to
-     *        <code>ListAttacks</code> to retrieve the next set of items.</p>
-     *        <p>
-     *        AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified
-     *        by MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a
-     *        <code>NextToken</code>.
+     *        <code>ListAttacks</code> to retrieve the next set of items.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -193,8 +161,7 @@ public class ListAttacksResult extends com.amazonaws.AmazonWebServiceResult<com.
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

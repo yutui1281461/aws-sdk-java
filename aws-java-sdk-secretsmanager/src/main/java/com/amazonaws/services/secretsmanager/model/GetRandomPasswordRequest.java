@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -50,13 +50,6 @@ public class GetRandomPasswordRequest extends com.amazonaws.AmazonWebServiceRequ
      * <p>
      * Specifies that the generated password should not include punctuation characters. The default if you do not
      * include this switch parameter is that punctuation characters can be included.
-     * </p>
-     * <p>
-     * The following are the punctuation characters that <i>can</i> be included in the generated password if you don't
-     * explicitly exclude them with <code>ExcludeCharacters</code> or <code>ExcludePunctuation</code>:
-     * </p>
-     * <p>
-     * <code>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</code>
      * </p>
      */
     private Boolean excludePunctuation;
@@ -247,23 +240,10 @@ public class GetRandomPasswordRequest extends com.amazonaws.AmazonWebServiceRequ
      * Specifies that the generated password should not include punctuation characters. The default if you do not
      * include this switch parameter is that punctuation characters can be included.
      * </p>
-     * <p>
-     * The following are the punctuation characters that <i>can</i> be included in the generated password if you don't
-     * explicitly exclude them with <code>ExcludeCharacters</code> or <code>ExcludePunctuation</code>:
-     * </p>
-     * <p>
-     * <code>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</code>
-     * </p>
      * 
      * @param excludePunctuation
      *        Specifies that the generated password should not include punctuation characters. The default if you do not
-     *        include this switch parameter is that punctuation characters can be included.</p>
-     *        <p>
-     *        The following are the punctuation characters that <i>can</i> be included in the generated password if you
-     *        don't explicitly exclude them with <code>ExcludeCharacters</code> or <code>ExcludePunctuation</code>:
-     *        </p>
-     *        <p>
-     *        <code>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</code>
+     *        include this switch parameter is that punctuation characters can be included.
      */
 
     public void setExcludePunctuation(Boolean excludePunctuation) {
@@ -275,22 +255,9 @@ public class GetRandomPasswordRequest extends com.amazonaws.AmazonWebServiceRequ
      * Specifies that the generated password should not include punctuation characters. The default if you do not
      * include this switch parameter is that punctuation characters can be included.
      * </p>
-     * <p>
-     * The following are the punctuation characters that <i>can</i> be included in the generated password if you don't
-     * explicitly exclude them with <code>ExcludeCharacters</code> or <code>ExcludePunctuation</code>:
-     * </p>
-     * <p>
-     * <code>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</code>
-     * </p>
      * 
      * @return Specifies that the generated password should not include punctuation characters. The default if you do
-     *         not include this switch parameter is that punctuation characters can be included.</p>
-     *         <p>
-     *         The following are the punctuation characters that <i>can</i> be included in the generated password if you
-     *         don't explicitly exclude them with <code>ExcludeCharacters</code> or <code>ExcludePunctuation</code>:
-     *         </p>
-     *         <p>
-     *         <code>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</code>
+     *         not include this switch parameter is that punctuation characters can be included.
      */
 
     public Boolean getExcludePunctuation() {
@@ -302,23 +269,10 @@ public class GetRandomPasswordRequest extends com.amazonaws.AmazonWebServiceRequ
      * Specifies that the generated password should not include punctuation characters. The default if you do not
      * include this switch parameter is that punctuation characters can be included.
      * </p>
-     * <p>
-     * The following are the punctuation characters that <i>can</i> be included in the generated password if you don't
-     * explicitly exclude them with <code>ExcludeCharacters</code> or <code>ExcludePunctuation</code>:
-     * </p>
-     * <p>
-     * <code>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</code>
-     * </p>
      * 
      * @param excludePunctuation
      *        Specifies that the generated password should not include punctuation characters. The default if you do not
-     *        include this switch parameter is that punctuation characters can be included.</p>
-     *        <p>
-     *        The following are the punctuation characters that <i>can</i> be included in the generated password if you
-     *        don't explicitly exclude them with <code>ExcludeCharacters</code> or <code>ExcludePunctuation</code>:
-     *        </p>
-     *        <p>
-     *        <code>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</code>
+     *        include this switch parameter is that punctuation characters can be included.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -332,22 +286,9 @@ public class GetRandomPasswordRequest extends com.amazonaws.AmazonWebServiceRequ
      * Specifies that the generated password should not include punctuation characters. The default if you do not
      * include this switch parameter is that punctuation characters can be included.
      * </p>
-     * <p>
-     * The following are the punctuation characters that <i>can</i> be included in the generated password if you don't
-     * explicitly exclude them with <code>ExcludeCharacters</code> or <code>ExcludePunctuation</code>:
-     * </p>
-     * <p>
-     * <code>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</code>
-     * </p>
      * 
      * @return Specifies that the generated password should not include punctuation characters. The default if you do
-     *         not include this switch parameter is that punctuation characters can be included.</p>
-     *         <p>
-     *         The following are the punctuation characters that <i>can</i> be included in the generated password if you
-     *         don't explicitly exclude them with <code>ExcludeCharacters</code> or <code>ExcludePunctuation</code>:
-     *         </p>
-     *         <p>
-     *         <code>! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</code>
+     *         not include this switch parameter is that punctuation characters can be included.
      */
 
     public Boolean isExcludePunctuation() {
@@ -603,8 +544,7 @@ public class GetRandomPasswordRequest extends com.amazonaws.AmazonWebServiceRequ
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

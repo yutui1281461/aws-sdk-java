@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -25,19 +25,12 @@ import com.amazonaws.AmazonWebServiceRequest;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class GetAppsRequest extends com.amazonaws.AmazonWebServiceRequest implements Serializable, Cloneable {
 
-    /** The number of entries you want on each page in the response. */
     private String pageSize;
-    /**
-     * The NextToken string returned on a previous page that you use to get the next page of results in a paginated
-     * response.
-     */
+
     private String token;
 
     /**
-     * The number of entries you want on each page in the response.
-     * 
      * @param pageSize
-     *        The number of entries you want on each page in the response.
      */
 
     public void setPageSize(String pageSize) {
@@ -45,9 +38,7 @@ public class GetAppsRequest extends com.amazonaws.AmazonWebServiceRequest implem
     }
 
     /**
-     * The number of entries you want on each page in the response.
-     * 
-     * @return The number of entries you want on each page in the response.
+     * @return
      */
 
     public String getPageSize() {
@@ -55,10 +46,7 @@ public class GetAppsRequest extends com.amazonaws.AmazonWebServiceRequest implem
     }
 
     /**
-     * The number of entries you want on each page in the response.
-     * 
      * @param pageSize
-     *        The number of entries you want on each page in the response.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -68,12 +56,7 @@ public class GetAppsRequest extends com.amazonaws.AmazonWebServiceRequest implem
     }
 
     /**
-     * The NextToken string returned on a previous page that you use to get the next page of results in a paginated
-     * response.
-     * 
      * @param token
-     *        The NextToken string returned on a previous page that you use to get the next page of results in a
-     *        paginated response.
      */
 
     public void setToken(String token) {
@@ -81,11 +64,7 @@ public class GetAppsRequest extends com.amazonaws.AmazonWebServiceRequest implem
     }
 
     /**
-     * The NextToken string returned on a previous page that you use to get the next page of results in a paginated
-     * response.
-     * 
-     * @return The NextToken string returned on a previous page that you use to get the next page of results in a
-     *         paginated response.
+     * @return
      */
 
     public String getToken() {
@@ -93,12 +72,7 @@ public class GetAppsRequest extends com.amazonaws.AmazonWebServiceRequest implem
     }
 
     /**
-     * The NextToken string returned on a previous page that you use to get the next page of results in a paginated
-     * response.
-     * 
      * @param token
-     *        The NextToken string returned on a previous page that you use to get the next page of results in a
-     *        paginated response.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -108,8 +82,7 @@ public class GetAppsRequest extends com.amazonaws.AmazonWebServiceRequest implem
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

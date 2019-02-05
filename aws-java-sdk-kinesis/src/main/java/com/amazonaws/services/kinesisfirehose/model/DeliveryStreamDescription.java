@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -48,12 +48,6 @@ public class DeliveryStreamDescription implements Serializable, Cloneable, Struc
      * </p>
      */
     private String deliveryStreamStatus;
-    /**
-     * <p>
-     * Indicates the server-side encryption (SSE) status for the delivery stream.
-     * </p>
-     */
-    private DeliveryStreamEncryptionConfiguration deliveryStreamEncryptionConfiguration;
     /**
      * <p>
      * The delivery stream type. This can be one of the following values:
@@ -274,46 +268,6 @@ public class DeliveryStreamDescription implements Serializable, Cloneable, Struc
 
     public DeliveryStreamDescription withDeliveryStreamStatus(DeliveryStreamStatus deliveryStreamStatus) {
         this.deliveryStreamStatus = deliveryStreamStatus.toString();
-        return this;
-    }
-
-    /**
-     * <p>
-     * Indicates the server-side encryption (SSE) status for the delivery stream.
-     * </p>
-     * 
-     * @param deliveryStreamEncryptionConfiguration
-     *        Indicates the server-side encryption (SSE) status for the delivery stream.
-     */
-
-    public void setDeliveryStreamEncryptionConfiguration(DeliveryStreamEncryptionConfiguration deliveryStreamEncryptionConfiguration) {
-        this.deliveryStreamEncryptionConfiguration = deliveryStreamEncryptionConfiguration;
-    }
-
-    /**
-     * <p>
-     * Indicates the server-side encryption (SSE) status for the delivery stream.
-     * </p>
-     * 
-     * @return Indicates the server-side encryption (SSE) status for the delivery stream.
-     */
-
-    public DeliveryStreamEncryptionConfiguration getDeliveryStreamEncryptionConfiguration() {
-        return this.deliveryStreamEncryptionConfiguration;
-    }
-
-    /**
-     * <p>
-     * Indicates the server-side encryption (SSE) status for the delivery stream.
-     * </p>
-     * 
-     * @param deliveryStreamEncryptionConfiguration
-     *        Indicates the server-side encryption (SSE) status for the delivery stream.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DeliveryStreamDescription withDeliveryStreamEncryptionConfiguration(DeliveryStreamEncryptionConfiguration deliveryStreamEncryptionConfiguration) {
-        setDeliveryStreamEncryptionConfiguration(deliveryStreamEncryptionConfiguration);
         return this;
     }
 
@@ -806,8 +760,7 @@ public class DeliveryStreamDescription implements Serializable, Cloneable, Struc
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -823,8 +776,6 @@ public class DeliveryStreamDescription implements Serializable, Cloneable, Struc
             sb.append("DeliveryStreamARN: ").append(getDeliveryStreamARN()).append(",");
         if (getDeliveryStreamStatus() != null)
             sb.append("DeliveryStreamStatus: ").append(getDeliveryStreamStatus()).append(",");
-        if (getDeliveryStreamEncryptionConfiguration() != null)
-            sb.append("DeliveryStreamEncryptionConfiguration: ").append(getDeliveryStreamEncryptionConfiguration()).append(",");
         if (getDeliveryStreamType() != null)
             sb.append("DeliveryStreamType: ").append(getDeliveryStreamType()).append(",");
         if (getVersionId() != null)
@@ -865,11 +816,6 @@ public class DeliveryStreamDescription implements Serializable, Cloneable, Struc
             return false;
         if (other.getDeliveryStreamStatus() != null && other.getDeliveryStreamStatus().equals(this.getDeliveryStreamStatus()) == false)
             return false;
-        if (other.getDeliveryStreamEncryptionConfiguration() == null ^ this.getDeliveryStreamEncryptionConfiguration() == null)
-            return false;
-        if (other.getDeliveryStreamEncryptionConfiguration() != null
-                && other.getDeliveryStreamEncryptionConfiguration().equals(this.getDeliveryStreamEncryptionConfiguration()) == false)
-            return false;
         if (other.getDeliveryStreamType() == null ^ this.getDeliveryStreamType() == null)
             return false;
         if (other.getDeliveryStreamType() != null && other.getDeliveryStreamType().equals(this.getDeliveryStreamType()) == false)
@@ -909,7 +855,6 @@ public class DeliveryStreamDescription implements Serializable, Cloneable, Struc
         hashCode = prime * hashCode + ((getDeliveryStreamName() == null) ? 0 : getDeliveryStreamName().hashCode());
         hashCode = prime * hashCode + ((getDeliveryStreamARN() == null) ? 0 : getDeliveryStreamARN().hashCode());
         hashCode = prime * hashCode + ((getDeliveryStreamStatus() == null) ? 0 : getDeliveryStreamStatus().hashCode());
-        hashCode = prime * hashCode + ((getDeliveryStreamEncryptionConfiguration() == null) ? 0 : getDeliveryStreamEncryptionConfiguration().hashCode());
         hashCode = prime * hashCode + ((getDeliveryStreamType() == null) ? 0 : getDeliveryStreamType().hashCode());
         hashCode = prime * hashCode + ((getVersionId() == null) ? 0 : getVersionId().hashCode());
         hashCode = prime * hashCode + ((getCreateTimestamp() == null) ? 0 : getCreateTimestamp().hashCode());

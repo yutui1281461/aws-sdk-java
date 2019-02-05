@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -45,11 +45,6 @@ public class RequestSpotFleetRequestMarshaller implements Marshaller<Request<Req
 
             if (spotFleetRequestConfig.getAllocationStrategy() != null) {
                 request.addParameter("SpotFleetRequestConfig.AllocationStrategy", StringUtils.fromString(spotFleetRequestConfig.getAllocationStrategy()));
-            }
-
-            if (spotFleetRequestConfig.getOnDemandAllocationStrategy() != null) {
-                request.addParameter("SpotFleetRequestConfig.OnDemandAllocationStrategy",
-                        StringUtils.fromString(spotFleetRequestConfig.getOnDemandAllocationStrategy()));
             }
 
             if (spotFleetRequestConfig.getClientToken() != null) {
@@ -131,6 +126,12 @@ public class RequestSpotFleetRequestMarshaller implements Marshaller<Request<Req
                             EbsBlockDevice ebs = spotFleetLaunchSpecificationBlockDeviceMappingsListValue.getEbs();
                             if (ebs != null) {
 
+                                if (ebs.getEncrypted() != null) {
+                                    request.addParameter("SpotFleetRequestConfig.LaunchSpecifications." + launchSpecificationsListIndex
+                                            + ".BlockDeviceMapping." + blockDeviceMappingsListIndex + ".Ebs.Encrypted",
+                                            StringUtils.fromBoolean(ebs.getEncrypted()));
+                                }
+
                                 if (ebs.getDeleteOnTermination() != null) {
                                     request.addParameter("SpotFleetRequestConfig.LaunchSpecifications." + launchSpecificationsListIndex
                                             + ".BlockDeviceMapping." + blockDeviceMappingsListIndex + ".Ebs.DeleteOnTermination",
@@ -140,6 +141,12 @@ public class RequestSpotFleetRequestMarshaller implements Marshaller<Request<Req
                                 if (ebs.getIops() != null) {
                                     request.addParameter("SpotFleetRequestConfig.LaunchSpecifications." + launchSpecificationsListIndex
                                             + ".BlockDeviceMapping." + blockDeviceMappingsListIndex + ".Ebs.Iops", StringUtils.fromInteger(ebs.getIops()));
+                                }
+
+                                if (ebs.getKmsKeyId() != null) {
+                                    request.addParameter("SpotFleetRequestConfig.LaunchSpecifications." + launchSpecificationsListIndex
+                                            + ".BlockDeviceMapping." + blockDeviceMappingsListIndex + ".Ebs.KmsKeyId",
+                                            StringUtils.fromString(ebs.getKmsKeyId()));
                                 }
 
                                 if (ebs.getSnapshotId() != null) {
@@ -158,18 +165,6 @@ public class RequestSpotFleetRequestMarshaller implements Marshaller<Request<Req
                                     request.addParameter("SpotFleetRequestConfig.LaunchSpecifications." + launchSpecificationsListIndex
                                             + ".BlockDeviceMapping." + blockDeviceMappingsListIndex + ".Ebs.VolumeType",
                                             StringUtils.fromString(ebs.getVolumeType()));
-                                }
-
-                                if (ebs.getEncrypted() != null) {
-                                    request.addParameter("SpotFleetRequestConfig.LaunchSpecifications." + launchSpecificationsListIndex
-                                            + ".BlockDeviceMapping." + blockDeviceMappingsListIndex + ".Ebs.Encrypted",
-                                            StringUtils.fromBoolean(ebs.getEncrypted()));
-                                }
-
-                                if (ebs.getKmsKeyId() != null) {
-                                    request.addParameter("SpotFleetRequestConfig.LaunchSpecifications." + launchSpecificationsListIndex
-                                            + ".BlockDeviceMapping." + blockDeviceMappingsListIndex + ".Ebs.KmsKeyId",
-                                            StringUtils.fromString(ebs.getKmsKeyId()));
                                 }
                             }
 
@@ -502,11 +497,6 @@ public class RequestSpotFleetRequestMarshaller implements Marshaller<Request<Req
                                         + overridesListIndex + ".WeightedCapacity",
                                         StringUtils.fromDouble(launchTemplateConfigOverridesListValue.getWeightedCapacity()));
                             }
-
-                            if (launchTemplateConfigOverridesListValue.getPriority() != null) {
-                                request.addParameter("SpotFleetRequestConfig.LaunchTemplateConfigs." + launchTemplateConfigsListIndex + ".Overrides."
-                                        + overridesListIndex + ".Priority", StringUtils.fromDouble(launchTemplateConfigOverridesListValue.getPriority()));
-                            }
                             overridesListIndex++;
                         }
                     }
@@ -595,11 +585,6 @@ public class RequestSpotFleetRequestMarshaller implements Marshaller<Request<Req
                         }
                     }
                 }
-            }
-
-            if (spotFleetRequestConfig.getInstancePoolsToUseCount() != null) {
-                request.addParameter("SpotFleetRequestConfig.InstancePoolsToUseCount",
-                        StringUtils.fromInteger(spotFleetRequestConfig.getInstancePoolsToUseCount()));
             }
         }
 

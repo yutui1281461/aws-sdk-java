@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,13 +33,13 @@ public class StopExecutionRequest extends com.amazonaws.AmazonWebServiceRequest 
     private String executionArn;
     /**
      * <p>
-     * The error code of the failure.
+     * An arbitrary error code that identifies the cause of the termination.
      * </p>
      */
     private String error;
     /**
      * <p>
-     * A more detailed explanation of the cause of the failure.
+     * A more detailed explanation of the cause of the termination.
      * </p>
      */
     private String cause;
@@ -86,11 +86,11 @@ public class StopExecutionRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The error code of the failure.
+     * An arbitrary error code that identifies the cause of the termination.
      * </p>
      * 
      * @param error
-     *        The error code of the failure.
+     *        An arbitrary error code that identifies the cause of the termination.
      */
 
     public void setError(String error) {
@@ -99,10 +99,10 @@ public class StopExecutionRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The error code of the failure.
+     * An arbitrary error code that identifies the cause of the termination.
      * </p>
      * 
-     * @return The error code of the failure.
+     * @return An arbitrary error code that identifies the cause of the termination.
      */
 
     public String getError() {
@@ -111,11 +111,11 @@ public class StopExecutionRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The error code of the failure.
+     * An arbitrary error code that identifies the cause of the termination.
      * </p>
      * 
      * @param error
-     *        The error code of the failure.
+     *        An arbitrary error code that identifies the cause of the termination.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -126,11 +126,11 @@ public class StopExecutionRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A more detailed explanation of the cause of the failure.
+     * A more detailed explanation of the cause of the termination.
      * </p>
      * 
      * @param cause
-     *        A more detailed explanation of the cause of the failure.
+     *        A more detailed explanation of the cause of the termination.
      */
 
     public void setCause(String cause) {
@@ -139,10 +139,10 @@ public class StopExecutionRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A more detailed explanation of the cause of the failure.
+     * A more detailed explanation of the cause of the termination.
      * </p>
      * 
-     * @return A more detailed explanation of the cause of the failure.
+     * @return A more detailed explanation of the cause of the termination.
      */
 
     public String getCause() {
@@ -151,11 +151,11 @@ public class StopExecutionRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A more detailed explanation of the cause of the failure.
+     * A more detailed explanation of the cause of the termination.
      * </p>
      * 
      * @param cause
-     *        A more detailed explanation of the cause of the failure.
+     *        A more detailed explanation of the cause of the termination.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -165,8 +165,7 @@ public class StopExecutionRequest extends com.amazonaws.AmazonWebServiceRequest 
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -179,9 +178,9 @@ public class StopExecutionRequest extends com.amazonaws.AmazonWebServiceRequest 
         if (getExecutionArn() != null)
             sb.append("ExecutionArn: ").append(getExecutionArn()).append(",");
         if (getError() != null)
-            sb.append("Error: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("Error: ").append(getError()).append(",");
         if (getCause() != null)
-            sb.append("Cause: ").append("***Sensitive Data Redacted***");
+            sb.append("Cause: ").append(getCause());
         sb.append("}");
         return sb.toString();
     }

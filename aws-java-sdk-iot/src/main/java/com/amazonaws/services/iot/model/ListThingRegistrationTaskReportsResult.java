@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,7 +33,7 @@ public class ListThingRegistrationTaskReportsResult extends com.amazonaws.Amazon
     private String reportType;
     /**
      * <p>
-     * The token used to get the next set of results, or <b>null</b> if there are no additional results.
+     * The token to retrieve the next set of results.
      * </p>
      */
     private String nextToken;
@@ -169,11 +169,11 @@ public class ListThingRegistrationTaskReportsResult extends com.amazonaws.Amazon
 
     /**
      * <p>
-     * The token used to get the next set of results, or <b>null</b> if there are no additional results.
+     * The token to retrieve the next set of results.
      * </p>
      * 
      * @param nextToken
-     *        The token used to get the next set of results, or <b>null</b> if there are no additional results.
+     *        The token to retrieve the next set of results.
      */
 
     public void setNextToken(String nextToken) {
@@ -182,10 +182,10 @@ public class ListThingRegistrationTaskReportsResult extends com.amazonaws.Amazon
 
     /**
      * <p>
-     * The token used to get the next set of results, or <b>null</b> if there are no additional results.
+     * The token to retrieve the next set of results.
      * </p>
      * 
-     * @return The token used to get the next set of results, or <b>null</b> if there are no additional results.
+     * @return The token to retrieve the next set of results.
      */
 
     public String getNextToken() {
@@ -194,11 +194,11 @@ public class ListThingRegistrationTaskReportsResult extends com.amazonaws.Amazon
 
     /**
      * <p>
-     * The token used to get the next set of results, or <b>null</b> if there are no additional results.
+     * The token to retrieve the next set of results.
      * </p>
      * 
      * @param nextToken
-     *        The token used to get the next set of results, or <b>null</b> if there are no additional results.
+     *        The token to retrieve the next set of results.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -208,8 +208,7 @@ public class ListThingRegistrationTaskReportsResult extends com.amazonaws.Amazon
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

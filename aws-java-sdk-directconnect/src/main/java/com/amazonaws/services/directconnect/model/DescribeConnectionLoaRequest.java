@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,6 +18,9 @@ import javax.annotation.Generated;
 import com.amazonaws.AmazonWebServiceRequest;
 
 /**
+ * <p>
+ * Container for the parameters to the DescribeConnectionLoa operation.
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeConnectionLoa"
  *      target="_top">AWS API Documentation</a>
@@ -25,33 +28,22 @@ import com.amazonaws.AmazonWebServiceRequest;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class DescribeConnectionLoaRequest extends com.amazonaws.AmazonWebServiceRequest implements Serializable, Cloneable {
 
-    /**
-     * <p>
-     * The ID of the connection.
-     * </p>
-     */
     private String connectionId;
     /**
      * <p>
-     * The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this
+     * The name of the APN partner or service provider who establishes connectivity on your behalf. If you supply this
      * parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      */
     private String providerName;
-    /**
-     * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
-     * </p>
-     */
+
     private String loaContentType;
 
     /**
-     * <p>
-     * The ID of the connection.
-     * </p>
-     * 
      * @param connectionId
-     *        The ID of the connection.
      */
 
     public void setConnectionId(String connectionId) {
@@ -59,11 +51,7 @@ public class DescribeConnectionLoaRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * <p>
-     * The ID of the connection.
-     * </p>
-     * 
-     * @return The ID of the connection.
+     * @return
      */
 
     public String getConnectionId() {
@@ -71,12 +59,7 @@ public class DescribeConnectionLoaRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * <p>
-     * The ID of the connection.
-     * </p>
-     * 
      * @param connectionId
-     *        The ID of the connection.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -87,14 +70,19 @@ public class DescribeConnectionLoaRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this
+     * The name of the APN partner or service provider who establishes connectivity on your behalf. If you supply this
      * parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param providerName
-     *        The name of the APN partner or service provider who establishes connectivity on your behalf. If you
-     *        specify this parameter, the LOA-CFA lists the provider name alongside your company name as the requester
-     *        of the cross connect.
+     *        The name of the APN partner or service provider who establishes connectivity on your behalf. If you supply
+     *        this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the
+     *        cross connect.</p>
+     *        <p>
+     *        Default: None
      */
 
     public void setProviderName(String providerName) {
@@ -103,13 +91,18 @@ public class DescribeConnectionLoaRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this
+     * The name of the APN partner or service provider who establishes connectivity on your behalf. If you supply this
      * parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @return The name of the APN partner or service provider who establishes connectivity on your behalf. If you
-     *         specify this parameter, the LOA-CFA lists the provider name alongside your company name as the requester
-     *         of the cross connect.
+     *         supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester
+     *         of the cross connect.</p>
+     *         <p>
+     *         Default: None
      */
 
     public String getProviderName() {
@@ -118,14 +111,19 @@ public class DescribeConnectionLoaRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this
+     * The name of the APN partner or service provider who establishes connectivity on your behalf. If you supply this
      * parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param providerName
-     *        The name of the APN partner or service provider who establishes connectivity on your behalf. If you
-     *        specify this parameter, the LOA-CFA lists the provider name alongside your company name as the requester
-     *        of the cross connect.
+     *        The name of the APN partner or service provider who establishes connectivity on your behalf. If you supply
+     *        this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the
+     *        cross connect.</p>
+     *        <p>
+     *        Default: None
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -135,12 +133,7 @@ public class DescribeConnectionLoaRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
-     * </p>
-     * 
      * @param loaContentType
-     *        The standard media type for the LOA-CFA document. The only supported value is application/pdf.
      * @see LoaContentType
      */
 
@@ -149,11 +142,7 @@ public class DescribeConnectionLoaRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
-     * </p>
-     * 
-     * @return The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     * @return
      * @see LoaContentType
      */
 
@@ -162,12 +151,7 @@ public class DescribeConnectionLoaRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
-     * </p>
-     * 
      * @param loaContentType
-     *        The standard media type for the LOA-CFA document. The only supported value is application/pdf.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LoaContentType
      */
@@ -178,12 +162,7 @@ public class DescribeConnectionLoaRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
-     * </p>
-     * 
      * @param loaContentType
-     *        The standard media type for the LOA-CFA document. The only supported value is application/pdf.
      * @see LoaContentType
      */
 
@@ -192,12 +171,7 @@ public class DescribeConnectionLoaRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
-     * </p>
-     * 
      * @param loaContentType
-     *        The standard media type for the LOA-CFA document. The only supported value is application/pdf.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LoaContentType
      */
@@ -208,8 +182,7 @@ public class DescribeConnectionLoaRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

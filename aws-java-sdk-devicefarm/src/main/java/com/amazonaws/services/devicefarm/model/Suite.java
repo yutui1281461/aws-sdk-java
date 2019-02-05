@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -76,37 +76,17 @@ public class Suite implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * APPIUM_NODE: The Appium Node.js type.
+     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_RUBY: The Appium Ruby type.
+     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_PYTHON: The Appium Python type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_NODE: The Appium Node.js type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
+     * APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
      * </p>
      * </li>
      * <li>
@@ -397,37 +377,17 @@ public class Suite implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * APPIUM_NODE: The Appium Node.js type.
+     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_RUBY: The Appium Ruby type.
+     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_PYTHON: The Appium Python type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_NODE: The Appium Node.js type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
+     * APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
      * </p>
      * </li>
      * <li>
@@ -496,37 +456,17 @@ public class Suite implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_NODE: The Appium Node.js type.
+     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_RUBY: The Appium Ruby type.
+     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_PYTHON: The Appium Python type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_NODE: The Appium Node.js type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
+     *        APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
      *        </p>
      *        </li>
      *        <li>
@@ -602,37 +542,17 @@ public class Suite implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * APPIUM_NODE: The Appium Node.js type.
+     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_RUBY: The Appium Ruby type.
+     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_PYTHON: The Appium Python type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_NODE: The Appium Node.js type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
+     * APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
      * </p>
      * </li>
      * <li>
@@ -700,37 +620,17 @@ public class Suite implements Serializable, Cloneable, StructuredPojo {
      *         </li>
      *         <li>
      *         <p>
-     *         APPIUM_NODE: The Appium Node.js type.
+     *         APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         APPIUM_RUBY: The Appium Ruby type.
+     *         APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         APPIUM_WEB_PYTHON: The Appium Python type for web apps.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         APPIUM_WEB_NODE: The Appium Node.js type for web apps.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
+     *         APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
      *         </p>
      *         </li>
      *         <li>
@@ -806,37 +706,17 @@ public class Suite implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * APPIUM_NODE: The Appium Node.js type.
+     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_RUBY: The Appium Ruby type.
+     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_PYTHON: The Appium Python type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_NODE: The Appium Node.js type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
+     * APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
      * </p>
      * </li>
      * <li>
@@ -905,37 +785,17 @@ public class Suite implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_NODE: The Appium Node.js type.
+     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_RUBY: The Appium Ruby type.
+     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_PYTHON: The Appium Python type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_NODE: The Appium Node.js type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
+     *        APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
      *        </p>
      *        </li>
      *        <li>
@@ -1013,37 +873,17 @@ public class Suite implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * APPIUM_NODE: The Appium Node.js type.
+     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_RUBY: The Appium Ruby type.
+     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_PYTHON: The Appium Python type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_NODE: The Appium Node.js type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
+     * APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
      * </p>
      * </li>
      * <li>
@@ -1112,37 +952,17 @@ public class Suite implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_NODE: The Appium Node.js type.
+     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_RUBY: The Appium Ruby type.
+     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_PYTHON: The Appium Python type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_NODE: The Appium Node.js type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
+     *        APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
      *        </p>
      *        </li>
      *        <li>
@@ -1218,37 +1038,17 @@ public class Suite implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * APPIUM_NODE: The Appium Node.js type.
+     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_RUBY: The Appium Ruby type.
+     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
      * </p>
      * </li>
      * <li>
      * <p>
-     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_PYTHON: The Appium Python type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_NODE: The Appium Node.js type for web apps.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
+     * APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
      * </p>
      * </li>
      * <li>
@@ -1317,37 +1117,17 @@ public class Suite implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_NODE: The Appium Node.js type.
+     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_RUBY: The Appium Ruby type.
+     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_PYTHON: The Appium Python type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_NODE: The Appium Node.js type for web apps.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        APPIUM_WEB_RUBY: The Appium Ruby type for web apps.
+     *        APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
      *        </p>
      *        </li>
      *        <li>
@@ -2666,8 +2446,7 @@ public class Suite implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

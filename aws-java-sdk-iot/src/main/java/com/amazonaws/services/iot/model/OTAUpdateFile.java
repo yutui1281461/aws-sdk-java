@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -39,10 +39,10 @@ public class OTAUpdateFile implements Serializable, Cloneable, StructuredPojo {
     private String fileVersion;
     /**
      * <p>
-     * The location of the updated firmware.
+     * The source of the file.
      * </p>
      */
-    private FileLocation fileLocation;
+    private Stream fileSource;
     /**
      * <p>
      * The code signing method of the file.
@@ -138,41 +138,41 @@ public class OTAUpdateFile implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The location of the updated firmware.
+     * The source of the file.
      * </p>
      * 
-     * @param fileLocation
-     *        The location of the updated firmware.
+     * @param fileSource
+     *        The source of the file.
      */
 
-    public void setFileLocation(FileLocation fileLocation) {
-        this.fileLocation = fileLocation;
+    public void setFileSource(Stream fileSource) {
+        this.fileSource = fileSource;
     }
 
     /**
      * <p>
-     * The location of the updated firmware.
+     * The source of the file.
      * </p>
      * 
-     * @return The location of the updated firmware.
+     * @return The source of the file.
      */
 
-    public FileLocation getFileLocation() {
-        return this.fileLocation;
+    public Stream getFileSource() {
+        return this.fileSource;
     }
 
     /**
      * <p>
-     * The location of the updated firmware.
+     * The source of the file.
      * </p>
      * 
-     * @param fileLocation
-     *        The location of the updated firmware.
+     * @param fileSource
+     *        The source of the file.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
-    public OTAUpdateFile withFileLocation(FileLocation fileLocation) {
-        setFileLocation(fileLocation);
+    public OTAUpdateFile withFileSource(Stream fileSource) {
+        setFileSource(fileSource);
         return this;
     }
 
@@ -278,8 +278,7 @@ public class OTAUpdateFile implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -293,8 +292,8 @@ public class OTAUpdateFile implements Serializable, Cloneable, StructuredPojo {
             sb.append("FileName: ").append(getFileName()).append(",");
         if (getFileVersion() != null)
             sb.append("FileVersion: ").append(getFileVersion()).append(",");
-        if (getFileLocation() != null)
-            sb.append("FileLocation: ").append(getFileLocation()).append(",");
+        if (getFileSource() != null)
+            sb.append("FileSource: ").append(getFileSource()).append(",");
         if (getCodeSigning() != null)
             sb.append("CodeSigning: ").append(getCodeSigning()).append(",");
         if (getAttributes() != null)
@@ -321,9 +320,9 @@ public class OTAUpdateFile implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getFileVersion() != null && other.getFileVersion().equals(this.getFileVersion()) == false)
             return false;
-        if (other.getFileLocation() == null ^ this.getFileLocation() == null)
+        if (other.getFileSource() == null ^ this.getFileSource() == null)
             return false;
-        if (other.getFileLocation() != null && other.getFileLocation().equals(this.getFileLocation()) == false)
+        if (other.getFileSource() != null && other.getFileSource().equals(this.getFileSource()) == false)
             return false;
         if (other.getCodeSigning() == null ^ this.getCodeSigning() == null)
             return false;
@@ -343,7 +342,7 @@ public class OTAUpdateFile implements Serializable, Cloneable, StructuredPojo {
 
         hashCode = prime * hashCode + ((getFileName() == null) ? 0 : getFileName().hashCode());
         hashCode = prime * hashCode + ((getFileVersion() == null) ? 0 : getFileVersion().hashCode());
-        hashCode = prime * hashCode + ((getFileLocation() == null) ? 0 : getFileLocation().hashCode());
+        hashCode = prime * hashCode + ((getFileSource() == null) ? 0 : getFileSource().hashCode());
         hashCode = prime * hashCode + ((getCodeSigning() == null) ? 0 : getCodeSigning().hashCode());
         hashCode = prime * hashCode + ((getAttributes() == null) ? 0 : getAttributes().hashCode());
         return hashCode;

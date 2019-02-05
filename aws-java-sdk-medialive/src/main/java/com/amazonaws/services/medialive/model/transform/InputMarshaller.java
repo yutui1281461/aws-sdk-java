@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -36,12 +36,8 @@ public class InputMarshaller {
             .marshallLocationName("destinations").build();
     private static final MarshallingInfo<String> ID_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("id").build();
-    private static final MarshallingInfo<List> MEDIACONNECTFLOWS_BINDING = MarshallingInfo.builder(MarshallingType.LIST)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("mediaConnectFlows").build();
     private static final MarshallingInfo<String> NAME_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("name").build();
-    private static final MarshallingInfo<String> ROLEARN_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
-            .marshallLocationName("roleArn").build();
     private static final MarshallingInfo<List> SECURITYGROUPS_BINDING = MarshallingInfo.builder(MarshallingType.LIST)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("securityGroups").build();
     private static final MarshallingInfo<List> SOURCES_BINDING = MarshallingInfo.builder(MarshallingType.LIST).marshallLocation(MarshallLocation.PAYLOAD)
@@ -71,9 +67,7 @@ public class InputMarshaller {
             protocolMarshaller.marshall(input.getAttachedChannels(), ATTACHEDCHANNELS_BINDING);
             protocolMarshaller.marshall(input.getDestinations(), DESTINATIONS_BINDING);
             protocolMarshaller.marshall(input.getId(), ID_BINDING);
-            protocolMarshaller.marshall(input.getMediaConnectFlows(), MEDIACONNECTFLOWS_BINDING);
             protocolMarshaller.marshall(input.getName(), NAME_BINDING);
-            protocolMarshaller.marshall(input.getRoleArn(), ROLEARN_BINDING);
             protocolMarshaller.marshall(input.getSecurityGroups(), SECURITYGROUPS_BINDING);
             protocolMarshaller.marshall(input.getSources(), SOURCES_BINDING);
             protocolMarshaller.marshall(input.getState(), STATE_BINDING);

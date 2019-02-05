@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -16,6 +16,9 @@ import java.io.Serializable;
 import javax.annotation.Generated;
 
 /**
+ * <p>
+ * The response received when DeleteInterconnect is called.
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DeleteInterconnect" target="_top">AWS
  *      API Documentation</a>
@@ -23,118 +26,10 @@ import javax.annotation.Generated;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class DeleteInterconnectResult extends com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata> implements Serializable, Cloneable {
 
-    /**
-     * <p>
-     * The state of the interconnect. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until
-     * the Letter of Authorization (LOA) is sent to the customer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The interconnect is approved, and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is up, and the interconnect is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The interconnect is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The interconnect is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     */
     private String interconnectState;
 
     /**
-     * <p>
-     * The state of the interconnect. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until
-     * the Letter of Authorization (LOA) is sent to the customer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The interconnect is approved, and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is up, and the interconnect is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The interconnect is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The interconnect is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param interconnectState
-     *        The state of the interconnect. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested
-     *        state until the Letter of Authorization (LOA) is sent to the customer.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The interconnect is approved, and is being initialized.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The network link is up, and the interconnect is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>down</code>: The network link is down.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The interconnect is being deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The interconnect is deleted.
-     *        </p>
-     *        </li>
      * @see InterconnectState
      */
 
@@ -143,76 +38,7 @@ public class DeleteInterconnectResult extends com.amazonaws.AmazonWebServiceResu
     }
 
     /**
-     * <p>
-     * The state of the interconnect. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until
-     * the Letter of Authorization (LOA) is sent to the customer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The interconnect is approved, and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is up, and the interconnect is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The interconnect is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The interconnect is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @return The state of the interconnect. The following are the possible values:</p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested
-     *         state until the Letter of Authorization (LOA) is sent to the customer.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>pending</code>: The interconnect is approved, and is being initialized.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>available</code>: The network link is up, and the interconnect is ready for use.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>down</code>: The network link is down.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>deleting</code>: The interconnect is being deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>deleted</code>: The interconnect is deleted.
-     *         </p>
-     *         </li>
+     * @return
      * @see InterconnectState
      */
 
@@ -221,77 +47,7 @@ public class DeleteInterconnectResult extends com.amazonaws.AmazonWebServiceResu
     }
 
     /**
-     * <p>
-     * The state of the interconnect. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until
-     * the Letter of Authorization (LOA) is sent to the customer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The interconnect is approved, and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is up, and the interconnect is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The interconnect is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The interconnect is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param interconnectState
-     *        The state of the interconnect. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested
-     *        state until the Letter of Authorization (LOA) is sent to the customer.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The interconnect is approved, and is being initialized.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The network link is up, and the interconnect is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>down</code>: The network link is down.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The interconnect is being deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The interconnect is deleted.
-     *        </p>
-     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see InterconnectState
      */
@@ -302,77 +58,7 @@ public class DeleteInterconnectResult extends com.amazonaws.AmazonWebServiceResu
     }
 
     /**
-     * <p>
-     * The state of the interconnect. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until
-     * the Letter of Authorization (LOA) is sent to the customer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The interconnect is approved, and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is up, and the interconnect is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The interconnect is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The interconnect is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param interconnectState
-     *        The state of the interconnect. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested
-     *        state until the Letter of Authorization (LOA) is sent to the customer.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The interconnect is approved, and is being initialized.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The network link is up, and the interconnect is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>down</code>: The network link is down.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The interconnect is being deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The interconnect is deleted.
-     *        </p>
-     *        </li>
      * @see InterconnectState
      */
 
@@ -381,77 +67,7 @@ public class DeleteInterconnectResult extends com.amazonaws.AmazonWebServiceResu
     }
 
     /**
-     * <p>
-     * The state of the interconnect. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until
-     * the Letter of Authorization (LOA) is sent to the customer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The interconnect is approved, and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is up, and the interconnect is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The interconnect is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The interconnect is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param interconnectState
-     *        The state of the interconnect. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested
-     *        state until the Letter of Authorization (LOA) is sent to the customer.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The interconnect is approved, and is being initialized.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The network link is up, and the interconnect is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>down</code>: The network link is down.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The interconnect is being deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The interconnect is deleted.
-     *        </p>
-     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see InterconnectState
      */
@@ -462,8 +78,7 @@ public class DeleteInterconnectResult extends com.amazonaws.AmazonWebServiceResu
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

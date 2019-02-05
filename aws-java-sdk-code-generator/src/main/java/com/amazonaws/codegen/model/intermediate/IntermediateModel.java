@@ -46,11 +46,7 @@ public class IntermediateModel {
 
     private final ServiceExamples examples;
 
-    @JsonIgnore
     private final Map<String, AuthorizerModel> customAuthorizers;
-
-    @JsonIgnore
-    private final OperationModel endpointOperation;
 
     @JsonIgnore
     private final Map<String, WaiterDefinitionModel> waiters;
@@ -63,7 +59,7 @@ public class IntermediateModel {
             @JsonProperty("customizationConfig") CustomizationConfig customizationConfig,
             @JsonProperty("serviceExamples") ServiceExamples examples) {
 
-        this(metadata, operations, shapes, customizationConfig, examples, null, Collections.emptyMap(), Collections.emptyMap());
+        this(metadata, operations, shapes, customizationConfig, examples, Collections.emptyMap(), Collections.emptyMap());
     }
 
     public IntermediateModel(
@@ -72,7 +68,6 @@ public class IntermediateModel {
             Map<String, ShapeModel> shapes,
             CustomizationConfig customizationConfig,
             ServiceExamples examples,
-            OperationModel endpointOperation,
             Map<String, WaiterDefinitionModel> waiters,
             Map<String, AuthorizerModel> customAuthorizers) {
         this.metadata = metadata;
@@ -80,7 +75,6 @@ public class IntermediateModel {
         this.shapes = shapes;
         this.customizationConfig = customizationConfig;
         this.examples = examples;
-        this.endpointOperation = endpointOperation;
         this.waiters = ValidationUtils.assertNotNull(waiters, "waiters");
         this.customAuthorizers = customAuthorizers;
     }
@@ -178,10 +172,6 @@ public class IntermediateModel {
         final int currentYear = DateTime.now().getYear();
         final int copyrightStartYear = currentYear - 5;
         return String.format("%d-%d", copyrightStartYear, currentYear);
-    }
-
-    public OperationModel getEndpointOperation() {
-        return endpointOperation;
     }
 
     public boolean getHasWaiters() {

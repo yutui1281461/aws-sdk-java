@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -26,20 +26,20 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class Rectangle implements Serializable, Cloneable, StructuredPojo {
 
-    /** Height of rectangle in pixels. Specify only even numbers. */
+    /** Height of rectangle in pixels. */
     private Integer height;
-    /** Width of rectangle in pixels. Specify only even numbers. */
+    /** Width of rectangle in pixels. */
     private Integer width;
-    /** The distance, in pixels, between the rectangle and the left edge of the video frame. Specify only even numbers. */
+    /** The distance, in pixels, between the rectangle and the left edge of the video frame. */
     private Integer x;
-    /** The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even numbers. */
+    /** The distance, in pixels, between the rectangle and the top edge of the video frame. */
     private Integer y;
 
     /**
-     * Height of rectangle in pixels. Specify only even numbers.
+     * Height of rectangle in pixels.
      * 
      * @param height
-     *        Height of rectangle in pixels. Specify only even numbers.
+     *        Height of rectangle in pixels.
      */
 
     public void setHeight(Integer height) {
@@ -47,9 +47,9 @@ public class Rectangle implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Height of rectangle in pixels. Specify only even numbers.
+     * Height of rectangle in pixels.
      * 
-     * @return Height of rectangle in pixels. Specify only even numbers.
+     * @return Height of rectangle in pixels.
      */
 
     public Integer getHeight() {
@@ -57,10 +57,10 @@ public class Rectangle implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Height of rectangle in pixels. Specify only even numbers.
+     * Height of rectangle in pixels.
      * 
      * @param height
-     *        Height of rectangle in pixels. Specify only even numbers.
+     *        Height of rectangle in pixels.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -70,10 +70,10 @@ public class Rectangle implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Width of rectangle in pixels. Specify only even numbers.
+     * Width of rectangle in pixels.
      * 
      * @param width
-     *        Width of rectangle in pixels. Specify only even numbers.
+     *        Width of rectangle in pixels.
      */
 
     public void setWidth(Integer width) {
@@ -81,9 +81,9 @@ public class Rectangle implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Width of rectangle in pixels. Specify only even numbers.
+     * Width of rectangle in pixels.
      * 
-     * @return Width of rectangle in pixels. Specify only even numbers.
+     * @return Width of rectangle in pixels.
      */
 
     public Integer getWidth() {
@@ -91,10 +91,10 @@ public class Rectangle implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Width of rectangle in pixels. Specify only even numbers.
+     * Width of rectangle in pixels.
      * 
      * @param width
-     *        Width of rectangle in pixels. Specify only even numbers.
+     *        Width of rectangle in pixels.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -104,11 +104,10 @@ public class Rectangle implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The distance, in pixels, between the rectangle and the left edge of the video frame. Specify only even numbers.
+     * The distance, in pixels, between the rectangle and the left edge of the video frame.
      * 
      * @param x
-     *        The distance, in pixels, between the rectangle and the left edge of the video frame. Specify only even
-     *        numbers.
+     *        The distance, in pixels, between the rectangle and the left edge of the video frame.
      */
 
     public void setX(Integer x) {
@@ -116,10 +115,9 @@ public class Rectangle implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The distance, in pixels, between the rectangle and the left edge of the video frame. Specify only even numbers.
+     * The distance, in pixels, between the rectangle and the left edge of the video frame.
      * 
-     * @return The distance, in pixels, between the rectangle and the left edge of the video frame. Specify only even
-     *         numbers.
+     * @return The distance, in pixels, between the rectangle and the left edge of the video frame.
      */
 
     public Integer getX() {
@@ -127,11 +125,10 @@ public class Rectangle implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The distance, in pixels, between the rectangle and the left edge of the video frame. Specify only even numbers.
+     * The distance, in pixels, between the rectangle and the left edge of the video frame.
      * 
      * @param x
-     *        The distance, in pixels, between the rectangle and the left edge of the video frame. Specify only even
-     *        numbers.
+     *        The distance, in pixels, between the rectangle and the left edge of the video frame.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -141,11 +138,10 @@ public class Rectangle implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even numbers.
+     * The distance, in pixels, between the rectangle and the top edge of the video frame.
      * 
      * @param y
-     *        The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even
-     *        numbers.
+     *        The distance, in pixels, between the rectangle and the top edge of the video frame.
      */
 
     public void setY(Integer y) {
@@ -153,10 +149,9 @@ public class Rectangle implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even numbers.
+     * The distance, in pixels, between the rectangle and the top edge of the video frame.
      * 
-     * @return The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even
-     *         numbers.
+     * @return The distance, in pixels, between the rectangle and the top edge of the video frame.
      */
 
     public Integer getY() {
@@ -164,11 +159,10 @@ public class Rectangle implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even numbers.
+     * The distance, in pixels, between the rectangle and the top edge of the video frame.
      * 
      * @param y
-     *        The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even
-     *        numbers.
+     *        The distance, in pixels, between the rectangle and the top edge of the video frame.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -178,8 +172,7 @@ public class Rectangle implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

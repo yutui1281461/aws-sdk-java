@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -126,12 +126,6 @@ public class AutomationExecutionMetadata implements Serializable, Cloneable, Str
     private com.amazonaws.internal.SdkInternalList<Target> targets;
     /**
      * <p>
-     * The specified key-value mapping of document parameters to target resources.
-     * </p>
-     */
-    private com.amazonaws.internal.SdkInternalList<java.util.Map<String, java.util.List<String>>> targetMaps;
-    /**
-     * <p>
      * A list of targets that resolved during the execution.
      * </p>
      */
@@ -154,16 +148,6 @@ public class AutomationExecutionMetadata implements Serializable, Cloneable, Str
      * </p>
      */
     private String target;
-    /**
-     * <p>
-     * Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or CrossAccount. CrossAccount is
-     * an Automation that executes in multiple AWS Regions and accounts. For more information, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
-     * >Concurrently Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User
-     * Guide</i>.
-     * </p>
-     */
-    private String automationType;
 
     /**
      * <p>
@@ -927,79 +911,6 @@ public class AutomationExecutionMetadata implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * The specified key-value mapping of document parameters to target resources.
-     * </p>
-     * 
-     * @return The specified key-value mapping of document parameters to target resources.
-     */
-
-    public java.util.List<java.util.Map<String, java.util.List<String>>> getTargetMaps() {
-        if (targetMaps == null) {
-            targetMaps = new com.amazonaws.internal.SdkInternalList<java.util.Map<String, java.util.List<String>>>();
-        }
-        return targetMaps;
-    }
-
-    /**
-     * <p>
-     * The specified key-value mapping of document parameters to target resources.
-     * </p>
-     * 
-     * @param targetMaps
-     *        The specified key-value mapping of document parameters to target resources.
-     */
-
-    public void setTargetMaps(java.util.Collection<java.util.Map<String, java.util.List<String>>> targetMaps) {
-        if (targetMaps == null) {
-            this.targetMaps = null;
-            return;
-        }
-
-        this.targetMaps = new com.amazonaws.internal.SdkInternalList<java.util.Map<String, java.util.List<String>>>(targetMaps);
-    }
-
-    /**
-     * <p>
-     * The specified key-value mapping of document parameters to target resources.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setTargetMaps(java.util.Collection)} or {@link #withTargetMaps(java.util.Collection)} if you want to
-     * override the existing values.
-     * </p>
-     * 
-     * @param targetMaps
-     *        The specified key-value mapping of document parameters to target resources.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public AutomationExecutionMetadata withTargetMaps(java.util.Map<String, java.util.List<String>>... targetMaps) {
-        if (this.targetMaps == null) {
-            setTargetMaps(new com.amazonaws.internal.SdkInternalList<java.util.Map<String, java.util.List<String>>>(targetMaps.length));
-        }
-        for (java.util.Map<String, java.util.List<String>> ele : targetMaps) {
-            this.targetMaps.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * The specified key-value mapping of document parameters to target resources.
-     * </p>
-     * 
-     * @param targetMaps
-     *        The specified key-value mapping of document parameters to target resources.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public AutomationExecutionMetadata withTargetMaps(java.util.Collection<java.util.Map<String, java.util.List<String>>> targetMaps) {
-        setTargetMaps(targetMaps);
-        return this;
-    }
-
-    /**
-     * <p>
      * A list of targets that resolved during the execution.
      * </p>
      * 
@@ -1159,126 +1070,7 @@ public class AutomationExecutionMetadata implements Serializable, Cloneable, Str
     }
 
     /**
-     * <p>
-     * Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or CrossAccount. CrossAccount is
-     * an Automation that executes in multiple AWS Regions and accounts. For more information, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
-     * >Concurrently Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User
-     * Guide</i>.
-     * </p>
-     * 
-     * @param automationType
-     *        Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or CrossAccount.
-     *        CrossAccount is an Automation that executes in multiple AWS Regions and accounts. For more information,
-     *        see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
-     *        >Concurrently Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager
-     *        User Guide</i>.
-     * @see AutomationType
-     */
-
-    public void setAutomationType(String automationType) {
-        this.automationType = automationType;
-    }
-
-    /**
-     * <p>
-     * Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or CrossAccount. CrossAccount is
-     * an Automation that executes in multiple AWS Regions and accounts. For more information, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
-     * >Concurrently Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User
-     * Guide</i>.
-     * </p>
-     * 
-     * @return Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or CrossAccount.
-     *         CrossAccount is an Automation that executes in multiple AWS Regions and accounts. For more information,
-     *         see <a href=
-     *         "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
-     *         >Concurrently Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems
-     *         Manager User Guide</i>.
-     * @see AutomationType
-     */
-
-    public String getAutomationType() {
-        return this.automationType;
-    }
-
-    /**
-     * <p>
-     * Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or CrossAccount. CrossAccount is
-     * an Automation that executes in multiple AWS Regions and accounts. For more information, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
-     * >Concurrently Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User
-     * Guide</i>.
-     * </p>
-     * 
-     * @param automationType
-     *        Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or CrossAccount.
-     *        CrossAccount is an Automation that executes in multiple AWS Regions and accounts. For more information,
-     *        see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
-     *        >Concurrently Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager
-     *        User Guide</i>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see AutomationType
-     */
-
-    public AutomationExecutionMetadata withAutomationType(String automationType) {
-        setAutomationType(automationType);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or CrossAccount. CrossAccount is
-     * an Automation that executes in multiple AWS Regions and accounts. For more information, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
-     * >Concurrently Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User
-     * Guide</i>.
-     * </p>
-     * 
-     * @param automationType
-     *        Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or CrossAccount.
-     *        CrossAccount is an Automation that executes in multiple AWS Regions and accounts. For more information,
-     *        see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
-     *        >Concurrently Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager
-     *        User Guide</i>.
-     * @see AutomationType
-     */
-
-    public void setAutomationType(AutomationType automationType) {
-        withAutomationType(automationType);
-    }
-
-    /**
-     * <p>
-     * Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or CrossAccount. CrossAccount is
-     * an Automation that executes in multiple AWS Regions and accounts. For more information, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
-     * >Concurrently Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User
-     * Guide</i>.
-     * </p>
-     * 
-     * @param automationType
-     *        Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or CrossAccount.
-     *        CrossAccount is an Automation that executes in multiple AWS Regions and accounts. For more information,
-     *        see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html"
-     *        >Concurrently Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager
-     *        User Guide</i>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see AutomationType
-     */
-
-    public AutomationExecutionMetadata withAutomationType(AutomationType automationType) {
-        this.automationType = automationType.toString();
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1320,8 +1112,6 @@ public class AutomationExecutionMetadata implements Serializable, Cloneable, Str
             sb.append("TargetParameterName: ").append(getTargetParameterName()).append(",");
         if (getTargets() != null)
             sb.append("Targets: ").append(getTargets()).append(",");
-        if (getTargetMaps() != null)
-            sb.append("TargetMaps: ").append(getTargetMaps()).append(",");
         if (getResolvedTargets() != null)
             sb.append("ResolvedTargets: ").append(getResolvedTargets()).append(",");
         if (getMaxConcurrency() != null)
@@ -1329,9 +1119,7 @@ public class AutomationExecutionMetadata implements Serializable, Cloneable, Str
         if (getMaxErrors() != null)
             sb.append("MaxErrors: ").append(getMaxErrors()).append(",");
         if (getTarget() != null)
-            sb.append("Target: ").append(getTarget()).append(",");
-        if (getAutomationType() != null)
-            sb.append("AutomationType: ").append(getAutomationType());
+            sb.append("Target: ").append(getTarget());
         sb.append("}");
         return sb.toString();
     }
@@ -1410,10 +1198,6 @@ public class AutomationExecutionMetadata implements Serializable, Cloneable, Str
             return false;
         if (other.getTargets() != null && other.getTargets().equals(this.getTargets()) == false)
             return false;
-        if (other.getTargetMaps() == null ^ this.getTargetMaps() == null)
-            return false;
-        if (other.getTargetMaps() != null && other.getTargetMaps().equals(this.getTargetMaps()) == false)
-            return false;
         if (other.getResolvedTargets() == null ^ this.getResolvedTargets() == null)
             return false;
         if (other.getResolvedTargets() != null && other.getResolvedTargets().equals(this.getResolvedTargets()) == false)
@@ -1429,10 +1213,6 @@ public class AutomationExecutionMetadata implements Serializable, Cloneable, Str
         if (other.getTarget() == null ^ this.getTarget() == null)
             return false;
         if (other.getTarget() != null && other.getTarget().equals(this.getTarget()) == false)
-            return false;
-        if (other.getAutomationType() == null ^ this.getAutomationType() == null)
-            return false;
-        if (other.getAutomationType() != null && other.getAutomationType().equals(this.getAutomationType()) == false)
             return false;
         return true;
     }
@@ -1458,12 +1238,10 @@ public class AutomationExecutionMetadata implements Serializable, Cloneable, Str
         hashCode = prime * hashCode + ((getFailureMessage() == null) ? 0 : getFailureMessage().hashCode());
         hashCode = prime * hashCode + ((getTargetParameterName() == null) ? 0 : getTargetParameterName().hashCode());
         hashCode = prime * hashCode + ((getTargets() == null) ? 0 : getTargets().hashCode());
-        hashCode = prime * hashCode + ((getTargetMaps() == null) ? 0 : getTargetMaps().hashCode());
         hashCode = prime * hashCode + ((getResolvedTargets() == null) ? 0 : getResolvedTargets().hashCode());
         hashCode = prime * hashCode + ((getMaxConcurrency() == null) ? 0 : getMaxConcurrency().hashCode());
         hashCode = prime * hashCode + ((getMaxErrors() == null) ? 0 : getMaxErrors().hashCode());
         hashCode = prime * hashCode + ((getTarget() == null) ? 0 : getTarget().hashCode());
-        hashCode = prime * hashCode + ((getAutomationType() == null) ? 0 : getAutomationType().hashCode());
         return hashCode;
     }
 

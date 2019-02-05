@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -79,16 +79,6 @@ public class PolicyJsonUnmarshaller implements Unmarshaller<Policy, JsonUnmarsha
                 if (context.testExpression("RemediationEnabled", targetDepth)) {
                     context.nextToken();
                     policy.setRemediationEnabled(context.getUnmarshaller(Boolean.class).unmarshall(context));
-                }
-                if (context.testExpression("IncludeMap", targetDepth)) {
-                    context.nextToken();
-                    policy.setIncludeMap(new MapUnmarshaller<String, java.util.List<String>>(context.getUnmarshaller(String.class),
-                            new ListUnmarshaller<String>(context.getUnmarshaller(String.class))).unmarshall(context));
-                }
-                if (context.testExpression("ExcludeMap", targetDepth)) {
-                    context.nextToken();
-                    policy.setExcludeMap(new MapUnmarshaller<String, java.util.List<String>>(context.getUnmarshaller(String.class),
-                            new ListUnmarshaller<String>(context.getUnmarshaller(String.class))).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

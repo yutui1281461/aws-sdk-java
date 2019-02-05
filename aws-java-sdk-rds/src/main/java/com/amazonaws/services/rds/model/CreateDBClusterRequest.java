@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,8 +30,8 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <p>
      * A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on AWS
      * Regions and Availability Zones, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html"
-     * >Choosing the Regions and Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
+     * and Availability Zones</a>.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> availabilityZones;
@@ -87,7 +87,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
+     * Cannot end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -107,7 +107,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <ul>
      * <li>
      * <p>
-     * If supplied, must match the name of an existing DB cluster parameter group.
+     * If supplied, must match the name of an existing DBClusterParameterGroup.
      * </p>
      * </li>
      * </ul>
@@ -188,7 +188,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </li>
      * <li>
      * <p>
-     * Can't be a reserved word for the chosen database engine.
+     * Cannot be a reserved word for the chosen database engine.
      * </p>
      * </li>
      * </ul>
@@ -221,9 +221,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </p>
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the
-     * time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     * time blocks available, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the
+     * Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * Constraints:
@@ -261,9 +261,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </p>
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring
-     * on a random day of the week. To see the time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     * on a random day of the week. To see the time blocks available, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the
+     * Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
@@ -399,41 +399,6 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </ul>
      */
     private Long backtrackWindow;
-    /**
-     * <p>
-     * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.
-     * </p>
-     */
-    private com.amazonaws.internal.SdkInternalList<String> enableCloudwatchLogsExports;
-    /**
-     * <p>
-     * The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-     * <code>parallelquery</code>, or <code>global</code>.
-     * </p>
-     */
-    private String engineMode;
-    /**
-     * <p>
-     * For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.
-     * </p>
-     */
-    private ScalingConfiguration scalingConfiguration;
-    /**
-     * <p>
-     * Indicates if the DB cluster should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false.
-     * </p>
-     */
-    private Boolean deletionProtection;
-    /**
-     * <p>
-     * The global cluster ID of an Aurora cluster that becomes the primary cluster in the new global database cluster.
-     * </p>
-     */
-    private String globalClusterIdentifier;
     /** The region where the source instance is located. */
     private String sourceRegion;
 
@@ -441,14 +406,14 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <p>
      * A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on AWS
      * Regions and Availability Zones, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html"
-     * >Choosing the Regions and Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
+     * and Availability Zones</a>.
      * </p>
      * 
      * @return A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on
-     *         AWS Regions and Availability Zones, see <a href=
-     *         "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html"
-     *         >Choosing the Regions and Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.
+     *         AWS Regions and Availability Zones, see <a
+     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html"
+     *         >Regions and Availability Zones</a>.
      */
 
     public java.util.List<String> getAvailabilityZones() {
@@ -462,15 +427,15 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <p>
      * A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on AWS
      * Regions and Availability Zones, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html"
-     * >Choosing the Regions and Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
+     * and Availability Zones</a>.
      * </p>
      * 
      * @param availabilityZones
      *        A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on
-     *        AWS Regions and Availability Zones, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html"
-     *        >Choosing the Regions and Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.
+     *        AWS Regions and Availability Zones, see <a
+     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html"
+     *        >Regions and Availability Zones</a>.
      */
 
     public void setAvailabilityZones(java.util.Collection<String> availabilityZones) {
@@ -486,8 +451,8 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <p>
      * A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on AWS
      * Regions and Availability Zones, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html"
-     * >Choosing the Regions and Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
+     * and Availability Zones</a>.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -497,9 +462,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * 
      * @param availabilityZones
      *        A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on
-     *        AWS Regions and Availability Zones, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html"
-     *        >Choosing the Regions and Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.
+     *        AWS Regions and Availability Zones, see <a
+     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html"
+     *        >Regions and Availability Zones</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -517,15 +482,15 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <p>
      * A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on AWS
      * Regions and Availability Zones, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html"
-     * >Choosing the Regions and Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
+     * and Availability Zones</a>.
      * </p>
      * 
      * @param availabilityZones
      *        A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on
-     *        AWS Regions and Availability Zones, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html"
-     *        >Choosing the Regions and Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.
+     *        AWS Regions and Availability Zones, see <a
+     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html"
+     *        >Regions and Availability Zones</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -755,7 +720,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
+     * Cannot end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -781,7 +746,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        </li>
      *        <li>
      *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens.
+     *        Cannot end with a hyphen or contain two consecutive hyphens.
      *        </p>
      *        </li>
      *        </ul>
@@ -813,7 +778,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
+     * Cannot end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -838,7 +803,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *         </li>
      *         <li>
      *         <p>
-     *         Can't end with a hyphen or contain two consecutive hyphens.
+     *         Cannot end with a hyphen or contain two consecutive hyphens.
      *         </p>
      *         </li>
      *         </ul>
@@ -870,7 +835,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
+     * Cannot end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -896,7 +861,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        </li>
      *        <li>
      *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens.
+     *        Cannot end with a hyphen or contain two consecutive hyphens.
      *        </p>
      *        </li>
      *        </ul>
@@ -921,7 +886,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <ul>
      * <li>
      * <p>
-     * If supplied, must match the name of an existing DB cluster parameter group.
+     * If supplied, must match the name of an existing DBClusterParameterGroup.
      * </p>
      * </li>
      * </ul>
@@ -935,7 +900,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        <ul>
      *        <li>
      *        <p>
-     *        If supplied, must match the name of an existing DB cluster parameter group.
+     *        If supplied, must match the name of an existing DBClusterParameterGroup.
      *        </p>
      *        </li>
      */
@@ -955,7 +920,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <ul>
      * <li>
      * <p>
-     * If supplied, must match the name of an existing DB cluster parameter group.
+     * If supplied, must match the name of an existing DBClusterParameterGroup.
      * </p>
      * </li>
      * </ul>
@@ -968,7 +933,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *         <ul>
      *         <li>
      *         <p>
-     *         If supplied, must match the name of an existing DB cluster parameter group.
+     *         If supplied, must match the name of an existing DBClusterParameterGroup.
      *         </p>
      *         </li>
      */
@@ -988,7 +953,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * <ul>
      * <li>
      * <p>
-     * If supplied, must match the name of an existing DB cluster parameter group.
+     * If supplied, must match the name of an existing DBClusterParameterGroup.
      * </p>
      * </li>
      * </ul>
@@ -1002,7 +967,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        <ul>
      *        <li>
      *        <p>
-     *        If supplied, must match the name of an existing DB cluster parameter group.
+     *        If supplied, must match the name of an existing DBClusterParameterGroup.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -1404,7 +1369,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </li>
      * <li>
      * <p>
-     * Can't be a reserved word for the chosen database engine.
+     * Cannot be a reserved word for the chosen database engine.
      * </p>
      * </li>
      * </ul>
@@ -1427,7 +1392,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        </li>
      *        <li>
      *        <p>
-     *        Can't be a reserved word for the chosen database engine.
+     *        Cannot be a reserved word for the chosen database engine.
      *        </p>
      *        </li>
      */
@@ -1456,7 +1421,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </li>
      * <li>
      * <p>
-     * Can't be a reserved word for the chosen database engine.
+     * Cannot be a reserved word for the chosen database engine.
      * </p>
      * </li>
      * </ul>
@@ -1478,7 +1443,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *         </li>
      *         <li>
      *         <p>
-     *         Can't be a reserved word for the chosen database engine.
+     *         Cannot be a reserved word for the chosen database engine.
      *         </p>
      *         </li>
      */
@@ -1507,7 +1472,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </li>
      * <li>
      * <p>
-     * Can't be a reserved word for the chosen database engine.
+     * Cannot be a reserved word for the chosen database engine.
      * </p>
      * </li>
      * </ul>
@@ -1530,7 +1495,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        </li>
      *        <li>
      *        <p>
-     *        Can't be a reserved word for the chosen database engine.
+     *        Cannot be a reserved word for the chosen database engine.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -1670,9 +1635,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </p>
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the
-     * time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     * time blocks available, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the
+     * Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * Constraints:
@@ -1705,9 +1670,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        <code>BackupRetentionPeriod</code> parameter. </p>
      *        <p>
      *        The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To
-     *        see the time blocks available, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     *        > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     *        see the time blocks available, see <a
+     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting
+     *        the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      *        </p>
      *        <p>
      *        Constraints:
@@ -1746,9 +1711,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </p>
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the
-     * time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     * time blocks available, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the
+     * Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * Constraints:
@@ -1780,9 +1745,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *         the <code>BackupRetentionPeriod</code> parameter. </p>
      *         <p>
      *         The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To
-     *         see the time blocks available, see <a href=
-     *         "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     *         > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     *         see the time blocks available, see <a
+     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
+     *         Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      *         </p>
      *         <p>
      *         Constraints:
@@ -1821,9 +1786,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </p>
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the
-     * time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     * time blocks available, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the
+     * Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * Constraints:
@@ -1856,9 +1821,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        <code>BackupRetentionPeriod</code> parameter. </p>
      *        <p>
      *        The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To
-     *        see the time blocks available, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     *        > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     *        see the time blocks available, see <a
+     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting
+     *        the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      *        </p>
      *        <p>
      *        Constraints:
@@ -1901,9 +1866,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </p>
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring
-     * on a random day of the week. To see the time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     * on a random day of the week. To see the time blocks available, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the
+     * Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
@@ -1919,9 +1884,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        </p>
      *        <p>
      *        The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region,
-     *        occurring on a random day of the week. To see the time blocks available, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     *        > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     *        occurring on a random day of the week. To see the time blocks available, see <a
+     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting
+     *        the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      *        </p>
      *        <p>
      *        Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
@@ -1943,9 +1908,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </p>
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring
-     * on a random day of the week. To see the time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     * on a random day of the week. To see the time blocks available, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the
+     * Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
@@ -1960,9 +1925,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *         </p>
      *         <p>
      *         The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region,
-     *         occurring on a random day of the week. To see the time blocks available, see <a href=
-     *         "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     *         > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     *         occurring on a random day of the week. To see the time blocks available, see <a
+     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
+     *         Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      *         </p>
      *         <p>
      *         Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
@@ -1984,9 +1949,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      * </p>
      * <p>
      * The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring
-     * on a random day of the week. To see the time blocks available, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     * > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     * on a random day of the week. To see the time blocks available, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the
+     * Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
@@ -2002,9 +1967,9 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
      *        </p>
      *        <p>
      *        The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region,
-     *        occurring on a random day of the week. To see the time blocks available, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora"
-     *        > Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+     *        occurring on a random day of the week. To see the time blocks available, see <a
+     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting
+     *        the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
      *        </p>
      *        <p>
      *        Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
@@ -2868,292 +2833,6 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
     }
 
     /**
-     * <p>
-     * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.
-     * </p>
-     * 
-     * @return The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list
-     *         depend on the DB engine being used. For more information, see <a href=
-     *         "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     *         >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.
-     */
-
-    public java.util.List<String> getEnableCloudwatchLogsExports() {
-        if (enableCloudwatchLogsExports == null) {
-            enableCloudwatchLogsExports = new com.amazonaws.internal.SdkInternalList<String>();
-        }
-        return enableCloudwatchLogsExports;
-    }
-
-    /**
-     * <p>
-     * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.
-     * </p>
-     * 
-     * @param enableCloudwatchLogsExports
-     *        The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list
-     *        depend on the DB engine being used. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     *        >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.
-     */
-
-    public void setEnableCloudwatchLogsExports(java.util.Collection<String> enableCloudwatchLogsExports) {
-        if (enableCloudwatchLogsExports == null) {
-            this.enableCloudwatchLogsExports = null;
-            return;
-        }
-
-        this.enableCloudwatchLogsExports = new com.amazonaws.internal.SdkInternalList<String>(enableCloudwatchLogsExports);
-    }
-
-    /**
-     * <p>
-     * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setEnableCloudwatchLogsExports(java.util.Collection)} or
-     * {@link #withEnableCloudwatchLogsExports(java.util.Collection)} if you want to override the existing values.
-     * </p>
-     * 
-     * @param enableCloudwatchLogsExports
-     *        The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list
-     *        depend on the DB engine being used. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     *        >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateDBClusterRequest withEnableCloudwatchLogsExports(String... enableCloudwatchLogsExports) {
-        if (this.enableCloudwatchLogsExports == null) {
-            setEnableCloudwatchLogsExports(new com.amazonaws.internal.SdkInternalList<String>(enableCloudwatchLogsExports.length));
-        }
-        for (String ele : enableCloudwatchLogsExports) {
-            this.enableCloudwatchLogsExports.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.
-     * </p>
-     * 
-     * @param enableCloudwatchLogsExports
-     *        The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list
-     *        depend on the DB engine being used. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     *        >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateDBClusterRequest withEnableCloudwatchLogsExports(java.util.Collection<String> enableCloudwatchLogsExports) {
-        setEnableCloudwatchLogsExports(enableCloudwatchLogsExports);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-     * <code>parallelquery</code>, or <code>global</code>.
-     * </p>
-     * 
-     * @param engineMode
-     *        The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-     *        <code>parallelquery</code>, or <code>global</code>.
-     */
-
-    public void setEngineMode(String engineMode) {
-        this.engineMode = engineMode;
-    }
-
-    /**
-     * <p>
-     * The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-     * <code>parallelquery</code>, or <code>global</code>.
-     * </p>
-     * 
-     * @return The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-     *         <code>parallelquery</code>, or <code>global</code>.
-     */
-
-    public String getEngineMode() {
-        return this.engineMode;
-    }
-
-    /**
-     * <p>
-     * The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-     * <code>parallelquery</code>, or <code>global</code>.
-     * </p>
-     * 
-     * @param engineMode
-     *        The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-     *        <code>parallelquery</code>, or <code>global</code>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateDBClusterRequest withEngineMode(String engineMode) {
-        setEngineMode(engineMode);
-        return this;
-    }
-
-    /**
-     * <p>
-     * For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.
-     * </p>
-     * 
-     * @param scalingConfiguration
-     *        For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.
-     */
-
-    public void setScalingConfiguration(ScalingConfiguration scalingConfiguration) {
-        this.scalingConfiguration = scalingConfiguration;
-    }
-
-    /**
-     * <p>
-     * For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.
-     * </p>
-     * 
-     * @return For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.
-     */
-
-    public ScalingConfiguration getScalingConfiguration() {
-        return this.scalingConfiguration;
-    }
-
-    /**
-     * <p>
-     * For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.
-     * </p>
-     * 
-     * @param scalingConfiguration
-     *        For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateDBClusterRequest withScalingConfiguration(ScalingConfiguration scalingConfiguration) {
-        setScalingConfiguration(scalingConfiguration);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Indicates if the DB cluster should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false.
-     * </p>
-     * 
-     * @param deletionProtection
-     *        Indicates if the DB cluster should have deletion protection enabled. The database can't be deleted when
-     *        this value is set to true. The default is false.
-     */
-
-    public void setDeletionProtection(Boolean deletionProtection) {
-        this.deletionProtection = deletionProtection;
-    }
-
-    /**
-     * <p>
-     * Indicates if the DB cluster should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false.
-     * </p>
-     * 
-     * @return Indicates if the DB cluster should have deletion protection enabled. The database can't be deleted when
-     *         this value is set to true. The default is false.
-     */
-
-    public Boolean getDeletionProtection() {
-        return this.deletionProtection;
-    }
-
-    /**
-     * <p>
-     * Indicates if the DB cluster should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false.
-     * </p>
-     * 
-     * @param deletionProtection
-     *        Indicates if the DB cluster should have deletion protection enabled. The database can't be deleted when
-     *        this value is set to true. The default is false.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateDBClusterRequest withDeletionProtection(Boolean deletionProtection) {
-        setDeletionProtection(deletionProtection);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Indicates if the DB cluster should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false.
-     * </p>
-     * 
-     * @return Indicates if the DB cluster should have deletion protection enabled. The database can't be deleted when
-     *         this value is set to true. The default is false.
-     */
-
-    public Boolean isDeletionProtection() {
-        return this.deletionProtection;
-    }
-
-    /**
-     * <p>
-     * The global cluster ID of an Aurora cluster that becomes the primary cluster in the new global database cluster.
-     * </p>
-     * 
-     * @param globalClusterIdentifier
-     *        The global cluster ID of an Aurora cluster that becomes the primary cluster in the new global database
-     *        cluster.
-     */
-
-    public void setGlobalClusterIdentifier(String globalClusterIdentifier) {
-        this.globalClusterIdentifier = globalClusterIdentifier;
-    }
-
-    /**
-     * <p>
-     * The global cluster ID of an Aurora cluster that becomes the primary cluster in the new global database cluster.
-     * </p>
-     * 
-     * @return The global cluster ID of an Aurora cluster that becomes the primary cluster in the new global database
-     *         cluster.
-     */
-
-    public String getGlobalClusterIdentifier() {
-        return this.globalClusterIdentifier;
-    }
-
-    /**
-     * <p>
-     * The global cluster ID of an Aurora cluster that becomes the primary cluster in the new global database cluster.
-     * </p>
-     * 
-     * @param globalClusterIdentifier
-     *        The global cluster ID of an Aurora cluster that becomes the primary cluster in the new global database
-     *        cluster.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateDBClusterRequest withGlobalClusterIdentifier(String globalClusterIdentifier) {
-        setGlobalClusterIdentifier(globalClusterIdentifier);
-        return this;
-    }
-
-    /**
      * The region where the source instance is located.
      * 
      * @param sourceRegion
@@ -3188,8 +2867,7 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -3245,16 +2923,6 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
             sb.append("EnableIAMDatabaseAuthentication: ").append(getEnableIAMDatabaseAuthentication()).append(",");
         if (getBacktrackWindow() != null)
             sb.append("BacktrackWindow: ").append(getBacktrackWindow()).append(",");
-        if (getEnableCloudwatchLogsExports() != null)
-            sb.append("EnableCloudwatchLogsExports: ").append(getEnableCloudwatchLogsExports()).append(",");
-        if (getEngineMode() != null)
-            sb.append("EngineMode: ").append(getEngineMode()).append(",");
-        if (getScalingConfiguration() != null)
-            sb.append("ScalingConfiguration: ").append(getScalingConfiguration()).append(",");
-        if (getDeletionProtection() != null)
-            sb.append("DeletionProtection: ").append(getDeletionProtection()).append(",");
-        if (getGlobalClusterIdentifier() != null)
-            sb.append("GlobalClusterIdentifier: ").append(getGlobalClusterIdentifier()).append(",");
         if (getSourceRegion() != null)
             sb.append("SourceRegion: ").append(getSourceRegion());
         sb.append("}");
@@ -3364,26 +3032,6 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
             return false;
         if (other.getBacktrackWindow() != null && other.getBacktrackWindow().equals(this.getBacktrackWindow()) == false)
             return false;
-        if (other.getEnableCloudwatchLogsExports() == null ^ this.getEnableCloudwatchLogsExports() == null)
-            return false;
-        if (other.getEnableCloudwatchLogsExports() != null && other.getEnableCloudwatchLogsExports().equals(this.getEnableCloudwatchLogsExports()) == false)
-            return false;
-        if (other.getEngineMode() == null ^ this.getEngineMode() == null)
-            return false;
-        if (other.getEngineMode() != null && other.getEngineMode().equals(this.getEngineMode()) == false)
-            return false;
-        if (other.getScalingConfiguration() == null ^ this.getScalingConfiguration() == null)
-            return false;
-        if (other.getScalingConfiguration() != null && other.getScalingConfiguration().equals(this.getScalingConfiguration()) == false)
-            return false;
-        if (other.getDeletionProtection() == null ^ this.getDeletionProtection() == null)
-            return false;
-        if (other.getDeletionProtection() != null && other.getDeletionProtection().equals(this.getDeletionProtection()) == false)
-            return false;
-        if (other.getGlobalClusterIdentifier() == null ^ this.getGlobalClusterIdentifier() == null)
-            return false;
-        if (other.getGlobalClusterIdentifier() != null && other.getGlobalClusterIdentifier().equals(this.getGlobalClusterIdentifier()) == false)
-            return false;
         if (other.getSourceRegion() == null ^ this.getSourceRegion() == null)
             return false;
         if (other.getSourceRegion() != null && other.getSourceRegion().equals(this.getSourceRegion()) == false)
@@ -3419,11 +3067,6 @@ public class CreateDBClusterRequest extends com.amazonaws.AmazonWebServiceReques
         hashCode = prime * hashCode + ((getPreSignedUrl() == null) ? 0 : getPreSignedUrl().hashCode());
         hashCode = prime * hashCode + ((getEnableIAMDatabaseAuthentication() == null) ? 0 : getEnableIAMDatabaseAuthentication().hashCode());
         hashCode = prime * hashCode + ((getBacktrackWindow() == null) ? 0 : getBacktrackWindow().hashCode());
-        hashCode = prime * hashCode + ((getEnableCloudwatchLogsExports() == null) ? 0 : getEnableCloudwatchLogsExports().hashCode());
-        hashCode = prime * hashCode + ((getEngineMode() == null) ? 0 : getEngineMode().hashCode());
-        hashCode = prime * hashCode + ((getScalingConfiguration() == null) ? 0 : getScalingConfiguration().hashCode());
-        hashCode = prime * hashCode + ((getDeletionProtection() == null) ? 0 : getDeletionProtection().hashCode());
-        hashCode = prime * hashCode + ((getGlobalClusterIdentifier() == null) ? 0 : getGlobalClusterIdentifier().hashCode());
         hashCode = prime * hashCode + ((getSourceRegion() == null) ? 0 : getSourceRegion().hashCode());
         return hashCode;
     }

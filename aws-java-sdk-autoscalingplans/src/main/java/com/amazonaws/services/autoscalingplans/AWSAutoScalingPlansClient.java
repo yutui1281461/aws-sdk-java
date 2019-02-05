@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,8 +37,6 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
-import com.amazonaws.client.builder.AdvancedConfig;
-
 import com.amazonaws.services.autoscalingplans.AWSAutoScalingPlansClientBuilder;
 
 import com.amazonaws.AmazonServiceException;
@@ -53,22 +51,18 @@ import com.amazonaws.services.autoscalingplans.model.transform.*;
  * <fullname>AWS Auto Scaling</fullname>
  * <p>
  * Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and configure dynamic
- * scaling and predictive scaling for your resources using scaling plans. Use this service in conjunction with the
- * Amazon EC2 Auto Scaling, Application Auto Scaling, Amazon CloudWatch, and AWS CloudFormation services.
+ * scaling for your scalable resources.
  * </p>
  * <p>
- * Currently, predictive scaling is only available for Amazon EC2 Auto Scaling groups.
- * </p>
- * <p>
- * For more information about AWS Auto Scaling, see the <a
- * href="http://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html">AWS Auto Scaling User
- * Guide</a>.
+ * To get started, create a scaling plan with a set of instructions used to configure dynamic scaling for the scalable
+ * resources in your application. AWS Auto Scaling creates target tracking scaling policies for the scalable resources
+ * in your scaling plan. Target tracking scaling policies adjust the capacity of your scalable resource as required to
+ * maintain resource utilization at the target value that you specified.
  * </p>
  */
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements AWSAutoScalingPlans {
-
     /** Provider for AWS credentials. */
     private final AWSCredentialsProvider awsCredentialsProvider;
 
@@ -79,8 +73,6 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
-
-    private final AdvancedConfig advancedConfig;
 
     private static final com.amazonaws.protocol.json.SdkJsonProtocolFactory protocolFactory = new com.amazonaws.protocol.json.SdkJsonProtocolFactory(
             new JsonClientMetadata()
@@ -122,23 +114,8 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
      *        Object providing client parameters.
      */
     AWSAutoScalingPlansClient(AwsSyncClientParams clientParams) {
-        this(clientParams, false);
-    }
-
-    /**
-     * Constructs a new client to invoke service methods on AWS Auto Scaling Plans using the specified parameters.
-     *
-     * <p>
-     * All service calls made using this new client object are blocking, and will not return until the service call
-     * completes.
-     *
-     * @param clientParams
-     *        Object providing client parameters.
-     */
-    AWSAutoScalingPlansClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -156,6 +133,11 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
     /**
      * <p>
      * Creates a scaling plan.
+     * </p>
+     * <p>
+     * A scaling plan contains a set of instructions used to configure dynamic scaling for the scalable resources in
+     * your application. AWS Auto Scaling creates target tracking scaling policies based on the scaling instructions in
+     * your scaling plan.
      * </p>
      * 
      * @param createScalingPlanRequest
@@ -195,9 +177,6 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling Plans");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateScalingPlan");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -217,14 +196,6 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
     /**
      * <p>
      * Deletes the specified scaling plan.
-     * </p>
-     * <p>
-     * Deleting a scaling plan deletes the underlying <a>ScalingInstruction</a> for all of the scalable resources that
-     * are covered by the plan.
-     * </p>
-     * <p>
-     * If the plan has launched resources or has scaling activities in progress, you must delete those resources
-     * separately.
      * </p>
      * 
      * @param deleteScalingPlanRequest
@@ -264,9 +235,6 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling Plans");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteScalingPlan");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -326,9 +294,6 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling Plans");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeScalingPlanResources");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -348,7 +313,7 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
 
     /**
      * <p>
-     * Describes one or more of your scaling plans.
+     * Describes the specified scaling plans or all of your scaling plans.
      * </p>
      * 
      * @param describeScalingPlansRequest
@@ -388,9 +353,6 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling Plans");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeScalingPlans");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -409,71 +371,7 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
 
     /**
      * <p>
-     * Retrieves the forecast data for a scalable resource.
-     * </p>
-     * <p>
-     * Capacity forecasts are represented as predicted values, or data points, that are calculated using historical data
-     * points from a specified CloudWatch load metric. Data points are available for up to 56 days.
-     * </p>
-     * 
-     * @param getScalingPlanResourceForecastDataRequest
-     * @return Result of the GetScalingPlanResourceForecastData operation returned by the service.
-     * @throws ValidationException
-     *         An exception was thrown for a validation issue. Review the parameters provided.
-     * @throws InternalServiceException
-     *         The service encountered an internal error.
-     * @sample AWSAutoScalingPlans.GetScalingPlanResourceForecastData
-     * @see <a
-     *      href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-plans-2018-01-06/GetScalingPlanResourceForecastData"
-     *      target="_top">AWS API Documentation</a>
-     */
-    @Override
-    public GetScalingPlanResourceForecastDataResult getScalingPlanResourceForecastData(GetScalingPlanResourceForecastDataRequest request) {
-        request = beforeClientExecution(request);
-        return executeGetScalingPlanResourceForecastData(request);
-    }
-
-    @SdkInternalApi
-    final GetScalingPlanResourceForecastDataResult executeGetScalingPlanResourceForecastData(
-            GetScalingPlanResourceForecastDataRequest getScalingPlanResourceForecastDataRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(getScalingPlanResourceForecastDataRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<GetScalingPlanResourceForecastDataRequest> request = null;
-        Response<GetScalingPlanResourceForecastDataResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new GetScalingPlanResourceForecastDataRequestProtocolMarshaller(protocolFactory).marshall(super
-                        .beforeMarshalling(getScalingPlanResourceForecastDataRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling Plans");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetScalingPlanResourceForecastData");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            HttpResponseHandler<AmazonWebServiceResponse<GetScalingPlanResourceForecastDataResult>> responseHandler = protocolFactory.createResponseHandler(
-                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
-                    new GetScalingPlanResourceForecastDataResultJsonUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
-     * Updates the specified scaling plan.
+     * Updates the scaling plan for the specified scaling plan.
      * </p>
      * <p>
      * You cannot update a scaling plan if it is in the process of being created, updated, or deleted.
@@ -516,9 +414,6 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling Plans");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateScalingPlan");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -559,18 +454,9 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null, null);
-    }
-
-    /**
-     * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
-     **/
-    private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
-
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -580,7 +466,7 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null, null);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -588,17 +474,8 @@ public class AWSAutoScalingPlansClient extends AmazonWebServiceClient implements
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
-
-        if (discoveredEndpoint != null) {
-            request.setEndpoint(discoveredEndpoint);
-            request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
-        } else if (uriFromEndpointTrait != null) {
-            request.setEndpoint(uriFromEndpointTrait);
-        } else {
-            request.setEndpoint(endpoint);
-        }
-
+            ExecutionContext executionContext) {
+        request.setEndpoint(endpoint);
         request.setTimeOffset(timeOffset);
 
         HttpResponseHandler<AmazonServiceException> errorResponseHandler = protocolFactory.createErrorResponseHandler(new JsonErrorResponseMetadata());

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,9 +13,6 @@
  * permissions and limitations under the License.
  */
 package com.amazonaws.services.s3.model.transform;
-
-import static com.amazonaws.services.s3.model.transform.BucketConfigurationXmlFactoryFunctions.addParameterIfNotNull;
-import static com.amazonaws.services.s3.model.transform.BucketConfigurationXmlFactoryFunctions.writePrefix;
 
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.internal.Constants;
@@ -37,12 +34,10 @@ import com.amazonaws.services.s3.model.BucketWebsiteConfiguration;
 import com.amazonaws.services.s3.model.CORSRule;
 import com.amazonaws.services.s3.model.CORSRule.AllowedMethods;
 import com.amazonaws.services.s3.model.CloudFunctionConfiguration;
-import com.amazonaws.services.s3.model.DeleteMarkerReplication;
 import com.amazonaws.services.s3.model.Filter;
 import com.amazonaws.services.s3.model.FilterRule;
 import com.amazonaws.services.s3.model.LambdaConfiguration;
 import com.amazonaws.services.s3.model.NotificationConfiguration;
-import com.amazonaws.services.s3.model.PublicAccessBlockConfiguration;
 import com.amazonaws.services.s3.model.QueueConfiguration;
 import com.amazonaws.services.s3.model.RedirectRule;
 import com.amazonaws.services.s3.model.ReplicationDestinationConfig;
@@ -57,11 +52,15 @@ import com.amazonaws.services.s3.model.SseKmsEncryptedObjects;
 import com.amazonaws.services.s3.model.Tag;
 import com.amazonaws.services.s3.model.TagSet;
 import com.amazonaws.services.s3.model.TopicConfiguration;
+import com.amazonaws.services.s3.model.analytics.AnalyticsAndOperator;
 import com.amazonaws.services.s3.model.analytics.AnalyticsConfiguration;
 import com.amazonaws.services.s3.model.analytics.AnalyticsExportDestination;
 import com.amazonaws.services.s3.model.analytics.AnalyticsFilter;
 import com.amazonaws.services.s3.model.analytics.AnalyticsFilterPredicate;
+import com.amazonaws.services.s3.model.analytics.AnalyticsPredicateVisitor;
+import com.amazonaws.services.s3.model.analytics.AnalyticsPrefixPredicate;
 import com.amazonaws.services.s3.model.analytics.AnalyticsS3BucketDestination;
+import com.amazonaws.services.s3.model.analytics.AnalyticsTagPredicate;
 import com.amazonaws.services.s3.model.analytics.StorageClassAnalysis;
 import com.amazonaws.services.s3.model.analytics.StorageClassAnalysisDataExport;
 import com.amazonaws.services.s3.model.inventory.InventoryConfiguration;
@@ -87,9 +86,8 @@ import com.amazonaws.services.s3.model.metrics.MetricsFilterPredicate;
 import com.amazonaws.services.s3.model.metrics.MetricsPredicateVisitor;
 import com.amazonaws.services.s3.model.metrics.MetricsPrefixPredicate;
 import com.amazonaws.services.s3.model.metrics.MetricsTagPredicate;
-import com.amazonaws.services.s3.model.replication.ReplicationFilter;
-import com.amazonaws.services.s3.model.replication.ReplicationFilterPredicate;
 import com.amazonaws.util.CollectionUtils;
+
 import java.util.List;
 import java.util.Map;
 
@@ -267,16 +265,6 @@ public class BucketConfigurationXmlFactory {
         }
     }
 
-    private void writeReplicationPrefix(final XmlWriter xml, final ReplicationRule rule) {
-        // If no filter is set stick with the legacy behavior where we treat a null prefix as empty prefix.
-        if (rule.getFilter() == null) {
-            xml.start("Prefix").value(rule.getPrefix() == null ? "" : rule.getPrefix()).end();
-        } else if (rule.getPrefix() != null) {
-            throw new IllegalArgumentException(
-                    "Prefix cannot be used with Filter. Use ReplicationPrefixPredicate to create a ReplicationFilter");
-        }
-    }
-
     public byte[] convertToXmlByteArray(BucketReplicationConfiguration replicationConfiguration) {
         XmlWriter xml = new XmlWriter();
         xml.start("ReplicationConfiguration");
@@ -292,17 +280,8 @@ public class BucketConfigurationXmlFactory {
 
             xml.start("Rule");
             xml.start("ID").value(ruleId).end();
-            Integer priority = rule.getPriority();
-            if (priority != null) {
-                xml.start("Priority").value(Integer.toString(priority)).end();
-            }
+            xml.start("Prefix").value(rule.getPrefix()).end();
             xml.start("Status").value(rule.getStatus()).end();
-            DeleteMarkerReplication deleteMarkerReplication = rule.getDeleteMarkerReplication();
-            if (deleteMarkerReplication != null) {
-                xml.start("DeleteMarkerReplication").start("Status").value(deleteMarkerReplication.getStatus()).end().end();
-            }
-            writeReplicationPrefix(xml, rule);
-            writeReplicationFilter(xml, rule.getFilter());
 
             if (rule.getSourceSelectionCriteria() != null) {
                 xml.start("SourceSelectionCriteria");
@@ -521,22 +500,12 @@ public class BucketConfigurationXmlFactory {
         return xml.getBytes();
     }
 
-    private void writeLifecyclePrefix(final XmlWriter xml, final Rule rule) {
-        // If no filter is set stick with the legacy behavior where we treat a null prefix as empty prefix.
-        if (rule.getFilter() == null) {
-            xml.start("Prefix").value(rule.getPrefix() == null ? "" : rule.getPrefix()).end();
-        } else if (rule.getPrefix() != null) {
-            throw new IllegalArgumentException(
-                    "Prefix cannot be used with Filter. Use LifecyclePrefixPredicate to create a LifecycleFilter");
-        }
-    }
-
     private void writeRule(XmlWriter xml, Rule rule) {
         xml.start("Rule");
         if (rule.getId() != null) {
             xml.start("ID").value(rule.getId()).end();
         }
-        writeLifecyclePrefix(xml, rule);
+        writePrefix(xml, rule);
         xml.start("Status").value(rule.getStatus()).end();
         writeLifecycleFilter(xml, rule.getFilter());
 
@@ -647,23 +616,6 @@ public class BucketConfigurationXmlFactory {
         predicate.accept(new LifecyclePredicateVisitorImpl(xml));
     }
 
-    private void writeReplicationFilter(XmlWriter xml, ReplicationFilter filter) {
-        if (filter == null) {
-            return;
-        }
-
-        xml.start("Filter");
-        writeReplicationPredicate(xml, filter.getPredicate());
-        xml.end();
-    }
-
-    private void writeReplicationPredicate(XmlWriter xml, ReplicationFilterPredicate predicate) {
-        if (predicate == null) {
-            return;
-        }
-        predicate.accept(new ReplicationPredicateVisitorImpl(xml));
-    }
-
     public byte[] convertToXmlByteArray(ServerSideEncryptionConfiguration sseConfig) {
         XmlWriter xml = new XmlWriter();
         xml.start("ServerSideEncryptionConfiguration", "xmlns", Constants.XML_NAMESPACE);
@@ -684,17 +636,6 @@ public class BucketConfigurationXmlFactory {
         addParameterIfNotNull(xml, "SSEAlgorithm", sseByDefault.getSSEAlgorithm());
         addParameterIfNotNull(xml, "KMSMasterKeyID", sseByDefault.getKMSMasterKeyID());
         xml.end();
-    }
-
-    public byte[] convertToXmlByteArray(PublicAccessBlockConfiguration config) {
-        XmlWriter xml = new XmlWriter();
-        xml.start("PublicAccessBlockConfiguration", "xmlns", Constants.XML_NAMESPACE);
-        addBooleanParameterIfNotNull(xml, "BlockPublicAcls", config.getBlockPublicAcls());
-        addBooleanParameterIfNotNull(xml, "IgnorePublicAcls", config.getIgnorePublicAcls());
-        addBooleanParameterIfNotNull(xml, "BlockPublicPolicy", config.getBlockPublicPolicy());
-        addBooleanParameterIfNotNull(xml, "RestrictPublicBuckets", config.getRestrictPublicBuckets());
-        xml.end();
-        return xml.getBytes();
     }
 
     private class LifecyclePredicateVisitorImpl implements LifecyclePredicateVisitor {
@@ -1094,6 +1035,33 @@ public class BucketConfigurationXmlFactory {
         xml.end(); // </Destination>
     }
 
+    private class AnalyticsPredicateVisitorImpl implements AnalyticsPredicateVisitor {
+        private final XmlWriter xml;
+
+        public AnalyticsPredicateVisitorImpl(XmlWriter xml) {
+            this.xml = xml;
+        }
+
+        @Override
+        public void visit(AnalyticsPrefixPredicate analyticsPrefixPredicate) {
+            writePrefix(xml, analyticsPrefixPredicate.getPrefix());
+        }
+
+        @Override
+        public void visit(AnalyticsTagPredicate analyticsTagPredicate) {
+            writeTag(xml, analyticsTagPredicate.getTag());
+        }
+
+        @Override
+        public void visit(AnalyticsAndOperator analyticsAndOperator) {
+            xml.start("And");
+            for (AnalyticsFilterPredicate predicate : analyticsAndOperator.getOperands()) {
+                predicate.accept(this);
+            }
+            xml.end();
+        }
+    }
+
     /**
      * Converts the specified {@link com.amazonaws.services.s3.model.metrics.MetricsConfiguration}
      * object to an XML fragment that can be sent to Amazon S3.
@@ -1179,10 +1147,24 @@ public class BucketConfigurationXmlFactory {
         }
     }
 
-    private void addBooleanParameterIfNotNull(XmlWriter xml, String xmlTagName, Boolean value) {
+    private void addParameterIfNotNull(XmlWriter xml, String xmlTagName, String value) {
         if (value != null) {
-            xml.start(xmlTagName).value(value.toString()).end();
+            xml.start(xmlTagName).value(value).end();
         }
+    }
+
+    private void writePrefix(XmlWriter xml, Rule rule) {
+        // If no filter is set stick with the legacy behavior where we treat a null prefix as empty prefix.
+        if (rule.getFilter() == null) {
+            xml.start("Prefix").value(rule.getPrefix() == null ? "" : rule.getPrefix()).end();
+        } else if (rule.getPrefix() != null) {
+            throw new IllegalArgumentException(
+                    "Prefix cannot be used with Filter. Use LifecyclePrefixPredicate to create a LifecycleFilter");
+        }
+    }
+
+    private void writePrefix(XmlWriter xml, String prefix) {
+        addParameterIfNotNull(xml, "Prefix", prefix);
     }
 
     private void writeTag(XmlWriter xml, Tag tag) {

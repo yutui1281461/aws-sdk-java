@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -306,8 +306,7 @@ public class AuthenticationResultType implements Serializable, Cloneable, Struct
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -318,15 +317,15 @@ public class AuthenticationResultType implements Serializable, Cloneable, Struct
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         if (getAccessToken() != null)
-            sb.append("AccessToken: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("AccessToken: ").append(getAccessToken()).append(",");
         if (getExpiresIn() != null)
             sb.append("ExpiresIn: ").append(getExpiresIn()).append(",");
         if (getTokenType() != null)
             sb.append("TokenType: ").append(getTokenType()).append(",");
         if (getRefreshToken() != null)
-            sb.append("RefreshToken: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("RefreshToken: ").append(getRefreshToken()).append(",");
         if (getIdToken() != null)
-            sb.append("IdToken: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("IdToken: ").append(getIdToken()).append(",");
         if (getNewDeviceMetadata() != null)
             sb.append("NewDeviceMetadata: ").append(getNewDeviceMetadata());
         sb.append("}");

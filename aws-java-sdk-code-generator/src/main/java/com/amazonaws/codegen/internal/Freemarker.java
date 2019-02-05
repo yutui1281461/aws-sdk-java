@@ -243,12 +243,4 @@ public class Freemarker {
     public Template getCustomAuthorizerTemplate() throws IOException{
         return getTemplate(templateConfig.getCustomRequestSignerClass());
     }
-
-    public Template getEndpointDiscoveryCacheTemplate() throws IOException {
-        return getTemplate(templateConfig.getEndpointDiscoveryCache());
-    }
-
-    public Template getEndpointDiscoveryCacheLoaderTemplate() throws IOException {
-        return getTemplate(templateConfig.getEndpointDiscoveryCacheLoader());
-    }
 }

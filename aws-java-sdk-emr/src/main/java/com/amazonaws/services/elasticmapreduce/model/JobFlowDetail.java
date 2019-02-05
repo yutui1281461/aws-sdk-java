@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -48,8 +48,10 @@ public class JobFlowDetail implements Serializable, Cloneable, StructuredPojo {
     private String logUri;
     /**
      * <p>
-     * Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     * <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     * Used only for version 2.x and 3.x of Amazon EMR. The version of the AMI used to initialize Amazon EC2 instances
+     * in the job flow. For a list of AMI versions supported by Amazon EMR, see <a
+     * href="http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI
+     * Versions Supported in EMR</a> in the <i>Amazon EMR Developer Guide.</i>
      * </p>
      */
     private String amiVersion;
@@ -278,13 +280,17 @@ public class JobFlowDetail implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     * <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     * Used only for version 2.x and 3.x of Amazon EMR. The version of the AMI used to initialize Amazon EC2 instances
+     * in the job flow. For a list of AMI versions supported by Amazon EMR, see <a
+     * href="http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI
+     * Versions Supported in EMR</a> in the <i>Amazon EMR Developer Guide.</i>
      * </p>
      * 
      * @param amiVersion
-     *        Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     *        <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     *        Used only for version 2.x and 3.x of Amazon EMR. The version of the AMI used to initialize Amazon EC2
+     *        instances in the job flow. For a list of AMI versions supported by Amazon EMR, see <a
+     *        href="http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported"
+     *        >AMI Versions Supported in EMR</a> in the <i>Amazon EMR Developer Guide.</i>
      */
 
     public void setAmiVersion(String amiVersion) {
@@ -293,12 +299,16 @@ public class JobFlowDetail implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     * <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     * Used only for version 2.x and 3.x of Amazon EMR. The version of the AMI used to initialize Amazon EC2 instances
+     * in the job flow. For a list of AMI versions supported by Amazon EMR, see <a
+     * href="http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI
+     * Versions Supported in EMR</a> in the <i>Amazon EMR Developer Guide.</i>
      * </p>
      * 
-     * @return Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     *         <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     * @return Used only for version 2.x and 3.x of Amazon EMR. The version of the AMI used to initialize Amazon EC2
+     *         instances in the job flow. For a list of AMI versions supported by Amazon EMR, see <a
+     *         href="http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported"
+     *         >AMI Versions Supported in EMR</a> in the <i>Amazon EMR Developer Guide.</i>
      */
 
     public String getAmiVersion() {
@@ -307,13 +317,17 @@ public class JobFlowDetail implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     * <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     * Used only for version 2.x and 3.x of Amazon EMR. The version of the AMI used to initialize Amazon EC2 instances
+     * in the job flow. For a list of AMI versions supported by Amazon EMR, see <a
+     * href="http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI
+     * Versions Supported in EMR</a> in the <i>Amazon EMR Developer Guide.</i>
      * </p>
      * 
      * @param amiVersion
-     *        Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     *        <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     *        Used only for version 2.x and 3.x of Amazon EMR. The version of the AMI used to initialize Amazon EC2
+     *        instances in the job flow. For a list of AMI versions supported by Amazon EMR, see <a
+     *        href="http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported"
+     *        >AMI Versions Supported in EMR</a> in the <i>Amazon EMR Developer Guide.</i>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1002,8 +1016,7 @@ public class JobFlowDetail implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

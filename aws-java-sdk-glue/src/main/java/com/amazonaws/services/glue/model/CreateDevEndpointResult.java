@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -101,12 +101,6 @@ public class CreateDevEndpointResult extends com.amazonaws.AmazonWebServiceResul
      * </p>
      */
     private String failureReason;
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure being used with this DevEndpoint.
-     * </p>
-     */
-    private String securityConfiguration;
     /**
      * <p>
      * The point in time at which this DevEndpoint was created.
@@ -666,46 +660,6 @@ public class CreateDevEndpointResult extends com.amazonaws.AmazonWebServiceResul
 
     /**
      * <p>
-     * The name of the SecurityConfiguration structure being used with this DevEndpoint.
-     * </p>
-     * 
-     * @param securityConfiguration
-     *        The name of the SecurityConfiguration structure being used with this DevEndpoint.
-     */
-
-    public void setSecurityConfiguration(String securityConfiguration) {
-        this.securityConfiguration = securityConfiguration;
-    }
-
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure being used with this DevEndpoint.
-     * </p>
-     * 
-     * @return The name of the SecurityConfiguration structure being used with this DevEndpoint.
-     */
-
-    public String getSecurityConfiguration() {
-        return this.securityConfiguration;
-    }
-
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure being used with this DevEndpoint.
-     * </p>
-     * 
-     * @param securityConfiguration
-     *        The name of the SecurityConfiguration structure being used with this DevEndpoint.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateDevEndpointResult withSecurityConfiguration(String securityConfiguration) {
-        setSecurityConfiguration(securityConfiguration);
-        return this;
-    }
-
-    /**
-     * <p>
      * The point in time at which this DevEndpoint was created.
      * </p>
      * 
@@ -745,8 +699,7 @@ public class CreateDevEndpointResult extends com.amazonaws.AmazonWebServiceResul
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -782,8 +735,6 @@ public class CreateDevEndpointResult extends com.amazonaws.AmazonWebServiceResul
             sb.append("ExtraJarsS3Path: ").append(getExtraJarsS3Path()).append(",");
         if (getFailureReason() != null)
             sb.append("FailureReason: ").append(getFailureReason()).append(",");
-        if (getSecurityConfiguration() != null)
-            sb.append("SecurityConfiguration: ").append(getSecurityConfiguration()).append(",");
         if (getCreatedTimestamp() != null)
             sb.append("CreatedTimestamp: ").append(getCreatedTimestamp());
         sb.append("}");
@@ -853,10 +804,6 @@ public class CreateDevEndpointResult extends com.amazonaws.AmazonWebServiceResul
             return false;
         if (other.getFailureReason() != null && other.getFailureReason().equals(this.getFailureReason()) == false)
             return false;
-        if (other.getSecurityConfiguration() == null ^ this.getSecurityConfiguration() == null)
-            return false;
-        if (other.getSecurityConfiguration() != null && other.getSecurityConfiguration().equals(this.getSecurityConfiguration()) == false)
-            return false;
         if (other.getCreatedTimestamp() == null ^ this.getCreatedTimestamp() == null)
             return false;
         if (other.getCreatedTimestamp() != null && other.getCreatedTimestamp().equals(this.getCreatedTimestamp()) == false)
@@ -882,7 +829,6 @@ public class CreateDevEndpointResult extends com.amazonaws.AmazonWebServiceResul
         hashCode = prime * hashCode + ((getExtraPythonLibsS3Path() == null) ? 0 : getExtraPythonLibsS3Path().hashCode());
         hashCode = prime * hashCode + ((getExtraJarsS3Path() == null) ? 0 : getExtraJarsS3Path().hashCode());
         hashCode = prime * hashCode + ((getFailureReason() == null) ? 0 : getFailureReason().hashCode());
-        hashCode = prime * hashCode + ((getSecurityConfiguration() == null) ? 0 : getSecurityConfiguration().hashCode());
         hashCode = prime * hashCode + ((getCreatedTimestamp() == null) ? 0 : getCreatedTimestamp().hashCode());
         return hashCode;
     }

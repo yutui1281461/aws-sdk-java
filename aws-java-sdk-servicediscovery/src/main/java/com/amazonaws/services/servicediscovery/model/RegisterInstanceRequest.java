@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,7 +27,8 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The ID of the service that you want to use for settings for the instance.
+     * The ID of the service that you want to use for settings for the records and health check that Route 53 will
+     * create.
      * </p>
      */
     private String serviceId;
@@ -56,9 +57,8 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing
-     * DNS records, if any. If there's also an existing health check, AWS Cloud Map deletes the old health check and
-     * creates a new one.
+     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the existing
+     * records. If there's also an existing health check, Route 53 deletes the old health check and creates a new one.
      * </p>
      * <note>
      * <p>
@@ -105,11 +105,11 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <b/>
      * </p>
      * <p>
-     * If you want AWS Cloud Map to create an Amazon Route 53 alias record that routes traffic to an Elastic Load
-     * Balancing load balancer, specify the DNS name that is associated with the load balancer. For information about
-     * how to get the DNS name, see "DNSName" in the topic <a
-     * href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a> in the
-     * <i>Route 53 API Reference</i>.
+     * If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer,
+     * specify the DNS name that is associated with the load balancer. For information about how to get the DNS name,
+     * see "DNSName" in the topic <a
+     * href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     * >AliasTarget</a>.
      * </p>
      * <p>
      * Note the following:
@@ -129,8 +129,8 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings, AWS
-     * Cloud Map will create the Route 53 health check, but it won't associate the health check with the alias record.
+     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings,
+     * Route 53 will create the health check, but it won't associate the health check with the alias record.
      * </p>
      * </li>
      * <li>
@@ -146,15 +146,6 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </p>
      * </li>
      * </ul>
-     * <p>
-     * <b>AWS_INIT_HEALTH_STATUS</b>
-     * </p>
-     * <p>
-     * If the service configuration includes <code>HealthCheckCustomConfig</code>, you can optionally use
-     * <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of the custom health check,
-     * <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't specify a value for
-     * <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.
-     * </p>
      * <p>
      * <b>AWS_INSTANCE_CNAME</b>
      * </p>
@@ -202,23 +193,18 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * This value is required if you specified settings for an SRV record when you created the service.
      * </p>
-     * <p>
-     * <b>Custom attributes</b>
-     * </p>
-     * <p>
-     * You can add up to 30 custom attributes. For each key-value pair, the maximum length of the attribute name is 255
-     * characters, and the maximum length of the attribute value is 1,024 characters.
-     * </p>
      */
     private java.util.Map<String, String> attributes;
 
     /**
      * <p>
-     * The ID of the service that you want to use for settings for the instance.
+     * The ID of the service that you want to use for settings for the records and health check that Route 53 will
+     * create.
      * </p>
      * 
      * @param serviceId
-     *        The ID of the service that you want to use for settings for the instance.
+     *        The ID of the service that you want to use for settings for the records and health check that Route 53
+     *        will create.
      */
 
     public void setServiceId(String serviceId) {
@@ -227,10 +213,12 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The ID of the service that you want to use for settings for the instance.
+     * The ID of the service that you want to use for settings for the records and health check that Route 53 will
+     * create.
      * </p>
      * 
-     * @return The ID of the service that you want to use for settings for the instance.
+     * @return The ID of the service that you want to use for settings for the records and health check that Route 53
+     *         will create.
      */
 
     public String getServiceId() {
@@ -239,11 +227,13 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The ID of the service that you want to use for settings for the instance.
+     * The ID of the service that you want to use for settings for the records and health check that Route 53 will
+     * create.
      * </p>
      * 
      * @param serviceId
-     *        The ID of the service that you want to use for settings for the instance.
+     *        The ID of the service that you want to use for settings for the records and health check that Route 53
+     *        will create.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -277,9 +267,8 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing
-     * DNS records, if any. If there's also an existing health check, AWS Cloud Map deletes the old health check and
-     * creates a new one.
+     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the existing
+     * records. If there's also an existing health check, Route 53 deletes the old health check and creates a new one.
      * </p>
      * <note>
      * <p>
@@ -312,9 +301,9 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        </li>
      *        <li>
      *        <p>
-     *        If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the
-     *        existing DNS records, if any. If there's also an existing health check, AWS Cloud Map deletes the old
-     *        health check and creates a new one.
+     *        If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the
+     *        existing records. If there's also an existing health check, Route 53 deletes the old health check and
+     *        creates a new one.
      *        </p>
      *        <note>
      *        <p>
@@ -353,9 +342,8 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing
-     * DNS records, if any. If there's also an existing health check, AWS Cloud Map deletes the old health check and
-     * creates a new one.
+     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the existing
+     * records. If there's also an existing health check, Route 53 deletes the old health check and creates a new one.
      * </p>
      * <note>
      * <p>
@@ -387,9 +375,9 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         </li>
      *         <li>
      *         <p>
-     *         If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the
-     *         existing DNS records, if any. If there's also an existing health check, AWS Cloud Map deletes the old
-     *         health check and creates a new one.
+     *         If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the
+     *         existing records. If there's also an existing health check, Route 53 deletes the old health check and
+     *         creates a new one.
      *         </p>
      *         <note>
      *         <p>
@@ -428,9 +416,8 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing
-     * DNS records, if any. If there's also an existing health check, AWS Cloud Map deletes the old health check and
-     * creates a new one.
+     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the existing
+     * records. If there's also an existing health check, Route 53 deletes the old health check and creates a new one.
      * </p>
      * <note>
      * <p>
@@ -463,9 +450,9 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        </li>
      *        <li>
      *        <p>
-     *        If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the
-     *        existing DNS records, if any. If there's also an existing health check, AWS Cloud Map deletes the old
-     *        health check and creates a new one.
+     *        If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the
+     *        existing records. If there's also an existing health check, Route 53 deletes the old health check and
+     *        creates a new one.
      *        </p>
      *        <note>
      *        <p>
@@ -571,11 +558,11 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <b/>
      * </p>
      * <p>
-     * If you want AWS Cloud Map to create an Amazon Route 53 alias record that routes traffic to an Elastic Load
-     * Balancing load balancer, specify the DNS name that is associated with the load balancer. For information about
-     * how to get the DNS name, see "DNSName" in the topic <a
-     * href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a> in the
-     * <i>Route 53 API Reference</i>.
+     * If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer,
+     * specify the DNS name that is associated with the load balancer. For information about how to get the DNS name,
+     * see "DNSName" in the topic <a
+     * href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     * >AliasTarget</a>.
      * </p>
      * <p>
      * Note the following:
@@ -595,8 +582,8 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings, AWS
-     * Cloud Map will create the Route 53 health check, but it won't associate the health check with the alias record.
+     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings,
+     * Route 53 will create the health check, but it won't associate the health check with the alias record.
      * </p>
      * </li>
      * <li>
@@ -612,15 +599,6 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </p>
      * </li>
      * </ul>
-     * <p>
-     * <b>AWS_INIT_HEALTH_STATUS</b>
-     * </p>
-     * <p>
-     * If the service configuration includes <code>HealthCheckCustomConfig</code>, you can optionally use
-     * <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of the custom health check,
-     * <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't specify a value for
-     * <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.
-     * </p>
      * <p>
      * <b>AWS_INSTANCE_CNAME</b>
      * </p>
@@ -668,13 +646,6 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * This value is required if you specified settings for an SRV record when you created the service.
      * </p>
-     * <p>
-     * <b>Custom attributes</b>
-     * </p>
-     * <p>
-     * You can add up to 30 custom attributes. For each key-value pair, the maximum length of the attribute name is 255
-     * characters, and the maximum length of the attribute value is 1,024 characters.
-     * </p>
      * 
      * @return A string map that contains the following information for the service that you specify in
      *         <code>ServiceId</code>:</p>
@@ -700,11 +671,11 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         <b/>
      *         </p>
      *         <p>
-     *         If you want AWS Cloud Map to create an Amazon Route 53 alias record that routes traffic to an Elastic
-     *         Load Balancing load balancer, specify the DNS name that is associated with the load balancer. For
-     *         information about how to get the DNS name, see "DNSName" in the topic <a
-     *         href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a> in the
-     *         <i>Route 53 API Reference</i>.
+     *         If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load
+     *         balancer, specify the DNS name that is associated with the load balancer. For information about how to
+     *         get the DNS name, see "DNSName" in the topic <a href=
+     *         "http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     *         >AliasTarget</a>.
      *         </p>
      *         <p>
      *         Note the following:
@@ -725,8 +696,8 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         <li>
      *         <p>
      *         If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code>
-     *         settings, AWS Cloud Map will create the Route 53 health check, but it won't associate the health check
-     *         with the alias record.
+     *         settings, Route 53 will create the health check, but it won't associate the health check with the alias
+     *         record.
      *         </p>
      *         </li>
      *         <li>
@@ -742,15 +713,6 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         </p>
      *         </li>
      *         </ul>
-     *         <p>
-     *         <b>AWS_INIT_HEALTH_STATUS</b>
-     *         </p>
-     *         <p>
-     *         If the service configuration includes <code>HealthCheckCustomConfig</code>, you can optionally use
-     *         <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of the custom health check,
-     *         <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't specify a value for
-     *         <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.
-     *         </p>
      *         <p>
      *         <b>AWS_INSTANCE_CNAME</b>
      *         </p>
@@ -798,13 +760,6 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         </p>
      *         <p>
      *         This value is required if you specified settings for an SRV record when you created the service.
-     *         </p>
-     *         <p>
-     *         <b>Custom attributes</b>
-     *         </p>
-     *         <p>
-     *         You can add up to 30 custom attributes. For each key-value pair, the maximum length of the attribute name
-     *         is 255 characters, and the maximum length of the attribute value is 1,024 characters.
      */
 
     public java.util.Map<String, String> getAttributes() {
@@ -837,11 +792,11 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <b/>
      * </p>
      * <p>
-     * If you want AWS Cloud Map to create an Amazon Route 53 alias record that routes traffic to an Elastic Load
-     * Balancing load balancer, specify the DNS name that is associated with the load balancer. For information about
-     * how to get the DNS name, see "DNSName" in the topic <a
-     * href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a> in the
-     * <i>Route 53 API Reference</i>.
+     * If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer,
+     * specify the DNS name that is associated with the load balancer. For information about how to get the DNS name,
+     * see "DNSName" in the topic <a
+     * href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     * >AliasTarget</a>.
      * </p>
      * <p>
      * Note the following:
@@ -861,8 +816,8 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings, AWS
-     * Cloud Map will create the Route 53 health check, but it won't associate the health check with the alias record.
+     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings,
+     * Route 53 will create the health check, but it won't associate the health check with the alias record.
      * </p>
      * </li>
      * <li>
@@ -878,15 +833,6 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </p>
      * </li>
      * </ul>
-     * <p>
-     * <b>AWS_INIT_HEALTH_STATUS</b>
-     * </p>
-     * <p>
-     * If the service configuration includes <code>HealthCheckCustomConfig</code>, you can optionally use
-     * <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of the custom health check,
-     * <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't specify a value for
-     * <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.
-     * </p>
      * <p>
      * <b>AWS_INSTANCE_CNAME</b>
      * </p>
@@ -934,13 +880,6 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * This value is required if you specified settings for an SRV record when you created the service.
      * </p>
-     * <p>
-     * <b>Custom attributes</b>
-     * </p>
-     * <p>
-     * You can add up to 30 custom attributes. For each key-value pair, the maximum length of the attribute name is 255
-     * characters, and the maximum length of the attribute value is 1,024 characters.
-     * </p>
      * 
      * @param attributes
      *        A string map that contains the following information for the service that you specify in
@@ -967,11 +906,11 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        <b/>
      *        </p>
      *        <p>
-     *        If you want AWS Cloud Map to create an Amazon Route 53 alias record that routes traffic to an Elastic Load
-     *        Balancing load balancer, specify the DNS name that is associated with the load balancer. For information
-     *        about how to get the DNS name, see "DNSName" in the topic <a
-     *        href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a> in the
-     *        <i>Route 53 API Reference</i>.
+     *        If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load
+     *        balancer, specify the DNS name that is associated with the load balancer. For information about how to get
+     *        the DNS name, see "DNSName" in the topic <a href=
+     *        "http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     *        >AliasTarget</a>.
      *        </p>
      *        <p>
      *        Note the following:
@@ -992,8 +931,8 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        <li>
      *        <p>
      *        If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code>
-     *        settings, AWS Cloud Map will create the Route 53 health check, but it won't associate the health check
-     *        with the alias record.
+     *        settings, Route 53 will create the health check, but it won't associate the health check with the alias
+     *        record.
      *        </p>
      *        </li>
      *        <li>
@@ -1009,15 +948,6 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        </p>
      *        </li>
      *        </ul>
-     *        <p>
-     *        <b>AWS_INIT_HEALTH_STATUS</b>
-     *        </p>
-     *        <p>
-     *        If the service configuration includes <code>HealthCheckCustomConfig</code>, you can optionally use
-     *        <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of the custom health check,
-     *        <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't specify a value for
-     *        <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.
-     *        </p>
      *        <p>
      *        <b>AWS_INSTANCE_CNAME</b>
      *        </p>
@@ -1065,13 +995,6 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        </p>
      *        <p>
      *        This value is required if you specified settings for an SRV record when you created the service.
-     *        </p>
-     *        <p>
-     *        <b>Custom attributes</b>
-     *        </p>
-     *        <p>
-     *        You can add up to 30 custom attributes. For each key-value pair, the maximum length of the attribute name
-     *        is 255 characters, and the maximum length of the attribute value is 1,024 characters.
      */
 
     public void setAttributes(java.util.Map<String, String> attributes) {
@@ -1104,11 +1027,11 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <b/>
      * </p>
      * <p>
-     * If you want AWS Cloud Map to create an Amazon Route 53 alias record that routes traffic to an Elastic Load
-     * Balancing load balancer, specify the DNS name that is associated with the load balancer. For information about
-     * how to get the DNS name, see "DNSName" in the topic <a
-     * href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a> in the
-     * <i>Route 53 API Reference</i>.
+     * If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer,
+     * specify the DNS name that is associated with the load balancer. For information about how to get the DNS name,
+     * see "DNSName" in the topic <a
+     * href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     * >AliasTarget</a>.
      * </p>
      * <p>
      * Note the following:
@@ -1128,8 +1051,8 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings, AWS
-     * Cloud Map will create the Route 53 health check, but it won't associate the health check with the alias record.
+     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings,
+     * Route 53 will create the health check, but it won't associate the health check with the alias record.
      * </p>
      * </li>
      * <li>
@@ -1145,15 +1068,6 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </p>
      * </li>
      * </ul>
-     * <p>
-     * <b>AWS_INIT_HEALTH_STATUS</b>
-     * </p>
-     * <p>
-     * If the service configuration includes <code>HealthCheckCustomConfig</code>, you can optionally use
-     * <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of the custom health check,
-     * <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't specify a value for
-     * <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.
-     * </p>
      * <p>
      * <b>AWS_INSTANCE_CNAME</b>
      * </p>
@@ -1201,13 +1115,6 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * This value is required if you specified settings for an SRV record when you created the service.
      * </p>
-     * <p>
-     * <b>Custom attributes</b>
-     * </p>
-     * <p>
-     * You can add up to 30 custom attributes. For each key-value pair, the maximum length of the attribute name is 255
-     * characters, and the maximum length of the attribute value is 1,024 characters.
-     * </p>
      * 
      * @param attributes
      *        A string map that contains the following information for the service that you specify in
@@ -1234,11 +1141,11 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        <b/>
      *        </p>
      *        <p>
-     *        If you want AWS Cloud Map to create an Amazon Route 53 alias record that routes traffic to an Elastic Load
-     *        Balancing load balancer, specify the DNS name that is associated with the load balancer. For information
-     *        about how to get the DNS name, see "DNSName" in the topic <a
-     *        href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a> in the
-     *        <i>Route 53 API Reference</i>.
+     *        If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load
+     *        balancer, specify the DNS name that is associated with the load balancer. For information about how to get
+     *        the DNS name, see "DNSName" in the topic <a href=
+     *        "http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     *        >AliasTarget</a>.
      *        </p>
      *        <p>
      *        Note the following:
@@ -1259,8 +1166,8 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        <li>
      *        <p>
      *        If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code>
-     *        settings, AWS Cloud Map will create the Route 53 health check, but it won't associate the health check
-     *        with the alias record.
+     *        settings, Route 53 will create the health check, but it won't associate the health check with the alias
+     *        record.
      *        </p>
      *        </li>
      *        <li>
@@ -1276,15 +1183,6 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        </p>
      *        </li>
      *        </ul>
-     *        <p>
-     *        <b>AWS_INIT_HEALTH_STATUS</b>
-     *        </p>
-     *        <p>
-     *        If the service configuration includes <code>HealthCheckCustomConfig</code>, you can optionally use
-     *        <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of the custom health check,
-     *        <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't specify a value for
-     *        <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.
-     *        </p>
      *        <p>
      *        <b>AWS_INSTANCE_CNAME</b>
      *        </p>
@@ -1332,13 +1230,6 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        </p>
      *        <p>
      *        This value is required if you specified settings for an SRV record when you created the service.
-     *        </p>
-     *        <p>
-     *        <b>Custom attributes</b>
-     *        </p>
-     *        <p>
-     *        You can add up to 30 custom attributes. For each key-value pair, the maximum length of the attribute name
-     *        is 255 characters, and the maximum length of the attribute value is 1,024 characters.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1369,8 +1260,7 @@ public class RegisterInstanceRequest extends com.amazonaws.AmazonWebServiceReque
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

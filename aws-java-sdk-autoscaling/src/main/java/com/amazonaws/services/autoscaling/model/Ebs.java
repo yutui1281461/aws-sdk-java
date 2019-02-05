@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -52,6 +52,9 @@ public class Ebs implements Serializable, Cloneable {
      * </p>
      * <p>
      * Valid values: <code>standard</code> | <code>io1</code> | <code>gp2</code>
+     * </p>
+     * <p>
+     * Default: <code>standard</code>
      * </p>
      */
     private String volumeType;
@@ -207,6 +210,9 @@ public class Ebs implements Serializable, Cloneable {
      * <p>
      * Valid values: <code>standard</code> | <code>io1</code> | <code>gp2</code>
      * </p>
+     * <p>
+     * Default: <code>standard</code>
+     * </p>
      * 
      * @param volumeType
      *        The volume type. For more information, see <a
@@ -214,6 +220,9 @@ public class Ebs implements Serializable, Cloneable {
      *        in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      *        <p>
      *        Valid values: <code>standard</code> | <code>io1</code> | <code>gp2</code>
+     *        </p>
+     *        <p>
+     *        Default: <code>standard</code>
      */
 
     public void setVolumeType(String volumeType) {
@@ -229,12 +238,18 @@ public class Ebs implements Serializable, Cloneable {
      * <p>
      * Valid values: <code>standard</code> | <code>io1</code> | <code>gp2</code>
      * </p>
+     * <p>
+     * Default: <code>standard</code>
+     * </p>
      * 
      * @return The volume type. For more information, see <a
      *         href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>
      *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      *         <p>
      *         Valid values: <code>standard</code> | <code>io1</code> | <code>gp2</code>
+     *         </p>
+     *         <p>
+     *         Default: <code>standard</code>
      */
 
     public String getVolumeType() {
@@ -250,6 +265,9 @@ public class Ebs implements Serializable, Cloneable {
      * <p>
      * Valid values: <code>standard</code> | <code>io1</code> | <code>gp2</code>
      * </p>
+     * <p>
+     * Default: <code>standard</code>
+     * </p>
      * 
      * @param volumeType
      *        The volume type. For more information, see <a
@@ -257,6 +275,9 @@ public class Ebs implements Serializable, Cloneable {
      *        in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      *        <p>
      *        Valid values: <code>standard</code> | <code>io1</code> | <code>gp2</code>
+     *        </p>
+     *        <p>
+     *        Default: <code>standard</code>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -465,8 +486,7 @@ public class Ebs implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

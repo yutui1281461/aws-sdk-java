@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -15,7 +15,9 @@ package com.amazonaws.services.mq.model;
 import javax.annotation.Generated;
 
 /**
- * The deployment mode of the broker.
+ * The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ SINGLE_INSTANCE creates
+ * a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates an active/standby broker for
+ * high availability.
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public enum DeploymentMode {

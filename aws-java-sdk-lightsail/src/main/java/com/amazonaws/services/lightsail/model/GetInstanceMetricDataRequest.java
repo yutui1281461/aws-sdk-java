@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -39,7 +39,7 @@ public class GetInstanceMetricDataRequest extends com.amazonaws.AmazonWebService
     private String metricName;
     /**
      * <p>
-     * The granularity, in seconds, of the returned data points.
+     * The time period for which you are requesting data.
      * </p>
      */
     private Integer period;
@@ -183,11 +183,11 @@ public class GetInstanceMetricDataRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The granularity, in seconds, of the returned data points.
+     * The time period for which you are requesting data.
      * </p>
      * 
      * @param period
-     *        The granularity, in seconds, of the returned data points.
+     *        The time period for which you are requesting data.
      */
 
     public void setPeriod(Integer period) {
@@ -196,10 +196,10 @@ public class GetInstanceMetricDataRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The granularity, in seconds, of the returned data points.
+     * The time period for which you are requesting data.
      * </p>
      * 
-     * @return The granularity, in seconds, of the returned data points.
+     * @return The time period for which you are requesting data.
      */
 
     public Integer getPeriod() {
@@ -208,11 +208,11 @@ public class GetInstanceMetricDataRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The granularity, in seconds, of the returned data points.
+     * The time period for which you are requesting data.
      * </p>
      * 
      * @param period
-     *        The granularity, in seconds, of the returned data points.
+     *        The time period for which you are requesting data.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -473,8 +473,7 @@ public class GetInstanceMetricDataRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

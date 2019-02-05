@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -42,7 +42,7 @@ public class ProvisionedProductAttribute implements Serializable, Cloneable, Str
     private String arn;
     /**
      * <p>
-     * The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.
+     * The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      * </p>
      */
     private String type;
@@ -229,12 +229,11 @@ public class ProvisionedProductAttribute implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.
+     * The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      * </p>
      * 
      * @param type
-     *        The type of provisioned product. The supported values are <code>CFN_STACK</code> and
-     *        <code>CFN_STACKSET</code>.
+     *        The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      */
 
     public void setType(String type) {
@@ -243,11 +242,10 @@ public class ProvisionedProductAttribute implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.
+     * The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      * </p>
      * 
-     * @return The type of provisioned product. The supported values are <code>CFN_STACK</code> and
-     *         <code>CFN_STACKSET</code>.
+     * @return The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      */
 
     public String getType() {
@@ -256,12 +254,11 @@ public class ProvisionedProductAttribute implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.
+     * The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      * </p>
      * 
      * @param type
-     *        The type of provisioned product. The supported values are <code>CFN_STACK</code> and
-     *        <code>CFN_STACKSET</code>.
+     *        The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1022,8 +1019,7 @@ public class ProvisionedProductAttribute implements Serializable, Cloneable, Str
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

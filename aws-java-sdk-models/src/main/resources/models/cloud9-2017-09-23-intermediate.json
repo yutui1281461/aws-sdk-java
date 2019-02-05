@@ -15,12 +15,11 @@
     "customErrorCodeFieldName" : null,
     "customExceptionUnmarshallerImpl" : null,
     "customFileHeader" : null,
-    "customResponseHandlerFqcn" : null,
     "customResponseMetadataClassName" : null,
     "customServiceMetadata" : null,
     "customServiceNameForRequest" : null,
     "customSignerProvider" : null,
-    "deprecatedSuppressions" : [ "ClientConstructors", "EnumSetterOverload", "ClientMutationMethods" ],
+    "deprecatedSuppressions" : [ "EnumSetterOverload", "ClientConstructors", "ClientMutationMethods" ],
     "emitLegacyEnumSetterFor" : null,
     "operationModifiers" : null,
     "operationsWithResponseStreamContentLengthValidation" : null,
@@ -40,8 +39,7 @@
     "skipSmokeTests" : true,
     "transformDirectory" : "transform",
     "useAutoConstructList" : false,
-    "useAutoConstructMap" : false,
-    "useUidAsFilePrefix" : false
+    "useAutoConstructMap" : false
   },
   "metadata" : {
     "apiVersion" : "2017-09-23",
@@ -71,7 +69,6 @@
     "requiresIamSigners" : false,
     "serviceAbbreviation" : null,
     "serviceFullName" : "AWS Cloud9",
-    "serviceId" : "Cloud9",
     "serviceName" : "AWS Cloud9",
     "signingName" : "cloud9",
     "smokeTestsPackageName" : "com.amazonaws.services.cloud9.smoketests",
@@ -92,9 +89,6 @@
       "authenticated" : true,
       "deprecated" : false,
       "documentation" : "<p>Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.</p>",
-      "endpointDiscovery" : null,
-      "endpointOperation" : false,
-      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -125,9 +119,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
-      "hostPrefixProcessor" : null,
       "input" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "CreateEnvironmentEC2Request",
         "variableName" : "createEnvironmentEC2Request",
         "variableType" : "CreateEnvironmentEC2Request",
@@ -152,9 +144,6 @@
       "authenticated" : true,
       "deprecated" : false,
       "documentation" : "<p>Adds an environment member to an AWS Cloud9 development environment.</p>",
-      "endpointDiscovery" : null,
-      "endpointOperation" : false,
-      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -185,9 +174,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
-      "hostPrefixProcessor" : null,
       "input" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "CreateEnvironmentMembershipRequest",
         "variableName" : "createEnvironmentMembershipRequest",
         "variableType" : "CreateEnvironmentMembershipRequest",
@@ -212,9 +199,6 @@
       "authenticated" : true,
       "deprecated" : false,
       "documentation" : "<p>Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p>",
-      "endpointDiscovery" : null,
-      "endpointOperation" : false,
-      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -245,9 +229,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
-      "hostPrefixProcessor" : null,
       "input" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DeleteEnvironmentRequest",
         "variableName" : "deleteEnvironmentRequest",
         "variableType" : "DeleteEnvironmentRequest",
@@ -272,9 +254,6 @@
       "authenticated" : true,
       "deprecated" : false,
       "documentation" : "<p>Deletes an environment member from an AWS Cloud9 development environment.</p>",
-      "endpointDiscovery" : null,
-      "endpointOperation" : false,
-      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -305,9 +284,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
-      "hostPrefixProcessor" : null,
       "input" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DeleteEnvironmentMembershipRequest",
         "variableName" : "deleteEnvironmentMembershipRequest",
         "variableType" : "DeleteEnvironmentMembershipRequest",
@@ -332,9 +309,6 @@
       "authenticated" : true,
       "deprecated" : false,
       "documentation" : "<p>Gets information about environment members for an AWS Cloud9 development environment.</p>",
-      "endpointDiscovery" : null,
-      "endpointOperation" : false,
-      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -365,9 +339,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
-      "hostPrefixProcessor" : null,
       "input" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DescribeEnvironmentMembershipsRequest",
         "variableName" : "describeEnvironmentMembershipsRequest",
         "variableType" : "DescribeEnvironmentMembershipsRequest",
@@ -392,9 +364,6 @@
       "authenticated" : true,
       "deprecated" : false,
       "documentation" : "<p>Gets status information for an AWS Cloud9 development environment.</p>",
-      "endpointDiscovery" : null,
-      "endpointOperation" : false,
-      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -425,9 +394,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
-      "hostPrefixProcessor" : null,
       "input" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DescribeEnvironmentStatusRequest",
         "variableName" : "describeEnvironmentStatusRequest",
         "variableType" : "DescribeEnvironmentStatusRequest",
@@ -452,9 +419,6 @@
       "authenticated" : true,
       "deprecated" : false,
       "documentation" : "<p>Gets information about AWS Cloud9 development environments.</p>",
-      "endpointDiscovery" : null,
-      "endpointOperation" : false,
-      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -485,9 +449,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
-      "hostPrefixProcessor" : null,
       "input" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DescribeEnvironmentsRequest",
         "variableName" : "describeEnvironmentsRequest",
         "variableType" : "DescribeEnvironmentsRequest",
@@ -512,9 +474,6 @@
       "authenticated" : true,
       "deprecated" : false,
       "documentation" : "<p>Gets a list of AWS Cloud9 development environment identifiers.</p>",
-      "endpointDiscovery" : null,
-      "endpointOperation" : false,
-      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -545,9 +504,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
-      "hostPrefixProcessor" : null,
       "input" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "ListEnvironmentsRequest",
         "variableName" : "listEnvironmentsRequest",
         "variableType" : "ListEnvironmentsRequest",
@@ -572,9 +529,6 @@
       "authenticated" : true,
       "deprecated" : false,
       "documentation" : "<p>Changes the settings of an existing AWS Cloud9 development environment.</p>",
-      "endpointDiscovery" : null,
-      "endpointOperation" : false,
-      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -605,9 +559,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
-      "hostPrefixProcessor" : null,
       "input" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "UpdateEnvironmentRequest",
         "variableName" : "updateEnvironmentRequest",
         "variableType" : "UpdateEnvironmentRequest",
@@ -632,9 +584,6 @@
       "authenticated" : true,
       "deprecated" : false,
       "documentation" : "<p>Changes the settings of an existing environment member for an AWS Cloud9 development environment.</p>",
-      "endpointDiscovery" : null,
-      "endpointOperation" : false,
-      "endpointTrait" : null,
       "exceptions" : [ {
         "exceptionName" : "BadRequestException",
         "documentation" : "<p>The target request is invalid.</p>",
@@ -665,9 +614,7 @@
         "httpStatusCode" : null
       } ],
       "hasBlobMemberAsPayload" : false,
-      "hostPrefixProcessor" : null,
       "input" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "UpdateEnvironmentMembershipRequest",
         "variableName" : "updateEnvironmentMembershipRequest",
         "variableType" : "UpdateEnvironmentMembershipRequest",
@@ -713,7 +660,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "BadRequestException",
         "variableName" : "badRequestException",
         "variableType" : "BadRequestException",
@@ -750,7 +696,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "ConflictException",
         "variableName" : "conflictException",
         "variableType" : "ConflictException",
@@ -824,11 +769,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.</p>\n@param name The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "name",
           "variableType" : "String",
@@ -841,7 +784,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.</p>\n@param name The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "name",
           "variableType" : "String",
@@ -890,11 +832,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Description",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The description of the environment to create.</p>\n@param description The description of the environment to create.*/",
         "setterMethodName" : "setDescription",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "description",
           "variableType" : "String",
@@ -907,7 +847,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The description of the environment to create.</p>\n@param description The description of the environment to create.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "description",
           "variableType" : "String",
@@ -956,11 +895,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "ClientRequestToken",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>\n@param clientRequestToken A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.*/",
         "setterMethodName" : "setClientRequestToken",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "clientRequestToken",
           "variableType" : "String",
@@ -973,7 +910,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>\n@param clientRequestToken A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "clientRequestToken",
           "variableType" : "String",
@@ -1022,11 +958,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "InstanceType",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of instance to connect to the environment (for example, <code>t2.micro</code>).</p>\n@param instanceType The type of instance to connect to the environment (for example, <code>t2.micro</code>).*/",
         "setterMethodName" : "setInstanceType",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "instanceType",
           "variableType" : "String",
@@ -1039,7 +973,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The type of instance to connect to the environment (for example, <code>t2.micro</code>).</p>\n@param instanceType The type of instance to connect to the environment (for example, <code>t2.micro</code>).\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "instanceType",
           "variableType" : "String",
@@ -1088,11 +1021,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "SubnetId",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.</p>\n@param subnetId The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.*/",
         "setterMethodName" : "setSubnetId",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "subnetId",
           "variableType" : "String",
@@ -1105,7 +1036,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.</p>\n@param subnetId The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "subnetId",
           "variableType" : "String",
@@ -1154,11 +1084,9 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "AutomaticStopTimeMinutes",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The number of minutes until the running instance is shut down after the environment has last been used.</p>\n@param automaticStopTimeMinutes The number of minutes until the running instance is shut down after the environment has last been used.*/",
         "setterMethodName" : "setAutomaticStopTimeMinutes",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "Integer",
           "variableName" : "automaticStopTimeMinutes",
           "variableType" : "Integer",
@@ -1171,7 +1099,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The number of minutes until the running instance is shut down after the environment has last been used.</p>\n@param automaticStopTimeMinutes The number of minutes until the running instance is shut down after the environment has last been used.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "Integer",
           "variableName" : "automaticStopTimeMinutes",
           "variableType" : "Integer",
@@ -1220,11 +1147,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "OwnerArn",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.</p>\n@param ownerArn The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.*/",
         "setterMethodName" : "setOwnerArn",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "ownerArn",
           "variableType" : "String",
@@ -1237,7 +1162,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.</p>\n@param ownerArn The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "ownerArn",
           "variableType" : "String",
@@ -1288,11 +1212,9 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "AutomaticStopTimeMinutes",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The number of minutes until the running instance is shut down after the environment has last been used.</p>\n@param automaticStopTimeMinutes The number of minutes until the running instance is shut down after the environment has last been used.*/",
           "setterMethodName" : "setAutomaticStopTimeMinutes",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "Integer",
             "variableName" : "automaticStopTimeMinutes",
             "variableType" : "Integer",
@@ -1305,7 +1227,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The number of minutes until the running instance is shut down after the environment has last been used.</p>\n@param automaticStopTimeMinutes The number of minutes until the running instance is shut down after the environment has last been used.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "Integer",
             "variableName" : "automaticStopTimeMinutes",
             "variableType" : "Integer",
@@ -1355,11 +1276,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "ClientRequestToken",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>\n@param clientRequestToken A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.*/",
           "setterMethodName" : "setClientRequestToken",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "clientRequestToken",
             "variableType" : "String",
@@ -1372,7 +1291,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.</p>\n@param clientRequestToken A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Client Tokens</a> in the <i>Amazon EC2 API Reference</i>.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "clientRequestToken",
             "variableType" : "String",
@@ -1422,11 +1340,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Description",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The description of the environment to create.</p>\n@param description The description of the environment to create.*/",
           "setterMethodName" : "setDescription",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "description",
             "variableType" : "String",
@@ -1439,7 +1355,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The description of the environment to create.</p>\n@param description The description of the environment to create.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "description",
             "variableType" : "String",
@@ -1489,11 +1404,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "InstanceType",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of instance to connect to the environment (for example, <code>t2.micro</code>).</p>\n@param instanceType The type of instance to connect to the environment (for example, <code>t2.micro</code>).*/",
           "setterMethodName" : "setInstanceType",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "instanceType",
             "variableType" : "String",
@@ -1506,7 +1419,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The type of instance to connect to the environment (for example, <code>t2.micro</code>).</p>\n@param instanceType The type of instance to connect to the environment (for example, <code>t2.micro</code>).\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "instanceType",
             "variableType" : "String",
@@ -1556,11 +1468,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.</p>\n@param name The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "name",
             "variableType" : "String",
@@ -1573,7 +1483,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.</p>\n@param name The name of the environment to create.</p> <p>This name is visible to other AWS IAM users in the same AWS account.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "name",
             "variableType" : "String",
@@ -1623,11 +1532,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "OwnerArn",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.</p>\n@param ownerArn The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.*/",
           "setterMethodName" : "setOwnerArn",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "ownerArn",
             "variableType" : "String",
@@ -1640,7 +1547,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.</p>\n@param ownerArn The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "ownerArn",
             "variableType" : "String",
@@ -1690,11 +1596,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "SubnetId",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.</p>\n@param subnetId The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.*/",
           "setterMethodName" : "setSubnetId",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "subnetId",
             "variableType" : "String",
@@ -1707,7 +1611,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.</p>\n@param subnetId The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "subnetId",
             "variableType" : "String",
@@ -1726,7 +1629,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "CreateEnvironmentEC2Request",
         "variableName" : "createEnvironmentEC2Request",
         "variableType" : "CreateEnvironmentEC2Request",
@@ -1793,11 +1695,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment that was created.</p>\n@param environmentId The ID of the environment that was created.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -1810,7 +1710,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The ID of the environment that was created.</p>\n@param environmentId The ID of the environment that was created.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -1861,11 +1760,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment that was created.</p>\n@param environmentId The ID of the environment that was created.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -1878,7 +1775,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The ID of the environment that was created.</p>\n@param environmentId The ID of the environment that was created.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -1900,7 +1796,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "CreateEnvironmentEC2Result",
         "variableName" : "createEnvironmentEC2Result",
         "variableType" : "CreateEnvironmentEC2Result",
@@ -1974,11 +1869,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment that contains the environment member you want to add.</p>\n@param environmentId The ID of the environment that contains the environment member you want to add.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -1991,7 +1884,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The ID of the environment that contains the environment member you want to add.</p>\n@param environmentId The ID of the environment that contains the environment member you want to add.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -2040,11 +1932,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "UserArn",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member you want to add.*/",
         "setterMethodName" : "setUserArn",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "userArn",
           "variableType" : "String",
@@ -2057,7 +1947,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member you want to add.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "userArn",
           "variableType" : "String",
@@ -2106,11 +1995,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Permissions",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@see MemberPermissions*/",
         "setterMethodName" : "setPermissions",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "permissions",
           "variableType" : "String",
@@ -2123,7 +2010,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see MemberPermissions*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "permissions",
           "variableType" : "String",
@@ -2174,11 +2060,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment that contains the environment member you want to add.</p>\n@param environmentId The ID of the environment that contains the environment member you want to add.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -2191,7 +2075,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The ID of the environment that contains the environment member you want to add.</p>\n@param environmentId The ID of the environment that contains the environment member you want to add.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -2241,11 +2124,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Permissions",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@see MemberPermissions*/",
           "setterMethodName" : "setPermissions",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "permissions",
             "variableType" : "String",
@@ -2258,7 +2139,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see MemberPermissions*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "permissions",
             "variableType" : "String",
@@ -2308,11 +2188,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "UserArn",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member you want to add.*/",
           "setterMethodName" : "setUserArn",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "userArn",
             "variableType" : "String",
@@ -2325,7 +2203,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member you want to add.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "userArn",
             "variableType" : "String",
@@ -2344,7 +2221,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "CreateEnvironmentMembershipRequest",
         "variableName" : "createEnvironmentMembershipRequest",
         "variableType" : "CreateEnvironmentMembershipRequest",
@@ -2411,11 +2287,9 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Membership",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>Information about the environment member that was added.</p>\n@param membership Information about the environment member that was added.*/",
         "setterMethodName" : "setMembership",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "EnvironmentMember",
           "variableName" : "membership",
           "variableType" : "EnvironmentMember",
@@ -2428,7 +2302,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>Information about the environment member that was added.</p>\n@param membership Information about the environment member that was added.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "EnvironmentMember",
           "variableName" : "membership",
           "variableType" : "EnvironmentMember",
@@ -2479,11 +2352,9 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Membership",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>Information about the environment member that was added.</p>\n@param membership Information about the environment member that was added.*/",
           "setterMethodName" : "setMembership",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "EnvironmentMember",
             "variableName" : "membership",
             "variableType" : "EnvironmentMember",
@@ -2496,7 +2367,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>Information about the environment member that was added.</p>\n@param membership Information about the environment member that was added.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "EnvironmentMember",
             "variableName" : "membership",
             "variableType" : "EnvironmentMember",
@@ -2518,7 +2388,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "CreateEnvironmentMembershipResult",
         "variableName" : "createEnvironmentMembershipResult",
         "variableType" : "CreateEnvironmentMembershipResult",
@@ -2592,11 +2461,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment to delete the environment member from.</p>\n@param environmentId The ID of the environment to delete the environment member from.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -2609,7 +2476,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The ID of the environment to delete the environment member from.</p>\n@param environmentId The ID of the environment to delete the environment member from.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -2658,11 +2524,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "UserArn",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member to delete from the environment.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member to delete from the environment.*/",
         "setterMethodName" : "setUserArn",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "userArn",
           "variableType" : "String",
@@ -2675,7 +2539,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member to delete from the environment.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member to delete from the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "userArn",
           "variableType" : "String",
@@ -2726,11 +2589,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment to delete the environment member from.</p>\n@param environmentId The ID of the environment to delete the environment member from.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -2743,7 +2604,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The ID of the environment to delete the environment member from.</p>\n@param environmentId The ID of the environment to delete the environment member from.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -2793,11 +2653,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "UserArn",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member to delete from the environment.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member to delete from the environment.*/",
           "setterMethodName" : "setUserArn",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "userArn",
             "variableType" : "String",
@@ -2810,7 +2668,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member to delete from the environment.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member to delete from the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "userArn",
             "variableType" : "String",
@@ -2829,7 +2686,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DeleteEnvironmentMembershipRequest",
         "variableName" : "deleteEnvironmentMembershipRequest",
         "variableType" : "DeleteEnvironmentMembershipRequest",
@@ -2869,7 +2725,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DeleteEnvironmentMembershipResult",
         "variableName" : "deleteEnvironmentMembershipResult",
         "variableType" : "DeleteEnvironmentMembershipResult",
@@ -2943,11 +2798,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment to delete.</p>\n@param environmentId The ID of the environment to delete.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -2960,7 +2813,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The ID of the environment to delete.</p>\n@param environmentId The ID of the environment to delete.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -3011,11 +2863,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment to delete.</p>\n@param environmentId The ID of the environment to delete.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -3028,7 +2878,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The ID of the environment to delete.</p>\n@param environmentId The ID of the environment to delete.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -3047,7 +2896,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DeleteEnvironmentRequest",
         "variableName" : "deleteEnvironmentRequest",
         "variableType" : "DeleteEnvironmentRequest",
@@ -3087,7 +2935,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DeleteEnvironmentResult",
         "variableName" : "deleteEnvironmentResult",
         "variableType" : "DeleteEnvironmentResult",
@@ -3161,11 +3008,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "UserArn",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>\n@param userArn The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.*/",
         "setterMethodName" : "setUserArn",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "userArn",
           "variableType" : "String",
@@ -3178,7 +3023,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>\n@param userArn The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "userArn",
           "variableType" : "String",
@@ -3227,11 +3071,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment to get environment member information about.</p>\n@param environmentId The ID of the environment to get environment member information about.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -3244,7 +3086,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The ID of the environment to get environment member information about.</p>\n@param environmentId The ID of the environment to get environment member information about.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -3330,11 +3171,9 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
-            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member \n@see Permissions*/",
             "setterMethodName" : "setMember",
             "setterModel" : {
-              "timestampFormat" : null,
               "variableDeclarationType" : "String",
               "variableName" : "member",
               "variableType" : "String",
@@ -3347,7 +3186,6 @@
             "unmarshallingType" : null,
             "varargSetterDocumentation" : "/**\n@param member \n@return Returns a reference to this object so that method calls can be chained together.\n@see Permissions*/",
             "variable" : {
-              "timestampFormat" : null,
               "variableDeclarationType" : "String",
               "variableName" : "member",
               "variableType" : "String",
@@ -3374,11 +3212,9 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Permissions",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.</p>\n@param permissions The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.\n@see Permissions*/",
         "setterMethodName" : "setPermissions",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "java.util.List<String>",
           "variableName" : "permissions",
           "variableType" : "java.util.List<String>",
@@ -3391,7 +3227,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.</p>\n<p><b>NOTE:</b> This method appends the values to the existing list (if any). Use {@link #setPermissions(java.util.Collection)} or {@link #withPermissions(java.util.Collection)} if you want to override the existing values.</p>\n@param permissions The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.\n@return Returns a reference to this object so that method calls can be chained together.\n@see Permissions*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "java.util.List<String>",
           "variableName" : "permissions",
           "variableType" : "java.util.List<String>",
@@ -3440,11 +3275,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>\n@param nextToken During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "nextToken",
           "variableType" : "String",
@@ -3457,7 +3290,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>\n@param nextToken During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "nextToken",
           "variableType" : "String",
@@ -3506,11 +3338,9 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxResults",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The maximum number of environment members to get information about.</p>\n@param maxResults The maximum number of environment members to get information about.*/",
         "setterMethodName" : "setMaxResults",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "Integer",
           "variableName" : "maxResults",
           "variableType" : "Integer",
@@ -3523,7 +3353,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The maximum number of environment members to get information about.</p>\n@param maxResults The maximum number of environment members to get information about.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "Integer",
           "variableName" : "maxResults",
           "variableType" : "Integer",
@@ -3574,11 +3403,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment to get environment member information about.</p>\n@param environmentId The ID of the environment to get environment member information about.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -3591,7 +3418,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The ID of the environment to get environment member information about.</p>\n@param environmentId The ID of the environment to get environment member information about.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -3641,11 +3467,9 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxResults",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The maximum number of environment members to get information about.</p>\n@param maxResults The maximum number of environment members to get information about.*/",
           "setterMethodName" : "setMaxResults",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "Integer",
             "variableName" : "maxResults",
             "variableType" : "Integer",
@@ -3658,7 +3482,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The maximum number of environment members to get information about.</p>\n@param maxResults The maximum number of environment members to get information about.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "Integer",
             "variableName" : "maxResults",
             "variableType" : "Integer",
@@ -3708,11 +3531,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>\n@param nextToken During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "nextToken",
             "variableType" : "String",
@@ -3725,7 +3546,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>\n@param nextToken During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "nextToken",
             "variableType" : "String",
@@ -3812,11 +3632,9 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
-              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member \n@see Permissions*/",
               "setterMethodName" : "setMember",
               "setterModel" : {
-                "timestampFormat" : null,
                 "variableDeclarationType" : "String",
                 "variableName" : "member",
                 "variableType" : "String",
@@ -3829,7 +3647,6 @@
               "unmarshallingType" : null,
               "varargSetterDocumentation" : "/**\n@param member \n@return Returns a reference to this object so that method calls can be chained together.\n@see Permissions*/",
               "variable" : {
-                "timestampFormat" : null,
                 "variableDeclarationType" : "String",
                 "variableName" : "member",
                 "variableType" : "String",
@@ -3856,11 +3673,9 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Permissions",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.</p>\n@param permissions The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.\n@see Permissions*/",
           "setterMethodName" : "setPermissions",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "java.util.List<String>",
             "variableName" : "permissions",
             "variableType" : "java.util.List<String>",
@@ -3873,7 +3688,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.</p>\n<p><b>NOTE:</b> This method appends the values to the existing list (if any). Use {@link #setPermissions(java.util.Collection)} or {@link #withPermissions(java.util.Collection)} if you want to override the existing values.</p>\n@param permissions The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.\n@return Returns a reference to this object so that method calls can be chained together.\n@see Permissions*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "java.util.List<String>",
             "variableName" : "permissions",
             "variableType" : "java.util.List<String>",
@@ -3923,11 +3737,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "UserArn",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>\n@param userArn The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.*/",
           "setterMethodName" : "setUserArn",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "userArn",
             "variableType" : "String",
@@ -3940,7 +3752,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>\n@param userArn The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "userArn",
             "variableType" : "String",
@@ -3959,7 +3770,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DescribeEnvironmentMembershipsRequest",
         "variableName" : "describeEnvironmentMembershipsRequest",
         "variableType" : "DescribeEnvironmentMembershipsRequest",
@@ -4063,11 +3873,9 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
-            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
-              "timestampFormat" : null,
               "variableDeclarationType" : "EnvironmentMember",
               "variableName" : "member",
               "variableType" : "EnvironmentMember",
@@ -4080,7 +3888,6 @@
             "unmarshallingType" : null,
             "varargSetterDocumentation" : "/**\n@param member \n@return Returns a reference to this object so that method calls can be chained together.*/",
             "variable" : {
-              "timestampFormat" : null,
               "variableDeclarationType" : "EnvironmentMember",
               "variableName" : "member",
               "variableType" : "EnvironmentMember",
@@ -4107,11 +3914,9 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Memberships",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>Information about the environment members for the environment.</p>\n@param memberships Information about the environment members for the environment.*/",
         "setterMethodName" : "setMemberships",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "java.util.List<EnvironmentMember>",
           "variableName" : "memberships",
           "variableType" : "java.util.List<EnvironmentMember>",
@@ -4124,7 +3929,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>Information about the environment members for the environment.</p>\n<p><b>NOTE:</b> This method appends the values to the existing list (if any). Use {@link #setMemberships(java.util.Collection)} or {@link #withMemberships(java.util.Collection)} if you want to override the existing values.</p>\n@param memberships Information about the environment members for the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "java.util.List<EnvironmentMember>",
           "variableName" : "memberships",
           "variableType" : "java.util.List<EnvironmentMember>",
@@ -4173,11 +3977,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>\n@param nextToken If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "nextToken",
           "variableType" : "String",
@@ -4190,7 +3992,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>\n@param nextToken If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "nextToken",
           "variableType" : "String",
@@ -4278,11 +4079,9 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
-              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
-                "timestampFormat" : null,
                 "variableDeclarationType" : "EnvironmentMember",
                 "variableName" : "member",
                 "variableType" : "EnvironmentMember",
@@ -4295,7 +4094,6 @@
               "unmarshallingType" : null,
               "varargSetterDocumentation" : "/**\n@param member \n@return Returns a reference to this object so that method calls can be chained together.*/",
               "variable" : {
-                "timestampFormat" : null,
                 "variableDeclarationType" : "EnvironmentMember",
                 "variableName" : "member",
                 "variableType" : "EnvironmentMember",
@@ -4322,11 +4120,9 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Memberships",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>Information about the environment members for the environment.</p>\n@param memberships Information about the environment members for the environment.*/",
           "setterMethodName" : "setMemberships",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "java.util.List<EnvironmentMember>",
             "variableName" : "memberships",
             "variableType" : "java.util.List<EnvironmentMember>",
@@ -4339,7 +4135,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>Information about the environment members for the environment.</p>\n<p><b>NOTE:</b> This method appends the values to the existing list (if any). Use {@link #setMemberships(java.util.Collection)} or {@link #withMemberships(java.util.Collection)} if you want to override the existing values.</p>\n@param memberships Information about the environment members for the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "java.util.List<EnvironmentMember>",
             "variableName" : "memberships",
             "variableType" : "java.util.List<EnvironmentMember>",
@@ -4389,11 +4184,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>\n@param nextToken If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "nextToken",
             "variableType" : "String",
@@ -4406,7 +4199,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>\n@param nextToken If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "nextToken",
             "variableType" : "String",
@@ -4428,7 +4220,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DescribeEnvironmentMembershipsResult",
         "variableName" : "describeEnvironmentMembershipsResult",
         "variableType" : "DescribeEnvironmentMembershipsResult",
@@ -4502,11 +4293,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment to get status information about.</p>\n@param environmentId The ID of the environment to get status information about.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -4519,7 +4308,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The ID of the environment to get status information about.</p>\n@param environmentId The ID of the environment to get status information about.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -4570,11 +4358,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment to get status information about.</p>\n@param environmentId The ID of the environment to get status information about.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -4587,7 +4373,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The ID of the environment to get status information about.</p>\n@param environmentId The ID of the environment to get status information about.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -4606,7 +4391,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DescribeEnvironmentStatusRequest",
         "variableName" : "describeEnvironmentStatusRequest",
         "variableType" : "DescribeEnvironmentStatusRequest",
@@ -4673,11 +4457,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Status",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li> </ul>\n@param status The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li>\n@see EnvironmentStatus*/",
         "setterMethodName" : "setStatus",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "status",
           "variableType" : "String",
@@ -4690,7 +4472,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li> </ul>\n@param status The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see EnvironmentStatus*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "status",
           "variableType" : "String",
@@ -4739,11 +4520,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Message",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>Any informational message about the status of the environment.</p>\n@param message Any informational message about the status of the environment.*/",
         "setterMethodName" : "setMessage",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "message",
           "variableType" : "String",
@@ -4756,7 +4535,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>Any informational message about the status of the environment.</p>\n@param message Any informational message about the status of the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "message",
           "variableType" : "String",
@@ -4807,11 +4585,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Message",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>Any informational message about the status of the environment.</p>\n@param message Any informational message about the status of the environment.*/",
           "setterMethodName" : "setMessage",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "message",
             "variableType" : "String",
@@ -4824,7 +4600,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>Any informational message about the status of the environment.</p>\n@param message Any informational message about the status of the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "message",
             "variableType" : "String",
@@ -4874,11 +4649,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Status",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li> </ul>\n@param status The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li>\n@see EnvironmentStatus*/",
           "setterMethodName" : "setStatus",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "status",
             "variableType" : "String",
@@ -4891,7 +4664,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li> </ul>\n@param status The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see EnvironmentStatus*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "status",
             "variableType" : "String",
@@ -4913,7 +4685,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DescribeEnvironmentStatusResult",
         "variableName" : "describeEnvironmentStatusResult",
         "variableType" : "DescribeEnvironmentStatusResult",
@@ -5024,11 +4795,9 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
-            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
-              "timestampFormat" : null,
               "variableDeclarationType" : "String",
               "variableName" : "member",
               "variableType" : "String",
@@ -5041,7 +4810,6 @@
             "unmarshallingType" : null,
             "varargSetterDocumentation" : "/**\n@param member \n@return Returns a reference to this object so that method calls can be chained together.*/",
             "variable" : {
-              "timestampFormat" : null,
               "variableDeclarationType" : "String",
               "variableName" : "member",
               "variableType" : "String",
@@ -5068,11 +4836,9 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "EnvironmentIds",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The IDs of individual environments to get information about.</p>\n@param environmentIds The IDs of individual environments to get information about.*/",
         "setterMethodName" : "setEnvironmentIds",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "java.util.List<String>",
           "variableName" : "environmentIds",
           "variableType" : "java.util.List<String>",
@@ -5085,7 +4851,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The IDs of individual environments to get information about.</p>\n<p><b>NOTE:</b> This method appends the values to the existing list (if any). Use {@link #setEnvironmentIds(java.util.Collection)} or {@link #withEnvironmentIds(java.util.Collection)} if you want to override the existing values.</p>\n@param environmentIds The IDs of individual environments to get information about.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "java.util.List<String>",
           "variableName" : "environmentIds",
           "variableType" : "java.util.List<String>",
@@ -5173,11 +4938,9 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
-              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
-                "timestampFormat" : null,
                 "variableDeclarationType" : "String",
                 "variableName" : "member",
                 "variableType" : "String",
@@ -5190,7 +4953,6 @@
               "unmarshallingType" : null,
               "varargSetterDocumentation" : "/**\n@param member \n@return Returns a reference to this object so that method calls can be chained together.*/",
               "variable" : {
-                "timestampFormat" : null,
                 "variableDeclarationType" : "String",
                 "variableName" : "member",
                 "variableType" : "String",
@@ -5217,11 +4979,9 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "EnvironmentIds",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The IDs of individual environments to get information about.</p>\n@param environmentIds The IDs of individual environments to get information about.*/",
           "setterMethodName" : "setEnvironmentIds",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "java.util.List<String>",
             "variableName" : "environmentIds",
             "variableType" : "java.util.List<String>",
@@ -5234,7 +4994,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The IDs of individual environments to get information about.</p>\n<p><b>NOTE:</b> This method appends the values to the existing list (if any). Use {@link #setEnvironmentIds(java.util.Collection)} or {@link #withEnvironmentIds(java.util.Collection)} if you want to override the existing values.</p>\n@param environmentIds The IDs of individual environments to get information about.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "java.util.List<String>",
             "variableName" : "environmentIds",
             "variableType" : "java.util.List<String>",
@@ -5253,7 +5012,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DescribeEnvironmentsRequest",
         "variableName" : "describeEnvironmentsRequest",
         "variableType" : "DescribeEnvironmentsRequest",
@@ -5357,11 +5115,9 @@
             "marshallingTargetClass" : "StructuredPojo",
             "marshallingType" : "STRUCTURED",
             "name" : "Member",
-            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
-              "timestampFormat" : null,
               "variableDeclarationType" : "Environment",
               "variableName" : "member",
               "variableType" : "Environment",
@@ -5374,7 +5130,6 @@
             "unmarshallingType" : null,
             "varargSetterDocumentation" : "/**\n@param member \n@return Returns a reference to this object so that method calls can be chained together.*/",
             "variable" : {
-              "timestampFormat" : null,
               "variableDeclarationType" : "Environment",
               "variableName" : "member",
               "variableType" : "Environment",
@@ -5401,11 +5156,9 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "Environments",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>Information about the environments that are returned.</p>\n@param environments Information about the environments that are returned.*/",
         "setterMethodName" : "setEnvironments",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "java.util.List<Environment>",
           "variableName" : "environments",
           "variableType" : "java.util.List<Environment>",
@@ -5418,7 +5171,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>Information about the environments that are returned.</p>\n<p><b>NOTE:</b> This method appends the values to the existing list (if any). Use {@link #setEnvironments(java.util.Collection)} or {@link #withEnvironments(java.util.Collection)} if you want to override the existing values.</p>\n@param environments Information about the environments that are returned.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "java.util.List<Environment>",
           "variableName" : "environments",
           "variableType" : "java.util.List<Environment>",
@@ -5506,11 +5258,9 @@
               "marshallingTargetClass" : "StructuredPojo",
               "marshallingType" : "STRUCTURED",
               "name" : "Member",
-              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
-                "timestampFormat" : null,
                 "variableDeclarationType" : "Environment",
                 "variableName" : "member",
                 "variableType" : "Environment",
@@ -5523,7 +5273,6 @@
               "unmarshallingType" : null,
               "varargSetterDocumentation" : "/**\n@param member \n@return Returns a reference to this object so that method calls can be chained together.*/",
               "variable" : {
-                "timestampFormat" : null,
                 "variableDeclarationType" : "Environment",
                 "variableName" : "member",
                 "variableType" : "Environment",
@@ -5550,11 +5299,9 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "Environments",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>Information about the environments that are returned.</p>\n@param environments Information about the environments that are returned.*/",
           "setterMethodName" : "setEnvironments",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "java.util.List<Environment>",
             "variableName" : "environments",
             "variableType" : "java.util.List<Environment>",
@@ -5567,7 +5314,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>Information about the environments that are returned.</p>\n<p><b>NOTE:</b> This method appends the values to the existing list (if any). Use {@link #setEnvironments(java.util.Collection)} or {@link #withEnvironments(java.util.Collection)} if you want to override the existing values.</p>\n@param environments Information about the environments that are returned.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "java.util.List<Environment>",
             "variableName" : "environments",
             "variableType" : "java.util.List<Environment>",
@@ -5589,7 +5335,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "DescribeEnvironmentsResult",
         "variableName" : "describeEnvironmentsResult",
         "variableType" : "DescribeEnvironmentsResult",
@@ -5656,11 +5401,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Id",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment.</p>\n@param id The ID of the environment.*/",
         "setterMethodName" : "setId",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "id",
           "variableType" : "String",
@@ -5673,7 +5416,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The ID of the environment.</p>\n@param id The ID of the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "id",
           "variableType" : "String",
@@ -5722,11 +5464,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The name of the environment.</p>\n@param name The name of the environment.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "name",
           "variableType" : "String",
@@ -5739,7 +5479,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The name of the environment.</p>\n@param name The name of the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "name",
           "variableType" : "String",
@@ -5788,11 +5527,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Description",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The description for the environment.</p>\n@param description The description for the environment.*/",
         "setterMethodName" : "setDescription",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "description",
           "variableType" : "String",
@@ -5805,7 +5542,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The description for the environment.</p>\n@param description The description for the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "description",
           "variableType" : "String",
@@ -5854,11 +5590,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Type",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li> </ul>\n@param type The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li>\n@see EnvironmentType*/",
         "setterMethodName" : "setType",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "type",
           "variableType" : "String",
@@ -5871,7 +5605,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li> </ul>\n@param type The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see EnvironmentType*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "type",
           "variableType" : "String",
@@ -5920,11 +5653,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Arn",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment.</p>\n@param arn The Amazon Resource Name (ARN) of the environment.*/",
         "setterMethodName" : "setArn",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "arn",
           "variableType" : "String",
@@ -5937,7 +5668,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment.</p>\n@param arn The Amazon Resource Name (ARN) of the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "arn",
           "variableType" : "String",
@@ -5986,11 +5716,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "OwnerArn",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment owner.</p>\n@param ownerArn The Amazon Resource Name (ARN) of the environment owner.*/",
         "setterMethodName" : "setOwnerArn",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "ownerArn",
           "variableType" : "String",
@@ -6003,7 +5731,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment owner.</p>\n@param ownerArn The Amazon Resource Name (ARN) of the environment owner.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "ownerArn",
           "variableType" : "String",
@@ -6054,11 +5781,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Arn",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment.</p>\n@param arn The Amazon Resource Name (ARN) of the environment.*/",
           "setterMethodName" : "setArn",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "arn",
             "variableType" : "String",
@@ -6071,7 +5796,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment.</p>\n@param arn The Amazon Resource Name (ARN) of the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "arn",
             "variableType" : "String",
@@ -6121,11 +5845,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Description",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The description for the environment.</p>\n@param description The description for the environment.*/",
           "setterMethodName" : "setDescription",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "description",
             "variableType" : "String",
@@ -6138,7 +5860,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The description for the environment.</p>\n@param description The description for the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "description",
             "variableType" : "String",
@@ -6188,11 +5909,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Id",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment.</p>\n@param id The ID of the environment.*/",
           "setterMethodName" : "setId",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "id",
             "variableType" : "String",
@@ -6205,7 +5924,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The ID of the environment.</p>\n@param id The ID of the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "id",
             "variableType" : "String",
@@ -6255,11 +5973,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The name of the environment.</p>\n@param name The name of the environment.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "name",
             "variableType" : "String",
@@ -6272,7 +5988,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The name of the environment.</p>\n@param name The name of the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "name",
             "variableType" : "String",
@@ -6322,11 +6037,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "OwnerArn",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment owner.</p>\n@param ownerArn The Amazon Resource Name (ARN) of the environment owner.*/",
           "setterMethodName" : "setOwnerArn",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "ownerArn",
             "variableType" : "String",
@@ -6339,7 +6052,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment owner.</p>\n@param ownerArn The Amazon Resource Name (ARN) of the environment owner.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "ownerArn",
             "variableType" : "String",
@@ -6389,11 +6101,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Type",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li> </ul>\n@param type The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li>\n@see EnvironmentType*/",
           "setterMethodName" : "setType",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "type",
             "variableType" : "String",
@@ -6406,7 +6116,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li> </ul>\n@param type The type of environment. Valid values include the following:</p> <ul> <li> <p> <code>ec2</code>: An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.</p> </li> <li> <p> <code>ssh</code>: Your own server connects to the environment.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see EnvironmentType*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "type",
             "variableType" : "String",
@@ -6428,7 +6137,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "Environment",
         "variableName" : "environment",
         "variableType" : "Environment",
@@ -6495,11 +6203,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Permissions",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@see Permissions*/",
         "setterMethodName" : "setPermissions",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "permissions",
           "variableType" : "String",
@@ -6512,7 +6218,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see Permissions*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "permissions",
           "variableType" : "String",
@@ -6561,11 +6266,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "UserId",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>\n@param userId The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.*/",
         "setterMethodName" : "setUserId",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "userId",
           "variableType" : "String",
@@ -6578,7 +6281,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>\n@param userId The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "userId",
           "variableType" : "String",
@@ -6627,11 +6329,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "UserArn",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member.*/",
         "setterMethodName" : "setUserArn",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "userArn",
           "variableType" : "String",
@@ -6644,7 +6344,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "userArn",
           "variableType" : "String",
@@ -6693,11 +6392,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment for the environment member.</p>\n@param environmentId The ID of the environment for the environment member.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -6710,7 +6407,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The ID of the environment for the environment member.</p>\n@param environmentId The ID of the environment for the environment member.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -6759,11 +6455,9 @@
         "marshallingTargetClass" : "java.util.Date",
         "marshallingType" : "DATE",
         "name" : "LastAccess",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The time, expressed in epoch time format, when the environment member last opened the environment.</p>\n@param lastAccess The time, expressed in epoch time format, when the environment member last opened the environment.*/",
         "setterMethodName" : "setLastAccess",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "java.util.Date",
           "variableName" : "lastAccess",
           "variableType" : "java.util.Date",
@@ -6776,7 +6470,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The time, expressed in epoch time format, when the environment member last opened the environment.</p>\n@param lastAccess The time, expressed in epoch time format, when the environment member last opened the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : "unixTimestamp",
           "variableDeclarationType" : "java.util.Date",
           "variableName" : "lastAccess",
           "variableType" : "java.util.Date",
@@ -6827,11 +6520,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment for the environment member.</p>\n@param environmentId The ID of the environment for the environment member.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -6844,7 +6535,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The ID of the environment for the environment member.</p>\n@param environmentId The ID of the environment for the environment member.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -6894,11 +6584,9 @@
           "marshallingTargetClass" : "java.util.Date",
           "marshallingType" : "DATE",
           "name" : "LastAccess",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The time, expressed in epoch time format, when the environment member last opened the environment.</p>\n@param lastAccess The time, expressed in epoch time format, when the environment member last opened the environment.*/",
           "setterMethodName" : "setLastAccess",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "java.util.Date",
             "variableName" : "lastAccess",
             "variableType" : "java.util.Date",
@@ -6911,7 +6599,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The time, expressed in epoch time format, when the environment member last opened the environment.</p>\n@param lastAccess The time, expressed in epoch time format, when the environment member last opened the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : "unixTimestamp",
             "variableDeclarationType" : "java.util.Date",
             "variableName" : "lastAccess",
             "variableType" : "java.util.Date",
@@ -6961,11 +6648,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Permissions",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@see Permissions*/",
           "setterMethodName" : "setPermissions",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "permissions",
             "variableType" : "String",
@@ -6978,7 +6663,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The type of environment member permissions associated with this environment member. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see Permissions*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "permissions",
             "variableType" : "String",
@@ -7028,11 +6712,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "UserArn",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member.*/",
           "setterMethodName" : "setUserArn",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "userArn",
             "variableType" : "String",
@@ -7045,7 +6727,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "userArn",
             "variableType" : "String",
@@ -7095,11 +6776,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "UserId",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>\n@param userId The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.*/",
           "setterMethodName" : "setUserId",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "userId",
             "variableType" : "String",
@@ -7112,7 +6791,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>\n@param userId The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "userId",
             "variableType" : "String",
@@ -7134,7 +6812,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "EnvironmentMember",
         "variableName" : "environmentMember",
         "variableType" : "EnvironmentMember",
@@ -7195,7 +6872,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "EnvironmentStatus",
         "variableName" : "environmentStatus",
         "variableType" : "EnvironmentStatus",
@@ -7241,7 +6917,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "EnvironmentType",
         "variableName" : "environmentType",
         "variableType" : "EnvironmentType",
@@ -7278,7 +6953,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "ForbiddenException",
         "variableName" : "forbiddenException",
         "variableType" : "ForbiddenException",
@@ -7315,7 +6989,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "InternalServerErrorException",
         "variableName" : "internalServerErrorException",
         "variableType" : "InternalServerErrorException",
@@ -7352,7 +7025,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "LimitExceededException",
         "variableName" : "limitExceededException",
         "variableType" : "LimitExceededException",
@@ -7426,11 +7098,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>\n@param nextToken During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "nextToken",
           "variableType" : "String",
@@ -7443,7 +7113,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>\n@param nextToken During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "nextToken",
           "variableType" : "String",
@@ -7492,11 +7161,9 @@
         "marshallingTargetClass" : "Integer",
         "marshallingType" : "INTEGER",
         "name" : "MaxResults",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The maximum number of environments to get identifiers for.</p>\n@param maxResults The maximum number of environments to get identifiers for.*/",
         "setterMethodName" : "setMaxResults",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "Integer",
           "variableName" : "maxResults",
           "variableType" : "Integer",
@@ -7509,7 +7176,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The maximum number of environments to get identifiers for.</p>\n@param maxResults The maximum number of environments to get identifiers for.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "Integer",
           "variableName" : "maxResults",
           "variableType" : "Integer",
@@ -7560,11 +7226,9 @@
           "marshallingTargetClass" : "Integer",
           "marshallingType" : "INTEGER",
           "name" : "MaxResults",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The maximum number of environments to get identifiers for.</p>\n@param maxResults The maximum number of environments to get identifiers for.*/",
           "setterMethodName" : "setMaxResults",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "Integer",
             "variableName" : "maxResults",
             "variableType" : "Integer",
@@ -7577,7 +7241,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The maximum number of environments to get identifiers for.</p>\n@param maxResults The maximum number of environments to get identifiers for.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "Integer",
             "variableName" : "maxResults",
             "variableType" : "Integer",
@@ -7627,11 +7290,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>\n@param nextToken During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "nextToken",
             "variableType" : "String",
@@ -7644,7 +7305,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>\n@param nextToken During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "nextToken",
             "variableType" : "String",
@@ -7663,7 +7323,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "ListEnvironmentsRequest",
         "variableName" : "listEnvironmentsRequest",
         "variableType" : "ListEnvironmentsRequest",
@@ -7730,11 +7389,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "NextToken",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>\n@param nextToken If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.*/",
         "setterMethodName" : "setNextToken",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "nextToken",
           "variableType" : "String",
@@ -7747,7 +7404,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>\n@param nextToken If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "nextToken",
           "variableType" : "String",
@@ -7833,11 +7489,9 @@
             "marshallingTargetClass" : "String",
             "marshallingType" : "STRING",
             "name" : "Member",
-            "sensitive" : false,
             "setterDocumentation" : "/**\n@param member */",
             "setterMethodName" : "setMember",
             "setterModel" : {
-              "timestampFormat" : null,
               "variableDeclarationType" : "String",
               "variableName" : "member",
               "variableType" : "String",
@@ -7850,7 +7504,6 @@
             "unmarshallingType" : null,
             "varargSetterDocumentation" : "/**\n@param member \n@return Returns a reference to this object so that method calls can be chained together.*/",
             "variable" : {
-              "timestampFormat" : null,
               "variableDeclarationType" : "String",
               "variableName" : "member",
               "variableType" : "String",
@@ -7877,11 +7530,9 @@
         "marshallingTargetClass" : "List",
         "marshallingType" : "LIST",
         "name" : "EnvironmentIds",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The list of environment identifiers.</p>\n@param environmentIds The list of environment identifiers.*/",
         "setterMethodName" : "setEnvironmentIds",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "java.util.List<String>",
           "variableName" : "environmentIds",
           "variableType" : "java.util.List<String>",
@@ -7894,7 +7545,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The list of environment identifiers.</p>\n<p><b>NOTE:</b> This method appends the values to the existing list (if any). Use {@link #setEnvironmentIds(java.util.Collection)} or {@link #withEnvironmentIds(java.util.Collection)} if you want to override the existing values.</p>\n@param environmentIds The list of environment identifiers.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "java.util.List<String>",
           "variableName" : "environmentIds",
           "variableType" : "java.util.List<String>",
@@ -7982,11 +7632,9 @@
               "marshallingTargetClass" : "String",
               "marshallingType" : "STRING",
               "name" : "Member",
-              "sensitive" : false,
               "setterDocumentation" : "/**\n@param member */",
               "setterMethodName" : "setMember",
               "setterModel" : {
-                "timestampFormat" : null,
                 "variableDeclarationType" : "String",
                 "variableName" : "member",
                 "variableType" : "String",
@@ -7999,7 +7647,6 @@
               "unmarshallingType" : null,
               "varargSetterDocumentation" : "/**\n@param member \n@return Returns a reference to this object so that method calls can be chained together.*/",
               "variable" : {
-                "timestampFormat" : null,
                 "variableDeclarationType" : "String",
                 "variableName" : "member",
                 "variableType" : "String",
@@ -8026,11 +7673,9 @@
           "marshallingTargetClass" : "List",
           "marshallingType" : "LIST",
           "name" : "EnvironmentIds",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The list of environment identifiers.</p>\n@param environmentIds The list of environment identifiers.*/",
           "setterMethodName" : "setEnvironmentIds",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "java.util.List<String>",
             "variableName" : "environmentIds",
             "variableType" : "java.util.List<String>",
@@ -8043,7 +7688,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The list of environment identifiers.</p>\n<p><b>NOTE:</b> This method appends the values to the existing list (if any). Use {@link #setEnvironmentIds(java.util.Collection)} or {@link #withEnvironmentIds(java.util.Collection)} if you want to override the existing values.</p>\n@param environmentIds The list of environment identifiers.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "java.util.List<String>",
             "variableName" : "environmentIds",
             "variableType" : "java.util.List<String>",
@@ -8093,11 +7737,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "NextToken",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>\n@param nextToken If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.*/",
           "setterMethodName" : "setNextToken",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "nextToken",
             "variableType" : "String",
@@ -8110,7 +7752,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>\n@param nextToken If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "nextToken",
             "variableType" : "String",
@@ -8132,7 +7773,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "ListEnvironmentsResult",
         "variableName" : "listEnvironmentsResult",
         "variableType" : "ListEnvironmentsResult",
@@ -8178,7 +7818,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "MemberPermissions",
         "variableName" : "memberPermissions",
         "variableType" : "MemberPermissions",
@@ -8215,7 +7854,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "NotFoundException",
         "variableName" : "notFoundException",
         "variableType" : "NotFoundException",
@@ -8264,7 +7902,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "Permissions",
         "variableName" : "permissions",
         "variableType" : "Permissions",
@@ -8301,7 +7938,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "TooManyRequestsException",
         "variableName" : "tooManyRequestsException",
         "variableType" : "TooManyRequestsException",
@@ -8375,11 +8011,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment for the environment member whose settings you want to change.</p>\n@param environmentId The ID of the environment for the environment member whose settings you want to change.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -8392,7 +8026,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The ID of the environment for the environment member whose settings you want to change.</p>\n@param environmentId The ID of the environment for the environment member whose settings you want to change.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -8441,11 +8074,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "UserArn",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member whose settings you want to change.*/",
         "setterMethodName" : "setUserArn",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "userArn",
           "variableType" : "String",
@@ -8458,7 +8089,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member whose settings you want to change.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "userArn",
           "variableType" : "String",
@@ -8507,11 +8137,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Permissions",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@see MemberPermissions*/",
         "setterMethodName" : "setPermissions",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "permissions",
           "variableType" : "String",
@@ -8524,7 +8152,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see MemberPermissions*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "permissions",
           "variableType" : "String",
@@ -8575,11 +8202,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment for the environment member whose settings you want to change.</p>\n@param environmentId The ID of the environment for the environment member whose settings you want to change.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -8592,7 +8217,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The ID of the environment for the environment member whose settings you want to change.</p>\n@param environmentId The ID of the environment for the environment member whose settings you want to change.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -8642,11 +8266,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Permissions",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@see MemberPermissions*/",
           "setterMethodName" : "setPermissions",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "permissions",
             "variableType" : "String",
@@ -8659,7 +8281,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>\n@param permissions The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li>\n@return Returns a reference to this object so that method calls can be chained together.\n@see MemberPermissions*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "permissions",
             "variableType" : "String",
@@ -8709,11 +8330,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "UserArn",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member whose settings you want to change.*/",
           "setterMethodName" : "setUserArn",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "userArn",
             "variableType" : "String",
@@ -8726,7 +8345,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>\n@param userArn The Amazon Resource Name (ARN) of the environment member whose settings you want to change.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "userArn",
             "variableType" : "String",
@@ -8745,7 +8363,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "UpdateEnvironmentMembershipRequest",
         "variableName" : "updateEnvironmentMembershipRequest",
         "variableType" : "UpdateEnvironmentMembershipRequest",
@@ -8812,11 +8429,9 @@
         "marshallingTargetClass" : "StructuredPojo",
         "marshallingType" : "STRUCTURED",
         "name" : "Membership",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>Information about the environment member whose settings were changed.</p>\n@param membership Information about the environment member whose settings were changed.*/",
         "setterMethodName" : "setMembership",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "EnvironmentMember",
           "variableName" : "membership",
           "variableType" : "EnvironmentMember",
@@ -8829,7 +8444,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>Information about the environment member whose settings were changed.</p>\n@param membership Information about the environment member whose settings were changed.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "EnvironmentMember",
           "variableName" : "membership",
           "variableType" : "EnvironmentMember",
@@ -8880,11 +8494,9 @@
           "marshallingTargetClass" : "StructuredPojo",
           "marshallingType" : "STRUCTURED",
           "name" : "Membership",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>Information about the environment member whose settings were changed.</p>\n@param membership Information about the environment member whose settings were changed.*/",
           "setterMethodName" : "setMembership",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "EnvironmentMember",
             "variableName" : "membership",
             "variableType" : "EnvironmentMember",
@@ -8897,7 +8509,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>Information about the environment member whose settings were changed.</p>\n@param membership Information about the environment member whose settings were changed.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "EnvironmentMember",
             "variableName" : "membership",
             "variableType" : "EnvironmentMember",
@@ -8919,7 +8530,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "UpdateEnvironmentMembershipResult",
         "variableName" : "updateEnvironmentMembershipResult",
         "variableType" : "UpdateEnvironmentMembershipResult",
@@ -8993,11 +8603,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "EnvironmentId",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>The ID of the environment to change settings.</p>\n@param environmentId The ID of the environment to change settings.*/",
         "setterMethodName" : "setEnvironmentId",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -9010,7 +8618,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>The ID of the environment to change settings.</p>\n@param environmentId The ID of the environment to change settings.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "environmentId",
           "variableType" : "String",
@@ -9059,11 +8666,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Name",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>A replacement name for the environment.</p>\n@param name A replacement name for the environment.*/",
         "setterMethodName" : "setName",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "name",
           "variableType" : "String",
@@ -9076,7 +8681,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>A replacement name for the environment.</p>\n@param name A replacement name for the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "name",
           "variableType" : "String",
@@ -9125,11 +8729,9 @@
         "marshallingTargetClass" : "String",
         "marshallingType" : "STRING",
         "name" : "Description",
-        "sensitive" : false,
         "setterDocumentation" : "/**<p>Any new or replacement description for the environment.</p>\n@param description Any new or replacement description for the environment.*/",
         "setterMethodName" : "setDescription",
         "setterModel" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "description",
           "variableType" : "String",
@@ -9142,7 +8744,6 @@
         "unmarshallingType" : null,
         "varargSetterDocumentation" : "/**<p>Any new or replacement description for the environment.</p>\n@param description Any new or replacement description for the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
         "variable" : {
-          "timestampFormat" : null,
           "variableDeclarationType" : "String",
           "variableName" : "description",
           "variableType" : "String",
@@ -9193,11 +8794,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Description",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>Any new or replacement description for the environment.</p>\n@param description Any new or replacement description for the environment.*/",
           "setterMethodName" : "setDescription",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "description",
             "variableType" : "String",
@@ -9210,7 +8809,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>Any new or replacement description for the environment.</p>\n@param description Any new or replacement description for the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "description",
             "variableType" : "String",
@@ -9260,11 +8858,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "EnvironmentId",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>The ID of the environment to change settings.</p>\n@param environmentId The ID of the environment to change settings.*/",
           "setterMethodName" : "setEnvironmentId",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -9277,7 +8873,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>The ID of the environment to change settings.</p>\n@param environmentId The ID of the environment to change settings.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "environmentId",
             "variableType" : "String",
@@ -9327,11 +8922,9 @@
           "marshallingTargetClass" : "String",
           "marshallingType" : "STRING",
           "name" : "Name",
-          "sensitive" : false,
           "setterDocumentation" : "/**<p>A replacement name for the environment.</p>\n@param name A replacement name for the environment.*/",
           "setterMethodName" : "setName",
           "setterModel" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "name",
             "variableType" : "String",
@@ -9344,7 +8937,6 @@
           "unmarshallingType" : null,
           "varargSetterDocumentation" : "/**<p>A replacement name for the environment.</p>\n@param name A replacement name for the environment.\n@return Returns a reference to this object so that method calls can be chained together.*/",
           "variable" : {
-            "timestampFormat" : null,
             "variableDeclarationType" : "String",
             "variableName" : "name",
             "variableType" : "String",
@@ -9363,7 +8955,6 @@
       "signerType" : null,
       "unmarshaller" : null,
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "UpdateEnvironmentRequest",
         "variableName" : "updateEnvironmentRequest",
         "variableType" : "UpdateEnvironmentRequest",
@@ -9403,7 +8994,6 @@
         "resultWrapper" : null
       },
       "variable" : {
-        "timestampFormat" : null,
         "variableDeclarationType" : "UpdateEnvironmentResult",
         "variableName" : "updateEnvironmentResult",
         "variableType" : "UpdateEnvironmentResult",
@@ -9415,6 +9005,7 @@
     }
   },
   "clientConfigFactory" : "ClientConfigurationFactory",
+  "customAuthorizers" : { },
   "examples" : {
     "examples" : {
       "CreateEnvironmentEC2" : [ {
@@ -9655,7 +9246,7 @@
     "version" : "1.0"
   },
   "exceptionUnmarshallerImpl" : null,
-  "fileHeader" : "/*\n * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
+  "fileHeader" : "/*\n * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights\n * Reserved.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\").\n * You may not use this file except in compliance with the License.\n * A copy of the License is located at\n *\n *  http://aws.amazon.com/apache2.0\n *\n * or in the \"license\" file accompanying this file. This file is distributed\n * on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either\n * express or implied. See the License for the specific language governing\n * permissions and limitations under the License.\n */",
   "hasWaiters" : false,
   "sdkBaseResponseFqcn" : "com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata>",
   "sdkModeledExceptionBaseClassName" : "AWSCloud9Exception",

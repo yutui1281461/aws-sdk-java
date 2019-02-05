@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -103,20 +103,6 @@ public class CreateStorediSCSIVolumeRequest extends com.amazonaws.AmazonWebServi
      * </p>
      */
     private String networkInterfaceId;
-    /**
-     * <p>
-     * True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon
-     * S3. Optional.
-     * </p>
-     */
-    private Boolean kMSEncrypted;
-    /**
-     * <p>
-     * The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can only be
-     * set when KMSEncrypted is true. Optional.
-     * </p>
-     */
-    private String kMSKey;
 
     /**
      * @param gatewayARN
@@ -464,114 +450,7 @@ public class CreateStorediSCSIVolumeRequest extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * <p>
-     * True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon
-     * S3. Optional.
-     * </p>
-     * 
-     * @param kMSEncrypted
-     *        True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by
-     *        Amazon S3. Optional.
-     */
-
-    public void setKMSEncrypted(Boolean kMSEncrypted) {
-        this.kMSEncrypted = kMSEncrypted;
-    }
-
-    /**
-     * <p>
-     * True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon
-     * S3. Optional.
-     * </p>
-     * 
-     * @return True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by
-     *         Amazon S3. Optional.
-     */
-
-    public Boolean getKMSEncrypted() {
-        return this.kMSEncrypted;
-    }
-
-    /**
-     * <p>
-     * True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon
-     * S3. Optional.
-     * </p>
-     * 
-     * @param kMSEncrypted
-     *        True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by
-     *        Amazon S3. Optional.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateStorediSCSIVolumeRequest withKMSEncrypted(Boolean kMSEncrypted) {
-        setKMSEncrypted(kMSEncrypted);
-        return this;
-    }
-
-    /**
-     * <p>
-     * True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon
-     * S3. Optional.
-     * </p>
-     * 
-     * @return True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by
-     *         Amazon S3. Optional.
-     */
-
-    public Boolean isKMSEncrypted() {
-        return this.kMSEncrypted;
-    }
-
-    /**
-     * <p>
-     * The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can only be
-     * set when KMSEncrypted is true. Optional.
-     * </p>
-     * 
-     * @param kMSKey
-     *        The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can
-     *        only be set when KMSEncrypted is true. Optional.
-     */
-
-    public void setKMSKey(String kMSKey) {
-        this.kMSKey = kMSKey;
-    }
-
-    /**
-     * <p>
-     * The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can only be
-     * set when KMSEncrypted is true. Optional.
-     * </p>
-     * 
-     * @return The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can
-     *         only be set when KMSEncrypted is true. Optional.
-     */
-
-    public String getKMSKey() {
-        return this.kMSKey;
-    }
-
-    /**
-     * <p>
-     * The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can only be
-     * set when KMSEncrypted is true. Optional.
-     * </p>
-     * 
-     * @param kMSKey
-     *        The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can
-     *        only be set when KMSEncrypted is true. Optional.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateStorediSCSIVolumeRequest withKMSKey(String kMSKey) {
-        setKMSKey(kMSKey);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -592,11 +471,7 @@ public class CreateStorediSCSIVolumeRequest extends com.amazonaws.AmazonWebServi
         if (getTargetName() != null)
             sb.append("TargetName: ").append(getTargetName()).append(",");
         if (getNetworkInterfaceId() != null)
-            sb.append("NetworkInterfaceId: ").append(getNetworkInterfaceId()).append(",");
-        if (getKMSEncrypted() != null)
-            sb.append("KMSEncrypted: ").append(getKMSEncrypted()).append(",");
-        if (getKMSKey() != null)
-            sb.append("KMSKey: ").append(getKMSKey());
+            sb.append("NetworkInterfaceId: ").append(getNetworkInterfaceId());
         sb.append("}");
         return sb.toString();
     }
@@ -635,14 +510,6 @@ public class CreateStorediSCSIVolumeRequest extends com.amazonaws.AmazonWebServi
             return false;
         if (other.getNetworkInterfaceId() != null && other.getNetworkInterfaceId().equals(this.getNetworkInterfaceId()) == false)
             return false;
-        if (other.getKMSEncrypted() == null ^ this.getKMSEncrypted() == null)
-            return false;
-        if (other.getKMSEncrypted() != null && other.getKMSEncrypted().equals(this.getKMSEncrypted()) == false)
-            return false;
-        if (other.getKMSKey() == null ^ this.getKMSKey() == null)
-            return false;
-        if (other.getKMSKey() != null && other.getKMSKey().equals(this.getKMSKey()) == false)
-            return false;
         return true;
     }
 
@@ -657,8 +524,6 @@ public class CreateStorediSCSIVolumeRequest extends com.amazonaws.AmazonWebServi
         hashCode = prime * hashCode + ((getPreserveExistingData() == null) ? 0 : getPreserveExistingData().hashCode());
         hashCode = prime * hashCode + ((getTargetName() == null) ? 0 : getTargetName().hashCode());
         hashCode = prime * hashCode + ((getNetworkInterfaceId() == null) ? 0 : getNetworkInterfaceId().hashCode());
-        hashCode = prime * hashCode + ((getKMSEncrypted() == null) ? 0 : getKMSEncrypted().hashCode());
-        hashCode = prime * hashCode + ((getKMSKey() == null) ? 0 : getKMSKey().hashCode());
         return hashCode;
     }
 

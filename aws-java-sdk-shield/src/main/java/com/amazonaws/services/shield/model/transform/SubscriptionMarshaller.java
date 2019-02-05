@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -12,7 +12,6 @@
  */
 package com.amazonaws.services.shield.model.transform;
 
-import java.util.List;
 import javax.annotation.Generated;
 
 import com.amazonaws.SdkClientException;
@@ -29,15 +28,9 @@ import com.amazonaws.annotation.SdkInternalApi;
 public class SubscriptionMarshaller {
 
     private static final MarshallingInfo<java.util.Date> STARTTIME_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("StartTime").timestampFormat("unixTimestamp").build();
-    private static final MarshallingInfo<java.util.Date> ENDTIME_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("EndTime").timestampFormat("unixTimestamp").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("StartTime").build();
     private static final MarshallingInfo<Long> TIMECOMMITMENTINSECONDS_BINDING = MarshallingInfo.builder(MarshallingType.LONG)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("TimeCommitmentInSeconds").build();
-    private static final MarshallingInfo<String> AUTORENEW_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
-            .marshallLocationName("AutoRenew").build();
-    private static final MarshallingInfo<List> LIMITS_BINDING = MarshallingInfo.builder(MarshallingType.LIST).marshallLocation(MarshallLocation.PAYLOAD)
-            .marshallLocationName("Limits").build();
 
     private static final SubscriptionMarshaller instance = new SubscriptionMarshaller();
 
@@ -56,10 +49,7 @@ public class SubscriptionMarshaller {
 
         try {
             protocolMarshaller.marshall(subscription.getStartTime(), STARTTIME_BINDING);
-            protocolMarshaller.marshall(subscription.getEndTime(), ENDTIME_BINDING);
             protocolMarshaller.marshall(subscription.getTimeCommitmentInSeconds(), TIMECOMMITMENTINSECONDS_BINDING);
-            protocolMarshaller.marshall(subscription.getAutoRenew(), AUTORENEW_BINDING);
-            protocolMarshaller.marshall(subscription.getLimits(), LIMITS_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

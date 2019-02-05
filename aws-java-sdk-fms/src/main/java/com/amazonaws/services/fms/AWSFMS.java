@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -47,13 +47,13 @@ public interface AWSFMS {
 
     /**
      * <p>
-     * Sets the AWS Firewall Manager administrator account. AWS Firewall Manager must be associated with the master
-     * account your AWS organization or associated with a member account that has the appropriate permissions. If the
+     * Sets the AWS Firewall Manager administrator account. AWS Firewall Manager must be associated with a master
+     * account in AWS Organizations or associated with a member account that has the appropriate permissions. If the
      * account ID that you submit is not an AWS Organizations master account, AWS Firewall Manager will set the
      * appropriate permissions for the given member account.
      * </p>
      * <p>
-     * The account that you associate with AWS Firewall Manager is called the AWS Firewall Manager administrator
+     * The account that you associate with AWS Firewall Manager is called the AWS Firewall manager administrator
      * account.
      * </p>
      * 
@@ -120,8 +120,8 @@ public interface AWSFMS {
 
     /**
      * <p>
-     * Disassociates the account that has been set as the AWS Firewall Manager administrator account. To set a different
-     * account as the administrator account, you must submit an <code>AssociateAdminAccount</code> request .
+     * Disassociates the account that has been set as the AWS Firewall Manager administrator account. You will need to
+     * submit an <code>AssociateAdminAccount</code> request to set a new account as the AWS Firewall administrator.
      * </p>
      * 
      * @param disassociateAdminAccountRequest
@@ -218,8 +218,6 @@ public interface AWSFMS {
      *         AWS Firewall Manager administrator.
      * @throws InternalErrorException
      *         The operation failed because of a system problem, even though the request was valid. Retry your request.
-     * @throws InvalidTypeException
-     *         The value of the <code>Type</code> parameter is invalid.
      * @sample AWSFMS.GetPolicy
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/fms-2018-01-01/GetPolicy" target="_top">AWS API
      *      Documentation</a>
@@ -244,28 +242,6 @@ public interface AWSFMS {
      *      Documentation</a>
      */
     ListComplianceStatusResult listComplianceStatus(ListComplianceStatusRequest listComplianceStatusRequest);
-
-    /**
-     * <p>
-     * Returns a <code>MemberAccounts</code> object that lists the member accounts in the administrator's AWS
-     * organization.
-     * </p>
-     * <p>
-     * The <code>ListMemberAccounts</code> must be submitted by the account that is set as the AWS Firewall Manager
-     * administrator.
-     * </p>
-     * 
-     * @param listMemberAccountsRequest
-     * @return Result of the ListMemberAccounts operation returned by the service.
-     * @throws ResourceNotFoundException
-     *         The specified resource was not found.
-     * @throws InternalErrorException
-     *         The operation failed because of a system problem, even though the request was valid. Retry your request.
-     * @sample AWSFMS.ListMemberAccounts
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/fms-2018-01-01/ListMemberAccounts" target="_top">AWS API
-     *      Documentation</a>
-     */
-    ListMemberAccountsResult listMemberAccounts(ListMemberAccountsRequest listMemberAccountsRequest);
 
     /**
      * <p>
@@ -330,15 +306,8 @@ public interface AWSFMS {
      *         AWS Firewall Manager administrator.
      * @throws InvalidInputException
      *         The parameters of the request were invalid.
-     * @throws LimitExceededException
-     *         The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects
-     *         that you can create for an AWS account. For more information, see <a
-     *         href="http://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall Manager Limits</a>
-     *         in the <i>AWS WAF Developer Guide</i>.
      * @throws InternalErrorException
      *         The operation failed because of a system problem, even though the request was valid. Retry your request.
-     * @throws InvalidTypeException
-     *         The value of the <code>Type</code> parameter is invalid.
      * @sample AWSFMS.PutPolicy
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/fms-2018-01-01/PutPolicy" target="_top">AWS API
      *      Documentation</a>

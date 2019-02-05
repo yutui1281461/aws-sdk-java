@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -43,8 +43,8 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
     private Boolean kMSEncrypted;
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only
-     * be set when KMSEncrypted is true. Optional.
+     * The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true.
+     * Optional.
      * </p>
      */
     private String kMSKey;
@@ -56,16 +56,15 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
     private NFSFileShareDefaults nFSFileShareDefaults;
     /**
      * <p>
-     * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Possible values are
-     * <code>S3_STANDARD</code>, <code>S3_STANDARD_IA</code>, or <code>S3_ONEZONE_IA</code>. If this field is not
-     * populated, the default value <code>S3_STANDARD</code> is used. Optional.
+     * The default storage class for objects put into an Amazon S3 bucket by a file gateway. Possible values are
+     * S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional.
      * </p>
      */
     private String defaultStorageClass;
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts
-     * objects into. The default value is "private".
+     * Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The
+     * default value is "private".
      * </p>
      */
     private String objectACL;
@@ -83,17 +82,17 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
      * <ul>
      * <li>
      * <p>
-     * <code>RootSquash</code> - Only root is mapped to anonymous user.
+     * "RootSquash" - Only root is mapped to anonymous user.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>NoSquash</code> - No one is mapped to anonymous user
+     * "NoSquash" - No one is mapped to anonymous user
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>AllSquash</code> - Everyone is mapped to anonymous user.
+     * "AllSquash" - Everyone is mapped to anonymous user.
      * </p>
      * </li>
      * </ul>
@@ -101,22 +100,21 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
     private String squash;
     /**
      * <p>
-     * A value that sets the write status of a file share. This value is true if the write status is read-only, and
-     * otherwise false.
+     * Sets the write status of a file share. This value is true if the write status is read-only, and otherwise false.
      * </p>
      */
     private Boolean readOnly;
     /**
      * <p>
-     * A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to
-     * true to enable MIME type guessing, and otherwise to false. The default value is true.
+     * Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable
+     * MIME type guessing, and otherwise to false. The default value is true.
      * </p>
      */
     private Boolean guessMIMETypeEnabled;
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to true if
+     * you want the requester to pay instead of the bucket owner, and otherwise to false.
      * </p>
      */
     private Boolean requesterPays;
@@ -223,13 +221,13 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only
-     * be set when KMSEncrypted is true. Optional.
+     * The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true.
+     * Optional.
      * </p>
      * 
      * @param kMSKey
-     *        The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value
-     *        can only be set when KMSEncrypted is true. Optional.
+     *        The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is
+     *        true. Optional.
      */
 
     public void setKMSKey(String kMSKey) {
@@ -238,12 +236,12 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only
-     * be set when KMSEncrypted is true. Optional.
+     * The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true.
+     * Optional.
      * </p>
      * 
-     * @return The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value
-     *         can only be set when KMSEncrypted is true. Optional.
+     * @return The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is
+     *         true. Optional.
      */
 
     public String getKMSKey() {
@@ -252,13 +250,13 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only
-     * be set when KMSEncrypted is true. Optional.
+     * The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true.
+     * Optional.
      * </p>
      * 
      * @param kMSKey
-     *        The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value
-     *        can only be set when KMSEncrypted is true. Optional.
+     *        The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is
+     *        true. Optional.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -309,15 +307,14 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Possible values are
-     * <code>S3_STANDARD</code>, <code>S3_STANDARD_IA</code>, or <code>S3_ONEZONE_IA</code>. If this field is not
-     * populated, the default value <code>S3_STANDARD</code> is used. Optional.
+     * The default storage class for objects put into an Amazon S3 bucket by a file gateway. Possible values are
+     * S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional.
      * </p>
      * 
      * @param defaultStorageClass
-     *        The default storage class for objects put into an Amazon S3 bucket by the file gateway. Possible values
-     *        are <code>S3_STANDARD</code>, <code>S3_STANDARD_IA</code>, or <code>S3_ONEZONE_IA</code>. If this field is
-     *        not populated, the default value <code>S3_STANDARD</code> is used. Optional.
+     *        The default storage class for objects put into an Amazon S3 bucket by a file gateway. Possible values are
+     *        S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used.
+     *        Optional.
      */
 
     public void setDefaultStorageClass(String defaultStorageClass) {
@@ -326,14 +323,13 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Possible values are
-     * <code>S3_STANDARD</code>, <code>S3_STANDARD_IA</code>, or <code>S3_ONEZONE_IA</code>. If this field is not
-     * populated, the default value <code>S3_STANDARD</code> is used. Optional.
+     * The default storage class for objects put into an Amazon S3 bucket by a file gateway. Possible values are
+     * S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional.
      * </p>
      * 
-     * @return The default storage class for objects put into an Amazon S3 bucket by the file gateway. Possible values
-     *         are <code>S3_STANDARD</code>, <code>S3_STANDARD_IA</code>, or <code>S3_ONEZONE_IA</code>. If this field
-     *         is not populated, the default value <code>S3_STANDARD</code> is used. Optional.
+     * @return The default storage class for objects put into an Amazon S3 bucket by a file gateway. Possible values are
+     *         S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used.
+     *         Optional.
      */
 
     public String getDefaultStorageClass() {
@@ -342,15 +338,14 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Possible values are
-     * <code>S3_STANDARD</code>, <code>S3_STANDARD_IA</code>, or <code>S3_ONEZONE_IA</code>. If this field is not
-     * populated, the default value <code>S3_STANDARD</code> is used. Optional.
+     * The default storage class for objects put into an Amazon S3 bucket by a file gateway. Possible values are
+     * S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional.
      * </p>
      * 
      * @param defaultStorageClass
-     *        The default storage class for objects put into an Amazon S3 bucket by the file gateway. Possible values
-     *        are <code>S3_STANDARD</code>, <code>S3_STANDARD_IA</code>, or <code>S3_ONEZONE_IA</code>. If this field is
-     *        not populated, the default value <code>S3_STANDARD</code> is used. Optional.
+     *        The default storage class for objects put into an Amazon S3 bucket by a file gateway. Possible values are
+     *        S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used.
+     *        Optional.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -361,13 +356,13 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts
-     * objects into. The default value is "private".
+     * Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The
+     * default value is "private".
      * </p>
      * 
      * @param objectACL
-     *        A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts
-     *        objects into. The default value is "private".
+     *        Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects
+     *        into. The default value is "private".
      * @see ObjectACL
      */
 
@@ -377,12 +372,12 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts
-     * objects into. The default value is "private".
+     * Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The
+     * default value is "private".
      * </p>
      * 
-     * @return A value that sets the access control list permission for objects in the S3 bucket that a file gateway
-     *         puts objects into. The default value is "private".
+     * @return Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects
+     *         into. The default value is "private".
      * @see ObjectACL
      */
 
@@ -392,13 +387,13 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts
-     * objects into. The default value is "private".
+     * Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The
+     * default value is "private".
      * </p>
      * 
      * @param objectACL
-     *        A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts
-     *        objects into. The default value is "private".
+     *        Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects
+     *        into. The default value is "private".
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ObjectACL
      */
@@ -410,13 +405,13 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts
-     * objects into. The default value is "private".
+     * Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The
+     * default value is "private".
      * </p>
      * 
      * @param objectACL
-     *        A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts
-     *        objects into. The default value is "private".
+     *        Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects
+     *        into. The default value is "private".
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ObjectACL
      */
@@ -514,17 +509,17 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
      * <ul>
      * <li>
      * <p>
-     * <code>RootSquash</code> - Only root is mapped to anonymous user.
+     * "RootSquash" - Only root is mapped to anonymous user.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>NoSquash</code> - No one is mapped to anonymous user
+     * "NoSquash" - No one is mapped to anonymous user
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>AllSquash</code> - Everyone is mapped to anonymous user.
+     * "AllSquash" - Everyone is mapped to anonymous user.
      * </p>
      * </li>
      * </ul>
@@ -534,17 +529,17 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
      *        <ul>
      *        <li>
      *        <p>
-     *        <code>RootSquash</code> - Only root is mapped to anonymous user.
+     *        "RootSquash" - Only root is mapped to anonymous user.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>NoSquash</code> - No one is mapped to anonymous user
+     *        "NoSquash" - No one is mapped to anonymous user
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>AllSquash</code> - Everyone is mapped to anonymous user.
+     *        "AllSquash" - Everyone is mapped to anonymous user.
      *        </p>
      *        </li>
      */
@@ -560,17 +555,17 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
      * <ul>
      * <li>
      * <p>
-     * <code>RootSquash</code> - Only root is mapped to anonymous user.
+     * "RootSquash" - Only root is mapped to anonymous user.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>NoSquash</code> - No one is mapped to anonymous user
+     * "NoSquash" - No one is mapped to anonymous user
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>AllSquash</code> - Everyone is mapped to anonymous user.
+     * "AllSquash" - Everyone is mapped to anonymous user.
      * </p>
      * </li>
      * </ul>
@@ -579,17 +574,17 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
      *         <ul>
      *         <li>
      *         <p>
-     *         <code>RootSquash</code> - Only root is mapped to anonymous user.
+     *         "RootSquash" - Only root is mapped to anonymous user.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         <code>NoSquash</code> - No one is mapped to anonymous user
+     *         "NoSquash" - No one is mapped to anonymous user
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         <code>AllSquash</code> - Everyone is mapped to anonymous user.
+     *         "AllSquash" - Everyone is mapped to anonymous user.
      *         </p>
      *         </li>
      */
@@ -605,17 +600,17 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
      * <ul>
      * <li>
      * <p>
-     * <code>RootSquash</code> - Only root is mapped to anonymous user.
+     * "RootSquash" - Only root is mapped to anonymous user.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>NoSquash</code> - No one is mapped to anonymous user
+     * "NoSquash" - No one is mapped to anonymous user
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>AllSquash</code> - Everyone is mapped to anonymous user.
+     * "AllSquash" - Everyone is mapped to anonymous user.
      * </p>
      * </li>
      * </ul>
@@ -625,17 +620,17 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
      *        <ul>
      *        <li>
      *        <p>
-     *        <code>RootSquash</code> - Only root is mapped to anonymous user.
+     *        "RootSquash" - Only root is mapped to anonymous user.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>NoSquash</code> - No one is mapped to anonymous user
+     *        "NoSquash" - No one is mapped to anonymous user
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>AllSquash</code> - Everyone is mapped to anonymous user.
+     *        "AllSquash" - Everyone is mapped to anonymous user.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -648,13 +643,12 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the write status of a file share. This value is true if the write status is read-only, and
-     * otherwise false.
+     * Sets the write status of a file share. This value is true if the write status is read-only, and otherwise false.
      * </p>
      * 
      * @param readOnly
-     *        A value that sets the write status of a file share. This value is true if the write status is read-only,
-     *        and otherwise false.
+     *        Sets the write status of a file share. This value is true if the write status is read-only, and otherwise
+     *        false.
      */
 
     public void setReadOnly(Boolean readOnly) {
@@ -663,12 +657,11 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the write status of a file share. This value is true if the write status is read-only, and
-     * otherwise false.
+     * Sets the write status of a file share. This value is true if the write status is read-only, and otherwise false.
      * </p>
      * 
-     * @return A value that sets the write status of a file share. This value is true if the write status is read-only,
-     *         and otherwise false.
+     * @return Sets the write status of a file share. This value is true if the write status is read-only, and otherwise
+     *         false.
      */
 
     public Boolean getReadOnly() {
@@ -677,13 +670,12 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the write status of a file share. This value is true if the write status is read-only, and
-     * otherwise false.
+     * Sets the write status of a file share. This value is true if the write status is read-only, and otherwise false.
      * </p>
      * 
      * @param readOnly
-     *        A value that sets the write status of a file share. This value is true if the write status is read-only,
-     *        and otherwise false.
+     *        Sets the write status of a file share. This value is true if the write status is read-only, and otherwise
+     *        false.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -694,12 +686,11 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the write status of a file share. This value is true if the write status is read-only, and
-     * otherwise false.
+     * Sets the write status of a file share. This value is true if the write status is read-only, and otherwise false.
      * </p>
      * 
-     * @return A value that sets the write status of a file share. This value is true if the write status is read-only,
-     *         and otherwise false.
+     * @return Sets the write status of a file share. This value is true if the write status is read-only, and otherwise
+     *         false.
      */
 
     public Boolean isReadOnly() {
@@ -708,13 +699,13 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to
-     * true to enable MIME type guessing, and otherwise to false. The default value is true.
+     * Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable
+     * MIME type guessing, and otherwise to false. The default value is true.
      * </p>
      * 
      * @param guessMIMETypeEnabled
-     *        A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this
-     *        value to true to enable MIME type guessing, and otherwise to false. The default value is true.
+     *        Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to
+     *        enable MIME type guessing, and otherwise to false. The default value is true.
      */
 
     public void setGuessMIMETypeEnabled(Boolean guessMIMETypeEnabled) {
@@ -723,12 +714,12 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to
-     * true to enable MIME type guessing, and otherwise to false. The default value is true.
+     * Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable
+     * MIME type guessing, and otherwise to false. The default value is true.
      * </p>
      * 
-     * @return A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this
-     *         value to true to enable MIME type guessing, and otherwise to false. The default value is true.
+     * @return Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true
+     *         to enable MIME type guessing, and otherwise to false. The default value is true.
      */
 
     public Boolean getGuessMIMETypeEnabled() {
@@ -737,13 +728,13 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to
-     * true to enable MIME type guessing, and otherwise to false. The default value is true.
+     * Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable
+     * MIME type guessing, and otherwise to false. The default value is true.
      * </p>
      * 
      * @param guessMIMETypeEnabled
-     *        A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this
-     *        value to true to enable MIME type guessing, and otherwise to false. The default value is true.
+     *        Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to
+     *        enable MIME type guessing, and otherwise to false. The default value is true.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -754,12 +745,12 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to
-     * true to enable MIME type guessing, and otherwise to false. The default value is true.
+     * Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable
+     * MIME type guessing, and otherwise to false. The default value is true.
      * </p>
      * 
-     * @return A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this
-     *         value to true to enable MIME type guessing, and otherwise to false. The default value is true.
+     * @return Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true
+     *         to enable MIME type guessing, and otherwise to false. The default value is true.
      */
 
     public Boolean isGuessMIMETypeEnabled() {
@@ -768,13 +759,13 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to true if
+     * you want the requester to pay instead of the bucket owner, and otherwise to false.
      * </p>
      * 
      * @param requesterPays
-     *        A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *        gateway puts objects into. The default value is <code>private</code>.
+     *        Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to
+     *        true if you want the requester to pay instead of the bucket owner, and otherwise to false.
      */
 
     public void setRequesterPays(Boolean requesterPays) {
@@ -783,12 +774,12 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to true if
+     * you want the requester to pay instead of the bucket owner, and otherwise to false.
      * </p>
      * 
-     * @return A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *         gateway puts objects into. The default value is <code>private</code>.
+     * @return Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to
+     *         true if you want the requester to pay instead of the bucket owner, and otherwise to false.
      */
 
     public Boolean getRequesterPays() {
@@ -797,13 +788,13 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to true if
+     * you want the requester to pay instead of the bucket owner, and otherwise to false.
      * </p>
      * 
      * @param requesterPays
-     *        A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *        gateway puts objects into. The default value is <code>private</code>.
+     *        Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to
+     *        true if you want the requester to pay instead of the bucket owner, and otherwise to false.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -814,12 +805,12 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts
-     * objects into. The default value is <code>private</code>.
+     * Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to true if
+     * you want the requester to pay instead of the bucket owner, and otherwise to false.
      * </p>
      * 
-     * @return A value that sets the access control list permission for objects in the Amazon S3 bucket that a file
-     *         gateway puts objects into. The default value is <code>private</code>.
+     * @return Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to
+     *         true if you want the requester to pay instead of the bucket owner, and otherwise to false.
      */
 
     public Boolean isRequesterPays() {
@@ -827,8 +818,7 @@ public class UpdateNFSFileShareRequest extends com.amazonaws.AmazonWebServiceReq
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

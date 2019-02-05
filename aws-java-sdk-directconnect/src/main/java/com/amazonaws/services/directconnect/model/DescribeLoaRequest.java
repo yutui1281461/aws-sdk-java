@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,6 +18,9 @@ import javax.annotation.Generated;
 import com.amazonaws.AmazonWebServiceRequest;
 
 /**
+ * <p>
+ * Container for the parameters to the DescribeLoa operation.
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeLoa" target="_top">AWS API
  *      Documentation</a>
@@ -27,31 +30,55 @@ public class DescribeLoaRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The ID of a connection, LAG, or interconnect.
+     * The ID of a connection, LAG, or interconnect for which to get the LOA-CFA information.
+     * </p>
+     * <p>
+     * Example: dxcon-abc123 or dxlag-abc123
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      */
     private String connectionId;
     /**
      * <p>
-     * The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the
+     * The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the
      * LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      */
     private String providerName;
     /**
      * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     * A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is
+     * "application/pdf".
+     * </p>
+     * <p>
+     * Default: application/pdf
      * </p>
      */
     private String loaContentType;
 
     /**
      * <p>
-     * The ID of a connection, LAG, or interconnect.
+     * The ID of a connection, LAG, or interconnect for which to get the LOA-CFA information.
+     * </p>
+     * <p>
+     * Example: dxcon-abc123 or dxlag-abc123
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param connectionId
-     *        The ID of a connection, LAG, or interconnect.
+     *        The ID of a connection, LAG, or interconnect for which to get the LOA-CFA information.</p>
+     *        <p>
+     *        Example: dxcon-abc123 or dxlag-abc123
+     *        </p>
+     *        <p>
+     *        Default: None
      */
 
     public void setConnectionId(String connectionId) {
@@ -60,10 +87,21 @@ public class DescribeLoaRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The ID of a connection, LAG, or interconnect.
+     * The ID of a connection, LAG, or interconnect for which to get the LOA-CFA information.
+     * </p>
+     * <p>
+     * Example: dxcon-abc123 or dxlag-abc123
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
-     * @return The ID of a connection, LAG, or interconnect.
+     * @return The ID of a connection, LAG, or interconnect for which to get the LOA-CFA information.</p>
+     *         <p>
+     *         Example: dxcon-abc123 or dxlag-abc123
+     *         </p>
+     *         <p>
+     *         Default: None
      */
 
     public String getConnectionId() {
@@ -72,11 +110,22 @@ public class DescribeLoaRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The ID of a connection, LAG, or interconnect.
+     * The ID of a connection, LAG, or interconnect for which to get the LOA-CFA information.
+     * </p>
+     * <p>
+     * Example: dxcon-abc123 or dxlag-abc123
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param connectionId
-     *        The ID of a connection, LAG, or interconnect.
+     *        The ID of a connection, LAG, or interconnect for which to get the LOA-CFA information.</p>
+     *        <p>
+     *        Example: dxcon-abc123 or dxlag-abc123
+     *        </p>
+     *        <p>
+     *        Default: None
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -87,14 +136,19 @@ public class DescribeLoaRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the
+     * The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the
      * LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param providerName
-     *        The name of the service provider who establishes connectivity on your behalf. If you specify this
+     *        The name of the service provider who establishes connectivity on your behalf. If you supply this
      *        parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross
-     *        connect.
+     *        connect.</p>
+     *        <p>
+     *        Default: None
      */
 
     public void setProviderName(String providerName) {
@@ -103,13 +157,18 @@ public class DescribeLoaRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the
+     * The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the
      * LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
      * </p>
+     * <p>
+     * Default: None
+     * </p>
      * 
-     * @return The name of the service provider who establishes connectivity on your behalf. If you specify this
+     * @return The name of the service provider who establishes connectivity on your behalf. If you supply this
      *         parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross
-     *         connect.
+     *         connect.</p>
+     *         <p>
+     *         Default: None
      */
 
     public String getProviderName() {
@@ -118,14 +177,19 @@ public class DescribeLoaRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the
+     * The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the
      * LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param providerName
-     *        The name of the service provider who establishes connectivity on your behalf. If you specify this
+     *        The name of the service provider who establishes connectivity on your behalf. If you supply this
      *        parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross
-     *        connect.
+     *        connect.</p>
+     *        <p>
+     *        Default: None
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -136,11 +200,18 @@ public class DescribeLoaRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     * A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is
+     * "application/pdf".
+     * </p>
+     * <p>
+     * Default: application/pdf
      * </p>
      * 
      * @param loaContentType
-     *        The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     *        A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported
+     *        value is "application/pdf".</p>
+     *        <p>
+     *        Default: application/pdf
      * @see LoaContentType
      */
 
@@ -150,10 +221,17 @@ public class DescribeLoaRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     * A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is
+     * "application/pdf".
+     * </p>
+     * <p>
+     * Default: application/pdf
      * </p>
      * 
-     * @return The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     * @return A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported
+     *         value is "application/pdf".</p>
+     *         <p>
+     *         Default: application/pdf
      * @see LoaContentType
      */
 
@@ -163,11 +241,18 @@ public class DescribeLoaRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     * A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is
+     * "application/pdf".
+     * </p>
+     * <p>
+     * Default: application/pdf
      * </p>
      * 
      * @param loaContentType
-     *        The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     *        A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported
+     *        value is "application/pdf".</p>
+     *        <p>
+     *        Default: application/pdf
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LoaContentType
      */
@@ -179,11 +264,18 @@ public class DescribeLoaRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     * A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is
+     * "application/pdf".
+     * </p>
+     * <p>
+     * Default: application/pdf
      * </p>
      * 
      * @param loaContentType
-     *        The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     *        A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported
+     *        value is "application/pdf".</p>
+     *        <p>
+     *        Default: application/pdf
      * @see LoaContentType
      */
 
@@ -193,11 +285,18 @@ public class DescribeLoaRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     * A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is
+     * "application/pdf".
+     * </p>
+     * <p>
+     * Default: application/pdf
      * </p>
      * 
      * @param loaContentType
-     *        The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     *        A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported
+     *        value is "application/pdf".</p>
+     *        <p>
+     *        Default: application/pdf
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LoaContentType
      */
@@ -208,8 +307,7 @@ public class DescribeLoaRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

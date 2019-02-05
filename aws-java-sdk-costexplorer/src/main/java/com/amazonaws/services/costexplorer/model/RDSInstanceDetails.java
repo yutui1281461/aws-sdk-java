@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Details about the Amazon RDS instances that AWS recommends that you purchase.
+ * Details about the RDS instances that AWS recommends that you purchase.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/RDSInstanceDetails" target="_top">AWS API
@@ -54,14 +54,8 @@ public class RDSInstanceDetails implements Serializable, Cloneable, StructuredPo
     private String databaseEngine;
     /**
      * <p>
-     * The database edition that the recommended reservation supports.
-     * </p>
-     */
-    private String databaseEdition;
-    /**
-     * <p>
-     * Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a backup in a
-     * second Availability Zone.
+     * Whether the recommendation is for a reservation in a single availability zone or a reservation with a backup in a
+     * second availability zone.
      * </p>
      */
     private String deploymentOption;
@@ -73,7 +67,7 @@ public class RDSInstanceDetails implements Serializable, Cloneable, StructuredPo
     private String licenseModel;
     /**
      * <p>
-     * Whether the recommendation is for a current-generation instance.
+     * Whether the recommendation is for a current generation instance.
      * </p>
      */
     private Boolean currentGeneration;
@@ -246,53 +240,13 @@ public class RDSInstanceDetails implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The database edition that the recommended reservation supports.
-     * </p>
-     * 
-     * @param databaseEdition
-     *        The database edition that the recommended reservation supports.
-     */
-
-    public void setDatabaseEdition(String databaseEdition) {
-        this.databaseEdition = databaseEdition;
-    }
-
-    /**
-     * <p>
-     * The database edition that the recommended reservation supports.
-     * </p>
-     * 
-     * @return The database edition that the recommended reservation supports.
-     */
-
-    public String getDatabaseEdition() {
-        return this.databaseEdition;
-    }
-
-    /**
-     * <p>
-     * The database edition that the recommended reservation supports.
-     * </p>
-     * 
-     * @param databaseEdition
-     *        The database edition that the recommended reservation supports.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RDSInstanceDetails withDatabaseEdition(String databaseEdition) {
-        setDatabaseEdition(databaseEdition);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a backup in a
-     * second Availability Zone.
+     * Whether the recommendation is for a reservation in a single availability zone or a reservation with a backup in a
+     * second availability zone.
      * </p>
      * 
      * @param deploymentOption
-     *        Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a
-     *        backup in a second Availability Zone.
+     *        Whether the recommendation is for a reservation in a single availability zone or a reservation with a
+     *        backup in a second availability zone.
      */
 
     public void setDeploymentOption(String deploymentOption) {
@@ -301,12 +255,12 @@ public class RDSInstanceDetails implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a backup in a
-     * second Availability Zone.
+     * Whether the recommendation is for a reservation in a single availability zone or a reservation with a backup in a
+     * second availability zone.
      * </p>
      * 
-     * @return Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a
-     *         backup in a second Availability Zone.
+     * @return Whether the recommendation is for a reservation in a single availability zone or a reservation with a
+     *         backup in a second availability zone.
      */
 
     public String getDeploymentOption() {
@@ -315,13 +269,13 @@ public class RDSInstanceDetails implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a backup in a
-     * second Availability Zone.
+     * Whether the recommendation is for a reservation in a single availability zone or a reservation with a backup in a
+     * second availability zone.
      * </p>
      * 
      * @param deploymentOption
-     *        Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a
-     *        backup in a second Availability Zone.
+     *        Whether the recommendation is for a reservation in a single availability zone or a reservation with a
+     *        backup in a second availability zone.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -372,11 +326,11 @@ public class RDSInstanceDetails implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * Whether the recommendation is for a current-generation instance.
+     * Whether the recommendation is for a current generation instance.
      * </p>
      * 
      * @param currentGeneration
-     *        Whether the recommendation is for a current-generation instance.
+     *        Whether the recommendation is for a current generation instance.
      */
 
     public void setCurrentGeneration(Boolean currentGeneration) {
@@ -385,10 +339,10 @@ public class RDSInstanceDetails implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * Whether the recommendation is for a current-generation instance.
+     * Whether the recommendation is for a current generation instance.
      * </p>
      * 
-     * @return Whether the recommendation is for a current-generation instance.
+     * @return Whether the recommendation is for a current generation instance.
      */
 
     public Boolean getCurrentGeneration() {
@@ -397,11 +351,11 @@ public class RDSInstanceDetails implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * Whether the recommendation is for a current-generation instance.
+     * Whether the recommendation is for a current generation instance.
      * </p>
      * 
      * @param currentGeneration
-     *        Whether the recommendation is for a current-generation instance.
+     *        Whether the recommendation is for a current generation instance.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -412,10 +366,10 @@ public class RDSInstanceDetails implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * Whether the recommendation is for a current-generation instance.
+     * Whether the recommendation is for a current generation instance.
      * </p>
      * 
-     * @return Whether the recommendation is for a current-generation instance.
+     * @return Whether the recommendation is for a current generation instance.
      */
 
     public Boolean isCurrentGeneration() {
@@ -475,8 +429,7 @@ public class RDSInstanceDetails implements Serializable, Cloneable, StructuredPo
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -494,8 +447,6 @@ public class RDSInstanceDetails implements Serializable, Cloneable, StructuredPo
             sb.append("Region: ").append(getRegion()).append(",");
         if (getDatabaseEngine() != null)
             sb.append("DatabaseEngine: ").append(getDatabaseEngine()).append(",");
-        if (getDatabaseEdition() != null)
-            sb.append("DatabaseEdition: ").append(getDatabaseEdition()).append(",");
         if (getDeploymentOption() != null)
             sb.append("DeploymentOption: ").append(getDeploymentOption()).append(",");
         if (getLicenseModel() != null)
@@ -534,10 +485,6 @@ public class RDSInstanceDetails implements Serializable, Cloneable, StructuredPo
             return false;
         if (other.getDatabaseEngine() != null && other.getDatabaseEngine().equals(this.getDatabaseEngine()) == false)
             return false;
-        if (other.getDatabaseEdition() == null ^ this.getDatabaseEdition() == null)
-            return false;
-        if (other.getDatabaseEdition() != null && other.getDatabaseEdition().equals(this.getDatabaseEdition()) == false)
-            return false;
         if (other.getDeploymentOption() == null ^ this.getDeploymentOption() == null)
             return false;
         if (other.getDeploymentOption() != null && other.getDeploymentOption().equals(this.getDeploymentOption()) == false)
@@ -566,7 +513,6 @@ public class RDSInstanceDetails implements Serializable, Cloneable, StructuredPo
         hashCode = prime * hashCode + ((getInstanceType() == null) ? 0 : getInstanceType().hashCode());
         hashCode = prime * hashCode + ((getRegion() == null) ? 0 : getRegion().hashCode());
         hashCode = prime * hashCode + ((getDatabaseEngine() == null) ? 0 : getDatabaseEngine().hashCode());
-        hashCode = prime * hashCode + ((getDatabaseEdition() == null) ? 0 : getDatabaseEdition().hashCode());
         hashCode = prime * hashCode + ((getDeploymentOption() == null) ? 0 : getDeploymentOption().hashCode());
         hashCode = prime * hashCode + ((getLicenseModel() == null) ? 0 : getLicenseModel().hashCode());
         hashCode = prime * hashCode + ((getCurrentGeneration() == null) ? 0 : getCurrentGeneration().hashCode());

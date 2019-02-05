@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -42,7 +42,7 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
     private String jobName;
     /**
      * <p>
-     * The Unix timestamp for when the job was created. For non-array jobs and parent array jobs, this is when the job
+     * The Unix time stamp for when the job was created. For non-array jobs and parent array jobs, this is when the job
      * entered the <code>SUBMITTED</code> state (at the time <a>SubmitJob</a> was called). For array child jobs, this is
      * when the child job was spawned by its parent and entered the <code>PENDING</code> state.
      * </p>
@@ -62,15 +62,15 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
     private String statusReason;
     /**
      * <p>
-     * The Unix timestamp for when the job was started (when the job transitioned from the <code>STARTING</code> state
+     * The Unix time stamp for when the job was started (when the job transitioned from the <code>STARTING</code> state
      * to the <code>RUNNING</code> state).
      * </p>
      */
     private Long startedAt;
     /**
      * <p>
-     * The Unix timestamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code> state to
-     * a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>).
+     * The Unix time stamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code> state
+     * to a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>).
      * </p>
      */
     private Long stoppedAt;
@@ -86,12 +86,6 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private ArrayPropertiesSummary arrayProperties;
-    /**
-     * <p>
-     * The node properties for a single node in a job summary list.
-     * </p>
-     */
-    private NodePropertiesSummary nodeProperties;
 
     /**
      * <p>
@@ -175,13 +169,13 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the job was created. For non-array jobs and parent array jobs, this is when the job
+     * The Unix time stamp for when the job was created. For non-array jobs and parent array jobs, this is when the job
      * entered the <code>SUBMITTED</code> state (at the time <a>SubmitJob</a> was called). For array child jobs, this is
      * when the child job was spawned by its parent and entered the <code>PENDING</code> state.
      * </p>
      * 
      * @param createdAt
-     *        The Unix timestamp for when the job was created. For non-array jobs and parent array jobs, this is when
+     *        The Unix time stamp for when the job was created. For non-array jobs and parent array jobs, this is when
      *        the job entered the <code>SUBMITTED</code> state (at the time <a>SubmitJob</a> was called). For array
      *        child jobs, this is when the child job was spawned by its parent and entered the <code>PENDING</code>
      *        state.
@@ -193,12 +187,12 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the job was created. For non-array jobs and parent array jobs, this is when the job
+     * The Unix time stamp for when the job was created. For non-array jobs and parent array jobs, this is when the job
      * entered the <code>SUBMITTED</code> state (at the time <a>SubmitJob</a> was called). For array child jobs, this is
      * when the child job was spawned by its parent and entered the <code>PENDING</code> state.
      * </p>
      * 
-     * @return The Unix timestamp for when the job was created. For non-array jobs and parent array jobs, this is when
+     * @return The Unix time stamp for when the job was created. For non-array jobs and parent array jobs, this is when
      *         the job entered the <code>SUBMITTED</code> state (at the time <a>SubmitJob</a> was called). For array
      *         child jobs, this is when the child job was spawned by its parent and entered the <code>PENDING</code>
      *         state.
@@ -210,13 +204,13 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the job was created. For non-array jobs and parent array jobs, this is when the job
+     * The Unix time stamp for when the job was created. For non-array jobs and parent array jobs, this is when the job
      * entered the <code>SUBMITTED</code> state (at the time <a>SubmitJob</a> was called). For array child jobs, this is
      * when the child job was spawned by its parent and entered the <code>PENDING</code> state.
      * </p>
      * 
      * @param createdAt
-     *        The Unix timestamp for when the job was created. For non-array jobs and parent array jobs, this is when
+     *        The Unix time stamp for when the job was created. For non-array jobs and parent array jobs, this is when
      *        the job entered the <code>SUBMITTED</code> state (at the time <a>SubmitJob</a> was called). For array
      *        child jobs, this is when the child job was spawned by its parent and entered the <code>PENDING</code>
      *        state.
@@ -329,12 +323,12 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the job was started (when the job transitioned from the <code>STARTING</code> state
+     * The Unix time stamp for when the job was started (when the job transitioned from the <code>STARTING</code> state
      * to the <code>RUNNING</code> state).
      * </p>
      * 
      * @param startedAt
-     *        The Unix timestamp for when the job was started (when the job transitioned from the <code>STARTING</code>
+     *        The Unix time stamp for when the job was started (when the job transitioned from the <code>STARTING</code>
      *        state to the <code>RUNNING</code> state).
      */
 
@@ -344,12 +338,12 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the job was started (when the job transitioned from the <code>STARTING</code> state
+     * The Unix time stamp for when the job was started (when the job transitioned from the <code>STARTING</code> state
      * to the <code>RUNNING</code> state).
      * </p>
      * 
-     * @return The Unix timestamp for when the job was started (when the job transitioned from the <code>STARTING</code>
-     *         state to the <code>RUNNING</code> state).
+     * @return The Unix time stamp for when the job was started (when the job transitioned from the
+     *         <code>STARTING</code> state to the <code>RUNNING</code> state).
      */
 
     public Long getStartedAt() {
@@ -358,12 +352,12 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the job was started (when the job transitioned from the <code>STARTING</code> state
+     * The Unix time stamp for when the job was started (when the job transitioned from the <code>STARTING</code> state
      * to the <code>RUNNING</code> state).
      * </p>
      * 
      * @param startedAt
-     *        The Unix timestamp for when the job was started (when the job transitioned from the <code>STARTING</code>
+     *        The Unix time stamp for when the job was started (when the job transitioned from the <code>STARTING</code>
      *        state to the <code>RUNNING</code> state).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -375,12 +369,12 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code> state to
-     * a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>).
+     * The Unix time stamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code> state
+     * to a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>).
      * </p>
      * 
      * @param stoppedAt
-     *        The Unix timestamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code>
+     *        The Unix time stamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code>
      *        state to a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>).
      */
 
@@ -390,11 +384,11 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code> state to
-     * a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>).
+     * The Unix time stamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code> state
+     * to a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>).
      * </p>
      * 
-     * @return The Unix timestamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code>
+     * @return The Unix time stamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code>
      *         state to a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>).
      */
 
@@ -404,12 +398,12 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code> state to
-     * a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>).
+     * The Unix time stamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code> state
+     * to a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>).
      * </p>
      * 
      * @param stoppedAt
-     *        The Unix timestamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code>
+     *        The Unix time stamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code>
      *        state to a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -500,48 +494,7 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The node properties for a single node in a job summary list.
-     * </p>
-     * 
-     * @param nodeProperties
-     *        The node properties for a single node in a job summary list.
-     */
-
-    public void setNodeProperties(NodePropertiesSummary nodeProperties) {
-        this.nodeProperties = nodeProperties;
-    }
-
-    /**
-     * <p>
-     * The node properties for a single node in a job summary list.
-     * </p>
-     * 
-     * @return The node properties for a single node in a job summary list.
-     */
-
-    public NodePropertiesSummary getNodeProperties() {
-        return this.nodeProperties;
-    }
-
-    /**
-     * <p>
-     * The node properties for a single node in a job summary list.
-     * </p>
-     * 
-     * @param nodeProperties
-     *        The node properties for a single node in a job summary list.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public JobSummary withNodeProperties(NodePropertiesSummary nodeProperties) {
-        setNodeProperties(nodeProperties);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -568,9 +521,7 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
         if (getContainer() != null)
             sb.append("Container: ").append(getContainer()).append(",");
         if (getArrayProperties() != null)
-            sb.append("ArrayProperties: ").append(getArrayProperties()).append(",");
-        if (getNodeProperties() != null)
-            sb.append("NodeProperties: ").append(getNodeProperties());
+            sb.append("ArrayProperties: ").append(getArrayProperties());
         sb.append("}");
         return sb.toString();
     }
@@ -621,10 +572,6 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getArrayProperties() != null && other.getArrayProperties().equals(this.getArrayProperties()) == false)
             return false;
-        if (other.getNodeProperties() == null ^ this.getNodeProperties() == null)
-            return false;
-        if (other.getNodeProperties() != null && other.getNodeProperties().equals(this.getNodeProperties()) == false)
-            return false;
         return true;
     }
 
@@ -642,7 +589,6 @@ public class JobSummary implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getStoppedAt() == null) ? 0 : getStoppedAt().hashCode());
         hashCode = prime * hashCode + ((getContainer() == null) ? 0 : getContainer().hashCode());
         hashCode = prime * hashCode + ((getArrayProperties() == null) ? 0 : getArrayProperties().hashCode());
-        hashCode = prime * hashCode + ((getNodeProperties() == null) ? 0 : getNodeProperties().hashCode());
         return hashCode;
     }
 

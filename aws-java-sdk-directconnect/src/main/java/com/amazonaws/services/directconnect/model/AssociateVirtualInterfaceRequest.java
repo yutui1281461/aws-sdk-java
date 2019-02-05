@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,6 +18,9 @@ import javax.annotation.Generated;
 import com.amazonaws.AmazonWebServiceRequest;
 
 /**
+ * <p>
+ * Container for the parameters to the AssociateVirtualInterface operation.
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AssociateVirtualInterface"
  *      target="_top">AWS API Documentation</a>
@@ -29,11 +32,23 @@ public class AssociateVirtualInterfaceRequest extends com.amazonaws.AmazonWebSer
      * <p>
      * The ID of the virtual interface.
      * </p>
+     * <p>
+     * Example: dxvif-123dfg56
+     * </p>
+     * <p>
+     * Default: None
+     * </p>
      */
     private String virtualInterfaceId;
     /**
      * <p>
-     * The ID of the LAG or connection.
+     * The ID of the LAG or connection with which to associate the virtual interface.
+     * </p>
+     * <p>
+     * Example: dxlag-abc123 or dxcon-abc123
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      */
     private String connectionId;
@@ -42,9 +57,20 @@ public class AssociateVirtualInterfaceRequest extends com.amazonaws.AmazonWebSer
      * <p>
      * The ID of the virtual interface.
      * </p>
+     * <p>
+     * Example: dxvif-123dfg56
+     * </p>
+     * <p>
+     * Default: None
+     * </p>
      * 
      * @param virtualInterfaceId
-     *        The ID of the virtual interface.
+     *        The ID of the virtual interface.</p>
+     *        <p>
+     *        Example: dxvif-123dfg56
+     *        </p>
+     *        <p>
+     *        Default: None
      */
 
     public void setVirtualInterfaceId(String virtualInterfaceId) {
@@ -55,8 +81,19 @@ public class AssociateVirtualInterfaceRequest extends com.amazonaws.AmazonWebSer
      * <p>
      * The ID of the virtual interface.
      * </p>
+     * <p>
+     * Example: dxvif-123dfg56
+     * </p>
+     * <p>
+     * Default: None
+     * </p>
      * 
-     * @return The ID of the virtual interface.
+     * @return The ID of the virtual interface.</p>
+     *         <p>
+     *         Example: dxvif-123dfg56
+     *         </p>
+     *         <p>
+     *         Default: None
      */
 
     public String getVirtualInterfaceId() {
@@ -67,9 +104,20 @@ public class AssociateVirtualInterfaceRequest extends com.amazonaws.AmazonWebSer
      * <p>
      * The ID of the virtual interface.
      * </p>
+     * <p>
+     * Example: dxvif-123dfg56
+     * </p>
+     * <p>
+     * Default: None
+     * </p>
      * 
      * @param virtualInterfaceId
-     *        The ID of the virtual interface.
+     *        The ID of the virtual interface.</p>
+     *        <p>
+     *        Example: dxvif-123dfg56
+     *        </p>
+     *        <p>
+     *        Default: None
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -80,11 +128,22 @@ public class AssociateVirtualInterfaceRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * The ID of the LAG or connection.
+     * The ID of the LAG or connection with which to associate the virtual interface.
+     * </p>
+     * <p>
+     * Example: dxlag-abc123 or dxcon-abc123
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param connectionId
-     *        The ID of the LAG or connection.
+     *        The ID of the LAG or connection with which to associate the virtual interface.</p>
+     *        <p>
+     *        Example: dxlag-abc123 or dxcon-abc123
+     *        </p>
+     *        <p>
+     *        Default: None
      */
 
     public void setConnectionId(String connectionId) {
@@ -93,10 +152,21 @@ public class AssociateVirtualInterfaceRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * The ID of the LAG or connection.
+     * The ID of the LAG or connection with which to associate the virtual interface.
+     * </p>
+     * <p>
+     * Example: dxlag-abc123 or dxcon-abc123
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
-     * @return The ID of the LAG or connection.
+     * @return The ID of the LAG or connection with which to associate the virtual interface.</p>
+     *         <p>
+     *         Example: dxlag-abc123 or dxcon-abc123
+     *         </p>
+     *         <p>
+     *         Default: None
      */
 
     public String getConnectionId() {
@@ -105,11 +175,22 @@ public class AssociateVirtualInterfaceRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * The ID of the LAG or connection.
+     * The ID of the LAG or connection with which to associate the virtual interface.
+     * </p>
+     * <p>
+     * Example: dxlag-abc123 or dxcon-abc123
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param connectionId
-     *        The ID of the LAG or connection.
+     *        The ID of the LAG or connection with which to associate the virtual interface.</p>
+     *        <p>
+     *        Example: dxlag-abc123 or dxcon-abc123
+     *        </p>
+     *        <p>
+     *        Default: None
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -119,8 +200,7 @@ public class AssociateVirtualInterfaceRequest extends com.amazonaws.AmazonWebSer
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

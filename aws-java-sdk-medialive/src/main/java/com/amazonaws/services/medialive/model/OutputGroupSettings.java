@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,8 +27,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 public class OutputGroupSettings implements Serializable, Cloneable, StructuredPojo {
 
     private ArchiveGroupSettings archiveGroupSettings;
-
-    private FrameCaptureGroupSettings frameCaptureGroupSettings;
 
     private HlsGroupSettings hlsGroupSettings;
 
@@ -61,32 +59,6 @@ public class OutputGroupSettings implements Serializable, Cloneable, StructuredP
 
     public OutputGroupSettings withArchiveGroupSettings(ArchiveGroupSettings archiveGroupSettings) {
         setArchiveGroupSettings(archiveGroupSettings);
-        return this;
-    }
-
-    /**
-     * @param frameCaptureGroupSettings
-     */
-
-    public void setFrameCaptureGroupSettings(FrameCaptureGroupSettings frameCaptureGroupSettings) {
-        this.frameCaptureGroupSettings = frameCaptureGroupSettings;
-    }
-
-    /**
-     * @return
-     */
-
-    public FrameCaptureGroupSettings getFrameCaptureGroupSettings() {
-        return this.frameCaptureGroupSettings;
-    }
-
-    /**
-     * @param frameCaptureGroupSettings
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public OutputGroupSettings withFrameCaptureGroupSettings(FrameCaptureGroupSettings frameCaptureGroupSettings) {
-        setFrameCaptureGroupSettings(frameCaptureGroupSettings);
         return this;
     }
 
@@ -195,8 +167,7 @@ public class OutputGroupSettings implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -208,8 +179,6 @@ public class OutputGroupSettings implements Serializable, Cloneable, StructuredP
         sb.append("{");
         if (getArchiveGroupSettings() != null)
             sb.append("ArchiveGroupSettings: ").append(getArchiveGroupSettings()).append(",");
-        if (getFrameCaptureGroupSettings() != null)
-            sb.append("FrameCaptureGroupSettings: ").append(getFrameCaptureGroupSettings()).append(",");
         if (getHlsGroupSettings() != null)
             sb.append("HlsGroupSettings: ").append(getHlsGroupSettings()).append(",");
         if (getMsSmoothGroupSettings() != null)
@@ -236,10 +205,6 @@ public class OutputGroupSettings implements Serializable, Cloneable, StructuredP
             return false;
         if (other.getArchiveGroupSettings() != null && other.getArchiveGroupSettings().equals(this.getArchiveGroupSettings()) == false)
             return false;
-        if (other.getFrameCaptureGroupSettings() == null ^ this.getFrameCaptureGroupSettings() == null)
-            return false;
-        if (other.getFrameCaptureGroupSettings() != null && other.getFrameCaptureGroupSettings().equals(this.getFrameCaptureGroupSettings()) == false)
-            return false;
         if (other.getHlsGroupSettings() == null ^ this.getHlsGroupSettings() == null)
             return false;
         if (other.getHlsGroupSettings() != null && other.getHlsGroupSettings().equals(this.getHlsGroupSettings()) == false)
@@ -265,7 +230,6 @@ public class OutputGroupSettings implements Serializable, Cloneable, StructuredP
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getArchiveGroupSettings() == null) ? 0 : getArchiveGroupSettings().hashCode());
-        hashCode = prime * hashCode + ((getFrameCaptureGroupSettings() == null) ? 0 : getFrameCaptureGroupSettings().hashCode());
         hashCode = prime * hashCode + ((getHlsGroupSettings() == null) ? 0 : getHlsGroupSettings().hashCode());
         hashCode = prime * hashCode + ((getMsSmoothGroupSettings() == null) ? 0 : getMsSmoothGroupSettings().hashCode());
         hashCode = prime * hashCode + ((getRtmpGroupSettings() == null) ? 0 : getRtmpGroupSettings().hashCode());

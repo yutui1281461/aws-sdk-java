@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,22 +27,14 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on your character set,
-     * this may be fewer than 5,000 characters.
+     * The text to translate.
      * </p>
      */
     private String text;
     /**
      * <p>
-     * The TerminologyNames list that is taken as input to the TranslateText request. This has a minimum length of 0 and
-     * a maximum length of 1.
-     * </p>
-     */
-    private java.util.List<String> terminologyNames;
-    /**
-     * <p>
-     * The language code for the language of the source text. The language must be a language supported by Amazon
-     * Translate.
+     * One of the supported language codes for the source text. If the <code>TargetLanguageCode</code> is not "en", the
+     * <code>SourceLanguageCode</code> must be "en".
      * </p>
      * <p>
      * To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the
@@ -53,21 +45,19 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
     private String sourceLanguageCode;
     /**
      * <p>
-     * The language code requested for the language of the target text. The language must be a language supported by
-     * Amazon Translate.
+     * One of the supported language codes for the target text. If the <code>SourceLanguageCode</code> is not "en", the
+     * <code>TargetLanguageCode</code> must be "en".
      * </p>
      */
     private String targetLanguageCode;
 
     /**
      * <p>
-     * The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on your character set,
-     * this may be fewer than 5,000 characters.
+     * The text to translate.
      * </p>
      * 
      * @param text
-     *        The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on your character
-     *        set, this may be fewer than 5,000 characters.
+     *        The text to translate.
      */
 
     public void setText(String text) {
@@ -76,12 +66,10 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on your character set,
-     * this may be fewer than 5,000 characters.
+     * The text to translate.
      * </p>
      * 
-     * @return The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on your character
-     *         set, this may be fewer than 5,000 characters.
+     * @return The text to translate.
      */
 
     public String getText() {
@@ -90,13 +78,11 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on your character set,
-     * this may be fewer than 5,000 characters.
+     * The text to translate.
      * </p>
      * 
      * @param text
-     *        The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on your character
-     *        set, this may be fewer than 5,000 characters.
+     *        The text to translate.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -107,86 +93,8 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The TerminologyNames list that is taken as input to the TranslateText request. This has a minimum length of 0 and
-     * a maximum length of 1.
-     * </p>
-     * 
-     * @return The TerminologyNames list that is taken as input to the TranslateText request. This has a minimum length
-     *         of 0 and a maximum length of 1.
-     */
-
-    public java.util.List<String> getTerminologyNames() {
-        return terminologyNames;
-    }
-
-    /**
-     * <p>
-     * The TerminologyNames list that is taken as input to the TranslateText request. This has a minimum length of 0 and
-     * a maximum length of 1.
-     * </p>
-     * 
-     * @param terminologyNames
-     *        The TerminologyNames list that is taken as input to the TranslateText request. This has a minimum length
-     *        of 0 and a maximum length of 1.
-     */
-
-    public void setTerminologyNames(java.util.Collection<String> terminologyNames) {
-        if (terminologyNames == null) {
-            this.terminologyNames = null;
-            return;
-        }
-
-        this.terminologyNames = new java.util.ArrayList<String>(terminologyNames);
-    }
-
-    /**
-     * <p>
-     * The TerminologyNames list that is taken as input to the TranslateText request. This has a minimum length of 0 and
-     * a maximum length of 1.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setTerminologyNames(java.util.Collection)} or {@link #withTerminologyNames(java.util.Collection)} if you
-     * want to override the existing values.
-     * </p>
-     * 
-     * @param terminologyNames
-     *        The TerminologyNames list that is taken as input to the TranslateText request. This has a minimum length
-     *        of 0 and a maximum length of 1.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public TranslateTextRequest withTerminologyNames(String... terminologyNames) {
-        if (this.terminologyNames == null) {
-            setTerminologyNames(new java.util.ArrayList<String>(terminologyNames.length));
-        }
-        for (String ele : terminologyNames) {
-            this.terminologyNames.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * The TerminologyNames list that is taken as input to the TranslateText request. This has a minimum length of 0 and
-     * a maximum length of 1.
-     * </p>
-     * 
-     * @param terminologyNames
-     *        The TerminologyNames list that is taken as input to the TranslateText request. This has a minimum length
-     *        of 0 and a maximum length of 1.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public TranslateTextRequest withTerminologyNames(java.util.Collection<String> terminologyNames) {
-        setTerminologyNames(terminologyNames);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The language code for the language of the source text. The language must be a language supported by Amazon
-     * Translate.
+     * One of the supported language codes for the source text. If the <code>TargetLanguageCode</code> is not "en", the
+     * <code>SourceLanguageCode</code> must be "en".
      * </p>
      * <p>
      * To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the
@@ -195,8 +103,8 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
      * </p>
      * 
      * @param sourceLanguageCode
-     *        The language code for the language of the source text. The language must be a language supported by Amazon
-     *        Translate. </p>
+     *        One of the supported language codes for the source text. If the <code>TargetLanguageCode</code> is not
+     *        "en", the <code>SourceLanguageCode</code> must be "en".</p>
      *        <p>
      *        To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in
      *        the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call
@@ -209,8 +117,8 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The language code for the language of the source text. The language must be a language supported by Amazon
-     * Translate.
+     * One of the supported language codes for the source text. If the <code>TargetLanguageCode</code> is not "en", the
+     * <code>SourceLanguageCode</code> must be "en".
      * </p>
      * <p>
      * To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the
@@ -218,8 +126,8 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
      * Comprehend to determine the source language.
      * </p>
      * 
-     * @return The language code for the language of the source text. The language must be a language supported by
-     *         Amazon Translate. </p>
+     * @return One of the supported language codes for the source text. If the <code>TargetLanguageCode</code> is not
+     *         "en", the <code>SourceLanguageCode</code> must be "en".</p>
      *         <p>
      *         To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in
      *         the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call
@@ -232,8 +140,8 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The language code for the language of the source text. The language must be a language supported by Amazon
-     * Translate.
+     * One of the supported language codes for the source text. If the <code>TargetLanguageCode</code> is not "en", the
+     * <code>SourceLanguageCode</code> must be "en".
      * </p>
      * <p>
      * To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the
@@ -242,8 +150,8 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
      * </p>
      * 
      * @param sourceLanguageCode
-     *        The language code for the language of the source text. The language must be a language supported by Amazon
-     *        Translate. </p>
+     *        One of the supported language codes for the source text. If the <code>TargetLanguageCode</code> is not
+     *        "en", the <code>SourceLanguageCode</code> must be "en".</p>
      *        <p>
      *        To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in
      *        the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call
@@ -258,13 +166,13 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The language code requested for the language of the target text. The language must be a language supported by
-     * Amazon Translate.
+     * One of the supported language codes for the target text. If the <code>SourceLanguageCode</code> is not "en", the
+     * <code>TargetLanguageCode</code> must be "en".
      * </p>
      * 
      * @param targetLanguageCode
-     *        The language code requested for the language of the target text. The language must be a language supported
-     *        by Amazon Translate.
+     *        One of the supported language codes for the target text. If the <code>SourceLanguageCode</code> is not
+     *        "en", the <code>TargetLanguageCode</code> must be "en".
      */
 
     public void setTargetLanguageCode(String targetLanguageCode) {
@@ -273,12 +181,12 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The language code requested for the language of the target text. The language must be a language supported by
-     * Amazon Translate.
+     * One of the supported language codes for the target text. If the <code>SourceLanguageCode</code> is not "en", the
+     * <code>TargetLanguageCode</code> must be "en".
      * </p>
      * 
-     * @return The language code requested for the language of the target text. The language must be a language
-     *         supported by Amazon Translate.
+     * @return One of the supported language codes for the target text. If the <code>SourceLanguageCode</code> is not
+     *         "en", the <code>TargetLanguageCode</code> must be "en".
      */
 
     public String getTargetLanguageCode() {
@@ -287,13 +195,13 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The language code requested for the language of the target text. The language must be a language supported by
-     * Amazon Translate.
+     * One of the supported language codes for the target text. If the <code>SourceLanguageCode</code> is not "en", the
+     * <code>TargetLanguageCode</code> must be "en".
      * </p>
      * 
      * @param targetLanguageCode
-     *        The language code requested for the language of the target text. The language must be a language supported
-     *        by Amazon Translate.
+     *        One of the supported language codes for the target text. If the <code>SourceLanguageCode</code> is not
+     *        "en", the <code>TargetLanguageCode</code> must be "en".
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -303,8 +211,7 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -316,8 +223,6 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
         sb.append("{");
         if (getText() != null)
             sb.append("Text: ").append(getText()).append(",");
-        if (getTerminologyNames() != null)
-            sb.append("TerminologyNames: ").append(getTerminologyNames()).append(",");
         if (getSourceLanguageCode() != null)
             sb.append("SourceLanguageCode: ").append(getSourceLanguageCode()).append(",");
         if (getTargetLanguageCode() != null)
@@ -340,10 +245,6 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
             return false;
         if (other.getText() != null && other.getText().equals(this.getText()) == false)
             return false;
-        if (other.getTerminologyNames() == null ^ this.getTerminologyNames() == null)
-            return false;
-        if (other.getTerminologyNames() != null && other.getTerminologyNames().equals(this.getTerminologyNames()) == false)
-            return false;
         if (other.getSourceLanguageCode() == null ^ this.getSourceLanguageCode() == null)
             return false;
         if (other.getSourceLanguageCode() != null && other.getSourceLanguageCode().equals(this.getSourceLanguageCode()) == false)
@@ -361,7 +262,6 @@ public class TranslateTextRequest extends com.amazonaws.AmazonWebServiceRequest 
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getText() == null) ? 0 : getText().hashCode());
-        hashCode = prime * hashCode + ((getTerminologyNames() == null) ? 0 : getTerminologyNames().hashCode());
         hashCode = prime * hashCode + ((getSourceLanguageCode() == null) ? 0 : getSourceLanguageCode().hashCode());
         hashCode = prime * hashCode + ((getTargetLanguageCode() == null) ? 0 : getTargetLanguageCode().hashCode());
         return hashCode;

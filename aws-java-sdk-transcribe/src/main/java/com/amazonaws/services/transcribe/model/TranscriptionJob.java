@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,7 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * The name of the transcription job.
+     * A name to identify the transcription job.
      * </p>
      */
     private String transcriptionJobName;
@@ -60,7 +60,7 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
     private String mediaFormat;
     /**
      * <p>
-     * An object that describes the input media for the transcription job.
+     * An object that describes the input media for a transcription job.
      * </p>
      */
     private Media media;
@@ -72,13 +72,13 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
     private Transcript transcript;
     /**
      * <p>
-     * A timestamp that shows when the job was created.
+     * Timestamp of the date and time that the job was created.
      * </p>
      */
     private java.util.Date creationTime;
     /**
      * <p>
-     * A timestamp that shows when the job was completed.
+     * Timestamp of the date and time that the job completed.
      * </p>
      */
     private java.util.Date completionTime;
@@ -91,20 +91,18 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
     private String failureReason;
     /**
      * <p>
-     * Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the
-     * maximum number of speakers that should be identified and to specify a custom vocabulary to use when processing
-     * the transcription job.
+     * Optional settings for the transcription job.
      * </p>
      */
     private Settings settings;
 
     /**
      * <p>
-     * The name of the transcription job.
+     * A name to identify the transcription job.
      * </p>
      * 
      * @param transcriptionJobName
-     *        The name of the transcription job.
+     *        A name to identify the transcription job.
      */
 
     public void setTranscriptionJobName(String transcriptionJobName) {
@@ -113,10 +111,10 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * The name of the transcription job.
+     * A name to identify the transcription job.
      * </p>
      * 
-     * @return The name of the transcription job.
+     * @return A name to identify the transcription job.
      */
 
     public String getTranscriptionJobName() {
@@ -125,11 +123,11 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * The name of the transcription job.
+     * A name to identify the transcription job.
      * </p>
      * 
      * @param transcriptionJobName
-     *        The name of the transcription job.
+     *        A name to identify the transcription job.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -357,11 +355,11 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * An object that describes the input media for the transcription job.
+     * An object that describes the input media for a transcription job.
      * </p>
      * 
      * @param media
-     *        An object that describes the input media for the transcription job.
+     *        An object that describes the input media for a transcription job.
      */
 
     public void setMedia(Media media) {
@@ -370,10 +368,10 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * An object that describes the input media for the transcription job.
+     * An object that describes the input media for a transcription job.
      * </p>
      * 
-     * @return An object that describes the input media for the transcription job.
+     * @return An object that describes the input media for a transcription job.
      */
 
     public Media getMedia() {
@@ -382,11 +380,11 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * An object that describes the input media for the transcription job.
+     * An object that describes the input media for a transcription job.
      * </p>
      * 
      * @param media
-     *        An object that describes the input media for the transcription job.
+     *        An object that describes the input media for a transcription job.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -437,11 +435,11 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * A timestamp that shows when the job was created.
+     * Timestamp of the date and time that the job was created.
      * </p>
      * 
      * @param creationTime
-     *        A timestamp that shows when the job was created.
+     *        Timestamp of the date and time that the job was created.
      */
 
     public void setCreationTime(java.util.Date creationTime) {
@@ -450,10 +448,10 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * A timestamp that shows when the job was created.
+     * Timestamp of the date and time that the job was created.
      * </p>
      * 
-     * @return A timestamp that shows when the job was created.
+     * @return Timestamp of the date and time that the job was created.
      */
 
     public java.util.Date getCreationTime() {
@@ -462,11 +460,11 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * A timestamp that shows when the job was created.
+     * Timestamp of the date and time that the job was created.
      * </p>
      * 
      * @param creationTime
-     *        A timestamp that shows when the job was created.
+     *        Timestamp of the date and time that the job was created.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -477,11 +475,11 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * A timestamp that shows when the job was completed.
+     * Timestamp of the date and time that the job completed.
      * </p>
      * 
      * @param completionTime
-     *        A timestamp that shows when the job was completed.
+     *        Timestamp of the date and time that the job completed.
      */
 
     public void setCompletionTime(java.util.Date completionTime) {
@@ -490,10 +488,10 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * A timestamp that shows when the job was completed.
+     * Timestamp of the date and time that the job completed.
      * </p>
      * 
-     * @return A timestamp that shows when the job was completed.
+     * @return Timestamp of the date and time that the job completed.
      */
 
     public java.util.Date getCompletionTime() {
@@ -502,11 +500,11 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * A timestamp that shows when the job was completed.
+     * Timestamp of the date and time that the job completed.
      * </p>
      * 
      * @param completionTime
-     *        A timestamp that shows when the job was completed.
+     *        Timestamp of the date and time that the job completed.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -563,15 +561,11 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the
-     * maximum number of speakers that should be identified and to specify a custom vocabulary to use when processing
-     * the transcription job.
+     * Optional settings for the transcription job.
      * </p>
      * 
      * @param settings
-     *        Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the
-     *        maximum number of speakers that should be identified and to specify a custom vocabulary to use when
-     *        processing the transcription job.
+     *        Optional settings for the transcription job.
      */
 
     public void setSettings(Settings settings) {
@@ -580,14 +574,10 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the
-     * maximum number of speakers that should be identified and to specify a custom vocabulary to use when processing
-     * the transcription job.
+     * Optional settings for the transcription job.
      * </p>
      * 
-     * @return Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set
-     *         the maximum number of speakers that should be identified and to specify a custom vocabulary to use when
-     *         processing the transcription job.
+     * @return Optional settings for the transcription job.
      */
 
     public Settings getSettings() {
@@ -596,15 +586,11 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the
-     * maximum number of speakers that should be identified and to specify a custom vocabulary to use when processing
-     * the transcription job.
+     * Optional settings for the transcription job.
      * </p>
      * 
      * @param settings
-     *        Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the
-     *        maximum number of speakers that should be identified and to specify a custom vocabulary to use when
-     *        processing the transcription job.
+     *        Optional settings for the transcription job.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -614,8 +600,7 @@ public class TranscriptionJob implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

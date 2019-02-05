@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -48,7 +48,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
     private String deploymentConfigName;
     /**
      * <p>
-     * The unique ID of a deployment.
+     * The deployment ID.
      * </p>
      */
     private String deploymentId;
@@ -79,23 +79,23 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
     private ErrorInformation errorInformation;
     /**
      * <p>
-     * A timestamp that indicates when the deployment was created.
+     * A timestamp indicating when the deployment was created.
      * </p>
      */
     private java.util.Date createTime;
     /**
      * <p>
-     * A timestamp that indicates when the deployment was deployed to the deployment group.
+     * A timestamp indicating when the deployment was deployed to the deployment group.
      * </p>
      * <p>
-     * In some cases, the reported value of the start time might be later than the complete time. This is due to
-     * differences in the clock settings of backend servers that participate in the deployment process.
+     * In some cases, the reported value of the start time may be later than the complete time. This is due to
+     * differences in the clock settings of back-end servers that participate in the deployment process.
      * </p>
      */
     private java.util.Date startTime;
     /**
      * <p>
-     * A timestamp that indicates when the deployment was complete.
+     * A timestamp indicating when the deployment was complete.
      * </p>
      */
     private java.util.Date completeTime;
@@ -123,7 +123,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * autoscaling: Amazon EC2 Auto Scaling created the deployment.
+     * autoscaling: Auto Scaling created the deployment.
      * </p>
      * </li>
      * <li>
@@ -137,13 +137,13 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the
-     * deployment to that instance is not considered to have failed at that point and continues on to the BeforeInstall
-     * deployment lifecycle event.
+     * deployment to that instance will not be considered to have failed at that point and will continue on to the
+     * BeforeInstall deployment lifecycle event.
      * </p>
      * <p>
      * If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to an
-     * instance to fail, the deployment to that instance stops, and the deployment to that instance is considered to
-     * have failed.
+     * instance to fail, the deployment to that instance will stop, and the deployment to that instance will be
+     * considered to have failed.
      * </p>
      */
     private Boolean ignoreApplicationStopFailures;
@@ -181,7 +181,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Indicates whether the wait period set for the termination of instances in the original environment has started.
-     * Status is 'false' if the KEEP_ALIVE option is specified. Otherwise, 'true' as soon as the termination wait period
+     * Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the termination wait period
      * starts.
      * </p>
      */
@@ -365,11 +365,11 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The unique ID of a deployment.
+     * The deployment ID.
      * </p>
      * 
      * @param deploymentId
-     *        The unique ID of a deployment.
+     *        The deployment ID.
      */
 
     public void setDeploymentId(String deploymentId) {
@@ -378,10 +378,10 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The unique ID of a deployment.
+     * The deployment ID.
      * </p>
      * 
-     * @return The unique ID of a deployment.
+     * @return The deployment ID.
      */
 
     public String getDeploymentId() {
@@ -390,11 +390,11 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The unique ID of a deployment.
+     * The deployment ID.
      * </p>
      * 
      * @param deploymentId
-     *        The unique ID of a deployment.
+     *        The deployment ID.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -607,11 +607,11 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A timestamp that indicates when the deployment was created.
+     * A timestamp indicating when the deployment was created.
      * </p>
      * 
      * @param createTime
-     *        A timestamp that indicates when the deployment was created.
+     *        A timestamp indicating when the deployment was created.
      */
 
     public void setCreateTime(java.util.Date createTime) {
@@ -620,10 +620,10 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A timestamp that indicates when the deployment was created.
+     * A timestamp indicating when the deployment was created.
      * </p>
      * 
-     * @return A timestamp that indicates when the deployment was created.
+     * @return A timestamp indicating when the deployment was created.
      */
 
     public java.util.Date getCreateTime() {
@@ -632,11 +632,11 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A timestamp that indicates when the deployment was created.
+     * A timestamp indicating when the deployment was created.
      * </p>
      * 
      * @param createTime
-     *        A timestamp that indicates when the deployment was created.
+     *        A timestamp indicating when the deployment was created.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -647,18 +647,18 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A timestamp that indicates when the deployment was deployed to the deployment group.
+     * A timestamp indicating when the deployment was deployed to the deployment group.
      * </p>
      * <p>
-     * In some cases, the reported value of the start time might be later than the complete time. This is due to
-     * differences in the clock settings of backend servers that participate in the deployment process.
+     * In some cases, the reported value of the start time may be later than the complete time. This is due to
+     * differences in the clock settings of back-end servers that participate in the deployment process.
      * </p>
      * 
      * @param startTime
-     *        A timestamp that indicates when the deployment was deployed to the deployment group.</p>
+     *        A timestamp indicating when the deployment was deployed to the deployment group.</p>
      *        <p>
-     *        In some cases, the reported value of the start time might be later than the complete time. This is due to
-     *        differences in the clock settings of backend servers that participate in the deployment process.
+     *        In some cases, the reported value of the start time may be later than the complete time. This is due to
+     *        differences in the clock settings of back-end servers that participate in the deployment process.
      */
 
     public void setStartTime(java.util.Date startTime) {
@@ -667,17 +667,17 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A timestamp that indicates when the deployment was deployed to the deployment group.
+     * A timestamp indicating when the deployment was deployed to the deployment group.
      * </p>
      * <p>
-     * In some cases, the reported value of the start time might be later than the complete time. This is due to
-     * differences in the clock settings of backend servers that participate in the deployment process.
+     * In some cases, the reported value of the start time may be later than the complete time. This is due to
+     * differences in the clock settings of back-end servers that participate in the deployment process.
      * </p>
      * 
-     * @return A timestamp that indicates when the deployment was deployed to the deployment group.</p>
+     * @return A timestamp indicating when the deployment was deployed to the deployment group.</p>
      *         <p>
-     *         In some cases, the reported value of the start time might be later than the complete time. This is due to
-     *         differences in the clock settings of backend servers that participate in the deployment process.
+     *         In some cases, the reported value of the start time may be later than the complete time. This is due to
+     *         differences in the clock settings of back-end servers that participate in the deployment process.
      */
 
     public java.util.Date getStartTime() {
@@ -686,18 +686,18 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A timestamp that indicates when the deployment was deployed to the deployment group.
+     * A timestamp indicating when the deployment was deployed to the deployment group.
      * </p>
      * <p>
-     * In some cases, the reported value of the start time might be later than the complete time. This is due to
-     * differences in the clock settings of backend servers that participate in the deployment process.
+     * In some cases, the reported value of the start time may be later than the complete time. This is due to
+     * differences in the clock settings of back-end servers that participate in the deployment process.
      * </p>
      * 
      * @param startTime
-     *        A timestamp that indicates when the deployment was deployed to the deployment group.</p>
+     *        A timestamp indicating when the deployment was deployed to the deployment group.</p>
      *        <p>
-     *        In some cases, the reported value of the start time might be later than the complete time. This is due to
-     *        differences in the clock settings of backend servers that participate in the deployment process.
+     *        In some cases, the reported value of the start time may be later than the complete time. This is due to
+     *        differences in the clock settings of back-end servers that participate in the deployment process.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -708,11 +708,11 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A timestamp that indicates when the deployment was complete.
+     * A timestamp indicating when the deployment was complete.
      * </p>
      * 
      * @param completeTime
-     *        A timestamp that indicates when the deployment was complete.
+     *        A timestamp indicating when the deployment was complete.
      */
 
     public void setCompleteTime(java.util.Date completeTime) {
@@ -721,10 +721,10 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A timestamp that indicates when the deployment was complete.
+     * A timestamp indicating when the deployment was complete.
      * </p>
      * 
-     * @return A timestamp that indicates when the deployment was complete.
+     * @return A timestamp indicating when the deployment was complete.
      */
 
     public java.util.Date getCompleteTime() {
@@ -733,11 +733,11 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A timestamp that indicates when the deployment was complete.
+     * A timestamp indicating when the deployment was complete.
      * </p>
      * 
      * @param completeTime
-     *        A timestamp that indicates when the deployment was complete.
+     *        A timestamp indicating when the deployment was complete.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -838,7 +838,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * autoscaling: Amazon EC2 Auto Scaling created the deployment.
+     * autoscaling: Auto Scaling created the deployment.
      * </p>
      * </li>
      * <li>
@@ -858,7 +858,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        autoscaling: Amazon EC2 Auto Scaling created the deployment.
+     *        autoscaling: Auto Scaling created the deployment.
      *        </p>
      *        </li>
      *        <li>
@@ -885,7 +885,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * autoscaling: Amazon EC2 Auto Scaling created the deployment.
+     * autoscaling: Auto Scaling created the deployment.
      * </p>
      * </li>
      * <li>
@@ -904,7 +904,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
      *         </li>
      *         <li>
      *         <p>
-     *         autoscaling: Amazon EC2 Auto Scaling created the deployment.
+     *         autoscaling: Auto Scaling created the deployment.
      *         </p>
      *         </li>
      *         <li>
@@ -931,7 +931,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * autoscaling: Amazon EC2 Auto Scaling created the deployment.
+     * autoscaling: Auto Scaling created the deployment.
      * </p>
      * </li>
      * <li>
@@ -951,7 +951,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        autoscaling: Amazon EC2 Auto Scaling created the deployment.
+     *        autoscaling: Auto Scaling created the deployment.
      *        </p>
      *        </li>
      *        <li>
@@ -980,7 +980,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * autoscaling: Amazon EC2 Auto Scaling created the deployment.
+     * autoscaling: Auto Scaling created the deployment.
      * </p>
      * </li>
      * <li>
@@ -1000,7 +1000,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        autoscaling: Amazon EC2 Auto Scaling created the deployment.
+     *        autoscaling: Auto Scaling created the deployment.
      *        </p>
      *        </li>
      *        <li>
@@ -1027,7 +1027,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * autoscaling: Amazon EC2 Auto Scaling created the deployment.
+     * autoscaling: Auto Scaling created the deployment.
      * </p>
      * </li>
      * <li>
@@ -1047,7 +1047,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        autoscaling: Amazon EC2 Auto Scaling created the deployment.
+     *        autoscaling: Auto Scaling created the deployment.
      *        </p>
      *        </li>
      *        <li>
@@ -1067,23 +1067,23 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the
-     * deployment to that instance is not considered to have failed at that point and continues on to the BeforeInstall
-     * deployment lifecycle event.
+     * deployment to that instance will not be considered to have failed at that point and will continue on to the
+     * BeforeInstall deployment lifecycle event.
      * </p>
      * <p>
      * If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to an
-     * instance to fail, the deployment to that instance stops, and the deployment to that instance is considered to
-     * have failed.
+     * instance to fail, the deployment to that instance will stop, and the deployment to that instance will be
+     * considered to have failed.
      * </p>
      * 
      * @param ignoreApplicationStopFailures
      *        If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to
-     *        fail, the deployment to that instance is not considered to have failed at that point and continues on to
-     *        the BeforeInstall deployment lifecycle event.</p>
+     *        fail, the deployment to that instance will not be considered to have failed at that point and will
+     *        continue on to the BeforeInstall deployment lifecycle event.</p>
      *        <p>
      *        If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to
-     *        an instance to fail, the deployment to that instance stops, and the deployment to that instance is
-     *        considered to have failed.
+     *        an instance to fail, the deployment to that instance will stop, and the deployment to that instance will
+     *        be considered to have failed.
      */
 
     public void setIgnoreApplicationStopFailures(Boolean ignoreApplicationStopFailures) {
@@ -1093,22 +1093,22 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the
-     * deployment to that instance is not considered to have failed at that point and continues on to the BeforeInstall
-     * deployment lifecycle event.
+     * deployment to that instance will not be considered to have failed at that point and will continue on to the
+     * BeforeInstall deployment lifecycle event.
      * </p>
      * <p>
      * If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to an
-     * instance to fail, the deployment to that instance stops, and the deployment to that instance is considered to
-     * have failed.
+     * instance to fail, the deployment to that instance will stop, and the deployment to that instance will be
+     * considered to have failed.
      * </p>
      * 
      * @return If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to
-     *         fail, the deployment to that instance is not considered to have failed at that point and continues on to
-     *         the BeforeInstall deployment lifecycle event.</p>
+     *         fail, the deployment to that instance will not be considered to have failed at that point and will
+     *         continue on to the BeforeInstall deployment lifecycle event.</p>
      *         <p>
      *         If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event
-     *         to an instance to fail, the deployment to that instance stops, and the deployment to that instance is
-     *         considered to have failed.
+     *         to an instance to fail, the deployment to that instance will stop, and the deployment to that instance
+     *         will be considered to have failed.
      */
 
     public Boolean getIgnoreApplicationStopFailures() {
@@ -1118,23 +1118,23 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the
-     * deployment to that instance is not considered to have failed at that point and continues on to the BeforeInstall
-     * deployment lifecycle event.
+     * deployment to that instance will not be considered to have failed at that point and will continue on to the
+     * BeforeInstall deployment lifecycle event.
      * </p>
      * <p>
      * If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to an
-     * instance to fail, the deployment to that instance stops, and the deployment to that instance is considered to
-     * have failed.
+     * instance to fail, the deployment to that instance will stop, and the deployment to that instance will be
+     * considered to have failed.
      * </p>
      * 
      * @param ignoreApplicationStopFailures
      *        If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to
-     *        fail, the deployment to that instance is not considered to have failed at that point and continues on to
-     *        the BeforeInstall deployment lifecycle event.</p>
+     *        fail, the deployment to that instance will not be considered to have failed at that point and will
+     *        continue on to the BeforeInstall deployment lifecycle event.</p>
      *        <p>
      *        If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to
-     *        an instance to fail, the deployment to that instance stops, and the deployment to that instance is
-     *        considered to have failed.
+     *        an instance to fail, the deployment to that instance will stop, and the deployment to that instance will
+     *        be considered to have failed.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1146,22 +1146,22 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the
-     * deployment to that instance is not considered to have failed at that point and continues on to the BeforeInstall
-     * deployment lifecycle event.
+     * deployment to that instance will not be considered to have failed at that point and will continue on to the
+     * BeforeInstall deployment lifecycle event.
      * </p>
      * <p>
      * If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to an
-     * instance to fail, the deployment to that instance stops, and the deployment to that instance is considered to
-     * have failed.
+     * instance to fail, the deployment to that instance will stop, and the deployment to that instance will be
+     * considered to have failed.
      * </p>
      * 
      * @return If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to
-     *         fail, the deployment to that instance is not considered to have failed at that point and continues on to
-     *         the BeforeInstall deployment lifecycle event.</p>
+     *         fail, the deployment to that instance will not be considered to have failed at that point and will
+     *         continue on to the BeforeInstall deployment lifecycle event.</p>
      *         <p>
      *         If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event
-     *         to an instance to fail, the deployment to that instance stops, and the deployment to that instance is
-     *         considered to have failed.
+     *         to an instance to fail, the deployment to that instance will stop, and the deployment to that instance
+     *         will be considered to have failed.
      */
 
     public Boolean isIgnoreApplicationStopFailures() {
@@ -1393,13 +1393,13 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Indicates whether the wait period set for the termination of instances in the original environment has started.
-     * Status is 'false' if the KEEP_ALIVE option is specified. Otherwise, 'true' as soon as the termination wait period
+     * Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the termination wait period
      * starts.
      * </p>
      * 
      * @param instanceTerminationWaitTimeStarted
      *        Indicates whether the wait period set for the termination of instances in the original environment has
-     *        started. Status is 'false' if the KEEP_ALIVE option is specified. Otherwise, 'true' as soon as the
+     *        started. Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the
      *        termination wait period starts.
      */
 
@@ -1410,12 +1410,12 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Indicates whether the wait period set for the termination of instances in the original environment has started.
-     * Status is 'false' if the KEEP_ALIVE option is specified. Otherwise, 'true' as soon as the termination wait period
+     * Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the termination wait period
      * starts.
      * </p>
      * 
      * @return Indicates whether the wait period set for the termination of instances in the original environment has
-     *         started. Status is 'false' if the KEEP_ALIVE option is specified. Otherwise, 'true' as soon as the
+     *         started. Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the
      *         termination wait period starts.
      */
 
@@ -1426,13 +1426,13 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Indicates whether the wait period set for the termination of instances in the original environment has started.
-     * Status is 'false' if the KEEP_ALIVE option is specified. Otherwise, 'true' as soon as the termination wait period
+     * Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the termination wait period
      * starts.
      * </p>
      * 
      * @param instanceTerminationWaitTimeStarted
      *        Indicates whether the wait period set for the termination of instances in the original environment has
-     *        started. Status is 'false' if the KEEP_ALIVE option is specified. Otherwise, 'true' as soon as the
+     *        started. Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the
      *        termination wait period starts.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -1445,12 +1445,12 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Indicates whether the wait period set for the termination of instances in the original environment has started.
-     * Status is 'false' if the KEEP_ALIVE option is specified. Otherwise, 'true' as soon as the termination wait period
+     * Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the termination wait period
      * starts.
      * </p>
      * 
      * @return Indicates whether the wait period set for the termination of instances in the original environment has
-     *         started. Status is 'false' if the KEEP_ALIVE option is specified. Otherwise, 'true' as soon as the
+     *         started. Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the
      *         termination wait period starts.
      */
 
@@ -1989,8 +1989,7 @@ public class DeploymentInfo implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

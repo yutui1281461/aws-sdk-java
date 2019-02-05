@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -43,9 +43,8 @@ public class PatchRule implements Serializable, Cloneable, StructuredPojo {
     private String complianceLevel;
     /**
      * <p>
-     * The number of days after the release date of each patch matched by the rule that the patch is marked as approved
-     * in the patch baseline. For example, a value of <code>7</code> means that patches are approved seven days after
-     * they are released.
+     * The number of days after the release date of each patch matched by the rule the patch is marked as approved in
+     * the patch baseline.
      * </p>
      */
     private Integer approveAfterDays;
@@ -182,15 +181,13 @@ public class PatchRule implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The number of days after the release date of each patch matched by the rule that the patch is marked as approved
-     * in the patch baseline. For example, a value of <code>7</code> means that patches are approved seven days after
-     * they are released.
+     * The number of days after the release date of each patch matched by the rule the patch is marked as approved in
+     * the patch baseline.
      * </p>
      * 
      * @param approveAfterDays
-     *        The number of days after the release date of each patch matched by the rule that the patch is marked as
-     *        approved in the patch baseline. For example, a value of <code>7</code> means that patches are approved
-     *        seven days after they are released.
+     *        The number of days after the release date of each patch matched by the rule the patch is marked as
+     *        approved in the patch baseline.
      */
 
     public void setApproveAfterDays(Integer approveAfterDays) {
@@ -199,14 +196,12 @@ public class PatchRule implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The number of days after the release date of each patch matched by the rule that the patch is marked as approved
-     * in the patch baseline. For example, a value of <code>7</code> means that patches are approved seven days after
-     * they are released.
+     * The number of days after the release date of each patch matched by the rule the patch is marked as approved in
+     * the patch baseline.
      * </p>
      * 
-     * @return The number of days after the release date of each patch matched by the rule that the patch is marked as
-     *         approved in the patch baseline. For example, a value of <code>7</code> means that patches are approved
-     *         seven days after they are released.
+     * @return The number of days after the release date of each patch matched by the rule the patch is marked as
+     *         approved in the patch baseline.
      */
 
     public Integer getApproveAfterDays() {
@@ -215,15 +210,13 @@ public class PatchRule implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The number of days after the release date of each patch matched by the rule that the patch is marked as approved
-     * in the patch baseline. For example, a value of <code>7</code> means that patches are approved seven days after
-     * they are released.
+     * The number of days after the release date of each patch matched by the rule the patch is marked as approved in
+     * the patch baseline.
      * </p>
      * 
      * @param approveAfterDays
-     *        The number of days after the release date of each patch matched by the rule that the patch is marked as
-     *        approved in the patch baseline. For example, a value of <code>7</code> means that patches are approved
-     *        seven days after they are released.
+     *        The number of days after the release date of each patch matched by the rule the patch is marked as
+     *        approved in the patch baseline.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -297,8 +290,7 @@ public class PatchRule implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

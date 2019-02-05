@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,6 +18,7 @@ import javax.annotation.Generated;
 import com.amazonaws.AmazonWebServiceRequest;
 
 /**
+ * <p/>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListFunctions" target="_top">AWS API
  *      Documentation</a>
@@ -27,39 +28,78 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * For Lambda@Edge functions, the region of the master function. For example, <code>us-east-2</code> or
-     * <code>ALL</code>. If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.
+     * Optional string. If not specified, will return only regular function versions (i.e., non-replicated versions).
+     * </p>
+     * <p>
+     * Valid values are:
+     * </p>
+     * <p>
+     * The region from which the functions are replicated. For example, if you specify <code>us-east-1</code>, only
+     * functions replicated from that region will be returned.
+     * </p>
+     * <p>
+     * <code>ALL</code>: Will return all functions from any region. If specified, you also must specify a valid
+     * FunctionVersion parameter.
      * </p>
      */
     private String masterRegion;
     /**
      * <p>
-     * Set to <code>ALL</code> to include entries for all published versions of each function.
+     * Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be returned.
+     * </p>
+     * <p>
+     * Valid value:
+     * </p>
+     * <p>
+     * <code>ALL</code>: Will return all versions, including <code>$LATEST</code> which will have fully qualified ARNs
+     * (Amazon Resource Names).
      * </p>
      */
     private String functionVersion;
     /**
      * <p>
-     * Specify the pagination token returned by a previous request to retrieve the next page of results.
+     * Optional string. An opaque pagination token returned from a previous <code>ListFunctions</code> operation. If
+     * present, indicates where to continue the listing.
      * </p>
      */
     private String marker;
     /**
      * <p>
-     * Specify a value between 1 and 50 to limit the number of functions in the response.
+     * Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This parameter
+     * value must be greater than 0.
      * </p>
      */
     private Integer maxItems;
 
     /**
      * <p>
-     * For Lambda@Edge functions, the region of the master function. For example, <code>us-east-2</code> or
-     * <code>ALL</code>. If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.
+     * Optional string. If not specified, will return only regular function versions (i.e., non-replicated versions).
+     * </p>
+     * <p>
+     * Valid values are:
+     * </p>
+     * <p>
+     * The region from which the functions are replicated. For example, if you specify <code>us-east-1</code>, only
+     * functions replicated from that region will be returned.
+     * </p>
+     * <p>
+     * <code>ALL</code>: Will return all functions from any region. If specified, you also must specify a valid
+     * FunctionVersion parameter.
      * </p>
      * 
      * @param masterRegion
-     *        For Lambda@Edge functions, the region of the master function. For example, <code>us-east-2</code> or
-     *        <code>ALL</code>. If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.
+     *        Optional string. If not specified, will return only regular function versions (i.e., non-replicated
+     *        versions).</p>
+     *        <p>
+     *        Valid values are:
+     *        </p>
+     *        <p>
+     *        The region from which the functions are replicated. For example, if you specify <code>us-east-1</code>,
+     *        only functions replicated from that region will be returned.
+     *        </p>
+     *        <p>
+     *        <code>ALL</code>: Will return all functions from any region. If specified, you also must specify a valid
+     *        FunctionVersion parameter.
      */
 
     public void setMasterRegion(String masterRegion) {
@@ -68,12 +108,32 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * For Lambda@Edge functions, the region of the master function. For example, <code>us-east-2</code> or
-     * <code>ALL</code>. If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.
+     * Optional string. If not specified, will return only regular function versions (i.e., non-replicated versions).
+     * </p>
+     * <p>
+     * Valid values are:
+     * </p>
+     * <p>
+     * The region from which the functions are replicated. For example, if you specify <code>us-east-1</code>, only
+     * functions replicated from that region will be returned.
+     * </p>
+     * <p>
+     * <code>ALL</code>: Will return all functions from any region. If specified, you also must specify a valid
+     * FunctionVersion parameter.
      * </p>
      * 
-     * @return For Lambda@Edge functions, the region of the master function. For example, <code>us-east-2</code> or
-     *         <code>ALL</code>. If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.
+     * @return Optional string. If not specified, will return only regular function versions (i.e., non-replicated
+     *         versions).</p>
+     *         <p>
+     *         Valid values are:
+     *         </p>
+     *         <p>
+     *         The region from which the functions are replicated. For example, if you specify <code>us-east-1</code>,
+     *         only functions replicated from that region will be returned.
+     *         </p>
+     *         <p>
+     *         <code>ALL</code>: Will return all functions from any region. If specified, you also must specify a valid
+     *         FunctionVersion parameter.
      */
 
     public String getMasterRegion() {
@@ -82,13 +142,33 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * For Lambda@Edge functions, the region of the master function. For example, <code>us-east-2</code> or
-     * <code>ALL</code>. If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.
+     * Optional string. If not specified, will return only regular function versions (i.e., non-replicated versions).
+     * </p>
+     * <p>
+     * Valid values are:
+     * </p>
+     * <p>
+     * The region from which the functions are replicated. For example, if you specify <code>us-east-1</code>, only
+     * functions replicated from that region will be returned.
+     * </p>
+     * <p>
+     * <code>ALL</code>: Will return all functions from any region. If specified, you also must specify a valid
+     * FunctionVersion parameter.
      * </p>
      * 
      * @param masterRegion
-     *        For Lambda@Edge functions, the region of the master function. For example, <code>us-east-2</code> or
-     *        <code>ALL</code>. If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.
+     *        Optional string. If not specified, will return only regular function versions (i.e., non-replicated
+     *        versions).</p>
+     *        <p>
+     *        Valid values are:
+     *        </p>
+     *        <p>
+     *        The region from which the functions are replicated. For example, if you specify <code>us-east-1</code>,
+     *        only functions replicated from that region will be returned.
+     *        </p>
+     *        <p>
+     *        <code>ALL</code>: Will return all functions from any region. If specified, you also must specify a valid
+     *        FunctionVersion parameter.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -99,11 +179,25 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Set to <code>ALL</code> to include entries for all published versions of each function.
+     * Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be returned.
+     * </p>
+     * <p>
+     * Valid value:
+     * </p>
+     * <p>
+     * <code>ALL</code>: Will return all versions, including <code>$LATEST</code> which will have fully qualified ARNs
+     * (Amazon Resource Names).
      * </p>
      * 
      * @param functionVersion
-     *        Set to <code>ALL</code> to include entries for all published versions of each function.
+     *        Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be
+     *        returned.</p>
+     *        <p>
+     *        Valid value:
+     *        </p>
+     *        <p>
+     *        <code>ALL</code>: Will return all versions, including <code>$LATEST</code> which will have fully qualified
+     *        ARNs (Amazon Resource Names).
      * @see FunctionVersion
      */
 
@@ -113,10 +207,24 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Set to <code>ALL</code> to include entries for all published versions of each function.
+     * Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be returned.
+     * </p>
+     * <p>
+     * Valid value:
+     * </p>
+     * <p>
+     * <code>ALL</code>: Will return all versions, including <code>$LATEST</code> which will have fully qualified ARNs
+     * (Amazon Resource Names).
      * </p>
      * 
-     * @return Set to <code>ALL</code> to include entries for all published versions of each function.
+     * @return Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be
+     *         returned.</p>
+     *         <p>
+     *         Valid value:
+     *         </p>
+     *         <p>
+     *         <code>ALL</code>: Will return all versions, including <code>$LATEST</code> which will have fully
+     *         qualified ARNs (Amazon Resource Names).
      * @see FunctionVersion
      */
 
@@ -126,11 +234,25 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Set to <code>ALL</code> to include entries for all published versions of each function.
+     * Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be returned.
+     * </p>
+     * <p>
+     * Valid value:
+     * </p>
+     * <p>
+     * <code>ALL</code>: Will return all versions, including <code>$LATEST</code> which will have fully qualified ARNs
+     * (Amazon Resource Names).
      * </p>
      * 
      * @param functionVersion
-     *        Set to <code>ALL</code> to include entries for all published versions of each function.
+     *        Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be
+     *        returned.</p>
+     *        <p>
+     *        Valid value:
+     *        </p>
+     *        <p>
+     *        <code>ALL</code>: Will return all versions, including <code>$LATEST</code> which will have fully qualified
+     *        ARNs (Amazon Resource Names).
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see FunctionVersion
      */
@@ -142,11 +264,25 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Set to <code>ALL</code> to include entries for all published versions of each function.
+     * Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be returned.
+     * </p>
+     * <p>
+     * Valid value:
+     * </p>
+     * <p>
+     * <code>ALL</code>: Will return all versions, including <code>$LATEST</code> which will have fully qualified ARNs
+     * (Amazon Resource Names).
      * </p>
      * 
      * @param functionVersion
-     *        Set to <code>ALL</code> to include entries for all published versions of each function.
+     *        Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be
+     *        returned.</p>
+     *        <p>
+     *        Valid value:
+     *        </p>
+     *        <p>
+     *        <code>ALL</code>: Will return all versions, including <code>$LATEST</code> which will have fully qualified
+     *        ARNs (Amazon Resource Names).
      * @see FunctionVersion
      */
 
@@ -156,11 +292,25 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Set to <code>ALL</code> to include entries for all published versions of each function.
+     * Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be returned.
+     * </p>
+     * <p>
+     * Valid value:
+     * </p>
+     * <p>
+     * <code>ALL</code>: Will return all versions, including <code>$LATEST</code> which will have fully qualified ARNs
+     * (Amazon Resource Names).
      * </p>
      * 
      * @param functionVersion
-     *        Set to <code>ALL</code> to include entries for all published versions of each function.
+     *        Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be
+     *        returned.</p>
+     *        <p>
+     *        Valid value:
+     *        </p>
+     *        <p>
+     *        <code>ALL</code>: Will return all versions, including <code>$LATEST</code> which will have fully qualified
+     *        ARNs (Amazon Resource Names).
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see FunctionVersion
      */
@@ -172,11 +322,13 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Specify the pagination token returned by a previous request to retrieve the next page of results.
+     * Optional string. An opaque pagination token returned from a previous <code>ListFunctions</code> operation. If
+     * present, indicates where to continue the listing.
      * </p>
      * 
      * @param marker
-     *        Specify the pagination token returned by a previous request to retrieve the next page of results.
+     *        Optional string. An opaque pagination token returned from a previous <code>ListFunctions</code> operation.
+     *        If present, indicates where to continue the listing.
      */
 
     public void setMarker(String marker) {
@@ -185,10 +337,12 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Specify the pagination token returned by a previous request to retrieve the next page of results.
+     * Optional string. An opaque pagination token returned from a previous <code>ListFunctions</code> operation. If
+     * present, indicates where to continue the listing.
      * </p>
      * 
-     * @return Specify the pagination token returned by a previous request to retrieve the next page of results.
+     * @return Optional string. An opaque pagination token returned from a previous <code>ListFunctions</code>
+     *         operation. If present, indicates where to continue the listing.
      */
 
     public String getMarker() {
@@ -197,11 +351,13 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Specify the pagination token returned by a previous request to retrieve the next page of results.
+     * Optional string. An opaque pagination token returned from a previous <code>ListFunctions</code> operation. If
+     * present, indicates where to continue the listing.
      * </p>
      * 
      * @param marker
-     *        Specify the pagination token returned by a previous request to retrieve the next page of results.
+     *        Optional string. An opaque pagination token returned from a previous <code>ListFunctions</code> operation.
+     *        If present, indicates where to continue the listing.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -212,11 +368,13 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Specify a value between 1 and 50 to limit the number of functions in the response.
+     * Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This parameter
+     * value must be greater than 0.
      * </p>
      * 
      * @param maxItems
-     *        Specify a value between 1 and 50 to limit the number of functions in the response.
+     *        Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This
+     *        parameter value must be greater than 0.
      */
 
     public void setMaxItems(Integer maxItems) {
@@ -225,10 +383,12 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Specify a value between 1 and 50 to limit the number of functions in the response.
+     * Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This parameter
+     * value must be greater than 0.
      * </p>
      * 
-     * @return Specify a value between 1 and 50 to limit the number of functions in the response.
+     * @return Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This
+     *         parameter value must be greater than 0.
      */
 
     public Integer getMaxItems() {
@@ -237,11 +397,13 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * Specify a value between 1 and 50 to limit the number of functions in the response.
+     * Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This parameter
+     * value must be greater than 0.
      * </p>
      * 
      * @param maxItems
-     *        Specify a value between 1 and 50 to limit the number of functions in the response.
+     *        Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This
+     *        parameter value must be greater than 0.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -251,8 +413,7 @@ public class ListFunctionsRequest extends com.amazonaws.AmazonWebServiceRequest 
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

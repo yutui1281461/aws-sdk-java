@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,7 +18,7 @@ import com.amazonaws.protocol.StructuredPojo;
 import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
- * Demographic information about the endpoint.
+ * Endpoint demographic data
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/EndpointDemographic" target="_top">AWS API
  *      Documentation</a>
@@ -33,15 +33,15 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
      * an ISO 3166-1 alpha-2 value.
      */
     private String locale;
-    /** The manufacturer of the endpoint device, such as Apple or Samsung. */
+    /** The endpoint make, such as such as Apple or Samsung. */
     private String make;
-    /** The model name or number of the endpoint device, such as iPhone. */
+    /** The endpoint model, such as iPhone. */
     private String model;
-    /** The model version of the endpoint device. */
+    /** The endpoint model version. */
     private String modelVersion;
-    /** The platform of the endpoint device, such as iOS or Android. */
+    /** The endpoint platform, such as ios or android. */
     private String platform;
-    /** The platform version of the endpoint device. */
+    /** The endpoint platform version. */
     private String platformVersion;
     /** The timezone of the endpoint. Specified as a tz database value, such as Americas/Los_Angeles. */
     private String timezone;
@@ -121,10 +121,10 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The manufacturer of the endpoint device, such as Apple or Samsung.
+     * The endpoint make, such as such as Apple or Samsung.
      * 
      * @param make
-     *        The manufacturer of the endpoint device, such as Apple or Samsung.
+     *        The endpoint make, such as such as Apple or Samsung.
      */
 
     public void setMake(String make) {
@@ -132,9 +132,9 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The manufacturer of the endpoint device, such as Apple or Samsung.
+     * The endpoint make, such as such as Apple or Samsung.
      * 
-     * @return The manufacturer of the endpoint device, such as Apple or Samsung.
+     * @return The endpoint make, such as such as Apple or Samsung.
      */
 
     public String getMake() {
@@ -142,10 +142,10 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The manufacturer of the endpoint device, such as Apple or Samsung.
+     * The endpoint make, such as such as Apple or Samsung.
      * 
      * @param make
-     *        The manufacturer of the endpoint device, such as Apple or Samsung.
+     *        The endpoint make, such as such as Apple or Samsung.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -155,10 +155,10 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The model name or number of the endpoint device, such as iPhone.
+     * The endpoint model, such as iPhone.
      * 
      * @param model
-     *        The model name or number of the endpoint device, such as iPhone.
+     *        The endpoint model, such as iPhone.
      */
 
     public void setModel(String model) {
@@ -166,9 +166,9 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The model name or number of the endpoint device, such as iPhone.
+     * The endpoint model, such as iPhone.
      * 
-     * @return The model name or number of the endpoint device, such as iPhone.
+     * @return The endpoint model, such as iPhone.
      */
 
     public String getModel() {
@@ -176,10 +176,10 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The model name or number of the endpoint device, such as iPhone.
+     * The endpoint model, such as iPhone.
      * 
      * @param model
-     *        The model name or number of the endpoint device, such as iPhone.
+     *        The endpoint model, such as iPhone.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -189,10 +189,10 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The model version of the endpoint device.
+     * The endpoint model version.
      * 
      * @param modelVersion
-     *        The model version of the endpoint device.
+     *        The endpoint model version.
      */
 
     public void setModelVersion(String modelVersion) {
@@ -200,9 +200,9 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The model version of the endpoint device.
+     * The endpoint model version.
      * 
-     * @return The model version of the endpoint device.
+     * @return The endpoint model version.
      */
 
     public String getModelVersion() {
@@ -210,10 +210,10 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The model version of the endpoint device.
+     * The endpoint model version.
      * 
      * @param modelVersion
-     *        The model version of the endpoint device.
+     *        The endpoint model version.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -223,10 +223,10 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The platform of the endpoint device, such as iOS or Android.
+     * The endpoint platform, such as ios or android.
      * 
      * @param platform
-     *        The platform of the endpoint device, such as iOS or Android.
+     *        The endpoint platform, such as ios or android.
      */
 
     public void setPlatform(String platform) {
@@ -234,9 +234,9 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The platform of the endpoint device, such as iOS or Android.
+     * The endpoint platform, such as ios or android.
      * 
-     * @return The platform of the endpoint device, such as iOS or Android.
+     * @return The endpoint platform, such as ios or android.
      */
 
     public String getPlatform() {
@@ -244,10 +244,10 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The platform of the endpoint device, such as iOS or Android.
+     * The endpoint platform, such as ios or android.
      * 
      * @param platform
-     *        The platform of the endpoint device, such as iOS or Android.
+     *        The endpoint platform, such as ios or android.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -257,10 +257,10 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The platform version of the endpoint device.
+     * The endpoint platform version.
      * 
      * @param platformVersion
-     *        The platform version of the endpoint device.
+     *        The endpoint platform version.
      */
 
     public void setPlatformVersion(String platformVersion) {
@@ -268,9 +268,9 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The platform version of the endpoint device.
+     * The endpoint platform version.
      * 
-     * @return The platform version of the endpoint device.
+     * @return The endpoint platform version.
      */
 
     public String getPlatformVersion() {
@@ -278,10 +278,10 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The platform version of the endpoint device.
+     * The endpoint platform version.
      * 
      * @param platformVersion
-     *        The platform version of the endpoint device.
+     *        The endpoint platform version.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -325,8 +325,7 @@ public class EndpointDemographic implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

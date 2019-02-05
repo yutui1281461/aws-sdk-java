@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -63,11 +63,13 @@ public interface AmazonMQAsync extends AmazonMQ {
 
     /**
      * Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the
-     * engine type and version).
+     * engine type and version). Note: If the configuration name already exists, Amazon MQ doesn't create a
+     * configuration.
      * 
      * @param createConfigurationRequest
      *        Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration
-     *        (the engine type and version).
+     *        (the engine type and version). Note: If the configuration name already exists, Amazon MQ doesn't create a
+     *        configuration.
      * @return A Java Future containing the result of the CreateConfiguration operation returned by the service.
      * @sample AmazonMQAsync.CreateConfiguration
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mq-2017-11-27/CreateConfiguration" target="_top">AWS API
@@ -77,11 +79,13 @@ public interface AmazonMQAsync extends AmazonMQ {
 
     /**
      * Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the
-     * engine type and version).
+     * engine type and version). Note: If the configuration name already exists, Amazon MQ doesn't create a
+     * configuration.
      * 
      * @param createConfigurationRequest
      *        Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration
-     *        (the engine type and version).
+     *        (the engine type and version). Note: If the configuration name already exists, Amazon MQ doesn't create a
+     *        configuration.
      * @param asyncHandler
      *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
      *        implementation of the callback methods in this interface to receive notification of successful or
@@ -93,35 +97,6 @@ public interface AmazonMQAsync extends AmazonMQ {
      */
     java.util.concurrent.Future<CreateConfigurationResult> createConfigurationAsync(CreateConfigurationRequest createConfigurationRequest,
             com.amazonaws.handlers.AsyncHandler<CreateConfigurationRequest, CreateConfigurationResult> asyncHandler);
-
-    /**
-     * Add a tag to a resource.
-     * 
-     * @param createTagsRequest
-     *        A map of the key-value pairs for the resource tag.
-     * @return A Java Future containing the result of the CreateTags operation returned by the service.
-     * @sample AmazonMQAsync.CreateTags
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mq-2017-11-27/CreateTags" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<CreateTagsResult> createTagsAsync(CreateTagsRequest createTagsRequest);
-
-    /**
-     * Add a tag to a resource.
-     * 
-     * @param createTagsRequest
-     *        A map of the key-value pairs for the resource tag.
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the CreateTags operation returned by the service.
-     * @sample AmazonMQAsyncHandler.CreateTags
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mq-2017-11-27/CreateTags" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<CreateTagsResult> createTagsAsync(CreateTagsRequest createTagsRequest,
-            com.amazonaws.handlers.AsyncHandler<CreateTagsRequest, CreateTagsResult> asyncHandler);
 
     /**
      * Creates an ActiveMQ user.
@@ -178,33 +153,6 @@ public interface AmazonMQAsync extends AmazonMQ {
      */
     java.util.concurrent.Future<DeleteBrokerResult> deleteBrokerAsync(DeleteBrokerRequest deleteBrokerRequest,
             com.amazonaws.handlers.AsyncHandler<DeleteBrokerRequest, DeleteBrokerResult> asyncHandler);
-
-    /**
-     * Remove a tag from a resource.
-     * 
-     * @param deleteTagsRequest
-     * @return A Java Future containing the result of the DeleteTags operation returned by the service.
-     * @sample AmazonMQAsync.DeleteTags
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mq-2017-11-27/DeleteTags" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<DeleteTagsResult> deleteTagsAsync(DeleteTagsRequest deleteTagsRequest);
-
-    /**
-     * Remove a tag from a resource.
-     * 
-     * @param deleteTagsRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the DeleteTags operation returned by the service.
-     * @sample AmazonMQAsyncHandler.DeleteTags
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mq-2017-11-27/DeleteTags" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<DeleteTagsResult> deleteTagsAsync(DeleteTagsRequest deleteTagsRequest,
-            com.amazonaws.handlers.AsyncHandler<DeleteTagsRequest, DeleteTagsResult> asyncHandler);
 
     /**
      * Deletes an ActiveMQ user.
@@ -427,33 +375,6 @@ public interface AmazonMQAsync extends AmazonMQ {
      */
     java.util.concurrent.Future<ListConfigurationsResult> listConfigurationsAsync(ListConfigurationsRequest listConfigurationsRequest,
             com.amazonaws.handlers.AsyncHandler<ListConfigurationsRequest, ListConfigurationsResult> asyncHandler);
-
-    /**
-     * Lists tags for a resource.
-     * 
-     * @param listTagsRequest
-     * @return A Java Future containing the result of the ListTags operation returned by the service.
-     * @sample AmazonMQAsync.ListTags
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mq-2017-11-27/ListTags" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<ListTagsResult> listTagsAsync(ListTagsRequest listTagsRequest);
-
-    /**
-     * Lists tags for a resource.
-     * 
-     * @param listTagsRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the ListTags operation returned by the service.
-     * @sample AmazonMQAsyncHandler.ListTags
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mq-2017-11-27/ListTags" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<ListTagsResult> listTagsAsync(ListTagsRequest listTagsRequest,
-            com.amazonaws.handlers.AsyncHandler<ListTagsRequest, ListTagsResult> asyncHandler);
 
     /**
      * Returns a list of all ActiveMQ users.

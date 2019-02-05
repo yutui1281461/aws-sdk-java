@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -115,16 +115,12 @@ public class JobRun implements Serializable, Cloneable, StructuredPojo {
     private java.util.List<Predecessor> predecessorRuns;
     /**
      * <p>
-     * This field is deprecated, use <code>MaxCapacity</code> instead.
-     * </p>
-     * <p>
      * The number of AWS Glue data processing units (DPUs) allocated to this JobRun. From 2 to 100 DPUs can be
      * allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute
      * capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
      * Glue pricing page</a>.
      * </p>
      */
-    @Deprecated
     private Integer allocatedCapacity;
     /**
      * <p>
@@ -134,42 +130,10 @@ public class JobRun implements Serializable, Cloneable, StructuredPojo {
     private Integer executionTime;
     /**
      * <p>
-     * The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is
-     * terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the
-     * timeout value set in the parent job.
+     * The job run timeout in minutes.
      * </p>
      */
     private Integer timeout;
-    /**
-     * <p>
-     * AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing as low
-     * as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any other way
-     * cannot have fractional DPU allocations.
-     * </p>
-     */
-    private Double maxCapacity;
-    /**
-     * <p>
-     * Specifies configuration properties of a job run notification.
-     * </p>
-     */
-    private NotificationProperty notificationProperty;
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure to be used with this job run.
-     * </p>
-     */
-    private String securityConfiguration;
-    /**
-     * <p>
-     * The name of the log group for secure logging, that can be server-side encrypted in CloudWatch using KMS. This
-     * name can be <code>/aws-glue/jobs/</code>, in which case the default encryption is <code>NONE</code>. If you add a
-     * role name and SecurityConfiguration name (in other words,
-     * <code>/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/</code>), then that security configuration will
-     * be used to encrypt the log group.
-     * </p>
-     */
-    private String logGroupName;
 
     /**
      * <p>
@@ -807,9 +771,6 @@ public class JobRun implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * This field is deprecated, use <code>MaxCapacity</code> instead.
-     * </p>
-     * <p>
      * The number of AWS Glue data processing units (DPUs) allocated to this JobRun. From 2 to 100 DPUs can be
      * allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute
      * capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
@@ -817,45 +778,35 @@ public class JobRun implements Serializable, Cloneable, StructuredPojo {
      * </p>
      * 
      * @param allocatedCapacity
-     *        This field is deprecated, use <code>MaxCapacity</code> instead.</p>
-     *        <p>
      *        The number of AWS Glue data processing units (DPUs) allocated to this JobRun. From 2 to 100 DPUs can be
      *        allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of
      *        compute capacity and 16 GB of memory. For more information, see the <a
      *        href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.
      */
-    @Deprecated
+
     public void setAllocatedCapacity(Integer allocatedCapacity) {
         this.allocatedCapacity = allocatedCapacity;
     }
 
     /**
      * <p>
-     * This field is deprecated, use <code>MaxCapacity</code> instead.
-     * </p>
-     * <p>
      * The number of AWS Glue data processing units (DPUs) allocated to this JobRun. From 2 to 100 DPUs can be
      * allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute
      * capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
      * Glue pricing page</a>.
      * </p>
      * 
-     * @return This field is deprecated, use <code>MaxCapacity</code> instead.</p>
-     *         <p>
-     *         The number of AWS Glue data processing units (DPUs) allocated to this JobRun. From 2 to 100 DPUs can be
+     * @return The number of AWS Glue data processing units (DPUs) allocated to this JobRun. From 2 to 100 DPUs can be
      *         allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of
      *         compute capacity and 16 GB of memory. For more information, see the <a
      *         href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.
      */
-    @Deprecated
+
     public Integer getAllocatedCapacity() {
         return this.allocatedCapacity;
     }
 
     /**
-     * <p>
-     * This field is deprecated, use <code>MaxCapacity</code> instead.
-     * </p>
      * <p>
      * The number of AWS Glue data processing units (DPUs) allocated to this JobRun. From 2 to 100 DPUs can be
      * allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute
@@ -864,15 +815,13 @@ public class JobRun implements Serializable, Cloneable, StructuredPojo {
      * </p>
      * 
      * @param allocatedCapacity
-     *        This field is deprecated, use <code>MaxCapacity</code> instead.</p>
-     *        <p>
      *        The number of AWS Glue data processing units (DPUs) allocated to this JobRun. From 2 to 100 DPUs can be
      *        allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of
      *        compute capacity and 16 GB of memory. For more information, see the <a
      *        href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
-    @Deprecated
+
     public JobRun withAllocatedCapacity(Integer allocatedCapacity) {
         setAllocatedCapacity(allocatedCapacity);
         return this;
@@ -920,15 +869,11 @@ public class JobRun implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is
-     * terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the
-     * timeout value set in the parent job.
+     * The job run timeout in minutes.
      * </p>
      * 
      * @param timeout
-     *        The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is
-     *        terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides
-     *        the timeout value set in the parent job.
+     *        The job run timeout in minutes.
      */
 
     public void setTimeout(Integer timeout) {
@@ -937,14 +882,10 @@ public class JobRun implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is
-     * terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the
-     * timeout value set in the parent job.
+     * The job run timeout in minutes.
      * </p>
      * 
-     * @return The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is
-     *         terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This
-     *         overrides the timeout value set in the parent job.
+     * @return The job run timeout in minutes.
      */
 
     public Integer getTimeout() {
@@ -953,15 +894,11 @@ public class JobRun implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is
-     * terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the
-     * timeout value set in the parent job.
+     * The job run timeout in minutes.
      * </p>
      * 
      * @param timeout
-     *        The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is
-     *        terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides
-     *        the timeout value set in the parent job.
+     *        The job run timeout in minutes.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -971,204 +908,7 @@ public class JobRun implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing as low
-     * as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any other way
-     * cannot have fractional DPU allocations.
-     * </p>
-     * 
-     * @param maxCapacity
-     *        AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing
-     *        as low as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any
-     *        other way cannot have fractional DPU allocations.
-     */
-
-    public void setMaxCapacity(Double maxCapacity) {
-        this.maxCapacity = maxCapacity;
-    }
-
-    /**
-     * <p>
-     * AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing as low
-     * as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any other way
-     * cannot have fractional DPU allocations.
-     * </p>
-     * 
-     * @return AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing
-     *         as low as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any
-     *         other way cannot have fractional DPU allocations.
-     */
-
-    public Double getMaxCapacity() {
-        return this.maxCapacity;
-    }
-
-    /**
-     * <p>
-     * AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing as low
-     * as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any other way
-     * cannot have fractional DPU allocations.
-     * </p>
-     * 
-     * @param maxCapacity
-     *        AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing
-     *        as low as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any
-     *        other way cannot have fractional DPU allocations.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public JobRun withMaxCapacity(Double maxCapacity) {
-        setMaxCapacity(maxCapacity);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Specifies configuration properties of a job run notification.
-     * </p>
-     * 
-     * @param notificationProperty
-     *        Specifies configuration properties of a job run notification.
-     */
-
-    public void setNotificationProperty(NotificationProperty notificationProperty) {
-        this.notificationProperty = notificationProperty;
-    }
-
-    /**
-     * <p>
-     * Specifies configuration properties of a job run notification.
-     * </p>
-     * 
-     * @return Specifies configuration properties of a job run notification.
-     */
-
-    public NotificationProperty getNotificationProperty() {
-        return this.notificationProperty;
-    }
-
-    /**
-     * <p>
-     * Specifies configuration properties of a job run notification.
-     * </p>
-     * 
-     * @param notificationProperty
-     *        Specifies configuration properties of a job run notification.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public JobRun withNotificationProperty(NotificationProperty notificationProperty) {
-        setNotificationProperty(notificationProperty);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure to be used with this job run.
-     * </p>
-     * 
-     * @param securityConfiguration
-     *        The name of the SecurityConfiguration structure to be used with this job run.
-     */
-
-    public void setSecurityConfiguration(String securityConfiguration) {
-        this.securityConfiguration = securityConfiguration;
-    }
-
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure to be used with this job run.
-     * </p>
-     * 
-     * @return The name of the SecurityConfiguration structure to be used with this job run.
-     */
-
-    public String getSecurityConfiguration() {
-        return this.securityConfiguration;
-    }
-
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure to be used with this job run.
-     * </p>
-     * 
-     * @param securityConfiguration
-     *        The name of the SecurityConfiguration structure to be used with this job run.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public JobRun withSecurityConfiguration(String securityConfiguration) {
-        setSecurityConfiguration(securityConfiguration);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The name of the log group for secure logging, that can be server-side encrypted in CloudWatch using KMS. This
-     * name can be <code>/aws-glue/jobs/</code>, in which case the default encryption is <code>NONE</code>. If you add a
-     * role name and SecurityConfiguration name (in other words,
-     * <code>/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/</code>), then that security configuration will
-     * be used to encrypt the log group.
-     * </p>
-     * 
-     * @param logGroupName
-     *        The name of the log group for secure logging, that can be server-side encrypted in CloudWatch using KMS.
-     *        This name can be <code>/aws-glue/jobs/</code>, in which case the default encryption is <code>NONE</code>.
-     *        If you add a role name and SecurityConfiguration name (in other words,
-     *        <code>/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/</code>), then that security configuration
-     *        will be used to encrypt the log group.
-     */
-
-    public void setLogGroupName(String logGroupName) {
-        this.logGroupName = logGroupName;
-    }
-
-    /**
-     * <p>
-     * The name of the log group for secure logging, that can be server-side encrypted in CloudWatch using KMS. This
-     * name can be <code>/aws-glue/jobs/</code>, in which case the default encryption is <code>NONE</code>. If you add a
-     * role name and SecurityConfiguration name (in other words,
-     * <code>/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/</code>), then that security configuration will
-     * be used to encrypt the log group.
-     * </p>
-     * 
-     * @return The name of the log group for secure logging, that can be server-side encrypted in CloudWatch using KMS.
-     *         This name can be <code>/aws-glue/jobs/</code>, in which case the default encryption is <code>NONE</code>.
-     *         If you add a role name and SecurityConfiguration name (in other words,
-     *         <code>/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/</code>), then that security
-     *         configuration will be used to encrypt the log group.
-     */
-
-    public String getLogGroupName() {
-        return this.logGroupName;
-    }
-
-    /**
-     * <p>
-     * The name of the log group for secure logging, that can be server-side encrypted in CloudWatch using KMS. This
-     * name can be <code>/aws-glue/jobs/</code>, in which case the default encryption is <code>NONE</code>. If you add a
-     * role name and SecurityConfiguration name (in other words,
-     * <code>/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/</code>), then that security configuration will
-     * be used to encrypt the log group.
-     * </p>
-     * 
-     * @param logGroupName
-     *        The name of the log group for secure logging, that can be server-side encrypted in CloudWatch using KMS.
-     *        This name can be <code>/aws-glue/jobs/</code>, in which case the default encryption is <code>NONE</code>.
-     *        If you add a role name and SecurityConfiguration name (in other words,
-     *        <code>/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/</code>), then that security configuration
-     *        will be used to encrypt the log group.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public JobRun withLogGroupName(String logGroupName) {
-        setLogGroupName(logGroupName);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1207,15 +947,7 @@ public class JobRun implements Serializable, Cloneable, StructuredPojo {
         if (getExecutionTime() != null)
             sb.append("ExecutionTime: ").append(getExecutionTime()).append(",");
         if (getTimeout() != null)
-            sb.append("Timeout: ").append(getTimeout()).append(",");
-        if (getMaxCapacity() != null)
-            sb.append("MaxCapacity: ").append(getMaxCapacity()).append(",");
-        if (getNotificationProperty() != null)
-            sb.append("NotificationProperty: ").append(getNotificationProperty()).append(",");
-        if (getSecurityConfiguration() != null)
-            sb.append("SecurityConfiguration: ").append(getSecurityConfiguration()).append(",");
-        if (getLogGroupName() != null)
-            sb.append("LogGroupName: ").append(getLogGroupName());
+            sb.append("Timeout: ").append(getTimeout());
         sb.append("}");
         return sb.toString();
     }
@@ -1290,22 +1022,6 @@ public class JobRun implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getTimeout() != null && other.getTimeout().equals(this.getTimeout()) == false)
             return false;
-        if (other.getMaxCapacity() == null ^ this.getMaxCapacity() == null)
-            return false;
-        if (other.getMaxCapacity() != null && other.getMaxCapacity().equals(this.getMaxCapacity()) == false)
-            return false;
-        if (other.getNotificationProperty() == null ^ this.getNotificationProperty() == null)
-            return false;
-        if (other.getNotificationProperty() != null && other.getNotificationProperty().equals(this.getNotificationProperty()) == false)
-            return false;
-        if (other.getSecurityConfiguration() == null ^ this.getSecurityConfiguration() == null)
-            return false;
-        if (other.getSecurityConfiguration() != null && other.getSecurityConfiguration().equals(this.getSecurityConfiguration()) == false)
-            return false;
-        if (other.getLogGroupName() == null ^ this.getLogGroupName() == null)
-            return false;
-        if (other.getLogGroupName() != null && other.getLogGroupName().equals(this.getLogGroupName()) == false)
-            return false;
         return true;
     }
 
@@ -1329,10 +1045,6 @@ public class JobRun implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getAllocatedCapacity() == null) ? 0 : getAllocatedCapacity().hashCode());
         hashCode = prime * hashCode + ((getExecutionTime() == null) ? 0 : getExecutionTime().hashCode());
         hashCode = prime * hashCode + ((getTimeout() == null) ? 0 : getTimeout().hashCode());
-        hashCode = prime * hashCode + ((getMaxCapacity() == null) ? 0 : getMaxCapacity().hashCode());
-        hashCode = prime * hashCode + ((getNotificationProperty() == null) ? 0 : getNotificationProperty().hashCode());
-        hashCode = prime * hashCode + ((getSecurityConfiguration() == null) ? 0 : getSecurityConfiguration().hashCode());
-        hashCode = prime * hashCode + ((getLogGroupName() == null) ? 0 : getLogGroupName().hashCode());
         return hashCode;
     }
 

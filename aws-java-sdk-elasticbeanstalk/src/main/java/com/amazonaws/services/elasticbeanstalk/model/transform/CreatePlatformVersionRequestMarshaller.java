@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -48,17 +48,15 @@ public class CreatePlatformVersionRequestMarshaller implements Marshaller<Reques
             request.addParameter("PlatformVersion", StringUtils.fromString(createPlatformVersionRequest.getPlatformVersion()));
         }
 
-        {
-            S3Location platformDefinitionBundle = createPlatformVersionRequest.getPlatformDefinitionBundle();
-            if (platformDefinitionBundle != null) {
+        S3Location platformDefinitionBundle = createPlatformVersionRequest.getPlatformDefinitionBundle();
+        if (platformDefinitionBundle != null) {
 
-                if (platformDefinitionBundle.getS3Bucket() != null) {
-                    request.addParameter("PlatformDefinitionBundle.S3Bucket", StringUtils.fromString(platformDefinitionBundle.getS3Bucket()));
-                }
+            if (platformDefinitionBundle.getS3Bucket() != null) {
+                request.addParameter("PlatformDefinitionBundle.S3Bucket", StringUtils.fromString(platformDefinitionBundle.getS3Bucket()));
+            }
 
-                if (platformDefinitionBundle.getS3Key() != null) {
-                    request.addParameter("PlatformDefinitionBundle.S3Key", StringUtils.fromString(platformDefinitionBundle.getS3Key()));
-                }
+            if (platformDefinitionBundle.getS3Key() != null) {
+                request.addParameter("PlatformDefinitionBundle.S3Key", StringUtils.fromString(platformDefinitionBundle.getS3Key()));
             }
         }
 

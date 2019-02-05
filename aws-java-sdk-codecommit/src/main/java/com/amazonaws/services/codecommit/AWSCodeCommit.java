@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -110,21 +110,6 @@ import com.amazonaws.services.codecommit.model.*;
  * Files, by calling the following:
  * </p>
  * <ul>
- * <li>
- * <p>
- * <a>DeleteFile</a>, which deletes the content of a specified file from a specified branch.
- * </p>
- * </li>
- * <li>
- * <p>
- * <a>GetFile</a>, which returns the base-64 encoded content of a specified file.
- * </p>
- * </li>
- * <li>
- * <p>
- * <a>GetFolder</a>, which returns the contents of a specified folder or directory.
- * </p>
- * </li>
  * <li>
  * <p>
  * <a>PutFile</a>, which adds or modifies a file in a specified repository and branch.
@@ -299,10 +284,9 @@ public interface AWSCodeCommit {
      * protocol from this client's {@link ClientConfiguration} will be used, which by default is HTTPS.
      * <p>
      * For more information on using AWS regions with the AWS SDK for Java, and a complete list of all available
-     * endpoints for all AWS services, see: <a href=
-     * "https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-choose-endpoint"
-     * > https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-
-     * choose-endpoint</a>
+     * endpoints for all AWS services, see: <a
+     * href="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912">
+     * http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912</a>
      * <p>
      * <b>This method is not threadsafe. An endpoint should be configured when the client is created and before any
      * service requests are made. Changing it afterwards creates inevitable race conditions for any service requests in
@@ -618,76 +602,6 @@ public interface AWSCodeCommit {
      *      target="_top">AWS API Documentation</a>
      */
     DeleteCommentContentResult deleteCommentContent(DeleteCommentContentRequest deleteCommentContentRequest);
-
-    /**
-     * <p>
-     * Deletes a specified file from a specified branch. A commit is created on the branch that contains the revision.
-     * The file will still exist in the commits prior to the commit that contains the deletion.
-     * </p>
-     * 
-     * @param deleteFileRequest
-     * @return Result of the DeleteFile operation returned by the service.
-     * @throws RepositoryNameRequiredException
-     *         A repository name is required but was not specified.
-     * @throws InvalidRepositoryNameException
-     *         At least one specified repository name is not valid.</p> <note>
-     *         <p>
-     *         This exception only occurs when a specified repository name is not valid. Other exceptions occur when a
-     *         required repository parameter is missing, or when a specified repository does not exist.
-     *         </p>
-     * @throws RepositoryDoesNotExistException
-     *         The specified repository does not exist.
-     * @throws ParentCommitIdRequiredException
-     *         A parent commit ID is required. To view the full commit ID of a branch in a repository, use
-     *         <a>GetBranch</a> or a Git command (for example, git pull or git log).
-     * @throws InvalidParentCommitIdException
-     *         The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for
-     *         the branch of the repository where you want to add or update a file.
-     * @throws ParentCommitDoesNotExistException
-     *         The parent commit ID is not valid because it does not exist. The specified parent commit ID does not
-     *         exist in the specified branch of the repository.
-     * @throws ParentCommitIdOutdatedException
-     *         The file could not be added because the provided parent commit ID is not the current tip of the specified
-     *         branch. To view the full commit ID of the current head of the branch, use <a>GetBranch</a>.
-     * @throws PathRequiredException
-     *         The folderPath for a location cannot be null.
-     * @throws InvalidPathException
-     *         The specified path is not valid.
-     * @throws FileDoesNotExistException
-     *         The specified file does not exist. Verify that you have provided the correct name of the file, including
-     *         its full path and extension.
-     * @throws BranchNameRequiredException
-     *         A branch name is required but was not specified.
-     * @throws InvalidBranchNameException
-     *         The specified reference name is not valid.
-     * @throws BranchDoesNotExistException
-     *         The specified branch does not exist.
-     * @throws BranchNameIsTagNameException
-     *         The specified branch name is not valid because it is a tag name. Type the name of a current branch in the
-     *         repository. For a list of valid branch names, use <a>ListBranches</a>.
-     * @throws NameLengthExceededException
-     *         The user name is not valid because it has exceeded the character limit for file names. File names,
-     *         including the path to the file, cannot exceed the character limit.
-     * @throws InvalidEmailException
-     *         The specified email address either contains one or more characters that are not allowed, or it exceeds
-     *         the maximum number of characters allowed for an email address.
-     * @throws CommitMessageLengthExceededException
-     *         The commit message is too long. Provide a shorter string.
-     * @throws EncryptionIntegrityChecksFailedException
-     *         An encryption integrity check failed.
-     * @throws EncryptionKeyAccessDeniedException
-     *         An encryption key could not be accessed.
-     * @throws EncryptionKeyDisabledException
-     *         The encryption key is disabled.
-     * @throws EncryptionKeyNotFoundException
-     *         No encryption key was found.
-     * @throws EncryptionKeyUnavailableException
-     *         The encryption key is not available.
-     * @sample AWSCodeCommit.DeleteFile
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/DeleteFile" target="_top">AWS API
-     *      Documentation</a>
-     */
-    DeleteFileResult deleteFile(DeleteFileRequest deleteFileRequest);
 
     /**
      * <p>
@@ -1066,100 +980,6 @@ public interface AWSCodeCommit {
 
     /**
      * <p>
-     * Returns the base-64 encoded contents of a specified file and its metadata.
-     * </p>
-     * 
-     * @param getFileRequest
-     * @return Result of the GetFile operation returned by the service.
-     * @throws RepositoryNameRequiredException
-     *         A repository name is required but was not specified.
-     * @throws InvalidRepositoryNameException
-     *         At least one specified repository name is not valid.</p> <note>
-     *         <p>
-     *         This exception only occurs when a specified repository name is not valid. Other exceptions occur when a
-     *         required repository parameter is missing, or when a specified repository does not exist.
-     *         </p>
-     * @throws RepositoryDoesNotExistException
-     *         The specified repository does not exist.
-     * @throws InvalidCommitException
-     *         The specified commit is not valid.
-     * @throws CommitDoesNotExistException
-     *         The specified commit does not exist or no commit was specified, and the specified repository has no
-     *         default branch.
-     * @throws PathRequiredException
-     *         The folderPath for a location cannot be null.
-     * @throws InvalidPathException
-     *         The specified path is not valid.
-     * @throws FileDoesNotExistException
-     *         The specified file does not exist. Verify that you have provided the correct name of the file, including
-     *         its full path and extension.
-     * @throws EncryptionIntegrityChecksFailedException
-     *         An encryption integrity check failed.
-     * @throws EncryptionKeyAccessDeniedException
-     *         An encryption key could not be accessed.
-     * @throws EncryptionKeyDisabledException
-     *         The encryption key is disabled.
-     * @throws EncryptionKeyNotFoundException
-     *         No encryption key was found.
-     * @throws EncryptionKeyUnavailableException
-     *         The encryption key is not available.
-     * @throws FileTooLargeException
-     *         The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in
-     *         AWS CodeCommit, see <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
-     *         CodeCommit User Guide</a>.
-     * @sample AWSCodeCommit.GetFile
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetFile" target="_top">AWS API
-     *      Documentation</a>
-     */
-    GetFileResult getFile(GetFileRequest getFileRequest);
-
-    /**
-     * <p>
-     * Returns the contents of a specified folder in a repository.
-     * </p>
-     * 
-     * @param getFolderRequest
-     * @return Result of the GetFolder operation returned by the service.
-     * @throws RepositoryNameRequiredException
-     *         A repository name is required but was not specified.
-     * @throws InvalidRepositoryNameException
-     *         At least one specified repository name is not valid.</p> <note>
-     *         <p>
-     *         This exception only occurs when a specified repository name is not valid. Other exceptions occur when a
-     *         required repository parameter is missing, or when a specified repository does not exist.
-     *         </p>
-     * @throws RepositoryDoesNotExistException
-     *         The specified repository does not exist.
-     * @throws InvalidCommitException
-     *         The specified commit is not valid.
-     * @throws CommitDoesNotExistException
-     *         The specified commit does not exist or no commit was specified, and the specified repository has no
-     *         default branch.
-     * @throws PathRequiredException
-     *         The folderPath for a location cannot be null.
-     * @throws InvalidPathException
-     *         The specified path is not valid.
-     * @throws FolderDoesNotExistException
-     *         The specified folder does not exist. Either the folder name is not correct, or you did not provide the
-     *         full path to the folder.
-     * @throws EncryptionIntegrityChecksFailedException
-     *         An encryption integrity check failed.
-     * @throws EncryptionKeyAccessDeniedException
-     *         An encryption key could not be accessed.
-     * @throws EncryptionKeyDisabledException
-     *         The encryption key is disabled.
-     * @throws EncryptionKeyNotFoundException
-     *         No encryption key was found.
-     * @throws EncryptionKeyUnavailableException
-     *         The encryption key is not available.
-     * @sample AWSCodeCommit.GetFolder
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetFolder" target="_top">AWS API
-     *      Documentation</a>
-     */
-    GetFolderResult getFolder(GetFolderRequest getFolderRequest);
-
-    /**
-     * <p>
      * Returns information about merge conflicts between the before and after commit IDs for a pull request in a
      * repository.
      * </p>
@@ -1449,9 +1269,6 @@ public interface AWSCodeCommit {
      *         The specified reference does not exist. You must provide a full commit ID.
      * @throws InvalidCommitIdException
      *         The specified commit ID is not valid.
-     * @throws RepositoryNotAssociatedWithPullRequestException
-     *         The repository does not contain any pull requests with that pull request ID. Check to make sure you have
-     *         provided the correct repository name for the pull request.
      * @throws RepositoryNameRequiredException
      *         A repository name is required but was not specified.
      * @throws InvalidRepositoryNameException
@@ -1516,7 +1333,7 @@ public interface AWSCodeCommit {
      *         Either the enum is not in a valid format, or the specified file version enum is not valid in respect to
      *         the current file version.
      * @throws PathRequiredException
-     *         The folderPath for a location cannot be null.
+     *         The filePath for a location cannot be empty or null.
      * @throws InvalidFilePositionException
      *         The position is not valid. Make sure that the line number exists in the version of the file you want to
      *         comment on.
@@ -1599,7 +1416,7 @@ public interface AWSCodeCommit {
      *         Either the enum is not in a valid format, or the specified file version enum is not valid in respect to
      *         the current file version.
      * @throws PathRequiredException
-     *         The folderPath for a location cannot be null.
+     *         The filePath for a location cannot be empty or null.
      * @throws InvalidFilePositionException
      *         The position is not valid. Make sure that the line number exists in the version of the file you want to
      *         comment on.
@@ -1625,7 +1442,7 @@ public interface AWSCodeCommit {
      * @throws PathDoesNotExistException
      *         The specified path does not exist.
      * @throws PathRequiredException
-     *         The folderPath for a location cannot be null.
+     *         The filePath for a location cannot be empty or null.
      * @throws BeforeCommitIdAndAfterCommitIdAreSameException
      *         The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and
      *         the after commit ID must be different commit IDs.
@@ -1670,8 +1487,7 @@ public interface AWSCodeCommit {
 
     /**
      * <p>
-     * Adds or updates a file in a branch in an AWS CodeCommit repository, and generates a commit for the addition in
-     * the specified branch.
+     * Adds or updates a file in an AWS CodeCommit repository.
      * </p>
      * 
      * @param putFileRequest
@@ -1693,8 +1509,8 @@ public interface AWSCodeCommit {
      *         The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for
      *         the branch of the repository where you want to add or update a file.
      * @throws ParentCommitDoesNotExistException
-     *         The parent commit ID is not valid because it does not exist. The specified parent commit ID does not
-     *         exist in the specified branch of the repository.
+     *         The parent commit ID is not valid. The specified parent commit ID does not exist in the specified branch
+     *         of the repository.
      * @throws ParentCommitIdOutdatedException
      *         The file could not be added because the provided parent commit ID is not the current tip of the specified
      *         branch. To view the full commit ID of the current head of the branch, use <a>GetBranch</a>.
@@ -1704,13 +1520,8 @@ public interface AWSCodeCommit {
      * @throws FileContentSizeLimitExceededException
      *         The file cannot be added because it is too large. The maximum file size that can be added using PutFile
      *         is 6 MB. For files larger than 6 MB but smaller than 2 GB, add them using a Git client.
-     * @throws FolderContentSizeLimitExceededException
-     *         The specified file is in a folder that exceeds the folder content size limit. Either save the file in a
-     *         folder that has less content, or remove files or subfolders from the folder so it does not exceed the
-     *         size limit. For more information about limits in AWS CodeCommit, see <a
-     *         href="http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User Guide</a>.
      * @throws PathRequiredException
-     *         The folderPath for a location cannot be null.
+     *         The filePath for a location cannot be empty or null.
      * @throws InvalidPathException
      *         The specified path is not valid.
      * @throws BranchNameRequiredException
@@ -1726,15 +1537,13 @@ public interface AWSCodeCommit {
      *         The specified file mode permission is not valid. For a list of valid file mode permissions, see
      *         <a>PutFile</a>.
      * @throws NameLengthExceededException
-     *         The user name is not valid because it has exceeded the character limit for file names. File names,
+     *         The file name is not valid because it has exceeded the character limit for file names. File names,
      *         including the path to the file, cannot exceed the character limit.
      * @throws InvalidEmailException
      *         The specified email address either contains one or more characters that are not allowed, or it exceeds
      *         the maximum number of characters allowed for an email address.
      * @throws CommitMessageLengthExceededException
      *         The commit message is too long. Provide a shorter string.
-     * @throws InvalidDeletionParameterException
-     *         The specified deletion parameter is not valid.
      * @throws EncryptionIntegrityChecksFailedException
      *         An encryption integrity check failed.
      * @throws EncryptionKeyAccessDeniedException
@@ -1756,10 +1565,6 @@ public interface AWSCodeCommit {
      *         A file cannot be added to the repository because the specified path name has the same name as a file that
      *         already exists in this repository. Either provide a different name for the file, or specify a different
      *         path for the file.
-     * @throws FilePathConflictsWithSubmodulePathException
-     *         The specified file path or folder has the same path as a submodule in this repository. Either provide a
-     *         different name for the file, or save the file in a directory that does not conflict with the submodule
-     *         path.
      * @sample AWSCodeCommit.PutFile
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/PutFile" target="_top">AWS API
      *      Documentation</a>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,10 +40,6 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      * set, the response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code> or
      * <code>DAILY</code>.
      * </p>
-     * <p>
-     * The <code>GetCostAndUsageRequest</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
-     * granularities.
-     * </p>
      */
     private String granularity;
     /**
@@ -63,17 +59,15 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      * annotation appear on some line items in my bill?</a>.
      * </p>
      * <p>
-     * Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>NetAmortizedCost</code>,
-     * <code>NetUnblendedCost</code>, <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
-     * <code>UsageQuantity</code>.
+     * Valid values are <code>BlendedCost</code>, <code>UnblendedCost</code>, and <code>UsageQuantity</code>.
      * </p>
      * <note>
      * <p>
      * If you return the <code>UsageQuantity</code> metric, the service aggregates all usage numbers without taking into
-     * account the units. For example, if you aggregate <code>usageQuantity</code> across all of Amazon EC2, the results
-     * aren't meaningful because Amazon EC2 compute hours and data transfer are measured in different units (for
-     * example, hours vs. GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by
-     * <code>UsageType</code> or <code>UsageTypeGroups</code>.
+     * account the units. For example, if you aggregate <code>usageQuantity</code> across all of EC2, the results aren't
+     * meaningful because EC2 compute hours and data transfer are measured in different units (for example, hours vs.
+     * GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by <code>UsageType</code> or
+     * <code>UsageTypeGroups</code>.
      * </p>
      * </note>
      * <p>
@@ -167,18 +161,11 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      * set, the response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code> or
      * <code>DAILY</code>.
      * </p>
-     * <p>
-     * The <code>GetCostAndUsageRequest</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
-     * granularities.
-     * </p>
      * 
      * @param granularity
      *        Sets the AWS cost granularity to <code>MONTHLY</code> or <code>DAILY</code>. If <code>Granularity</code>
      *        isn't set, the response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code>
-     *        or <code>DAILY</code>. </p>
-     *        <p>
-     *        The <code>GetCostAndUsageRequest</code> operation supports only <code>DAILY</code> and
-     *        <code>MONTHLY</code> granularities.
+     *        or <code>DAILY</code>.
      * @see Granularity
      */
 
@@ -192,17 +179,10 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      * set, the response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code> or
      * <code>DAILY</code>.
      * </p>
-     * <p>
-     * The <code>GetCostAndUsageRequest</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
-     * granularities.
-     * </p>
      * 
      * @return Sets the AWS cost granularity to <code>MONTHLY</code> or <code>DAILY</code>. If <code>Granularity</code>
      *         isn't set, the response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code>
-     *         or <code>DAILY</code>. </p>
-     *         <p>
-     *         The <code>GetCostAndUsageRequest</code> operation supports only <code>DAILY</code> and
-     *         <code>MONTHLY</code> granularities.
+     *         or <code>DAILY</code>.
      * @see Granularity
      */
 
@@ -216,18 +196,11 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      * set, the response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code> or
      * <code>DAILY</code>.
      * </p>
-     * <p>
-     * The <code>GetCostAndUsageRequest</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
-     * granularities.
-     * </p>
      * 
      * @param granularity
      *        Sets the AWS cost granularity to <code>MONTHLY</code> or <code>DAILY</code>. If <code>Granularity</code>
      *        isn't set, the response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code>
-     *        or <code>DAILY</code>. </p>
-     *        <p>
-     *        The <code>GetCostAndUsageRequest</code> operation supports only <code>DAILY</code> and
-     *        <code>MONTHLY</code> granularities.
+     *        or <code>DAILY</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see Granularity
      */
@@ -243,18 +216,11 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      * set, the response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code> or
      * <code>DAILY</code>.
      * </p>
-     * <p>
-     * The <code>GetCostAndUsageRequest</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
-     * granularities.
-     * </p>
      * 
      * @param granularity
      *        Sets the AWS cost granularity to <code>MONTHLY</code> or <code>DAILY</code>. If <code>Granularity</code>
      *        isn't set, the response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code>
-     *        or <code>DAILY</code>. </p>
-     *        <p>
-     *        The <code>GetCostAndUsageRequest</code> operation supports only <code>DAILY</code> and
-     *        <code>MONTHLY</code> granularities.
+     *        or <code>DAILY</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see Granularity
      */
@@ -338,17 +304,15 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      * annotation appear on some line items in my bill?</a>.
      * </p>
      * <p>
-     * Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>NetAmortizedCost</code>,
-     * <code>NetUnblendedCost</code>, <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
-     * <code>UsageQuantity</code>.
+     * Valid values are <code>BlendedCost</code>, <code>UnblendedCost</code>, and <code>UsageQuantity</code>.
      * </p>
      * <note>
      * <p>
      * If you return the <code>UsageQuantity</code> metric, the service aggregates all usage numbers without taking into
-     * account the units. For example, if you aggregate <code>usageQuantity</code> across all of Amazon EC2, the results
-     * aren't meaningful because Amazon EC2 compute hours and data transfer are measured in different units (for
-     * example, hours vs. GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by
-     * <code>UsageType</code> or <code>UsageTypeGroups</code>.
+     * account the units. For example, if you aggregate <code>usageQuantity</code> across all of EC2, the results aren't
+     * meaningful because EC2 compute hours and data transfer are measured in different units (for example, hours vs.
+     * GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by <code>UsageType</code> or
+     * <code>UsageTypeGroups</code>.
      * </p>
      * </note>
      * <p>
@@ -359,17 +323,15 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      *         href="https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why does the "blended"
      *         annotation appear on some line items in my bill?</a>. </p>
      *         <p>
-     *         Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>NetAmortizedCost</code>,
-     *         <code>NetUnblendedCost</code>, <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
-     *         <code>UsageQuantity</code>.
+     *         Valid values are <code>BlendedCost</code>, <code>UnblendedCost</code>, and <code>UsageQuantity</code>.
      *         </p>
      *         <note>
      *         <p>
      *         If you return the <code>UsageQuantity</code> metric, the service aggregates all usage numbers without
      *         taking into account the units. For example, if you aggregate <code>usageQuantity</code> across all of
-     *         Amazon EC2, the results aren't meaningful because Amazon EC2 compute hours and data transfer are measured
-     *         in different units (for example, hours vs. GB). To get more meaningful <code>UsageQuantity</code>
-     *         metrics, filter by <code>UsageType</code> or <code>UsageTypeGroups</code>.
+     *         EC2, the results aren't meaningful because EC2 compute hours and data transfer are measured in different
+     *         units (for example, hours vs. GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by
+     *         <code>UsageType</code> or <code>UsageTypeGroups</code>.
      *         </p>
      *         </note>
      *         <p>
@@ -387,17 +349,15 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      * annotation appear on some line items in my bill?</a>.
      * </p>
      * <p>
-     * Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>NetAmortizedCost</code>,
-     * <code>NetUnblendedCost</code>, <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
-     * <code>UsageQuantity</code>.
+     * Valid values are <code>BlendedCost</code>, <code>UnblendedCost</code>, and <code>UsageQuantity</code>.
      * </p>
      * <note>
      * <p>
      * If you return the <code>UsageQuantity</code> metric, the service aggregates all usage numbers without taking into
-     * account the units. For example, if you aggregate <code>usageQuantity</code> across all of Amazon EC2, the results
-     * aren't meaningful because Amazon EC2 compute hours and data transfer are measured in different units (for
-     * example, hours vs. GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by
-     * <code>UsageType</code> or <code>UsageTypeGroups</code>.
+     * account the units. For example, if you aggregate <code>usageQuantity</code> across all of EC2, the results aren't
+     * meaningful because EC2 compute hours and data transfer are measured in different units (for example, hours vs.
+     * GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by <code>UsageType</code> or
+     * <code>UsageTypeGroups</code>.
      * </p>
      * </note>
      * <p>
@@ -409,17 +369,15 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      *        href="https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why does the "blended"
      *        annotation appear on some line items in my bill?</a>. </p>
      *        <p>
-     *        Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>NetAmortizedCost</code>,
-     *        <code>NetUnblendedCost</code>, <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
-     *        <code>UsageQuantity</code>.
+     *        Valid values are <code>BlendedCost</code>, <code>UnblendedCost</code>, and <code>UsageQuantity</code>.
      *        </p>
      *        <note>
      *        <p>
      *        If you return the <code>UsageQuantity</code> metric, the service aggregates all usage numbers without
-     *        taking into account the units. For example, if you aggregate <code>usageQuantity</code> across all of
-     *        Amazon EC2, the results aren't meaningful because Amazon EC2 compute hours and data transfer are measured
-     *        in different units (for example, hours vs. GB). To get more meaningful <code>UsageQuantity</code> metrics,
-     *        filter by <code>UsageType</code> or <code>UsageTypeGroups</code>.
+     *        taking into account the units. For example, if you aggregate <code>usageQuantity</code> across all of EC2,
+     *        the results aren't meaningful because EC2 compute hours and data transfer are measured in different units
+     *        (for example, hours vs. GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by
+     *        <code>UsageType</code> or <code>UsageTypeGroups</code>.
      *        </p>
      *        </note>
      *        <p>
@@ -442,17 +400,15 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      * annotation appear on some line items in my bill?</a>.
      * </p>
      * <p>
-     * Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>NetAmortizedCost</code>,
-     * <code>NetUnblendedCost</code>, <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
-     * <code>UsageQuantity</code>.
+     * Valid values are <code>BlendedCost</code>, <code>UnblendedCost</code>, and <code>UsageQuantity</code>.
      * </p>
      * <note>
      * <p>
      * If you return the <code>UsageQuantity</code> metric, the service aggregates all usage numbers without taking into
-     * account the units. For example, if you aggregate <code>usageQuantity</code> across all of Amazon EC2, the results
-     * aren't meaningful because Amazon EC2 compute hours and data transfer are measured in different units (for
-     * example, hours vs. GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by
-     * <code>UsageType</code> or <code>UsageTypeGroups</code>.
+     * account the units. For example, if you aggregate <code>usageQuantity</code> across all of EC2, the results aren't
+     * meaningful because EC2 compute hours and data transfer are measured in different units (for example, hours vs.
+     * GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by <code>UsageType</code> or
+     * <code>UsageTypeGroups</code>.
      * </p>
      * </note>
      * <p>
@@ -469,17 +425,15 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      *        href="https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why does the "blended"
      *        annotation appear on some line items in my bill?</a>. </p>
      *        <p>
-     *        Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>NetAmortizedCost</code>,
-     *        <code>NetUnblendedCost</code>, <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
-     *        <code>UsageQuantity</code>.
+     *        Valid values are <code>BlendedCost</code>, <code>UnblendedCost</code>, and <code>UsageQuantity</code>.
      *        </p>
      *        <note>
      *        <p>
      *        If you return the <code>UsageQuantity</code> metric, the service aggregates all usage numbers without
-     *        taking into account the units. For example, if you aggregate <code>usageQuantity</code> across all of
-     *        Amazon EC2, the results aren't meaningful because Amazon EC2 compute hours and data transfer are measured
-     *        in different units (for example, hours vs. GB). To get more meaningful <code>UsageQuantity</code> metrics,
-     *        filter by <code>UsageType</code> or <code>UsageTypeGroups</code>.
+     *        taking into account the units. For example, if you aggregate <code>usageQuantity</code> across all of EC2,
+     *        the results aren't meaningful because EC2 compute hours and data transfer are measured in different units
+     *        (for example, hours vs. GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by
+     *        <code>UsageType</code> or <code>UsageTypeGroups</code>.
      *        </p>
      *        </note>
      *        <p>
@@ -504,17 +458,15 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      * annotation appear on some line items in my bill?</a>.
      * </p>
      * <p>
-     * Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>NetAmortizedCost</code>,
-     * <code>NetUnblendedCost</code>, <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
-     * <code>UsageQuantity</code>.
+     * Valid values are <code>BlendedCost</code>, <code>UnblendedCost</code>, and <code>UsageQuantity</code>.
      * </p>
      * <note>
      * <p>
      * If you return the <code>UsageQuantity</code> metric, the service aggregates all usage numbers without taking into
-     * account the units. For example, if you aggregate <code>usageQuantity</code> across all of Amazon EC2, the results
-     * aren't meaningful because Amazon EC2 compute hours and data transfer are measured in different units (for
-     * example, hours vs. GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by
-     * <code>UsageType</code> or <code>UsageTypeGroups</code>.
+     * account the units. For example, if you aggregate <code>usageQuantity</code> across all of EC2, the results aren't
+     * meaningful because EC2 compute hours and data transfer are measured in different units (for example, hours vs.
+     * GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by <code>UsageType</code> or
+     * <code>UsageTypeGroups</code>.
      * </p>
      * </note>
      * <p>
@@ -526,17 +478,15 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
      *        href="https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why does the "blended"
      *        annotation appear on some line items in my bill?</a>. </p>
      *        <p>
-     *        Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>NetAmortizedCost</code>,
-     *        <code>NetUnblendedCost</code>, <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
-     *        <code>UsageQuantity</code>.
+     *        Valid values are <code>BlendedCost</code>, <code>UnblendedCost</code>, and <code>UsageQuantity</code>.
      *        </p>
      *        <note>
      *        <p>
      *        If you return the <code>UsageQuantity</code> metric, the service aggregates all usage numbers without
-     *        taking into account the units. For example, if you aggregate <code>usageQuantity</code> across all of
-     *        Amazon EC2, the results aren't meaningful because Amazon EC2 compute hours and data transfer are measured
-     *        in different units (for example, hours vs. GB). To get more meaningful <code>UsageQuantity</code> metrics,
-     *        filter by <code>UsageType</code> or <code>UsageTypeGroups</code>.
+     *        taking into account the units. For example, if you aggregate <code>usageQuantity</code> across all of EC2,
+     *        the results aren't meaningful because EC2 compute hours and data transfer are measured in different units
+     *        (for example, hours vs. GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by
+     *        <code>UsageType</code> or <code>UsageTypeGroups</code>.
      *        </p>
      *        </note>
      *        <p>
@@ -726,8 +676,7 @@ public class GetCostAndUsageRequest extends com.amazonaws.AmazonWebServiceReques
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

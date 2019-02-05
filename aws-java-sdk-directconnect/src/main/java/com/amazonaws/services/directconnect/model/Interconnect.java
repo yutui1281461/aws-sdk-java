@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,17 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Information about an interconnect.
+ * An interconnect is a connection that can host other connections.
+ * </p>
+ * <p>
+ * Like a standard AWS Direct Connect connection, an interconnect represents the physical connection between an AWS
+ * Direct Connect partner's network and a specific Direct Connect location. An AWS Direct Connect partner who owns an
+ * interconnect can provision hosted connections on the interconnect for their end customers, thereby providing the end
+ * customers with connectivity to AWS services.
+ * </p>
+ * <p>
+ * The resources of the interconnect, including bandwidth and VLAN numbers, are shared by all of the hosted connections
+ * on the interconnect, and the owner of the interconnect determines how these resources are assigned.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/Interconnect" target="_top">AWS API
@@ -28,119 +38,34 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class Interconnect implements Serializable, Cloneable, StructuredPojo {
 
-    /**
-     * <p>
-     * The ID of the interconnect.
-     * </p>
-     */
     private String interconnectId;
-    /**
-     * <p>
-     * The name of the interconnect.
-     * </p>
-     */
+
     private String interconnectName;
-    /**
-     * <p>
-     * The state of the interconnect. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until
-     * the Letter of Authorization (LOA) is sent to the customer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The interconnect is approved, and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is up, and the interconnect is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The interconnect is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The interconnect is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     */
+
     private String interconnectState;
-    /**
-     * <p>
-     * The AWS Region where the connection is located.
-     * </p>
-     */
+
     private String region;
-    /**
-     * <p>
-     * The location of the connection.
-     * </p>
-     */
+
     private String location;
-    /**
-     * <p>
-     * The bandwidth of the connection.
-     * </p>
-     */
+
     private String bandwidth;
     /**
      * <p>
-     * The time of the most recent call to <a>DescribeLoa</a> for this connection.
+     * The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
      * </p>
      */
     private java.util.Date loaIssueTime;
-    /**
-     * <p>
-     * The ID of the LAG.
-     * </p>
-     */
+
     private String lagId;
     /**
      * <p>
-     * The Direct Connect endpoint on which the physical connection terminates.
+     * The Direct Connection endpoint which the physical connection terminates on.
      * </p>
      */
     private String awsDevice;
-    /**
-     * <p>
-     * Indicates whether jumbo frames (9001 MTU) are supported.
-     * </p>
-     */
-    private Boolean jumboFrameCapable;
-    /**
-     * <p>
-     * The Direct Connect endpoint on which the physical connection terminates.
-     * </p>
-     */
-    private String awsDeviceV2;
-    /**
-     * <p>
-     * Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
-     * </p>
-     */
-    private String hasLogicalRedundancy;
 
     /**
-     * <p>
-     * The ID of the interconnect.
-     * </p>
-     * 
      * @param interconnectId
-     *        The ID of the interconnect.
      */
 
     public void setInterconnectId(String interconnectId) {
@@ -148,11 +73,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The ID of the interconnect.
-     * </p>
-     * 
-     * @return The ID of the interconnect.
+     * @return
      */
 
     public String getInterconnectId() {
@@ -160,12 +81,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The ID of the interconnect.
-     * </p>
-     * 
      * @param interconnectId
-     *        The ID of the interconnect.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -175,12 +91,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The name of the interconnect.
-     * </p>
-     * 
      * @param interconnectName
-     *        The name of the interconnect.
      */
 
     public void setInterconnectName(String interconnectName) {
@@ -188,11 +99,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The name of the interconnect.
-     * </p>
-     * 
-     * @return The name of the interconnect.
+     * @return
      */
 
     public String getInterconnectName() {
@@ -200,12 +107,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The name of the interconnect.
-     * </p>
-     * 
      * @param interconnectName
-     *        The name of the interconnect.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -215,77 +117,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The state of the interconnect. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until
-     * the Letter of Authorization (LOA) is sent to the customer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The interconnect is approved, and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is up, and the interconnect is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The interconnect is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The interconnect is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param interconnectState
-     *        The state of the interconnect. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested
-     *        state until the Letter of Authorization (LOA) is sent to the customer.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The interconnect is approved, and is being initialized.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The network link is up, and the interconnect is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>down</code>: The network link is down.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The interconnect is being deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The interconnect is deleted.
-     *        </p>
-     *        </li>
      * @see InterconnectState
      */
 
@@ -294,76 +126,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The state of the interconnect. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until
-     * the Letter of Authorization (LOA) is sent to the customer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The interconnect is approved, and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is up, and the interconnect is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The interconnect is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The interconnect is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @return The state of the interconnect. The following are the possible values:</p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested
-     *         state until the Letter of Authorization (LOA) is sent to the customer.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>pending</code>: The interconnect is approved, and is being initialized.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>available</code>: The network link is up, and the interconnect is ready for use.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>down</code>: The network link is down.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>deleting</code>: The interconnect is being deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>deleted</code>: The interconnect is deleted.
-     *         </p>
-     *         </li>
+     * @return
      * @see InterconnectState
      */
 
@@ -372,77 +135,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The state of the interconnect. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until
-     * the Letter of Authorization (LOA) is sent to the customer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The interconnect is approved, and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is up, and the interconnect is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The interconnect is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The interconnect is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param interconnectState
-     *        The state of the interconnect. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested
-     *        state until the Letter of Authorization (LOA) is sent to the customer.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The interconnect is approved, and is being initialized.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The network link is up, and the interconnect is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>down</code>: The network link is down.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The interconnect is being deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The interconnect is deleted.
-     *        </p>
-     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see InterconnectState
      */
@@ -453,77 +146,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The state of the interconnect. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until
-     * the Letter of Authorization (LOA) is sent to the customer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The interconnect is approved, and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is up, and the interconnect is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The interconnect is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The interconnect is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param interconnectState
-     *        The state of the interconnect. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested
-     *        state until the Letter of Authorization (LOA) is sent to the customer.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The interconnect is approved, and is being initialized.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The network link is up, and the interconnect is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>down</code>: The network link is down.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The interconnect is being deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The interconnect is deleted.
-     *        </p>
-     *        </li>
      * @see InterconnectState
      */
 
@@ -532,77 +155,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The state of the interconnect. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until
-     * the Letter of Authorization (LOA) is sent to the customer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The interconnect is approved, and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is up, and the interconnect is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The interconnect is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The interconnect is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param interconnectState
-     *        The state of the interconnect. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested
-     *        state until the Letter of Authorization (LOA) is sent to the customer.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The interconnect is approved, and is being initialized.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The network link is up, and the interconnect is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>down</code>: The network link is down.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The interconnect is being deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The interconnect is deleted.
-     *        </p>
-     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see InterconnectState
      */
@@ -613,12 +166,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The AWS Region where the connection is located.
-     * </p>
-     * 
      * @param region
-     *        The AWS Region where the connection is located.
      */
 
     public void setRegion(String region) {
@@ -626,11 +174,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The AWS Region where the connection is located.
-     * </p>
-     * 
-     * @return The AWS Region where the connection is located.
+     * @return
      */
 
     public String getRegion() {
@@ -638,12 +182,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The AWS Region where the connection is located.
-     * </p>
-     * 
      * @param region
-     *        The AWS Region where the connection is located.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -653,12 +192,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The location of the connection.
-     * </p>
-     * 
      * @param location
-     *        The location of the connection.
      */
 
     public void setLocation(String location) {
@@ -666,11 +200,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The location of the connection.
-     * </p>
-     * 
-     * @return The location of the connection.
+     * @return
      */
 
     public String getLocation() {
@@ -678,12 +208,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The location of the connection.
-     * </p>
-     * 
      * @param location
-     *        The location of the connection.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -693,12 +218,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The bandwidth of the connection.
-     * </p>
-     * 
      * @param bandwidth
-     *        The bandwidth of the connection.
      */
 
     public void setBandwidth(String bandwidth) {
@@ -706,11 +226,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The bandwidth of the connection.
-     * </p>
-     * 
-     * @return The bandwidth of the connection.
+     * @return
      */
 
     public String getBandwidth() {
@@ -718,12 +234,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The bandwidth of the connection.
-     * </p>
-     * 
      * @param bandwidth
-     *        The bandwidth of the connection.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -734,11 +245,11 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time of the most recent call to <a>DescribeLoa</a> for this connection.
+     * The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
      * </p>
      * 
      * @param loaIssueTime
-     *        The time of the most recent call to <a>DescribeLoa</a> for this connection.
+     *        The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
      */
 
     public void setLoaIssueTime(java.util.Date loaIssueTime) {
@@ -747,10 +258,10 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time of the most recent call to <a>DescribeLoa</a> for this connection.
+     * The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
      * </p>
      * 
-     * @return The time of the most recent call to <a>DescribeLoa</a> for this connection.
+     * @return The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
      */
 
     public java.util.Date getLoaIssueTime() {
@@ -759,11 +270,11 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time of the most recent call to <a>DescribeLoa</a> for this connection.
+     * The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
      * </p>
      * 
      * @param loaIssueTime
-     *        The time of the most recent call to <a>DescribeLoa</a> for this connection.
+     *        The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -773,12 +284,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The ID of the LAG.
-     * </p>
-     * 
      * @param lagId
-     *        The ID of the LAG.
      */
 
     public void setLagId(String lagId) {
@@ -786,11 +292,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The ID of the LAG.
-     * </p>
-     * 
-     * @return The ID of the LAG.
+     * @return
      */
 
     public String getLagId() {
@@ -798,12 +300,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The ID of the LAG.
-     * </p>
-     * 
      * @param lagId
-     *        The ID of the LAG.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -814,11 +311,11 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Direct Connect endpoint on which the physical connection terminates.
+     * The Direct Connection endpoint which the physical connection terminates on.
      * </p>
      * 
      * @param awsDevice
-     *        The Direct Connect endpoint on which the physical connection terminates.
+     *        The Direct Connection endpoint which the physical connection terminates on.
      */
 
     public void setAwsDevice(String awsDevice) {
@@ -827,10 +324,10 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Direct Connect endpoint on which the physical connection terminates.
+     * The Direct Connection endpoint which the physical connection terminates on.
      * </p>
      * 
-     * @return The Direct Connect endpoint on which the physical connection terminates.
+     * @return The Direct Connection endpoint which the physical connection terminates on.
      */
 
     public String getAwsDevice() {
@@ -839,11 +336,11 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Direct Connect endpoint on which the physical connection terminates.
+     * The Direct Connection endpoint which the physical connection terminates on.
      * </p>
      * 
      * @param awsDevice
-     *        The Direct Connect endpoint on which the physical connection terminates.
+     *        The Direct Connection endpoint which the physical connection terminates on.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -853,173 +350,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * Indicates whether jumbo frames (9001 MTU) are supported.
-     * </p>
-     * 
-     * @param jumboFrameCapable
-     *        Indicates whether jumbo frames (9001 MTU) are supported.
-     */
-
-    public void setJumboFrameCapable(Boolean jumboFrameCapable) {
-        this.jumboFrameCapable = jumboFrameCapable;
-    }
-
-    /**
-     * <p>
-     * Indicates whether jumbo frames (9001 MTU) are supported.
-     * </p>
-     * 
-     * @return Indicates whether jumbo frames (9001 MTU) are supported.
-     */
-
-    public Boolean getJumboFrameCapable() {
-        return this.jumboFrameCapable;
-    }
-
-    /**
-     * <p>
-     * Indicates whether jumbo frames (9001 MTU) are supported.
-     * </p>
-     * 
-     * @param jumboFrameCapable
-     *        Indicates whether jumbo frames (9001 MTU) are supported.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Interconnect withJumboFrameCapable(Boolean jumboFrameCapable) {
-        setJumboFrameCapable(jumboFrameCapable);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Indicates whether jumbo frames (9001 MTU) are supported.
-     * </p>
-     * 
-     * @return Indicates whether jumbo frames (9001 MTU) are supported.
-     */
-
-    public Boolean isJumboFrameCapable() {
-        return this.jumboFrameCapable;
-    }
-
-    /**
-     * <p>
-     * The Direct Connect endpoint on which the physical connection terminates.
-     * </p>
-     * 
-     * @param awsDeviceV2
-     *        The Direct Connect endpoint on which the physical connection terminates.
-     */
-
-    public void setAwsDeviceV2(String awsDeviceV2) {
-        this.awsDeviceV2 = awsDeviceV2;
-    }
-
-    /**
-     * <p>
-     * The Direct Connect endpoint on which the physical connection terminates.
-     * </p>
-     * 
-     * @return The Direct Connect endpoint on which the physical connection terminates.
-     */
-
-    public String getAwsDeviceV2() {
-        return this.awsDeviceV2;
-    }
-
-    /**
-     * <p>
-     * The Direct Connect endpoint on which the physical connection terminates.
-     * </p>
-     * 
-     * @param awsDeviceV2
-     *        The Direct Connect endpoint on which the physical connection terminates.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Interconnect withAwsDeviceV2(String awsDeviceV2) {
-        setAwsDeviceV2(awsDeviceV2);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
-     * </p>
-     * 
-     * @param hasLogicalRedundancy
-     *        Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
-     * @see HasLogicalRedundancy
-     */
-
-    public void setHasLogicalRedundancy(String hasLogicalRedundancy) {
-        this.hasLogicalRedundancy = hasLogicalRedundancy;
-    }
-
-    /**
-     * <p>
-     * Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
-     * </p>
-     * 
-     * @return Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
-     * @see HasLogicalRedundancy
-     */
-
-    public String getHasLogicalRedundancy() {
-        return this.hasLogicalRedundancy;
-    }
-
-    /**
-     * <p>
-     * Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
-     * </p>
-     * 
-     * @param hasLogicalRedundancy
-     *        Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see HasLogicalRedundancy
-     */
-
-    public Interconnect withHasLogicalRedundancy(String hasLogicalRedundancy) {
-        setHasLogicalRedundancy(hasLogicalRedundancy);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
-     * </p>
-     * 
-     * @param hasLogicalRedundancy
-     *        Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
-     * @see HasLogicalRedundancy
-     */
-
-    public void setHasLogicalRedundancy(HasLogicalRedundancy hasLogicalRedundancy) {
-        withHasLogicalRedundancy(hasLogicalRedundancy);
-    }
-
-    /**
-     * <p>
-     * Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
-     * </p>
-     * 
-     * @param hasLogicalRedundancy
-     *        Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see HasLogicalRedundancy
-     */
-
-    public Interconnect withHasLogicalRedundancy(HasLogicalRedundancy hasLogicalRedundancy) {
-        this.hasLogicalRedundancy = hasLogicalRedundancy.toString();
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1046,13 +377,7 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
         if (getLagId() != null)
             sb.append("LagId: ").append(getLagId()).append(",");
         if (getAwsDevice() != null)
-            sb.append("AwsDevice: ").append(getAwsDevice()).append(",");
-        if (getJumboFrameCapable() != null)
-            sb.append("JumboFrameCapable: ").append(getJumboFrameCapable()).append(",");
-        if (getAwsDeviceV2() != null)
-            sb.append("AwsDeviceV2: ").append(getAwsDeviceV2()).append(",");
-        if (getHasLogicalRedundancy() != null)
-            sb.append("HasLogicalRedundancy: ").append(getHasLogicalRedundancy());
+            sb.append("AwsDevice: ").append(getAwsDevice());
         sb.append("}");
         return sb.toString();
     }
@@ -1103,18 +428,6 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getAwsDevice() != null && other.getAwsDevice().equals(this.getAwsDevice()) == false)
             return false;
-        if (other.getJumboFrameCapable() == null ^ this.getJumboFrameCapable() == null)
-            return false;
-        if (other.getJumboFrameCapable() != null && other.getJumboFrameCapable().equals(this.getJumboFrameCapable()) == false)
-            return false;
-        if (other.getAwsDeviceV2() == null ^ this.getAwsDeviceV2() == null)
-            return false;
-        if (other.getAwsDeviceV2() != null && other.getAwsDeviceV2().equals(this.getAwsDeviceV2()) == false)
-            return false;
-        if (other.getHasLogicalRedundancy() == null ^ this.getHasLogicalRedundancy() == null)
-            return false;
-        if (other.getHasLogicalRedundancy() != null && other.getHasLogicalRedundancy().equals(this.getHasLogicalRedundancy()) == false)
-            return false;
         return true;
     }
 
@@ -1132,9 +445,6 @@ public class Interconnect implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getLoaIssueTime() == null) ? 0 : getLoaIssueTime().hashCode());
         hashCode = prime * hashCode + ((getLagId() == null) ? 0 : getLagId().hashCode());
         hashCode = prime * hashCode + ((getAwsDevice() == null) ? 0 : getAwsDevice().hashCode());
-        hashCode = prime * hashCode + ((getJumboFrameCapable() == null) ? 0 : getJumboFrameCapable().hashCode());
-        hashCode = prime * hashCode + ((getAwsDeviceV2() == null) ? 0 : getAwsDeviceV2().hashCode());
-        hashCode = prime * hashCode + ((getHasLogicalRedundancy() == null) ? 0 : getHasLogicalRedundancy().hashCode());
         return hashCode;
     }
 

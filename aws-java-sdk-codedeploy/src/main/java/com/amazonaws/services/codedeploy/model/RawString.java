@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -26,7 +26,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/RawString" target="_top">AWS API
  *      Documentation</a>
  */
-@Deprecated
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class RawString implements Serializable, Cloneable, StructuredPojo {
 
@@ -39,7 +38,7 @@ public class RawString implements Serializable, Cloneable, StructuredPojo {
     private String content;
     /**
      * <p>
-     * The SHA256 hash value of the revision content.
+     * The SHA256 hash value of the revision that is specified as a RawString.
      * </p>
      */
     private String sha256;
@@ -92,11 +91,11 @@ public class RawString implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The SHA256 hash value of the revision content.
+     * The SHA256 hash value of the revision that is specified as a RawString.
      * </p>
      * 
      * @param sha256
-     *        The SHA256 hash value of the revision content.
+     *        The SHA256 hash value of the revision that is specified as a RawString.
      */
 
     public void setSha256(String sha256) {
@@ -105,10 +104,10 @@ public class RawString implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The SHA256 hash value of the revision content.
+     * The SHA256 hash value of the revision that is specified as a RawString.
      * </p>
      * 
-     * @return The SHA256 hash value of the revision content.
+     * @return The SHA256 hash value of the revision that is specified as a RawString.
      */
 
     public String getSha256() {
@@ -117,11 +116,11 @@ public class RawString implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The SHA256 hash value of the revision content.
+     * The SHA256 hash value of the revision that is specified as a RawString.
      * </p>
      * 
      * @param sha256
-     *        The SHA256 hash value of the revision content.
+     *        The SHA256 hash value of the revision that is specified as a RawString.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -131,8 +130,7 @@ public class RawString implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

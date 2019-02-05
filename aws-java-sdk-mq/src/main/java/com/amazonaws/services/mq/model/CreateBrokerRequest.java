@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -45,33 +45,30 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
      * creatorRequestId if your application doesn't require idempotency.
      */
     private String creatorRequestId;
-    /** Required. The deployment mode of the broker. */
+    /**
+     * Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     * SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates
+     * an active/standby broker for high availability.
+     */
     private String deploymentMode;
     /** Required. The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ. */
     private String engineType;
-    /**
-     * Required. The version of the broker engine. For a list of supported engine versions, see
-     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-     */
+    /** Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0. */
     private String engineVersion;
-    /** Required. The broker's instance type. */
+    /** Required. The broker's instance type. Possible values: mq.t2.micro, mq.m4.large */
     private String hostInstanceType;
-    /** Enables Amazon CloudWatch logging for brokers. */
-    private Logs logs;
     /** The parameters that determine the WeeklyStartTime. */
     private WeeklyStartTime maintenanceWindowStartTime;
     /** Required. Enables connections from applications outside of the VPC that hosts the broker's subnets. */
     private Boolean publiclyAccessible;
-    /** The list of rules (1 minimum, 125 maximum) that authorize connections to brokers. */
+    /** Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers. */
     private java.util.List<String> securityGroups;
     /**
-     * The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different
-     * Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An
-     * ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
+     * Required. The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from
+     * different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet).
+     * An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
      */
     private java.util.List<String> subnetIds;
-    /** Create tags when creating the broker. */
-    private java.util.Map<String, String> tags;
     /**
      * Required. The list of ActiveMQ users (persons or applications) who can access queues and topics. This value can
      * contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be
@@ -258,10 +255,14 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Required. The deployment mode of the broker.
+     * Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     * SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates
+     * an active/standby broker for high availability.
      * 
      * @param deploymentMode
-     *        Required. The deployment mode of the broker.
+     *        Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     *        SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ
+     *        creates an active/standby broker for high availability.
      * @see DeploymentMode
      */
 
@@ -270,9 +271,13 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Required. The deployment mode of the broker.
+     * Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     * SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates
+     * an active/standby broker for high availability.
      * 
-     * @return Required. The deployment mode of the broker.
+     * @return Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     *         SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ
+     *         creates an active/standby broker for high availability.
      * @see DeploymentMode
      */
 
@@ -281,10 +286,14 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Required. The deployment mode of the broker.
+     * Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     * SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates
+     * an active/standby broker for high availability.
      * 
      * @param deploymentMode
-     *        Required. The deployment mode of the broker.
+     *        Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     *        SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ
+     *        creates an active/standby broker for high availability.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DeploymentMode
      */
@@ -295,10 +304,14 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Required. The deployment mode of the broker.
+     * Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     * SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates
+     * an active/standby broker for high availability.
      * 
      * @param deploymentMode
-     *        Required. The deployment mode of the broker.
+     *        Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ
+     *        SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ
+     *        creates an active/standby broker for high availability.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DeploymentMode
      */
@@ -360,12 +373,10 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Required. The version of the broker engine. For a list of supported engine versions, see
-     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+     * Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0.
      * 
      * @param engineVersion
-     *        Required. The version of the broker engine. For a list of supported engine versions, see
-     *        https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+     *        Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0.
      */
 
     public void setEngineVersion(String engineVersion) {
@@ -373,11 +384,9 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Required. The version of the broker engine. For a list of supported engine versions, see
-     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+     * Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0.
      * 
-     * @return Required. The version of the broker engine. For a list of supported engine versions, see
-     *         https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+     * @return Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0.
      */
 
     public String getEngineVersion() {
@@ -385,12 +394,10 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Required. The version of the broker engine. For a list of supported engine versions, see
-     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+     * Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0.
      * 
      * @param engineVersion
-     *        Required. The version of the broker engine. For a list of supported engine versions, see
-     *        https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+     *        Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -400,10 +407,10 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Required. The broker's instance type.
+     * Required. The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
      * 
      * @param hostInstanceType
-     *        Required. The broker's instance type.
+     *        Required. The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
      */
 
     public void setHostInstanceType(String hostInstanceType) {
@@ -411,9 +418,9 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Required. The broker's instance type.
+     * Required. The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
      * 
-     * @return Required. The broker's instance type.
+     * @return Required. The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
      */
 
     public String getHostInstanceType() {
@@ -421,49 +428,15 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Required. The broker's instance type.
+     * Required. The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
      * 
      * @param hostInstanceType
-     *        Required. The broker's instance type.
+     *        Required. The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
     public CreateBrokerRequest withHostInstanceType(String hostInstanceType) {
         setHostInstanceType(hostInstanceType);
-        return this;
-    }
-
-    /**
-     * Enables Amazon CloudWatch logging for brokers.
-     * 
-     * @param logs
-     *        Enables Amazon CloudWatch logging for brokers.
-     */
-
-    public void setLogs(Logs logs) {
-        this.logs = logs;
-    }
-
-    /**
-     * Enables Amazon CloudWatch logging for brokers.
-     * 
-     * @return Enables Amazon CloudWatch logging for brokers.
-     */
-
-    public Logs getLogs() {
-        return this.logs;
-    }
-
-    /**
-     * Enables Amazon CloudWatch logging for brokers.
-     * 
-     * @param logs
-     *        Enables Amazon CloudWatch logging for brokers.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateBrokerRequest withLogs(Logs logs) {
-        setLogs(logs);
         return this;
     }
 
@@ -546,9 +519,9 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
+     * Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      * 
-     * @return The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
+     * @return Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      */
 
     public java.util.List<String> getSecurityGroups() {
@@ -556,10 +529,10 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
+     * Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      * 
      * @param securityGroups
-     *        The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
+     *        Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      */
 
     public void setSecurityGroups(java.util.Collection<String> securityGroups) {
@@ -572,7 +545,7 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
+     * Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
      * {@link #setSecurityGroups(java.util.Collection)} or {@link #withSecurityGroups(java.util.Collection)} if you want
@@ -580,7 +553,7 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
      * </p>
      * 
      * @param securityGroups
-     *        The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
+     *        Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -595,10 +568,10 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
+     * Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      * 
      * @param securityGroups
-     *        The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
+     *        Required. The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -608,13 +581,13 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different
-     * Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An
-     * ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
+     * Required. The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from
+     * different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet).
+     * An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
      * 
-     * @return The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different
-     *         Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet).
-     *         An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
+     * @return Required. The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from
+     *         different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default
+     *         subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
      */
 
     public java.util.List<String> getSubnetIds() {
@@ -622,14 +595,14 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different
-     * Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An
-     * ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
+     * Required. The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from
+     * different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet).
+     * An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
      * 
      * @param subnetIds
-     *        The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different
-     *        Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An
-     *        ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
+     *        Required. The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from
+     *        different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default
+     *        subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
      */
 
     public void setSubnetIds(java.util.Collection<String> subnetIds) {
@@ -642,9 +615,9 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different
-     * Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An
-     * ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
+     * Required. The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from
+     * different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet).
+     * An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
      * {@link #setSubnetIds(java.util.Collection)} or {@link #withSubnetIds(java.util.Collection)} if you want to
@@ -652,9 +625,9 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
      * </p>
      * 
      * @param subnetIds
-     *        The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different
-     *        Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An
-     *        ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
+     *        Required. The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from
+     *        different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default
+     *        subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -669,74 +642,19 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different
-     * Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An
-     * ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
+     * Required. The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from
+     * different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet).
+     * An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
      * 
      * @param subnetIds
-     *        The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different
-     *        Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An
-     *        ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
+     *        Required. The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from
+     *        different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default
+     *        subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
     public CreateBrokerRequest withSubnetIds(java.util.Collection<String> subnetIds) {
         setSubnetIds(subnetIds);
-        return this;
-    }
-
-    /**
-     * Create tags when creating the broker.
-     * 
-     * @return Create tags when creating the broker.
-     */
-
-    public java.util.Map<String, String> getTags() {
-        return tags;
-    }
-
-    /**
-     * Create tags when creating the broker.
-     * 
-     * @param tags
-     *        Create tags when creating the broker.
-     */
-
-    public void setTags(java.util.Map<String, String> tags) {
-        this.tags = tags;
-    }
-
-    /**
-     * Create tags when creating the broker.
-     * 
-     * @param tags
-     *        Create tags when creating the broker.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateBrokerRequest withTags(java.util.Map<String, String> tags) {
-        setTags(tags);
-        return this;
-    }
-
-    public CreateBrokerRequest addTagsEntry(String key, String value) {
-        if (null == this.tags) {
-            this.tags = new java.util.HashMap<String, String>();
-        }
-        if (this.tags.containsKey(key))
-            throw new IllegalArgumentException("Duplicated keys (" + key.toString() + ") are provided.");
-        this.tags.put(key, value);
-        return this;
-    }
-
-    /**
-     * Removes all the entries added into Tags.
-     *
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateBrokerRequest clearTagsEntries() {
-        this.tags = null;
         return this;
     }
 
@@ -819,8 +737,7 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -846,8 +763,6 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
             sb.append("EngineVersion: ").append(getEngineVersion()).append(",");
         if (getHostInstanceType() != null)
             sb.append("HostInstanceType: ").append(getHostInstanceType()).append(",");
-        if (getLogs() != null)
-            sb.append("Logs: ").append(getLogs()).append(",");
         if (getMaintenanceWindowStartTime() != null)
             sb.append("MaintenanceWindowStartTime: ").append(getMaintenanceWindowStartTime()).append(",");
         if (getPubliclyAccessible() != null)
@@ -856,8 +771,6 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
             sb.append("SecurityGroups: ").append(getSecurityGroups()).append(",");
         if (getSubnetIds() != null)
             sb.append("SubnetIds: ").append(getSubnetIds()).append(",");
-        if (getTags() != null)
-            sb.append("Tags: ").append(getTags()).append(",");
         if (getUsers() != null)
             sb.append("Users: ").append(getUsers());
         sb.append("}");
@@ -906,10 +819,6 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
             return false;
         if (other.getHostInstanceType() != null && other.getHostInstanceType().equals(this.getHostInstanceType()) == false)
             return false;
-        if (other.getLogs() == null ^ this.getLogs() == null)
-            return false;
-        if (other.getLogs() != null && other.getLogs().equals(this.getLogs()) == false)
-            return false;
         if (other.getMaintenanceWindowStartTime() == null ^ this.getMaintenanceWindowStartTime() == null)
             return false;
         if (other.getMaintenanceWindowStartTime() != null && other.getMaintenanceWindowStartTime().equals(this.getMaintenanceWindowStartTime()) == false)
@@ -925,10 +834,6 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
         if (other.getSubnetIds() == null ^ this.getSubnetIds() == null)
             return false;
         if (other.getSubnetIds() != null && other.getSubnetIds().equals(this.getSubnetIds()) == false)
-            return false;
-        if (other.getTags() == null ^ this.getTags() == null)
-            return false;
-        if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
             return false;
         if (other.getUsers() == null ^ this.getUsers() == null)
             return false;
@@ -950,12 +855,10 @@ public class CreateBrokerRequest extends com.amazonaws.AmazonWebServiceRequest i
         hashCode = prime * hashCode + ((getEngineType() == null) ? 0 : getEngineType().hashCode());
         hashCode = prime * hashCode + ((getEngineVersion() == null) ? 0 : getEngineVersion().hashCode());
         hashCode = prime * hashCode + ((getHostInstanceType() == null) ? 0 : getHostInstanceType().hashCode());
-        hashCode = prime * hashCode + ((getLogs() == null) ? 0 : getLogs().hashCode());
         hashCode = prime * hashCode + ((getMaintenanceWindowStartTime() == null) ? 0 : getMaintenanceWindowStartTime().hashCode());
         hashCode = prime * hashCode + ((getPubliclyAccessible() == null) ? 0 : getPubliclyAccessible().hashCode());
         hashCode = prime * hashCode + ((getSecurityGroups() == null) ? 0 : getSecurityGroups().hashCode());
         hashCode = prime * hashCode + ((getSubnetIds() == null) ? 0 : getSubnetIds().hashCode());
-        hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         hashCode = prime * hashCode + ((getUsers() == null) ? 0 : getUsers().hashCode());
         return hashCode;
     }

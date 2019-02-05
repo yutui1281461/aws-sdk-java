@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -26,14 +26,14 @@ import javax.annotation.Generated;
  * <ul>
  * <li>
  * <p>
- * To trigger the adjustment when the metric is greater than or equal to 50 and less than 60, specify a lower bound of 0
- * and an upper bound of 10.
+ * If you want the adjustment to be triggered when the metric is greater than or equal to 50 and less than 60, specify a
+ * lower bound of 0 and an upper bound of 10.
  * </p>
  * </li>
  * <li>
  * <p>
- * To trigger the adjustment when the metric is greater than 40 and less than or equal to 50, specify a lower bound of
- * -10 and an upper bound of 0.
+ * If you want the adjustment to be triggered when the metric is greater than 40 and less than or equal to 50, specify a
+ * lower bound of -10 and an upper bound of 0.
  * </p>
  * </li>
  * </ul>
@@ -48,13 +48,13 @@ import javax.annotation.Generated;
  * </li>
  * <li>
  * <p>
- * At most, one step adjustment can have a null lower bound. If one step adjustment has a negative lower bound, then
+ * At most one step adjustment can have a null lower bound. If one step adjustment has a negative lower bound, then
  * there must be a step adjustment with a null lower bound.
  * </p>
  * </li>
  * <li>
  * <p>
- * At most, one step adjustment can have a null upper bound. If one step adjustment has a positive upper bound, then
+ * At most one step adjustment can have a null upper bound. If one step adjustment has a positive upper bound, then
  * there must be a step adjustment with a null upper bound.
  * </p>
  * </li>
@@ -278,8 +278,7 @@ public class StepAdjustment implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

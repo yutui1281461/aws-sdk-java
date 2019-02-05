@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -51,13 +51,11 @@ public class ImageMarshaller {
     private static final MarshallingInfo<List> APPLICATIONS_BINDING = MarshallingInfo.builder(MarshallingType.LIST).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("Applications").build();
     private static final MarshallingInfo<java.util.Date> CREATEDTIME_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CreatedTime").timestampFormat("unixTimestamp").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CreatedTime").build();
     private static final MarshallingInfo<java.util.Date> PUBLICBASEIMAGERELEASEDDATE_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("PublicBaseImageReleasedDate").timestampFormat("unixTimestamp").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("PublicBaseImageReleasedDate").build();
     private static final MarshallingInfo<String> APPSTREAMAGENTVERSION_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("AppstreamAgentVersion").build();
-    private static final MarshallingInfo<StructuredPojo> IMAGEPERMISSIONS_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ImagePermissions").build();
 
     private static final ImageMarshaller instance = new ImageMarshaller();
 
@@ -89,7 +87,6 @@ public class ImageMarshaller {
             protocolMarshaller.marshall(image.getCreatedTime(), CREATEDTIME_BINDING);
             protocolMarshaller.marshall(image.getPublicBaseImageReleasedDate(), PUBLICBASEIMAGERELEASEDDATE_BINDING);
             protocolMarshaller.marshall(image.getAppstreamAgentVersion(), APPSTREAMAGENTVERSION_BINDING);
-            protocolMarshaller.marshall(image.getImagePermissions(), IMAGEPERMISSIONS_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

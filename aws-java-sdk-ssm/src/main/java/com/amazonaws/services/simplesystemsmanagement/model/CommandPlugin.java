@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -46,8 +46,8 @@ public class CommandPlugin implements Serializable, Cloneable, StructuredPojo {
      * A detailed status of the plugin execution. StatusDetails includes more information than Status because it
      * includes states resulting from error and concurrency control parameters. StatusDetails can show different results
      * than Status. For more information about these statuses, see <a
-     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding Command
-     * Statuses</a> in the <i>AWS Systems Manager User Guide</i>. StatusDetails can be one of the following values:
+     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html">Run Command
+     * Status</a>. StatusDetails can be one of the following values:
      * </p>
      * <ul>
      * <li>
@@ -321,8 +321,8 @@ public class CommandPlugin implements Serializable, Cloneable, StructuredPojo {
      * A detailed status of the plugin execution. StatusDetails includes more information than Status because it
      * includes states resulting from error and concurrency control parameters. StatusDetails can show different results
      * than Status. For more information about these statuses, see <a
-     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding Command
-     * Statuses</a> in the <i>AWS Systems Manager User Guide</i>. StatusDetails can be one of the following values:
+     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html">Run Command
+     * Status</a>. StatusDetails can be one of the following values:
      * </p>
      * <ul>
      * <li>
@@ -385,9 +385,8 @@ public class CommandPlugin implements Serializable, Cloneable, StructuredPojo {
      *        A detailed status of the plugin execution. StatusDetails includes more information than Status because it
      *        includes states resulting from error and concurrency control parameters. StatusDetails can show different
      *        results than Status. For more information about these statuses, see <a
-     *        href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding
-     *        Command Statuses</a> in the <i>AWS Systems Manager User Guide</i>. StatusDetails can be one of the
-     *        following values:</p>
+     *        href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html">Run Command
+     *        Status</a>. StatusDetails can be one of the following values:</p>
      *        <ul>
      *        <li>
      *        <p>
@@ -456,8 +455,8 @@ public class CommandPlugin implements Serializable, Cloneable, StructuredPojo {
      * A detailed status of the plugin execution. StatusDetails includes more information than Status because it
      * includes states resulting from error and concurrency control parameters. StatusDetails can show different results
      * than Status. For more information about these statuses, see <a
-     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding Command
-     * Statuses</a> in the <i>AWS Systems Manager User Guide</i>. StatusDetails can be one of the following values:
+     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html">Run Command
+     * Status</a>. StatusDetails can be one of the following values:
      * </p>
      * <ul>
      * <li>
@@ -519,9 +518,8 @@ public class CommandPlugin implements Serializable, Cloneable, StructuredPojo {
      * @return A detailed status of the plugin execution. StatusDetails includes more information than Status because it
      *         includes states resulting from error and concurrency control parameters. StatusDetails can show different
      *         results than Status. For more information about these statuses, see <a
-     *         href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding
-     *         Command Statuses</a> in the <i>AWS Systems Manager User Guide</i>. StatusDetails can be one of the
-     *         following values:</p>
+     *         href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html">Run Command
+     *         Status</a>. StatusDetails can be one of the following values:</p>
      *         <ul>
      *         <li>
      *         <p>
@@ -590,8 +588,8 @@ public class CommandPlugin implements Serializable, Cloneable, StructuredPojo {
      * A detailed status of the plugin execution. StatusDetails includes more information than Status because it
      * includes states resulting from error and concurrency control parameters. StatusDetails can show different results
      * than Status. For more information about these statuses, see <a
-     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding Command
-     * Statuses</a> in the <i>AWS Systems Manager User Guide</i>. StatusDetails can be one of the following values:
+     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html">Run Command
+     * Status</a>. StatusDetails can be one of the following values:
      * </p>
      * <ul>
      * <li>
@@ -654,9 +652,8 @@ public class CommandPlugin implements Serializable, Cloneable, StructuredPojo {
      *        A detailed status of the plugin execution. StatusDetails includes more information than Status because it
      *        includes states resulting from error and concurrency control parameters. StatusDetails can show different
      *        results than Status. For more information about these statuses, see <a
-     *        href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding
-     *        Command Statuses</a> in the <i>AWS Systems Manager User Guide</i>. StatusDetails can be one of the
-     *        following values:</p>
+     *        href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html">Run Command
+     *        Status</a>. StatusDetails can be one of the following values:</p>
      *        <ul>
      *        <li>
      *        <p>
@@ -1287,8 +1284,7 @@ public class CommandPlugin implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -20,7 +20,9 @@ import com.amazonaws.Request;
 import com.amazonaws.services.ec2.model.transform.DescribeRouteTablesRequestMarshaller;
 
 /**
- * 
+ * <p>
+ * Contains the parameters for DescribeRouteTables.
+ * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implements Serializable, Cloneable, DryRunSupportedRequest<DescribeRouteTablesRequest> {
@@ -54,11 +56,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>owner-id</code> - The ID of the AWS account that owns the route table.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * <code>route-table-id</code> - The ID of the route table.
      * </p>
      * </li>
@@ -101,11 +98,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>route.transit-gateway-id</code> - The ID of a transit gateway.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates that the
      * route was automatically created when the route table was created; <code>CreateRoute</code> indicates that the
      * route was manually added to the route table; <code>EnableVgwRoutePropagation</code> indicates that the route was
@@ -127,21 +119,24 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in
-     * the filter name and the tag value as the filter value. For example, to find all resources that have a tag with
-     * the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-     * and <code>TeamA</code> for the filter value.
+     * <code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource. Specify
+     * the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag
+     * Purpose=X, specify <code>tag:Purpose</code> for the filter name and <code>X</code> for the filter value.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned
-     * a tag with a specific key, regardless of the tag value.
+     * <code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the
+     * <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter
+     * "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is),
+     * and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X,
+     * see the <code>tag</code>:<i>key</i>=<i>value</i> filter.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>transit-gateway-id</code> - The ID of a transit gateway.
+     * <code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the
+     * <code>tag-key</code> filter.
      * </p>
      * </li>
      * <li>
@@ -161,19 +156,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> routeTableIds;
-    /**
-     * <p>
-     * The token to retrieve the next page of results.
-     * </p>
-     */
-    private String nextToken;
-    /**
-     * <p>
-     * The maximum number of results to return in a single call. To retrieve the remaining results, make another call
-     * with the returned <b>NextToken</b> value. This value can be between 5 and 100.
-     * </p>
-     */
-    private Integer maxResults;
 
     /**
      * <p>
@@ -204,11 +186,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>owner-id</code> - The ID of the AWS account that owns the route table.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * <code>route-table-id</code> - The ID of the route table.
      * </p>
      * </li>
@@ -251,11 +228,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>route.transit-gateway-id</code> - The ID of a transit gateway.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates that the
      * route was automatically created when the route table was created; <code>CreateRoute</code> indicates that the
      * route was manually added to the route table; <code>EnableVgwRoutePropagation</code> indicates that the route was
@@ -277,21 +249,24 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in
-     * the filter name and the tag value as the filter value. For example, to find all resources that have a tag with
-     * the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-     * and <code>TeamA</code> for the filter value.
+     * <code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource. Specify
+     * the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag
+     * Purpose=X, specify <code>tag:Purpose</code> for the filter name and <code>X</code> for the filter value.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned
-     * a tag with a specific key, regardless of the tag value.
+     * <code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the
+     * <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter
+     * "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is),
+     * and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X,
+     * see the <code>tag</code>:<i>key</i>=<i>value</i> filter.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>transit-gateway-id</code> - The ID of a transit gateway.
+     * <code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the
+     * <code>tag-key</code> filter.
      * </p>
      * </li>
      * <li>
@@ -323,11 +298,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *         <code>association.main</code> - Indicates whether the route table is the main route table for the VPC (
      *         <code>true</code> | <code>false</code>). Route tables that do not have an association ID are not returned
      *         in the response.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>owner-id</code> - The ID of the AWS account that owns the route table.
      *         </p>
      *         </li>
      *         <li>
@@ -375,11 +345,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *         </li>
      *         <li>
      *         <p>
-     *         <code>route.transit-gateway-id</code> - The ID of a transit gateway.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
      *         <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates
      *         that the route was automatically created when the route table was created; <code>CreateRoute</code>
      *         indicates that the route was manually added to the route table; <code>EnableVgwRoutePropagation</code>
@@ -402,21 +367,25 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *         </li>
      *         <li>
      *         <p>
-     *         <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag
-     *         key in the filter name and the tag value as the filter value. For example, to find all resources that
-     *         have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify
-     *         <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.
+     *         <code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.
+     *         Specify the key of the tag in the filter name and the value of the tag in the filter value. For example,
+     *         for the tag Purpose=X, specify <code>tag:Purpose</code> for the filter name and <code>X</code> for the
+     *         filter value.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources
-     *         assigned a tag with a specific key, regardless of the tag value.
+     *         <code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the
+     *         <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter
+     *         "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's
+     *         value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources
+     *         where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         <code>transit-gateway-id</code> - The ID of a transit gateway.
+     *         <code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the
+     *         <code>tag-key</code> filter.
      *         </p>
      *         </li>
      *         <li>
@@ -458,11 +427,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * <code>association.main</code> - Indicates whether the route table is the main route table for the VPC (
      * <code>true</code> | <code>false</code>). Route tables that do not have an association ID are not returned in the
      * response.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>owner-id</code> - The ID of the AWS account that owns the route table.
      * </p>
      * </li>
      * <li>
@@ -509,11 +473,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>route.transit-gateway-id</code> - The ID of a transit gateway.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates that the
      * route was automatically created when the route table was created; <code>CreateRoute</code> indicates that the
      * route was manually added to the route table; <code>EnableVgwRoutePropagation</code> indicates that the route was
@@ -535,21 +494,24 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in
-     * the filter name and the tag value as the filter value. For example, to find all resources that have a tag with
-     * the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-     * and <code>TeamA</code> for the filter value.
+     * <code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource. Specify
+     * the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag
+     * Purpose=X, specify <code>tag:Purpose</code> for the filter name and <code>X</code> for the filter value.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned
-     * a tag with a specific key, regardless of the tag value.
+     * <code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the
+     * <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter
+     * "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is),
+     * and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X,
+     * see the <code>tag</code>:<i>key</i>=<i>value</i> filter.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>transit-gateway-id</code> - The ID of a transit gateway.
+     * <code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the
+     * <code>tag-key</code> filter.
      * </p>
      * </li>
      * <li>
@@ -582,11 +544,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        <code>association.main</code> - Indicates whether the route table is the main route table for the VPC (
      *        <code>true</code> | <code>false</code>). Route tables that do not have an association ID are not returned
      *        in the response.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>owner-id</code> - The ID of the AWS account that owns the route table.
      *        </p>
      *        </li>
      *        <li>
@@ -634,11 +591,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        </li>
      *        <li>
      *        <p>
-     *        <code>route.transit-gateway-id</code> - The ID of a transit gateway.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
      *        <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates
      *        that the route was automatically created when the route table was created; <code>CreateRoute</code>
      *        indicates that the route was manually added to the route table; <code>EnableVgwRoutePropagation</code>
@@ -661,21 +613,25 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        </li>
      *        <li>
      *        <p>
-     *        <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag
-     *        key in the filter name and the tag value as the filter value. For example, to find all resources that have
-     *        a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for
-     *        the filter name and <code>TeamA</code> for the filter value.
+     *        <code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.
+     *        Specify the key of the tag in the filter name and the value of the tag in the filter value. For example,
+     *        for the tag Purpose=X, specify <code>tag:Purpose</code> for the filter name and <code>X</code> for the
+     *        filter value.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources
-     *        assigned a tag with a specific key, regardless of the tag value.
+     *        <code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the
+     *        <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter
+     *        "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value
+     *        is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where
+     *        Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>transit-gateway-id</code> - The ID of a transit gateway.
+     *        <code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the
+     *        <code>tag-key</code> filter.
      *        </p>
      *        </li>
      *        <li>
@@ -723,11 +679,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>owner-id</code> - The ID of the AWS account that owns the route table.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * <code>route-table-id</code> - The ID of the route table.
      * </p>
      * </li>
@@ -770,11 +721,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>route.transit-gateway-id</code> - The ID of a transit gateway.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates that the
      * route was automatically created when the route table was created; <code>CreateRoute</code> indicates that the
      * route was manually added to the route table; <code>EnableVgwRoutePropagation</code> indicates that the route was
@@ -796,21 +742,24 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in
-     * the filter name and the tag value as the filter value. For example, to find all resources that have a tag with
-     * the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-     * and <code>TeamA</code> for the filter value.
+     * <code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource. Specify
+     * the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag
+     * Purpose=X, specify <code>tag:Purpose</code> for the filter name and <code>X</code> for the filter value.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned
-     * a tag with a specific key, regardless of the tag value.
+     * <code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the
+     * <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter
+     * "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is),
+     * and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X,
+     * see the <code>tag</code>:<i>key</i>=<i>value</i> filter.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>transit-gateway-id</code> - The ID of a transit gateway.
+     * <code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the
+     * <code>tag-key</code> filter.
      * </p>
      * </li>
      * <li>
@@ -848,11 +797,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        <code>association.main</code> - Indicates whether the route table is the main route table for the VPC (
      *        <code>true</code> | <code>false</code>). Route tables that do not have an association ID are not returned
      *        in the response.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>owner-id</code> - The ID of the AWS account that owns the route table.
      *        </p>
      *        </li>
      *        <li>
@@ -900,11 +844,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        </li>
      *        <li>
      *        <p>
-     *        <code>route.transit-gateway-id</code> - The ID of a transit gateway.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
      *        <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates
      *        that the route was automatically created when the route table was created; <code>CreateRoute</code>
      *        indicates that the route was manually added to the route table; <code>EnableVgwRoutePropagation</code>
@@ -927,21 +866,25 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        </li>
      *        <li>
      *        <p>
-     *        <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag
-     *        key in the filter name and the tag value as the filter value. For example, to find all resources that have
-     *        a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for
-     *        the filter name and <code>TeamA</code> for the filter value.
+     *        <code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.
+     *        Specify the key of the tag in the filter name and the value of the tag in the filter value. For example,
+     *        for the tag Purpose=X, specify <code>tag:Purpose</code> for the filter name and <code>X</code> for the
+     *        filter value.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources
-     *        assigned a tag with a specific key, regardless of the tag value.
+     *        <code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the
+     *        <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter
+     *        "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value
+     *        is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where
+     *        Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>transit-gateway-id</code> - The ID of a transit gateway.
+     *        <code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the
+     *        <code>tag-key</code> filter.
      *        </p>
      *        </li>
      *        <li>
@@ -991,11 +934,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>owner-id</code> - The ID of the AWS account that owns the route table.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * <code>route-table-id</code> - The ID of the route table.
      * </p>
      * </li>
@@ -1038,11 +976,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>route.transit-gateway-id</code> - The ID of a transit gateway.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates that the
      * route was automatically created when the route table was created; <code>CreateRoute</code> indicates that the
      * route was manually added to the route table; <code>EnableVgwRoutePropagation</code> indicates that the route was
@@ -1064,21 +997,24 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      * </li>
      * <li>
      * <p>
-     * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in
-     * the filter name and the tag value as the filter value. For example, to find all resources that have a tag with
-     * the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
-     * and <code>TeamA</code> for the filter value.
+     * <code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource. Specify
+     * the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag
+     * Purpose=X, specify <code>tag:Purpose</code> for the filter name and <code>X</code> for the filter value.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned
-     * a tag with a specific key, regardless of the tag value.
+     * <code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the
+     * <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter
+     * "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is),
+     * and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X,
+     * see the <code>tag</code>:<i>key</i>=<i>value</i> filter.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>transit-gateway-id</code> - The ID of a transit gateway.
+     * <code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the
+     * <code>tag-key</code> filter.
      * </p>
      * </li>
      * <li>
@@ -1111,11 +1047,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        <code>association.main</code> - Indicates whether the route table is the main route table for the VPC (
      *        <code>true</code> | <code>false</code>). Route tables that do not have an association ID are not returned
      *        in the response.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>owner-id</code> - The ID of the AWS account that owns the route table.
      *        </p>
      *        </li>
      *        <li>
@@ -1163,11 +1094,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        </li>
      *        <li>
      *        <p>
-     *        <code>route.transit-gateway-id</code> - The ID of a transit gateway.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
      *        <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates
      *        that the route was automatically created when the route table was created; <code>CreateRoute</code>
      *        indicates that the route was manually added to the route table; <code>EnableVgwRoutePropagation</code>
@@ -1190,21 +1116,25 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
      *        </li>
      *        <li>
      *        <p>
-     *        <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag
-     *        key in the filter name and the tag value as the filter value. For example, to find all resources that have
-     *        a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for
-     *        the filter name and <code>TeamA</code> for the filter value.
+     *        <code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned to the resource.
+     *        Specify the key of the tag in the filter name and the value of the tag in the filter value. For example,
+     *        for the tag Purpose=X, specify <code>tag:Purpose</code> for the filter name and <code>X</code> for the
+     *        filter value.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources
-     *        assigned a tag with a specific key, regardless of the tag value.
+     *        <code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent of the
+     *        <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose" and the filter
+     *        "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value
+     *        is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where
+     *        Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>transit-gateway-id</code> - The ID of a transit gateway.
+     *        <code>tag-value</code> - The value of a tag assigned to the resource. This filter is independent of the
+     *        <code>tag-key</code> filter.
      *        </p>
      *        </li>
      *        <li>
@@ -1314,92 +1244,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
     }
 
     /**
-     * <p>
-     * The token to retrieve the next page of results.
-     * </p>
-     * 
-     * @param nextToken
-     *        The token to retrieve the next page of results.
-     */
-
-    public void setNextToken(String nextToken) {
-        this.nextToken = nextToken;
-    }
-
-    /**
-     * <p>
-     * The token to retrieve the next page of results.
-     * </p>
-     * 
-     * @return The token to retrieve the next page of results.
-     */
-
-    public String getNextToken() {
-        return this.nextToken;
-    }
-
-    /**
-     * <p>
-     * The token to retrieve the next page of results.
-     * </p>
-     * 
-     * @param nextToken
-     *        The token to retrieve the next page of results.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DescribeRouteTablesRequest withNextToken(String nextToken) {
-        setNextToken(nextToken);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The maximum number of results to return in a single call. To retrieve the remaining results, make another call
-     * with the returned <b>NextToken</b> value. This value can be between 5 and 100.
-     * </p>
-     * 
-     * @param maxResults
-     *        The maximum number of results to return in a single call. To retrieve the remaining results, make another
-     *        call with the returned <b>NextToken</b> value. This value can be between 5 and 100.
-     */
-
-    public void setMaxResults(Integer maxResults) {
-        this.maxResults = maxResults;
-    }
-
-    /**
-     * <p>
-     * The maximum number of results to return in a single call. To retrieve the remaining results, make another call
-     * with the returned <b>NextToken</b> value. This value can be between 5 and 100.
-     * </p>
-     * 
-     * @return The maximum number of results to return in a single call. To retrieve the remaining results, make another
-     *         call with the returned <b>NextToken</b> value. This value can be between 5 and 100.
-     */
-
-    public Integer getMaxResults() {
-        return this.maxResults;
-    }
-
-    /**
-     * <p>
-     * The maximum number of results to return in a single call. To retrieve the remaining results, make another call
-     * with the returned <b>NextToken</b> value. This value can be between 5 and 100.
-     * </p>
-     * 
-     * @param maxResults
-     *        The maximum number of results to return in a single call. To retrieve the remaining results, make another
-     *        call with the returned <b>NextToken</b> value. This value can be between 5 and 100.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DescribeRouteTablesRequest withMaxResults(Integer maxResults) {
-        setMaxResults(maxResults);
-        return this;
-    }
-
-    /**
      * This method is intended for internal use only. Returns the marshaled request configured with additional
      * parameters to enable operation dry-run.
      */
@@ -1411,8 +1255,7 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1425,11 +1268,7 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
         if (getFilters() != null)
             sb.append("Filters: ").append(getFilters()).append(",");
         if (getRouteTableIds() != null)
-            sb.append("RouteTableIds: ").append(getRouteTableIds()).append(",");
-        if (getNextToken() != null)
-            sb.append("NextToken: ").append(getNextToken()).append(",");
-        if (getMaxResults() != null)
-            sb.append("MaxResults: ").append(getMaxResults());
+            sb.append("RouteTableIds: ").append(getRouteTableIds());
         sb.append("}");
         return sb.toString();
     }
@@ -1452,14 +1291,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
             return false;
         if (other.getRouteTableIds() != null && other.getRouteTableIds().equals(this.getRouteTableIds()) == false)
             return false;
-        if (other.getNextToken() == null ^ this.getNextToken() == null)
-            return false;
-        if (other.getNextToken() != null && other.getNextToken().equals(this.getNextToken()) == false)
-            return false;
-        if (other.getMaxResults() == null ^ this.getMaxResults() == null)
-            return false;
-        if (other.getMaxResults() != null && other.getMaxResults().equals(this.getMaxResults()) == false)
-            return false;
         return true;
     }
 
@@ -1470,8 +1301,6 @@ public class DescribeRouteTablesRequest extends AmazonWebServiceRequest implemen
 
         hashCode = prime * hashCode + ((getFilters() == null) ? 0 : getFilters().hashCode());
         hashCode = prime * hashCode + ((getRouteTableIds() == null) ? 0 : getRouteTableIds().hashCode());
-        hashCode = prime * hashCode + ((getNextToken() == null) ? 0 : getNextToken().hashCode());
-        hashCode = prime * hashCode + ((getMaxResults() == null) ? 0 : getMaxResults().hashCode());
         return hashCode;
     }
 

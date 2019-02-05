@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -28,7 +28,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class ReservationPurchaseRecommendationDetail implements Serializable, Cloneable, StructuredPojo {
 
-    private String accountId;
     /**
      * <p>
      * Details about the instances that AWS recommends that you purchase.
@@ -56,8 +55,8 @@ public class ReservationPurchaseRecommendationDetail implements Serializable, Cl
     private String minimumNumberOfInstancesUsedPerHour;
     /**
      * <p>
-     * The minimum number of normalized units that you used in an hour during the historical period. AWS uses this to
-     * calculate your recommended reservation purchases.
+     * The minimum number of hours that you used in an hour during the historical period. AWS uses this to calculate
+     * your recommended reservation purchases.
      * </p>
      */
     private String minimumNormalizedUnitsUsedPerHour;
@@ -145,32 +144,6 @@ public class ReservationPurchaseRecommendationDetail implements Serializable, Cl
      * </p>
      */
     private String recurringStandardMonthlyCost;
-
-    /**
-     * @param accountId
-     */
-
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
-    /**
-     * @return
-     */
-
-    public String getAccountId() {
-        return this.accountId;
-    }
-
-    /**
-     * @param accountId
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public ReservationPurchaseRecommendationDetail withAccountId(String accountId) {
-        setAccountId(accountId);
-        return this;
-    }
 
     /**
      * <p>
@@ -340,13 +313,13 @@ public class ReservationPurchaseRecommendationDetail implements Serializable, Cl
 
     /**
      * <p>
-     * The minimum number of normalized units that you used in an hour during the historical period. AWS uses this to
-     * calculate your recommended reservation purchases.
+     * The minimum number of hours that you used in an hour during the historical period. AWS uses this to calculate
+     * your recommended reservation purchases.
      * </p>
      * 
      * @param minimumNormalizedUnitsUsedPerHour
-     *        The minimum number of normalized units that you used in an hour during the historical period. AWS uses
-     *        this to calculate your recommended reservation purchases.
+     *        The minimum number of hours that you used in an hour during the historical period. AWS uses this to
+     *        calculate your recommended reservation purchases.
      */
 
     public void setMinimumNormalizedUnitsUsedPerHour(String minimumNormalizedUnitsUsedPerHour) {
@@ -355,12 +328,12 @@ public class ReservationPurchaseRecommendationDetail implements Serializable, Cl
 
     /**
      * <p>
-     * The minimum number of normalized units that you used in an hour during the historical period. AWS uses this to
-     * calculate your recommended reservation purchases.
+     * The minimum number of hours that you used in an hour during the historical period. AWS uses this to calculate
+     * your recommended reservation purchases.
      * </p>
      * 
-     * @return The minimum number of normalized units that you used in an hour during the historical period. AWS uses
-     *         this to calculate your recommended reservation purchases.
+     * @return The minimum number of hours that you used in an hour during the historical period. AWS uses this to
+     *         calculate your recommended reservation purchases.
      */
 
     public String getMinimumNormalizedUnitsUsedPerHour() {
@@ -369,13 +342,13 @@ public class ReservationPurchaseRecommendationDetail implements Serializable, Cl
 
     /**
      * <p>
-     * The minimum number of normalized units that you used in an hour during the historical period. AWS uses this to
-     * calculate your recommended reservation purchases.
+     * The minimum number of hours that you used in an hour during the historical period. AWS uses this to calculate
+     * your recommended reservation purchases.
      * </p>
      * 
      * @param minimumNormalizedUnitsUsedPerHour
-     *        The minimum number of normalized units that you used in an hour during the historical period. AWS uses
-     *        this to calculate your recommended reservation purchases.
+     *        The minimum number of hours that you used in an hour during the historical period. AWS uses this to
+     *        calculate your recommended reservation purchases.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -944,8 +917,7 @@ public class ReservationPurchaseRecommendationDetail implements Serializable, Cl
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -955,8 +927,6 @@ public class ReservationPurchaseRecommendationDetail implements Serializable, Cl
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
-        if (getAccountId() != null)
-            sb.append("AccountId: ").append(getAccountId()).append(",");
         if (getInstanceDetails() != null)
             sb.append("InstanceDetails: ").append(getInstanceDetails()).append(",");
         if (getRecommendedNumberOfInstancesToPurchase() != null)
@@ -1007,10 +977,6 @@ public class ReservationPurchaseRecommendationDetail implements Serializable, Cl
         if (obj instanceof ReservationPurchaseRecommendationDetail == false)
             return false;
         ReservationPurchaseRecommendationDetail other = (ReservationPurchaseRecommendationDetail) obj;
-        if (other.getAccountId() == null ^ this.getAccountId() == null)
-            return false;
-        if (other.getAccountId() != null && other.getAccountId().equals(this.getAccountId()) == false)
-            return false;
         if (other.getInstanceDetails() == null ^ this.getInstanceDetails() == null)
             return false;
         if (other.getInstanceDetails() != null && other.getInstanceDetails().equals(this.getInstanceDetails()) == false)
@@ -1102,7 +1068,6 @@ public class ReservationPurchaseRecommendationDetail implements Serializable, Cl
         final int prime = 31;
         int hashCode = 1;
 
-        hashCode = prime * hashCode + ((getAccountId() == null) ? 0 : getAccountId().hashCode());
         hashCode = prime * hashCode + ((getInstanceDetails() == null) ? 0 : getInstanceDetails().hashCode());
         hashCode = prime * hashCode + ((getRecommendedNumberOfInstancesToPurchase() == null) ? 0 : getRecommendedNumberOfInstancesToPurchase().hashCode());
         hashCode = prime * hashCode + ((getRecommendedNormalizedUnitsToPurchase() == null) ? 0 : getRecommendedNormalizedUnitsToPurchase().hashCode());

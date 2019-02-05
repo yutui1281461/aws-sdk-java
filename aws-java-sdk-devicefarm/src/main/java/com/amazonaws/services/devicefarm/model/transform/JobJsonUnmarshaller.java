@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -62,7 +62,7 @@ public class JobJsonUnmarshaller implements Unmarshaller<Job, JsonUnmarshallerCo
                 }
                 if (context.testExpression("created", targetDepth)) {
                     context.nextToken();
-                    job.setCreated(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    job.setCreated(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("status", targetDepth)) {
                     context.nextToken();
@@ -74,11 +74,11 @@ public class JobJsonUnmarshaller implements Unmarshaller<Job, JsonUnmarshallerCo
                 }
                 if (context.testExpression("started", targetDepth)) {
                     context.nextToken();
-                    job.setStarted(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    job.setStarted(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("stopped", targetDepth)) {
                     context.nextToken();
-                    job.setStopped(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    job.setStopped(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("counters", targetDepth)) {
                     context.nextToken();
@@ -99,14 +99,6 @@ public class JobJsonUnmarshaller implements Unmarshaller<Job, JsonUnmarshallerCo
                 if (context.testExpression("deviceMinutes", targetDepth)) {
                     context.nextToken();
                     job.setDeviceMinutes(DeviceMinutesJsonUnmarshaller.getInstance().unmarshall(context));
-                }
-                if (context.testExpression("videoEndpoint", targetDepth)) {
-                    context.nextToken();
-                    job.setVideoEndpoint(context.getUnmarshaller(String.class).unmarshall(context));
-                }
-                if (context.testExpression("videoCapture", targetDepth)) {
-                    context.nextToken();
-                    job.setVideoCapture(context.getUnmarshaller(Boolean.class).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

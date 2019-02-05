@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,8 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
 
     private String alternateTransferFunctionSei;
     /**
-     * Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when
+     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m.
+     * Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when
      * rounded down to the nearest multiple of 1000.
      */
     private Integer bitrate;
@@ -38,22 +39,15 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     private String codecLevel;
 
     private String codecProfile;
-    /**
-     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
-     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
-     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
-     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-     */
-    private String dynamicSubGop;
 
     private String flickerAdaptiveQuantization;
 
     private String framerateControl;
 
     private String framerateConversionAlgorithm;
-    /** Frame rate denominator. */
+    /** Framerate denominator. */
     private Integer framerateDenominator;
-    /** Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps. */
+    /** Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps. */
     private Integer framerateNumerator;
 
     private String gopBReference;
@@ -69,13 +63,16 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     private String gopSizeUnits;
     /** Percentage of the buffer that should initially be filled (HRD buffer model). */
     private Integer hrdBufferInitialFillPercentage;
-    /** Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000. */
+    /**
+     * Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be
+     * entered as 500000 or 0.5m.
+     */
     private Integer hrdBufferSize;
 
     private String interlaceMode;
     /**
-     * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate
-     * control mode is QVBR.
+     * Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred
+     * kilobits can be entered as 500000 or 0.5m.
      */
     private Integer maxBitrate;
     /**
@@ -101,12 +98,6 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     private Integer parNumerator;
 
     private String qualityTuningLevel;
-    /**
-     * Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate control
-     * mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate
-     * control mode.
-     */
-    private H265QvbrSettings qvbrSettings;
 
     private String rateControlMode;
 
@@ -132,8 +123,6 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     private String tiles;
 
     private String unregisteredSeiTimecode;
-
-    private String writeMp4PackagingType;
 
     /**
      * @param adaptiveQuantization
@@ -216,11 +205,13 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when
+     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m.
+     * Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when
      * rounded down to the nearest multiple of 1000.
      * 
      * @param bitrate
-     *        Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique
+     *        Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or
+     *        5m. Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique
      *        when rounded down to the nearest multiple of 1000.
      */
 
@@ -229,11 +220,13 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when
+     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m.
+     * Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when
      * rounded down to the nearest multiple of 1000.
      * 
-     * @return Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique
-     *         when rounded down to the nearest multiple of 1000.
+     * @return Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000
+     *         or 5m. Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be
+     *         unique when rounded down to the nearest multiple of 1000.
      */
 
     public Integer getBitrate() {
@@ -241,11 +234,13 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when
+     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m.
+     * Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when
      * rounded down to the nearest multiple of 1000.
      * 
      * @param bitrate
-     *        Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique
+     *        Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or
+     *        5m. Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique
      *        when rounded down to the nearest multiple of 1000.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -332,81 +327,6 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
 
     public H265Settings withCodecProfile(H265CodecProfile codecProfile) {
         this.codecProfile = codecProfile.toString();
-        return this;
-    }
-
-    /**
-     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
-     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
-     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
-     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-     * 
-     * @param dynamicSubGop
-     *        Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service
-     *        to use fewer B-frames (which infer information based on other frames) for high-motion portions of the
-     *        video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value
-     *        you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-     * @see H265DynamicSubGop
-     */
-
-    public void setDynamicSubGop(String dynamicSubGop) {
-        this.dynamicSubGop = dynamicSubGop;
-    }
-
-    /**
-     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
-     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
-     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
-     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-     * 
-     * @return Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service
-     *         to use fewer B-frames (which infer information based on other frames) for high-motion portions of the
-     *         video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value
-     *         you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-     * @see H265DynamicSubGop
-     */
-
-    public String getDynamicSubGop() {
-        return this.dynamicSubGop;
-    }
-
-    /**
-     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
-     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
-     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
-     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-     * 
-     * @param dynamicSubGop
-     *        Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service
-     *        to use fewer B-frames (which infer information based on other frames) for high-motion portions of the
-     *        video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value
-     *        you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see H265DynamicSubGop
-     */
-
-    public H265Settings withDynamicSubGop(String dynamicSubGop) {
-        setDynamicSubGop(dynamicSubGop);
-        return this;
-    }
-
-    /**
-     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
-     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
-     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
-     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-     * 
-     * @param dynamicSubGop
-     *        Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service
-     *        to use fewer B-frames (which infer information based on other frames) for high-motion portions of the
-     *        video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value
-     *        you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see H265DynamicSubGop
-     */
-
-    public H265Settings withDynamicSubGop(H265DynamicSubGop dynamicSubGop) {
-        this.dynamicSubGop = dynamicSubGop.toString();
         return this;
     }
 
@@ -531,10 +451,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Frame rate denominator.
+     * Framerate denominator.
      * 
      * @param framerateDenominator
-     *        Frame rate denominator.
+     *        Framerate denominator.
      */
 
     public void setFramerateDenominator(Integer framerateDenominator) {
@@ -542,9 +462,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Frame rate denominator.
+     * Framerate denominator.
      * 
-     * @return Frame rate denominator.
+     * @return Framerate denominator.
      */
 
     public Integer getFramerateDenominator() {
@@ -552,10 +472,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Frame rate denominator.
+     * Framerate denominator.
      * 
      * @param framerateDenominator
-     *        Frame rate denominator.
+     *        Framerate denominator.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -565,10 +485,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      * 
      * @param framerateNumerator
-     *        Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     *        Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      */
 
     public void setFramerateNumerator(Integer framerateNumerator) {
@@ -576,9 +496,9 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      * 
-     * @return Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     * @return Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      */
 
     public Integer getFramerateNumerator() {
@@ -586,10 +506,10 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      * 
      * @param framerateNumerator
-     *        Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     *        Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -793,10 +713,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
+     * Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be
+     * entered as 500000 or 0.5m.
      * 
      * @param hrdBufferSize
-     *        Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
+     *        Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits
+     *        can be entered as 500000 or 0.5m.
      */
 
     public void setHrdBufferSize(Integer hrdBufferSize) {
@@ -804,9 +726,11 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
+     * Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be
+     * entered as 500000 or 0.5m.
      * 
-     * @return Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
+     * @return Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits
+     *         can be entered as 500000 or 0.5m.
      */
 
     public Integer getHrdBufferSize() {
@@ -814,10 +738,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
+     * Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be
+     * entered as 500000 or 0.5m.
      * 
      * @param hrdBufferSize
-     *        Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
+     *        Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits
+     *        can be entered as 500000 or 0.5m.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -867,12 +793,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate
-     * control mode is QVBR.
+     * Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred
+     * kilobits can be entered as 500000 or 0.5m.
      * 
      * @param maxBitrate
-     *        Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate
-     *        control mode is QVBR.
+     *        Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five
+     *        hundred kilobits can be entered as 500000 or 0.5m.
      */
 
     public void setMaxBitrate(Integer maxBitrate) {
@@ -880,11 +806,11 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate
-     * control mode is QVBR.
+     * Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred
+     * kilobits can be entered as 500000 or 0.5m.
      * 
-     * @return Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when
-     *         Rate control mode is QVBR.
+     * @return Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five
+     *         hundred kilobits can be entered as 500000 or 0.5m.
      */
 
     public Integer getMaxBitrate() {
@@ -892,12 +818,12 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate
-     * control mode is QVBR.
+     * Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred
+     * kilobits can be entered as 500000 or 0.5m.
      * 
      * @param maxBitrate
-     *        Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate
-     *        control mode is QVBR.
+     *        Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five
+     *        hundred kilobits can be entered as 500000 or 0.5m.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1183,52 +1109,6 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
 
     public H265Settings withQualityTuningLevel(H265QualityTuningLevel qualityTuningLevel) {
         this.qualityTuningLevel = qualityTuningLevel.toString();
-        return this;
-    }
-
-    /**
-     * Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate control
-     * mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate
-     * control mode.
-     * 
-     * @param qvbrSettings
-     *        Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate
-     *        control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you
-     *        don't define Rate control mode.
-     */
-
-    public void setQvbrSettings(H265QvbrSettings qvbrSettings) {
-        this.qvbrSettings = qvbrSettings;
-    }
-
-    /**
-     * Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate control
-     * mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate
-     * control mode.
-     * 
-     * @return Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate
-     *         control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you
-     *         don't define Rate control mode.
-     */
-
-    public H265QvbrSettings getQvbrSettings() {
-        return this.qvbrSettings;
-    }
-
-    /**
-     * Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate control
-     * mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate
-     * control mode.
-     * 
-     * @param qvbrSettings
-     *        Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate
-     *        control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you
-     *        don't define Rate control mode.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public H265Settings withQvbrSettings(H265QvbrSettings qvbrSettings) {
-        setQvbrSettings(qvbrSettings);
         return this;
     }
 
@@ -1673,48 +1553,7 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @param writeMp4PackagingType
-     * @see H265WriteMp4PackagingType
-     */
-
-    public void setWriteMp4PackagingType(String writeMp4PackagingType) {
-        this.writeMp4PackagingType = writeMp4PackagingType;
-    }
-
-    /**
-     * @return
-     * @see H265WriteMp4PackagingType
-     */
-
-    public String getWriteMp4PackagingType() {
-        return this.writeMp4PackagingType;
-    }
-
-    /**
-     * @param writeMp4PackagingType
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see H265WriteMp4PackagingType
-     */
-
-    public H265Settings withWriteMp4PackagingType(String writeMp4PackagingType) {
-        setWriteMp4PackagingType(writeMp4PackagingType);
-        return this;
-    }
-
-    /**
-     * @param writeMp4PackagingType
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see H265WriteMp4PackagingType
-     */
-
-    public H265Settings withWriteMp4PackagingType(H265WriteMp4PackagingType writeMp4PackagingType) {
-        this.writeMp4PackagingType = writeMp4PackagingType.toString();
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1734,8 +1573,6 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
             sb.append("CodecLevel: ").append(getCodecLevel()).append(",");
         if (getCodecProfile() != null)
             sb.append("CodecProfile: ").append(getCodecProfile()).append(",");
-        if (getDynamicSubGop() != null)
-            sb.append("DynamicSubGop: ").append(getDynamicSubGop()).append(",");
         if (getFlickerAdaptiveQuantization() != null)
             sb.append("FlickerAdaptiveQuantization: ").append(getFlickerAdaptiveQuantization()).append(",");
         if (getFramerateControl() != null)
@@ -1776,8 +1613,6 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
             sb.append("ParNumerator: ").append(getParNumerator()).append(",");
         if (getQualityTuningLevel() != null)
             sb.append("QualityTuningLevel: ").append(getQualityTuningLevel()).append(",");
-        if (getQvbrSettings() != null)
-            sb.append("QvbrSettings: ").append(getQvbrSettings()).append(",");
         if (getRateControlMode() != null)
             sb.append("RateControlMode: ").append(getRateControlMode()).append(",");
         if (getSampleAdaptiveOffsetFilterMode() != null)
@@ -1799,9 +1634,7 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
         if (getTiles() != null)
             sb.append("Tiles: ").append(getTiles()).append(",");
         if (getUnregisteredSeiTimecode() != null)
-            sb.append("UnregisteredSeiTimecode: ").append(getUnregisteredSeiTimecode()).append(",");
-        if (getWriteMp4PackagingType() != null)
-            sb.append("WriteMp4PackagingType: ").append(getWriteMp4PackagingType());
+            sb.append("UnregisteredSeiTimecode: ").append(getUnregisteredSeiTimecode());
         sb.append("}");
         return sb.toString();
     }
@@ -1835,10 +1668,6 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
         if (other.getCodecProfile() == null ^ this.getCodecProfile() == null)
             return false;
         if (other.getCodecProfile() != null && other.getCodecProfile().equals(this.getCodecProfile()) == false)
-            return false;
-        if (other.getDynamicSubGop() == null ^ this.getDynamicSubGop() == null)
-            return false;
-        if (other.getDynamicSubGop() != null && other.getDynamicSubGop().equals(this.getDynamicSubGop()) == false)
             return false;
         if (other.getFlickerAdaptiveQuantization() == null ^ this.getFlickerAdaptiveQuantization() == null)
             return false;
@@ -1922,10 +1751,6 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getQualityTuningLevel() != null && other.getQualityTuningLevel().equals(this.getQualityTuningLevel()) == false)
             return false;
-        if (other.getQvbrSettings() == null ^ this.getQvbrSettings() == null)
-            return false;
-        if (other.getQvbrSettings() != null && other.getQvbrSettings().equals(this.getQvbrSettings()) == false)
-            return false;
         if (other.getRateControlMode() == null ^ this.getRateControlMode() == null)
             return false;
         if (other.getRateControlMode() != null && other.getRateControlMode().equals(this.getRateControlMode()) == false)
@@ -1971,10 +1796,6 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getUnregisteredSeiTimecode() != null && other.getUnregisteredSeiTimecode().equals(this.getUnregisteredSeiTimecode()) == false)
             return false;
-        if (other.getWriteMp4PackagingType() == null ^ this.getWriteMp4PackagingType() == null)
-            return false;
-        if (other.getWriteMp4PackagingType() != null && other.getWriteMp4PackagingType().equals(this.getWriteMp4PackagingType()) == false)
-            return false;
         return true;
     }
 
@@ -1988,7 +1809,6 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getBitrate() == null) ? 0 : getBitrate().hashCode());
         hashCode = prime * hashCode + ((getCodecLevel() == null) ? 0 : getCodecLevel().hashCode());
         hashCode = prime * hashCode + ((getCodecProfile() == null) ? 0 : getCodecProfile().hashCode());
-        hashCode = prime * hashCode + ((getDynamicSubGop() == null) ? 0 : getDynamicSubGop().hashCode());
         hashCode = prime * hashCode + ((getFlickerAdaptiveQuantization() == null) ? 0 : getFlickerAdaptiveQuantization().hashCode());
         hashCode = prime * hashCode + ((getFramerateControl() == null) ? 0 : getFramerateControl().hashCode());
         hashCode = prime * hashCode + ((getFramerateConversionAlgorithm() == null) ? 0 : getFramerateConversionAlgorithm().hashCode());
@@ -2009,7 +1829,6 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getParDenominator() == null) ? 0 : getParDenominator().hashCode());
         hashCode = prime * hashCode + ((getParNumerator() == null) ? 0 : getParNumerator().hashCode());
         hashCode = prime * hashCode + ((getQualityTuningLevel() == null) ? 0 : getQualityTuningLevel().hashCode());
-        hashCode = prime * hashCode + ((getQvbrSettings() == null) ? 0 : getQvbrSettings().hashCode());
         hashCode = prime * hashCode + ((getRateControlMode() == null) ? 0 : getRateControlMode().hashCode());
         hashCode = prime * hashCode + ((getSampleAdaptiveOffsetFilterMode() == null) ? 0 : getSampleAdaptiveOffsetFilterMode().hashCode());
         hashCode = prime * hashCode + ((getSceneChangeDetect() == null) ? 0 : getSceneChangeDetect().hashCode());
@@ -2021,7 +1840,6 @@ public class H265Settings implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getTemporalIds() == null) ? 0 : getTemporalIds().hashCode());
         hashCode = prime * hashCode + ((getTiles() == null) ? 0 : getTiles().hashCode());
         hashCode = prime * hashCode + ((getUnregisteredSeiTimecode() == null) ? 0 : getUnregisteredSeiTimecode().hashCode());
-        hashCode = prime * hashCode + ((getWriteMp4PackagingType() == null) ? 0 : getWriteMp4PackagingType().hashCode());
         return hashCode;
     }
 

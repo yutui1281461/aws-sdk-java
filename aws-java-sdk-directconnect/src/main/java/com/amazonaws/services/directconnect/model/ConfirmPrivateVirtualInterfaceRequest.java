@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,6 +18,9 @@ import javax.annotation.Generated;
 import com.amazonaws.AmazonWebServiceRequest;
 
 /**
+ * <p>
+ * Container for the parameters to the ConfirmPrivateVirtualInterface operation.
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/ConfirmPrivateVirtualInterface"
  *      target="_top">AWS API Documentation</a>
@@ -25,32 +28,37 @@ import com.amazonaws.AmazonWebServiceRequest;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class ConfirmPrivateVirtualInterfaceRequest extends com.amazonaws.AmazonWebServiceRequest implements Serializable, Cloneable {
 
-    /**
-     * <p>
-     * The ID of the virtual interface.
-     * </p>
-     */
     private String virtualInterfaceId;
     /**
      * <p>
-     * The ID of the virtual private gateway.
+     * ID of the virtual private gateway that will be attached to the virtual interface.
+     * </p>
+     * <p>
+     * A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html">EC2
+     * CreateVpnGateway</a> action.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      */
     private String virtualGatewayId;
     /**
      * <p>
-     * The ID of the Direct Connect gateway.
+     * ID of the direct connect gateway that will be attached to the virtual interface.
+     * </p>
+     * <p>
+     * A direct connect gateway can be managed via the AWS Direct Connect console or the
+     * <a>CreateDirectConnectGateway</a> action.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      */
     private String directConnectGatewayId;
 
     /**
-     * <p>
-     * The ID of the virtual interface.
-     * </p>
-     * 
      * @param virtualInterfaceId
-     *        The ID of the virtual interface.
      */
 
     public void setVirtualInterfaceId(String virtualInterfaceId) {
@@ -58,11 +66,7 @@ public class ConfirmPrivateVirtualInterfaceRequest extends com.amazonaws.AmazonW
     }
 
     /**
-     * <p>
-     * The ID of the virtual interface.
-     * </p>
-     * 
-     * @return The ID of the virtual interface.
+     * @return
      */
 
     public String getVirtualInterfaceId() {
@@ -70,12 +74,7 @@ public class ConfirmPrivateVirtualInterfaceRequest extends com.amazonaws.AmazonW
     }
 
     /**
-     * <p>
-     * The ID of the virtual interface.
-     * </p>
-     * 
      * @param virtualInterfaceId
-     *        The ID of the virtual interface.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -86,11 +85,26 @@ public class ConfirmPrivateVirtualInterfaceRequest extends com.amazonaws.AmazonW
 
     /**
      * <p>
-     * The ID of the virtual private gateway.
+     * ID of the virtual private gateway that will be attached to the virtual interface.
+     * </p>
+     * <p>
+     * A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html">EC2
+     * CreateVpnGateway</a> action.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param virtualGatewayId
-     *        The ID of the virtual private gateway.
+     *        ID of the virtual private gateway that will be attached to the virtual interface.</p>
+     *        <p>
+     *        A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <a
+     *        href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html">EC2
+     *        CreateVpnGateway</a> action.
+     *        </p>
+     *        <p>
+     *        Default: None
      */
 
     public void setVirtualGatewayId(String virtualGatewayId) {
@@ -99,10 +113,25 @@ public class ConfirmPrivateVirtualInterfaceRequest extends com.amazonaws.AmazonW
 
     /**
      * <p>
-     * The ID of the virtual private gateway.
+     * ID of the virtual private gateway that will be attached to the virtual interface.
+     * </p>
+     * <p>
+     * A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html">EC2
+     * CreateVpnGateway</a> action.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
-     * @return The ID of the virtual private gateway.
+     * @return ID of the virtual private gateway that will be attached to the virtual interface.</p>
+     *         <p>
+     *         A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <a
+     *         href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html">EC2
+     *         CreateVpnGateway</a> action.
+     *         </p>
+     *         <p>
+     *         Default: None
      */
 
     public String getVirtualGatewayId() {
@@ -111,11 +140,26 @@ public class ConfirmPrivateVirtualInterfaceRequest extends com.amazonaws.AmazonW
 
     /**
      * <p>
-     * The ID of the virtual private gateway.
+     * ID of the virtual private gateway that will be attached to the virtual interface.
+     * </p>
+     * <p>
+     * A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html">EC2
+     * CreateVpnGateway</a> action.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param virtualGatewayId
-     *        The ID of the virtual private gateway.
+     *        ID of the virtual private gateway that will be attached to the virtual interface.</p>
+     *        <p>
+     *        A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <a
+     *        href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html">EC2
+     *        CreateVpnGateway</a> action.
+     *        </p>
+     *        <p>
+     *        Default: None
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -126,11 +170,24 @@ public class ConfirmPrivateVirtualInterfaceRequest extends com.amazonaws.AmazonW
 
     /**
      * <p>
-     * The ID of the Direct Connect gateway.
+     * ID of the direct connect gateway that will be attached to the virtual interface.
+     * </p>
+     * <p>
+     * A direct connect gateway can be managed via the AWS Direct Connect console or the
+     * <a>CreateDirectConnectGateway</a> action.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param directConnectGatewayId
-     *        The ID of the Direct Connect gateway.
+     *        ID of the direct connect gateway that will be attached to the virtual interface.</p>
+     *        <p>
+     *        A direct connect gateway can be managed via the AWS Direct Connect console or the
+     *        <a>CreateDirectConnectGateway</a> action.
+     *        </p>
+     *        <p>
+     *        Default: None
      */
 
     public void setDirectConnectGatewayId(String directConnectGatewayId) {
@@ -139,10 +196,23 @@ public class ConfirmPrivateVirtualInterfaceRequest extends com.amazonaws.AmazonW
 
     /**
      * <p>
-     * The ID of the Direct Connect gateway.
+     * ID of the direct connect gateway that will be attached to the virtual interface.
+     * </p>
+     * <p>
+     * A direct connect gateway can be managed via the AWS Direct Connect console or the
+     * <a>CreateDirectConnectGateway</a> action.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
-     * @return The ID of the Direct Connect gateway.
+     * @return ID of the direct connect gateway that will be attached to the virtual interface.</p>
+     *         <p>
+     *         A direct connect gateway can be managed via the AWS Direct Connect console or the
+     *         <a>CreateDirectConnectGateway</a> action.
+     *         </p>
+     *         <p>
+     *         Default: None
      */
 
     public String getDirectConnectGatewayId() {
@@ -151,11 +221,24 @@ public class ConfirmPrivateVirtualInterfaceRequest extends com.amazonaws.AmazonW
 
     /**
      * <p>
-     * The ID of the Direct Connect gateway.
+     * ID of the direct connect gateway that will be attached to the virtual interface.
+     * </p>
+     * <p>
+     * A direct connect gateway can be managed via the AWS Direct Connect console or the
+     * <a>CreateDirectConnectGateway</a> action.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param directConnectGatewayId
-     *        The ID of the Direct Connect gateway.
+     *        ID of the direct connect gateway that will be attached to the virtual interface.</p>
+     *        <p>
+     *        A direct connect gateway can be managed via the AWS Direct Connect console or the
+     *        <a>CreateDirectConnectGateway</a> action.
+     *        </p>
+     *        <p>
+     *        Default: None
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -165,8 +248,7 @@ public class ConfirmPrivateVirtualInterfaceRequest extends com.amazonaws.AmazonW
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

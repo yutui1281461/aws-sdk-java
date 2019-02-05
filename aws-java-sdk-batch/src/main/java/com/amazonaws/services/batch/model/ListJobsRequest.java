@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -38,13 +38,6 @@ public class ListJobsRequest extends com.amazonaws.AmazonWebServiceRequest imple
      * </p>
      */
     private String arrayJobId;
-    /**
-     * <p>
-     * The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all
-     * nodes that are associated with the specified job.
-     * </p>
-     */
-    private String multiNodeJobId;
     /**
      * <p>
      * The job status with which to filter jobs in the specified queue. If you do not specify a status, only
@@ -162,52 +155,6 @@ public class ListJobsRequest extends com.amazonaws.AmazonWebServiceRequest imple
 
     public ListJobsRequest withArrayJobId(String arrayJobId) {
         setArrayJobId(arrayJobId);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all
-     * nodes that are associated with the specified job.
-     * </p>
-     * 
-     * @param multiNodeJobId
-     *        The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter
-     *        lists all nodes that are associated with the specified job.
-     */
-
-    public void setMultiNodeJobId(String multiNodeJobId) {
-        this.multiNodeJobId = multiNodeJobId;
-    }
-
-    /**
-     * <p>
-     * The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all
-     * nodes that are associated with the specified job.
-     * </p>
-     * 
-     * @return The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter
-     *         lists all nodes that are associated with the specified job.
-     */
-
-    public String getMultiNodeJobId() {
-        return this.multiNodeJobId;
-    }
-
-    /**
-     * <p>
-     * The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all
-     * nodes that are associated with the specified job.
-     * </p>
-     * 
-     * @param multiNodeJobId
-     *        The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter
-     *        lists all nodes that are associated with the specified job.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public ListJobsRequest withMultiNodeJobId(String multiNodeJobId) {
-        setMultiNodeJobId(multiNodeJobId);
         return this;
     }
 
@@ -453,8 +400,7 @@ public class ListJobsRequest extends com.amazonaws.AmazonWebServiceRequest imple
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -468,8 +414,6 @@ public class ListJobsRequest extends com.amazonaws.AmazonWebServiceRequest imple
             sb.append("JobQueue: ").append(getJobQueue()).append(",");
         if (getArrayJobId() != null)
             sb.append("ArrayJobId: ").append(getArrayJobId()).append(",");
-        if (getMultiNodeJobId() != null)
-            sb.append("MultiNodeJobId: ").append(getMultiNodeJobId()).append(",");
         if (getJobStatus() != null)
             sb.append("JobStatus: ").append(getJobStatus()).append(",");
         if (getMaxResults() != null)
@@ -498,10 +442,6 @@ public class ListJobsRequest extends com.amazonaws.AmazonWebServiceRequest imple
             return false;
         if (other.getArrayJobId() != null && other.getArrayJobId().equals(this.getArrayJobId()) == false)
             return false;
-        if (other.getMultiNodeJobId() == null ^ this.getMultiNodeJobId() == null)
-            return false;
-        if (other.getMultiNodeJobId() != null && other.getMultiNodeJobId().equals(this.getMultiNodeJobId()) == false)
-            return false;
         if (other.getJobStatus() == null ^ this.getJobStatus() == null)
             return false;
         if (other.getJobStatus() != null && other.getJobStatus().equals(this.getJobStatus()) == false)
@@ -524,7 +464,6 @@ public class ListJobsRequest extends com.amazonaws.AmazonWebServiceRequest imple
 
         hashCode = prime * hashCode + ((getJobQueue() == null) ? 0 : getJobQueue().hashCode());
         hashCode = prime * hashCode + ((getArrayJobId() == null) ? 0 : getArrayJobId().hashCode());
-        hashCode = prime * hashCode + ((getMultiNodeJobId() == null) ? 0 : getMultiNodeJobId().hashCode());
         hashCode = prime * hashCode + ((getJobStatus() == null) ? 0 : getJobStatus().hashCode());
         hashCode = prime * hashCode + ((getMaxResults() == null) ? 0 : getMaxResults().hashCode());
         hashCode = prime * hashCode + ((getNextToken() == null) ? 0 : getNextToken().hashCode());

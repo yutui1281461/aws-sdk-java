@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -11,8 +11,6 @@
  * and limitations under the License.
  */
 package com.amazonaws.services.identitymanagement.model.transform;
-
-import java.util.ArrayList;
 
 import javax.xml.stream.events.XMLEvent;
 import javax.annotation.Generated;
@@ -66,30 +64,14 @@ public class UserStaxUnmarshaller implements Unmarshaller<User, StaxUnmarshaller
                 }
 
                 if (context.testExpression("CreateDate", targetDepth)) {
-                    user.setCreateDate(DateStaxUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
+                    user.setCreateDate(DateStaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
                 }
 
                 if (context.testExpression("PasswordLastUsed", targetDepth)) {
-                    user.setPasswordLastUsed(DateStaxUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
+                    user.setPasswordLastUsed(DateStaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
                 }
-
-                if (context.testExpression("PermissionsBoundary", targetDepth)) {
-                    user.setPermissionsBoundary(AttachedPermissionsBoundaryStaxUnmarshaller.getInstance().unmarshall(context));
-                    continue;
-                }
-
-                if (context.testExpression("Tags", targetDepth)) {
-                    user.withTags(new ArrayList<Tag>());
-                    continue;
-                }
-
-                if (context.testExpression("Tags/member", targetDepth)) {
-                    user.withTags(TagStaxUnmarshaller.getInstance().unmarshall(context));
-                    continue;
-                }
-
             } else if (xmlEvent.isEndElement()) {
                 if (context.getCurrentDepth() < originalDepth) {
                     return user;

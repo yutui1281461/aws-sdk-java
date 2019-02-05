@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -23,20 +23,10 @@ import javax.annotation.Generated;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class MeterUsageResult extends com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata> implements Serializable, Cloneable {
 
-    /**
-     * <p>
-     * Metering record id.
-     * </p>
-     */
     private String meteringRecordId;
 
     /**
-     * <p>
-     * Metering record id.
-     * </p>
-     * 
      * @param meteringRecordId
-     *        Metering record id.
      */
 
     public void setMeteringRecordId(String meteringRecordId) {
@@ -44,11 +34,7 @@ public class MeterUsageResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * Metering record id.
-     * </p>
-     * 
-     * @return Metering record id.
+     * @return
      */
 
     public String getMeteringRecordId() {
@@ -56,12 +42,7 @@ public class MeterUsageResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * Metering record id.
-     * </p>
-     * 
      * @param meteringRecordId
-     *        Metering record id.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -71,8 +52,7 @@ public class MeterUsageResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

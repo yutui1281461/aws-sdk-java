@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -47,7 +47,8 @@ public class UpdateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
     private Notification notification;
     /**
      * <p>
-     * The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object.
+     * The updated <a>S3Resource</a> object (for a single Amazon S3 bucket or key range), or the updated
+     * <a>JobResource</a> object (for multiple buckets or key ranges).
      * </p>
      */
     private JobResource resources;
@@ -221,11 +222,13 @@ public class UpdateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
 
     /**
      * <p>
-     * The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object.
+     * The updated <a>S3Resource</a> object (for a single Amazon S3 bucket or key range), or the updated
+     * <a>JobResource</a> object (for multiple buckets or key ranges).
      * </p>
      * 
      * @param resources
-     *        The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object.
+     *        The updated <a>S3Resource</a> object (for a single Amazon S3 bucket or key range), or the updated
+     *        <a>JobResource</a> object (for multiple buckets or key ranges).
      */
 
     public void setResources(JobResource resources) {
@@ -234,10 +237,12 @@ public class UpdateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
 
     /**
      * <p>
-     * The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object.
+     * The updated <a>S3Resource</a> object (for a single Amazon S3 bucket or key range), or the updated
+     * <a>JobResource</a> object (for multiple buckets or key ranges).
      * </p>
      * 
-     * @return The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object.
+     * @return The updated <a>S3Resource</a> object (for a single Amazon S3 bucket or key range), or the updated
+     *         <a>JobResource</a> object (for multiple buckets or key ranges).
      */
 
     public JobResource getResources() {
@@ -246,11 +251,13 @@ public class UpdateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
 
     /**
      * <p>
-     * The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object.
+     * The updated <a>S3Resource</a> object (for a single Amazon S3 bucket or key range), or the updated
+     * <a>JobResource</a> object (for multiple buckets or key ranges).
      * </p>
      * 
      * @param resources
-     *        The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object.
+     *        The updated <a>S3Resource</a> object (for a single Amazon S3 bucket or key range), or the updated
+     *        <a>JobResource</a> object (for multiple buckets or key ranges).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -536,8 +543,7 @@ public class UpdateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

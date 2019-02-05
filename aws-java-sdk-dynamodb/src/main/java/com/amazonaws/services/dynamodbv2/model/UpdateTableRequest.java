@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -41,29 +41,6 @@ public class UpdateTableRequest extends com.amazonaws.AmazonWebServiceRequest im
      * </p>
      */
     private String tableName;
-    /**
-     * <p>
-     * Controls how you are charged for read and write throughput and how you manage capacity. When switching from
-     * pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned
-     * capacity values are estimated based on the consumed read and write capacity of your table and global secondary
-     * indexes over the past 30 minutes.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We recommend using
-     * <code>PROVISIONED</code> for predictable workloads.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>. We recommend using
-     * <code>PAY_PER_REQUEST</code> for unpredictable workloads.
-     * </p>
-     * </li>
-     * </ul>
-     */
-    private String billingMode;
     /**
      * <p>
      * The new provisioned throughput settings for the specified table or index.
@@ -111,12 +88,6 @@ public class UpdateTableRequest extends com.amazonaws.AmazonWebServiceRequest im
      * </note>
      */
     private StreamSpecification streamSpecification;
-    /**
-     * <p>
-     * The new server-side encryption settings for the specified table.
-     * </p>
-     */
-    private SSESpecification sSESpecification;
 
     /**
      * Default constructor for UpdateTableRequest object. Callers should use the setter or fluent setter (with...)
@@ -258,197 +229,6 @@ public class UpdateTableRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     public UpdateTableRequest withTableName(String tableName) {
         setTableName(tableName);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Controls how you are charged for read and write throughput and how you manage capacity. When switching from
-     * pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned
-     * capacity values are estimated based on the consumed read and write capacity of your table and global secondary
-     * indexes over the past 30 minutes.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We recommend using
-     * <code>PROVISIONED</code> for predictable workloads.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>. We recommend using
-     * <code>PAY_PER_REQUEST</code> for unpredictable workloads.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @param billingMode
-     *        Controls how you are charged for read and write throughput and how you manage capacity. When switching
-     *        from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial
-     *        provisioned capacity values are estimated based on the consumed read and write capacity of your table and
-     *        global secondary indexes over the past 30 minutes.</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We recommend using
-     *        <code>PROVISIONED</code> for predictable workloads.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>. We recommend using
-     *        <code>PAY_PER_REQUEST</code> for unpredictable workloads.
-     *        </p>
-     *        </li>
-     * @see BillingMode
-     */
-
-    public void setBillingMode(String billingMode) {
-        this.billingMode = billingMode;
-    }
-
-    /**
-     * <p>
-     * Controls how you are charged for read and write throughput and how you manage capacity. When switching from
-     * pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned
-     * capacity values are estimated based on the consumed read and write capacity of your table and global secondary
-     * indexes over the past 30 minutes.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We recommend using
-     * <code>PROVISIONED</code> for predictable workloads.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>. We recommend using
-     * <code>PAY_PER_REQUEST</code> for unpredictable workloads.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @return Controls how you are charged for read and write throughput and how you manage capacity. When switching
-     *         from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The
-     *         initial provisioned capacity values are estimated based on the consumed read and write capacity of your
-     *         table and global secondary indexes over the past 30 minutes.</p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         <code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We recommend using
-     *         <code>PROVISIONED</code> for predictable workloads.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>. We recommend using
-     *         <code>PAY_PER_REQUEST</code> for unpredictable workloads.
-     *         </p>
-     *         </li>
-     * @see BillingMode
-     */
-
-    public String getBillingMode() {
-        return this.billingMode;
-    }
-
-    /**
-     * <p>
-     * Controls how you are charged for read and write throughput and how you manage capacity. When switching from
-     * pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned
-     * capacity values are estimated based on the consumed read and write capacity of your table and global secondary
-     * indexes over the past 30 minutes.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We recommend using
-     * <code>PROVISIONED</code> for predictable workloads.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>. We recommend using
-     * <code>PAY_PER_REQUEST</code> for unpredictable workloads.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @param billingMode
-     *        Controls how you are charged for read and write throughput and how you manage capacity. When switching
-     *        from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial
-     *        provisioned capacity values are estimated based on the consumed read and write capacity of your table and
-     *        global secondary indexes over the past 30 minutes.</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We recommend using
-     *        <code>PROVISIONED</code> for predictable workloads.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>. We recommend using
-     *        <code>PAY_PER_REQUEST</code> for unpredictable workloads.
-     *        </p>
-     *        </li>
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see BillingMode
-     */
-
-    public UpdateTableRequest withBillingMode(String billingMode) {
-        setBillingMode(billingMode);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Controls how you are charged for read and write throughput and how you manage capacity. When switching from
-     * pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned
-     * capacity values are estimated based on the consumed read and write capacity of your table and global secondary
-     * indexes over the past 30 minutes.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We recommend using
-     * <code>PROVISIONED</code> for predictable workloads.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>. We recommend using
-     * <code>PAY_PER_REQUEST</code> for unpredictable workloads.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @param billingMode
-     *        Controls how you are charged for read and write throughput and how you manage capacity. When switching
-     *        from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial
-     *        provisioned capacity values are estimated based on the consumed read and write capacity of your table and
-     *        global secondary indexes over the past 30 minutes.</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We recommend using
-     *        <code>PROVISIONED</code> for predictable workloads.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>. We recommend using
-     *        <code>PAY_PER_REQUEST</code> for unpredictable workloads.
-     *        </p>
-     *        </li>
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see BillingMode
-     */
-
-    public UpdateTableRequest withBillingMode(BillingMode billingMode) {
-        this.billingMode = billingMode.toString();
         return this;
     }
 
@@ -813,48 +593,7 @@ public class UpdateTableRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * <p>
-     * The new server-side encryption settings for the specified table.
-     * </p>
-     * 
-     * @param sSESpecification
-     *        The new server-side encryption settings for the specified table.
-     */
-
-    public void setSSESpecification(SSESpecification sSESpecification) {
-        this.sSESpecification = sSESpecification;
-    }
-
-    /**
-     * <p>
-     * The new server-side encryption settings for the specified table.
-     * </p>
-     * 
-     * @return The new server-side encryption settings for the specified table.
-     */
-
-    public SSESpecification getSSESpecification() {
-        return this.sSESpecification;
-    }
-
-    /**
-     * <p>
-     * The new server-side encryption settings for the specified table.
-     * </p>
-     * 
-     * @param sSESpecification
-     *        The new server-side encryption settings for the specified table.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public UpdateTableRequest withSSESpecification(SSESpecification sSESpecification) {
-        setSSESpecification(sSESpecification);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -868,16 +607,12 @@ public class UpdateTableRequest extends com.amazonaws.AmazonWebServiceRequest im
             sb.append("AttributeDefinitions: ").append(getAttributeDefinitions()).append(",");
         if (getTableName() != null)
             sb.append("TableName: ").append(getTableName()).append(",");
-        if (getBillingMode() != null)
-            sb.append("BillingMode: ").append(getBillingMode()).append(",");
         if (getProvisionedThroughput() != null)
             sb.append("ProvisionedThroughput: ").append(getProvisionedThroughput()).append(",");
         if (getGlobalSecondaryIndexUpdates() != null)
             sb.append("GlobalSecondaryIndexUpdates: ").append(getGlobalSecondaryIndexUpdates()).append(",");
         if (getStreamSpecification() != null)
-            sb.append("StreamSpecification: ").append(getStreamSpecification()).append(",");
-        if (getSSESpecification() != null)
-            sb.append("SSESpecification: ").append(getSSESpecification());
+            sb.append("StreamSpecification: ").append(getStreamSpecification());
         sb.append("}");
         return sb.toString();
     }
@@ -900,10 +635,6 @@ public class UpdateTableRequest extends com.amazonaws.AmazonWebServiceRequest im
             return false;
         if (other.getTableName() != null && other.getTableName().equals(this.getTableName()) == false)
             return false;
-        if (other.getBillingMode() == null ^ this.getBillingMode() == null)
-            return false;
-        if (other.getBillingMode() != null && other.getBillingMode().equals(this.getBillingMode()) == false)
-            return false;
         if (other.getProvisionedThroughput() == null ^ this.getProvisionedThroughput() == null)
             return false;
         if (other.getProvisionedThroughput() != null && other.getProvisionedThroughput().equals(this.getProvisionedThroughput()) == false)
@@ -916,10 +647,6 @@ public class UpdateTableRequest extends com.amazonaws.AmazonWebServiceRequest im
             return false;
         if (other.getStreamSpecification() != null && other.getStreamSpecification().equals(this.getStreamSpecification()) == false)
             return false;
-        if (other.getSSESpecification() == null ^ this.getSSESpecification() == null)
-            return false;
-        if (other.getSSESpecification() != null && other.getSSESpecification().equals(this.getSSESpecification()) == false)
-            return false;
         return true;
     }
 
@@ -930,11 +657,9 @@ public class UpdateTableRequest extends com.amazonaws.AmazonWebServiceRequest im
 
         hashCode = prime * hashCode + ((getAttributeDefinitions() == null) ? 0 : getAttributeDefinitions().hashCode());
         hashCode = prime * hashCode + ((getTableName() == null) ? 0 : getTableName().hashCode());
-        hashCode = prime * hashCode + ((getBillingMode() == null) ? 0 : getBillingMode().hashCode());
         hashCode = prime * hashCode + ((getProvisionedThroughput() == null) ? 0 : getProvisionedThroughput().hashCode());
         hashCode = prime * hashCode + ((getGlobalSecondaryIndexUpdates() == null) ? 0 : getGlobalSecondaryIndexUpdates().hashCode());
         hashCode = prime * hashCode + ((getStreamSpecification() == null) ? 0 : getStreamSpecification().hashCode());
-        hashCode = prime * hashCode + ((getSSESpecification() == null) ? 0 : getSSESpecification().hashCode());
         return hashCode;
     }
 

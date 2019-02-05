@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -36,7 +36,7 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
     private String scalingPlanName;
     /**
      * <p>
-     * The version number of the scaling plan.
+     * The version of the scaling plan.
      * </p>
      */
     private Long scalingPlanVersion;
@@ -88,16 +88,6 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
      * <code>DeletionFailed</code> - The scaling plan could not be deleted.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * <code>UpdateInProgress</code> - The scaling plan is being updated.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>UpdateFailed</code> - The scaling plan could not be updated.
-     * </p>
-     * </li>
      * </ul>
      */
     private String statusCode;
@@ -109,13 +99,13 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
     private String statusMessage;
     /**
      * <p>
-     * The Unix time stamp when the scaling plan entered the current status.
+     * The Unix timestamp when the scaling plan entered the current status.
      * </p>
      */
     private java.util.Date statusStartTime;
     /**
      * <p>
-     * The Unix time stamp when the scaling plan was created.
+     * The Unix timestamp when the scaling plan was created.
      * </p>
      */
     private java.util.Date creationTime;
@@ -162,11 +152,11 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The version number of the scaling plan.
+     * The version of the scaling plan.
      * </p>
      * 
      * @param scalingPlanVersion
-     *        The version number of the scaling plan.
+     *        The version of the scaling plan.
      */
 
     public void setScalingPlanVersion(Long scalingPlanVersion) {
@@ -175,10 +165,10 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The version number of the scaling plan.
+     * The version of the scaling plan.
      * </p>
      * 
-     * @return The version number of the scaling plan.
+     * @return The version of the scaling plan.
      */
 
     public Long getScalingPlanVersion() {
@@ -187,11 +177,11 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The version number of the scaling plan.
+     * The version of the scaling plan.
      * </p>
      * 
      * @param scalingPlanVersion
-     *        The version number of the scaling plan.
+     *        The version of the scaling plan.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -346,16 +336,6 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
      * <code>DeletionFailed</code> - The scaling plan could not be deleted.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * <code>UpdateInProgress</code> - The scaling plan is being updated.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>UpdateFailed</code> - The scaling plan could not be updated.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @param statusCode
@@ -390,16 +370,6 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
      *        <li>
      *        <p>
      *        <code>DeletionFailed</code> - The scaling plan could not be deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>UpdateInProgress</code> - The scaling plan is being updated.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>UpdateFailed</code> - The scaling plan could not be updated.
      *        </p>
      *        </li>
      * @see ScalingPlanStatusCode
@@ -445,16 +415,6 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
      * <code>DeletionFailed</code> - The scaling plan could not be deleted.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * <code>UpdateInProgress</code> - The scaling plan is being updated.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>UpdateFailed</code> - The scaling plan could not be updated.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @return The status of the scaling plan.</p>
@@ -488,16 +448,6 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
      *         <li>
      *         <p>
      *         <code>DeletionFailed</code> - The scaling plan could not be deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>UpdateInProgress</code> - The scaling plan is being updated.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>UpdateFailed</code> - The scaling plan could not be updated.
      *         </p>
      *         </li>
      * @see ScalingPlanStatusCode
@@ -543,16 +493,6 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
      * <code>DeletionFailed</code> - The scaling plan could not be deleted.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * <code>UpdateInProgress</code> - The scaling plan is being updated.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>UpdateFailed</code> - The scaling plan could not be updated.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @param statusCode
@@ -587,16 +527,6 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
      *        <li>
      *        <p>
      *        <code>DeletionFailed</code> - The scaling plan could not be deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>UpdateInProgress</code> - The scaling plan is being updated.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>UpdateFailed</code> - The scaling plan could not be updated.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -644,16 +574,6 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
      * <code>DeletionFailed</code> - The scaling plan could not be deleted.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * <code>UpdateInProgress</code> - The scaling plan is being updated.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>UpdateFailed</code> - The scaling plan could not be updated.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @param statusCode
@@ -688,16 +608,6 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
      *        <li>
      *        <p>
      *        <code>DeletionFailed</code> - The scaling plan could not be deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>UpdateInProgress</code> - The scaling plan is being updated.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>UpdateFailed</code> - The scaling plan could not be updated.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -751,11 +661,11 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix time stamp when the scaling plan entered the current status.
+     * The Unix timestamp when the scaling plan entered the current status.
      * </p>
      * 
      * @param statusStartTime
-     *        The Unix time stamp when the scaling plan entered the current status.
+     *        The Unix timestamp when the scaling plan entered the current status.
      */
 
     public void setStatusStartTime(java.util.Date statusStartTime) {
@@ -764,10 +674,10 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix time stamp when the scaling plan entered the current status.
+     * The Unix timestamp when the scaling plan entered the current status.
      * </p>
      * 
-     * @return The Unix time stamp when the scaling plan entered the current status.
+     * @return The Unix timestamp when the scaling plan entered the current status.
      */
 
     public java.util.Date getStatusStartTime() {
@@ -776,11 +686,11 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix time stamp when the scaling plan entered the current status.
+     * The Unix timestamp when the scaling plan entered the current status.
      * </p>
      * 
      * @param statusStartTime
-     *        The Unix time stamp when the scaling plan entered the current status.
+     *        The Unix timestamp when the scaling plan entered the current status.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -791,11 +701,11 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix time stamp when the scaling plan was created.
+     * The Unix timestamp when the scaling plan was created.
      * </p>
      * 
      * @param creationTime
-     *        The Unix time stamp when the scaling plan was created.
+     *        The Unix timestamp when the scaling plan was created.
      */
 
     public void setCreationTime(java.util.Date creationTime) {
@@ -804,10 +714,10 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix time stamp when the scaling plan was created.
+     * The Unix timestamp when the scaling plan was created.
      * </p>
      * 
-     * @return The Unix time stamp when the scaling plan was created.
+     * @return The Unix timestamp when the scaling plan was created.
      */
 
     public java.util.Date getCreationTime() {
@@ -816,11 +726,11 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix time stamp when the scaling plan was created.
+     * The Unix timestamp when the scaling plan was created.
      * </p>
      * 
      * @param creationTime
-     *        The Unix time stamp when the scaling plan was created.
+     *        The Unix timestamp when the scaling plan was created.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -830,8 +740,7 @@ public class ScalingPlan implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,8 +27,7 @@ public class DescribeTagsRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * One or more filters to scope the tags to return. The maximum number of filters per filter type (for example,
-     * <code>auto-scaling-group</code>) is 1000.
+     * A filter used to scope the tags to return.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<Filter> filters;
@@ -47,12 +46,10 @@ public class DescribeTagsRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * One or more filters to scope the tags to return. The maximum number of filters per filter type (for example,
-     * <code>auto-scaling-group</code>) is 1000.
+     * A filter used to scope the tags to return.
      * </p>
      * 
-     * @return One or more filters to scope the tags to return. The maximum number of filters per filter type (for
-     *         example, <code>auto-scaling-group</code>) is 1000.
+     * @return A filter used to scope the tags to return.
      */
 
     public java.util.List<Filter> getFilters() {
@@ -64,13 +61,11 @@ public class DescribeTagsRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * One or more filters to scope the tags to return. The maximum number of filters per filter type (for example,
-     * <code>auto-scaling-group</code>) is 1000.
+     * A filter used to scope the tags to return.
      * </p>
      * 
      * @param filters
-     *        One or more filters to scope the tags to return. The maximum number of filters per filter type (for
-     *        example, <code>auto-scaling-group</code>) is 1000.
+     *        A filter used to scope the tags to return.
      */
 
     public void setFilters(java.util.Collection<Filter> filters) {
@@ -84,8 +79,7 @@ public class DescribeTagsRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * One or more filters to scope the tags to return. The maximum number of filters per filter type (for example,
-     * <code>auto-scaling-group</code>) is 1000.
+     * A filter used to scope the tags to return.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -94,8 +88,7 @@ public class DescribeTagsRequest extends com.amazonaws.AmazonWebServiceRequest i
      * </p>
      * 
      * @param filters
-     *        One or more filters to scope the tags to return. The maximum number of filters per filter type (for
-     *        example, <code>auto-scaling-group</code>) is 1000.
+     *        A filter used to scope the tags to return.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -111,13 +104,11 @@ public class DescribeTagsRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * One or more filters to scope the tags to return. The maximum number of filters per filter type (for example,
-     * <code>auto-scaling-group</code>) is 1000.
+     * A filter used to scope the tags to return.
      * </p>
      * 
      * @param filters
-     *        One or more filters to scope the tags to return. The maximum number of filters per filter type (for
-     *        example, <code>auto-scaling-group</code>) is 1000.
+     *        A filter used to scope the tags to return.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -210,8 +201,7 @@ public class DescribeTagsRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

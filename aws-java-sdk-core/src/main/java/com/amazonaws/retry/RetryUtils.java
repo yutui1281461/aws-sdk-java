@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -46,7 +46,6 @@ public class RetryUtils {
         CLOCK_SKEW_ERROR_CODES.add("RequestInTheFuture");
 
         RETRYABLE_ERROR_CODES.add("PriorRequestNotComplete");
-        RETRYABLE_ERROR_CODES.add("TransactionInProgressException");
 
         RETRYABLE_STATUS_CODES.add(HttpStatus.SC_INTERNAL_SERVER_ERROR);
         RETRYABLE_STATUS_CODES.add(HttpStatus.SC_BAD_GATEWAY);

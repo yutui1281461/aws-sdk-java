@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -72,8 +72,6 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
     private String encryptionType;
     /** Parameters that control interactions with the CDN. */
     private HlsCdnSettings hlsCdnSettings;
-    /** If enabled, writes out I-Frame only playlists in addition to media playlists. */
-    private String iFrameOnlyPlaylists;
     /**
      * If mode is "live", the number of segments to retain in the manifest (.m3u8) file. This number must be less than
      * or equal to keepSegments. If mode is "vod", this parameter has no effect.
@@ -138,14 +136,15 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
     private String programDateTime;
     /** Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds. */
     private Integer programDateTimePeriod;
-    /** When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8) file. */
-    private String redundantManifest;
     /**
      * Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next
      * keyframe after this number of seconds, so actual segment length may be longer.
      */
     private Integer segmentLength;
-    /** useInputSegmentation has been deprecated. The configured segment size is always used. */
+    /**
+     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
+     * streams.
+     */
     private String segmentationMode;
     /**
      * Number of segments to write to a subdirectory before starting a new one. directoryStructure must be
@@ -824,57 +823,6 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
 
     public HlsGroupSettings withHlsCdnSettings(HlsCdnSettings hlsCdnSettings) {
         setHlsCdnSettings(hlsCdnSettings);
-        return this;
-    }
-
-    /**
-     * If enabled, writes out I-Frame only playlists in addition to media playlists.
-     * 
-     * @param iFrameOnlyPlaylists
-     *        If enabled, writes out I-Frame only playlists in addition to media playlists.
-     * @see IFrameOnlyPlaylistType
-     */
-
-    public void setIFrameOnlyPlaylists(String iFrameOnlyPlaylists) {
-        this.iFrameOnlyPlaylists = iFrameOnlyPlaylists;
-    }
-
-    /**
-     * If enabled, writes out I-Frame only playlists in addition to media playlists.
-     * 
-     * @return If enabled, writes out I-Frame only playlists in addition to media playlists.
-     * @see IFrameOnlyPlaylistType
-     */
-
-    public String getIFrameOnlyPlaylists() {
-        return this.iFrameOnlyPlaylists;
-    }
-
-    /**
-     * If enabled, writes out I-Frame only playlists in addition to media playlists.
-     * 
-     * @param iFrameOnlyPlaylists
-     *        If enabled, writes out I-Frame only playlists in addition to media playlists.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see IFrameOnlyPlaylistType
-     */
-
-    public HlsGroupSettings withIFrameOnlyPlaylists(String iFrameOnlyPlaylists) {
-        setIFrameOnlyPlaylists(iFrameOnlyPlaylists);
-        return this;
-    }
-
-    /**
-     * If enabled, writes out I-Frame only playlists in addition to media playlists.
-     * 
-     * @param iFrameOnlyPlaylists
-     *        If enabled, writes out I-Frame only playlists in addition to media playlists.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see IFrameOnlyPlaylistType
-     */
-
-    public HlsGroupSettings withIFrameOnlyPlaylists(IFrameOnlyPlaylistType iFrameOnlyPlaylists) {
-        this.iFrameOnlyPlaylists = iFrameOnlyPlaylists.toString();
         return this;
     }
 
@@ -1649,61 +1597,6 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8) file.
-     * 
-     * @param redundantManifest
-     *        When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8)
-     *        file.
-     * @see HlsRedundantManifest
-     */
-
-    public void setRedundantManifest(String redundantManifest) {
-        this.redundantManifest = redundantManifest;
-    }
-
-    /**
-     * When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8) file.
-     * 
-     * @return When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8)
-     *         file.
-     * @see HlsRedundantManifest
-     */
-
-    public String getRedundantManifest() {
-        return this.redundantManifest;
-    }
-
-    /**
-     * When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8) file.
-     * 
-     * @param redundantManifest
-     *        When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8)
-     *        file.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see HlsRedundantManifest
-     */
-
-    public HlsGroupSettings withRedundantManifest(String redundantManifest) {
-        setRedundantManifest(redundantManifest);
-        return this;
-    }
-
-    /**
-     * When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8) file.
-     * 
-     * @param redundantManifest
-     *        When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8)
-     *        file.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see HlsRedundantManifest
-     */
-
-    public HlsGroupSettings withRedundantManifest(HlsRedundantManifest redundantManifest) {
-        this.redundantManifest = redundantManifest.toString();
-        return this;
-    }
-
-    /**
      * Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next
      * keyframe after this number of seconds, so actual segment length may be longer.
      * 
@@ -1744,10 +1637,12 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * useInputSegmentation has been deprecated. The configured segment size is always used.
+     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
+     * streams.
      * 
      * @param segmentationMode
-     *        useInputSegmentation has been deprecated. The configured segment size is always used.
+     *        When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from
+     *        the input streams.
      * @see HlsSegmentationMode
      */
 
@@ -1756,9 +1651,11 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * useInputSegmentation has been deprecated. The configured segment size is always used.
+     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
+     * streams.
      * 
-     * @return useInputSegmentation has been deprecated. The configured segment size is always used.
+     * @return When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from
+     *         the input streams.
      * @see HlsSegmentationMode
      */
 
@@ -1767,10 +1664,12 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * useInputSegmentation has been deprecated. The configured segment size is always used.
+     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
+     * streams.
      * 
      * @param segmentationMode
-     *        useInputSegmentation has been deprecated. The configured segment size is always used.
+     *        When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from
+     *        the input streams.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see HlsSegmentationMode
      */
@@ -1781,10 +1680,12 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * useInputSegmentation has been deprecated. The configured segment size is always used.
+     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
+     * streams.
      * 
      * @param segmentationMode
-     *        useInputSegmentation has been deprecated. The configured segment size is always used.
+     *        When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from
+     *        the input streams.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see HlsSegmentationMode
      */
@@ -2072,8 +1973,7 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -2107,8 +2007,6 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
             sb.append("EncryptionType: ").append(getEncryptionType()).append(",");
         if (getHlsCdnSettings() != null)
             sb.append("HlsCdnSettings: ").append(getHlsCdnSettings()).append(",");
-        if (getIFrameOnlyPlaylists() != null)
-            sb.append("IFrameOnlyPlaylists: ").append(getIFrameOnlyPlaylists()).append(",");
         if (getIndexNSegments() != null)
             sb.append("IndexNSegments: ").append(getIndexNSegments()).append(",");
         if (getInputLossAction() != null)
@@ -2139,8 +2037,6 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
             sb.append("ProgramDateTime: ").append(getProgramDateTime()).append(",");
         if (getProgramDateTimePeriod() != null)
             sb.append("ProgramDateTimePeriod: ").append(getProgramDateTimePeriod()).append(",");
-        if (getRedundantManifest() != null)
-            sb.append("RedundantManifest: ").append(getRedundantManifest()).append(",");
         if (getSegmentLength() != null)
             sb.append("SegmentLength: ").append(getSegmentLength()).append(",");
         if (getSegmentationMode() != null)
@@ -2219,10 +2115,6 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
             return false;
         if (other.getHlsCdnSettings() != null && other.getHlsCdnSettings().equals(this.getHlsCdnSettings()) == false)
             return false;
-        if (other.getIFrameOnlyPlaylists() == null ^ this.getIFrameOnlyPlaylists() == null)
-            return false;
-        if (other.getIFrameOnlyPlaylists() != null && other.getIFrameOnlyPlaylists().equals(this.getIFrameOnlyPlaylists()) == false)
-            return false;
         if (other.getIndexNSegments() == null ^ this.getIndexNSegments() == null)
             return false;
         if (other.getIndexNSegments() != null && other.getIndexNSegments().equals(this.getIndexNSegments()) == false)
@@ -2283,10 +2175,6 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
             return false;
         if (other.getProgramDateTimePeriod() != null && other.getProgramDateTimePeriod().equals(this.getProgramDateTimePeriod()) == false)
             return false;
-        if (other.getRedundantManifest() == null ^ this.getRedundantManifest() == null)
-            return false;
-        if (other.getRedundantManifest() != null && other.getRedundantManifest().equals(this.getRedundantManifest()) == false)
-            return false;
         if (other.getSegmentLength() == null ^ this.getSegmentLength() == null)
             return false;
         if (other.getSegmentLength() != null && other.getSegmentLength().equals(this.getSegmentLength()) == false)
@@ -2339,7 +2227,6 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
         hashCode = prime * hashCode + ((getDirectoryStructure() == null) ? 0 : getDirectoryStructure().hashCode());
         hashCode = prime * hashCode + ((getEncryptionType() == null) ? 0 : getEncryptionType().hashCode());
         hashCode = prime * hashCode + ((getHlsCdnSettings() == null) ? 0 : getHlsCdnSettings().hashCode());
-        hashCode = prime * hashCode + ((getIFrameOnlyPlaylists() == null) ? 0 : getIFrameOnlyPlaylists().hashCode());
         hashCode = prime * hashCode + ((getIndexNSegments() == null) ? 0 : getIndexNSegments().hashCode());
         hashCode = prime * hashCode + ((getInputLossAction() == null) ? 0 : getInputLossAction().hashCode());
         hashCode = prime * hashCode + ((getIvInManifest() == null) ? 0 : getIvInManifest().hashCode());
@@ -2355,7 +2242,6 @@ public class HlsGroupSettings implements Serializable, Cloneable, StructuredPojo
         hashCode = prime * hashCode + ((getOutputSelection() == null) ? 0 : getOutputSelection().hashCode());
         hashCode = prime * hashCode + ((getProgramDateTime() == null) ? 0 : getProgramDateTime().hashCode());
         hashCode = prime * hashCode + ((getProgramDateTimePeriod() == null) ? 0 : getProgramDateTimePeriod().hashCode());
-        hashCode = prime * hashCode + ((getRedundantManifest() == null) ? 0 : getRedundantManifest().hashCode());
         hashCode = prime * hashCode + ((getSegmentLength() == null) ? 0 : getSegmentLength().hashCode());
         hashCode = prime * hashCode + ((getSegmentationMode() == null) ? 0 : getSegmentationMode().hashCode());
         hashCode = prime * hashCode + ((getSegmentsPerSubdirectory() == null) ? 0 : getSegmentsPerSubdirectory().hashCode());

@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2011-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
 package com.amazonaws.protocol.json.internal;
 
 import com.amazonaws.annotation.SdkInternalApi;
-import com.amazonaws.protocol.MarshallingInfo;
 import com.amazonaws.transform.PathMarshallers;
 
 @SdkInternalApi
@@ -39,8 +38,8 @@ public class SimpleTypePathMarshallers {
 
     public static final JsonMarshaller<Void> NULL = new JsonMarshaller<Void>() {
         @Override
-        public void marshall(Void val, JsonMarshallerContext context, MarshallingInfo<Void> marshallingInfo) {
-            throw new IllegalArgumentException(String.format("Parameter '%s' must not be null", marshallingInfo.marshallLocationName()));
+        public void marshall(Void val, JsonMarshallerContext context, String paramName) {
+            throw new IllegalArgumentException(String.format("Parameter '%s' must not be null", paramName));
         }
     };
 
@@ -56,10 +55,9 @@ public class SimpleTypePathMarshallers {
         }
 
         @Override
-        public void marshall(T val, JsonMarshallerContext context, MarshallingInfo<T> marshallingInfo) {
+        public void marshall(T val, JsonMarshallerContext context, String paramName) {
             context.request().setResourcePath(
-                    pathMarshaller.marshall(context.request().getResourcePath(), marshallingInfo.marshallLocationName(),
-                                            converter.convert(val)));
+                    pathMarshaller.marshall(context.request().getResourcePath(), paramName, converter.convert(val)));
         }
 
     }

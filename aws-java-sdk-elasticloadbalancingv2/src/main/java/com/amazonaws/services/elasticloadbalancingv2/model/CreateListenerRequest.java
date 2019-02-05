@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -34,7 +34,7 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported
-     * protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP and TLS.
+     * protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
      * </p>
      */
     private String protocol;
@@ -46,45 +46,21 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
     private Integer port;
     /**
      * <p>
-     * [HTTPS and TLS listeners] The security policy that defines which ciphers and protocols are supported. The default
-     * is the current predefined security policy.
+     * [HTTPS listeners] The security policy that defines which ciphers and protocols are supported. The default is the
+     * current predefined security policy.
      * </p>
      */
     private String sslPolicy;
     /**
      * <p>
-     * [HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly one certificate. Set
-     * <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.
-     * </p>
-     * <p>
-     * To create a certificate list, use <a>AddListenerCertificates</a>.
+     * [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * </p>
      */
     private java.util.List<Certificate> certificates;
     /**
      * <p>
-     * The actions for the default rule. The rule must include one forward action or one or more fixed-response actions.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you specify a target group. The protocol of the target group must be
-     * HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network
-     * Load Balancer.
-     * </p>
-     * <p>
-     * [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
-     * identity provider that is OpenID Connect (OIDC) compliant.
-     * </p>
-     * <p>
-     * [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the
-     * user pools supported by Amazon Cognito.
-     * </p>
-     * <p>
-     * [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
-     * from one URL to another.
-     * </p>
-     * <p>
-     * [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
-     * and return a custom HTTP response.
+     * The default action for the listener. For Application Load Balancers, the protocol of the specified target group
+     * must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
      * </p>
      */
     private java.util.List<Action> defaultActions;
@@ -132,13 +108,12 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported
-     * protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP and TLS.
+     * protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
      * </p>
      * 
      * @param protocol
      *        The protocol for connections from clients to the load balancer. For Application Load Balancers, the
-     *        supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP and
-     *        TLS.
+     *        supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
      * @see ProtocolEnum
      */
 
@@ -149,12 +124,11 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported
-     * protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP and TLS.
+     * protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
      * </p>
      * 
      * @return The protocol for connections from clients to the load balancer. For Application Load Balancers, the
-     *         supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP and
-     *         TLS.
+     *         supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
      * @see ProtocolEnum
      */
 
@@ -165,13 +139,12 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported
-     * protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP and TLS.
+     * protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
      * </p>
      * 
      * @param protocol
      *        The protocol for connections from clients to the load balancer. For Application Load Balancers, the
-     *        supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP and
-     *        TLS.
+     *        supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ProtocolEnum
      */
@@ -184,13 +157,12 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported
-     * protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP and TLS.
+     * protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
      * </p>
      * 
      * @param protocol
      *        The protocol for connections from clients to the load balancer. For Application Load Balancers, the
-     *        supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP and
-     *        TLS.
+     *        supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
      * @see ProtocolEnum
      */
 
@@ -201,13 +173,12 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
     /**
      * <p>
      * The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported
-     * protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP and TLS.
+     * protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
      * </p>
      * 
      * @param protocol
      *        The protocol for connections from clients to the load balancer. For Application Load Balancers, the
-     *        supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP and
-     *        TLS.
+     *        supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ProtocolEnum
      */
@@ -259,13 +230,13 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * [HTTPS and TLS listeners] The security policy that defines which ciphers and protocols are supported. The default
-     * is the current predefined security policy.
+     * [HTTPS listeners] The security policy that defines which ciphers and protocols are supported. The default is the
+     * current predefined security policy.
      * </p>
      * 
      * @param sslPolicy
-     *        [HTTPS and TLS listeners] The security policy that defines which ciphers and protocols are supported. The
-     *        default is the current predefined security policy.
+     *        [HTTPS listeners] The security policy that defines which ciphers and protocols are supported. The default
+     *        is the current predefined security policy.
      */
 
     public void setSslPolicy(String sslPolicy) {
@@ -274,12 +245,12 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * [HTTPS and TLS listeners] The security policy that defines which ciphers and protocols are supported. The default
-     * is the current predefined security policy.
+     * [HTTPS listeners] The security policy that defines which ciphers and protocols are supported. The default is the
+     * current predefined security policy.
      * </p>
      * 
-     * @return [HTTPS and TLS listeners] The security policy that defines which ciphers and protocols are supported. The
-     *         default is the current predefined security policy.
+     * @return [HTTPS listeners] The security policy that defines which ciphers and protocols are supported. The default
+     *         is the current predefined security policy.
      */
 
     public String getSslPolicy() {
@@ -288,13 +259,13 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * [HTTPS and TLS listeners] The security policy that defines which ciphers and protocols are supported. The default
-     * is the current predefined security policy.
+     * [HTTPS listeners] The security policy that defines which ciphers and protocols are supported. The default is the
+     * current predefined security policy.
      * </p>
      * 
      * @param sslPolicy
-     *        [HTTPS and TLS listeners] The security policy that defines which ciphers and protocols are supported. The
-     *        default is the current predefined security policy.
+     *        [HTTPS listeners] The security policy that defines which ciphers and protocols are supported. The default
+     *        is the current predefined security policy.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -305,17 +276,10 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * [HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly one certificate. Set
-     * <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.
-     * </p>
-     * <p>
-     * To create a certificate list, use <a>AddListenerCertificates</a>.
+     * [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * </p>
      * 
-     * @return [HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly one certificate.
-     *         Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p>
-     *         <p>
-     *         To create a certificate list, use <a>AddListenerCertificates</a>.
+     * @return [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      */
 
     public java.util.List<Certificate> getCertificates() {
@@ -324,18 +288,11 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * [HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly one certificate. Set
-     * <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.
-     * </p>
-     * <p>
-     * To create a certificate list, use <a>AddListenerCertificates</a>.
+     * [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * </p>
      * 
      * @param certificates
-     *        [HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly one certificate.
-     *        Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p>
-     *        <p>
-     *        To create a certificate list, use <a>AddListenerCertificates</a>.
+     *        [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      */
 
     public void setCertificates(java.util.Collection<Certificate> certificates) {
@@ -349,11 +306,7 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * [HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly one certificate. Set
-     * <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.
-     * </p>
-     * <p>
-     * To create a certificate list, use <a>AddListenerCertificates</a>.
+     * [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -362,10 +315,7 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
      * </p>
      * 
      * @param certificates
-     *        [HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly one certificate.
-     *        Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p>
-     *        <p>
-     *        To create a certificate list, use <a>AddListenerCertificates</a>.
+     *        [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -381,18 +331,11 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * [HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly one certificate. Set
-     * <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.
-     * </p>
-     * <p>
-     * To create a certificate list, use <a>AddListenerCertificates</a>.
+     * [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * </p>
      * 
      * @param certificates
-     *        [HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly one certificate.
-     *        Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p>
-     *        <p>
-     *        To create a certificate list, use <a>AddListenerCertificates</a>.
+     *        [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -403,52 +346,13 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The actions for the default rule. The rule must include one forward action or one or more fixed-response actions.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you specify a target group. The protocol of the target group must be
-     * HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network
-     * Load Balancer.
-     * </p>
-     * <p>
-     * [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
-     * identity provider that is OpenID Connect (OIDC) compliant.
-     * </p>
-     * <p>
-     * [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the
-     * user pools supported by Amazon Cognito.
-     * </p>
-     * <p>
-     * [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
-     * from one URL to another.
-     * </p>
-     * <p>
-     * [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
-     * and return a custom HTTP response.
+     * The default action for the listener. For Application Load Balancers, the protocol of the specified target group
+     * must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
      * </p>
      * 
-     * @return The actions for the default rule. The rule must include one forward action or one or more fixed-response
-     *         actions.</p>
-     *         <p>
-     *         If the action type is <code>forward</code>, you specify a target group. The protocol of the target group
-     *         must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or
-     *         TLS for a Network Load Balancer.
-     *         </p>
-     *         <p>
-     *         [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
-     *         identity provider that is OpenID Connect (OIDC) compliant.
-     *         </p>
-     *         <p>
-     *         [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through
-     *         the user pools supported by Amazon Cognito.
-     *         </p>
-     *         <p>
-     *         [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client
-     *         requests from one URL to another.
-     *         </p>
-     *         <p>
-     *         [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client
-     *         requests and return a custom HTTP response.
+     * @return The default action for the listener. For Application Load Balancers, the protocol of the specified target
+     *         group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must
+     *         be TCP.
      */
 
     public java.util.List<Action> getDefaultActions() {
@@ -457,53 +361,14 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The actions for the default rule. The rule must include one forward action or one or more fixed-response actions.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you specify a target group. The protocol of the target group must be
-     * HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network
-     * Load Balancer.
-     * </p>
-     * <p>
-     * [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
-     * identity provider that is OpenID Connect (OIDC) compliant.
-     * </p>
-     * <p>
-     * [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the
-     * user pools supported by Amazon Cognito.
-     * </p>
-     * <p>
-     * [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
-     * from one URL to another.
-     * </p>
-     * <p>
-     * [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
-     * and return a custom HTTP response.
+     * The default action for the listener. For Application Load Balancers, the protocol of the specified target group
+     * must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
      * </p>
      * 
      * @param defaultActions
-     *        The actions for the default rule. The rule must include one forward action or one or more fixed-response
-     *        actions.</p>
-     *        <p>
-     *        If the action type is <code>forward</code>, you specify a target group. The protocol of the target group
-     *        must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or
-     *        TLS for a Network Load Balancer.
-     *        </p>
-     *        <p>
-     *        [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
-     *        identity provider that is OpenID Connect (OIDC) compliant.
-     *        </p>
-     *        <p>
-     *        [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through
-     *        the user pools supported by Amazon Cognito.
-     *        </p>
-     *        <p>
-     *        [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client
-     *        requests from one URL to another.
-     *        </p>
-     *        <p>
-     *        [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client
-     *        requests and return a custom HTTP response.
+     *        The default action for the listener. For Application Load Balancers, the protocol of the specified target
+     *        group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must
+     *        be TCP.
      */
 
     public void setDefaultActions(java.util.Collection<Action> defaultActions) {
@@ -517,28 +382,8 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The actions for the default rule. The rule must include one forward action or one or more fixed-response actions.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you specify a target group. The protocol of the target group must be
-     * HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network
-     * Load Balancer.
-     * </p>
-     * <p>
-     * [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
-     * identity provider that is OpenID Connect (OIDC) compliant.
-     * </p>
-     * <p>
-     * [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the
-     * user pools supported by Amazon Cognito.
-     * </p>
-     * <p>
-     * [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
-     * from one URL to another.
-     * </p>
-     * <p>
-     * [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
-     * and return a custom HTTP response.
+     * The default action for the listener. For Application Load Balancers, the protocol of the specified target group
+     * must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -547,28 +392,9 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
      * </p>
      * 
      * @param defaultActions
-     *        The actions for the default rule. The rule must include one forward action or one or more fixed-response
-     *        actions.</p>
-     *        <p>
-     *        If the action type is <code>forward</code>, you specify a target group. The protocol of the target group
-     *        must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or
-     *        TLS for a Network Load Balancer.
-     *        </p>
-     *        <p>
-     *        [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
-     *        identity provider that is OpenID Connect (OIDC) compliant.
-     *        </p>
-     *        <p>
-     *        [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through
-     *        the user pools supported by Amazon Cognito.
-     *        </p>
-     *        <p>
-     *        [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client
-     *        requests from one URL to another.
-     *        </p>
-     *        <p>
-     *        [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client
-     *        requests and return a custom HTTP response.
+     *        The default action for the listener. For Application Load Balancers, the protocol of the specified target
+     *        group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must
+     *        be TCP.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -584,53 +410,14 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The actions for the default rule. The rule must include one forward action or one or more fixed-response actions.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you specify a target group. The protocol of the target group must be
-     * HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network
-     * Load Balancer.
-     * </p>
-     * <p>
-     * [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
-     * identity provider that is OpenID Connect (OIDC) compliant.
-     * </p>
-     * <p>
-     * [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the
-     * user pools supported by Amazon Cognito.
-     * </p>
-     * <p>
-     * [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
-     * from one URL to another.
-     * </p>
-     * <p>
-     * [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
-     * and return a custom HTTP response.
+     * The default action for the listener. For Application Load Balancers, the protocol of the specified target group
+     * must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
      * </p>
      * 
      * @param defaultActions
-     *        The actions for the default rule. The rule must include one forward action or one or more fixed-response
-     *        actions.</p>
-     *        <p>
-     *        If the action type is <code>forward</code>, you specify a target group. The protocol of the target group
-     *        must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or
-     *        TLS for a Network Load Balancer.
-     *        </p>
-     *        <p>
-     *        [HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an
-     *        identity provider that is OpenID Connect (OIDC) compliant.
-     *        </p>
-     *        <p>
-     *        [HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through
-     *        the user pools supported by Amazon Cognito.
-     *        </p>
-     *        <p>
-     *        [Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client
-     *        requests from one URL to another.
-     *        </p>
-     *        <p>
-     *        [Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client
-     *        requests and return a custom HTTP response.
+     *        The default action for the listener. For Application Load Balancers, the protocol of the specified target
+     *        group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must
+     *        be TCP.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -640,8 +427,7 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

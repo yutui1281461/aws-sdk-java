@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Amazon Technologies, Inc.
+ * Copyright 2013-2018 Amazon Technologies, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@ package com.amazonaws.regions;
 import com.amazonaws.AmazonClientException;
 import org.apache.commons.logging.LogFactory;
 
+import com.amazonaws.SdkClientException;
 import com.amazonaws.util.EC2MetadataUtils;
 
 /**
@@ -25,7 +26,6 @@ import com.amazonaws.util.EC2MetadataUtils;
 public enum Regions {
 
     GovCloud("us-gov-west-1", "AWS GovCloud (US)"),
-    US_GOV_EAST_1("us-gov-east-1", "AWS GovCloud (US-East)"),
     US_EAST_1("us-east-1", "US East (N. Virginia)"),
     US_EAST_2("us-east-2", "US East (Ohio)"),
     US_WEST_1("us-west-1", "US West (N. California)"),
@@ -34,7 +34,6 @@ public enum Regions {
     EU_WEST_2("eu-west-2", "EU (London)"),
     EU_WEST_3("eu-west-3", "EU (Paris)"),
     EU_CENTRAL_1("eu-central-1", "EU (Frankfurt)"),
-    EU_NORTH_1("eu-north-1", "EU (Stockholm)"),
     AP_SOUTH_1("ap-south-1", "Asia Pacific (Mumbai)"),
     AP_SOUTHEAST_1("ap-southeast-1", "Asia Pacific (Singapore)"),
     AP_SOUTHEAST_2("ap-southeast-2", "Asia Pacific (Sydney)"),
@@ -52,11 +51,11 @@ public enum Regions {
     public static final Regions DEFAULT_REGION = US_WEST_2;
 
     private final String name;
-    private final String description;
+    private final String readableName;
 
-    private Regions(String name, String description) {
+    private Regions(String name, String readableName) {
         this.name = name;
-        this.description = description;
+        this.readableName = readableName;
     }
 
     /**
@@ -65,12 +64,12 @@ public enum Regions {
     public String getName() {
         return name;
     }
-
+    
     /**
      * Descriptive readable name for this region.
      */
-    public String getDescription() {
-        return description;
+    public String getReadableName() {
+        return readableName;
     }
 
     /**

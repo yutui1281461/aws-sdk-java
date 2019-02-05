@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -42,7 +42,7 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
     private String performanceMode;
     /**
      * <p>
-     * A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have
+     * A boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have
      * the option of specifying a <a>CreateFileSystemRequest$KmsKeyId</a> for an existing AWS Key Management Service
      * (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK for Amazon EFS,
      * <code>/aws/elasticfilesystem</code>, is used to protect the encrypted file system.
@@ -51,19 +51,19 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
     private Boolean encrypted;
     /**
      * <p>
-     * The ID of the AWS KMS CMK to be used to protect the encrypted file system. This parameter is only required if you
-     * want to use a non-default CMK. If this parameter is not specified, the default CMK for Amazon EFS is used. This
-     * ID can be in one of the following formats:
+     * The id of the AWS KMS CMK that will be used to protect the encrypted file system. This parameter is only required
+     * if you want to use a non-default CMK. If this parameter is not specified, the default CMK for Amazon EFS is used.
+     * This id can be in one of the following formats:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * Key ID - A unique identifier of the key, for example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
+     * Key ID - A unique identifier of the key. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      * </p>
      * </li>
      * <li>
      * <p>
-     * ARN - An Amazon Resource Name (ARN) for the key, for example,
+     * ARN - An Amazon Resource Name for the key. For example,
      * <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      * </p>
      * </li>
@@ -74,34 +74,17 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Key alias ARN - An ARN for a key alias, for example,
+     * Key alias ARN - An Amazon Resource Name for a key alias. For example,
      * <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.
      * </p>
      * </li>
      * </ul>
      * <p>
-     * If KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to true.
+     * Note that if the KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to
+     * true.
      * </p>
      */
     private String kmsKeyId;
-    /**
-     * <p>
-     * The throughput mode for the file system to be created. There are two throughput modes to choose from for your
-     * file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned Throughput
-     * mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or
-     * throughput mode change.
-     * </p>
-     */
-    private String throughputMode;
-    /**
-     * <p>
-     * The throughput, measured in MiB/s, that you want to provision for a file system that you're creating. The limit
-     * on throughput is 1024 MiB/s. You can get these limits increased by contacting AWS Support. For more information,
-     * see <a href="http://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS Limits That You Can
-     * Increase</a> in the <i>Amazon EFS User Guide.</i>
-     * </p>
-     */
-    private Double provisionedThroughputInMibps;
 
     /**
      * <p>
@@ -248,14 +231,14 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have
+     * A boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have
      * the option of specifying a <a>CreateFileSystemRequest$KmsKeyId</a> for an existing AWS Key Management Service
      * (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK for Amazon EFS,
      * <code>/aws/elasticfilesystem</code>, is used to protect the encrypted file system.
      * </p>
      * 
      * @param encrypted
-     *        A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system,
+     *        A boolean value that, if true, creates an encrypted file system. When creating an encrypted file system,
      *        you have the option of specifying a <a>CreateFileSystemRequest$KmsKeyId</a> for an existing AWS Key
      *        Management Service (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK
      *        for Amazon EFS, <code>/aws/elasticfilesystem</code>, is used to protect the encrypted file system.
@@ -267,13 +250,13 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have
+     * A boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have
      * the option of specifying a <a>CreateFileSystemRequest$KmsKeyId</a> for an existing AWS Key Management Service
      * (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK for Amazon EFS,
      * <code>/aws/elasticfilesystem</code>, is used to protect the encrypted file system.
      * </p>
      * 
-     * @return A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system,
+     * @return A boolean value that, if true, creates an encrypted file system. When creating an encrypted file system,
      *         you have the option of specifying a <a>CreateFileSystemRequest$KmsKeyId</a> for an existing AWS Key
      *         Management Service (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK
      *         for Amazon EFS, <code>/aws/elasticfilesystem</code>, is used to protect the encrypted file system.
@@ -285,14 +268,14 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have
+     * A boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have
      * the option of specifying a <a>CreateFileSystemRequest$KmsKeyId</a> for an existing AWS Key Management Service
      * (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK for Amazon EFS,
      * <code>/aws/elasticfilesystem</code>, is used to protect the encrypted file system.
      * </p>
      * 
      * @param encrypted
-     *        A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system,
+     *        A boolean value that, if true, creates an encrypted file system. When creating an encrypted file system,
      *        you have the option of specifying a <a>CreateFileSystemRequest$KmsKeyId</a> for an existing AWS Key
      *        Management Service (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK
      *        for Amazon EFS, <code>/aws/elasticfilesystem</code>, is used to protect the encrypted file system.
@@ -306,13 +289,13 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have
+     * A boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have
      * the option of specifying a <a>CreateFileSystemRequest$KmsKeyId</a> for an existing AWS Key Management Service
      * (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK for Amazon EFS,
      * <code>/aws/elasticfilesystem</code>, is used to protect the encrypted file system.
      * </p>
      * 
-     * @return A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system,
+     * @return A boolean value that, if true, creates an encrypted file system. When creating an encrypted file system,
      *         you have the option of specifying a <a>CreateFileSystemRequest$KmsKeyId</a> for an existing AWS Key
      *         Management Service (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK
      *         for Amazon EFS, <code>/aws/elasticfilesystem</code>, is used to protect the encrypted file system.
@@ -324,19 +307,19 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The ID of the AWS KMS CMK to be used to protect the encrypted file system. This parameter is only required if you
-     * want to use a non-default CMK. If this parameter is not specified, the default CMK for Amazon EFS is used. This
-     * ID can be in one of the following formats:
+     * The id of the AWS KMS CMK that will be used to protect the encrypted file system. This parameter is only required
+     * if you want to use a non-default CMK. If this parameter is not specified, the default CMK for Amazon EFS is used.
+     * This id can be in one of the following formats:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * Key ID - A unique identifier of the key, for example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
+     * Key ID - A unique identifier of the key. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      * </p>
      * </li>
      * <li>
      * <p>
-     * ARN - An Amazon Resource Name (ARN) for the key, for example,
+     * ARN - An Amazon Resource Name for the key. For example,
      * <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      * </p>
      * </li>
@@ -347,28 +330,29 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Key alias ARN - An ARN for a key alias, for example,
+     * Key alias ARN - An Amazon Resource Name for a key alias. For example,
      * <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.
      * </p>
      * </li>
      * </ul>
      * <p>
-     * If KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to true.
+     * Note that if the KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to
+     * true.
      * </p>
      * 
      * @param kmsKeyId
-     *        The ID of the AWS KMS CMK to be used to protect the encrypted file system. This parameter is only required
-     *        if you want to use a non-default CMK. If this parameter is not specified, the default CMK for Amazon EFS
-     *        is used. This ID can be in one of the following formats:</p>
+     *        The id of the AWS KMS CMK that will be used to protect the encrypted file system. This parameter is only
+     *        required if you want to use a non-default CMK. If this parameter is not specified, the default CMK for
+     *        Amazon EFS is used. This id can be in one of the following formats:</p>
      *        <ul>
      *        <li>
      *        <p>
-     *        Key ID - A unique identifier of the key, for example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
+     *        Key ID - A unique identifier of the key. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        ARN - An Amazon Resource Name (ARN) for the key, for example,
+     *        ARN - An Amazon Resource Name for the key. For example,
      *        <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      *        </p>
      *        </li>
@@ -379,13 +363,14 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
      *        </li>
      *        <li>
      *        <p>
-     *        Key alias ARN - An ARN for a key alias, for example,
+     *        Key alias ARN - An Amazon Resource Name for a key alias. For example,
      *        <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.
      *        </p>
      *        </li>
      *        </ul>
      *        <p>
-     *        If KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to true.
+     *        Note that if the KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set
+     *        to true.
      */
 
     public void setKmsKeyId(String kmsKeyId) {
@@ -394,19 +379,19 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The ID of the AWS KMS CMK to be used to protect the encrypted file system. This parameter is only required if you
-     * want to use a non-default CMK. If this parameter is not specified, the default CMK for Amazon EFS is used. This
-     * ID can be in one of the following formats:
+     * The id of the AWS KMS CMK that will be used to protect the encrypted file system. This parameter is only required
+     * if you want to use a non-default CMK. If this parameter is not specified, the default CMK for Amazon EFS is used.
+     * This id can be in one of the following formats:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * Key ID - A unique identifier of the key, for example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
+     * Key ID - A unique identifier of the key. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      * </p>
      * </li>
      * <li>
      * <p>
-     * ARN - An Amazon Resource Name (ARN) for the key, for example,
+     * ARN - An Amazon Resource Name for the key. For example,
      * <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      * </p>
      * </li>
@@ -417,27 +402,28 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Key alias ARN - An ARN for a key alias, for example,
+     * Key alias ARN - An Amazon Resource Name for a key alias. For example,
      * <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.
      * </p>
      * </li>
      * </ul>
      * <p>
-     * If KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to true.
+     * Note that if the KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to
+     * true.
      * </p>
      * 
-     * @return The ID of the AWS KMS CMK to be used to protect the encrypted file system. This parameter is only
+     * @return The id of the AWS KMS CMK that will be used to protect the encrypted file system. This parameter is only
      *         required if you want to use a non-default CMK. If this parameter is not specified, the default CMK for
-     *         Amazon EFS is used. This ID can be in one of the following formats:</p>
+     *         Amazon EFS is used. This id can be in one of the following formats:</p>
      *         <ul>
      *         <li>
      *         <p>
-     *         Key ID - A unique identifier of the key, for example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
+     *         Key ID - A unique identifier of the key. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         ARN - An Amazon Resource Name (ARN) for the key, for example,
+     *         ARN - An Amazon Resource Name for the key. For example,
      *         <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      *         </p>
      *         </li>
@@ -448,13 +434,14 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
      *         </li>
      *         <li>
      *         <p>
-     *         Key alias ARN - An ARN for a key alias, for example,
+     *         Key alias ARN - An Amazon Resource Name for a key alias. For example,
      *         <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.
      *         </p>
      *         </li>
      *         </ul>
      *         <p>
-     *         If KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to true.
+     *         Note that if the KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be
+     *         set to true.
      */
 
     public String getKmsKeyId() {
@@ -463,19 +450,19 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The ID of the AWS KMS CMK to be used to protect the encrypted file system. This parameter is only required if you
-     * want to use a non-default CMK. If this parameter is not specified, the default CMK for Amazon EFS is used. This
-     * ID can be in one of the following formats:
+     * The id of the AWS KMS CMK that will be used to protect the encrypted file system. This parameter is only required
+     * if you want to use a non-default CMK. If this parameter is not specified, the default CMK for Amazon EFS is used.
+     * This id can be in one of the following formats:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * Key ID - A unique identifier of the key, for example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
+     * Key ID - A unique identifier of the key. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      * </p>
      * </li>
      * <li>
      * <p>
-     * ARN - An Amazon Resource Name (ARN) for the key, for example,
+     * ARN - An Amazon Resource Name for the key. For example,
      * <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      * </p>
      * </li>
@@ -486,28 +473,29 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Key alias ARN - An ARN for a key alias, for example,
+     * Key alias ARN - An Amazon Resource Name for a key alias. For example,
      * <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.
      * </p>
      * </li>
      * </ul>
      * <p>
-     * If KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to true.
+     * Note that if the KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to
+     * true.
      * </p>
      * 
      * @param kmsKeyId
-     *        The ID of the AWS KMS CMK to be used to protect the encrypted file system. This parameter is only required
-     *        if you want to use a non-default CMK. If this parameter is not specified, the default CMK for Amazon EFS
-     *        is used. This ID can be in one of the following formats:</p>
+     *        The id of the AWS KMS CMK that will be used to protect the encrypted file system. This parameter is only
+     *        required if you want to use a non-default CMK. If this parameter is not specified, the default CMK for
+     *        Amazon EFS is used. This id can be in one of the following formats:</p>
      *        <ul>
      *        <li>
      *        <p>
-     *        Key ID - A unique identifier of the key, for example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
+     *        Key ID - A unique identifier of the key. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        ARN - An Amazon Resource Name (ARN) for the key, for example,
+     *        ARN - An Amazon Resource Name for the key. For example,
      *        <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
      *        </p>
      *        </li>
@@ -518,13 +506,14 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
      *        </li>
      *        <li>
      *        <p>
-     *        Key alias ARN - An ARN for a key alias, for example,
+     *        Key alias ARN - An Amazon Resource Name for a key alias. For example,
      *        <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.
      *        </p>
      *        </li>
      *        </ul>
      *        <p>
-     *        If KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to true.
+     *        Note that if the KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set
+     *        to true.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -534,169 +523,7 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
     }
 
     /**
-     * <p>
-     * The throughput mode for the file system to be created. There are two throughput modes to choose from for your
-     * file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned Throughput
-     * mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or
-     * throughput mode change.
-     * </p>
-     * 
-     * @param throughputMode
-     *        The throughput mode for the file system to be created. There are two throughput modes to choose from for
-     *        your file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned
-     *        Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the
-     *        last decrease or throughput mode change.
-     * @see ThroughputMode
-     */
-
-    public void setThroughputMode(String throughputMode) {
-        this.throughputMode = throughputMode;
-    }
-
-    /**
-     * <p>
-     * The throughput mode for the file system to be created. There are two throughput modes to choose from for your
-     * file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned Throughput
-     * mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or
-     * throughput mode change.
-     * </p>
-     * 
-     * @return The throughput mode for the file system to be created. There are two throughput modes to choose from for
-     *         your file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned
-     *         Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the
-     *         last decrease or throughput mode change.
-     * @see ThroughputMode
-     */
-
-    public String getThroughputMode() {
-        return this.throughputMode;
-    }
-
-    /**
-     * <p>
-     * The throughput mode for the file system to be created. There are two throughput modes to choose from for your
-     * file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned Throughput
-     * mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or
-     * throughput mode change.
-     * </p>
-     * 
-     * @param throughputMode
-     *        The throughput mode for the file system to be created. There are two throughput modes to choose from for
-     *        your file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned
-     *        Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the
-     *        last decrease or throughput mode change.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see ThroughputMode
-     */
-
-    public CreateFileSystemRequest withThroughputMode(String throughputMode) {
-        setThroughputMode(throughputMode);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The throughput mode for the file system to be created. There are two throughput modes to choose from for your
-     * file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned Throughput
-     * mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or
-     * throughput mode change.
-     * </p>
-     * 
-     * @param throughputMode
-     *        The throughput mode for the file system to be created. There are two throughput modes to choose from for
-     *        your file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned
-     *        Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the
-     *        last decrease or throughput mode change.
-     * @see ThroughputMode
-     */
-
-    public void setThroughputMode(ThroughputMode throughputMode) {
-        withThroughputMode(throughputMode);
-    }
-
-    /**
-     * <p>
-     * The throughput mode for the file system to be created. There are two throughput modes to choose from for your
-     * file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned Throughput
-     * mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or
-     * throughput mode change.
-     * </p>
-     * 
-     * @param throughputMode
-     *        The throughput mode for the file system to be created. There are two throughput modes to choose from for
-     *        your file system: bursting and provisioned. You can decrease your file system's throughput in Provisioned
-     *        Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the
-     *        last decrease or throughput mode change.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see ThroughputMode
-     */
-
-    public CreateFileSystemRequest withThroughputMode(ThroughputMode throughputMode) {
-        this.throughputMode = throughputMode.toString();
-        return this;
-    }
-
-    /**
-     * <p>
-     * The throughput, measured in MiB/s, that you want to provision for a file system that you're creating. The limit
-     * on throughput is 1024 MiB/s. You can get these limits increased by contacting AWS Support. For more information,
-     * see <a href="http://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS Limits That You Can
-     * Increase</a> in the <i>Amazon EFS User Guide.</i>
-     * </p>
-     * 
-     * @param provisionedThroughputInMibps
-     *        The throughput, measured in MiB/s, that you want to provision for a file system that you're creating. The
-     *        limit on throughput is 1024 MiB/s. You can get these limits increased by contacting AWS Support. For more
-     *        information, see <a href="http://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS
-     *        Limits That You Can Increase</a> in the <i>Amazon EFS User Guide.</i>
-     */
-
-    public void setProvisionedThroughputInMibps(Double provisionedThroughputInMibps) {
-        this.provisionedThroughputInMibps = provisionedThroughputInMibps;
-    }
-
-    /**
-     * <p>
-     * The throughput, measured in MiB/s, that you want to provision for a file system that you're creating. The limit
-     * on throughput is 1024 MiB/s. You can get these limits increased by contacting AWS Support. For more information,
-     * see <a href="http://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS Limits That You Can
-     * Increase</a> in the <i>Amazon EFS User Guide.</i>
-     * </p>
-     * 
-     * @return The throughput, measured in MiB/s, that you want to provision for a file system that you're creating. The
-     *         limit on throughput is 1024 MiB/s. You can get these limits increased by contacting AWS Support. For more
-     *         information, see <a href="http://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS
-     *         Limits That You Can Increase</a> in the <i>Amazon EFS User Guide.</i>
-     */
-
-    public Double getProvisionedThroughputInMibps() {
-        return this.provisionedThroughputInMibps;
-    }
-
-    /**
-     * <p>
-     * The throughput, measured in MiB/s, that you want to provision for a file system that you're creating. The limit
-     * on throughput is 1024 MiB/s. You can get these limits increased by contacting AWS Support. For more information,
-     * see <a href="http://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS Limits That You Can
-     * Increase</a> in the <i>Amazon EFS User Guide.</i>
-     * </p>
-     * 
-     * @param provisionedThroughputInMibps
-     *        The throughput, measured in MiB/s, that you want to provision for a file system that you're creating. The
-     *        limit on throughput is 1024 MiB/s. You can get these limits increased by contacting AWS Support. For more
-     *        information, see <a href="http://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS
-     *        Limits That You Can Increase</a> in the <i>Amazon EFS User Guide.</i>
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateFileSystemRequest withProvisionedThroughputInMibps(Double provisionedThroughputInMibps) {
-        setProvisionedThroughputInMibps(provisionedThroughputInMibps);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -713,11 +540,7 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
         if (getEncrypted() != null)
             sb.append("Encrypted: ").append(getEncrypted()).append(",");
         if (getKmsKeyId() != null)
-            sb.append("KmsKeyId: ").append(getKmsKeyId()).append(",");
-        if (getThroughputMode() != null)
-            sb.append("ThroughputMode: ").append(getThroughputMode()).append(",");
-        if (getProvisionedThroughputInMibps() != null)
-            sb.append("ProvisionedThroughputInMibps: ").append(getProvisionedThroughputInMibps());
+            sb.append("KmsKeyId: ").append(getKmsKeyId());
         sb.append("}");
         return sb.toString();
     }
@@ -748,14 +571,6 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
             return false;
         if (other.getKmsKeyId() != null && other.getKmsKeyId().equals(this.getKmsKeyId()) == false)
             return false;
-        if (other.getThroughputMode() == null ^ this.getThroughputMode() == null)
-            return false;
-        if (other.getThroughputMode() != null && other.getThroughputMode().equals(this.getThroughputMode()) == false)
-            return false;
-        if (other.getProvisionedThroughputInMibps() == null ^ this.getProvisionedThroughputInMibps() == null)
-            return false;
-        if (other.getProvisionedThroughputInMibps() != null && other.getProvisionedThroughputInMibps().equals(this.getProvisionedThroughputInMibps()) == false)
-            return false;
         return true;
     }
 
@@ -768,8 +583,6 @@ public class CreateFileSystemRequest extends com.amazonaws.AmazonWebServiceReque
         hashCode = prime * hashCode + ((getPerformanceMode() == null) ? 0 : getPerformanceMode().hashCode());
         hashCode = prime * hashCode + ((getEncrypted() == null) ? 0 : getEncrypted().hashCode());
         hashCode = prime * hashCode + ((getKmsKeyId() == null) ? 0 : getKmsKeyId().hashCode());
-        hashCode = prime * hashCode + ((getThroughputMode() == null) ? 0 : getThroughputMode().hashCode());
-        hashCode = prime * hashCode + ((getProvisionedThroughputInMibps() == null) ? 0 : getProvisionedThroughputInMibps().hashCode());
         return hashCode;
     }
 

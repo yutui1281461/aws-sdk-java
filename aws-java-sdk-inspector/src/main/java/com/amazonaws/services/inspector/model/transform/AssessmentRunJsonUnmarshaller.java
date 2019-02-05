@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -78,19 +78,19 @@ public class AssessmentRunJsonUnmarshaller implements Unmarshaller<AssessmentRun
                 }
                 if (context.testExpression("createdAt", targetDepth)) {
                     context.nextToken();
-                    assessmentRun.setCreatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    assessmentRun.setCreatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("startedAt", targetDepth)) {
                     context.nextToken();
-                    assessmentRun.setStartedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    assessmentRun.setStartedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("completedAt", targetDepth)) {
                     context.nextToken();
-                    assessmentRun.setCompletedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    assessmentRun.setCompletedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("stateChangedAt", targetDepth)) {
                     context.nextToken();
-                    assessmentRun.setStateChangedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    assessmentRun.setStateChangedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("dataCollected", targetDepth)) {
                     context.nextToken();

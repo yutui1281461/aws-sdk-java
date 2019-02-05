@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -29,16 +29,13 @@ import com.amazonaws.services.autoscalingplans.model.*;
  * <fullname>AWS Auto Scaling</fullname>
  * <p>
  * Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and configure dynamic
- * scaling and predictive scaling for your resources using scaling plans. Use this service in conjunction with the
- * Amazon EC2 Auto Scaling, Application Auto Scaling, Amazon CloudWatch, and AWS CloudFormation services.
+ * scaling for your scalable resources.
  * </p>
  * <p>
- * Currently, predictive scaling is only available for Amazon EC2 Auto Scaling groups.
- * </p>
- * <p>
- * For more information about AWS Auto Scaling, see the <a
- * href="http://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html">AWS Auto Scaling User
- * Guide</a>.
+ * To get started, create a scaling plan with a set of instructions used to configure dynamic scaling for the scalable
+ * resources in your application. AWS Auto Scaling creates target tracking scaling policies for the scalable resources
+ * in your scaling plan. Target tracking scaling policies adjust the capacity of your scalable resource as required to
+ * maintain resource utilization at the target value that you specified.
  * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -55,6 +52,11 @@ public interface AWSAutoScalingPlans {
     /**
      * <p>
      * Creates a scaling plan.
+     * </p>
+     * <p>
+     * A scaling plan contains a set of instructions used to configure dynamic scaling for the scalable resources in
+     * your application. AWS Auto Scaling creates target tracking scaling policies based on the scaling instructions in
+     * your scaling plan.
      * </p>
      * 
      * @param createScalingPlanRequest
@@ -77,14 +79,6 @@ public interface AWSAutoScalingPlans {
     /**
      * <p>
      * Deletes the specified scaling plan.
-     * </p>
-     * <p>
-     * Deleting a scaling plan deletes the underlying <a>ScalingInstruction</a> for all of the scalable resources that
-     * are covered by the plan.
-     * </p>
-     * <p>
-     * If the plan has launched resources or has scaling activities in progress, you must delete those resources
-     * separately.
      * </p>
      * 
      * @param deleteScalingPlanRequest
@@ -128,7 +122,7 @@ public interface AWSAutoScalingPlans {
 
     /**
      * <p>
-     * Describes one or more of your scaling plans.
+     * Describes the specified scaling plans or all of your scaling plans.
      * </p>
      * 
      * @param describeScalingPlansRequest
@@ -150,30 +144,7 @@ public interface AWSAutoScalingPlans {
 
     /**
      * <p>
-     * Retrieves the forecast data for a scalable resource.
-     * </p>
-     * <p>
-     * Capacity forecasts are represented as predicted values, or data points, that are calculated using historical data
-     * points from a specified CloudWatch load metric. Data points are available for up to 56 days.
-     * </p>
-     * 
-     * @param getScalingPlanResourceForecastDataRequest
-     * @return Result of the GetScalingPlanResourceForecastData operation returned by the service.
-     * @throws ValidationException
-     *         An exception was thrown for a validation issue. Review the parameters provided.
-     * @throws InternalServiceException
-     *         The service encountered an internal error.
-     * @sample AWSAutoScalingPlans.GetScalingPlanResourceForecastData
-     * @see <a
-     *      href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-plans-2018-01-06/GetScalingPlanResourceForecastData"
-     *      target="_top">AWS API Documentation</a>
-     */
-    GetScalingPlanResourceForecastDataResult getScalingPlanResourceForecastData(
-            GetScalingPlanResourceForecastDataRequest getScalingPlanResourceForecastDataRequest);
-
-    /**
-     * <p>
-     * Updates the specified scaling plan.
+     * Updates the scaling plan for the specified scaling plan.
      * </p>
      * <p>
      * You cannot update a scaling plan if it is in the process of being created, updated, or deleted.

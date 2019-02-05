@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -49,15 +49,14 @@ public class JobFlowInstancesDetail implements Serializable, Cloneable, Structur
     private String masterInstanceId;
     /**
      * <p>
-     * The Amazon EC2 core and task node instance type.
+     * The Amazon EC2 slave node instance type.
      * </p>
      */
     private String slaveInstanceType;
     /**
      * <p>
      * The number of Amazon EC2 instances in the cluster. If the value is 1, the same instance serves as both the master
-     * and core and task node. If the value is greater than 1, one instance is the master node and all others are core
-     * and task nodes.
+     * and slave node. If the value is greater than 1, one instance is the master node and all others are slave nodes.
      * </p>
      */
     private Integer instanceCount;
@@ -129,11 +128,11 @@ public class JobFlowInstancesDetail implements Serializable, Cloneable, Structur
      * @param masterInstanceType
      *        The Amazon EC2 master node instance type.
      * @param slaveInstanceType
-     *        The Amazon EC2 core and task node instance type.
+     *        The Amazon EC2 slave node instance type.
      * @param instanceCount
      *        The number of Amazon EC2 instances in the cluster. If the value is 1, the same instance serves as both the
-     *        master and core and task node. If the value is greater than 1, one instance is the master node and all
-     *        others are core and task nodes.
+     *        master and slave node. If the value is greater than 1, one instance is the master node and all others are
+     *        slave nodes.
      */
     public JobFlowInstancesDetail(String masterInstanceType, String slaveInstanceType, Integer instanceCount) {
         setMasterInstanceType(masterInstanceType);
@@ -269,11 +268,11 @@ public class JobFlowInstancesDetail implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * The Amazon EC2 core and task node instance type.
+     * The Amazon EC2 slave node instance type.
      * </p>
      * 
      * @param slaveInstanceType
-     *        The Amazon EC2 core and task node instance type.
+     *        The Amazon EC2 slave node instance type.
      */
 
     public void setSlaveInstanceType(String slaveInstanceType) {
@@ -282,10 +281,10 @@ public class JobFlowInstancesDetail implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * The Amazon EC2 core and task node instance type.
+     * The Amazon EC2 slave node instance type.
      * </p>
      * 
-     * @return The Amazon EC2 core and task node instance type.
+     * @return The Amazon EC2 slave node instance type.
      */
 
     public String getSlaveInstanceType() {
@@ -294,11 +293,11 @@ public class JobFlowInstancesDetail implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * The Amazon EC2 core and task node instance type.
+     * The Amazon EC2 slave node instance type.
      * </p>
      * 
      * @param slaveInstanceType
-     *        The Amazon EC2 core and task node instance type.
+     *        The Amazon EC2 slave node instance type.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -310,14 +309,13 @@ public class JobFlowInstancesDetail implements Serializable, Cloneable, Structur
     /**
      * <p>
      * The number of Amazon EC2 instances in the cluster. If the value is 1, the same instance serves as both the master
-     * and core and task node. If the value is greater than 1, one instance is the master node and all others are core
-     * and task nodes.
+     * and slave node. If the value is greater than 1, one instance is the master node and all others are slave nodes.
      * </p>
      * 
      * @param instanceCount
      *        The number of Amazon EC2 instances in the cluster. If the value is 1, the same instance serves as both the
-     *        master and core and task node. If the value is greater than 1, one instance is the master node and all
-     *        others are core and task nodes.
+     *        master and slave node. If the value is greater than 1, one instance is the master node and all others are
+     *        slave nodes.
      */
 
     public void setInstanceCount(Integer instanceCount) {
@@ -327,13 +325,12 @@ public class JobFlowInstancesDetail implements Serializable, Cloneable, Structur
     /**
      * <p>
      * The number of Amazon EC2 instances in the cluster. If the value is 1, the same instance serves as both the master
-     * and core and task node. If the value is greater than 1, one instance is the master node and all others are core
-     * and task nodes.
+     * and slave node. If the value is greater than 1, one instance is the master node and all others are slave nodes.
      * </p>
      * 
      * @return The number of Amazon EC2 instances in the cluster. If the value is 1, the same instance serves as both
-     *         the master and core and task node. If the value is greater than 1, one instance is the master node and
-     *         all others are core and task nodes.
+     *         the master and slave node. If the value is greater than 1, one instance is the master node and all others
+     *         are slave nodes.
      */
 
     public Integer getInstanceCount() {
@@ -343,14 +340,13 @@ public class JobFlowInstancesDetail implements Serializable, Cloneable, Structur
     /**
      * <p>
      * The number of Amazon EC2 instances in the cluster. If the value is 1, the same instance serves as both the master
-     * and core and task node. If the value is greater than 1, one instance is the master node and all others are core
-     * and task nodes.
+     * and slave node. If the value is greater than 1, one instance is the master node and all others are slave nodes.
      * </p>
      * 
      * @param instanceCount
      *        The number of Amazon EC2 instances in the cluster. If the value is 1, the same instance serves as both the
-     *        master and core and task node. If the value is greater than 1, one instance is the master node and all
-     *        others are core and task nodes.
+     *        master and slave node. If the value is greater than 1, one instance is the master node and all others are
+     *        slave nodes.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -769,8 +765,7 @@ public class JobFlowInstancesDetail implements Serializable, Cloneable, Structur
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

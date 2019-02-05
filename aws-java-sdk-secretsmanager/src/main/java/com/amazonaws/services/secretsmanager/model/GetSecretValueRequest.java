@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,25 +30,13 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource
      * Name (ARN) or the friendly name of the secret.
      * </p>
-     * <note>
-     * <p>
-     * If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN
-     * too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the
-     * end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one
-     * secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets
-     * Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those
-     * characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause
-     * unexpected results. To avoid this situation, we recommend that you don’t create secret names that end with a
-     * hyphen followed by six characters.
-     * </p>
-     * </note>
      */
     private String secretId;
     /**
      * <p>
      * Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this
      * parameter then don't specify <code>VersionStage</code>. If you don't specify either a <code>VersionStage</code>
-     * or <code>VersionId</code> then the default is to perform the operation on the version with the
+     * or <code>SecretVersionId</code> then the default is to perform the operation on the version with the
      * <code>VersionStage</code> value of <code>AWSCURRENT</code>.
      * </p>
      * <p>
@@ -63,9 +51,9 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * </p>
      * <p>
      * Staging labels are used to keep track of different versions during the rotation process. If you use this
-     * parameter then don't specify <code>VersionId</code>. If you don't specify either a <code>VersionStage</code> or
-     * <code>VersionId</code>, then the default is to perform the operation on the version with the
-     * <code>VersionStage</code> value of <code>AWSCURRENT</code>.
+     * parameter then don't specify <code>SecretVersionId</code>. If you don't specify either a
+     * <code>VersionStage</code> or <code>SecretVersionId</code>, then the default is to perform the operation on the
+     * version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.
      * </p>
      */
     private String versionStage;
@@ -75,32 +63,10 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource
      * Name (ARN) or the friendly name of the secret.
      * </p>
-     * <note>
-     * <p>
-     * If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN
-     * too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the
-     * end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one
-     * secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets
-     * Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those
-     * characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause
-     * unexpected results. To avoid this situation, we recommend that you don’t create secret names that end with a
-     * hyphen followed by six characters.
-     * </p>
-     * </note>
      * 
      * @param secretId
      *        Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon
-     *        Resource Name (ARN) or the friendly name of the secret.</p> <note>
-     *        <p>
-     *        If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial
-     *        ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager
-     *        adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it
-     *        uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six
-     *        characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that
-     *        as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete
-     *        ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t
-     *        create secret names that end with a hyphen followed by six characters.
-     *        </p>
+     *        Resource Name (ARN) or the friendly name of the secret.
      */
 
     public void setSecretId(String secretId) {
@@ -112,31 +78,9 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource
      * Name (ARN) or the friendly name of the secret.
      * </p>
-     * <note>
-     * <p>
-     * If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN
-     * too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the
-     * end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one
-     * secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets
-     * Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those
-     * characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause
-     * unexpected results. To avoid this situation, we recommend that you don’t create secret names that end with a
-     * hyphen followed by six characters.
-     * </p>
-     * </note>
      * 
      * @return Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon
-     *         Resource Name (ARN) or the friendly name of the secret.</p> <note>
-     *         <p>
-     *         If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial
-     *         ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager
-     *         adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it
-     *         uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by
-     *         six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use
-     *         that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a
-     *         complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you
-     *         don’t create secret names that end with a hyphen followed by six characters.
-     *         </p>
+     *         Resource Name (ARN) or the friendly name of the secret.
      */
 
     public String getSecretId() {
@@ -148,32 +92,10 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource
      * Name (ARN) or the friendly name of the secret.
      * </p>
-     * <note>
-     * <p>
-     * If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN
-     * too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the
-     * end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one
-     * secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets
-     * Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those
-     * characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause
-     * unexpected results. To avoid this situation, we recommend that you don’t create secret names that end with a
-     * hyphen followed by six characters.
-     * </p>
-     * </note>
      * 
      * @param secretId
      *        Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon
-     *        Resource Name (ARN) or the friendly name of the secret.</p> <note>
-     *        <p>
-     *        If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial
-     *        ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager
-     *        adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it
-     *        uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six
-     *        characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that
-     *        as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete
-     *        ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t
-     *        create secret names that end with a hyphen followed by six characters.
-     *        </p>
+     *        Resource Name (ARN) or the friendly name of the secret.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -186,7 +108,7 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * <p>
      * Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this
      * parameter then don't specify <code>VersionStage</code>. If you don't specify either a <code>VersionStage</code>
-     * or <code>VersionId</code> then the default is to perform the operation on the version with the
+     * or <code>SecretVersionId</code> then the default is to perform the operation on the version with the
      * <code>VersionStage</code> value of <code>AWSCURRENT</code>.
      * </p>
      * <p>
@@ -197,8 +119,8 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * @param versionId
      *        Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify
      *        this parameter then don't specify <code>VersionStage</code>. If you don't specify either a
-     *        <code>VersionStage</code> or <code>VersionId</code> then the default is to perform the operation on the
-     *        version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.</p>
+     *        <code>VersionStage</code> or <code>SecretVersionId</code> then the default is to perform the operation on
+     *        the version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.</p>
      *        <p>
      *        This value is typically a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
      *        value with 32 hexadecimal digits.
@@ -212,7 +134,7 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * <p>
      * Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this
      * parameter then don't specify <code>VersionStage</code>. If you don't specify either a <code>VersionStage</code>
-     * or <code>VersionId</code> then the default is to perform the operation on the version with the
+     * or <code>SecretVersionId</code> then the default is to perform the operation on the version with the
      * <code>VersionStage</code> value of <code>AWSCURRENT</code>.
      * </p>
      * <p>
@@ -222,8 +144,8 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * 
      * @return Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify
      *         this parameter then don't specify <code>VersionStage</code>. If you don't specify either a
-     *         <code>VersionStage</code> or <code>VersionId</code> then the default is to perform the operation on the
-     *         version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.</p>
+     *         <code>VersionStage</code> or <code>SecretVersionId</code> then the default is to perform the operation on
+     *         the version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.</p>
      *         <p>
      *         This value is typically a <a
      *         href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value with 32 hexadecimal
@@ -238,7 +160,7 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * <p>
      * Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this
      * parameter then don't specify <code>VersionStage</code>. If you don't specify either a <code>VersionStage</code>
-     * or <code>VersionId</code> then the default is to perform the operation on the version with the
+     * or <code>SecretVersionId</code> then the default is to perform the operation on the version with the
      * <code>VersionStage</code> value of <code>AWSCURRENT</code>.
      * </p>
      * <p>
@@ -249,8 +171,8 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * @param versionId
      *        Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify
      *        this parameter then don't specify <code>VersionStage</code>. If you don't specify either a
-     *        <code>VersionStage</code> or <code>VersionId</code> then the default is to perform the operation on the
-     *        version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.</p>
+     *        <code>VersionStage</code> or <code>SecretVersionId</code> then the default is to perform the operation on
+     *        the version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.</p>
      *        <p>
      *        This value is typically a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a>
      *        value with 32 hexadecimal digits.
@@ -268,18 +190,18 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * </p>
      * <p>
      * Staging labels are used to keep track of different versions during the rotation process. If you use this
-     * parameter then don't specify <code>VersionId</code>. If you don't specify either a <code>VersionStage</code> or
-     * <code>VersionId</code>, then the default is to perform the operation on the version with the
-     * <code>VersionStage</code> value of <code>AWSCURRENT</code>.
+     * parameter then don't specify <code>SecretVersionId</code>. If you don't specify either a
+     * <code>VersionStage</code> or <code>SecretVersionId</code>, then the default is to perform the operation on the
+     * version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.
      * </p>
      * 
      * @param versionStage
      *        Specifies the secret version that you want to retrieve by the staging label attached to the version.</p>
      *        <p>
      *        Staging labels are used to keep track of different versions during the rotation process. If you use this
-     *        parameter then don't specify <code>VersionId</code>. If you don't specify either a
-     *        <code>VersionStage</code> or <code>VersionId</code>, then the default is to perform the operation on the
-     *        version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.
+     *        parameter then don't specify <code>SecretVersionId</code>. If you don't specify either a
+     *        <code>VersionStage</code> or <code>SecretVersionId</code>, then the default is to perform the operation on
+     *        the version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.
      */
 
     public void setVersionStage(String versionStage) {
@@ -292,17 +214,17 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * </p>
      * <p>
      * Staging labels are used to keep track of different versions during the rotation process. If you use this
-     * parameter then don't specify <code>VersionId</code>. If you don't specify either a <code>VersionStage</code> or
-     * <code>VersionId</code>, then the default is to perform the operation on the version with the
-     * <code>VersionStage</code> value of <code>AWSCURRENT</code>.
+     * parameter then don't specify <code>SecretVersionId</code>. If you don't specify either a
+     * <code>VersionStage</code> or <code>SecretVersionId</code>, then the default is to perform the operation on the
+     * version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.
      * </p>
      * 
      * @return Specifies the secret version that you want to retrieve by the staging label attached to the version.</p>
      *         <p>
      *         Staging labels are used to keep track of different versions during the rotation process. If you use this
-     *         parameter then don't specify <code>VersionId</code>. If you don't specify either a
-     *         <code>VersionStage</code> or <code>VersionId</code>, then the default is to perform the operation on the
-     *         version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.
+     *         parameter then don't specify <code>SecretVersionId</code>. If you don't specify either a
+     *         <code>VersionStage</code> or <code>SecretVersionId</code>, then the default is to perform the operation
+     *         on the version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.
      */
 
     public String getVersionStage() {
@@ -315,18 +237,18 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
      * </p>
      * <p>
      * Staging labels are used to keep track of different versions during the rotation process. If you use this
-     * parameter then don't specify <code>VersionId</code>. If you don't specify either a <code>VersionStage</code> or
-     * <code>VersionId</code>, then the default is to perform the operation on the version with the
-     * <code>VersionStage</code> value of <code>AWSCURRENT</code>.
+     * parameter then don't specify <code>SecretVersionId</code>. If you don't specify either a
+     * <code>VersionStage</code> or <code>SecretVersionId</code>, then the default is to perform the operation on the
+     * version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.
      * </p>
      * 
      * @param versionStage
      *        Specifies the secret version that you want to retrieve by the staging label attached to the version.</p>
      *        <p>
      *        Staging labels are used to keep track of different versions during the rotation process. If you use this
-     *        parameter then don't specify <code>VersionId</code>. If you don't specify either a
-     *        <code>VersionStage</code> or <code>VersionId</code>, then the default is to perform the operation on the
-     *        version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.
+     *        parameter then don't specify <code>SecretVersionId</code>. If you don't specify either a
+     *        <code>VersionStage</code> or <code>SecretVersionId</code>, then the default is to perform the operation on
+     *        the version with the <code>VersionStage</code> value of <code>AWSCURRENT</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -336,8 +258,7 @@ public class GetSecretValueRequest extends com.amazonaws.AmazonWebServiceRequest
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -60,9 +60,8 @@ public class Blueprint implements Serializable, Cloneable, StructuredPojo {
     private String description;
     /**
      * <p>
-     * A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support customers
-     * with existing instances but are not necessarily available for launch of new instances. Blueprints are marked
-     * inactive when they become outdated due to operating system updates or new application releases.
+     * A Boolean value indicating whether the blueprint is active. When you update your blueprints, you will inactivate
+     * old blueprints and keep the most recent versions active.
      * </p>
      */
     private Boolean isActive;
@@ -343,16 +342,13 @@ public class Blueprint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support customers
-     * with existing instances but are not necessarily available for launch of new instances. Blueprints are marked
-     * inactive when they become outdated due to operating system updates or new application releases.
+     * A Boolean value indicating whether the blueprint is active. When you update your blueprints, you will inactivate
+     * old blueprints and keep the most recent versions active.
      * </p>
      * 
      * @param isActive
-     *        A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support
-     *        customers with existing instances but are not necessarily available for launch of new instances.
-     *        Blueprints are marked inactive when they become outdated due to operating system updates or new
-     *        application releases.
+     *        A Boolean value indicating whether the blueprint is active. When you update your blueprints, you will
+     *        inactivate old blueprints and keep the most recent versions active.
      */
 
     public void setIsActive(Boolean isActive) {
@@ -361,15 +357,12 @@ public class Blueprint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support customers
-     * with existing instances but are not necessarily available for launch of new instances. Blueprints are marked
-     * inactive when they become outdated due to operating system updates or new application releases.
+     * A Boolean value indicating whether the blueprint is active. When you update your blueprints, you will inactivate
+     * old blueprints and keep the most recent versions active.
      * </p>
      * 
-     * @return A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support
-     *         customers with existing instances but are not necessarily available for launch of new instances.
-     *         Blueprints are marked inactive when they become outdated due to operating system updates or new
-     *         application releases.
+     * @return A Boolean value indicating whether the blueprint is active. When you update your blueprints, you will
+     *         inactivate old blueprints and keep the most recent versions active.
      */
 
     public Boolean getIsActive() {
@@ -378,16 +371,13 @@ public class Blueprint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support customers
-     * with existing instances but are not necessarily available for launch of new instances. Blueprints are marked
-     * inactive when they become outdated due to operating system updates or new application releases.
+     * A Boolean value indicating whether the blueprint is active. When you update your blueprints, you will inactivate
+     * old blueprints and keep the most recent versions active.
      * </p>
      * 
      * @param isActive
-     *        A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support
-     *        customers with existing instances but are not necessarily available for launch of new instances.
-     *        Blueprints are marked inactive when they become outdated due to operating system updates or new
-     *        application releases.
+     *        A Boolean value indicating whether the blueprint is active. When you update your blueprints, you will
+     *        inactivate old blueprints and keep the most recent versions active.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -398,15 +388,12 @@ public class Blueprint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support customers
-     * with existing instances but are not necessarily available for launch of new instances. Blueprints are marked
-     * inactive when they become outdated due to operating system updates or new application releases.
+     * A Boolean value indicating whether the blueprint is active. When you update your blueprints, you will inactivate
+     * old blueprints and keep the most recent versions active.
      * </p>
      * 
-     * @return A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support
-     *         customers with existing instances but are not necessarily available for launch of new instances.
-     *         Blueprints are marked inactive when they become outdated due to operating system updates or new
-     *         application releases.
+     * @return A Boolean value indicating whether the blueprint is active. When you update your blueprints, you will
+     *         inactivate old blueprints and keep the most recent versions active.
      */
 
     public Boolean isActive() {
@@ -699,8 +686,7 @@ public class Blueprint implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

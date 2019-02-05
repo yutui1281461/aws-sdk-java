@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,7 +40,7 @@ public class ListTopicsDetectionJobsRequest extends com.amazonaws.AmazonWebServi
     private String nextToken;
     /**
      * <p>
-     * The maximum number of results to return in each page. The default is 100.
+     * The maximum number of results to return in each page.
      * </p>
      */
     private Integer maxResults;
@@ -133,11 +133,11 @@ public class ListTopicsDetectionJobsRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The maximum number of results to return in each page. The default is 100.
+     * The maximum number of results to return in each page.
      * </p>
      * 
      * @param maxResults
-     *        The maximum number of results to return in each page. The default is 100.
+     *        The maximum number of results to return in each page.
      */
 
     public void setMaxResults(Integer maxResults) {
@@ -146,10 +146,10 @@ public class ListTopicsDetectionJobsRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The maximum number of results to return in each page. The default is 100.
+     * The maximum number of results to return in each page.
      * </p>
      * 
-     * @return The maximum number of results to return in each page. The default is 100.
+     * @return The maximum number of results to return in each page.
      */
 
     public Integer getMaxResults() {
@@ -158,11 +158,11 @@ public class ListTopicsDetectionJobsRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The maximum number of results to return in each page. The default is 100.
+     * The maximum number of results to return in each page.
      * </p>
      * 
      * @param maxResults
-     *        The maximum number of results to return in each page. The default is 100.
+     *        The maximum number of results to return in each page.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -172,8 +172,7 @@ public class ListTopicsDetectionJobsRequest extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

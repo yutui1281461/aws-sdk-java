@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,10 +40,11 @@ public interface AWSMediaConvert {
     String ENDPOINT_PREFIX = "mediaconvert";
 
     /**
-     * Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.
+     * Permanently remove a job from a queue. Once you have canceled a job, you can't start it again. You can't delete a
+     * running job.
      * 
-     * @param associateCertificateRequest
-     * @return Result of the AssociateCertificate operation returned by the service.
+     * @param cancelJobRequest
+     * @return Result of the CancelJob operation returned by the service.
      * @throws BadRequestException
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
@@ -58,33 +59,6 @@ public interface AWSMediaConvert {
      *         accept requests.
      * @throws ConflictException
      *         The service could not complete your request because there is a conflict with the current state of the
-     *         resource.
-     * @sample AWSMediaConvert.AssociateCertificate
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/AssociateCertificate"
-     *      target="_top">AWS API Documentation</a>
-     */
-    AssociateCertificateResult associateCertificate(AssociateCertificateRequest associateCertificateRequest);
-
-    /**
-     * Permanently remove a job from a queue. Once you have canceled a job, you can't start it again. You can't delete a
-     * running job.
-     * 
-     * @param cancelJobRequest
-     * @return Result of the CancelJob operation returned by the service.
-     * @throws BadRequestException
-     *         The service can't process your request because of a problem in the request. Please check your request
-     *         form and syntax.
-     * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
-     * @throws ForbiddenException
-     *         You don't have permissions for this action with the credentials you sent.
-     * @throws NotFoundException
-     *         The resource you requested doesn't exist.
-     * @throws TooManyRequestsException
-     *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
-     *         accept requests.
-     * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.CancelJob
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/CancelJob" target="_top">AWS API
@@ -102,16 +76,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.CreateJob
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/CreateJob" target="_top">AWS API
@@ -129,16 +103,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.CreateJobTemplate
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/CreateJobTemplate" target="_top">AWS
@@ -156,16 +130,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.CreatePreset
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/CreatePreset" target="_top">AWS API
@@ -174,8 +148,8 @@ public interface AWSMediaConvert {
     CreatePresetResult createPreset(CreatePresetRequest createPresetRequest);
 
     /**
-     * Create a new transcoding queue. For information about queues, see Working With Queues in the User Guide at
-     * https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html
+     * Create a new transcoding queue. For information about job templates see the User Guide at
+     * http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
      * 
      * @param createQueueRequest
      * @return Result of the CreateQueue operation returned by the service.
@@ -183,16 +157,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.CreateQueue
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/CreateQueue" target="_top">AWS API
@@ -209,16 +183,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.DeleteJobTemplate
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/DeleteJobTemplate" target="_top">AWS
@@ -235,16 +209,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.DeletePreset
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/DeletePreset" target="_top">AWS API
@@ -261,16 +235,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.DeleteQueue
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/DeleteQueue" target="_top">AWS API
@@ -303,11 +277,10 @@ public interface AWSMediaConvert {
     DescribeEndpointsResult describeEndpoints(DescribeEndpointsRequest describeEndpointsRequest);
 
     /**
-     * Removes an association between the Amazon Resource Name (ARN) of an AWS Certificate Manager (ACM) certificate and
-     * an AWS Elemental MediaConvert resource.
+     * Retrieve the JSON for a specific completed transcoding job.
      * 
-     * @param disassociateCertificateRequest
-     * @return Result of the DisassociateCertificate operation returned by the service.
+     * @param getJobRequest
+     * @return Result of the GetJob operation returned by the service.
      * @throws BadRequestException
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
@@ -322,32 +295,6 @@ public interface AWSMediaConvert {
      *         accept requests.
      * @throws ConflictException
      *         The service could not complete your request because there is a conflict with the current state of the
-     *         resource.
-     * @sample AWSMediaConvert.DisassociateCertificate
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/DisassociateCertificate"
-     *      target="_top">AWS API Documentation</a>
-     */
-    DisassociateCertificateResult disassociateCertificate(DisassociateCertificateRequest disassociateCertificateRequest);
-
-    /**
-     * Retrieve the JSON for a specific completed transcoding job.
-     * 
-     * @param getJobRequest
-     * @return Result of the GetJob operation returned by the service.
-     * @throws BadRequestException
-     *         The service can't process your request because of a problem in the request. Please check your request
-     *         form and syntax.
-     * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
-     * @throws ForbiddenException
-     *         You don't have permissions for this action with the credentials you sent.
-     * @throws NotFoundException
-     *         The resource you requested doesn't exist.
-     * @throws TooManyRequestsException
-     *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
-     *         accept requests.
-     * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.GetJob
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/GetJob" target="_top">AWS API
@@ -364,16 +311,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.GetJobTemplate
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/GetJobTemplate" target="_top">AWS
@@ -390,16 +337,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.GetPreset
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/GetPreset" target="_top">AWS API
@@ -416,16 +363,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.GetQueue
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/GetQueue" target="_top">AWS API
@@ -443,16 +390,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.ListJobTemplates
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/ListJobTemplates" target="_top">AWS
@@ -471,16 +418,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.ListJobs
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/ListJobs" target="_top">AWS API
@@ -498,16 +445,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.ListPresets
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/ListPresets" target="_top">AWS API
@@ -525,102 +472,22 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.ListQueues
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/ListQueues" target="_top">AWS API
      *      Documentation</a>
      */
     ListQueuesResult listQueues(ListQueuesRequest listQueuesRequest);
-
-    /**
-     * Retrieve the tags for a MediaConvert resource.
-     * 
-     * @param listTagsForResourceRequest
-     * @return Result of the ListTagsForResource operation returned by the service.
-     * @throws BadRequestException
-     *         The service can't process your request because of a problem in the request. Please check your request
-     *         form and syntax.
-     * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
-     * @throws ForbiddenException
-     *         You don't have permissions for this action with the credentials you sent.
-     * @throws NotFoundException
-     *         The resource you requested doesn't exist.
-     * @throws TooManyRequestsException
-     *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
-     *         accept requests.
-     * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
-     *         resource.
-     * @sample AWSMediaConvert.ListTagsForResource
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/ListTagsForResource"
-     *      target="_top">AWS API Documentation</a>
-     */
-    ListTagsForResourceResult listTagsForResource(ListTagsForResourceRequest listTagsForResourceRequest);
-
-    /**
-     * Add tags to a MediaConvert queue, preset, or job template. For information about tagging, see the User Guide at
-     * https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
-     * 
-     * @param tagResourceRequest
-     * @return Result of the TagResource operation returned by the service.
-     * @throws BadRequestException
-     *         The service can't process your request because of a problem in the request. Please check your request
-     *         form and syntax.
-     * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
-     * @throws ForbiddenException
-     *         You don't have permissions for this action with the credentials you sent.
-     * @throws NotFoundException
-     *         The resource you requested doesn't exist.
-     * @throws TooManyRequestsException
-     *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
-     *         accept requests.
-     * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
-     *         resource.
-     * @sample AWSMediaConvert.TagResource
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/TagResource" target="_top">AWS API
-     *      Documentation</a>
-     */
-    TagResourceResult tagResource(TagResourceRequest tagResourceRequest);
-
-    /**
-     * Remove tags from a MediaConvert queue, preset, or job template. For information about tagging, see the User Guide
-     * at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
-     * 
-     * @param untagResourceRequest
-     * @return Result of the UntagResource operation returned by the service.
-     * @throws BadRequestException
-     *         The service can't process your request because of a problem in the request. Please check your request
-     *         form and syntax.
-     * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
-     * @throws ForbiddenException
-     *         You don't have permissions for this action with the credentials you sent.
-     * @throws NotFoundException
-     *         The resource you requested doesn't exist.
-     * @throws TooManyRequestsException
-     *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
-     *         accept requests.
-     * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
-     *         resource.
-     * @sample AWSMediaConvert.UntagResource
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/UntagResource" target="_top">AWS API
-     *      Documentation</a>
-     */
-    UntagResourceResult untagResource(UntagResourceRequest untagResourceRequest);
 
     /**
      * Modify one of your existing job templates.
@@ -631,16 +498,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.UpdateJobTemplate
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/UpdateJobTemplate" target="_top">AWS
@@ -657,16 +524,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.UpdatePreset
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/UpdatePreset" target="_top">AWS API
@@ -683,16 +550,16 @@ public interface AWSMediaConvert {
      *         The service can't process your request because of a problem in the request. Please check your request
      *         form and syntax.
      * @throws InternalServerErrorException
-     *         The service encountered an unexpected condition and can't fulfill your request.
+     *         The service encountered an unexpected condition and cannot fulfill your request.
      * @throws ForbiddenException
      *         You don't have permissions for this action with the credentials you sent.
      * @throws NotFoundException
-     *         The resource you requested doesn't exist.
+     *         The resource you requested does not exist.
      * @throws TooManyRequestsException
      *         Too many requests have been sent in too short of a time. The service limits the rate at which it will
      *         accept requests.
      * @throws ConflictException
-     *         The service couldn't complete your request because there is a conflict with the current state of the
+     *         The service could not complete your request because there is a conflict with the current state of the
      *         resource.
      * @sample AWSMediaConvert.UpdateQueue
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/UpdateQueue" target="_top">AWS API

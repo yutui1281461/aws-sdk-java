@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,14 +33,8 @@ public class Subnet implements Serializable, Cloneable {
     private String availabilityZone;
     /**
      * <p>
-     * The AZ ID of the subnet.
-     * </p>
-     */
-    private String availabilityZoneId;
-    /**
-     * <p>
-     * The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are
-     * considered unavailable.
+     * The number of unused private IPv4 addresses in the subnet. Note that the IPv4 addresses for any stopped instances
+     * are considered unavailable.
      * </p>
      */
     private Integer availableIpAddressCount;
@@ -82,12 +76,6 @@ public class Subnet implements Serializable, Cloneable {
     private String vpcId;
     /**
      * <p>
-     * The ID of the AWS account that owns the subnet.
-     * </p>
-     */
-    private String ownerId;
-    /**
-     * <p>
      * Indicates whether a network interface created in this subnet (including a network interface created by
      * <a>RunInstances</a>) receives an IPv6 address.
      * </p>
@@ -105,12 +93,6 @@ public class Subnet implements Serializable, Cloneable {
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<Tag> tags;
-    /**
-     * <p>
-     * The Amazon Resource Name (ARN) of the subnet.
-     * </p>
-     */
-    private String subnetArn;
 
     /**
      * <p>
@@ -154,53 +136,13 @@ public class Subnet implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The AZ ID of the subnet.
-     * </p>
-     * 
-     * @param availabilityZoneId
-     *        The AZ ID of the subnet.
-     */
-
-    public void setAvailabilityZoneId(String availabilityZoneId) {
-        this.availabilityZoneId = availabilityZoneId;
-    }
-
-    /**
-     * <p>
-     * The AZ ID of the subnet.
-     * </p>
-     * 
-     * @return The AZ ID of the subnet.
-     */
-
-    public String getAvailabilityZoneId() {
-        return this.availabilityZoneId;
-    }
-
-    /**
-     * <p>
-     * The AZ ID of the subnet.
-     * </p>
-     * 
-     * @param availabilityZoneId
-     *        The AZ ID of the subnet.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Subnet withAvailabilityZoneId(String availabilityZoneId) {
-        setAvailabilityZoneId(availabilityZoneId);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are
-     * considered unavailable.
+     * The number of unused private IPv4 addresses in the subnet. Note that the IPv4 addresses for any stopped instances
+     * are considered unavailable.
      * </p>
      * 
      * @param availableIpAddressCount
-     *        The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances
-     *        are considered unavailable.
+     *        The number of unused private IPv4 addresses in the subnet. Note that the IPv4 addresses for any stopped
+     *        instances are considered unavailable.
      */
 
     public void setAvailableIpAddressCount(Integer availableIpAddressCount) {
@@ -209,12 +151,12 @@ public class Subnet implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are
-     * considered unavailable.
+     * The number of unused private IPv4 addresses in the subnet. Note that the IPv4 addresses for any stopped instances
+     * are considered unavailable.
      * </p>
      * 
-     * @return The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances
-     *         are considered unavailable.
+     * @return The number of unused private IPv4 addresses in the subnet. Note that the IPv4 addresses for any stopped
+     *         instances are considered unavailable.
      */
 
     public Integer getAvailableIpAddressCount() {
@@ -223,13 +165,13 @@ public class Subnet implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are
-     * considered unavailable.
+     * The number of unused private IPv4 addresses in the subnet. Note that the IPv4 addresses for any stopped instances
+     * are considered unavailable.
      * </p>
      * 
      * @param availableIpAddressCount
-     *        The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances
-     *        are considered unavailable.
+     *        The number of unused private IPv4 addresses in the subnet. Note that the IPv4 addresses for any stopped
+     *        instances are considered unavailable.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -537,46 +479,6 @@ public class Subnet implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the AWS account that owns the subnet.
-     * </p>
-     * 
-     * @param ownerId
-     *        The ID of the AWS account that owns the subnet.
-     */
-
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    /**
-     * <p>
-     * The ID of the AWS account that owns the subnet.
-     * </p>
-     * 
-     * @return The ID of the AWS account that owns the subnet.
-     */
-
-    public String getOwnerId() {
-        return this.ownerId;
-    }
-
-    /**
-     * <p>
-     * The ID of the AWS account that owns the subnet.
-     * </p>
-     * 
-     * @param ownerId
-     *        The ID of the AWS account that owns the subnet.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Subnet withOwnerId(String ownerId) {
-        setOwnerId(ownerId);
-        return this;
-    }
-
-    /**
-     * <p>
      * Indicates whether a network interface created in this subnet (including a network interface created by
      * <a>RunInstances</a>) receives an IPv6 address.
      * </p>
@@ -782,48 +684,7 @@ public class Subnet implements Serializable, Cloneable {
     }
 
     /**
-     * <p>
-     * The Amazon Resource Name (ARN) of the subnet.
-     * </p>
-     * 
-     * @param subnetArn
-     *        The Amazon Resource Name (ARN) of the subnet.
-     */
-
-    public void setSubnetArn(String subnetArn) {
-        this.subnetArn = subnetArn;
-    }
-
-    /**
-     * <p>
-     * The Amazon Resource Name (ARN) of the subnet.
-     * </p>
-     * 
-     * @return The Amazon Resource Name (ARN) of the subnet.
-     */
-
-    public String getSubnetArn() {
-        return this.subnetArn;
-    }
-
-    /**
-     * <p>
-     * The Amazon Resource Name (ARN) of the subnet.
-     * </p>
-     * 
-     * @param subnetArn
-     *        The Amazon Resource Name (ARN) of the subnet.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Subnet withSubnetArn(String subnetArn) {
-        setSubnetArn(subnetArn);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -835,8 +696,6 @@ public class Subnet implements Serializable, Cloneable {
         sb.append("{");
         if (getAvailabilityZone() != null)
             sb.append("AvailabilityZone: ").append(getAvailabilityZone()).append(",");
-        if (getAvailabilityZoneId() != null)
-            sb.append("AvailabilityZoneId: ").append(getAvailabilityZoneId()).append(",");
         if (getAvailableIpAddressCount() != null)
             sb.append("AvailableIpAddressCount: ").append(getAvailableIpAddressCount()).append(",");
         if (getCidrBlock() != null)
@@ -851,16 +710,12 @@ public class Subnet implements Serializable, Cloneable {
             sb.append("SubnetId: ").append(getSubnetId()).append(",");
         if (getVpcId() != null)
             sb.append("VpcId: ").append(getVpcId()).append(",");
-        if (getOwnerId() != null)
-            sb.append("OwnerId: ").append(getOwnerId()).append(",");
         if (getAssignIpv6AddressOnCreation() != null)
             sb.append("AssignIpv6AddressOnCreation: ").append(getAssignIpv6AddressOnCreation()).append(",");
         if (getIpv6CidrBlockAssociationSet() != null)
             sb.append("Ipv6CidrBlockAssociationSet: ").append(getIpv6CidrBlockAssociationSet()).append(",");
         if (getTags() != null)
-            sb.append("Tags: ").append(getTags()).append(",");
-        if (getSubnetArn() != null)
-            sb.append("SubnetArn: ").append(getSubnetArn());
+            sb.append("Tags: ").append(getTags());
         sb.append("}");
         return sb.toString();
     }
@@ -878,10 +733,6 @@ public class Subnet implements Serializable, Cloneable {
         if (other.getAvailabilityZone() == null ^ this.getAvailabilityZone() == null)
             return false;
         if (other.getAvailabilityZone() != null && other.getAvailabilityZone().equals(this.getAvailabilityZone()) == false)
-            return false;
-        if (other.getAvailabilityZoneId() == null ^ this.getAvailabilityZoneId() == null)
-            return false;
-        if (other.getAvailabilityZoneId() != null && other.getAvailabilityZoneId().equals(this.getAvailabilityZoneId()) == false)
             return false;
         if (other.getAvailableIpAddressCount() == null ^ this.getAvailableIpAddressCount() == null)
             return false;
@@ -911,10 +762,6 @@ public class Subnet implements Serializable, Cloneable {
             return false;
         if (other.getVpcId() != null && other.getVpcId().equals(this.getVpcId()) == false)
             return false;
-        if (other.getOwnerId() == null ^ this.getOwnerId() == null)
-            return false;
-        if (other.getOwnerId() != null && other.getOwnerId().equals(this.getOwnerId()) == false)
-            return false;
         if (other.getAssignIpv6AddressOnCreation() == null ^ this.getAssignIpv6AddressOnCreation() == null)
             return false;
         if (other.getAssignIpv6AddressOnCreation() != null && other.getAssignIpv6AddressOnCreation().equals(this.getAssignIpv6AddressOnCreation()) == false)
@@ -927,10 +774,6 @@ public class Subnet implements Serializable, Cloneable {
             return false;
         if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
             return false;
-        if (other.getSubnetArn() == null ^ this.getSubnetArn() == null)
-            return false;
-        if (other.getSubnetArn() != null && other.getSubnetArn().equals(this.getSubnetArn()) == false)
-            return false;
         return true;
     }
 
@@ -940,7 +783,6 @@ public class Subnet implements Serializable, Cloneable {
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getAvailabilityZone() == null) ? 0 : getAvailabilityZone().hashCode());
-        hashCode = prime * hashCode + ((getAvailabilityZoneId() == null) ? 0 : getAvailabilityZoneId().hashCode());
         hashCode = prime * hashCode + ((getAvailableIpAddressCount() == null) ? 0 : getAvailableIpAddressCount().hashCode());
         hashCode = prime * hashCode + ((getCidrBlock() == null) ? 0 : getCidrBlock().hashCode());
         hashCode = prime * hashCode + ((getDefaultForAz() == null) ? 0 : getDefaultForAz().hashCode());
@@ -948,11 +790,9 @@ public class Subnet implements Serializable, Cloneable {
         hashCode = prime * hashCode + ((getState() == null) ? 0 : getState().hashCode());
         hashCode = prime * hashCode + ((getSubnetId() == null) ? 0 : getSubnetId().hashCode());
         hashCode = prime * hashCode + ((getVpcId() == null) ? 0 : getVpcId().hashCode());
-        hashCode = prime * hashCode + ((getOwnerId() == null) ? 0 : getOwnerId().hashCode());
         hashCode = prime * hashCode + ((getAssignIpv6AddressOnCreation() == null) ? 0 : getAssignIpv6AddressOnCreation().hashCode());
         hashCode = prime * hashCode + ((getIpv6CidrBlockAssociationSet() == null) ? 0 : getIpv6CidrBlockAssociationSet().hashCode());
         hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
-        hashCode = prime * hashCode + ((getSubnetArn() == null) ? 0 : getSubnetArn().hashCode());
         return hashCode;
     }
 

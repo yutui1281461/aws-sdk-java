@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,7 +40,7 @@ import com.amazonaws.services.simplesystemsmanagement.model.*;
  * <p>
  * To get started, verify prerequisites and configure managed instances. For more information, see <a
  * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Systems Manager
- * Prerequisites</a> in the <i>AWS Systems Manager User Guide</i>.
+ * Prerequisites</a>.
  * </p>
  * <p>
  * For information about other API actions you can perform on Amazon EC2 instances, see the <a
@@ -156,43 +156,6 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
 
     /**
      * <p>
-     * Stops a Maintenance Window execution that is already in progress and cancels any tasks in the window that have
-     * not already starting running. (Tasks already in progress will continue to completion.)
-     * </p>
-     * 
-     * @param cancelMaintenanceWindowExecutionRequest
-     * @return A Java Future containing the result of the CancelMaintenanceWindowExecution operation returned by the
-     *         service.
-     * @sample AWSSimpleSystemsManagementAsync.CancelMaintenanceWindowExecution
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CancelMaintenanceWindowExecution"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<CancelMaintenanceWindowExecutionResult> cancelMaintenanceWindowExecutionAsync(
-            CancelMaintenanceWindowExecutionRequest cancelMaintenanceWindowExecutionRequest);
-
-    /**
-     * <p>
-     * Stops a Maintenance Window execution that is already in progress and cancels any tasks in the window that have
-     * not already starting running. (Tasks already in progress will continue to completion.)
-     * </p>
-     * 
-     * @param cancelMaintenanceWindowExecutionRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the CancelMaintenanceWindowExecution operation returned by the
-     *         service.
-     * @sample AWSSimpleSystemsManagementAsyncHandler.CancelMaintenanceWindowExecution
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CancelMaintenanceWindowExecution"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<CancelMaintenanceWindowExecutionResult> cancelMaintenanceWindowExecutionAsync(
-            CancelMaintenanceWindowExecutionRequest cancelMaintenanceWindowExecutionRequest,
-            com.amazonaws.handlers.AsyncHandler<CancelMaintenanceWindowExecutionRequest, CancelMaintenanceWindowExecutionResult> asyncHandler);
-
-    /**
-     * <p>
      * Registers your on-premises server or virtual machine with Amazon EC2 so that you can manage these resources using
      * Run Command. An on-premises server or virtual machine that has been registered with EC2 is called a managed
      * instance. For more information about activations, see <a
@@ -235,11 +198,11 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
      * Associates the specified Systems Manager document with the specified instances or targets.
      * </p>
      * <p>
-     * When you associate a document with one or more instances using instance IDs or tags, SSM Agent running on the
+     * When you associate a document with one or more instances using instance IDs or tags, the SSM Agent running on the
      * instance processes the document and configures the instance as specified.
      * </p>
      * <p>
-     * If you associate a document with an instance that already has an associated document, the system returns the
+     * If you associate a document with an instance that already has an associated document, the system throws the
      * AssociationAlreadyExists exception.
      * </p>
      * 
@@ -256,11 +219,11 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
      * Associates the specified Systems Manager document with the specified instances or targets.
      * </p>
      * <p>
-     * When you associate a document with one or more instances using instance IDs or tags, SSM Agent running on the
+     * When you associate a document with one or more instances using instance IDs or tags, the SSM Agent running on the
      * instance processes the document and configures the instance as specified.
      * </p>
      * <p>
-     * If you associate a document with an instance that already has an associated document, the system returns the
+     * If you associate a document with an instance that already has an associated document, the system throws the
      * AssociationAlreadyExists exception.
      * </p>
      * 
@@ -282,11 +245,11 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
      * Associates the specified Systems Manager document with the specified instances or targets.
      * </p>
      * <p>
-     * When you associate a document with one or more instances using instance IDs or tags, SSM Agent running on the
+     * When you associate a document with one or more instances using instance IDs or tags, the SSM Agent running on the
      * instance processes the document and configures the instance as specified.
      * </p>
      * <p>
-     * If you associate a document with an instance that already has an associated document, the system returns the
+     * If you associate a document with an instance that already has an associated document, the system throws the
      * AssociationAlreadyExists exception.
      * </p>
      * 
@@ -303,11 +266,11 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
      * Associates the specified Systems Manager document with the specified instances or targets.
      * </p>
      * <p>
-     * When you associate a document with one or more instances using instance IDs or tags, SSM Agent running on the
+     * When you associate a document with one or more instances using instance IDs or tags, the SSM Agent running on the
      * instance processes the document and configures the instance as specified.
      * </p>
      * <p>
-     * If you associate a document with an instance that already has an associated document, the system returns the
+     * If you associate a document with an instance that already has an associated document, the system throws the
      * AssociationAlreadyExists exception.
      * </p>
      * 
@@ -447,9 +410,9 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
      * By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption in Amazon S3 to
      * ensure secure data storage. We also recommend that you secure access to the Amazon S3 bucket by creating a
      * restrictive bucket policy. To view an example of a restrictive Amazon S3 bucket policy for Resource Data Sync,
-     * see <a
-     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync-create.html">Create a
-     * Resource Data Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.
+     * see <a href=
+     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-configuring.html#sysman-inventory-datasync"
+     * >Configuring Resource Data Sync for Inventory</a>.
      * </p>
      * 
      * @param createResourceDataSyncRequest
@@ -470,9 +433,9 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
      * By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption in Amazon S3 to
      * ensure secure data storage. We also recommend that you secure access to the Amazon S3 bucket by creating a
      * restrictive bucket policy. To view an example of a restrictive Amazon S3 bucket policy for Resource Data Sync,
-     * see <a
-     * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync-create.html">Create a
-     * Resource Data Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.
+     * see <a href=
+     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-configuring.html#sysman-inventory-datasync"
+     * >Configuring Resource Data Sync for Inventory</a>.
      * </p>
      * 
      * @param createResourceDataSyncRequest
@@ -798,7 +761,7 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
     /**
      * <p>
      * Removes the server or virtual machine from the list of registered servers. You can reregister the instance again
-     * at any time. If you don't plan to use Run Command on the server, we suggest uninstalling SSM Agent first.
+     * at any time. If you don't plan to use Run Command on the server, we suggest uninstalling the SSM Agent first.
      * </p>
      * 
      * @param deregisterManagedInstanceRequest
@@ -813,7 +776,7 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
     /**
      * <p>
      * Removes the server or virtual machine from the list of registered servers. You can reregister the instance again
-     * at any time. If you don't plan to use Run Command on the server, we suggest uninstalling SSM Agent first.
+     * at any time. If you don't plan to use Run Command on the server, we suggest uninstalling the SSM Agent first.
      * </p>
      * 
      * @param deregisterManagedInstanceRequest
@@ -1004,76 +967,6 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
      */
     java.util.concurrent.Future<DescribeAssociationResult> describeAssociationAsync(DescribeAssociationRequest describeAssociationRequest,
             com.amazonaws.handlers.AsyncHandler<DescribeAssociationRequest, DescribeAssociationResult> asyncHandler);
-
-    /**
-     * <p>
-     * Use this API action to view information about a specific execution of a specific association.
-     * </p>
-     * 
-     * @param describeAssociationExecutionTargetsRequest
-     * @return A Java Future containing the result of the DescribeAssociationExecutionTargets operation returned by the
-     *         service.
-     * @sample AWSSimpleSystemsManagementAsync.DescribeAssociationExecutionTargets
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAssociationExecutionTargets"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DescribeAssociationExecutionTargetsResult> describeAssociationExecutionTargetsAsync(
-            DescribeAssociationExecutionTargetsRequest describeAssociationExecutionTargetsRequest);
-
-    /**
-     * <p>
-     * Use this API action to view information about a specific execution of a specific association.
-     * </p>
-     * 
-     * @param describeAssociationExecutionTargetsRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the DescribeAssociationExecutionTargets operation returned by the
-     *         service.
-     * @sample AWSSimpleSystemsManagementAsyncHandler.DescribeAssociationExecutionTargets
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAssociationExecutionTargets"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DescribeAssociationExecutionTargetsResult> describeAssociationExecutionTargetsAsync(
-            DescribeAssociationExecutionTargetsRequest describeAssociationExecutionTargetsRequest,
-            com.amazonaws.handlers.AsyncHandler<DescribeAssociationExecutionTargetsRequest, DescribeAssociationExecutionTargetsResult> asyncHandler);
-
-    /**
-     * <p>
-     * Use this API action to view all executions for a specific association ID.
-     * </p>
-     * 
-     * @param describeAssociationExecutionsRequest
-     * @return A Java Future containing the result of the DescribeAssociationExecutions operation returned by the
-     *         service.
-     * @sample AWSSimpleSystemsManagementAsync.DescribeAssociationExecutions
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAssociationExecutions"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DescribeAssociationExecutionsResult> describeAssociationExecutionsAsync(
-            DescribeAssociationExecutionsRequest describeAssociationExecutionsRequest);
-
-    /**
-     * <p>
-     * Use this API action to view all executions for a specific association ID.
-     * </p>
-     * 
-     * @param describeAssociationExecutionsRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the DescribeAssociationExecutions operation returned by the
-     *         service.
-     * @sample AWSSimpleSystemsManagementAsyncHandler.DescribeAssociationExecutions
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAssociationExecutions"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DescribeAssociationExecutionsResult> describeAssociationExecutionsAsync(
-            DescribeAssociationExecutionsRequest describeAssociationExecutionsRequest,
-            com.amazonaws.handlers.AsyncHandler<DescribeAssociationExecutionsRequest, DescribeAssociationExecutionsResult> asyncHandler);
 
     /**
      * <p>
@@ -1359,12 +1252,6 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
      * instances. If you specify an instance ID that is not valid or an instance that you do not own, you receive an
      * error.
      * </p>
-     * <note>
-     * <p>
-     * The IamRole field for this API action is the Amazon Identity and Access Management (IAM) role assigned to
-     * on-premises instances. This call does not return the IAM role for Amazon EC2 instances.
-     * </p>
-     * </note>
      * 
      * @param describeInstanceInformationRequest
      * @return A Java Future containing the result of the DescribeInstanceInformation operation returned by the service.
@@ -1383,12 +1270,6 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
      * instances. If you specify an instance ID that is not valid or an instance that you do not own, you receive an
      * error.
      * </p>
-     * <note>
-     * <p>
-     * The IamRole field for this API action is the Amazon Identity and Access Management (IAM) role assigned to
-     * on-premises instances. This call does not return the IAM role for Amazon EC2 instances.
-     * </p>
-     * </note>
      * 
      * @param describeInstanceInformationRequest
      * @param asyncHandler
@@ -1651,41 +1532,6 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
 
     /**
      * <p>
-     * Retrieves information about upcoming executions of a Maintenance Window.
-     * </p>
-     * 
-     * @param describeMaintenanceWindowScheduleRequest
-     * @return A Java Future containing the result of the DescribeMaintenanceWindowSchedule operation returned by the
-     *         service.
-     * @sample AWSSimpleSystemsManagementAsync.DescribeMaintenanceWindowSchedule
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowSchedule"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DescribeMaintenanceWindowScheduleResult> describeMaintenanceWindowScheduleAsync(
-            DescribeMaintenanceWindowScheduleRequest describeMaintenanceWindowScheduleRequest);
-
-    /**
-     * <p>
-     * Retrieves information about upcoming executions of a Maintenance Window.
-     * </p>
-     * 
-     * @param describeMaintenanceWindowScheduleRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the DescribeMaintenanceWindowSchedule operation returned by the
-     *         service.
-     * @sample AWSSimpleSystemsManagementAsyncHandler.DescribeMaintenanceWindowSchedule
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowSchedule"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DescribeMaintenanceWindowScheduleResult> describeMaintenanceWindowScheduleAsync(
-            DescribeMaintenanceWindowScheduleRequest describeMaintenanceWindowScheduleRequest,
-            com.amazonaws.handlers.AsyncHandler<DescribeMaintenanceWindowScheduleRequest, DescribeMaintenanceWindowScheduleResult> asyncHandler);
-
-    /**
-     * <p>
      * Lists the targets registered with the Maintenance Window.
      * </p>
      * 
@@ -1786,41 +1632,6 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
     java.util.concurrent.Future<DescribeMaintenanceWindowsResult> describeMaintenanceWindowsAsync(
             DescribeMaintenanceWindowsRequest describeMaintenanceWindowsRequest,
             com.amazonaws.handlers.AsyncHandler<DescribeMaintenanceWindowsRequest, DescribeMaintenanceWindowsResult> asyncHandler);
-
-    /**
-     * <p>
-     * Retrieves information about the Maintenance Windows targets or tasks that an instance is associated with.
-     * </p>
-     * 
-     * @param describeMaintenanceWindowsForTargetRequest
-     * @return A Java Future containing the result of the DescribeMaintenanceWindowsForTarget operation returned by the
-     *         service.
-     * @sample AWSSimpleSystemsManagementAsync.DescribeMaintenanceWindowsForTarget
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowsForTarget"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DescribeMaintenanceWindowsForTargetResult> describeMaintenanceWindowsForTargetAsync(
-            DescribeMaintenanceWindowsForTargetRequest describeMaintenanceWindowsForTargetRequest);
-
-    /**
-     * <p>
-     * Retrieves information about the Maintenance Windows targets or tasks that an instance is associated with.
-     * </p>
-     * 
-     * @param describeMaintenanceWindowsForTargetRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the DescribeMaintenanceWindowsForTarget operation returned by the
-     *         service.
-     * @sample AWSSimpleSystemsManagementAsyncHandler.DescribeMaintenanceWindowsForTarget
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowsForTarget"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DescribeMaintenanceWindowsForTargetResult> describeMaintenanceWindowsForTargetAsync(
-            DescribeMaintenanceWindowsForTargetRequest describeMaintenanceWindowsForTargetRequest,
-            com.amazonaws.handlers.AsyncHandler<DescribeMaintenanceWindowsForTargetRequest, DescribeMaintenanceWindowsForTargetResult> asyncHandler);
 
     /**
      * <p>
@@ -1962,39 +1773,6 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
 
     /**
      * <p>
-     * Retrieves a list of all active sessions (both connected and disconnected) or terminated sessions from the past 30
-     * days.
-     * </p>
-     * 
-     * @param describeSessionsRequest
-     * @return A Java Future containing the result of the DescribeSessions operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsync.DescribeSessions
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeSessions" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<DescribeSessionsResult> describeSessionsAsync(DescribeSessionsRequest describeSessionsRequest);
-
-    /**
-     * <p>
-     * Retrieves a list of all active sessions (both connected and disconnected) or terminated sessions from the past 30
-     * days.
-     * </p>
-     * 
-     * @param describeSessionsRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the DescribeSessions operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsyncHandler.DescribeSessions
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeSessions" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<DescribeSessionsResult> describeSessionsAsync(DescribeSessionsRequest describeSessionsRequest,
-            com.amazonaws.handlers.AsyncHandler<DescribeSessionsRequest, DescribeSessionsResult> asyncHandler);
-
-    /**
-     * <p>
      * Get detailed information about a particular Automation execution.
      * </p>
      * 
@@ -2054,39 +1832,6 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
      */
     java.util.concurrent.Future<GetCommandInvocationResult> getCommandInvocationAsync(GetCommandInvocationRequest getCommandInvocationRequest,
             com.amazonaws.handlers.AsyncHandler<GetCommandInvocationRequest, GetCommandInvocationResult> asyncHandler);
-
-    /**
-     * <p>
-     * Retrieves the Session Manager connection status for an instance to determine whether it is connected and ready to
-     * receive Session Manager connections.
-     * </p>
-     * 
-     * @param getConnectionStatusRequest
-     * @return A Java Future containing the result of the GetConnectionStatus operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsync.GetConnectionStatus
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetConnectionStatus" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<GetConnectionStatusResult> getConnectionStatusAsync(GetConnectionStatusRequest getConnectionStatusRequest);
-
-    /**
-     * <p>
-     * Retrieves the Session Manager connection status for an instance to determine whether it is connected and ready to
-     * receive Session Manager connections.
-     * </p>
-     * 
-     * @param getConnectionStatusRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the GetConnectionStatus operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsyncHandler.GetConnectionStatus
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetConnectionStatus" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<GetConnectionStatusResult> getConnectionStatusAsync(GetConnectionStatusRequest getConnectionStatusRequest,
-            com.amazonaws.handlers.AsyncHandler<GetConnectionStatusRequest, GetConnectionStatusResult> asyncHandler);
 
     /**
      * <p>
@@ -2430,8 +2175,7 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
 
     /**
      * <p>
-     * Get information about a parameter by using the parameter name. Don't confuse this API action with the
-     * <a>GetParameters</a> API action.
+     * Get information about a parameter by using the parameter name.
      * </p>
      * 
      * @param getParameterRequest
@@ -2444,8 +2188,7 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
 
     /**
      * <p>
-     * Get information about a parameter by using the parameter name. Don't confuse this API action with the
-     * <a>GetParameters</a> API action.
+     * Get information about a parameter by using the parameter name.
      * </p>
      * 
      * @param getParameterRequest
@@ -2494,7 +2237,7 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
 
     /**
      * <p>
-     * Get details of a parameter. Don't confuse this API action with the <a>GetParameter</a> API action.
+     * Get details of a parameter.
      * </p>
      * 
      * @param getParametersRequest
@@ -2507,7 +2250,7 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
 
     /**
      * <p>
-     * Get details of a parameter. Don't confuse this API action with the <a>GetParameter</a> API action.
+     * Get details of a parameter.
      * </p>
      * 
      * @param getParametersRequest
@@ -2527,7 +2270,7 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
      * <p>
      * Retrieve parameters in a specific hierarchy. For more information, see <a
      * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html">Working with
-     * Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>.
+     * Systems Manager Parameters</a>.
      * </p>
      * <p>
      * Request results are returned on a best-effort basis. If you specify <code>MaxResults</code> in the request, the
@@ -2554,7 +2297,7 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
      * <p>
      * Retrieve parameters in a specific hierarchy. For more information, see <a
      * href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html">Working with
-     * Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>.
+     * Systems Manager Parameters</a>.
      * </p>
      * <p>
      * Request results are returned on a best-effort basis. If you specify <code>MaxResults</code> in the request, the
@@ -2647,141 +2390,6 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
     java.util.concurrent.Future<GetPatchBaselineForPatchGroupResult> getPatchBaselineForPatchGroupAsync(
             GetPatchBaselineForPatchGroupRequest getPatchBaselineForPatchGroupRequest,
             com.amazonaws.handlers.AsyncHandler<GetPatchBaselineForPatchGroupRequest, GetPatchBaselineForPatchGroupResult> asyncHandler);
-
-    /**
-     * <p>
-     * A parameter label is a user-defined alias to help you manage different versions of a parameter. When you modify a
-     * parameter, Systems Manager automatically saves a new version and increments the version number by one. A label
-     * can help you remember the purpose of a parameter when there are multiple versions.
-     * </p>
-     * <p>
-     * Parameter labels have the following requirements and restrictions.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * A version of a parameter can have a maximum of 10 labels.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * You can't attach the same label to different versions of the same parameter. For example, if version 1 has the
-     * label Production, then you can't attach Production to version 2.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * You can move a label from one version of a parameter to another.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * You can't create a label when you create a new parameter. You must attach a label to a specific version of a
-     * parameter.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * You can't delete a parameter label. If you no longer want to use a parameter label, then you must move it to a
-     * different version of a parameter.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A label can have a maximum of 100 characters.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Labels can contain letters (case sensitive), numbers, periods (.), hyphens (-), or underscores (_).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Labels can't begin with a number, "aws," or "ssm" (not case sensitive). If a label fails to meet these
-     * requirements, then the label is not associated with a parameter and the system displays it in the list of
-     * InvalidLabels.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @param labelParameterVersionRequest
-     * @return A Java Future containing the result of the LabelParameterVersion operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsync.LabelParameterVersion
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/LabelParameterVersion" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<LabelParameterVersionResult> labelParameterVersionAsync(LabelParameterVersionRequest labelParameterVersionRequest);
-
-    /**
-     * <p>
-     * A parameter label is a user-defined alias to help you manage different versions of a parameter. When you modify a
-     * parameter, Systems Manager automatically saves a new version and increments the version number by one. A label
-     * can help you remember the purpose of a parameter when there are multiple versions.
-     * </p>
-     * <p>
-     * Parameter labels have the following requirements and restrictions.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * A version of a parameter can have a maximum of 10 labels.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * You can't attach the same label to different versions of the same parameter. For example, if version 1 has the
-     * label Production, then you can't attach Production to version 2.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * You can move a label from one version of a parameter to another.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * You can't create a label when you create a new parameter. You must attach a label to a specific version of a
-     * parameter.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * You can't delete a parameter label. If you no longer want to use a parameter label, then you must move it to a
-     * different version of a parameter.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * A label can have a maximum of 100 characters.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Labels can contain letters (case sensitive), numbers, periods (.), hyphens (-), or underscores (_).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Labels can't begin with a number, "aws," or "ssm" (not case sensitive). If a label fails to meet these
-     * requirements, then the label is not associated with a parameter and the system displays it in the list of
-     * InvalidLabels.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @param labelParameterVersionRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the LabelParameterVersion operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsyncHandler.LabelParameterVersion
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/LabelParameterVersion" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<LabelParameterVersionResult> labelParameterVersionAsync(LabelParameterVersionRequest labelParameterVersionRequest,
-            com.amazonaws.handlers.AsyncHandler<LabelParameterVersionRequest, LabelParameterVersionResult> asyncHandler);
 
     /**
      * <p>
@@ -3677,51 +3285,6 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
 
     /**
      * <p>
-     * Reconnects a session to an instance after it has been disconnected. Connections can be resumed for disconnected
-     * sessions, but not terminated sessions.
-     * </p>
-     * <note>
-     * <p>
-     * This command is primarily for use by client machines to automatically reconnect during intermittent network
-     * issues. It is not intended for any other use.
-     * </p>
-     * </note>
-     * 
-     * @param resumeSessionRequest
-     * @return A Java Future containing the result of the ResumeSession operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsync.ResumeSession
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ResumeSession" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<ResumeSessionResult> resumeSessionAsync(ResumeSessionRequest resumeSessionRequest);
-
-    /**
-     * <p>
-     * Reconnects a session to an instance after it has been disconnected. Connections can be resumed for disconnected
-     * sessions, but not terminated sessions.
-     * </p>
-     * <note>
-     * <p>
-     * This command is primarily for use by client machines to automatically reconnect during intermittent network
-     * issues. It is not intended for any other use.
-     * </p>
-     * </note>
-     * 
-     * @param resumeSessionRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the ResumeSession operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsyncHandler.ResumeSession
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ResumeSession" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<ResumeSessionResult> resumeSessionAsync(ResumeSessionRequest resumeSessionRequest,
-            com.amazonaws.handlers.AsyncHandler<ResumeSessionRequest, ResumeSessionResult> asyncHandler);
-
-    /**
-     * <p>
      * Sends a signal to an Automation execution to change the current behavior or status of the execution.
      * </p>
      * 
@@ -3784,39 +3347,6 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
 
     /**
      * <p>
-     * Use this API action to execute an association immediately and only one time. This action can be helpful when
-     * troubleshooting associations.
-     * </p>
-     * 
-     * @param startAssociationsOnceRequest
-     * @return A Java Future containing the result of the StartAssociationsOnce operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsync.StartAssociationsOnce
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/StartAssociationsOnce" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<StartAssociationsOnceResult> startAssociationsOnceAsync(StartAssociationsOnceRequest startAssociationsOnceRequest);
-
-    /**
-     * <p>
-     * Use this API action to execute an association immediately and only one time. This action can be helpful when
-     * troubleshooting associations.
-     * </p>
-     * 
-     * @param startAssociationsOnceRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the StartAssociationsOnce operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsyncHandler.StartAssociationsOnce
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/StartAssociationsOnce" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<StartAssociationsOnceResult> startAssociationsOnceAsync(StartAssociationsOnceRequest startAssociationsOnceRequest,
-            com.amazonaws.handlers.AsyncHandler<StartAssociationsOnceRequest, StartAssociationsOnceResult> asyncHandler);
-
-    /**
-     * <p>
      * Initiates execution of an Automation document.
      * </p>
      * 
@@ -3848,55 +3378,6 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
 
     /**
      * <p>
-     * Initiates a connection to a target (for example, an instance) for a Session Manager session. Returns a URL and
-     * token that can be used to open a WebSocket connection for sending input and receiving outputs.
-     * </p>
-     * <note>
-     * <p>
-     * AWS CLI usage: <code>start-session</code> is an interactive command that requires the Session Manager plugin to
-     * be installed on the client machine making the call. For information, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">
-     * Install the Session Manager Plugin for the AWS CLI</a> in the <i>AWS Systems Manager User Guide</i>.
-     * </p>
-     * </note>
-     * 
-     * @param startSessionRequest
-     * @return A Java Future containing the result of the StartSession operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsync.StartSession
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/StartSession" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<StartSessionResult> startSessionAsync(StartSessionRequest startSessionRequest);
-
-    /**
-     * <p>
-     * Initiates a connection to a target (for example, an instance) for a Session Manager session. Returns a URL and
-     * token that can be used to open a WebSocket connection for sending input and receiving outputs.
-     * </p>
-     * <note>
-     * <p>
-     * AWS CLI usage: <code>start-session</code> is an interactive command that requires the Session Manager plugin to
-     * be installed on the client machine making the call. For information, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">
-     * Install the Session Manager Plugin for the AWS CLI</a> in the <i>AWS Systems Manager User Guide</i>.
-     * </p>
-     * </note>
-     * 
-     * @param startSessionRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the StartSession operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsyncHandler.StartSession
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/StartSession" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<StartSessionResult> startSessionAsync(StartSessionRequest startSessionRequest,
-            com.amazonaws.handlers.AsyncHandler<StartSessionRequest, StartSessionResult> asyncHandler);
-
-    /**
-     * <p>
      * Stop an Automation that is currently executing.
      * </p>
      * 
@@ -3925,39 +3406,6 @@ public interface AWSSimpleSystemsManagementAsync extends AWSSimpleSystemsManagem
      */
     java.util.concurrent.Future<StopAutomationExecutionResult> stopAutomationExecutionAsync(StopAutomationExecutionRequest stopAutomationExecutionRequest,
             com.amazonaws.handlers.AsyncHandler<StopAutomationExecutionRequest, StopAutomationExecutionResult> asyncHandler);
-
-    /**
-     * <p>
-     * Permanently ends a session and closes the data connection between the Session Manager client and SSM Agent on the
-     * instance. A terminated session cannot be resumed.
-     * </p>
-     * 
-     * @param terminateSessionRequest
-     * @return A Java Future containing the result of the TerminateSession operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsync.TerminateSession
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/TerminateSession" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<TerminateSessionResult> terminateSessionAsync(TerminateSessionRequest terminateSessionRequest);
-
-    /**
-     * <p>
-     * Permanently ends a session and closes the data connection between the Session Manager client and SSM Agent on the
-     * instance. A terminated session cannot be resumed.
-     * </p>
-     * 
-     * @param terminateSessionRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the TerminateSession operation returned by the service.
-     * @sample AWSSimpleSystemsManagementAsyncHandler.TerminateSession
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/TerminateSession" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<TerminateSessionResult> terminateSessionAsync(TerminateSessionRequest terminateSessionRequest,
-            com.amazonaws.handlers.AsyncHandler<TerminateSessionRequest, TerminateSessionResult> asyncHandler);
 
     /**
      * <p>

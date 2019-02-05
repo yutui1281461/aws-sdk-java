@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -16,7 +16,6 @@ import javax.annotation.Generated;
 
 import com.amazonaws.services.databasemigrationservice.model.*;
 import com.amazonaws.*;
-import com.amazonaws.services.databasemigrationservice.waiters.AWSDatabaseMigrationServiceWaiters;
 
 /**
  * Abstract implementation of {@code AWSDatabaseMigrationService}. Convenient method forms pass through to the
@@ -265,11 +264,6 @@ public class AbstractAWSDatabaseMigrationService implements AWSDatabaseMigration
 
     @Override
     public com.amazonaws.ResponseMetadata getCachedResponseMetadata(com.amazonaws.AmazonWebServiceRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public AWSDatabaseMigrationServiceWaiters waiters() {
         throw new java.lang.UnsupportedOperationException();
     }
 

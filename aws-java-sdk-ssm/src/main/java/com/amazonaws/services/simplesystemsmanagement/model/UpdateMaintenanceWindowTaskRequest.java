@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -53,19 +53,6 @@ public class UpdateMaintenanceWindowTaskRequest extends com.amazonaws.AmazonWebS
     /**
      * <p>
      * The IAM service role ARN to modify. The system assumes this role during task execution.
-     * </p>
-     * <p>
-     * If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for Systems
-     * Manager by default. If no service-linked role for Systems Manager exists in your account, it will be created when
-     * you run <code>RegisterTaskWithMaintenanceWindow</code> without specifying a service role ARN.
-     * </p>
-     * <p>
-     * For more information, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions"
-     * >Service-Linked Role Permissions for Systems Manager</a> and <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role"
-     * >Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? </a> in the <i>AWS
-     * Systems Manager User Guide</i>.
      * </p>
      */
     private String serviceRoleArn;
@@ -359,35 +346,9 @@ public class UpdateMaintenanceWindowTaskRequest extends com.amazonaws.AmazonWebS
      * <p>
      * The IAM service role ARN to modify. The system assumes this role during task execution.
      * </p>
-     * <p>
-     * If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for Systems
-     * Manager by default. If no service-linked role for Systems Manager exists in your account, it will be created when
-     * you run <code>RegisterTaskWithMaintenanceWindow</code> without specifying a service role ARN.
-     * </p>
-     * <p>
-     * For more information, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions"
-     * >Service-Linked Role Permissions for Systems Manager</a> and <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role"
-     * >Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? </a> in the <i>AWS
-     * Systems Manager User Guide</i>.
-     * </p>
      * 
      * @param serviceRoleArn
-     *        The IAM service role ARN to modify. The system assumes this role during task execution.</p>
-     *        <p>
-     *        If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for
-     *        Systems Manager by default. If no service-linked role for Systems Manager exists in your account, it will
-     *        be created when you run <code>RegisterTaskWithMaintenanceWindow</code> without specifying a service role
-     *        ARN.
-     *        </p>
-     *        <p>
-     *        For more information, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions"
-     *        >Service-Linked Role Permissions for Systems Manager</a> and <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role"
-     *        >Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? </a> in the
-     *        <i>AWS Systems Manager User Guide</i>.
+     *        The IAM service role ARN to modify. The system assumes this role during task execution.
      */
 
     public void setServiceRoleArn(String serviceRoleArn) {
@@ -398,34 +359,8 @@ public class UpdateMaintenanceWindowTaskRequest extends com.amazonaws.AmazonWebS
      * <p>
      * The IAM service role ARN to modify. The system assumes this role during task execution.
      * </p>
-     * <p>
-     * If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for Systems
-     * Manager by default. If no service-linked role for Systems Manager exists in your account, it will be created when
-     * you run <code>RegisterTaskWithMaintenanceWindow</code> without specifying a service role ARN.
-     * </p>
-     * <p>
-     * For more information, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions"
-     * >Service-Linked Role Permissions for Systems Manager</a> and <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role"
-     * >Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? </a> in the <i>AWS
-     * Systems Manager User Guide</i>.
-     * </p>
      * 
-     * @return The IAM service role ARN to modify. The system assumes this role during task execution.</p>
-     *         <p>
-     *         If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for
-     *         Systems Manager by default. If no service-linked role for Systems Manager exists in your account, it will
-     *         be created when you run <code>RegisterTaskWithMaintenanceWindow</code> without specifying a service role
-     *         ARN.
-     *         </p>
-     *         <p>
-     *         For more information, see <a href=
-     *         "http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions"
-     *         >Service-Linked Role Permissions for Systems Manager</a> and <a href=
-     *         "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role"
-     *         >Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? </a> in the
-     *         <i>AWS Systems Manager User Guide</i>.
+     * @return The IAM service role ARN to modify. The system assumes this role during task execution.
      */
 
     public String getServiceRoleArn() {
@@ -436,35 +371,9 @@ public class UpdateMaintenanceWindowTaskRequest extends com.amazonaws.AmazonWebS
      * <p>
      * The IAM service role ARN to modify. The system assumes this role during task execution.
      * </p>
-     * <p>
-     * If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for Systems
-     * Manager by default. If no service-linked role for Systems Manager exists in your account, it will be created when
-     * you run <code>RegisterTaskWithMaintenanceWindow</code> without specifying a service role ARN.
-     * </p>
-     * <p>
-     * For more information, see <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions"
-     * >Service-Linked Role Permissions for Systems Manager</a> and <a href=
-     * "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role"
-     * >Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? </a> in the <i>AWS
-     * Systems Manager User Guide</i>.
-     * </p>
      * 
      * @param serviceRoleArn
-     *        The IAM service role ARN to modify. The system assumes this role during task execution.</p>
-     *        <p>
-     *        If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for
-     *        Systems Manager by default. If no service-linked role for Systems Manager exists in your account, it will
-     *        be created when you run <code>RegisterTaskWithMaintenanceWindow</code> without specifying a service role
-     *        ARN.
-     *        </p>
-     *        <p>
-     *        For more information, see <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions"
-     *        >Service-Linked Role Permissions for Systems Manager</a> and <a href=
-     *        "http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role"
-     *        >Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? </a> in the
-     *        <i>AWS Systems Manager User Guide</i>.
+     *        The IAM service role ARN to modify. The system assumes this role during task execution.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1040,8 +949,7 @@ public class UpdateMaintenanceWindowTaskRequest extends com.amazonaws.AmazonWebS
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1062,7 +970,7 @@ public class UpdateMaintenanceWindowTaskRequest extends com.amazonaws.AmazonWebS
         if (getServiceRoleArn() != null)
             sb.append("ServiceRoleArn: ").append(getServiceRoleArn()).append(",");
         if (getTaskParameters() != null)
-            sb.append("TaskParameters: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("TaskParameters: ").append(getTaskParameters()).append(",");
         if (getTaskInvocationParameters() != null)
             sb.append("TaskInvocationParameters: ").append(getTaskInvocationParameters()).append(",");
         if (getPriority() != null)
@@ -1076,7 +984,7 @@ public class UpdateMaintenanceWindowTaskRequest extends com.amazonaws.AmazonWebS
         if (getName() != null)
             sb.append("Name: ").append(getName()).append(",");
         if (getDescription() != null)
-            sb.append("Description: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("Description: ").append(getDescription()).append(",");
         if (getReplace() != null)
             sb.append("Replace: ").append(getReplace());
         sb.append("}");

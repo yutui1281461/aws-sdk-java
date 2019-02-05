@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,9 +31,8 @@ public class Event implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * The unique identifier for the event. Format:
-     * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>
-     * . Example:
-     * <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+     * <code>arn:aws:health:<i>event-region</i>::event/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example:
+     * <code>arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331</code>
      * </p>
      */
     private String arn;
@@ -52,8 +51,7 @@ public class Event implements Serializable, Cloneable, StructuredPojo {
     private String eventTypeCode;
     /**
      * <p>
-     * The category of the event. Possible values are <code>issue</code>, <code>scheduledChange</code>, and
-     * <code>accountNotification</code>.
+     * The
      * </p>
      */
     private String eventTypeCategory;
@@ -98,16 +96,14 @@ public class Event implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * The unique identifier for the event. Format:
-     * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>
-     * . Example:
-     * <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+     * <code>arn:aws:health:<i>event-region</i>::event/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example:
+     * <code>arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331</code>
      * </p>
      * 
      * @param arn
      *        The unique identifier for the event. Format:
-     *        <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>
-     *        . Example:
-     *        <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+     *        <code>arn:aws:health:<i>event-region</i>::event/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example:
+     *        <code>arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331</code>
      */
 
     public void setArn(String arn) {
@@ -117,15 +113,13 @@ public class Event implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * The unique identifier for the event. Format:
-     * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>
-     * . Example:
-     * <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+     * <code>arn:aws:health:<i>event-region</i>::event/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example:
+     * <code>arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331</code>
      * </p>
      * 
      * @return The unique identifier for the event. Format:
-     *         <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>
-     *         . Example:
-     *         <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+     *         <code>arn:aws:health:<i>event-region</i>::event/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example:
+     *         <code>arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331</code>
      */
 
     public String getArn() {
@@ -135,16 +129,14 @@ public class Event implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * The unique identifier for the event. Format:
-     * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>
-     * . Example:
-     * <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+     * <code>arn:aws:health:<i>event-region</i>::event/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example:
+     * <code>arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331</code>
      * </p>
      * 
      * @param arn
      *        The unique identifier for the event. Format:
-     *        <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code>
-     *        . Example:
-     *        <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+     *        <code>arn:aws:health:<i>event-region</i>::event/<i>EVENT_TYPE_PLUS_ID</i> </code>. Example:
+     *        <code>arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331</code>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -244,13 +236,11 @@ public class Event implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The category of the event. Possible values are <code>issue</code>, <code>scheduledChange</code>, and
-     * <code>accountNotification</code>.
+     * The
      * </p>
      * 
      * @param eventTypeCategory
-     *        The category of the event. Possible values are <code>issue</code>, <code>scheduledChange</code>, and
-     *        <code>accountNotification</code>.
+     *        The
      * @see EventTypeCategory
      */
 
@@ -260,12 +250,10 @@ public class Event implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The category of the event. Possible values are <code>issue</code>, <code>scheduledChange</code>, and
-     * <code>accountNotification</code>.
+     * The
      * </p>
      * 
-     * @return The category of the event. Possible values are <code>issue</code>, <code>scheduledChange</code>, and
-     *         <code>accountNotification</code>.
+     * @return The
      * @see EventTypeCategory
      */
 
@@ -275,13 +263,11 @@ public class Event implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The category of the event. Possible values are <code>issue</code>, <code>scheduledChange</code>, and
-     * <code>accountNotification</code>.
+     * The
      * </p>
      * 
      * @param eventTypeCategory
-     *        The category of the event. Possible values are <code>issue</code>, <code>scheduledChange</code>, and
-     *        <code>accountNotification</code>.
+     *        The
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see EventTypeCategory
      */
@@ -293,13 +279,11 @@ public class Event implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The category of the event. Possible values are <code>issue</code>, <code>scheduledChange</code>, and
-     * <code>accountNotification</code>.
+     * The
      * </p>
      * 
      * @param eventTypeCategory
-     *        The category of the event. Possible values are <code>issue</code>, <code>scheduledChange</code>, and
-     *        <code>accountNotification</code>.
+     *        The
      * @see EventTypeCategory
      */
 
@@ -309,13 +293,11 @@ public class Event implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The category of the event. Possible values are <code>issue</code>, <code>scheduledChange</code>, and
-     * <code>accountNotification</code>.
+     * The
      * </p>
      * 
      * @param eventTypeCategory
-     *        The category of the event. Possible values are <code>issue</code>, <code>scheduledChange</code>, and
-     *        <code>accountNotification</code>.
+     *        The
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see EventTypeCategory
      */
@@ -609,8 +591,7 @@ public class Event implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

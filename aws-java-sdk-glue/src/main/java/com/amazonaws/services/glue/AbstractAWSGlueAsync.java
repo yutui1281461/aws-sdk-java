@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -222,19 +222,6 @@ public class AbstractAWSGlueAsync extends AbstractAWSGlue implements AWSGlueAsyn
     }
 
     @Override
-    public java.util.concurrent.Future<CreateSecurityConfigurationResult> createSecurityConfigurationAsync(CreateSecurityConfigurationRequest request) {
-
-        return createSecurityConfigurationAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<CreateSecurityConfigurationResult> createSecurityConfigurationAsync(CreateSecurityConfigurationRequest request,
-            com.amazonaws.handlers.AsyncHandler<CreateSecurityConfigurationRequest, CreateSecurityConfigurationResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public java.util.concurrent.Future<CreateTableResult> createTableAsync(CreateTableRequest request) {
 
         return createTableAsync(request, null);
@@ -360,32 +347,6 @@ public class AbstractAWSGlueAsync extends AbstractAWSGlue implements AWSGlueAsyn
     @Override
     public java.util.concurrent.Future<DeletePartitionResult> deletePartitionAsync(DeletePartitionRequest request,
             com.amazonaws.handlers.AsyncHandler<DeletePartitionRequest, DeletePartitionResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<DeleteResourcePolicyResult> deleteResourcePolicyAsync(DeleteResourcePolicyRequest request) {
-
-        return deleteResourcePolicyAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<DeleteResourcePolicyResult> deleteResourcePolicyAsync(DeleteResourcePolicyRequest request,
-            com.amazonaws.handlers.AsyncHandler<DeleteResourcePolicyRequest, DeleteResourcePolicyResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<DeleteSecurityConfigurationResult> deleteSecurityConfigurationAsync(DeleteSecurityConfigurationRequest request) {
-
-        return deleteSecurityConfigurationAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<DeleteSecurityConfigurationResult> deleteSecurityConfigurationAsync(DeleteSecurityConfigurationRequest request,
-            com.amazonaws.handlers.AsyncHandler<DeleteSecurityConfigurationRequest, DeleteSecurityConfigurationResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }
@@ -542,21 +503,6 @@ public class AbstractAWSGlueAsync extends AbstractAWSGlue implements AWSGlueAsyn
     @Override
     public java.util.concurrent.Future<GetCrawlersResult> getCrawlersAsync(GetCrawlersRequest request,
             com.amazonaws.handlers.AsyncHandler<GetCrawlersRequest, GetCrawlersResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettingsAsync(
-            GetDataCatalogEncryptionSettingsRequest request) {
-
-        return getDataCatalogEncryptionSettingsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettingsAsync(
-            GetDataCatalogEncryptionSettingsRequest request,
-            com.amazonaws.handlers.AsyncHandler<GetDataCatalogEncryptionSettingsRequest, GetDataCatalogEncryptionSettingsResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }
@@ -731,45 +677,6 @@ public class AbstractAWSGlueAsync extends AbstractAWSGlue implements AWSGlueAsyn
     }
 
     @Override
-    public java.util.concurrent.Future<GetResourcePolicyResult> getResourcePolicyAsync(GetResourcePolicyRequest request) {
-
-        return getResourcePolicyAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetResourcePolicyResult> getResourcePolicyAsync(GetResourcePolicyRequest request,
-            com.amazonaws.handlers.AsyncHandler<GetResourcePolicyRequest, GetResourcePolicyResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetSecurityConfigurationResult> getSecurityConfigurationAsync(GetSecurityConfigurationRequest request) {
-
-        return getSecurityConfigurationAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetSecurityConfigurationResult> getSecurityConfigurationAsync(GetSecurityConfigurationRequest request,
-            com.amazonaws.handlers.AsyncHandler<GetSecurityConfigurationRequest, GetSecurityConfigurationResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetSecurityConfigurationsResult> getSecurityConfigurationsAsync(GetSecurityConfigurationsRequest request) {
-
-        return getSecurityConfigurationsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetSecurityConfigurationsResult> getSecurityConfigurationsAsync(GetSecurityConfigurationsRequest request,
-            com.amazonaws.handlers.AsyncHandler<GetSecurityConfigurationsRequest, GetSecurityConfigurationsResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public java.util.concurrent.Future<GetTableResult> getTableAsync(GetTableRequest request) {
 
         return getTableAsync(request, null);
@@ -882,34 +789,6 @@ public class AbstractAWSGlueAsync extends AbstractAWSGlue implements AWSGlueAsyn
     @Override
     public java.util.concurrent.Future<ImportCatalogToGlueResult> importCatalogToGlueAsync(ImportCatalogToGlueRequest request,
             com.amazonaws.handlers.AsyncHandler<ImportCatalogToGlueRequest, ImportCatalogToGlueResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<PutDataCatalogEncryptionSettingsResult> putDataCatalogEncryptionSettingsAsync(
-            PutDataCatalogEncryptionSettingsRequest request) {
-
-        return putDataCatalogEncryptionSettingsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<PutDataCatalogEncryptionSettingsResult> putDataCatalogEncryptionSettingsAsync(
-            PutDataCatalogEncryptionSettingsRequest request,
-            com.amazonaws.handlers.AsyncHandler<PutDataCatalogEncryptionSettingsRequest, PutDataCatalogEncryptionSettingsResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<PutResourcePolicyResult> putResourcePolicyAsync(PutResourcePolicyRequest request) {
-
-        return putResourcePolicyAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<PutResourcePolicyResult> putResourcePolicyAsync(PutResourcePolicyRequest request,
-            com.amazonaws.handlers.AsyncHandler<PutResourcePolicyRequest, PutResourcePolicyResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,6 +18,9 @@ import javax.annotation.Generated;
 import com.amazonaws.AmazonWebServiceRequest;
 
 /**
+ * <p>
+ * Container for the parameters to the TagResource operation.
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/TagResource" target="_top">AWS API
  *      Documentation</a>
@@ -27,24 +30,32 @@ public class TagResourceRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the resource.
+     * The Amazon Resource Name (ARN) of the Direct Connect resource.
+     * </p>
+     * <p>
+     * Example: arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-fg5678gh
      * </p>
      */
     private String resourceArn;
     /**
      * <p>
-     * The tags to add.
+     * The list of tags to add.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<Tag> tags;
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the resource.
+     * The Amazon Resource Name (ARN) of the Direct Connect resource.
+     * </p>
+     * <p>
+     * Example: arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-fg5678gh
      * </p>
      * 
      * @param resourceArn
-     *        The Amazon Resource Name (ARN) of the resource.
+     *        The Amazon Resource Name (ARN) of the Direct Connect resource.</p>
+     *        <p>
+     *        Example: arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-fg5678gh
      */
 
     public void setResourceArn(String resourceArn) {
@@ -53,10 +64,15 @@ public class TagResourceRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the resource.
+     * The Amazon Resource Name (ARN) of the Direct Connect resource.
+     * </p>
+     * <p>
+     * Example: arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-fg5678gh
      * </p>
      * 
-     * @return The Amazon Resource Name (ARN) of the resource.
+     * @return The Amazon Resource Name (ARN) of the Direct Connect resource.</p>
+     *         <p>
+     *         Example: arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-fg5678gh
      */
 
     public String getResourceArn() {
@@ -65,11 +81,16 @@ public class TagResourceRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the resource.
+     * The Amazon Resource Name (ARN) of the Direct Connect resource.
+     * </p>
+     * <p>
+     * Example: arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-fg5678gh
      * </p>
      * 
      * @param resourceArn
-     *        The Amazon Resource Name (ARN) of the resource.
+     *        The Amazon Resource Name (ARN) of the Direct Connect resource.</p>
+     *        <p>
+     *        Example: arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-fg5678gh
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -80,10 +101,10 @@ public class TagResourceRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The tags to add.
+     * The list of tags to add.
      * </p>
      * 
-     * @return The tags to add.
+     * @return The list of tags to add.
      */
 
     public java.util.List<Tag> getTags() {
@@ -95,11 +116,11 @@ public class TagResourceRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The tags to add.
+     * The list of tags to add.
      * </p>
      * 
      * @param tags
-     *        The tags to add.
+     *        The list of tags to add.
      */
 
     public void setTags(java.util.Collection<Tag> tags) {
@@ -113,7 +134,7 @@ public class TagResourceRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The tags to add.
+     * The list of tags to add.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -122,7 +143,7 @@ public class TagResourceRequest extends com.amazonaws.AmazonWebServiceRequest im
      * </p>
      * 
      * @param tags
-     *        The tags to add.
+     *        The list of tags to add.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -138,11 +159,11 @@ public class TagResourceRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The tags to add.
+     * The list of tags to add.
      * </p>
      * 
      * @param tags
-     *        The tags to add.
+     *        The list of tags to add.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -152,8 +173,7 @@ public class TagResourceRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

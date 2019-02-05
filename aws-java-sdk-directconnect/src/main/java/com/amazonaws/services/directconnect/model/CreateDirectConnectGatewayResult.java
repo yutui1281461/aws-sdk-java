@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -16,6 +16,9 @@ import java.io.Serializable;
 import javax.annotation.Generated;
 
 /**
+ * <p>
+ * Container for the response from the CreateDirectConnectGateway API call
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateDirectConnectGateway"
  *      target="_top">AWS API Documentation</a>
@@ -25,18 +28,18 @@ public class CreateDirectConnectGatewayResult extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * The Direct Connect gateway.
+     * The direct connect gateway to be created.
      * </p>
      */
     private DirectConnectGateway directConnectGateway;
 
     /**
      * <p>
-     * The Direct Connect gateway.
+     * The direct connect gateway to be created.
      * </p>
      * 
      * @param directConnectGateway
-     *        The Direct Connect gateway.
+     *        The direct connect gateway to be created.
      */
 
     public void setDirectConnectGateway(DirectConnectGateway directConnectGateway) {
@@ -45,10 +48,10 @@ public class CreateDirectConnectGatewayResult extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * The Direct Connect gateway.
+     * The direct connect gateway to be created.
      * </p>
      * 
-     * @return The Direct Connect gateway.
+     * @return The direct connect gateway to be created.
      */
 
     public DirectConnectGateway getDirectConnectGateway() {
@@ -57,11 +60,11 @@ public class CreateDirectConnectGatewayResult extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * The Direct Connect gateway.
+     * The direct connect gateway to be created.
      * </p>
      * 
      * @param directConnectGateway
-     *        The Direct Connect gateway.
+     *        The direct connect gateway to be created.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -71,8 +74,7 @@ public class CreateDirectConnectGatewayResult extends com.amazonaws.AmazonWebSer
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

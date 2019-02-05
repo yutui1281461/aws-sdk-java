@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -71,12 +71,6 @@ public class DescribeProjectResult extends com.amazonaws.AmazonWebServiceResult<
      * </p>
      */
     private String projectTemplateId;
-    /**
-     * <p>
-     * The project creation or deletion status.
-     * </p>
-     */
-    private ProjectStatus status;
 
     /**
      * <p>
@@ -399,48 +393,7 @@ public class DescribeProjectResult extends com.amazonaws.AmazonWebServiceResult<
     }
 
     /**
-     * <p>
-     * The project creation or deletion status.
-     * </p>
-     * 
-     * @param status
-     *        The project creation or deletion status.
-     */
-
-    public void setStatus(ProjectStatus status) {
-        this.status = status;
-    }
-
-    /**
-     * <p>
-     * The project creation or deletion status.
-     * </p>
-     * 
-     * @return The project creation or deletion status.
-     */
-
-    public ProjectStatus getStatus() {
-        return this.status;
-    }
-
-    /**
-     * <p>
-     * The project creation or deletion status.
-     * </p>
-     * 
-     * @param status
-     *        The project creation or deletion status.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DescribeProjectResult withStatus(ProjectStatus status) {
-        setStatus(status);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -451,13 +404,13 @@ public class DescribeProjectResult extends com.amazonaws.AmazonWebServiceResult<
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         if (getName() != null)
-            sb.append("Name: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("Name: ").append(getName()).append(",");
         if (getId() != null)
             sb.append("Id: ").append(getId()).append(",");
         if (getArn() != null)
             sb.append("Arn: ").append(getArn()).append(",");
         if (getDescription() != null)
-            sb.append("Description: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("Description: ").append(getDescription()).append(",");
         if (getClientRequestToken() != null)
             sb.append("ClientRequestToken: ").append(getClientRequestToken()).append(",");
         if (getCreatedTimeStamp() != null)
@@ -465,9 +418,7 @@ public class DescribeProjectResult extends com.amazonaws.AmazonWebServiceResult<
         if (getStackId() != null)
             sb.append("StackId: ").append(getStackId()).append(",");
         if (getProjectTemplateId() != null)
-            sb.append("ProjectTemplateId: ").append(getProjectTemplateId()).append(",");
-        if (getStatus() != null)
-            sb.append("Status: ").append(getStatus());
+            sb.append("ProjectTemplateId: ").append(getProjectTemplateId());
         sb.append("}");
         return sb.toString();
     }
@@ -514,10 +465,6 @@ public class DescribeProjectResult extends com.amazonaws.AmazonWebServiceResult<
             return false;
         if (other.getProjectTemplateId() != null && other.getProjectTemplateId().equals(this.getProjectTemplateId()) == false)
             return false;
-        if (other.getStatus() == null ^ this.getStatus() == null)
-            return false;
-        if (other.getStatus() != null && other.getStatus().equals(this.getStatus()) == false)
-            return false;
         return true;
     }
 
@@ -534,7 +481,6 @@ public class DescribeProjectResult extends com.amazonaws.AmazonWebServiceResult<
         hashCode = prime * hashCode + ((getCreatedTimeStamp() == null) ? 0 : getCreatedTimeStamp().hashCode());
         hashCode = prime * hashCode + ((getStackId() == null) ? 0 : getStackId().hashCode());
         hashCode = prime * hashCode + ((getProjectTemplateId() == null) ? 0 : getProjectTemplateId().hashCode());
-        hashCode = prime * hashCode + ((getStatus() == null) ? 0 : getStatus().hashCode());
         return hashCode;
     }
 

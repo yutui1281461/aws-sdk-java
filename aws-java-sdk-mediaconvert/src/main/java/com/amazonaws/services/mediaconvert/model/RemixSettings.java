@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,8 +18,8 @@ import com.amazonaws.protocol.StructuredPojo;
 import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
- * Use Manual audio remixing (RemixSettings) to adjust audio levels for each audio channel in each output of your job.
- * With audio remixing, you can output more or fewer audio channels than your input audio source provides.
+ * Use Manual audio remixing (RemixSettings) to adjust audio levels for each output channel. With audio remixing, you
+ * can output more or fewer audio channels than your input audio source provides.
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/RemixSettings" target="_top">AWS API
  *      Documentation</a>
@@ -144,8 +144,7 @@ public class RemixSettings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

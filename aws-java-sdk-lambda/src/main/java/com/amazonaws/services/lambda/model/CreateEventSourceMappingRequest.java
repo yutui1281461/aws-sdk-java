@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,6 +18,7 @@ import javax.annotation.Generated;
 import com.amazonaws.AmazonWebServiceRequest;
 
 /**
+ * <p/>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/CreateEventSourceMapping" target="_top">AWS
  *      API Documentation</a>
@@ -27,145 +28,88 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the event source.
+     * The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream that is the event source. Any
+     * record added to this stream could cause AWS Lambda to invoke your Lambda function, it depends on the
+     * <code>BatchSize</code>. AWS Lambda POSTs the Amazon Kinesis event, containing records, to your Lambda function as
+     * JSON.
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     * </p>
-     * </li>
-     * </ul>
      */
     private String eventSourceArn;
     /**
      * <p>
-     * The name of the Lambda function.
+     * The Lambda function to invoke when AWS Lambda detects an event on the stream.
      * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
      * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
+     * You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name
+     * (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
      * </p>
-     * </li>
-     * <li>
      * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
+     * If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function
+     * version or alias name as suffix). For more information about versioning, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and
+     * Aliases</a>
      * </p>
-     * </li>
-     * <li>
      * <p>
-     * <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.
+     * AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example,
+     * <code>account-id:Thumbnail</code>).
      * </p>
-     * </li>
-     * <li>
      * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
-     * characters in length.
+     * Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to
+     * 64 characters in length.
      * </p>
      */
     private String functionName;
     /**
      * <p>
-     * Disables the event source mapping to pause polling and invocation.
+     * Indicates whether AWS Lambda should begin polling the event source. By default, <code>Enabled</code> is true.
      * </p>
      */
     private Boolean enabled;
     /**
      * <p>
-     * The maximum number of items to retrieve in a single batch.
+     * The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your
+     * function. Your function receives an event with all the retrieved records. The default is 100 records.
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Amazon Kinesis</b> - Default 100. Max 10,000.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon Simple Queue Service</b> - Default 10. Max 10.
-     * </p>
-     * </li>
-     * </ul>
      */
     private Integer batchSize;
     /**
      * <p>
-     * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams
-     * sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.
+     * The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more information, see
+     * <a href=
+     * "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     * >GetShardIterator</a> in the <i>Amazon Kinesis API Reference Guide</i> or <a
+     * href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html"
+     * >GetShardIterator</a> in the <i>Amazon DynamoDB API Reference Guide</i>. The <code>AT_TIMESTAMP</code> value is
+     * supported only for <a href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis
+     * streams</a>.
      * </p>
      */
     private String startingPosition;
     /**
      * <p>
-     * With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading.
+     * The timestamp of the data record from which to start reading. Used with <a href=
+     * "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     * >shard iterator type</a> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator
+     * returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator
+     * returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for <a
+     * href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis streams</a>.
      * </p>
      */
     private java.util.Date startingPositionTimestamp;
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the event source.
+     * The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream that is the event source. Any
+     * record added to this stream could cause AWS Lambda to invoke your Lambda function, it depends on the
+     * <code>BatchSize</code>. AWS Lambda POSTs the Amazon Kinesis event, containing records, to your Lambda function as
+     * JSON.
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param eventSourceArn
-     *        The Amazon Resource Name (ARN) of the event source.</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     *        </p>
-     *        </li>
+     *        The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream that is the event
+     *        source. Any record added to this stream could cause AWS Lambda to invoke your Lambda function, it depends
+     *        on the <code>BatchSize</code>. AWS Lambda POSTs the Amazon Kinesis event, containing records, to your
+     *        Lambda function as JSON.
      */
 
     public void setEventSourceArn(String eventSourceArn) {
@@ -174,43 +118,16 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the event source.
+     * The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream that is the event source. Any
+     * record added to this stream could cause AWS Lambda to invoke your Lambda function, it depends on the
+     * <code>BatchSize</code>. AWS Lambda POSTs the Amazon Kinesis event, containing records, to your Lambda function as
+     * JSON.
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     * </p>
-     * </li>
-     * </ul>
      * 
-     * @return The Amazon Resource Name (ARN) of the event source.</p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     *         </p>
-     *         </li>
+     * @return The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream that is the event
+     *         source. Any record added to this stream could cause AWS Lambda to invoke your Lambda function, it depends
+     *         on the <code>BatchSize</code>. AWS Lambda POSTs the Amazon Kinesis event, containing records, to your
+     *         Lambda function as JSON.
      */
 
     public String getEventSourceArn() {
@@ -219,44 +136,17 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the event source.
+     * The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream that is the event source. Any
+     * record added to this stream could cause AWS Lambda to invoke your Lambda function, it depends on the
+     * <code>BatchSize</code>. AWS Lambda POSTs the Amazon Kinesis event, containing records, to your Lambda function as
+     * JSON.
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param eventSourceArn
-     *        The Amazon Resource Name (ARN) of the event source.</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     *        </p>
-     *        </li>
+     *        The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream that is the event
+     *        source. Any record added to this stream could cause AWS Lambda to invoke your Lambda function, it depends
+     *        on the <code>BatchSize</code>. AWS Lambda POSTs the Amazon Kinesis event, containing records, to your
+     *        Lambda function as JSON.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -267,68 +157,47 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The name of the Lambda function.
+     * The Lambda function to invoke when AWS Lambda detects an event on the stream.
      * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
      * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
+     * You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name
+     * (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
      * </p>
-     * </li>
-     * <li>
      * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
+     * If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function
+     * version or alias name as suffix). For more information about versioning, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and
+     * Aliases</a>
      * </p>
-     * </li>
-     * <li>
      * <p>
-     * <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.
+     * AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example,
+     * <code>account-id:Thumbnail</code>).
      * </p>
-     * </li>
-     * <li>
      * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
-     * characters in length.
+     * Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to
+     * 64 characters in length.
      * </p>
      * 
      * @param functionName
-     *        The name of the Lambda function.</p>
-     *        <p class="title">
-     *        <b>Name formats</b>
-     *        </p>
-     *        <ul>
-     *        <li>
+     *        The Lambda function to invoke when AWS Lambda detects an event on the stream.</p>
      *        <p>
-     *        <b>Function name</b> - <code>MyFunction</code>.
+     *        You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource
+     *        Name (ARN) of the function (for example,
+     *        <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
      *        </p>
-     *        </li>
-     *        <li>
      *        <p>
-     *        <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
+     *        If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with
+     *        function version or alias name as suffix). For more information about versioning, see <a
+     *        href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning
+     *        and Aliases</a>
      *        </p>
-     *        </li>
-     *        <li>
      *        <p>
-     *        <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.
+     *        AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example,
+     *        <code>account-id:Thumbnail</code>).
      *        </p>
-     *        </li>
-     *        <li>
      *        <p>
-     *        <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        The length constraint applies only to the full ARN. If you specify only the function name, it's limited to
-     *        64 characters in length.
+     *        Note that the length constraint applies only to the ARN. If you specify only the function name, it is
+     *        limited to 64 characters in length.
      */
 
     public void setFunctionName(String functionName) {
@@ -337,68 +206,46 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The name of the Lambda function.
+     * The Lambda function to invoke when AWS Lambda detects an event on the stream.
      * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
      * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
+     * You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name
+     * (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
      * </p>
-     * </li>
-     * <li>
      * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
+     * If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function
+     * version or alias name as suffix). For more information about versioning, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and
+     * Aliases</a>
      * </p>
-     * </li>
-     * <li>
      * <p>
-     * <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.
+     * AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example,
+     * <code>account-id:Thumbnail</code>).
      * </p>
-     * </li>
-     * <li>
      * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
-     * characters in length.
+     * Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to
+     * 64 characters in length.
      * </p>
      * 
-     * @return The name of the Lambda function.</p>
-     *         <p class="title">
-     *         <b>Name formats</b>
-     *         </p>
-     *         <ul>
-     *         <li>
+     * @return The Lambda function to invoke when AWS Lambda detects an event on the stream.</p>
      *         <p>
-     *         <b>Function name</b> - <code>MyFunction</code>.
+     *         You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon
+     *         Resource Name (ARN) of the function (for example,
+     *         <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
      *         </p>
-     *         </li>
-     *         <li>
      *         <p>
-     *         <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
+     *         If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with
+     *         function version or alias name as suffix). For more information about versioning, see <a
+     *         href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning
+     *         and Aliases</a>
      *         </p>
-     *         </li>
-     *         <li>
      *         <p>
-     *         <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>
-     *         .
+     *         AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example,
+     *         <code>account-id:Thumbnail</code>).
      *         </p>
-     *         </li>
-     *         <li>
      *         <p>
-     *         <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *         </p>
-     *         </li>
-     *         </ul>
-     *         <p>
-     *         The length constraint applies only to the full ARN. If you specify only the function name, it's limited
-     *         to 64 characters in length.
+     *         Note that the length constraint applies only to the ARN. If you specify only the function name, it is
+     *         limited to 64 characters in length.
      */
 
     public String getFunctionName() {
@@ -407,68 +254,47 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The name of the Lambda function.
+     * The Lambda function to invoke when AWS Lambda detects an event on the stream.
      * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
      * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
+     * You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name
+     * (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
      * </p>
-     * </li>
-     * <li>
      * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
+     * If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function
+     * version or alias name as suffix). For more information about versioning, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and
+     * Aliases</a>
      * </p>
-     * </li>
-     * <li>
      * <p>
-     * <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.
+     * AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example,
+     * <code>account-id:Thumbnail</code>).
      * </p>
-     * </li>
-     * <li>
      * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
-     * characters in length.
+     * Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to
+     * 64 characters in length.
      * </p>
      * 
      * @param functionName
-     *        The name of the Lambda function.</p>
-     *        <p class="title">
-     *        <b>Name formats</b>
-     *        </p>
-     *        <ul>
-     *        <li>
+     *        The Lambda function to invoke when AWS Lambda detects an event on the stream.</p>
      *        <p>
-     *        <b>Function name</b> - <code>MyFunction</code>.
+     *        You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource
+     *        Name (ARN) of the function (for example,
+     *        <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
      *        </p>
-     *        </li>
-     *        <li>
      *        <p>
-     *        <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
+     *        If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with
+     *        function version or alias name as suffix). For more information about versioning, see <a
+     *        href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning
+     *        and Aliases</a>
      *        </p>
-     *        </li>
-     *        <li>
      *        <p>
-     *        <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.
+     *        AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example,
+     *        <code>account-id:Thumbnail</code>).
      *        </p>
-     *        </li>
-     *        <li>
      *        <p>
-     *        <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        The length constraint applies only to the full ARN. If you specify only the function name, it's limited to
-     *        64 characters in length.
+     *        Note that the length constraint applies only to the ARN. If you specify only the function name, it is
+     *        limited to 64 characters in length.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -479,11 +305,12 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * Disables the event source mapping to pause polling and invocation.
+     * Indicates whether AWS Lambda should begin polling the event source. By default, <code>Enabled</code> is true.
      * </p>
      * 
      * @param enabled
-     *        Disables the event source mapping to pause polling and invocation.
+     *        Indicates whether AWS Lambda should begin polling the event source. By default, <code>Enabled</code> is
+     *        true.
      */
 
     public void setEnabled(Boolean enabled) {
@@ -492,10 +319,11 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * Disables the event source mapping to pause polling and invocation.
+     * Indicates whether AWS Lambda should begin polling the event source. By default, <code>Enabled</code> is true.
      * </p>
      * 
-     * @return Disables the event source mapping to pause polling and invocation.
+     * @return Indicates whether AWS Lambda should begin polling the event source. By default, <code>Enabled</code> is
+     *         true.
      */
 
     public Boolean getEnabled() {
@@ -504,11 +332,12 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * Disables the event source mapping to pause polling and invocation.
+     * Indicates whether AWS Lambda should begin polling the event source. By default, <code>Enabled</code> is true.
      * </p>
      * 
      * @param enabled
-     *        Disables the event source mapping to pause polling and invocation.
+     *        Indicates whether AWS Lambda should begin polling the event source. By default, <code>Enabled</code> is
+     *        true.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -519,10 +348,11 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * Disables the event source mapping to pause polling and invocation.
+     * Indicates whether AWS Lambda should begin polling the event source. By default, <code>Enabled</code> is true.
      * </p>
      * 
-     * @return Disables the event source mapping to pause polling and invocation.
+     * @return Indicates whether AWS Lambda should begin polling the event source. By default, <code>Enabled</code> is
+     *         true.
      */
 
     public Boolean isEnabled() {
@@ -531,44 +361,13 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The maximum number of items to retrieve in a single batch.
+     * The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your
+     * function. Your function receives an event with all the retrieved records. The default is 100 records.
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Amazon Kinesis</b> - Default 100. Max 10,000.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon Simple Queue Service</b> - Default 10. Max 10.
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param batchSize
-     *        The maximum number of items to retrieve in a single batch.</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Amazon Kinesis</b> - Default 100. Max 10,000.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Amazon Simple Queue Service</b> - Default 10. Max 10.
-     *        </p>
-     *        </li>
+     *        The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking
+     *        your function. Your function receives an event with all the retrieved records. The default is 100 records.
      */
 
     public void setBatchSize(Integer batchSize) {
@@ -577,43 +376,13 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The maximum number of items to retrieve in a single batch.
+     * The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your
+     * function. Your function receives an event with all the retrieved records. The default is 100 records.
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Amazon Kinesis</b> - Default 100. Max 10,000.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon Simple Queue Service</b> - Default 10. Max 10.
-     * </p>
-     * </li>
-     * </ul>
      * 
-     * @return The maximum number of items to retrieve in a single batch.</p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         <b>Amazon Kinesis</b> - Default 100. Max 10,000.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Amazon Simple Queue Service</b> - Default 10. Max 10.
-     *         </p>
-     *         </li>
+     * @return The largest number of records that AWS Lambda will retrieve from your event source at the time of
+     *         invoking your function. Your function receives an event with all the retrieved records. The default is
+     *         100 records.
      */
 
     public Integer getBatchSize() {
@@ -622,44 +391,13 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The maximum number of items to retrieve in a single batch.
+     * The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your
+     * function. Your function receives an event with all the retrieved records. The default is 100 records.
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Amazon Kinesis</b> - Default 100. Max 10,000.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon Simple Queue Service</b> - Default 10. Max 10.
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param batchSize
-     *        The maximum number of items to retrieve in a single batch.</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Amazon Kinesis</b> - Default 100. Max 10,000.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Amazon Simple Queue Service</b> - Default 10. Max 10.
-     *        </p>
-     *        </li>
+     *        The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking
+     *        your function. Your function receives an event with all the retrieved records. The default is 100 records.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -670,13 +408,25 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams
-     * sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.
+     * The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more information, see
+     * <a href=
+     * "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     * >GetShardIterator</a> in the <i>Amazon Kinesis API Reference Guide</i> or <a
+     * href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html"
+     * >GetShardIterator</a> in the <i>Amazon DynamoDB API Reference Guide</i>. The <code>AT_TIMESTAMP</code> value is
+     * supported only for <a href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis
+     * streams</a>.
      * </p>
      * 
      * @param startingPosition
-     *        The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB
-     *        Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.
+     *        The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more
+     *        information, see <a href=
+     *        "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     *        >GetShardIterator</a> in the <i>Amazon Kinesis API Reference Guide</i> or <a
+     *        href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html"
+     *        >GetShardIterator</a> in the <i>Amazon DynamoDB API Reference Guide</i>. The <code>AT_TIMESTAMP</code>
+     *        value is supported only for <a
+     *        href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis streams</a>.
      * @see EventSourcePosition
      */
 
@@ -686,12 +436,24 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams
-     * sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.
+     * The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more information, see
+     * <a href=
+     * "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     * >GetShardIterator</a> in the <i>Amazon Kinesis API Reference Guide</i> or <a
+     * href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html"
+     * >GetShardIterator</a> in the <i>Amazon DynamoDB API Reference Guide</i>. The <code>AT_TIMESTAMP</code> value is
+     * supported only for <a href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis
+     * streams</a>.
      * </p>
      * 
-     * @return The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB
-     *         Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.
+     * @return The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more
+     *         information, see <a href=
+     *         "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     *         >GetShardIterator</a> in the <i>Amazon Kinesis API Reference Guide</i> or <a
+     *         href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html"
+     *         >GetShardIterator</a> in the <i>Amazon DynamoDB API Reference Guide</i>. The <code>AT_TIMESTAMP</code>
+     *         value is supported only for <a
+     *         href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis streams</a>.
      * @see EventSourcePosition
      */
 
@@ -701,13 +463,25 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams
-     * sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.
+     * The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more information, see
+     * <a href=
+     * "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     * >GetShardIterator</a> in the <i>Amazon Kinesis API Reference Guide</i> or <a
+     * href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html"
+     * >GetShardIterator</a> in the <i>Amazon DynamoDB API Reference Guide</i>. The <code>AT_TIMESTAMP</code> value is
+     * supported only for <a href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis
+     * streams</a>.
      * </p>
      * 
      * @param startingPosition
-     *        The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB
-     *        Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.
+     *        The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more
+     *        information, see <a href=
+     *        "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     *        >GetShardIterator</a> in the <i>Amazon Kinesis API Reference Guide</i> or <a
+     *        href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html"
+     *        >GetShardIterator</a> in the <i>Amazon DynamoDB API Reference Guide</i>. The <code>AT_TIMESTAMP</code>
+     *        value is supported only for <a
+     *        href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis streams</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see EventSourcePosition
      */
@@ -719,13 +493,25 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams
-     * sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.
+     * The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more information, see
+     * <a href=
+     * "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     * >GetShardIterator</a> in the <i>Amazon Kinesis API Reference Guide</i> or <a
+     * href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html"
+     * >GetShardIterator</a> in the <i>Amazon DynamoDB API Reference Guide</i>. The <code>AT_TIMESTAMP</code> value is
+     * supported only for <a href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis
+     * streams</a>.
      * </p>
      * 
      * @param startingPosition
-     *        The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB
-     *        Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.
+     *        The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more
+     *        information, see <a href=
+     *        "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     *        >GetShardIterator</a> in the <i>Amazon Kinesis API Reference Guide</i> or <a
+     *        href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html"
+     *        >GetShardIterator</a> in the <i>Amazon DynamoDB API Reference Guide</i>. The <code>AT_TIMESTAMP</code>
+     *        value is supported only for <a
+     *        href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis streams</a>.
      * @see EventSourcePosition
      */
 
@@ -735,13 +521,25 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams
-     * sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.
+     * The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more information, see
+     * <a href=
+     * "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     * >GetShardIterator</a> in the <i>Amazon Kinesis API Reference Guide</i> or <a
+     * href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html"
+     * >GetShardIterator</a> in the <i>Amazon DynamoDB API Reference Guide</i>. The <code>AT_TIMESTAMP</code> value is
+     * supported only for <a href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis
+     * streams</a>.
      * </p>
      * 
      * @param startingPosition
-     *        The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB
-     *        Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.
+     *        The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more
+     *        information, see <a href=
+     *        "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     *        >GetShardIterator</a> in the <i>Amazon Kinesis API Reference Guide</i> or <a
+     *        href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html"
+     *        >GetShardIterator</a> in the <i>Amazon DynamoDB API Reference Guide</i>. The <code>AT_TIMESTAMP</code>
+     *        value is supported only for <a
+     *        href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis streams</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see EventSourcePosition
      */
@@ -753,11 +551,21 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading.
+     * The timestamp of the data record from which to start reading. Used with <a href=
+     * "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     * >shard iterator type</a> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator
+     * returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator
+     * returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for <a
+     * href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis streams</a>.
      * </p>
      * 
      * @param startingPositionTimestamp
-     *        With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading.
+     *        The timestamp of the data record from which to start reading. Used with <a href=
+     *        "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     *        >shard iterator type</a> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator
+     *        returned is for the next (later) record. If the timestamp is older than the current trim horizon, the
+     *        iterator returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for <a
+     *        href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis streams</a>.
      */
 
     public void setStartingPositionTimestamp(java.util.Date startingPositionTimestamp) {
@@ -766,11 +574,20 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading.
+     * The timestamp of the data record from which to start reading. Used with <a href=
+     * "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     * >shard iterator type</a> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator
+     * returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator
+     * returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for <a
+     * href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis streams</a>.
      * </p>
      * 
-     * @return With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start
-     *         reading.
+     * @return The timestamp of the data record from which to start reading. Used with <a href=
+     *         "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     *         >shard iterator type</a> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator
+     *         returned is for the next (later) record. If the timestamp is older than the current trim horizon, the
+     *         iterator returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for <a
+     *         href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis streams</a>.
      */
 
     public java.util.Date getStartingPositionTimestamp() {
@@ -779,11 +596,21 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading.
+     * The timestamp of the data record from which to start reading. Used with <a href=
+     * "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     * >shard iterator type</a> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator
+     * returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator
+     * returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for <a
+     * href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis streams</a>.
      * </p>
      * 
      * @param startingPositionTimestamp
-     *        With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading.
+     *        The timestamp of the data record from which to start reading. Used with <a href=
+     *        "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType"
+     *        >shard iterator type</a> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator
+     *        returned is for the next (later) record. If the timestamp is older than the current trim horizon, the
+     *        iterator returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for <a
+     *        href="http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html">Kinesis streams</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -793,8 +620,7 @@ public class CreateEventSourceMappingRequest extends com.amazonaws.AmazonWebServ
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

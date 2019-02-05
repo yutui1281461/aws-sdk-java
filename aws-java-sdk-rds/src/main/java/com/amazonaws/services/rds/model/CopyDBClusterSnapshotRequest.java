@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -50,9 +50,8 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * <li>
      * <p>
      * If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot ARN. For
-     * more information, go to <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
-     * > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     * more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
+     * Copying a DB Snapshot or DB Cluster Snapshot</a>.
      * </p>
      * </li>
      * </ul>
@@ -82,7 +81,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
+     * Cannot end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -198,9 +197,8 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * <li>
      * <p>
      * If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot ARN. For
-     * more information, go to <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
-     * > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     * more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
+     * Copying a DB Snapshot or DB Cluster Snapshot</a>.
      * </p>
      * </li>
      * </ul>
@@ -230,9 +228,9 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      *        <li>
      *        <p>
      *        If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot
-     *        ARN. For more information, go to <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
-     *        > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     *        ARN. For more information, go to <a
+     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html"> Copying a DB Snapshot
+     *        or DB Cluster Snapshot</a>.
      *        </p>
      *        </li>
      *        </ul>
@@ -268,9 +266,8 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * <li>
      * <p>
      * If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot ARN. For
-     * more information, go to <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
-     * > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     * more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
+     * Copying a DB Snapshot or DB Cluster Snapshot</a>.
      * </p>
      * </li>
      * </ul>
@@ -299,9 +296,9 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      *         <li>
      *         <p>
      *         If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot
-     *         ARN. For more information, go to <a href=
-     *         "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
-     *         > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     *         ARN. For more information, go to <a
+     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html"> Copying a DB
+     *         Snapshot or DB Cluster Snapshot</a>.
      *         </p>
      *         </li>
      *         </ul>
@@ -337,9 +334,8 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * <li>
      * <p>
      * If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot ARN. For
-     * more information, go to <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
-     * > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     * more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
+     * Copying a DB Snapshot or DB Cluster Snapshot</a>.
      * </p>
      * </li>
      * </ul>
@@ -369,9 +365,9 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      *        <li>
      *        <p>
      *        If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot
-     *        ARN. For more information, go to <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
-     *        > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+     *        ARN. For more information, go to <a
+     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html"> Copying a DB Snapshot
+     *        or DB Cluster Snapshot</a>.
      *        </p>
      *        </li>
      *        </ul>
@@ -406,7 +402,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
+     * Cannot end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -433,7 +429,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      *        </li>
      *        <li>
      *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens.
+     *        Cannot end with a hyphen or contain two consecutive hyphens.
      *        </p>
      *        </li>
      *        </ul>
@@ -466,7 +462,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
+     * Cannot end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -492,7 +488,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      *         </li>
      *         <li>
      *         <p>
-     *         Can't end with a hyphen or contain two consecutive hyphens.
+     *         Cannot end with a hyphen or contain two consecutive hyphens.
      *         </p>
      *         </li>
      *         </ul>
@@ -525,7 +521,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
+     * Cannot end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -552,7 +548,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      *        </li>
      *        <li>
      *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens.
+     *        Cannot end with a hyphen or contain two consecutive hyphens.
      *        </p>
      *        </li>
      *        </ul>
@@ -1150,8 +1146,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

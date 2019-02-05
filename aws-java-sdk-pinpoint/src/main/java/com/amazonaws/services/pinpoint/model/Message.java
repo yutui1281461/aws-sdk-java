@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,7 +18,6 @@ import com.amazonaws.protocol.StructuredPojo;
 import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
- * Message to send
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/Message" target="_top">AWS API
  *      Documentation</a>
@@ -46,7 +45,7 @@ public class Message implements Serializable, Cloneable, StructuredPojo {
     private String imageUrl;
     /** The JSON payload used for a silent push. */
     private String jsonBody;
-    /** A URL that refers to the location of an image or video that you want to display in the push notification. */
+    /** The URL that points to the media resource, for example a .mp4 or .gif file. */
     private String mediaUrl;
     /** The Raw JSON formatted string to be used as the payload. This value overrides the message. */
     private String rawContent;
@@ -56,13 +55,6 @@ public class Message implements Serializable, Cloneable, StructuredPojo {
      * Silent pushes can be used for Remote Configuration and Phone Home use cases.
      */
     private Boolean silentPush;
-    /**
-     * This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the
-     * notification the first time. If the value is 0, it treats the notification as if it expires immediately and does
-     * not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent
-     * to the service. It only applies to APNs and GCM
-     */
-    private Integer timeToLive;
     /** The message title that displays above the message on the user's device. */
     private String title;
     /** The URL to open in the user's mobile browser. Used if the value for Action is URL. */
@@ -372,10 +364,10 @@ public class Message implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * A URL that refers to the location of an image or video that you want to display in the push notification.
+     * The URL that points to the media resource, for example a .mp4 or .gif file.
      * 
      * @param mediaUrl
-     *        A URL that refers to the location of an image or video that you want to display in the push notification.
+     *        The URL that points to the media resource, for example a .mp4 or .gif file.
      */
 
     public void setMediaUrl(String mediaUrl) {
@@ -383,9 +375,9 @@ public class Message implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * A URL that refers to the location of an image or video that you want to display in the push notification.
+     * The URL that points to the media resource, for example a .mp4 or .gif file.
      * 
-     * @return A URL that refers to the location of an image or video that you want to display in the push notification.
+     * @return The URL that points to the media resource, for example a .mp4 or .gif file.
      */
 
     public String getMediaUrl() {
@@ -393,10 +385,10 @@ public class Message implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * A URL that refers to the location of an image or video that you want to display in the push notification.
+     * The URL that points to the media resource, for example a .mp4 or .gif file.
      * 
      * @param mediaUrl
-     *        A URL that refers to the location of an image or video that you want to display in the push notification.
+     *        The URL that points to the media resource, for example a .mp4 or .gif file.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -500,58 +492,6 @@ public class Message implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the
-     * notification the first time. If the value is 0, it treats the notification as if it expires immediately and does
-     * not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent
-     * to the service. It only applies to APNs and GCM
-     * 
-     * @param timeToLive
-     *        This parameter specifies how long (in seconds) the message should be kept if the service is unable to
-     *        deliver the notification the first time. If the value is 0, it treats the notification as if it expires
-     *        immediately and does not store the notification or attempt to redeliver it. This value is converted to the
-     *        expiration field when sent to the service. It only applies to APNs and GCM
-     */
-
-    public void setTimeToLive(Integer timeToLive) {
-        this.timeToLive = timeToLive;
-    }
-
-    /**
-     * This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the
-     * notification the first time. If the value is 0, it treats the notification as if it expires immediately and does
-     * not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent
-     * to the service. It only applies to APNs and GCM
-     * 
-     * @return This parameter specifies how long (in seconds) the message should be kept if the service is unable to
-     *         deliver the notification the first time. If the value is 0, it treats the notification as if it expires
-     *         immediately and does not store the notification or attempt to redeliver it. This value is converted to
-     *         the expiration field when sent to the service. It only applies to APNs and GCM
-     */
-
-    public Integer getTimeToLive() {
-        return this.timeToLive;
-    }
-
-    /**
-     * This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the
-     * notification the first time. If the value is 0, it treats the notification as if it expires immediately and does
-     * not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent
-     * to the service. It only applies to APNs and GCM
-     * 
-     * @param timeToLive
-     *        This parameter specifies how long (in seconds) the message should be kept if the service is unable to
-     *        deliver the notification the first time. If the value is 0, it treats the notification as if it expires
-     *        immediately and does not store the notification or attempt to redeliver it. This value is converted to the
-     *        expiration field when sent to the service. It only applies to APNs and GCM
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Message withTimeToLive(Integer timeToLive) {
-        setTimeToLive(timeToLive);
-        return this;
-    }
-
-    /**
      * The message title that displays above the message on the user's device.
      * 
      * @param title
@@ -620,8 +560,7 @@ public class Message implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -649,8 +588,6 @@ public class Message implements Serializable, Cloneable, StructuredPojo {
             sb.append("RawContent: ").append(getRawContent()).append(",");
         if (getSilentPush() != null)
             sb.append("SilentPush: ").append(getSilentPush()).append(",");
-        if (getTimeToLive() != null)
-            sb.append("TimeToLive: ").append(getTimeToLive()).append(",");
         if (getTitle() != null)
             sb.append("Title: ").append(getTitle()).append(",");
         if (getUrl() != null)
@@ -705,10 +642,6 @@ public class Message implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getSilentPush() != null && other.getSilentPush().equals(this.getSilentPush()) == false)
             return false;
-        if (other.getTimeToLive() == null ^ this.getTimeToLive() == null)
-            return false;
-        if (other.getTimeToLive() != null && other.getTimeToLive().equals(this.getTimeToLive()) == false)
-            return false;
         if (other.getTitle() == null ^ this.getTitle() == null)
             return false;
         if (other.getTitle() != null && other.getTitle().equals(this.getTitle()) == false)
@@ -734,7 +667,6 @@ public class Message implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getMediaUrl() == null) ? 0 : getMediaUrl().hashCode());
         hashCode = prime * hashCode + ((getRawContent() == null) ? 0 : getRawContent().hashCode());
         hashCode = prime * hashCode + ((getSilentPush() == null) ? 0 : getSilentPush().hashCode());
-        hashCode = prime * hashCode + ((getTimeToLive() == null) ? 0 : getTimeToLive().hashCode());
         hashCode = prime * hashCode + ((getTitle() == null) ? 0 : getTitle().hashCode());
         hashCode = prime * hashCode + ((getUrl() == null) ? 0 : getUrl().hashCode());
         return hashCode;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -53,61 +53,55 @@ public class CreateApplicationVersionRequestMarshaller implements Marshaller<Req
             request.addParameter("Description", StringUtils.fromString(createApplicationVersionRequest.getDescription()));
         }
 
-        {
-            SourceBuildInformation sourceBuildInformation = createApplicationVersionRequest.getSourceBuildInformation();
-            if (sourceBuildInformation != null) {
+        SourceBuildInformation sourceBuildInformation = createApplicationVersionRequest.getSourceBuildInformation();
+        if (sourceBuildInformation != null) {
 
-                if (sourceBuildInformation.getSourceType() != null) {
-                    request.addParameter("SourceBuildInformation.SourceType", StringUtils.fromString(sourceBuildInformation.getSourceType()));
-                }
+            if (sourceBuildInformation.getSourceType() != null) {
+                request.addParameter("SourceBuildInformation.SourceType", StringUtils.fromString(sourceBuildInformation.getSourceType()));
+            }
 
-                if (sourceBuildInformation.getSourceRepository() != null) {
-                    request.addParameter("SourceBuildInformation.SourceRepository", StringUtils.fromString(sourceBuildInformation.getSourceRepository()));
-                }
+            if (sourceBuildInformation.getSourceRepository() != null) {
+                request.addParameter("SourceBuildInformation.SourceRepository", StringUtils.fromString(sourceBuildInformation.getSourceRepository()));
+            }
 
-                if (sourceBuildInformation.getSourceLocation() != null) {
-                    request.addParameter("SourceBuildInformation.SourceLocation", StringUtils.fromString(sourceBuildInformation.getSourceLocation()));
-                }
+            if (sourceBuildInformation.getSourceLocation() != null) {
+                request.addParameter("SourceBuildInformation.SourceLocation", StringUtils.fromString(sourceBuildInformation.getSourceLocation()));
             }
         }
 
-        {
-            S3Location sourceBundle = createApplicationVersionRequest.getSourceBundle();
-            if (sourceBundle != null) {
+        S3Location sourceBundle = createApplicationVersionRequest.getSourceBundle();
+        if (sourceBundle != null) {
 
-                if (sourceBundle.getS3Bucket() != null) {
-                    request.addParameter("SourceBundle.S3Bucket", StringUtils.fromString(sourceBundle.getS3Bucket()));
-                }
+            if (sourceBundle.getS3Bucket() != null) {
+                request.addParameter("SourceBundle.S3Bucket", StringUtils.fromString(sourceBundle.getS3Bucket()));
+            }
 
-                if (sourceBundle.getS3Key() != null) {
-                    request.addParameter("SourceBundle.S3Key", StringUtils.fromString(sourceBundle.getS3Key()));
-                }
+            if (sourceBundle.getS3Key() != null) {
+                request.addParameter("SourceBundle.S3Key", StringUtils.fromString(sourceBundle.getS3Key()));
             }
         }
 
-        {
-            BuildConfiguration buildConfiguration = createApplicationVersionRequest.getBuildConfiguration();
-            if (buildConfiguration != null) {
+        BuildConfiguration buildConfiguration = createApplicationVersionRequest.getBuildConfiguration();
+        if (buildConfiguration != null) {
 
-                if (buildConfiguration.getArtifactName() != null) {
-                    request.addParameter("BuildConfiguration.ArtifactName", StringUtils.fromString(buildConfiguration.getArtifactName()));
-                }
+            if (buildConfiguration.getArtifactName() != null) {
+                request.addParameter("BuildConfiguration.ArtifactName", StringUtils.fromString(buildConfiguration.getArtifactName()));
+            }
 
-                if (buildConfiguration.getCodeBuildServiceRole() != null) {
-                    request.addParameter("BuildConfiguration.CodeBuildServiceRole", StringUtils.fromString(buildConfiguration.getCodeBuildServiceRole()));
-                }
+            if (buildConfiguration.getCodeBuildServiceRole() != null) {
+                request.addParameter("BuildConfiguration.CodeBuildServiceRole", StringUtils.fromString(buildConfiguration.getCodeBuildServiceRole()));
+            }
 
-                if (buildConfiguration.getComputeType() != null) {
-                    request.addParameter("BuildConfiguration.ComputeType", StringUtils.fromString(buildConfiguration.getComputeType()));
-                }
+            if (buildConfiguration.getComputeType() != null) {
+                request.addParameter("BuildConfiguration.ComputeType", StringUtils.fromString(buildConfiguration.getComputeType()));
+            }
 
-                if (buildConfiguration.getImage() != null) {
-                    request.addParameter("BuildConfiguration.Image", StringUtils.fromString(buildConfiguration.getImage()));
-                }
+            if (buildConfiguration.getImage() != null) {
+                request.addParameter("BuildConfiguration.Image", StringUtils.fromString(buildConfiguration.getImage()));
+            }
 
-                if (buildConfiguration.getTimeoutInMinutes() != null) {
-                    request.addParameter("BuildConfiguration.TimeoutInMinutes", StringUtils.fromInteger(buildConfiguration.getTimeoutInMinutes()));
-                }
+            if (buildConfiguration.getTimeoutInMinutes() != null) {
+                request.addParameter("BuildConfiguration.TimeoutInMinutes", StringUtils.fromInteger(buildConfiguration.getTimeoutInMinutes()));
             }
         }
 

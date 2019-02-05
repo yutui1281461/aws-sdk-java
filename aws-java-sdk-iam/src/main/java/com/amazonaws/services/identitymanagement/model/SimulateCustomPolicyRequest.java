@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -68,7 +68,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
     private com.amazonaws.internal.SdkInternalList<String> actionNames;
     /**
      * <p>
-     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value
+     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the value
      * defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for
      * each resource in this list. The simulation determines the access result (allowed or denied) of each combination
      * and reports it in the response.
@@ -119,18 +119,13 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
     private String resourcePolicy;
     /**
      * <p>
-     * An ARN representing the AWS account ID that specifies the owner of any simulated resource that does not identify
-     * its owner in the resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is
-     * also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the
-     * <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy
-     * defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if
-     * you specify a resource-based policy and account that owns the resource is different from the account that owns
-     * the simulated calling user <code>CallerArn</code>.
-     * </p>
-     * <p>
-     * The ARN for an account uses the following syntax: <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>. For
-     * example, to represent the account with the 112233445566 ID, use the following ARN:
-     * <code>arn:aws:iam::112233445566-ID:root</code>.
+     * An AWS account ID that specifies the owner of any simulated resource that does not identify its owner in the
+     * resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the
+     * account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code>
+     * parameter is not specified, then the owner of the resources and the resource policy defaults to the account of
+     * the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based
+     * policy and account that owns the resource is different from the account that owns the simulated calling user
+     * <code>CallerArn</code>.
      * </p>
      */
     private String resourceOwner;
@@ -223,15 +218,15 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
     private String resourceHandlingOption;
     /**
      * <p>
-     * Use this only when paginating results to indicate the maximum number of items you want in the response. If
-     * additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is
-     * <code>true</code>.
+     * (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
+     * response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element
+     * is <code>true</code>.
      * </p>
      * <p>
-     * If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer
-     * results, even when there are more results available. In that case, the <code>IsTruncated</code> response element
-     * returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells
-     * the service where to continue from.
+     * If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when
+     * there are more results available. In that case, the <code>IsTruncated</code> response element returns
+     * <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells the
+     * service where to continue from.
      * </p>
      */
     private Integer maxItems;
@@ -628,7 +623,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value
+     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the value
      * defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for
      * each resource in this list. The simulation determines the access result (allowed or denied) of each combination
      * and reports it in the response.
@@ -648,7 +643,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
      * </p>
      * 
-     * @return A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the
+     * @return A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the
      *         value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is
      *         evaluated for each resource in this list. The simulation determines the access result (allowed or denied)
      *         of each combination and reports it in the response.</p>
@@ -676,7 +671,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value
+     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the value
      * defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for
      * each resource in this list. The simulation determines the access result (allowed or denied) of each combination
      * and reports it in the response.
@@ -697,7 +692,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * </p>
      * 
      * @param resourceArns
-     *        A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the
+     *        A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the
      *        value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is
      *        evaluated for each resource in this list. The simulation determines the access result (allowed or denied)
      *        of each combination and reports it in the response.</p>
@@ -727,7 +722,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value
+     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the value
      * defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for
      * each resource in this list. The simulation determines the access result (allowed or denied) of each combination
      * and reports it in the response.
@@ -753,7 +748,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * </p>
      * 
      * @param resourceArns
-     *        A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the
+     *        A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the
      *        value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is
      *        evaluated for each resource in this list. The simulation determines the access result (allowed or denied)
      *        of each combination and reports it in the response.</p>
@@ -785,7 +780,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value
+     * A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the value
      * defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for
      * each resource in this list. The simulation determines the access result (allowed or denied) of each combination
      * and reports it in the response.
@@ -806,7 +801,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
      * </p>
      * 
      * @param resourceArns
-     *        A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the
+     *        A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided then the
      *        value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is
      *        evaluated for each resource in this list. The simulation determines the access result (allowed or denied)
      *        of each combination and reports it in the response.</p>
@@ -1008,32 +1003,23 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * An ARN representing the AWS account ID that specifies the owner of any simulated resource that does not identify
-     * its owner in the resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is
-     * also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the
-     * <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy
-     * defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if
-     * you specify a resource-based policy and account that owns the resource is different from the account that owns
-     * the simulated calling user <code>CallerArn</code>.
-     * </p>
-     * <p>
-     * The ARN for an account uses the following syntax: <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>. For
-     * example, to represent the account with the 112233445566 ID, use the following ARN:
-     * <code>arn:aws:iam::112233445566-ID:root</code>.
+     * An AWS account ID that specifies the owner of any simulated resource that does not identify its owner in the
+     * resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the
+     * account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code>
+     * parameter is not specified, then the owner of the resources and the resource policy defaults to the account of
+     * the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based
+     * policy and account that owns the resource is different from the account that owns the simulated calling user
+     * <code>CallerArn</code>.
      * </p>
      * 
      * @param resourceOwner
-     *        An ARN representing the AWS account ID that specifies the owner of any simulated resource that does not
-     *        identify its owner in the resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is
-     *        specified, it is also used as the account owner of any <code>ResourcePolicy</code> included in the
-     *        simulation. If the <code>ResourceOwner</code> parameter is not specified, then the owner of the resources
-     *        and the resource policy defaults to the account of the identity provided in <code>CallerArn</code>. This
-     *        parameter is required only if you specify a resource-based policy and account that owns the resource is
-     *        different from the account that owns the simulated calling user <code>CallerArn</code>.</p>
-     *        <p>
-     *        The ARN for an account uses the following syntax: <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>.
-     *        For example, to represent the account with the 112233445566 ID, use the following ARN:
-     *        <code>arn:aws:iam::112233445566-ID:root</code>.
+     *        An AWS account ID that specifies the owner of any simulated resource that does not identify its owner in
+     *        the resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also
+     *        used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the
+     *        <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource
+     *        policy defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is
+     *        required only if you specify a resource-based policy and account that owns the resource is different from
+     *        the account that owns the simulated calling user <code>CallerArn</code>.
      */
 
     public void setResourceOwner(String resourceOwner) {
@@ -1042,31 +1028,22 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * An ARN representing the AWS account ID that specifies the owner of any simulated resource that does not identify
-     * its owner in the resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is
-     * also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the
-     * <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy
-     * defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if
-     * you specify a resource-based policy and account that owns the resource is different from the account that owns
-     * the simulated calling user <code>CallerArn</code>.
-     * </p>
-     * <p>
-     * The ARN for an account uses the following syntax: <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>. For
-     * example, to represent the account with the 112233445566 ID, use the following ARN:
-     * <code>arn:aws:iam::112233445566-ID:root</code>.
+     * An AWS account ID that specifies the owner of any simulated resource that does not identify its owner in the
+     * resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the
+     * account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code>
+     * parameter is not specified, then the owner of the resources and the resource policy defaults to the account of
+     * the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based
+     * policy and account that owns the resource is different from the account that owns the simulated calling user
+     * <code>CallerArn</code>.
      * </p>
      * 
-     * @return An ARN representing the AWS account ID that specifies the owner of any simulated resource that does not
-     *         identify its owner in the resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is
-     *         specified, it is also used as the account owner of any <code>ResourcePolicy</code> included in the
-     *         simulation. If the <code>ResourceOwner</code> parameter is not specified, then the owner of the resources
-     *         and the resource policy defaults to the account of the identity provided in <code>CallerArn</code>. This
-     *         parameter is required only if you specify a resource-based policy and account that owns the resource is
-     *         different from the account that owns the simulated calling user <code>CallerArn</code>.</p>
-     *         <p>
-     *         The ARN for an account uses the following syntax: <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>.
-     *         For example, to represent the account with the 112233445566 ID, use the following ARN:
-     *         <code>arn:aws:iam::112233445566-ID:root</code>.
+     * @return An AWS account ID that specifies the owner of any simulated resource that does not identify its owner in
+     *         the resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also
+     *         used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the
+     *         <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource
+     *         policy defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is
+     *         required only if you specify a resource-based policy and account that owns the resource is different from
+     *         the account that owns the simulated calling user <code>CallerArn</code>.
      */
 
     public String getResourceOwner() {
@@ -1075,32 +1052,23 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * An ARN representing the AWS account ID that specifies the owner of any simulated resource that does not identify
-     * its owner in the resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is
-     * also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the
-     * <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy
-     * defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if
-     * you specify a resource-based policy and account that owns the resource is different from the account that owns
-     * the simulated calling user <code>CallerArn</code>.
-     * </p>
-     * <p>
-     * The ARN for an account uses the following syntax: <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>. For
-     * example, to represent the account with the 112233445566 ID, use the following ARN:
-     * <code>arn:aws:iam::112233445566-ID:root</code>.
+     * An AWS account ID that specifies the owner of any simulated resource that does not identify its owner in the
+     * resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the
+     * account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code>
+     * parameter is not specified, then the owner of the resources and the resource policy defaults to the account of
+     * the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based
+     * policy and account that owns the resource is different from the account that owns the simulated calling user
+     * <code>CallerArn</code>.
      * </p>
      * 
      * @param resourceOwner
-     *        An ARN representing the AWS account ID that specifies the owner of any simulated resource that does not
-     *        identify its owner in the resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is
-     *        specified, it is also used as the account owner of any <code>ResourcePolicy</code> included in the
-     *        simulation. If the <code>ResourceOwner</code> parameter is not specified, then the owner of the resources
-     *        and the resource policy defaults to the account of the identity provided in <code>CallerArn</code>. This
-     *        parameter is required only if you specify a resource-based policy and account that owns the resource is
-     *        different from the account that owns the simulated calling user <code>CallerArn</code>.</p>
-     *        <p>
-     *        The ARN for an account uses the following syntax: <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>.
-     *        For example, to represent the account with the 112233445566 ID, use the following ARN:
-     *        <code>arn:aws:iam::112233445566-ID:root</code>.
+     *        An AWS account ID that specifies the owner of any simulated resource that does not identify its owner in
+     *        the resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also
+     *        used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the
+     *        <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource
+     *        policy defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is
+     *        required only if you specify a resource-based policy and account that owns the resource is different from
+     *        the account that owns the simulated calling user <code>CallerArn</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1677,26 +1645,26 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * Use this only when paginating results to indicate the maximum number of items you want in the response. If
-     * additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is
-     * <code>true</code>.
+     * (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
+     * response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element
+     * is <code>true</code>.
      * </p>
      * <p>
-     * If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer
-     * results, even when there are more results available. In that case, the <code>IsTruncated</code> response element
-     * returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells
-     * the service where to continue from.
+     * If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when
+     * there are more results available. In that case, the <code>IsTruncated</code> response element returns
+     * <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells the
+     * service where to continue from.
      * </p>
      * 
      * @param maxItems
-     *        Use this only when paginating results to indicate the maximum number of items you want in the response. If
-     *        additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is
-     *        <code>true</code>.</p>
+     *        (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
+     *        response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response
+     *        element is <code>true</code>.</p>
      *        <p>
-     *        If you do not include this parameter, the number of items defaults to 100. Note that IAM might return
-     *        fewer results, even when there are more results available. In that case, the <code>IsTruncated</code>
-     *        response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the
-     *        subsequent call that tells the service where to continue from.
+     *        If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even
+     *        when there are more results available. In that case, the <code>IsTruncated</code> response element returns
+     *        <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells
+     *        the service where to continue from.
      */
 
     public void setMaxItems(Integer maxItems) {
@@ -1705,25 +1673,25 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * Use this only when paginating results to indicate the maximum number of items you want in the response. If
-     * additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is
-     * <code>true</code>.
+     * (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
+     * response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element
+     * is <code>true</code>.
      * </p>
      * <p>
-     * If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer
-     * results, even when there are more results available. In that case, the <code>IsTruncated</code> response element
-     * returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells
-     * the service where to continue from.
+     * If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when
+     * there are more results available. In that case, the <code>IsTruncated</code> response element returns
+     * <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells the
+     * service where to continue from.
      * </p>
      * 
-     * @return Use this only when paginating results to indicate the maximum number of items you want in the response.
-     *         If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element
-     *         is <code>true</code>.</p>
+     * @return (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
+     *         response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response
+     *         element is <code>true</code>.</p>
      *         <p>
-     *         If you do not include this parameter, the number of items defaults to 100. Note that IAM might return
-     *         fewer results, even when there are more results available. In that case, the <code>IsTruncated</code>
-     *         response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the
-     *         subsequent call that tells the service where to continue from.
+     *         If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even
+     *         when there are more results available. In that case, the <code>IsTruncated</code> response element
+     *         returns <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that
+     *         tells the service where to continue from.
      */
 
     public Integer getMaxItems() {
@@ -1732,26 +1700,26 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * Use this only when paginating results to indicate the maximum number of items you want in the response. If
-     * additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is
-     * <code>true</code>.
+     * (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
+     * response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element
+     * is <code>true</code>.
      * </p>
      * <p>
-     * If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer
-     * results, even when there are more results available. In that case, the <code>IsTruncated</code> response element
-     * returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells
-     * the service where to continue from.
+     * If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when
+     * there are more results available. In that case, the <code>IsTruncated</code> response element returns
+     * <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells the
+     * service where to continue from.
      * </p>
      * 
      * @param maxItems
-     *        Use this only when paginating results to indicate the maximum number of items you want in the response. If
-     *        additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is
-     *        <code>true</code>.</p>
+     *        (Optional) Use this only when paginating results to indicate the maximum number of items you want in the
+     *        response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response
+     *        element is <code>true</code>.</p>
      *        <p>
-     *        If you do not include this parameter, the number of items defaults to 100. Note that IAM might return
-     *        fewer results, even when there are more results available. In that case, the <code>IsTruncated</code>
-     *        response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the
-     *        subsequent call that tells the service where to continue from.
+     *        If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even
+     *        when there are more results available. In that case, the <code>IsTruncated</code> response element returns
+     *        <code>true</code> and <code>Marker</code> contains a value to include in the subsequent call that tells
+     *        the service where to continue from.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1813,8 +1781,7 @@ public class SimulateCustomPolicyRequest extends com.amazonaws.AmazonWebServiceR
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

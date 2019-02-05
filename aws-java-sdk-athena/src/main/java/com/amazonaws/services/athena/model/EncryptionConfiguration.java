@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,8 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * If query results are encrypted in Amazon S3, indicates the encryption option used (for example, <code>SSE-KMS</code>
- * or <code>CSE-KMS</code>) and key information.
+ * If query results are encrypted in Amazon S3, indicates the Amazon S3 encryption option used.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/EncryptionConfiguration" target="_top">AWS API
@@ -178,8 +177,7 @@ public class EncryptionConfiguration implements Serializable, Cloneable, Structu
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

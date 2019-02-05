@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -17,7 +17,7 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * Details about a function's configuration.
+ * A complex type that describes function metadata.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/UpdateFunctionCode" target="_top">AWS API
@@ -28,13 +28,14 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The name of the function.
+     * The name of the function. Note that the length constraint applies only to the ARN. If you specify only the
+     * function name, it is limited to 64 characters in length.
      * </p>
      */
     private String functionName;
     /**
      * <p>
-     * The function's Amazon Resource Name (ARN).
+     * The Amazon Resource Name (ARN) assigned to the function.
      * </p>
      */
     private String functionArn;
@@ -46,7 +47,8 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
     private String runtime;
     /**
      * <p>
-     * The function's execution role.
+     * The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any
+     * other Amazon Web Services (AWS) resources.
      * </p>
      */
     private String role;
@@ -58,38 +60,40 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
     private String handler;
     /**
      * <p>
-     * The size of the function's deployment package in bytes.
+     * The size, in bytes, of the function .zip file you uploaded.
      * </p>
      */
     private Long codeSize;
     /**
      * <p>
-     * The function's description.
+     * The user-provided description.
      * </p>
      */
     private String description;
     /**
      * <p>
-     * The amount of time that Lambda allows a function to run before terminating it.
+     * The function execution time at which Lambda should terminate the function. Because the execution time has cost
+     * implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
      * </p>
      */
     private Integer timeout;
     /**
      * <p>
-     * The memory allocated to the function
+     * The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.
      * </p>
      */
     private Integer memorySize;
     /**
      * <p>
-     * The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601
-     * format</a> (YYYY-MM-DDThh:mm:ss.sTZD).
+     * The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying with
+     * ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information, see <a
+     * href="https://www.w3.org/TR/NOTE-datetime">Date and Time Formats</a>.
      * </p>
      */
     private String lastModified;
     /**
      * <p>
-     * The SHA256 hash of the function's deployment package.
+     * It is the SHA256 hash of your function deployment package.
      * </p>
      */
     private String codeSha256;
@@ -101,38 +105,39 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
     private String version;
     /**
      * <p>
-     * The function's networking configuration.
+     * VPC configuration associated with your Lambda function.
      * </p>
      */
     private VpcConfigResponse vpcConfig;
     /**
      * <p>
-     * The function's dead letter queue.
+     * The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+     * For more information, see <a>dlq</a>.
      * </p>
      */
     private DeadLetterConfig deadLetterConfig;
     /**
      * <p>
-     * The function's environment variables.
+     * The parent object that contains your environment's configuration settings.
      * </p>
      */
     private EnvironmentResponse environment;
     /**
      * <p>
-     * The KMS key used to encrypt the function's environment variables. Only returned if you've configured a customer
-     * managed CMK.
+     * The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If empty, it
+     * means you are using the AWS Lambda default service key.
      * </p>
      */
     private String kMSKeyArn;
     /**
      * <p>
-     * The function's AWS X-Ray tracing configuration.
+     * The parent object that contains your function's tracing settings.
      * </p>
      */
     private TracingConfigResponse tracingConfig;
     /**
      * <p>
-     * For Lambda@Edge functions, the ARN of the master function.
+     * Returns the ARN (Amazon Resource Name) of the master function.
      * </p>
      */
     private String masterArn;
@@ -142,20 +147,16 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
      * </p>
      */
     private String revisionId;
-    /**
-     * <p>
-     * The function's <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>
-     * </p>
-     */
-    private com.amazonaws.internal.SdkInternalList<Layer> layers;
 
     /**
      * <p>
-     * The name of the function.
+     * The name of the function. Note that the length constraint applies only to the ARN. If you specify only the
+     * function name, it is limited to 64 characters in length.
      * </p>
      * 
      * @param functionName
-     *        The name of the function.
+     *        The name of the function. Note that the length constraint applies only to the ARN. If you specify only the
+     *        function name, it is limited to 64 characters in length.
      */
 
     public void setFunctionName(String functionName) {
@@ -164,10 +165,12 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The name of the function.
+     * The name of the function. Note that the length constraint applies only to the ARN. If you specify only the
+     * function name, it is limited to 64 characters in length.
      * </p>
      * 
-     * @return The name of the function.
+     * @return The name of the function. Note that the length constraint applies only to the ARN. If you specify only
+     *         the function name, it is limited to 64 characters in length.
      */
 
     public String getFunctionName() {
@@ -176,11 +179,13 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The name of the function.
+     * The name of the function. Note that the length constraint applies only to the ARN. If you specify only the
+     * function name, it is limited to 64 characters in length.
      * </p>
      * 
      * @param functionName
-     *        The name of the function.
+     *        The name of the function. Note that the length constraint applies only to the ARN. If you specify only the
+     *        function name, it is limited to 64 characters in length.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -191,11 +196,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's Amazon Resource Name (ARN).
+     * The Amazon Resource Name (ARN) assigned to the function.
      * </p>
      * 
      * @param functionArn
-     *        The function's Amazon Resource Name (ARN).
+     *        The Amazon Resource Name (ARN) assigned to the function.
      */
 
     public void setFunctionArn(String functionArn) {
@@ -204,10 +209,10 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's Amazon Resource Name (ARN).
+     * The Amazon Resource Name (ARN) assigned to the function.
      * </p>
      * 
-     * @return The function's Amazon Resource Name (ARN).
+     * @return The Amazon Resource Name (ARN) assigned to the function.
      */
 
     public String getFunctionArn() {
@@ -216,11 +221,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's Amazon Resource Name (ARN).
+     * The Amazon Resource Name (ARN) assigned to the function.
      * </p>
      * 
      * @param functionArn
-     *        The function's Amazon Resource Name (ARN).
+     *        The Amazon Resource Name (ARN) assigned to the function.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -304,11 +309,13 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's execution role.
+     * The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any
+     * other Amazon Web Services (AWS) resources.
      * </p>
      * 
      * @param role
-     *        The function's execution role.
+     *        The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to
+     *        access any other Amazon Web Services (AWS) resources.
      */
 
     public void setRole(String role) {
@@ -317,10 +324,12 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's execution role.
+     * The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any
+     * other Amazon Web Services (AWS) resources.
      * </p>
      * 
-     * @return The function's execution role.
+     * @return The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to
+     *         access any other Amazon Web Services (AWS) resources.
      */
 
     public String getRole() {
@@ -329,11 +338,13 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's execution role.
+     * The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any
+     * other Amazon Web Services (AWS) resources.
      * </p>
      * 
      * @param role
-     *        The function's execution role.
+     *        The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to
+     *        access any other Amazon Web Services (AWS) resources.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -384,11 +395,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The size of the function's deployment package in bytes.
+     * The size, in bytes, of the function .zip file you uploaded.
      * </p>
      * 
      * @param codeSize
-     *        The size of the function's deployment package in bytes.
+     *        The size, in bytes, of the function .zip file you uploaded.
      */
 
     public void setCodeSize(Long codeSize) {
@@ -397,10 +408,10 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The size of the function's deployment package in bytes.
+     * The size, in bytes, of the function .zip file you uploaded.
      * </p>
      * 
-     * @return The size of the function's deployment package in bytes.
+     * @return The size, in bytes, of the function .zip file you uploaded.
      */
 
     public Long getCodeSize() {
@@ -409,11 +420,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The size of the function's deployment package in bytes.
+     * The size, in bytes, of the function .zip file you uploaded.
      * </p>
      * 
      * @param codeSize
-     *        The size of the function's deployment package in bytes.
+     *        The size, in bytes, of the function .zip file you uploaded.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -424,11 +435,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's description.
+     * The user-provided description.
      * </p>
      * 
      * @param description
-     *        The function's description.
+     *        The user-provided description.
      */
 
     public void setDescription(String description) {
@@ -437,10 +448,10 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's description.
+     * The user-provided description.
      * </p>
      * 
-     * @return The function's description.
+     * @return The user-provided description.
      */
 
     public String getDescription() {
@@ -449,11 +460,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's description.
+     * The user-provided description.
      * </p>
      * 
      * @param description
-     *        The function's description.
+     *        The user-provided description.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -464,11 +475,14 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The amount of time that Lambda allows a function to run before terminating it.
+     * The function execution time at which Lambda should terminate the function. Because the execution time has cost
+     * implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
      * </p>
      * 
      * @param timeout
-     *        The amount of time that Lambda allows a function to run before terminating it.
+     *        The function execution time at which Lambda should terminate the function. Because the execution time has
+     *        cost implications, we recommend you set this value based on your expected execution time. The default is 3
+     *        seconds.
      */
 
     public void setTimeout(Integer timeout) {
@@ -477,10 +491,13 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The amount of time that Lambda allows a function to run before terminating it.
+     * The function execution time at which Lambda should terminate the function. Because the execution time has cost
+     * implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
      * </p>
      * 
-     * @return The amount of time that Lambda allows a function to run before terminating it.
+     * @return The function execution time at which Lambda should terminate the function. Because the execution time has
+     *         cost implications, we recommend you set this value based on your expected execution time. The default is
+     *         3 seconds.
      */
 
     public Integer getTimeout() {
@@ -489,11 +506,14 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The amount of time that Lambda allows a function to run before terminating it.
+     * The function execution time at which Lambda should terminate the function. Because the execution time has cost
+     * implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
      * </p>
      * 
      * @param timeout
-     *        The amount of time that Lambda allows a function to run before terminating it.
+     *        The function execution time at which Lambda should terminate the function. Because the execution time has
+     *        cost implications, we recommend you set this value based on your expected execution time. The default is 3
+     *        seconds.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -504,11 +524,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The memory allocated to the function
+     * The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.
      * </p>
      * 
      * @param memorySize
-     *        The memory allocated to the function
+     *        The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.
      */
 
     public void setMemorySize(Integer memorySize) {
@@ -517,10 +537,10 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The memory allocated to the function
+     * The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.
      * </p>
      * 
-     * @return The memory allocated to the function
+     * @return The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.
      */
 
     public Integer getMemorySize() {
@@ -529,11 +549,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The memory allocated to the function
+     * The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.
      * </p>
      * 
      * @param memorySize
-     *        The memory allocated to the function
+     *        The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -544,13 +564,15 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601
-     * format</a> (YYYY-MM-DDThh:mm:ss.sTZD).
+     * The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying with
+     * ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information, see <a
+     * href="https://www.w3.org/TR/NOTE-datetime">Date and Time Formats</a>.
      * </p>
      * 
      * @param lastModified
-     *        The date and time that the function was last updated, in <a
-     *        href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).
+     *        The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying
+     *        with ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information,
+     *        see <a href="https://www.w3.org/TR/NOTE-datetime">Date and Time Formats</a>.
      */
 
     public void setLastModified(String lastModified) {
@@ -559,12 +581,14 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601
-     * format</a> (YYYY-MM-DDThh:mm:ss.sTZD).
+     * The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying with
+     * ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information, see <a
+     * href="https://www.w3.org/TR/NOTE-datetime">Date and Time Formats</a>.
      * </p>
      * 
-     * @return The date and time that the function was last updated, in <a
-     *         href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).
+     * @return The time stamp of the last time you updated the function. The time stamp is conveyed as a string
+     *         complying with ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more
+     *         information, see <a href="https://www.w3.org/TR/NOTE-datetime">Date and Time Formats</a>.
      */
 
     public String getLastModified() {
@@ -573,13 +597,15 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601
-     * format</a> (YYYY-MM-DDThh:mm:ss.sTZD).
+     * The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying with
+     * ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information, see <a
+     * href="https://www.w3.org/TR/NOTE-datetime">Date and Time Formats</a>.
      * </p>
      * 
      * @param lastModified
-     *        The date and time that the function was last updated, in <a
-     *        href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).
+     *        The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying
+     *        with ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information,
+     *        see <a href="https://www.w3.org/TR/NOTE-datetime">Date and Time Formats</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -590,11 +616,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The SHA256 hash of the function's deployment package.
+     * It is the SHA256 hash of your function deployment package.
      * </p>
      * 
      * @param codeSha256
-     *        The SHA256 hash of the function's deployment package.
+     *        It is the SHA256 hash of your function deployment package.
      */
 
     public void setCodeSha256(String codeSha256) {
@@ -603,10 +629,10 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The SHA256 hash of the function's deployment package.
+     * It is the SHA256 hash of your function deployment package.
      * </p>
      * 
-     * @return The SHA256 hash of the function's deployment package.
+     * @return It is the SHA256 hash of your function deployment package.
      */
 
     public String getCodeSha256() {
@@ -615,11 +641,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The SHA256 hash of the function's deployment package.
+     * It is the SHA256 hash of your function deployment package.
      * </p>
      * 
      * @param codeSha256
-     *        The SHA256 hash of the function's deployment package.
+     *        It is the SHA256 hash of your function deployment package.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -670,11 +696,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's networking configuration.
+     * VPC configuration associated with your Lambda function.
      * </p>
      * 
      * @param vpcConfig
-     *        The function's networking configuration.
+     *        VPC configuration associated with your Lambda function.
      */
 
     public void setVpcConfig(VpcConfigResponse vpcConfig) {
@@ -683,10 +709,10 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's networking configuration.
+     * VPC configuration associated with your Lambda function.
      * </p>
      * 
-     * @return The function's networking configuration.
+     * @return VPC configuration associated with your Lambda function.
      */
 
     public VpcConfigResponse getVpcConfig() {
@@ -695,11 +721,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's networking configuration.
+     * VPC configuration associated with your Lambda function.
      * </p>
      * 
      * @param vpcConfig
-     *        The function's networking configuration.
+     *        VPC configuration associated with your Lambda function.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -710,11 +736,13 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's dead letter queue.
+     * The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+     * For more information, see <a>dlq</a>.
      * </p>
      * 
      * @param deadLetterConfig
-     *        The function's dead letter queue.
+     *        The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS
+     *        topic. For more information, see <a>dlq</a>.
      */
 
     public void setDeadLetterConfig(DeadLetterConfig deadLetterConfig) {
@@ -723,10 +751,12 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's dead letter queue.
+     * The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+     * For more information, see <a>dlq</a>.
      * </p>
      * 
-     * @return The function's dead letter queue.
+     * @return The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon
+     *         SNS topic. For more information, see <a>dlq</a>.
      */
 
     public DeadLetterConfig getDeadLetterConfig() {
@@ -735,11 +765,13 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's dead letter queue.
+     * The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+     * For more information, see <a>dlq</a>.
      * </p>
      * 
      * @param deadLetterConfig
-     *        The function's dead letter queue.
+     *        The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS
+     *        topic. For more information, see <a>dlq</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -750,11 +782,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's environment variables.
+     * The parent object that contains your environment's configuration settings.
      * </p>
      * 
      * @param environment
-     *        The function's environment variables.
+     *        The parent object that contains your environment's configuration settings.
      */
 
     public void setEnvironment(EnvironmentResponse environment) {
@@ -763,10 +795,10 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's environment variables.
+     * The parent object that contains your environment's configuration settings.
      * </p>
      * 
-     * @return The function's environment variables.
+     * @return The parent object that contains your environment's configuration settings.
      */
 
     public EnvironmentResponse getEnvironment() {
@@ -775,11 +807,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's environment variables.
+     * The parent object that contains your environment's configuration settings.
      * </p>
      * 
      * @param environment
-     *        The function's environment variables.
+     *        The parent object that contains your environment's configuration settings.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -790,13 +822,13 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The KMS key used to encrypt the function's environment variables. Only returned if you've configured a customer
-     * managed CMK.
+     * The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If empty, it
+     * means you are using the AWS Lambda default service key.
      * </p>
      * 
      * @param kMSKeyArn
-     *        The KMS key used to encrypt the function's environment variables. Only returned if you've configured a
-     *        customer managed CMK.
+     *        The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If
+     *        empty, it means you are using the AWS Lambda default service key.
      */
 
     public void setKMSKeyArn(String kMSKeyArn) {
@@ -805,12 +837,12 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The KMS key used to encrypt the function's environment variables. Only returned if you've configured a customer
-     * managed CMK.
+     * The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If empty, it
+     * means you are using the AWS Lambda default service key.
      * </p>
      * 
-     * @return The KMS key used to encrypt the function's environment variables. Only returned if you've configured a
-     *         customer managed CMK.
+     * @return The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If
+     *         empty, it means you are using the AWS Lambda default service key.
      */
 
     public String getKMSKeyArn() {
@@ -819,13 +851,13 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The KMS key used to encrypt the function's environment variables. Only returned if you've configured a customer
-     * managed CMK.
+     * The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If empty, it
+     * means you are using the AWS Lambda default service key.
      * </p>
      * 
      * @param kMSKeyArn
-     *        The KMS key used to encrypt the function's environment variables. Only returned if you've configured a
-     *        customer managed CMK.
+     *        The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If
+     *        empty, it means you are using the AWS Lambda default service key.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -836,11 +868,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's AWS X-Ray tracing configuration.
+     * The parent object that contains your function's tracing settings.
      * </p>
      * 
      * @param tracingConfig
-     *        The function's AWS X-Ray tracing configuration.
+     *        The parent object that contains your function's tracing settings.
      */
 
     public void setTracingConfig(TracingConfigResponse tracingConfig) {
@@ -849,10 +881,10 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's AWS X-Ray tracing configuration.
+     * The parent object that contains your function's tracing settings.
      * </p>
      * 
-     * @return The function's AWS X-Ray tracing configuration.
+     * @return The parent object that contains your function's tracing settings.
      */
 
     public TracingConfigResponse getTracingConfig() {
@@ -861,11 +893,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * The function's AWS X-Ray tracing configuration.
+     * The parent object that contains your function's tracing settings.
      * </p>
      * 
      * @param tracingConfig
-     *        The function's AWS X-Ray tracing configuration.
+     *        The parent object that contains your function's tracing settings.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -876,11 +908,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * For Lambda@Edge functions, the ARN of the master function.
+     * Returns the ARN (Amazon Resource Name) of the master function.
      * </p>
      * 
      * @param masterArn
-     *        For Lambda@Edge functions, the ARN of the master function.
+     *        Returns the ARN (Amazon Resource Name) of the master function.
      */
 
     public void setMasterArn(String masterArn) {
@@ -889,10 +921,10 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * For Lambda@Edge functions, the ARN of the master function.
+     * Returns the ARN (Amazon Resource Name) of the master function.
      * </p>
      * 
-     * @return For Lambda@Edge functions, the ARN of the master function.
+     * @return Returns the ARN (Amazon Resource Name) of the master function.
      */
 
     public String getMasterArn() {
@@ -901,11 +933,11 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
 
     /**
      * <p>
-     * For Lambda@Edge functions, the ARN of the master function.
+     * Returns the ARN (Amazon Resource Name) of the master function.
      * </p>
      * 
      * @param masterArn
-     *        For Lambda@Edge functions, the ARN of the master function.
+     *        Returns the ARN (Amazon Resource Name) of the master function.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -955,82 +987,7 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
     }
 
     /**
-     * <p>
-     * The function's <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>
-     * </p>
-     * 
-     * @return The function's <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
-     *         layers</a>
-     */
-
-    public java.util.List<Layer> getLayers() {
-        if (layers == null) {
-            layers = new com.amazonaws.internal.SdkInternalList<Layer>();
-        }
-        return layers;
-    }
-
-    /**
-     * <p>
-     * The function's <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>
-     * </p>
-     * 
-     * @param layers
-     *        The function's <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>
-     */
-
-    public void setLayers(java.util.Collection<Layer> layers) {
-        if (layers == null) {
-            this.layers = null;
-            return;
-        }
-
-        this.layers = new com.amazonaws.internal.SdkInternalList<Layer>(layers);
-    }
-
-    /**
-     * <p>
-     * The function's <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setLayers(java.util.Collection)} or {@link #withLayers(java.util.Collection)} if you want to override the
-     * existing values.
-     * </p>
-     * 
-     * @param layers
-     *        The function's <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public UpdateFunctionCodeResult withLayers(Layer... layers) {
-        if (this.layers == null) {
-            setLayers(new com.amazonaws.internal.SdkInternalList<Layer>(layers.length));
-        }
-        for (Layer ele : layers) {
-            this.layers.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * The function's <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>
-     * </p>
-     * 
-     * @param layers
-     *        The function's <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public UpdateFunctionCodeResult withLayers(java.util.Collection<Layer> layers) {
-        setLayers(layers);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1077,9 +1034,7 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
         if (getMasterArn() != null)
             sb.append("MasterArn: ").append(getMasterArn()).append(",");
         if (getRevisionId() != null)
-            sb.append("RevisionId: ").append(getRevisionId()).append(",");
-        if (getLayers() != null)
-            sb.append("Layers: ").append(getLayers());
+            sb.append("RevisionId: ").append(getRevisionId());
         sb.append("}");
         return sb.toString();
     }
@@ -1170,10 +1125,6 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
             return false;
         if (other.getRevisionId() != null && other.getRevisionId().equals(this.getRevisionId()) == false)
             return false;
-        if (other.getLayers() == null ^ this.getLayers() == null)
-            return false;
-        if (other.getLayers() != null && other.getLayers().equals(this.getLayers()) == false)
-            return false;
         return true;
     }
 
@@ -1201,7 +1152,6 @@ public class UpdateFunctionCodeResult extends com.amazonaws.AmazonWebServiceResu
         hashCode = prime * hashCode + ((getTracingConfig() == null) ? 0 : getTracingConfig().hashCode());
         hashCode = prime * hashCode + ((getMasterArn() == null) ? 0 : getMasterArn().hashCode());
         hashCode = prime * hashCode + ((getRevisionId() == null) ? 0 : getRevisionId().hashCode());
-        hashCode = prime * hashCode + ((getLayers() == null) ? 0 : getLayers().hashCode());
         return hashCode;
     }
 

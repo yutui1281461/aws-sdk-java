@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  * A summary of the information about a CloudFront distribution.
  * </p>
  * 
- * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-11-05/DistributionSummary" target="_top">AWS API
+ * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2017-10-30/DistributionSummary" target="_top">AWS API
  *      Documentation</a>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -73,12 +73,6 @@ public class DistributionSummary implements Serializable, Cloneable {
     private Origins origins;
     /**
      * <p>
-     * A complex type that contains information about origin groups for this distribution.
-     * </p>
-     */
-    private OriginGroups originGroups;
-    /**
-     * <p>
      * A complex type that describes the default cache behavior if you don't specify a <code>CacheBehavior</code>
      * element or if files don't match any of the values of <code>PathPattern</code> in <code>CacheBehavior</code>
      * elements. You must create exactly one default cache behavior.
@@ -103,11 +97,7 @@ public class DistributionSummary implements Serializable, Cloneable {
      * </p>
      */
     private String comment;
-    /**
-     * <p>
-     * A complex type that contains information about price class for this streaming distribution.
-     * </p>
-     */
+
     private String priceClass;
     /**
      * <p>
@@ -115,9 +105,9 @@ public class DistributionSummary implements Serializable, Cloneable {
      * </p>
      */
     private Boolean enabled;
-    /** <p/> */
+
     private ViewerCertificate viewerCertificate;
-    /** <p/> */
+
     private Restrictions restrictions;
     /**
      * <p>
@@ -446,46 +436,6 @@ public class DistributionSummary implements Serializable, Cloneable {
 
     /**
      * <p>
-     * A complex type that contains information about origin groups for this distribution.
-     * </p>
-     * 
-     * @param originGroups
-     *        A complex type that contains information about origin groups for this distribution.
-     */
-
-    public void setOriginGroups(OriginGroups originGroups) {
-        this.originGroups = originGroups;
-    }
-
-    /**
-     * <p>
-     * A complex type that contains information about origin groups for this distribution.
-     * </p>
-     * 
-     * @return A complex type that contains information about origin groups for this distribution.
-     */
-
-    public OriginGroups getOriginGroups() {
-        return this.originGroups;
-    }
-
-    /**
-     * <p>
-     * A complex type that contains information about origin groups for this distribution.
-     * </p>
-     * 
-     * @param originGroups
-     *        A complex type that contains information about origin groups for this distribution.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DistributionSummary withOriginGroups(OriginGroups originGroups) {
-        setOriginGroups(originGroups);
-        return this;
-    }
-
-    /**
-     * <p>
      * A complex type that describes the default cache behavior if you don't specify a <code>CacheBehavior</code>
      * element or if files don't match any of the values of <code>PathPattern</code> in <code>CacheBehavior</code>
      * elements. You must create exactly one default cache behavior.
@@ -657,12 +607,7 @@ public class DistributionSummary implements Serializable, Cloneable {
     }
 
     /**
-     * <p>
-     * A complex type that contains information about price class for this streaming distribution.
-     * </p>
-     * 
      * @param priceClass
-     *        A complex type that contains information about price class for this streaming distribution.
      * @see PriceClass
      */
 
@@ -671,11 +616,7 @@ public class DistributionSummary implements Serializable, Cloneable {
     }
 
     /**
-     * <p>
-     * A complex type that contains information about price class for this streaming distribution.
-     * </p>
-     * 
-     * @return A complex type that contains information about price class for this streaming distribution.
+     * @return
      * @see PriceClass
      */
 
@@ -684,12 +625,7 @@ public class DistributionSummary implements Serializable, Cloneable {
     }
 
     /**
-     * <p>
-     * A complex type that contains information about price class for this streaming distribution.
-     * </p>
-     * 
      * @param priceClass
-     *        A complex type that contains information about price class for this streaming distribution.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see PriceClass
      */
@@ -700,12 +636,7 @@ public class DistributionSummary implements Serializable, Cloneable {
     }
 
     /**
-     * <p>
-     * A complex type that contains information about price class for this streaming distribution.
-     * </p>
-     * 
      * @param priceClass
-     *        A complex type that contains information about price class for this streaming distribution.
      * @see PriceClass
      */
 
@@ -714,12 +645,7 @@ public class DistributionSummary implements Serializable, Cloneable {
     }
 
     /**
-     * <p>
-     * A complex type that contains information about price class for this streaming distribution.
-     * </p>
-     * 
      * @param priceClass
-     *        A complex type that contains information about price class for this streaming distribution.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see PriceClass
      */
@@ -782,8 +708,6 @@ public class DistributionSummary implements Serializable, Cloneable {
     }
 
     /**
-     * <p/>
-     * 
      * @param viewerCertificate
      */
 
@@ -792,8 +716,6 @@ public class DistributionSummary implements Serializable, Cloneable {
     }
 
     /**
-     * <p/>
-     * 
      * @return
      */
 
@@ -802,8 +724,6 @@ public class DistributionSummary implements Serializable, Cloneable {
     }
 
     /**
-     * <p/>
-     * 
      * @param viewerCertificate
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -814,8 +734,6 @@ public class DistributionSummary implements Serializable, Cloneable {
     }
 
     /**
-     * <p/>
-     * 
      * @param restrictions
      */
 
@@ -824,8 +742,6 @@ public class DistributionSummary implements Serializable, Cloneable {
     }
 
     /**
-     * <p/>
-     * 
      * @return
      */
 
@@ -834,8 +750,6 @@ public class DistributionSummary implements Serializable, Cloneable {
     }
 
     /**
-     * <p/>
-     * 
      * @param restrictions
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -1031,8 +945,7 @@ public class DistributionSummary implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1056,8 +969,6 @@ public class DistributionSummary implements Serializable, Cloneable {
             sb.append("Aliases: ").append(getAliases()).append(",");
         if (getOrigins() != null)
             sb.append("Origins: ").append(getOrigins()).append(",");
-        if (getOriginGroups() != null)
-            sb.append("OriginGroups: ").append(getOriginGroups()).append(",");
         if (getDefaultCacheBehavior() != null)
             sb.append("DefaultCacheBehavior: ").append(getDefaultCacheBehavior()).append(",");
         if (getCacheBehaviors() != null)
@@ -1122,10 +1033,6 @@ public class DistributionSummary implements Serializable, Cloneable {
             return false;
         if (other.getOrigins() != null && other.getOrigins().equals(this.getOrigins()) == false)
             return false;
-        if (other.getOriginGroups() == null ^ this.getOriginGroups() == null)
-            return false;
-        if (other.getOriginGroups() != null && other.getOriginGroups().equals(this.getOriginGroups()) == false)
-            return false;
         if (other.getDefaultCacheBehavior() == null ^ this.getDefaultCacheBehavior() == null)
             return false;
         if (other.getDefaultCacheBehavior() != null && other.getDefaultCacheBehavior().equals(this.getDefaultCacheBehavior()) == false)
@@ -1185,7 +1092,6 @@ public class DistributionSummary implements Serializable, Cloneable {
         hashCode = prime * hashCode + ((getDomainName() == null) ? 0 : getDomainName().hashCode());
         hashCode = prime * hashCode + ((getAliases() == null) ? 0 : getAliases().hashCode());
         hashCode = prime * hashCode + ((getOrigins() == null) ? 0 : getOrigins().hashCode());
-        hashCode = prime * hashCode + ((getOriginGroups() == null) ? 0 : getOriginGroups().hashCode());
         hashCode = prime * hashCode + ((getDefaultCacheBehavior() == null) ? 0 : getDefaultCacheBehavior().hashCode());
         hashCode = prime * hashCode + ((getCacheBehaviors() == null) ? 0 : getCacheBehaviors().hashCode());
         hashCode = prime * hashCode + ((getCustomErrorResponses() == null) ? 0 : getCustomErrorResponses().hashCode());

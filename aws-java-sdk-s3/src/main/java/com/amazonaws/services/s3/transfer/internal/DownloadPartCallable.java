@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2011-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,79 +14,53 @@
  */
 package com.amazonaws.services.s3.transfer.internal;
 
-import static com.amazonaws.services.s3.internal.Constants.MB;
+import com.amazonaws.util.StringUtils;
+import java.io.File;
+import java.util.UUID;
+import java.util.concurrent.Callable;
 
-import com.amazonaws.annotation.SdkInternalApi;
+import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.GetObjectRequest;
-import com.amazonaws.services.s3.model.S3Object;
-import com.amazonaws.services.s3.model.S3ObjectInputStream;
-import com.amazonaws.util.IOUtils;
-import java.io.File;
-import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
-import java.util.concurrent.Callable;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Helper class to get a part from s3, write the part data to the specified position and return the final position of the file.
+ * Helper class to get a part from s3,
+ * write the part data to a temporary file and
+ * return the temporary file.
  */
-@SdkInternalApi
-public class DownloadPartCallable implements Callable<Long> {
+public class DownloadPartCallable implements Callable<File> {
     private static final Log LOG = LogFactory.getLog(DownloadPartCallable.class);
-    private static final int BUFFER_SIZE = 2 * MB;
+    private static final String TEMP_FILE_MIDDLE_NAME = ".part.";
 
     private final AmazonS3 s3;
     private final GetObjectRequest getPartRequest;
     private final File destinationFile;
-    private final long position;
+    private final String destinationFilePath;
 
-
-    public DownloadPartCallable(AmazonS3 s3,
-                                GetObjectRequest getPartRequest,
-                                File destinationFile,
-                                long position) {
+    public DownloadPartCallable(AmazonS3 s3, GetObjectRequest getPartRequest, File destinationFile) {
         this.s3 = s3;
-        this.destinationFile = destinationFile;
         this.getPartRequest = getPartRequest;
-        this.position = position;
+        this.destinationFile = destinationFile;
+        this.destinationFilePath = destinationFile.getAbsolutePath();
     }
 
-    @Override
-    public Long call() throws Exception {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(destinationFile, "rw");
-        FileChannel channel = randomAccessFile.getChannel();
-        channel.position(position);
-        S3ObjectInputStream objectContent = null;
-        long filePosition;
-
+    public File call() throws Exception {
+        final File partFile = File.createTempFile(
+                UUID.nameUUIDFromBytes(destinationFile.getName().getBytes(StringUtils.UTF8)).toString(),
+                TEMP_FILE_MIDDLE_NAME + getPartRequest.getPartNumber().toString(),
+                new File(destinationFilePath.substring(0, destinationFilePath.lastIndexOf(File.separator))));
         try {
-            S3Object object = s3.getObject(getPartRequest);
-
-            objectContent = object.getObjectContent();
-            byte[] buffer = new byte[BUFFER_SIZE];
-            int bytesRead;
-
-            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(BUFFER_SIZE);
-
-            while ((bytesRead = objectContent.read(buffer)) > -1) {
-                byteBuffer.put(buffer, 0, bytesRead);
-                byteBuffer.flip();
-
-                while (byteBuffer.hasRemaining()) {
-                    channel.write(byteBuffer);
-                }
-                byteBuffer.clear();
-            }
-
-            filePosition = channel.position();
-        } finally {
-            IOUtils.closeQuietly(objectContent, LOG);
-            IOUtils.closeQuietly(randomAccessFile, LOG);
-            IOUtils.closeQuietly(channel, LOG);
+            partFile.deleteOnExit();
+        } catch (SecurityException exception) {
+            LOG.warn("SecurityException denied delete access to file " + partFile.getAbsolutePath());
         }
-        return filePosition;
+
+        if (s3.getObject(getPartRequest, partFile) == null) {
+            throw new SdkClientException(
+                    "There is no object in S3 satisfying this request. The getObject method returned null");
+        }
+        return partFile;
     }
 }

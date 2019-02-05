@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -28,7 +28,7 @@ public class GetParametersByPathRequest extends com.amazonaws.AmazonWebServiceRe
     /**
      * <p>
      * The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A
-     * parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
+     * hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
      * <code>/Finance/Prod/IAD/WinServ2016/license33</code>
      * </p>
      */
@@ -80,13 +80,13 @@ public class GetParametersByPathRequest extends com.amazonaws.AmazonWebServiceRe
     /**
      * <p>
      * The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A
-     * parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
+     * hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
      * <code>/Finance/Prod/IAD/WinServ2016/license33</code>
      * </p>
      * 
      * @param path
      *        The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter
-     *        name. A parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
+     *        name. A hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
      *        <code>/Finance/Prod/IAD/WinServ2016/license33</code>
      */
 
@@ -97,12 +97,12 @@ public class GetParametersByPathRequest extends com.amazonaws.AmazonWebServiceRe
     /**
      * <p>
      * The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A
-     * parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
+     * hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
      * <code>/Finance/Prod/IAD/WinServ2016/license33</code>
      * </p>
      * 
      * @return The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter
-     *         name. A parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
+     *         name. A hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
      *         <code>/Finance/Prod/IAD/WinServ2016/license33</code>
      */
 
@@ -113,13 +113,13 @@ public class GetParametersByPathRequest extends com.amazonaws.AmazonWebServiceRe
     /**
      * <p>
      * The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A
-     * parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
+     * hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
      * <code>/Finance/Prod/IAD/WinServ2016/license33</code>
      * </p>
      * 
      * @param path
      *        The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter
-     *        name. A parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
+     *        name. A hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy:
      *        <code>/Finance/Prod/IAD/WinServ2016/license33</code>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -477,8 +477,7 @@ public class GetParametersByPathRequest extends com.amazonaws.AmazonWebServiceRe
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

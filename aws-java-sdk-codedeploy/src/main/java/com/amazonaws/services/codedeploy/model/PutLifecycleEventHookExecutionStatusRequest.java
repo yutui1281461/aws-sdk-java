@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,7 +27,7 @@ public class PutLifecycleEventHookExecutionStatusRequest extends com.amazonaws.A
 
     /**
      * <p>
-     * The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
+     * The ID of the deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
      * </p>
      */
     private String deploymentId;
@@ -48,12 +48,11 @@ public class PutLifecycleEventHookExecutionStatusRequest extends com.amazonaws.A
 
     /**
      * <p>
-     * The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
+     * The ID of the deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
      * </p>
      * 
      * @param deploymentId
-     *        The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle
-     *        event.
+     *        The ID of the deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
      */
 
     public void setDeploymentId(String deploymentId) {
@@ -62,11 +61,10 @@ public class PutLifecycleEventHookExecutionStatusRequest extends com.amazonaws.A
 
     /**
      * <p>
-     * The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
+     * The ID of the deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
      * </p>
      * 
-     * @return The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle
-     *         event.
+     * @return The ID of the deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
      */
 
     public String getDeploymentId() {
@@ -75,12 +73,11 @@ public class PutLifecycleEventHookExecutionStatusRequest extends com.amazonaws.A
 
     /**
      * <p>
-     * The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
+     * The ID of the deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
      * </p>
      * 
      * @param deploymentId
-     *        The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle
-     *        event.
+     *        The ID of the deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -203,8 +200,7 @@ public class PutLifecycleEventHookExecutionStatusRequest extends com.amazonaws.A
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

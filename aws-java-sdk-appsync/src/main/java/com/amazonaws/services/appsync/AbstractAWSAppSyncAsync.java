@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -49,19 +49,6 @@ public class AbstractAWSAppSyncAsync extends AbstractAWSAppSync implements AWSAp
     @Override
     public java.util.concurrent.Future<CreateDataSourceResult> createDataSourceAsync(CreateDataSourceRequest request,
             com.amazonaws.handlers.AsyncHandler<CreateDataSourceRequest, CreateDataSourceResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<CreateFunctionResult> createFunctionAsync(CreateFunctionRequest request) {
-
-        return createFunctionAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<CreateFunctionResult> createFunctionAsync(CreateFunctionRequest request,
-            com.amazonaws.handlers.AsyncHandler<CreateFunctionRequest, CreateFunctionResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }
@@ -132,19 +119,6 @@ public class AbstractAWSAppSyncAsync extends AbstractAWSAppSync implements AWSAp
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteFunctionResult> deleteFunctionAsync(DeleteFunctionRequest request) {
-
-        return deleteFunctionAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<DeleteFunctionResult> deleteFunctionAsync(DeleteFunctionRequest request,
-            com.amazonaws.handlers.AsyncHandler<DeleteFunctionRequest, DeleteFunctionResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public java.util.concurrent.Future<DeleteGraphqlApiResult> deleteGraphqlApiAsync(DeleteGraphqlApiRequest request) {
 
         return deleteGraphqlApiAsync(request, null);
@@ -192,19 +166,6 @@ public class AbstractAWSAppSyncAsync extends AbstractAWSAppSync implements AWSAp
     @Override
     public java.util.concurrent.Future<GetDataSourceResult> getDataSourceAsync(GetDataSourceRequest request,
             com.amazonaws.handlers.AsyncHandler<GetDataSourceRequest, GetDataSourceResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetFunctionResult> getFunctionAsync(GetFunctionRequest request) {
-
-        return getFunctionAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetFunctionResult> getFunctionAsync(GetFunctionRequest request,
-            com.amazonaws.handlers.AsyncHandler<GetFunctionRequest, GetFunctionResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }
@@ -301,19 +262,6 @@ public class AbstractAWSAppSyncAsync extends AbstractAWSAppSync implements AWSAp
     }
 
     @Override
-    public java.util.concurrent.Future<ListFunctionsResult> listFunctionsAsync(ListFunctionsRequest request) {
-
-        return listFunctionsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<ListFunctionsResult> listFunctionsAsync(ListFunctionsRequest request,
-            com.amazonaws.handlers.AsyncHandler<ListFunctionsRequest, ListFunctionsResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public java.util.concurrent.Future<ListGraphqlApisResult> listGraphqlApisAsync(ListGraphqlApisRequest request) {
 
         return listGraphqlApisAsync(request, null);
@@ -335,19 +283,6 @@ public class AbstractAWSAppSyncAsync extends AbstractAWSAppSync implements AWSAp
     @Override
     public java.util.concurrent.Future<ListResolversResult> listResolversAsync(ListResolversRequest request,
             com.amazonaws.handlers.AsyncHandler<ListResolversRequest, ListResolversResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<ListResolversByFunctionResult> listResolversByFunctionAsync(ListResolversByFunctionRequest request) {
-
-        return listResolversByFunctionAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<ListResolversByFunctionResult> listResolversByFunctionAsync(ListResolversByFunctionRequest request,
-            com.amazonaws.handlers.AsyncHandler<ListResolversByFunctionRequest, ListResolversByFunctionResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }
@@ -400,19 +335,6 @@ public class AbstractAWSAppSyncAsync extends AbstractAWSAppSync implements AWSAp
     @Override
     public java.util.concurrent.Future<UpdateDataSourceResult> updateDataSourceAsync(UpdateDataSourceRequest request,
             com.amazonaws.handlers.AsyncHandler<UpdateDataSourceRequest, UpdateDataSourceResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<UpdateFunctionResult> updateFunctionAsync(UpdateFunctionRequest request) {
-
-        return updateFunctionAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<UpdateFunctionResult> updateFunctionAsync(UpdateFunctionRequest request,
-            com.amazonaws.handlers.AsyncHandler<UpdateFunctionRequest, UpdateFunctionResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }

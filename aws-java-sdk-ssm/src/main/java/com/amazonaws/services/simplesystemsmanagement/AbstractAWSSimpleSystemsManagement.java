@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -44,11 +44,6 @@ public class AbstractAWSSimpleSystemsManagement implements AWSSimpleSystemsManag
 
     @Override
     public CancelCommandResult cancelCommand(CancelCommandRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public CancelMaintenanceWindowExecutionResult cancelMaintenanceWindowExecution(CancelMaintenanceWindowExecutionRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -163,16 +158,6 @@ public class AbstractAWSSimpleSystemsManagement implements AWSSimpleSystemsManag
     }
 
     @Override
-    public DescribeAssociationExecutionTargetsResult describeAssociationExecutionTargets(DescribeAssociationExecutionTargetsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DescribeAssociationExecutionsResult describeAssociationExecutions(DescribeAssociationExecutionsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public DescribeAutomationExecutionsResult describeAutomationExecutions(DescribeAutomationExecutionsRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -254,11 +239,6 @@ public class AbstractAWSSimpleSystemsManagement implements AWSSimpleSystemsManag
     }
 
     @Override
-    public DescribeMaintenanceWindowScheduleResult describeMaintenanceWindowSchedule(DescribeMaintenanceWindowScheduleRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public DescribeMaintenanceWindowTargetsResult describeMaintenanceWindowTargets(DescribeMaintenanceWindowTargetsRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -270,11 +250,6 @@ public class AbstractAWSSimpleSystemsManagement implements AWSSimpleSystemsManag
 
     @Override
     public DescribeMaintenanceWindowsResult describeMaintenanceWindows(DescribeMaintenanceWindowsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DescribeMaintenanceWindowsForTargetResult describeMaintenanceWindowsForTarget(DescribeMaintenanceWindowsForTargetRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -299,22 +274,12 @@ public class AbstractAWSSimpleSystemsManagement implements AWSSimpleSystemsManag
     }
 
     @Override
-    public DescribeSessionsResult describeSessions(DescribeSessionsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public GetAutomationExecutionResult getAutomationExecution(GetAutomationExecutionRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
     @Override
     public GetCommandInvocationResult getCommandInvocation(GetCommandInvocationRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public GetConnectionStatusResult getConnectionStatus(GetConnectionStatusRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -396,11 +361,6 @@ public class AbstractAWSSimpleSystemsManagement implements AWSSimpleSystemsManag
 
     @Override
     public GetPatchBaselineForPatchGroupResult getPatchBaselineForPatchGroup(GetPatchBaselineForPatchGroupRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public LabelParameterVersionResult labelParameterVersion(LabelParameterVersionRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -515,11 +475,6 @@ public class AbstractAWSSimpleSystemsManagement implements AWSSimpleSystemsManag
     }
 
     @Override
-    public ResumeSessionResult resumeSession(ResumeSessionRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public SendAutomationSignalResult sendAutomationSignal(SendAutomationSignalRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -530,27 +485,12 @@ public class AbstractAWSSimpleSystemsManagement implements AWSSimpleSystemsManag
     }
 
     @Override
-    public StartAssociationsOnceResult startAssociationsOnce(StartAssociationsOnceRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public StartAutomationExecutionResult startAutomationExecution(StartAutomationExecutionRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
     @Override
-    public StartSessionResult startSession(StartSessionRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public StopAutomationExecutionResult stopAutomationExecution(StopAutomationExecutionRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public TerminateSessionResult terminateSession(TerminateSessionRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 

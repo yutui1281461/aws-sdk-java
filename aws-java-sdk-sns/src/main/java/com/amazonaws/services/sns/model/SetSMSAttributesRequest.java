@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -45,11 +45,9 @@ public class SetSMSAttributesRequest extends com.amazonaws.AmazonWebServiceReque
      * </p>
      * </important>
      * <p>
-     * By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to raise the limit, submit
-     * an <a href=
-     * "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-sns"
-     * >SNS Limit Increase case</a>. For <b>New limit value</b>, enter your desired monthly spend limit. In the <b>Use
-     * Case Description</b> field, explain that you are requesting an SMS monthly spend limit increase.
+     * By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to exceed the maximum,
+     * contact <a href="https://aws.amazon.com/premiumsupport/">AWS Support</a> or your AWS sales representative for a
+     * service limit increase.
      * </p>
      * <p>
      * <code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about SMS
@@ -162,11 +160,9 @@ public class SetSMSAttributesRequest extends com.amazonaws.AmazonWebServiceReque
      * </p>
      * </important>
      * <p>
-     * By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to raise the limit, submit
-     * an <a href=
-     * "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-sns"
-     * >SNS Limit Increase case</a>. For <b>New limit value</b>, enter your desired monthly spend limit. In the <b>Use
-     * Case Description</b> field, explain that you are requesting an SMS monthly spend limit increase.
+     * By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to exceed the maximum,
+     * contact <a href="https://aws.amazon.com/premiumsupport/">AWS Support</a> or your AWS sales representative for a
+     * service limit increase.
      * </p>
      * <p>
      * <code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about SMS
@@ -274,11 +270,9 @@ public class SetSMSAttributesRequest extends com.amazonaws.AmazonWebServiceReque
      *         </p>
      *         </important>
      *         <p>
-     *         By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to raise the limit,
-     *         submit an <a href=
-     *         "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-sns"
-     *         >SNS Limit Increase case</a>. For <b>New limit value</b>, enter your desired monthly spend limit. In the
-     *         <b>Use Case Description</b> field, explain that you are requesting an SMS monthly spend limit increase.
+     *         By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to exceed the
+     *         maximum, contact <a href="https://aws.amazon.com/premiumsupport/">AWS Support</a> or your AWS sales
+     *         representative for a service limit increase.
      *         </p>
      *         <p>
      *         <code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about
@@ -397,11 +391,9 @@ public class SetSMSAttributesRequest extends com.amazonaws.AmazonWebServiceReque
      * </p>
      * </important>
      * <p>
-     * By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to raise the limit, submit
-     * an <a href=
-     * "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-sns"
-     * >SNS Limit Increase case</a>. For <b>New limit value</b>, enter your desired monthly spend limit. In the <b>Use
-     * Case Description</b> field, explain that you are requesting an SMS monthly spend limit increase.
+     * By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to exceed the maximum,
+     * contact <a href="https://aws.amazon.com/premiumsupport/">AWS Support</a> or your AWS sales representative for a
+     * service limit increase.
      * </p>
      * <p>
      * <code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about SMS
@@ -510,11 +502,9 @@ public class SetSMSAttributesRequest extends com.amazonaws.AmazonWebServiceReque
      *        </p>
      *        </important>
      *        <p>
-     *        By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to raise the limit,
-     *        submit an <a href=
-     *        "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-sns"
-     *        >SNS Limit Increase case</a>. For <b>New limit value</b>, enter your desired monthly spend limit. In the
-     *        <b>Use Case Description</b> field, explain that you are requesting an SMS monthly spend limit increase.
+     *        By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to exceed the
+     *        maximum, contact <a href="https://aws.amazon.com/premiumsupport/">AWS Support</a> or your AWS sales
+     *        representative for a service limit increase.
      *        </p>
      *        <p>
      *        <code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about
@@ -630,11 +620,9 @@ public class SetSMSAttributesRequest extends com.amazonaws.AmazonWebServiceReque
      * </p>
      * </important>
      * <p>
-     * By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to raise the limit, submit
-     * an <a href=
-     * "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-sns"
-     * >SNS Limit Increase case</a>. For <b>New limit value</b>, enter your desired monthly spend limit. In the <b>Use
-     * Case Description</b> field, explain that you are requesting an SMS monthly spend limit increase.
+     * By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to exceed the maximum,
+     * contact <a href="https://aws.amazon.com/premiumsupport/">AWS Support</a> or your AWS sales representative for a
+     * service limit increase.
      * </p>
      * <p>
      * <code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about SMS
@@ -743,11 +731,9 @@ public class SetSMSAttributesRequest extends com.amazonaws.AmazonWebServiceReque
      *        </p>
      *        </important>
      *        <p>
-     *        By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to raise the limit,
-     *        submit an <a href=
-     *        "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-sns"
-     *        >SNS Limit Increase case</a>. For <b>New limit value</b>, enter your desired monthly spend limit. In the
-     *        <b>Use Case Description</b> field, explain that you are requesting an SMS monthly spend limit increase.
+     *        By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to exceed the
+     *        maximum, contact <a href="https://aws.amazon.com/premiumsupport/">AWS Support</a> or your AWS sales
+     *        representative for a service limit increase.
      *        </p>
      *        <p>
      *        <code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about
@@ -870,8 +856,7 @@ public class SetSMSAttributesRequest extends com.amazonaws.AmazonWebServiceReque
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

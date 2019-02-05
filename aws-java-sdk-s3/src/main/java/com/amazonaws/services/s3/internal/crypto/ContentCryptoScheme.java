@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,13 +15,11 @@
 package com.amazonaws.services.s3.internal.crypto;
 
 import java.nio.ByteBuffer;
-import java.security.GeneralSecurityException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.Provider;
-import java.security.Security;
 
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
@@ -32,7 +30,7 @@ import com.amazonaws.SdkClientException;
 
 /**
  * Cryptographic scheme for content encrypt/decryption.
- *
+ * 
  * @author Hanson Char
  */
 abstract class ContentCryptoScheme {
@@ -81,30 +79,29 @@ abstract class ContentCryptoScheme {
     abstract String getCipherAlgorithm();
 
     /**
-     * Returns the preferred security provider to use for this crypto scheme. Java 6 does not
-     * support AES/GCM/NoPadding in the default provider, and newer versions implement it by
-     * buffering all of the ciphertext in memory, so {@code AesGcm} prefers to use the
-     * BouncyCastle provider.
+     * Returns the only security provider that is known to work with the
+     * cipher algorithm in the current implementation; or null if there is
+     * no specific limitation.
      */
-    String getPreferredCipherProvider() { return null; }
+    String getSpecificCipherProvider() { return null; }
     abstract int getKeyLengthInBits();
     abstract int getBlockSizeInBytes();
     abstract int getIVLengthInBytes();
 
     int getTagLengthInBits() { return 0; } // default to zero ie no tag
-
+    
     byte[] adjustIV(byte[] iv, long startingBytePos) {
         return iv;
     }
-
+    
     @Override
     public String toString() {
         return "cipherAlgo=" + getCipherAlgorithm() + ", blockSizeInBytes="
                 + getBlockSizeInBytes() + ", ivLengthInBytes="
                 + getIVLengthInBytes() + ", keyGenAlgo="
                 + getKeyGeneratorAlgorithm() + ", keyLengthInBits="
-                + getKeyLengthInBits() + ", preferredProvider="
-                + getPreferredCipherProvider() + ", tagLengthInBits="
+                + getKeyLengthInBits() + ", specificProvider="
+                + getSpecificCipherProvider() + ", tagLengthInBits="
                 + getTagLengthInBits();
     }
 
@@ -113,7 +110,7 @@ abstract class ContentCryptoScheme {
      * delta. Both the specified delta and the resultant value must stay within
      * the capacity of 32 bits.
      * (Package private for testing purposes.)
-     *
+     * 
      * @param counter
      *            a 16-byte counter used in AES/CTR
      * @param blockDelta
@@ -159,31 +156,34 @@ abstract class ContentCryptoScheme {
             return AES_CBC;
         throw new UnsupportedOperationException("Unsupported content encryption scheme: " + cekAlgo);
     }
-
+    
     /**
      * Creates and initializes a {@link CipherLite} for content
      * encrypt/decryption.
-     *
+     * 
      * @param cek
      *            content encrypting key
      * @param iv
      *            initialization vector
      * @param cipherMode
      *            such as {@link Cipher#ENCRYPT_MODE}
-     * @param provider
-     *            the security provider the user specified. For backwards
-     *            compatibility, if this scheme defines a preferred provider,
-     *            the user-specified provider is by default ignored.
-     * @param alwaysUseProvider
-     *            if true, always use the user-specified provider above, even
-     *            if this scheme has a preferred provider.
+     * @param securityProvider
+     *            optional security provider to be used but only if there is no
+     *            specific provider defined for the specified scheme.
      * @return the cipher lite created and initialized.
      */
     CipherLite createCipherLite(SecretKey cek, byte[] iv, int cipherMode,
-            Provider provider, boolean alwaysUseProvider) {
-
+            Provider securityProvider) {
+        String specificProvider = getSpecificCipherProvider();
+        Cipher cipher;
         try {
-            Cipher cipher = createCipher(provider, alwaysUseProvider);
+            if (specificProvider != null) { // use the specific provider if defined
+                    cipher = Cipher.getInstance(getCipherAlgorithm(), specificProvider);
+            } else if (securityProvider != null) { // use the one optionally specified in the input
+                cipher = Cipher.getInstance(getCipherAlgorithm(), securityProvider);
+            } else { // use the default provider
+                cipher = Cipher.getInstance(getCipherAlgorithm());
+            }
             cipher.init(cipherMode, cek, new IvParameterSpec(iv));
             return newCipherLite(cipher, cek, cipherMode);
         } catch (Exception e) {
@@ -196,34 +196,6 @@ abstract class ContentCryptoScheme {
                         + "configured for your JVM",
                     e);
         }
-    }
-
-    private Cipher createCipher(Provider provider, boolean alwaysUseProvider)
-            throws GeneralSecurityException {
-
-        String algorithm = getCipherAlgorithm();
-        String preferredProvider = getPreferredCipherProvider();
-
-        // If the user has specified that they always want to use the provider they
-        // specified, that wins (this is not the default for backwards compatibility
-        // reasons).
-        if (alwaysUseProvider) {
-            return Cipher.getInstance(algorithm, provider);
-        }
-
-        // Otherwise, if this crypto scheme prefers a particular provider (AesGcm prefers
-        // the non-FIPS BouncyCastle provider), that takes precedence.
-        if (preferredProvider != null) {
-            return Cipher.getInstance(algorithm, preferredProvider);
-        }
-
-        // Otherwise, if the user has specified a provider, go with that.
-        if (provider != null) {
-            return Cipher.getInstance(algorithm, provider);
-        }
-
-        // If all else fails, go with the default provider.
-        return Cipher.getInstance(algorithm);
     }
 
     /**
@@ -242,7 +214,7 @@ abstract class ContentCryptoScheme {
     }
     /**
      * Creates and initializes a cipher lite for content encrypt/decryption.
-     *
+     * 
      * @param cek
      *            content encrypting key
      * @param iv
@@ -255,7 +227,7 @@ abstract class ContentCryptoScheme {
             throws InvalidKeyException, NoSuchAlgorithmException,
             NoSuchProviderException, NoSuchPaddingException,
             InvalidAlgorithmParameterException {
-        return createCipherLite(cek, iv, cipherMode, null, false);
+        return createCipherLite(cek, iv, cipherMode, null);
     }
 
     /**

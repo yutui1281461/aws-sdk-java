@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -45,12 +45,6 @@ public class DvbSubDestinationSettings implements Serializable, Cloneable, Struc
      * Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
      */
     private Integer fontResolution;
-    /**
-     * Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for determining
-     * the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset. This is
-     * used to help determine the appropriate font for rendering DVB-Sub captions.
-     */
-    private String fontScript;
     /**
      * A positive integer indicates the exact font size in points. Set to 0 for automatic font size selection. All
      * burn-in and DVB-Sub font settings must match.
@@ -335,73 +329,6 @@ public class DvbSubDestinationSettings implements Serializable, Cloneable, Struc
 
     public DvbSubDestinationSettings withFontResolution(Integer fontResolution) {
         setFontResolution(fontResolution);
-        return this;
-    }
-
-    /**
-     * Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for determining
-     * the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset. This is
-     * used to help determine the appropriate font for rendering DVB-Sub captions.
-     * 
-     * @param fontScript
-     *        Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for
-     *        determining the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or
-     *        leave unset. This is used to help determine the appropriate font for rendering DVB-Sub captions.
-     * @see FontScript
-     */
-
-    public void setFontScript(String fontScript) {
-        this.fontScript = fontScript;
-    }
-
-    /**
-     * Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for determining
-     * the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset. This is
-     * used to help determine the appropriate font for rendering DVB-Sub captions.
-     * 
-     * @return Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for
-     *         determining the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or
-     *         leave unset. This is used to help determine the appropriate font for rendering DVB-Sub captions.
-     * @see FontScript
-     */
-
-    public String getFontScript() {
-        return this.fontScript;
-    }
-
-    /**
-     * Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for determining
-     * the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset. This is
-     * used to help determine the appropriate font for rendering DVB-Sub captions.
-     * 
-     * @param fontScript
-     *        Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for
-     *        determining the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or
-     *        leave unset. This is used to help determine the appropriate font for rendering DVB-Sub captions.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see FontScript
-     */
-
-    public DvbSubDestinationSettings withFontScript(String fontScript) {
-        setFontScript(fontScript);
-        return this;
-    }
-
-    /**
-     * Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for determining
-     * the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset. This is
-     * used to help determine the appropriate font for rendering DVB-Sub captions.
-     * 
-     * @param fontScript
-     *        Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for
-     *        determining the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or
-     *        leave unset. This is used to help determine the appropriate font for rendering DVB-Sub captions.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see FontScript
-     */
-
-    public DvbSubDestinationSettings withFontScript(FontScript fontScript) {
-        this.fontScript = fontScript.toString();
         return this;
     }
 
@@ -848,8 +775,7 @@ public class DvbSubDestinationSettings implements Serializable, Cloneable, Struc
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -871,8 +797,6 @@ public class DvbSubDestinationSettings implements Serializable, Cloneable, Struc
             sb.append("FontOpacity: ").append(getFontOpacity()).append(",");
         if (getFontResolution() != null)
             sb.append("FontResolution: ").append(getFontResolution()).append(",");
-        if (getFontScript() != null)
-            sb.append("FontScript: ").append(getFontScript()).append(",");
         if (getFontSize() != null)
             sb.append("FontSize: ").append(getFontSize()).append(",");
         if (getOutlineColor() != null)
@@ -931,10 +855,6 @@ public class DvbSubDestinationSettings implements Serializable, Cloneable, Struc
             return false;
         if (other.getFontResolution() != null && other.getFontResolution().equals(this.getFontResolution()) == false)
             return false;
-        if (other.getFontScript() == null ^ this.getFontScript() == null)
-            return false;
-        if (other.getFontScript() != null && other.getFontScript().equals(this.getFontScript()) == false)
-            return false;
         if (other.getFontSize() == null ^ this.getFontSize() == null)
             return false;
         if (other.getFontSize() != null && other.getFontSize().equals(this.getFontSize()) == false)
@@ -989,7 +909,6 @@ public class DvbSubDestinationSettings implements Serializable, Cloneable, Struc
         hashCode = prime * hashCode + ((getFontColor() == null) ? 0 : getFontColor().hashCode());
         hashCode = prime * hashCode + ((getFontOpacity() == null) ? 0 : getFontOpacity().hashCode());
         hashCode = prime * hashCode + ((getFontResolution() == null) ? 0 : getFontResolution().hashCode());
-        hashCode = prime * hashCode + ((getFontScript() == null) ? 0 : getFontScript().hashCode());
         hashCode = prime * hashCode + ((getFontSize() == null) ? 0 : getFontSize().hashCode());
         hashCode = prime * hashCode + ((getOutlineColor() == null) ? 0 : getOutlineColor().hashCode());
         hashCode = prime * hashCode + ((getOutlineSize() == null) ? 0 : getOutlineSize().hashCode());

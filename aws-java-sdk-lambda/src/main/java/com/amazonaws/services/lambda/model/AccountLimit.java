@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Limits related to concurrency and code storage. All file and storage sizes are in bytes.
+ * Provides limits of code size and concurrency associated with the current account and region.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/AccountLimit" target="_top">AWS API
@@ -30,43 +30,48 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The amount of storage space that you can use for all deployment packages and layer archives.
+     * Maximum size, in bytes, of a code package you can upload per region. The default size is 75 GB.
      * </p>
      */
     private Long totalCodeSize;
     /**
      * <p>
-     * The maximum size of your function's code and layers when extracted.
+     * Size, in bytes, of code/dependencies that you can zip into a deployment package (uncompressed zip/jar size) for
+     * uploading. The default limit is 250 MB.
      * </p>
      */
     private Long codeSizeUnzipped;
     /**
      * <p>
-     * The maximum size of a deployment package when uploaded direcly to AWS Lambda. Use Amazon S3 for larger files.
+     * Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda function(.zip/.jar
+     * file). Try using Amazon S3 for uploading larger files. Default limit is 50 MB.
      * </p>
      */
     private Long codeSizeZipped;
     /**
      * <p>
-     * The maximum number of simultaneous function executions.
+     * Number of simultaneous executions of your function per region. For more information or to request a limit
+     * increase for concurrent executions, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Lambda Function Concurrent
+     * Executions</a>. The default limit is 1000.
      * </p>
      */
     private Integer concurrentExecutions;
     /**
      * <p>
-     * The maximum number of simultaneous function executions, less the concurrency reserved for individual functions
-     * with <a>PutFunctionConcurrency</a>.
+     * The number of concurrent executions available to functions that do not have concurrency limits set. For more
+     * information, see <a>concurrent-executions</a>.
      * </p>
      */
     private Integer unreservedConcurrentExecutions;
 
     /**
      * <p>
-     * The amount of storage space that you can use for all deployment packages and layer archives.
+     * Maximum size, in bytes, of a code package you can upload per region. The default size is 75 GB.
      * </p>
      * 
      * @param totalCodeSize
-     *        The amount of storage space that you can use for all deployment packages and layer archives.
+     *        Maximum size, in bytes, of a code package you can upload per region. The default size is 75 GB.
      */
 
     public void setTotalCodeSize(Long totalCodeSize) {
@@ -75,10 +80,10 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The amount of storage space that you can use for all deployment packages and layer archives.
+     * Maximum size, in bytes, of a code package you can upload per region. The default size is 75 GB.
      * </p>
      * 
-     * @return The amount of storage space that you can use for all deployment packages and layer archives.
+     * @return Maximum size, in bytes, of a code package you can upload per region. The default size is 75 GB.
      */
 
     public Long getTotalCodeSize() {
@@ -87,11 +92,11 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The amount of storage space that you can use for all deployment packages and layer archives.
+     * Maximum size, in bytes, of a code package you can upload per region. The default size is 75 GB.
      * </p>
      * 
      * @param totalCodeSize
-     *        The amount of storage space that you can use for all deployment packages and layer archives.
+     *        Maximum size, in bytes, of a code package you can upload per region. The default size is 75 GB.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -102,11 +107,13 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum size of your function's code and layers when extracted.
+     * Size, in bytes, of code/dependencies that you can zip into a deployment package (uncompressed zip/jar size) for
+     * uploading. The default limit is 250 MB.
      * </p>
      * 
      * @param codeSizeUnzipped
-     *        The maximum size of your function's code and layers when extracted.
+     *        Size, in bytes, of code/dependencies that you can zip into a deployment package (uncompressed zip/jar
+     *        size) for uploading. The default limit is 250 MB.
      */
 
     public void setCodeSizeUnzipped(Long codeSizeUnzipped) {
@@ -115,10 +122,12 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum size of your function's code and layers when extracted.
+     * Size, in bytes, of code/dependencies that you can zip into a deployment package (uncompressed zip/jar size) for
+     * uploading. The default limit is 250 MB.
      * </p>
      * 
-     * @return The maximum size of your function's code and layers when extracted.
+     * @return Size, in bytes, of code/dependencies that you can zip into a deployment package (uncompressed zip/jar
+     *         size) for uploading. The default limit is 250 MB.
      */
 
     public Long getCodeSizeUnzipped() {
@@ -127,11 +136,13 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum size of your function's code and layers when extracted.
+     * Size, in bytes, of code/dependencies that you can zip into a deployment package (uncompressed zip/jar size) for
+     * uploading. The default limit is 250 MB.
      * </p>
      * 
      * @param codeSizeUnzipped
-     *        The maximum size of your function's code and layers when extracted.
+     *        Size, in bytes, of code/dependencies that you can zip into a deployment package (uncompressed zip/jar
+     *        size) for uploading. The default limit is 250 MB.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -142,12 +153,13 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum size of a deployment package when uploaded direcly to AWS Lambda. Use Amazon S3 for larger files.
+     * Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda function(.zip/.jar
+     * file). Try using Amazon S3 for uploading larger files. Default limit is 50 MB.
      * </p>
      * 
      * @param codeSizeZipped
-     *        The maximum size of a deployment package when uploaded direcly to AWS Lambda. Use Amazon S3 for larger
-     *        files.
+     *        Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda
+     *        function(.zip/.jar file). Try using Amazon S3 for uploading larger files. Default limit is 50 MB.
      */
 
     public void setCodeSizeZipped(Long codeSizeZipped) {
@@ -156,11 +168,12 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum size of a deployment package when uploaded direcly to AWS Lambda. Use Amazon S3 for larger files.
+     * Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda function(.zip/.jar
+     * file). Try using Amazon S3 for uploading larger files. Default limit is 50 MB.
      * </p>
      * 
-     * @return The maximum size of a deployment package when uploaded direcly to AWS Lambda. Use Amazon S3 for larger
-     *         files.
+     * @return Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda
+     *         function(.zip/.jar file). Try using Amazon S3 for uploading larger files. Default limit is 50 MB.
      */
 
     public Long getCodeSizeZipped() {
@@ -169,12 +182,13 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum size of a deployment package when uploaded direcly to AWS Lambda. Use Amazon S3 for larger files.
+     * Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda function(.zip/.jar
+     * file). Try using Amazon S3 for uploading larger files. Default limit is 50 MB.
      * </p>
      * 
      * @param codeSizeZipped
-     *        The maximum size of a deployment package when uploaded direcly to AWS Lambda. Use Amazon S3 for larger
-     *        files.
+     *        Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda
+     *        function(.zip/.jar file). Try using Amazon S3 for uploading larger files. Default limit is 50 MB.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -185,11 +199,17 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum number of simultaneous function executions.
+     * Number of simultaneous executions of your function per region. For more information or to request a limit
+     * increase for concurrent executions, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Lambda Function Concurrent
+     * Executions</a>. The default limit is 1000.
      * </p>
      * 
      * @param concurrentExecutions
-     *        The maximum number of simultaneous function executions.
+     *        Number of simultaneous executions of your function per region. For more information or to request a limit
+     *        increase for concurrent executions, see <a
+     *        href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Lambda Function Concurrent
+     *        Executions</a>. The default limit is 1000.
      */
 
     public void setConcurrentExecutions(Integer concurrentExecutions) {
@@ -198,10 +218,16 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum number of simultaneous function executions.
+     * Number of simultaneous executions of your function per region. For more information or to request a limit
+     * increase for concurrent executions, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Lambda Function Concurrent
+     * Executions</a>. The default limit is 1000.
      * </p>
      * 
-     * @return The maximum number of simultaneous function executions.
+     * @return Number of simultaneous executions of your function per region. For more information or to request a limit
+     *         increase for concurrent executions, see <a
+     *         href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Lambda Function Concurrent
+     *         Executions</a>. The default limit is 1000.
      */
 
     public Integer getConcurrentExecutions() {
@@ -210,11 +236,17 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum number of simultaneous function executions.
+     * Number of simultaneous executions of your function per region. For more information or to request a limit
+     * increase for concurrent executions, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Lambda Function Concurrent
+     * Executions</a>. The default limit is 1000.
      * </p>
      * 
      * @param concurrentExecutions
-     *        The maximum number of simultaneous function executions.
+     *        Number of simultaneous executions of your function per region. For more information or to request a limit
+     *        increase for concurrent executions, see <a
+     *        href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Lambda Function Concurrent
+     *        Executions</a>. The default limit is 1000.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -225,13 +257,13 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum number of simultaneous function executions, less the concurrency reserved for individual functions
-     * with <a>PutFunctionConcurrency</a>.
+     * The number of concurrent executions available to functions that do not have concurrency limits set. For more
+     * information, see <a>concurrent-executions</a>.
      * </p>
      * 
      * @param unreservedConcurrentExecutions
-     *        The maximum number of simultaneous function executions, less the concurrency reserved for individual
-     *        functions with <a>PutFunctionConcurrency</a>.
+     *        The number of concurrent executions available to functions that do not have concurrency limits set. For
+     *        more information, see <a>concurrent-executions</a>.
      */
 
     public void setUnreservedConcurrentExecutions(Integer unreservedConcurrentExecutions) {
@@ -240,12 +272,12 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum number of simultaneous function executions, less the concurrency reserved for individual functions
-     * with <a>PutFunctionConcurrency</a>.
+     * The number of concurrent executions available to functions that do not have concurrency limits set. For more
+     * information, see <a>concurrent-executions</a>.
      * </p>
      * 
-     * @return The maximum number of simultaneous function executions, less the concurrency reserved for individual
-     *         functions with <a>PutFunctionConcurrency</a>.
+     * @return The number of concurrent executions available to functions that do not have concurrency limits set. For
+     *         more information, see <a>concurrent-executions</a>.
      */
 
     public Integer getUnreservedConcurrentExecutions() {
@@ -254,13 +286,13 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The maximum number of simultaneous function executions, less the concurrency reserved for individual functions
-     * with <a>PutFunctionConcurrency</a>.
+     * The number of concurrent executions available to functions that do not have concurrency limits set. For more
+     * information, see <a>concurrent-executions</a>.
      * </p>
      * 
      * @param unreservedConcurrentExecutions
-     *        The maximum number of simultaneous function executions, less the concurrency reserved for individual
-     *        functions with <a>PutFunctionConcurrency</a>.
+     *        The number of concurrent executions available to functions that do not have concurrency limits set. For
+     *        more information, see <a>concurrent-executions</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -270,8 +302,7 @@ public class AccountLimit implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

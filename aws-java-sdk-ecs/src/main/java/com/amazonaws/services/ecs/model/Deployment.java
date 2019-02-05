@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,8 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * The details of an Amazon ECS service deployment. This is used when a service uses the <code>CODE_DEPLOY</code>
- * deployment controller type.
+ * The details of an Amazon ECS service deployment.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/Deployment" target="_top">AWS API
@@ -37,34 +36,15 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
     private String id;
     /**
      * <p>
-     * The status of the deployment. The following describes each state:
+     * The status of the deployment. Valid values are <code>PRIMARY</code> (for the most recent deployment),
+     * <code>ACTIVE</code> (for previous deployments that still have tasks running, but are being replaced with the
+     * <code>PRIMARY</code> deployment), and <code>INACTIVE</code> (for deployments that have been completely replaced).
      * </p>
-     * <dl>
-     * <dt>PRIMARY</dt>
-     * <dd>
-     * <p>
-     * The most recent deployment of a service.
-     * </p>
-     * </dd>
-     * <dt>ACTIVE</dt>
-     * <dd>
-     * <p>
-     * A service deployment that still has running tasks, but are in the process of being replaced with a new
-     * <code>PRIMARY</code> deployment.
-     * </p>
-     * </dd>
-     * <dt>INACTIVE</dt>
-     * <dd>
-     * <p>
-     * A deployment that has been completely replaced.
-     * </p>
-     * </dd>
-     * </dl>
      */
     private String status;
     /**
      * <p>
-     * The most recent task definition that was specified for the tasks in the service to use.
+     * The most recent task definition that was specified for the service to use.
      * </p>
      */
     private String taskDefinition;
@@ -88,37 +68,31 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
     private Integer runningCount;
     /**
      * <p>
-     * The Unix timestamp for when the service deployment was created.
+     * The Unix time stamp for when the service was created.
      * </p>
      */
     private java.util.Date createdAt;
     /**
      * <p>
-     * The Unix timestamp for when the service deployment was last updated.
+     * The Unix time stamp for when the service was last updated.
      * </p>
      */
     private java.util.Date updatedAt;
     /**
      * <p>
-     * The launch type the tasks in the service are using. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS Launch Types</a>
-     * in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     * The launch type on which your service is running.
      * </p>
      */
     private String launchType;
     /**
      * <p>
-     * The platform version on which your tasks in the service are running. A platform version is only specified for
-     * tasks using the Fargate launch type. If one is not specified, the <code>LATEST</code> platform version is used by
-     * default. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform
-     * Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     * The platform version on which your service is running.
      * </p>
      */
     private String platformVersion;
     /**
      * <p>
-     * The VPC subnet and security group configuration for tasks that receive their own elastic network interface by
+     * The VPC subnet and security group configuration for tasks that receive their own Elastic Network Interface by
      * using the <code>awsvpc</code> networking mode.
      * </p>
      */
@@ -166,52 +140,16 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The status of the deployment. The following describes each state:
+     * The status of the deployment. Valid values are <code>PRIMARY</code> (for the most recent deployment),
+     * <code>ACTIVE</code> (for previous deployments that still have tasks running, but are being replaced with the
+     * <code>PRIMARY</code> deployment), and <code>INACTIVE</code> (for deployments that have been completely replaced).
      * </p>
-     * <dl>
-     * <dt>PRIMARY</dt>
-     * <dd>
-     * <p>
-     * The most recent deployment of a service.
-     * </p>
-     * </dd>
-     * <dt>ACTIVE</dt>
-     * <dd>
-     * <p>
-     * A service deployment that still has running tasks, but are in the process of being replaced with a new
-     * <code>PRIMARY</code> deployment.
-     * </p>
-     * </dd>
-     * <dt>INACTIVE</dt>
-     * <dd>
-     * <p>
-     * A deployment that has been completely replaced.
-     * </p>
-     * </dd>
-     * </dl>
      * 
      * @param status
-     *        The status of the deployment. The following describes each state:</p>
-     *        <dl>
-     *        <dt>PRIMARY</dt>
-     *        <dd>
-     *        <p>
-     *        The most recent deployment of a service.
-     *        </p>
-     *        </dd>
-     *        <dt>ACTIVE</dt>
-     *        <dd>
-     *        <p>
-     *        A service deployment that still has running tasks, but are in the process of being replaced with a new
-     *        <code>PRIMARY</code> deployment.
-     *        </p>
-     *        </dd>
-     *        <dt>INACTIVE</dt>
-     *        <dd>
-     *        <p>
-     *        A deployment that has been completely replaced.
-     *        </p>
-     *        </dd>
+     *        The status of the deployment. Valid values are <code>PRIMARY</code> (for the most recent deployment),
+     *        <code>ACTIVE</code> (for previous deployments that still have tasks running, but are being replaced with
+     *        the <code>PRIMARY</code> deployment), and <code>INACTIVE</code> (for deployments that have been completely
+     *        replaced).
      */
 
     public void setStatus(String status) {
@@ -220,51 +158,15 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The status of the deployment. The following describes each state:
+     * The status of the deployment. Valid values are <code>PRIMARY</code> (for the most recent deployment),
+     * <code>ACTIVE</code> (for previous deployments that still have tasks running, but are being replaced with the
+     * <code>PRIMARY</code> deployment), and <code>INACTIVE</code> (for deployments that have been completely replaced).
      * </p>
-     * <dl>
-     * <dt>PRIMARY</dt>
-     * <dd>
-     * <p>
-     * The most recent deployment of a service.
-     * </p>
-     * </dd>
-     * <dt>ACTIVE</dt>
-     * <dd>
-     * <p>
-     * A service deployment that still has running tasks, but are in the process of being replaced with a new
-     * <code>PRIMARY</code> deployment.
-     * </p>
-     * </dd>
-     * <dt>INACTIVE</dt>
-     * <dd>
-     * <p>
-     * A deployment that has been completely replaced.
-     * </p>
-     * </dd>
-     * </dl>
      * 
-     * @return The status of the deployment. The following describes each state:</p>
-     *         <dl>
-     *         <dt>PRIMARY</dt>
-     *         <dd>
-     *         <p>
-     *         The most recent deployment of a service.
-     *         </p>
-     *         </dd>
-     *         <dt>ACTIVE</dt>
-     *         <dd>
-     *         <p>
-     *         A service deployment that still has running tasks, but are in the process of being replaced with a new
-     *         <code>PRIMARY</code> deployment.
-     *         </p>
-     *         </dd>
-     *         <dt>INACTIVE</dt>
-     *         <dd>
-     *         <p>
-     *         A deployment that has been completely replaced.
-     *         </p>
-     *         </dd>
+     * @return The status of the deployment. Valid values are <code>PRIMARY</code> (for the most recent deployment),
+     *         <code>ACTIVE</code> (for previous deployments that still have tasks running, but are being replaced with
+     *         the <code>PRIMARY</code> deployment), and <code>INACTIVE</code> (for deployments that have been
+     *         completely replaced).
      */
 
     public String getStatus() {
@@ -273,52 +175,16 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The status of the deployment. The following describes each state:
+     * The status of the deployment. Valid values are <code>PRIMARY</code> (for the most recent deployment),
+     * <code>ACTIVE</code> (for previous deployments that still have tasks running, but are being replaced with the
+     * <code>PRIMARY</code> deployment), and <code>INACTIVE</code> (for deployments that have been completely replaced).
      * </p>
-     * <dl>
-     * <dt>PRIMARY</dt>
-     * <dd>
-     * <p>
-     * The most recent deployment of a service.
-     * </p>
-     * </dd>
-     * <dt>ACTIVE</dt>
-     * <dd>
-     * <p>
-     * A service deployment that still has running tasks, but are in the process of being replaced with a new
-     * <code>PRIMARY</code> deployment.
-     * </p>
-     * </dd>
-     * <dt>INACTIVE</dt>
-     * <dd>
-     * <p>
-     * A deployment that has been completely replaced.
-     * </p>
-     * </dd>
-     * </dl>
      * 
      * @param status
-     *        The status of the deployment. The following describes each state:</p>
-     *        <dl>
-     *        <dt>PRIMARY</dt>
-     *        <dd>
-     *        <p>
-     *        The most recent deployment of a service.
-     *        </p>
-     *        </dd>
-     *        <dt>ACTIVE</dt>
-     *        <dd>
-     *        <p>
-     *        A service deployment that still has running tasks, but are in the process of being replaced with a new
-     *        <code>PRIMARY</code> deployment.
-     *        </p>
-     *        </dd>
-     *        <dt>INACTIVE</dt>
-     *        <dd>
-     *        <p>
-     *        A deployment that has been completely replaced.
-     *        </p>
-     *        </dd>
+     *        The status of the deployment. Valid values are <code>PRIMARY</code> (for the most recent deployment),
+     *        <code>ACTIVE</code> (for previous deployments that still have tasks running, but are being replaced with
+     *        the <code>PRIMARY</code> deployment), and <code>INACTIVE</code> (for deployments that have been completely
+     *        replaced).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -329,11 +195,11 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The most recent task definition that was specified for the tasks in the service to use.
+     * The most recent task definition that was specified for the service to use.
      * </p>
      * 
      * @param taskDefinition
-     *        The most recent task definition that was specified for the tasks in the service to use.
+     *        The most recent task definition that was specified for the service to use.
      */
 
     public void setTaskDefinition(String taskDefinition) {
@@ -342,10 +208,10 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The most recent task definition that was specified for the tasks in the service to use.
+     * The most recent task definition that was specified for the service to use.
      * </p>
      * 
-     * @return The most recent task definition that was specified for the tasks in the service to use.
+     * @return The most recent task definition that was specified for the service to use.
      */
 
     public String getTaskDefinition() {
@@ -354,11 +220,11 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The most recent task definition that was specified for the tasks in the service to use.
+     * The most recent task definition that was specified for the service to use.
      * </p>
      * 
      * @param taskDefinition
-     *        The most recent task definition that was specified for the tasks in the service to use.
+     *        The most recent task definition that was specified for the service to use.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -489,11 +355,11 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the service deployment was created.
+     * The Unix time stamp for when the service was created.
      * </p>
      * 
      * @param createdAt
-     *        The Unix timestamp for when the service deployment was created.
+     *        The Unix time stamp for when the service was created.
      */
 
     public void setCreatedAt(java.util.Date createdAt) {
@@ -502,10 +368,10 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the service deployment was created.
+     * The Unix time stamp for when the service was created.
      * </p>
      * 
-     * @return The Unix timestamp for when the service deployment was created.
+     * @return The Unix time stamp for when the service was created.
      */
 
     public java.util.Date getCreatedAt() {
@@ -514,11 +380,11 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the service deployment was created.
+     * The Unix time stamp for when the service was created.
      * </p>
      * 
      * @param createdAt
-     *        The Unix timestamp for when the service deployment was created.
+     *        The Unix time stamp for when the service was created.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -529,11 +395,11 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the service deployment was last updated.
+     * The Unix time stamp for when the service was last updated.
      * </p>
      * 
      * @param updatedAt
-     *        The Unix timestamp for when the service deployment was last updated.
+     *        The Unix time stamp for when the service was last updated.
      */
 
     public void setUpdatedAt(java.util.Date updatedAt) {
@@ -542,10 +408,10 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the service deployment was last updated.
+     * The Unix time stamp for when the service was last updated.
      * </p>
      * 
-     * @return The Unix timestamp for when the service deployment was last updated.
+     * @return The Unix time stamp for when the service was last updated.
      */
 
     public java.util.Date getUpdatedAt() {
@@ -554,11 +420,11 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Unix timestamp for when the service deployment was last updated.
+     * The Unix time stamp for when the service was last updated.
      * </p>
      * 
      * @param updatedAt
-     *        The Unix timestamp for when the service deployment was last updated.
+     *        The Unix time stamp for when the service was last updated.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -569,15 +435,11 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The launch type the tasks in the service are using. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS Launch Types</a>
-     * in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     * The launch type on which your service is running.
      * </p>
      * 
      * @param launchType
-     *        The launch type the tasks in the service are using. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS Launch
-     *        Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     *        The launch type on which your service is running.
      * @see LaunchType
      */
 
@@ -587,14 +449,10 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The launch type the tasks in the service are using. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS Launch Types</a>
-     * in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     * The launch type on which your service is running.
      * </p>
      * 
-     * @return The launch type the tasks in the service are using. For more information, see <a
-     *         href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS Launch
-     *         Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     * @return The launch type on which your service is running.
      * @see LaunchType
      */
 
@@ -604,15 +462,11 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The launch type the tasks in the service are using. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS Launch Types</a>
-     * in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     * The launch type on which your service is running.
      * </p>
      * 
      * @param launchType
-     *        The launch type the tasks in the service are using. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS Launch
-     *        Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     *        The launch type on which your service is running.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LaunchType
      */
@@ -624,15 +478,11 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The launch type the tasks in the service are using. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS Launch Types</a>
-     * in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     * The launch type on which your service is running.
      * </p>
      * 
      * @param launchType
-     *        The launch type the tasks in the service are using. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS Launch
-     *        Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     *        The launch type on which your service is running.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LaunchType
      */
@@ -644,19 +494,11 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The platform version on which your tasks in the service are running. A platform version is only specified for
-     * tasks using the Fargate launch type. If one is not specified, the <code>LATEST</code> platform version is used by
-     * default. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform
-     * Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     * The platform version on which your service is running.
      * </p>
      * 
      * @param platformVersion
-     *        The platform version on which your tasks in the service are running. A platform version is only specified
-     *        for tasks using the Fargate launch type. If one is not specified, the <code>LATEST</code> platform version
-     *        is used by default. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate
-     *        Platform Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     *        The platform version on which your service is running.
      */
 
     public void setPlatformVersion(String platformVersion) {
@@ -665,18 +507,10 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The platform version on which your tasks in the service are running. A platform version is only specified for
-     * tasks using the Fargate launch type. If one is not specified, the <code>LATEST</code> platform version is used by
-     * default. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform
-     * Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     * The platform version on which your service is running.
      * </p>
      * 
-     * @return The platform version on which your tasks in the service are running. A platform version is only specified
-     *         for tasks using the Fargate launch type. If one is not specified, the <code>LATEST</code> platform
-     *         version is used by default. For more information, see <a
-     *         href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate
-     *         Platform Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     * @return The platform version on which your service is running.
      */
 
     public String getPlatformVersion() {
@@ -685,19 +519,11 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The platform version on which your tasks in the service are running. A platform version is only specified for
-     * tasks using the Fargate launch type. If one is not specified, the <code>LATEST</code> platform version is used by
-     * default. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform
-     * Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     * The platform version on which your service is running.
      * </p>
      * 
      * @param platformVersion
-     *        The platform version on which your tasks in the service are running. A platform version is only specified
-     *        for tasks using the Fargate launch type. If one is not specified, the <code>LATEST</code> platform version
-     *        is used by default. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate
-     *        Platform Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+     *        The platform version on which your service is running.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -708,12 +534,12 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The VPC subnet and security group configuration for tasks that receive their own elastic network interface by
+     * The VPC subnet and security group configuration for tasks that receive their own Elastic Network Interface by
      * using the <code>awsvpc</code> networking mode.
      * </p>
      * 
      * @param networkConfiguration
-     *        The VPC subnet and security group configuration for tasks that receive their own elastic network interface
+     *        The VPC subnet and security group configuration for tasks that receive their own Elastic Network Interface
      *        by using the <code>awsvpc</code> networking mode.
      */
 
@@ -723,12 +549,12 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The VPC subnet and security group configuration for tasks that receive their own elastic network interface by
+     * The VPC subnet and security group configuration for tasks that receive their own Elastic Network Interface by
      * using the <code>awsvpc</code> networking mode.
      * </p>
      * 
-     * @return The VPC subnet and security group configuration for tasks that receive their own elastic network
-     *         interface by using the <code>awsvpc</code> networking mode.
+     * @return The VPC subnet and security group configuration for tasks that receive their own Elastic Network
+     *         Interface by using the <code>awsvpc</code> networking mode.
      */
 
     public NetworkConfiguration getNetworkConfiguration() {
@@ -737,12 +563,12 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The VPC subnet and security group configuration for tasks that receive their own elastic network interface by
+     * The VPC subnet and security group configuration for tasks that receive their own Elastic Network Interface by
      * using the <code>awsvpc</code> networking mode.
      * </p>
      * 
      * @param networkConfiguration
-     *        The VPC subnet and security group configuration for tasks that receive their own elastic network interface
+     *        The VPC subnet and security group configuration for tasks that receive their own Elastic Network Interface
      *        by using the <code>awsvpc</code> networking mode.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -753,8 +579,7 @@ public class Deployment implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

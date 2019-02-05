@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -36,7 +36,7 @@ public class AddTagsToStreamRequest extends com.amazonaws.AmazonWebServiceReques
     private String streamName;
     /**
      * <p>
-     * A set of up to 10 key-value pairs to use to create the tags.
+     * The set of key-value pairs to use to create the tags.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalMap<String, String> tags;
@@ -83,10 +83,10 @@ public class AddTagsToStreamRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * A set of up to 10 key-value pairs to use to create the tags.
+     * The set of key-value pairs to use to create the tags.
      * </p>
      * 
-     * @return A set of up to 10 key-value pairs to use to create the tags.
+     * @return The set of key-value pairs to use to create the tags.
      */
 
     public java.util.Map<String, String> getTags() {
@@ -98,11 +98,11 @@ public class AddTagsToStreamRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * A set of up to 10 key-value pairs to use to create the tags.
+     * The set of key-value pairs to use to create the tags.
      * </p>
      * 
      * @param tags
-     *        A set of up to 10 key-value pairs to use to create the tags.
+     *        The set of key-value pairs to use to create the tags.
      */
 
     public void setTags(java.util.Map<String, String> tags) {
@@ -111,11 +111,11 @@ public class AddTagsToStreamRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * A set of up to 10 key-value pairs to use to create the tags.
+     * The set of key-value pairs to use to create the tags.
      * </p>
      * 
      * @param tags
-     *        A set of up to 10 key-value pairs to use to create the tags.
+     *        The set of key-value pairs to use to create the tags.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -146,8 +146,7 @@ public class AddTagsToStreamRequest extends com.amazonaws.AmazonWebServiceReques
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

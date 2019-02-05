@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -62,17 +62,17 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
     private com.amazonaws.internal.SdkInternalList<String> destinations;
     /**
      * <p>
-     * The raw email message itself. The message has to meet the following criteria:
+     * The raw text of the message. The client is responsible for ensuring the following:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * The message has to contain a header and a body, separated by a blank line.
+     * Message must contain a header and a body, separated by a blank line.
      * </p>
      * </li>
      * <li>
      * <p>
-     * All of the required header fields must be present in the message.
+     * All required header fields must be present.
      * </p>
      * </li>
      * <li>
@@ -82,22 +82,13 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
      * </li>
      * <li>
      * <p>
-     * Attachments must be of a content type that Amazon SES supports. For a list on unsupported content types, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Unsupported Attachment Types</a> in
-     * the <i>Amazon SES Developer Guide</i>.
+     * MIME content types must be among those supported by Amazon SES. For more information, go to the <a
+     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Amazon SES Developer Guide</a>.
      * </p>
      * </li>
      * <li>
      * <p>
-     * The entire message must be base64-encoded.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, we
-     * highly recommend that you encode that content. For more information, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Sending Raw Email</a> in the
-     * <i>Amazon SES Developer Guide</i>.
+     * Must be base64-encoded.
      * </p>
      * </li>
      * <li>
@@ -213,16 +204,16 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
      * initialize any additional object members.
      * 
      * @param rawMessage
-     *        The raw email message itself. The message has to meet the following criteria:</p>
+     *        The raw text of the message. The client is responsible for ensuring the following:</p>
      *        <ul>
      *        <li>
      *        <p>
-     *        The message has to contain a header and a body, separated by a blank line.
+     *        Message must contain a header and a body, separated by a blank line.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        All of the required header fields must be present in the message.
+     *        All required header fields must be present.
      *        </p>
      *        </li>
      *        <li>
@@ -232,22 +223,14 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
      *        </li>
      *        <li>
      *        <p>
-     *        Attachments must be of a content type that Amazon SES supports. For a list on unsupported content types,
-     *        see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Unsupported Attachment
-     *        Types</a> in the <i>Amazon SES Developer Guide</i>.
+     *        MIME content types must be among those supported by Amazon SES. For more information, go to the <a
+     *        href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Amazon SES Developer
+     *        Guide</a>.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        The entire message must be base64-encoded.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character
-     *        range, we highly recommend that you encode that content. For more information, see <a
-     *        href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Sending Raw Email</a> in
-     *        the <i>Amazon SES Developer Guide</i>.
+     *        Must be base64-encoded.
      *        </p>
      *        </li>
      *        <li>
@@ -487,17 +470,17 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * The raw email message itself. The message has to meet the following criteria:
+     * The raw text of the message. The client is responsible for ensuring the following:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * The message has to contain a header and a body, separated by a blank line.
+     * Message must contain a header and a body, separated by a blank line.
      * </p>
      * </li>
      * <li>
      * <p>
-     * All of the required header fields must be present in the message.
+     * All required header fields must be present.
      * </p>
      * </li>
      * <li>
@@ -507,22 +490,13 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
      * </li>
      * <li>
      * <p>
-     * Attachments must be of a content type that Amazon SES supports. For a list on unsupported content types, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Unsupported Attachment Types</a> in
-     * the <i>Amazon SES Developer Guide</i>.
+     * MIME content types must be among those supported by Amazon SES. For more information, go to the <a
+     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Amazon SES Developer Guide</a>.
      * </p>
      * </li>
      * <li>
      * <p>
-     * The entire message must be base64-encoded.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, we
-     * highly recommend that you encode that content. For more information, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Sending Raw Email</a> in the
-     * <i>Amazon SES Developer Guide</i>.
+     * Must be base64-encoded.
      * </p>
      * </li>
      * <li>
@@ -534,16 +508,16 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
      * </ul>
      * 
      * @param rawMessage
-     *        The raw email message itself. The message has to meet the following criteria:</p>
+     *        The raw text of the message. The client is responsible for ensuring the following:</p>
      *        <ul>
      *        <li>
      *        <p>
-     *        The message has to contain a header and a body, separated by a blank line.
+     *        Message must contain a header and a body, separated by a blank line.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        All of the required header fields must be present in the message.
+     *        All required header fields must be present.
      *        </p>
      *        </li>
      *        <li>
@@ -553,22 +527,14 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
      *        </li>
      *        <li>
      *        <p>
-     *        Attachments must be of a content type that Amazon SES supports. For a list on unsupported content types,
-     *        see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Unsupported Attachment
-     *        Types</a> in the <i>Amazon SES Developer Guide</i>.
+     *        MIME content types must be among those supported by Amazon SES. For more information, go to the <a
+     *        href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Amazon SES Developer
+     *        Guide</a>.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        The entire message must be base64-encoded.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character
-     *        range, we highly recommend that you encode that content. For more information, see <a
-     *        href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Sending Raw Email</a> in
-     *        the <i>Amazon SES Developer Guide</i>.
+     *        Must be base64-encoded.
      *        </p>
      *        </li>
      *        <li>
@@ -585,17 +551,17 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * The raw email message itself. The message has to meet the following criteria:
+     * The raw text of the message. The client is responsible for ensuring the following:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * The message has to contain a header and a body, separated by a blank line.
+     * Message must contain a header and a body, separated by a blank line.
      * </p>
      * </li>
      * <li>
      * <p>
-     * All of the required header fields must be present in the message.
+     * All required header fields must be present.
      * </p>
      * </li>
      * <li>
@@ -605,22 +571,13 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
      * </li>
      * <li>
      * <p>
-     * Attachments must be of a content type that Amazon SES supports. For a list on unsupported content types, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Unsupported Attachment Types</a> in
-     * the <i>Amazon SES Developer Guide</i>.
+     * MIME content types must be among those supported by Amazon SES. For more information, go to the <a
+     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Amazon SES Developer Guide</a>.
      * </p>
      * </li>
      * <li>
      * <p>
-     * The entire message must be base64-encoded.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, we
-     * highly recommend that you encode that content. For more information, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Sending Raw Email</a> in the
-     * <i>Amazon SES Developer Guide</i>.
+     * Must be base64-encoded.
      * </p>
      * </li>
      * <li>
@@ -631,16 +588,16 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
      * </li>
      * </ul>
      * 
-     * @return The raw email message itself. The message has to meet the following criteria:</p>
+     * @return The raw text of the message. The client is responsible for ensuring the following:</p>
      *         <ul>
      *         <li>
      *         <p>
-     *         The message has to contain a header and a body, separated by a blank line.
+     *         Message must contain a header and a body, separated by a blank line.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         All of the required header fields must be present in the message.
+     *         All required header fields must be present.
      *         </p>
      *         </li>
      *         <li>
@@ -650,22 +607,14 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
      *         </li>
      *         <li>
      *         <p>
-     *         Attachments must be of a content type that Amazon SES supports. For a list on unsupported content types,
-     *         see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Unsupported Attachment
-     *         Types</a> in the <i>Amazon SES Developer Guide</i>.
+     *         MIME content types must be among those supported by Amazon SES. For more information, go to the <a
+     *         href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Amazon SES Developer
+     *         Guide</a>.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         The entire message must be base64-encoded.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character
-     *         range, we highly recommend that you encode that content. For more information, see <a
-     *         href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Sending Raw Email</a> in
-     *         the <i>Amazon SES Developer Guide</i>.
+     *         Must be base64-encoded.
      *         </p>
      *         </li>
      *         <li>
@@ -682,17 +631,17 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
 
     /**
      * <p>
-     * The raw email message itself. The message has to meet the following criteria:
+     * The raw text of the message. The client is responsible for ensuring the following:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * The message has to contain a header and a body, separated by a blank line.
+     * Message must contain a header and a body, separated by a blank line.
      * </p>
      * </li>
      * <li>
      * <p>
-     * All of the required header fields must be present in the message.
+     * All required header fields must be present.
      * </p>
      * </li>
      * <li>
@@ -702,22 +651,13 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
      * </li>
      * <li>
      * <p>
-     * Attachments must be of a content type that Amazon SES supports. For a list on unsupported content types, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Unsupported Attachment Types</a> in
-     * the <i>Amazon SES Developer Guide</i>.
+     * MIME content types must be among those supported by Amazon SES. For more information, go to the <a
+     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Amazon SES Developer Guide</a>.
      * </p>
      * </li>
      * <li>
      * <p>
-     * The entire message must be base64-encoded.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, we
-     * highly recommend that you encode that content. For more information, see <a
-     * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Sending Raw Email</a> in the
-     * <i>Amazon SES Developer Guide</i>.
+     * Must be base64-encoded.
      * </p>
      * </li>
      * <li>
@@ -729,16 +669,16 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
      * </ul>
      * 
      * @param rawMessage
-     *        The raw email message itself. The message has to meet the following criteria:</p>
+     *        The raw text of the message. The client is responsible for ensuring the following:</p>
      *        <ul>
      *        <li>
      *        <p>
-     *        The message has to contain a header and a body, separated by a blank line.
+     *        Message must contain a header and a body, separated by a blank line.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        All of the required header fields must be present in the message.
+     *        All required header fields must be present.
      *        </p>
      *        </li>
      *        <li>
@@ -748,22 +688,14 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
      *        </li>
      *        <li>
      *        <p>
-     *        Attachments must be of a content type that Amazon SES supports. For a list on unsupported content types,
-     *        see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Unsupported Attachment
-     *        Types</a> in the <i>Amazon SES Developer Guide</i>.
+     *        MIME content types must be among those supported by Amazon SES. For more information, go to the <a
+     *        href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Amazon SES Developer
+     *        Guide</a>.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        The entire message must be base64-encoded.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character
-     *        range, we highly recommend that you encode that content. For more information, see <a
-     *        href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Sending Raw Email</a> in
-     *        the <i>Amazon SES Developer Guide</i>.
+     *        Must be base64-encoded.
      *        </p>
      *        </li>
      *        <li>
@@ -1375,8 +1307,7 @@ public class SendRawEmailRequest extends com.amazonaws.AmazonWebServiceRequest i
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

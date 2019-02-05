@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,8 +37,6 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
-import com.amazonaws.client.builder.AdvancedConfig;
-
 import com.amazonaws.services.mediapackage.AWSMediaPackageClientBuilder;
 
 import com.amazonaws.AmazonServiceException;
@@ -55,7 +53,6 @@ import com.amazonaws.services.mediapackage.model.transform.*;
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWSMediaPackage {
-
     /** Provider for AWS credentials. */
     private final AWSCredentialsProvider awsCredentialsProvider;
 
@@ -66,8 +63,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
-
-    private final AdvancedConfig advancedConfig;
 
     private static final com.amazonaws.protocol.json.SdkJsonProtocolFactory protocolFactory = new com.amazonaws.protocol.json.SdkJsonProtocolFactory(
             new JsonClientMetadata()
@@ -110,23 +105,8 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
      *        Object providing client parameters.
      */
     AWSMediaPackageClient(AwsSyncClientParams clientParams) {
-        this(clientParams, false);
-    }
-
-    /**
-     * Constructs a new client to invoke service methods on MediaPackage using the specified parameters.
-     *
-     * <p>
-     * All service calls made using this new client object are blocking, and will not return until the service call
-     * completes.
-     *
-     * @param clientParams
-     *        Object providing client parameters.
-     */
-    AWSMediaPackageClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -185,9 +165,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "MediaPackage");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateChannel");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -248,9 +225,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "MediaPackage");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateOriginEndpoint");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -310,9 +284,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "MediaPackage");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteChannel");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -372,9 +343,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "MediaPackage");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteOriginEndpoint");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -434,9 +402,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "MediaPackage");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeChannel");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -496,9 +461,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "MediaPackage");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeOriginEndpoint");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -559,9 +521,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "MediaPackage");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListChannels");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -621,9 +580,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "MediaPackage");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListOriginEndpoints");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -641,8 +597,7 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
     }
 
     /**
-     * Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use
-     * RotateIngestEndpointCredentials instead
+     * Changes the Channel ingest username and password.
      * 
      * @param rotateChannelCredentialsRequest
      * @return Result of the RotateChannelCredentials operation returned by the service.
@@ -663,7 +618,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
      *      target="_top">AWS API Documentation</a>
      */
     @Override
-    @Deprecated
     public RotateChannelCredentialsResult rotateChannelCredentials(RotateChannelCredentialsRequest request) {
         request = beforeClientExecution(request);
         return executeRotateChannelCredentials(request);
@@ -686,9 +640,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "MediaPackage");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RotateChannelCredentials");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -696,71 +647,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
             HttpResponseHandler<AmazonWebServiceResponse<RotateChannelCredentialsResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
                     new RotateChannelCredentialsResultJsonUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.
-     * 
-     * @param rotateIngestEndpointCredentialsRequest
-     * @return Result of the RotateIngestEndpointCredentials operation returned by the service.
-     * @throws UnprocessableEntityException
-     *         The parameters sent in the request are not valid.
-     * @throws InternalServerErrorException
-     *         An unexpected error occurred.
-     * @throws ForbiddenException
-     *         The client is not authorized to access the requested resource.
-     * @throws NotFoundException
-     *         The requested resource does not exist.
-     * @throws ServiceUnavailableException
-     *         An unexpected error occurred.
-     * @throws TooManyRequestsException
-     *         The client has exceeded their resource or throttling limits.
-     * @sample AWSMediaPackage.RotateIngestEndpointCredentials
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/mediapackage-2017-10-12/RotateIngestEndpointCredentials"
-     *      target="_top">AWS API Documentation</a>
-     */
-    @Override
-    public RotateIngestEndpointCredentialsResult rotateIngestEndpointCredentials(RotateIngestEndpointCredentialsRequest request) {
-        request = beforeClientExecution(request);
-        return executeRotateIngestEndpointCredentials(request);
-    }
-
-    @SdkInternalApi
-    final RotateIngestEndpointCredentialsResult executeRotateIngestEndpointCredentials(
-            RotateIngestEndpointCredentialsRequest rotateIngestEndpointCredentialsRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(rotateIngestEndpointCredentialsRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<RotateIngestEndpointCredentialsRequest> request = null;
-        Response<RotateIngestEndpointCredentialsResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new RotateIngestEndpointCredentialsRequestProtocolMarshaller(protocolFactory).marshall(super
-                        .beforeMarshalling(rotateIngestEndpointCredentialsRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "MediaPackage");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RotateIngestEndpointCredentials");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            HttpResponseHandler<AmazonWebServiceResponse<RotateIngestEndpointCredentialsResult>> responseHandler = protocolFactory.createResponseHandler(
-                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
-                    new RotateIngestEndpointCredentialsResultJsonUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
 
             return response.getAwsResponse();
@@ -815,9 +701,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "MediaPackage");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateChannel");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -878,9 +761,6 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "MediaPackage");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateOriginEndpoint");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -921,18 +801,9 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null, null);
-    }
-
-    /**
-     * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
-     **/
-    private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
-
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -942,7 +813,7 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null, null);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -950,17 +821,8 @@ public class AWSMediaPackageClient extends AmazonWebServiceClient implements AWS
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
-
-        if (discoveredEndpoint != null) {
-            request.setEndpoint(discoveredEndpoint);
-            request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
-        } else if (uriFromEndpointTrait != null) {
-            request.setEndpoint(uriFromEndpointTrait);
-        } else {
-            request.setEndpoint(endpoint);
-        }
-
+            ExecutionContext executionContext) {
+        request.setEndpoint(endpoint);
         request.setTimeOffset(timeOffset);
 
         HttpResponseHandler<AmazonServiceException> errorResponseHandler = protocolFactory.createErrorResponseHandler(new JsonErrorResponseMetadata());

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,8 +31,6 @@ public class QueryExecutionMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("QueryExecutionId").build();
     private static final MarshallingInfo<String> QUERY_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("Query").build();
-    private static final MarshallingInfo<String> STATEMENTTYPE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("StatementType").build();
     private static final MarshallingInfo<StructuredPojo> RESULTCONFIGURATION_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ResultConfiguration").build();
     private static final MarshallingInfo<StructuredPojo> QUERYEXECUTIONCONTEXT_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
@@ -60,7 +58,6 @@ public class QueryExecutionMarshaller {
         try {
             protocolMarshaller.marshall(queryExecution.getQueryExecutionId(), QUERYEXECUTIONID_BINDING);
             protocolMarshaller.marshall(queryExecution.getQuery(), QUERY_BINDING);
-            protocolMarshaller.marshall(queryExecution.getStatementType(), STATEMENTTYPE_BINDING);
             protocolMarshaller.marshall(queryExecution.getResultConfiguration(), RESULTCONFIGURATION_BINDING);
             protocolMarshaller.marshall(queryExecution.getQueryExecutionContext(), QUERYEXECUTIONCONTEXT_BINDING);
             protocolMarshaller.marshall(queryExecution.getStatus(), STATUS_BINDING);

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,12 +37,6 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
      * </p>
      */
     private String imageName;
-    /**
-     * <p>
-     * The ARN of the public, private, or shared image to use.
-     * </p>
-     */
-    private String imageArn;
     /**
      * <p>
      * The instance type to use when launching fleet instances. The following instance types are available:
@@ -201,13 +195,13 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
     private Integer disconnectTimeoutInSeconds;
     /**
      * <p>
-     * The description to display.
+     * The description for display.
      * </p>
      */
     private String description;
     /**
      * <p>
-     * The fleet name to display.
+     * The fleet name for display.
      * </p>
      */
     private String displayName;
@@ -219,26 +213,10 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
     private Boolean enableDefaultInternetAccess;
     /**
      * <p>
-     * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory
-     * domain.
+     * The information needed to join a Microsoft Active Directory domain.
      * </p>
      */
     private DomainJoinInfo domainJoinInfo;
-    /**
-     * <p>
-     * The tags to associate with the fleet. A tag is a key-value pair (the value is optional). For example,
-     * Environment=Test, or, if you do not specify a value, Environment=.
-     * </p>
-     * <p>
-     * If you do not specify a value, we set the value to an empty string.
-     * </p>
-     * <p>
-     * For more information, see <a
-     * href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a>
-     * in the <i>Amazon AppStream 2.0 Developer Guide</i>.
-     * </p>
-     */
-    private java.util.Map<String, String> tags;
 
     /**
      * <p>
@@ -317,46 +295,6 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     public CreateFleetRequest withImageName(String imageName) {
         setImageName(imageName);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The ARN of the public, private, or shared image to use.
-     * </p>
-     * 
-     * @param imageArn
-     *        The ARN of the public, private, or shared image to use.
-     */
-
-    public void setImageArn(String imageArn) {
-        this.imageArn = imageArn;
-    }
-
-    /**
-     * <p>
-     * The ARN of the public, private, or shared image to use.
-     * </p>
-     * 
-     * @return The ARN of the public, private, or shared image to use.
-     */
-
-    public String getImageArn() {
-        return this.imageArn;
-    }
-
-    /**
-     * <p>
-     * The ARN of the public, private, or shared image to use.
-     * </p>
-     * 
-     * @param imageArn
-     *        The ARN of the public, private, or shared image to use.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateFleetRequest withImageArn(String imageArn) {
-        setImageArn(imageArn);
         return this;
     }
 
@@ -1370,11 +1308,11 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The description to display.
+     * The description for display.
      * </p>
      * 
      * @param description
-     *        The description to display.
+     *        The description for display.
      */
 
     public void setDescription(String description) {
@@ -1383,10 +1321,10 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The description to display.
+     * The description for display.
      * </p>
      * 
-     * @return The description to display.
+     * @return The description for display.
      */
 
     public String getDescription() {
@@ -1395,11 +1333,11 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The description to display.
+     * The description for display.
      * </p>
      * 
      * @param description
-     *        The description to display.
+     *        The description for display.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1410,11 +1348,11 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The fleet name to display.
+     * The fleet name for display.
      * </p>
      * 
      * @param displayName
-     *        The fleet name to display.
+     *        The fleet name for display.
      */
 
     public void setDisplayName(String displayName) {
@@ -1423,10 +1361,10 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The fleet name to display.
+     * The fleet name for display.
      * </p>
      * 
-     * @return The fleet name to display.
+     * @return The fleet name for display.
      */
 
     public String getDisplayName() {
@@ -1435,11 +1373,11 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The fleet name to display.
+     * The fleet name for display.
      * </p>
      * 
      * @param displayName
-     *        The fleet name to display.
+     *        The fleet name for display.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1502,13 +1440,11 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory
-     * domain.
+     * The information needed to join a Microsoft Active Directory domain.
      * </p>
      * 
      * @param domainJoinInfo
-     *        The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active
-     *        Directory domain.
+     *        The information needed to join a Microsoft Active Directory domain.
      */
 
     public void setDomainJoinInfo(DomainJoinInfo domainJoinInfo) {
@@ -1517,12 +1453,10 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory
-     * domain.
+     * The information needed to join a Microsoft Active Directory domain.
      * </p>
      * 
-     * @return The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active
-     *         Directory domain.
+     * @return The information needed to join a Microsoft Active Directory domain.
      */
 
     public DomainJoinInfo getDomainJoinInfo() {
@@ -1531,13 +1465,11 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory
-     * domain.
+     * The information needed to join a Microsoft Active Directory domain.
      * </p>
      * 
      * @param domainJoinInfo
-     *        The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active
-     *        Directory domain.
+     *        The information needed to join a Microsoft Active Directory domain.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1547,120 +1479,7 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * <p>
-     * The tags to associate with the fleet. A tag is a key-value pair (the value is optional). For example,
-     * Environment=Test, or, if you do not specify a value, Environment=.
-     * </p>
-     * <p>
-     * If you do not specify a value, we set the value to an empty string.
-     * </p>
-     * <p>
-     * For more information, see <a
-     * href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a>
-     * in the <i>Amazon AppStream 2.0 Developer Guide</i>.
-     * </p>
-     * 
-     * @return The tags to associate with the fleet. A tag is a key-value pair (the value is optional). For example,
-     *         Environment=Test, or, if you do not specify a value, Environment=. </p>
-     *         <p>
-     *         If you do not specify a value, we set the value to an empty string.
-     *         </p>
-     *         <p>
-     *         For more information, see <a
-     *         href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your
-     *         Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.
-     */
-
-    public java.util.Map<String, String> getTags() {
-        return tags;
-    }
-
-    /**
-     * <p>
-     * The tags to associate with the fleet. A tag is a key-value pair (the value is optional). For example,
-     * Environment=Test, or, if you do not specify a value, Environment=.
-     * </p>
-     * <p>
-     * If you do not specify a value, we set the value to an empty string.
-     * </p>
-     * <p>
-     * For more information, see <a
-     * href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a>
-     * in the <i>Amazon AppStream 2.0 Developer Guide</i>.
-     * </p>
-     * 
-     * @param tags
-     *        The tags to associate with the fleet. A tag is a key-value pair (the value is optional). For example,
-     *        Environment=Test, or, if you do not specify a value, Environment=. </p>
-     *        <p>
-     *        If you do not specify a value, we set the value to an empty string.
-     *        </p>
-     *        <p>
-     *        For more information, see <a
-     *        href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your
-     *        Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.
-     */
-
-    public void setTags(java.util.Map<String, String> tags) {
-        this.tags = tags;
-    }
-
-    /**
-     * <p>
-     * The tags to associate with the fleet. A tag is a key-value pair (the value is optional). For example,
-     * Environment=Test, or, if you do not specify a value, Environment=.
-     * </p>
-     * <p>
-     * If you do not specify a value, we set the value to an empty string.
-     * </p>
-     * <p>
-     * For more information, see <a
-     * href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a>
-     * in the <i>Amazon AppStream 2.0 Developer Guide</i>.
-     * </p>
-     * 
-     * @param tags
-     *        The tags to associate with the fleet. A tag is a key-value pair (the value is optional). For example,
-     *        Environment=Test, or, if you do not specify a value, Environment=. </p>
-     *        <p>
-     *        If you do not specify a value, we set the value to an empty string.
-     *        </p>
-     *        <p>
-     *        For more information, see <a
-     *        href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your
-     *        Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateFleetRequest withTags(java.util.Map<String, String> tags) {
-        setTags(tags);
-        return this;
-    }
-
-    public CreateFleetRequest addTagsEntry(String key, String value) {
-        if (null == this.tags) {
-            this.tags = new java.util.HashMap<String, String>();
-        }
-        if (this.tags.containsKey(key))
-            throw new IllegalArgumentException("Duplicated keys (" + key.toString() + ") are provided.");
-        this.tags.put(key, value);
-        return this;
-    }
-
-    /**
-     * Removes all the entries added into Tags.
-     *
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateFleetRequest clearTagsEntries() {
-        this.tags = null;
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1674,8 +1493,6 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
             sb.append("Name: ").append(getName()).append(",");
         if (getImageName() != null)
             sb.append("ImageName: ").append(getImageName()).append(",");
-        if (getImageArn() != null)
-            sb.append("ImageArn: ").append(getImageArn()).append(",");
         if (getInstanceType() != null)
             sb.append("InstanceType: ").append(getInstanceType()).append(",");
         if (getFleetType() != null)
@@ -1695,9 +1512,7 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
         if (getEnableDefaultInternetAccess() != null)
             sb.append("EnableDefaultInternetAccess: ").append(getEnableDefaultInternetAccess()).append(",");
         if (getDomainJoinInfo() != null)
-            sb.append("DomainJoinInfo: ").append(getDomainJoinInfo()).append(",");
-        if (getTags() != null)
-            sb.append("Tags: ").append(getTags());
+            sb.append("DomainJoinInfo: ").append(getDomainJoinInfo());
         sb.append("}");
         return sb.toString();
     }
@@ -1719,10 +1534,6 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
         if (other.getImageName() == null ^ this.getImageName() == null)
             return false;
         if (other.getImageName() != null && other.getImageName().equals(this.getImageName()) == false)
-            return false;
-        if (other.getImageArn() == null ^ this.getImageArn() == null)
-            return false;
-        if (other.getImageArn() != null && other.getImageArn().equals(this.getImageArn()) == false)
             return false;
         if (other.getInstanceType() == null ^ this.getInstanceType() == null)
             return false;
@@ -1764,10 +1575,6 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
             return false;
         if (other.getDomainJoinInfo() != null && other.getDomainJoinInfo().equals(this.getDomainJoinInfo()) == false)
             return false;
-        if (other.getTags() == null ^ this.getTags() == null)
-            return false;
-        if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
-            return false;
         return true;
     }
 
@@ -1778,7 +1585,6 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
         hashCode = prime * hashCode + ((getName() == null) ? 0 : getName().hashCode());
         hashCode = prime * hashCode + ((getImageName() == null) ? 0 : getImageName().hashCode());
-        hashCode = prime * hashCode + ((getImageArn() == null) ? 0 : getImageArn().hashCode());
         hashCode = prime * hashCode + ((getInstanceType() == null) ? 0 : getInstanceType().hashCode());
         hashCode = prime * hashCode + ((getFleetType() == null) ? 0 : getFleetType().hashCode());
         hashCode = prime * hashCode + ((getComputeCapacity() == null) ? 0 : getComputeCapacity().hashCode());
@@ -1789,7 +1595,6 @@ public class CreateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
         hashCode = prime * hashCode + ((getDisplayName() == null) ? 0 : getDisplayName().hashCode());
         hashCode = prime * hashCode + ((getEnableDefaultInternetAccess() == null) ? 0 : getEnableDefaultInternetAccess().hashCode());
         hashCode = prime * hashCode + ((getDomainJoinInfo() == null) ? 0 : getDomainJoinInfo().hashCode());
-        hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         return hashCode;
     }
 

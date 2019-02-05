@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,38 +33,17 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
     private String datasetName;
     /**
      * <p>
-     * A list of actions that create the data set contents.
+     * A list of actions that create the data set. Only one action is supported at this time.
      * </p>
      */
     private java.util.List<DatasetAction> actions;
     /**
      * <p>
-     * A list of triggers. A trigger causes data set contents to be populated at a specified time interval or when
-     * another data set's contents are created. The list of triggers can be empty or contain up to five
-     * <b>DataSetTrigger</b> objects.
+     * A list of triggers. A trigger causes data set content to be populated at a specified time or time interval. The
+     * list of triggers can be empty or contain up to five <b>DataSetTrigger</b> objects.
      * </p>
      */
     private java.util.List<DatasetTrigger> triggers;
-    /**
-     * <p>
-     * When data set contents are created they are delivered to destinations specified here.
-     * </p>
-     */
-    private java.util.List<DatasetContentDeliveryRule> contentDeliveryRules;
-    /**
-     * <p>
-     * [Optional] How long, in days, message data is kept for the data set. If not given or set to null, the latest
-     * version of the dataset content plus the latest succeeded version (if they are different) are retained for at most
-     * 90 days.
-     * </p>
-     */
-    private RetentionPeriod retentionPeriod;
-    /**
-     * <p>
-     * Metadata which can be used to manage the data set.
-     * </p>
-     */
-    private java.util.List<Tag> tags;
 
     /**
      * <p>
@@ -108,10 +87,10 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A list of actions that create the data set contents.
+     * A list of actions that create the data set. Only one action is supported at this time.
      * </p>
      * 
-     * @return A list of actions that create the data set contents.
+     * @return A list of actions that create the data set. Only one action is supported at this time.
      */
 
     public java.util.List<DatasetAction> getActions() {
@@ -120,11 +99,11 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A list of actions that create the data set contents.
+     * A list of actions that create the data set. Only one action is supported at this time.
      * </p>
      * 
      * @param actions
-     *        A list of actions that create the data set contents.
+     *        A list of actions that create the data set. Only one action is supported at this time.
      */
 
     public void setActions(java.util.Collection<DatasetAction> actions) {
@@ -138,7 +117,7 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A list of actions that create the data set contents.
+     * A list of actions that create the data set. Only one action is supported at this time.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -147,7 +126,7 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
      * </p>
      * 
      * @param actions
-     *        A list of actions that create the data set contents.
+     *        A list of actions that create the data set. Only one action is supported at this time.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -163,11 +142,11 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A list of actions that create the data set contents.
+     * A list of actions that create the data set. Only one action is supported at this time.
      * </p>
      * 
      * @param actions
-     *        A list of actions that create the data set contents.
+     *        A list of actions that create the data set. Only one action is supported at this time.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -178,14 +157,12 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A list of triggers. A trigger causes data set contents to be populated at a specified time interval or when
-     * another data set's contents are created. The list of triggers can be empty or contain up to five
-     * <b>DataSetTrigger</b> objects.
+     * A list of triggers. A trigger causes data set content to be populated at a specified time or time interval. The
+     * list of triggers can be empty or contain up to five <b>DataSetTrigger</b> objects.
      * </p>
      * 
-     * @return A list of triggers. A trigger causes data set contents to be populated at a specified time interval or
-     *         when another data set's contents are created. The list of triggers can be empty or contain up to five
-     *         <b>DataSetTrigger</b> objects.
+     * @return A list of triggers. A trigger causes data set content to be populated at a specified time or time
+     *         interval. The list of triggers can be empty or contain up to five <b>DataSetTrigger</b> objects.
      */
 
     public java.util.List<DatasetTrigger> getTriggers() {
@@ -194,15 +171,13 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A list of triggers. A trigger causes data set contents to be populated at a specified time interval or when
-     * another data set's contents are created. The list of triggers can be empty or contain up to five
-     * <b>DataSetTrigger</b> objects.
+     * A list of triggers. A trigger causes data set content to be populated at a specified time or time interval. The
+     * list of triggers can be empty or contain up to five <b>DataSetTrigger</b> objects.
      * </p>
      * 
      * @param triggers
-     *        A list of triggers. A trigger causes data set contents to be populated at a specified time interval or
-     *        when another data set's contents are created. The list of triggers can be empty or contain up to five
-     *        <b>DataSetTrigger</b> objects.
+     *        A list of triggers. A trigger causes data set content to be populated at a specified time or time
+     *        interval. The list of triggers can be empty or contain up to five <b>DataSetTrigger</b> objects.
      */
 
     public void setTriggers(java.util.Collection<DatasetTrigger> triggers) {
@@ -216,9 +191,8 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A list of triggers. A trigger causes data set contents to be populated at a specified time interval or when
-     * another data set's contents are created. The list of triggers can be empty or contain up to five
-     * <b>DataSetTrigger</b> objects.
+     * A list of triggers. A trigger causes data set content to be populated at a specified time or time interval. The
+     * list of triggers can be empty or contain up to five <b>DataSetTrigger</b> objects.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -227,9 +201,8 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
      * </p>
      * 
      * @param triggers
-     *        A list of triggers. A trigger causes data set contents to be populated at a specified time interval or
-     *        when another data set's contents are created. The list of triggers can be empty or contain up to five
-     *        <b>DataSetTrigger</b> objects.
+     *        A list of triggers. A trigger causes data set content to be populated at a specified time or time
+     *        interval. The list of triggers can be empty or contain up to five <b>DataSetTrigger</b> objects.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -245,15 +218,13 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A list of triggers. A trigger causes data set contents to be populated at a specified time interval or when
-     * another data set's contents are created. The list of triggers can be empty or contain up to five
-     * <b>DataSetTrigger</b> objects.
+     * A list of triggers. A trigger causes data set content to be populated at a specified time or time interval. The
+     * list of triggers can be empty or contain up to five <b>DataSetTrigger</b> objects.
      * </p>
      * 
      * @param triggers
-     *        A list of triggers. A trigger causes data set contents to be populated at a specified time interval or
-     *        when another data set's contents are created. The list of triggers can be empty or contain up to five
-     *        <b>DataSetTrigger</b> objects.
+     *        A list of triggers. A trigger causes data set content to be populated at a specified time or time
+     *        interval. The list of triggers can be empty or contain up to five <b>DataSetTrigger</b> objects.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -263,200 +234,7 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
     }
 
     /**
-     * <p>
-     * When data set contents are created they are delivered to destinations specified here.
-     * </p>
-     * 
-     * @return When data set contents are created they are delivered to destinations specified here.
-     */
-
-    public java.util.List<DatasetContentDeliveryRule> getContentDeliveryRules() {
-        return contentDeliveryRules;
-    }
-
-    /**
-     * <p>
-     * When data set contents are created they are delivered to destinations specified here.
-     * </p>
-     * 
-     * @param contentDeliveryRules
-     *        When data set contents are created they are delivered to destinations specified here.
-     */
-
-    public void setContentDeliveryRules(java.util.Collection<DatasetContentDeliveryRule> contentDeliveryRules) {
-        if (contentDeliveryRules == null) {
-            this.contentDeliveryRules = null;
-            return;
-        }
-
-        this.contentDeliveryRules = new java.util.ArrayList<DatasetContentDeliveryRule>(contentDeliveryRules);
-    }
-
-    /**
-     * <p>
-     * When data set contents are created they are delivered to destinations specified here.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setContentDeliveryRules(java.util.Collection)} or {@link #withContentDeliveryRules(java.util.Collection)}
-     * if you want to override the existing values.
-     * </p>
-     * 
-     * @param contentDeliveryRules
-     *        When data set contents are created they are delivered to destinations specified here.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateDatasetRequest withContentDeliveryRules(DatasetContentDeliveryRule... contentDeliveryRules) {
-        if (this.contentDeliveryRules == null) {
-            setContentDeliveryRules(new java.util.ArrayList<DatasetContentDeliveryRule>(contentDeliveryRules.length));
-        }
-        for (DatasetContentDeliveryRule ele : contentDeliveryRules) {
-            this.contentDeliveryRules.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * When data set contents are created they are delivered to destinations specified here.
-     * </p>
-     * 
-     * @param contentDeliveryRules
-     *        When data set contents are created they are delivered to destinations specified here.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateDatasetRequest withContentDeliveryRules(java.util.Collection<DatasetContentDeliveryRule> contentDeliveryRules) {
-        setContentDeliveryRules(contentDeliveryRules);
-        return this;
-    }
-
-    /**
-     * <p>
-     * [Optional] How long, in days, message data is kept for the data set. If not given or set to null, the latest
-     * version of the dataset content plus the latest succeeded version (if they are different) are retained for at most
-     * 90 days.
-     * </p>
-     * 
-     * @param retentionPeriod
-     *        [Optional] How long, in days, message data is kept for the data set. If not given or set to null, the
-     *        latest version of the dataset content plus the latest succeeded version (if they are different) are
-     *        retained for at most 90 days.
-     */
-
-    public void setRetentionPeriod(RetentionPeriod retentionPeriod) {
-        this.retentionPeriod = retentionPeriod;
-    }
-
-    /**
-     * <p>
-     * [Optional] How long, in days, message data is kept for the data set. If not given or set to null, the latest
-     * version of the dataset content plus the latest succeeded version (if they are different) are retained for at most
-     * 90 days.
-     * </p>
-     * 
-     * @return [Optional] How long, in days, message data is kept for the data set. If not given or set to null, the
-     *         latest version of the dataset content plus the latest succeeded version (if they are different) are
-     *         retained for at most 90 days.
-     */
-
-    public RetentionPeriod getRetentionPeriod() {
-        return this.retentionPeriod;
-    }
-
-    /**
-     * <p>
-     * [Optional] How long, in days, message data is kept for the data set. If not given or set to null, the latest
-     * version of the dataset content plus the latest succeeded version (if they are different) are retained for at most
-     * 90 days.
-     * </p>
-     * 
-     * @param retentionPeriod
-     *        [Optional] How long, in days, message data is kept for the data set. If not given or set to null, the
-     *        latest version of the dataset content plus the latest succeeded version (if they are different) are
-     *        retained for at most 90 days.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateDatasetRequest withRetentionPeriod(RetentionPeriod retentionPeriod) {
-        setRetentionPeriod(retentionPeriod);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Metadata which can be used to manage the data set.
-     * </p>
-     * 
-     * @return Metadata which can be used to manage the data set.
-     */
-
-    public java.util.List<Tag> getTags() {
-        return tags;
-    }
-
-    /**
-     * <p>
-     * Metadata which can be used to manage the data set.
-     * </p>
-     * 
-     * @param tags
-     *        Metadata which can be used to manage the data set.
-     */
-
-    public void setTags(java.util.Collection<Tag> tags) {
-        if (tags == null) {
-            this.tags = null;
-            return;
-        }
-
-        this.tags = new java.util.ArrayList<Tag>(tags);
-    }
-
-    /**
-     * <p>
-     * Metadata which can be used to manage the data set.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setTags(java.util.Collection)} or {@link #withTags(java.util.Collection)} if you want to override the
-     * existing values.
-     * </p>
-     * 
-     * @param tags
-     *        Metadata which can be used to manage the data set.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateDatasetRequest withTags(Tag... tags) {
-        if (this.tags == null) {
-            setTags(new java.util.ArrayList<Tag>(tags.length));
-        }
-        for (Tag ele : tags) {
-            this.tags.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * Metadata which can be used to manage the data set.
-     * </p>
-     * 
-     * @param tags
-     *        Metadata which can be used to manage the data set.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateDatasetRequest withTags(java.util.Collection<Tag> tags) {
-        setTags(tags);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -471,13 +249,7 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
         if (getActions() != null)
             sb.append("Actions: ").append(getActions()).append(",");
         if (getTriggers() != null)
-            sb.append("Triggers: ").append(getTriggers()).append(",");
-        if (getContentDeliveryRules() != null)
-            sb.append("ContentDeliveryRules: ").append(getContentDeliveryRules()).append(",");
-        if (getRetentionPeriod() != null)
-            sb.append("RetentionPeriod: ").append(getRetentionPeriod()).append(",");
-        if (getTags() != null)
-            sb.append("Tags: ").append(getTags());
+            sb.append("Triggers: ").append(getTriggers());
         sb.append("}");
         return sb.toString();
     }
@@ -504,18 +276,6 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
             return false;
         if (other.getTriggers() != null && other.getTriggers().equals(this.getTriggers()) == false)
             return false;
-        if (other.getContentDeliveryRules() == null ^ this.getContentDeliveryRules() == null)
-            return false;
-        if (other.getContentDeliveryRules() != null && other.getContentDeliveryRules().equals(this.getContentDeliveryRules()) == false)
-            return false;
-        if (other.getRetentionPeriod() == null ^ this.getRetentionPeriod() == null)
-            return false;
-        if (other.getRetentionPeriod() != null && other.getRetentionPeriod().equals(this.getRetentionPeriod()) == false)
-            return false;
-        if (other.getTags() == null ^ this.getTags() == null)
-            return false;
-        if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
-            return false;
         return true;
     }
 
@@ -527,9 +287,6 @@ public class CreateDatasetRequest extends com.amazonaws.AmazonWebServiceRequest 
         hashCode = prime * hashCode + ((getDatasetName() == null) ? 0 : getDatasetName().hashCode());
         hashCode = prime * hashCode + ((getActions() == null) ? 0 : getActions().hashCode());
         hashCode = prime * hashCode + ((getTriggers() == null) ? 0 : getTriggers().hashCode());
-        hashCode = prime * hashCode + ((getContentDeliveryRules() == null) ? 0 : getContentDeliveryRules().hashCode());
-        hashCode = prime * hashCode + ((getRetentionPeriod() == null) ? 0 : getRetentionPeriod().hashCode());
-        hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         return hashCode;
     }
 

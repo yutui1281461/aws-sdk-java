@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -28,10 +28,7 @@ public class Core implements Serializable, Cloneable, StructuredPojo {
 
     /** The ARN of the certificate associated with the core. */
     private String certificateArn;
-    /**
-     * A descriptive or arbitrary ID for the core. This value must be unique within the core definition version. Max
-     * length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
-     */
+    /** The ID of the core. */
     private String id;
     /** If true, the core's local shadow is automatically synced with the cloud. */
     private Boolean syncShadow;
@@ -73,12 +70,10 @@ public class Core implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * A descriptive or arbitrary ID for the core. This value must be unique within the core definition version. Max
-     * length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+     * The ID of the core.
      * 
      * @param id
-     *        A descriptive or arbitrary ID for the core. This value must be unique within the core definition version.
-     *        Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+     *        The ID of the core.
      */
 
     public void setId(String id) {
@@ -86,11 +81,9 @@ public class Core implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * A descriptive or arbitrary ID for the core. This value must be unique within the core definition version. Max
-     * length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+     * The ID of the core.
      * 
-     * @return A descriptive or arbitrary ID for the core. This value must be unique within the core definition version.
-     *         Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+     * @return The ID of the core.
      */
 
     public String getId() {
@@ -98,12 +91,10 @@ public class Core implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * A descriptive or arbitrary ID for the core. This value must be unique within the core definition version. Max
-     * length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+     * The ID of the core.
      * 
      * @param id
-     *        A descriptive or arbitrary ID for the core. This value must be unique within the core definition version.
-     *        Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+     *        The ID of the core.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -191,8 +182,7 @@ public class Core implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

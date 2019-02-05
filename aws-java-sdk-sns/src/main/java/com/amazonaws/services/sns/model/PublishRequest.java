@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -59,45 +59,20 @@ public class PublishRequest extends com.amazonaws.AmazonWebServiceRequest implem
     private String phoneNumber;
     /**
      * <p>
-     * The message you want to send.
-     * </p>
-     * <important>
-     * <p>
-     * The <code>Message</code> parameter is always a string. If you set <code>MessageStructure</code> to
-     * <code>json</code>, you must string-encode the <code>Message</code> parameter.
-     * </p>
-     * </important>
-     * <p>
-     * If you are publishing to a topic and you want to send the same message to all transport protocols, include the
-     * text of the message as a String value. If you want to send different messages for each transport protocol, set
-     * the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the
-     * <code>Message</code> parameter.
-     * </p>
-     * <p/>
-     * <p>
-     * Constraints:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not
-     * 262,144 characters).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For
-     * example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.
+     * The message you want to send to the topic.
      * </p>
      * <p>
-     * If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages, each
-     * fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word boundaries.
+     * If you want to send the same message to all transport protocols, include the text of the message as a String
+     * value.
      * </p>
      * <p>
-     * The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.
+     * If you want to send different messages for each transport protocol, set the value of the
+     * <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the <code>Message</code>
+     * parameter.
      * </p>
-     * </li>
-     * </ul>
+     * <p>
+     * Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size (262144 bytes, not 262144 characters).
+     * </p>
      * <p>
      * JSON-specific constraints:
      * </p>
@@ -220,47 +195,21 @@ public class PublishRequest extends com.amazonaws.AmazonWebServiceRequest implem
      *        If you don't specify a value for the <code>TopicArn</code> parameter, you must specify a value for the
      *        <code>PhoneNumber</code> or <code>TargetArn</code> parameters.
      * @param message
-     *        The message you want to send.
-     *        </p>
-     *        <important>
-     *        <p>
-     *        The <code>Message</code> parameter is always a string. If you set <code>MessageStructure</code> to
-     *        <code>json</code>, you must string-encode the <code>Message</code> parameter.
-     *        </p>
-     *        </important>
-     *        <p>
-     *        If you are publishing to a topic and you want to send the same message to all transport protocols, include
-     *        the text of the message as a String value. If you want to send different messages for each transport
-     *        protocol, set the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON
-     *        object for the <code>Message</code> parameter.
-     *        </p>
-     *        <p/>
-     *        <p>
-     *        Constraints:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144
-     *        bytes, not 262,144 characters).
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        For SMS, each message can contain up to 140 characters. This character limit depends on the encoding
-     *        schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2
-     *        characters.
+     *        The message you want to send to the topic.
      *        </p>
      *        <p>
-     *        If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages,
-     *        each fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word
-     *        boundaries.
+     *        If you want to send the same message to all transport protocols, include the text of the message as a
+     *        String value.
      *        </p>
      *        <p>
-     *        The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.
+     *        If you want to send different messages for each transport protocol, set the value of the
+     *        <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the
+     *        <code>Message</code> parameter.
      *        </p>
-     *        </li>
-     *        </ul>
+     *        <p>
+     *        Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size (262144 bytes, not 262144
+     *        characters).
+     *        </p>
      *        <p>
      *        JSON-specific constraints:
      *        </p>
@@ -329,47 +278,21 @@ public class PublishRequest extends com.amazonaws.AmazonWebServiceRequest implem
      *        If you don't specify a value for the <code>TopicArn</code> parameter, you must specify a value for the
      *        <code>PhoneNumber</code> or <code>TargetArn</code> parameters.
      * @param message
-     *        The message you want to send.
-     *        </p>
-     *        <important>
-     *        <p>
-     *        The <code>Message</code> parameter is always a string. If you set <code>MessageStructure</code> to
-     *        <code>json</code>, you must string-encode the <code>Message</code> parameter.
-     *        </p>
-     *        </important>
-     *        <p>
-     *        If you are publishing to a topic and you want to send the same message to all transport protocols, include
-     *        the text of the message as a String value. If you want to send different messages for each transport
-     *        protocol, set the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON
-     *        object for the <code>Message</code> parameter.
-     *        </p>
-     *        <p/>
-     *        <p>
-     *        Constraints:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144
-     *        bytes, not 262,144 characters).
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        For SMS, each message can contain up to 140 characters. This character limit depends on the encoding
-     *        schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2
-     *        characters.
+     *        The message you want to send to the topic.
      *        </p>
      *        <p>
-     *        If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages,
-     *        each fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word
-     *        boundaries.
+     *        If you want to send the same message to all transport protocols, include the text of the message as a
+     *        String value.
      *        </p>
      *        <p>
-     *        The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.
+     *        If you want to send different messages for each transport protocol, set the value of the
+     *        <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the
+     *        <code>Message</code> parameter.
      *        </p>
-     *        </li>
-     *        </ul>
+     *        <p>
+     *        Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size (262144 bytes, not 262144
+     *        characters).
+     *        </p>
      *        <p>
      *        JSON-specific constraints:
      *        </p>
@@ -620,45 +543,20 @@ public class PublishRequest extends com.amazonaws.AmazonWebServiceRequest implem
 
     /**
      * <p>
-     * The message you want to send.
-     * </p>
-     * <important>
-     * <p>
-     * The <code>Message</code> parameter is always a string. If you set <code>MessageStructure</code> to
-     * <code>json</code>, you must string-encode the <code>Message</code> parameter.
-     * </p>
-     * </important>
-     * <p>
-     * If you are publishing to a topic and you want to send the same message to all transport protocols, include the
-     * text of the message as a String value. If you want to send different messages for each transport protocol, set
-     * the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the
-     * <code>Message</code> parameter.
-     * </p>
-     * <p/>
-     * <p>
-     * Constraints:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not
-     * 262,144 characters).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For
-     * example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.
+     * The message you want to send to the topic.
      * </p>
      * <p>
-     * If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages, each
-     * fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word boundaries.
+     * If you want to send the same message to all transport protocols, include the text of the message as a String
+     * value.
      * </p>
      * <p>
-     * The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.
+     * If you want to send different messages for each transport protocol, set the value of the
+     * <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the <code>Message</code>
+     * parameter.
      * </p>
-     * </li>
-     * </ul>
+     * <p>
+     * Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size (262144 bytes, not 262144 characters).
+     * </p>
      * <p>
      * JSON-specific constraints:
      * </p>
@@ -713,45 +611,20 @@ public class PublishRequest extends com.amazonaws.AmazonWebServiceRequest implem
      * </ul>
      * 
      * @param message
-     *        The message you want to send.</p> <important>
+     *        The message you want to send to the topic.</p>
      *        <p>
-     *        The <code>Message</code> parameter is always a string. If you set <code>MessageStructure</code> to
-     *        <code>json</code>, you must string-encode the <code>Message</code> parameter.
-     *        </p>
-     *        </important>
-     *        <p>
-     *        If you are publishing to a topic and you want to send the same message to all transport protocols, include
-     *        the text of the message as a String value. If you want to send different messages for each transport
-     *        protocol, set the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON
-     *        object for the <code>Message</code> parameter.
-     *        </p>
-     *        <p/>
-     *        <p>
-     *        Constraints:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144
-     *        bytes, not 262,144 characters).
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        For SMS, each message can contain up to 140 characters. This character limit depends on the encoding
-     *        schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2
-     *        characters.
+     *        If you want to send the same message to all transport protocols, include the text of the message as a
+     *        String value.
      *        </p>
      *        <p>
-     *        If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages,
-     *        each fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word
-     *        boundaries.
+     *        If you want to send different messages for each transport protocol, set the value of the
+     *        <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the
+     *        <code>Message</code> parameter.
      *        </p>
      *        <p>
-     *        The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.
+     *        Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size (262144 bytes, not 262144
+     *        characters).
      *        </p>
-     *        </li>
-     *        </ul>
      *        <p>
      *        JSON-specific constraints:
      *        </p>
@@ -812,45 +685,20 @@ public class PublishRequest extends com.amazonaws.AmazonWebServiceRequest implem
 
     /**
      * <p>
-     * The message you want to send.
-     * </p>
-     * <important>
-     * <p>
-     * The <code>Message</code> parameter is always a string. If you set <code>MessageStructure</code> to
-     * <code>json</code>, you must string-encode the <code>Message</code> parameter.
-     * </p>
-     * </important>
-     * <p>
-     * If you are publishing to a topic and you want to send the same message to all transport protocols, include the
-     * text of the message as a String value. If you want to send different messages for each transport protocol, set
-     * the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the
-     * <code>Message</code> parameter.
-     * </p>
-     * <p/>
-     * <p>
-     * Constraints:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not
-     * 262,144 characters).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For
-     * example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.
+     * The message you want to send to the topic.
      * </p>
      * <p>
-     * If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages, each
-     * fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word boundaries.
+     * If you want to send the same message to all transport protocols, include the text of the message as a String
+     * value.
      * </p>
      * <p>
-     * The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.
+     * If you want to send different messages for each transport protocol, set the value of the
+     * <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the <code>Message</code>
+     * parameter.
      * </p>
-     * </li>
-     * </ul>
+     * <p>
+     * Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size (262144 bytes, not 262144 characters).
+     * </p>
      * <p>
      * JSON-specific constraints:
      * </p>
@@ -904,45 +752,20 @@ public class PublishRequest extends com.amazonaws.AmazonWebServiceRequest implem
      * </li>
      * </ul>
      * 
-     * @return The message you want to send.</p> <important>
+     * @return The message you want to send to the topic.</p>
      *         <p>
-     *         The <code>Message</code> parameter is always a string. If you set <code>MessageStructure</code> to
-     *         <code>json</code>, you must string-encode the <code>Message</code> parameter.
-     *         </p>
-     *         </important>
-     *         <p>
-     *         If you are publishing to a topic and you want to send the same message to all transport protocols,
-     *         include the text of the message as a String value. If you want to send different messages for each
-     *         transport protocol, set the value of the <code>MessageStructure</code> parameter to <code>json</code> and
-     *         use a JSON object for the <code>Message</code> parameter.
-     *         </p>
-     *         <p/>
-     *         <p>
-     *         Constraints:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144
-     *         bytes, not 262,144 characters).
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         For SMS, each message can contain up to 140 characters. This character limit depends on the encoding
-     *         schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2
-     *         characters.
+     *         If you want to send the same message to all transport protocols, include the text of the message as a
+     *         String value.
      *         </p>
      *         <p>
-     *         If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages,
-     *         each fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word
-     *         boundaries.
+     *         If you want to send different messages for each transport protocol, set the value of the
+     *         <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the
+     *         <code>Message</code> parameter.
      *         </p>
      *         <p>
-     *         The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.
+     *         Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size (262144 bytes, not 262144
+     *         characters).
      *         </p>
-     *         </li>
-     *         </ul>
      *         <p>
      *         JSON-specific constraints:
      *         </p>
@@ -1003,45 +826,20 @@ public class PublishRequest extends com.amazonaws.AmazonWebServiceRequest implem
 
     /**
      * <p>
-     * The message you want to send.
-     * </p>
-     * <important>
-     * <p>
-     * The <code>Message</code> parameter is always a string. If you set <code>MessageStructure</code> to
-     * <code>json</code>, you must string-encode the <code>Message</code> parameter.
-     * </p>
-     * </important>
-     * <p>
-     * If you are publishing to a topic and you want to send the same message to all transport protocols, include the
-     * text of the message as a String value. If you want to send different messages for each transport protocol, set
-     * the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the
-     * <code>Message</code> parameter.
-     * </p>
-     * <p/>
-     * <p>
-     * Constraints:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not
-     * 262,144 characters).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For
-     * example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.
+     * The message you want to send to the topic.
      * </p>
      * <p>
-     * If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages, each
-     * fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word boundaries.
+     * If you want to send the same message to all transport protocols, include the text of the message as a String
+     * value.
      * </p>
      * <p>
-     * The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.
+     * If you want to send different messages for each transport protocol, set the value of the
+     * <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the <code>Message</code>
+     * parameter.
      * </p>
-     * </li>
-     * </ul>
+     * <p>
+     * Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size (262144 bytes, not 262144 characters).
+     * </p>
      * <p>
      * JSON-specific constraints:
      * </p>
@@ -1096,45 +894,20 @@ public class PublishRequest extends com.amazonaws.AmazonWebServiceRequest implem
      * </ul>
      * 
      * @param message
-     *        The message you want to send.</p> <important>
+     *        The message you want to send to the topic.</p>
      *        <p>
-     *        The <code>Message</code> parameter is always a string. If you set <code>MessageStructure</code> to
-     *        <code>json</code>, you must string-encode the <code>Message</code> parameter.
-     *        </p>
-     *        </important>
-     *        <p>
-     *        If you are publishing to a topic and you want to send the same message to all transport protocols, include
-     *        the text of the message as a String value. If you want to send different messages for each transport
-     *        protocol, set the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON
-     *        object for the <code>Message</code> parameter.
-     *        </p>
-     *        <p/>
-     *        <p>
-     *        Constraints:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144
-     *        bytes, not 262,144 characters).
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        For SMS, each message can contain up to 140 characters. This character limit depends on the encoding
-     *        schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2
-     *        characters.
+     *        If you want to send the same message to all transport protocols, include the text of the message as a
+     *        String value.
      *        </p>
      *        <p>
-     *        If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages,
-     *        each fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word
-     *        boundaries.
+     *        If you want to send different messages for each transport protocol, set the value of the
+     *        <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the
+     *        <code>Message</code> parameter.
      *        </p>
      *        <p>
-     *        The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.
+     *        Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size (262144 bytes, not 262144
+     *        characters).
      *        </p>
-     *        </li>
-     *        </ul>
      *        <p>
      *        JSON-specific constraints:
      *        </p>
@@ -1531,8 +1304,7 @@ public class PublishRequest extends com.amazonaws.AmazonWebServiceRequest implem
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

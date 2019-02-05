@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -25,12 +25,6 @@ public class GetQueryResultsResult extends com.amazonaws.AmazonWebServiceResult<
 
     /**
      * <p>
-     * The number of rows inserted with a CREATE TABLE AS SELECT statement.
-     * </p>
-     */
-    private Long updateCount;
-    /**
-     * <p>
      * The results of the query execution.
      * </p>
      */
@@ -41,46 +35,6 @@ public class GetQueryResultsResult extends com.amazonaws.AmazonWebServiceResult<
      * </p>
      */
     private String nextToken;
-
-    /**
-     * <p>
-     * The number of rows inserted with a CREATE TABLE AS SELECT statement.
-     * </p>
-     * 
-     * @param updateCount
-     *        The number of rows inserted with a CREATE TABLE AS SELECT statement.
-     */
-
-    public void setUpdateCount(Long updateCount) {
-        this.updateCount = updateCount;
-    }
-
-    /**
-     * <p>
-     * The number of rows inserted with a CREATE TABLE AS SELECT statement.
-     * </p>
-     * 
-     * @return The number of rows inserted with a CREATE TABLE AS SELECT statement.
-     */
-
-    public Long getUpdateCount() {
-        return this.updateCount;
-    }
-
-    /**
-     * <p>
-     * The number of rows inserted with a CREATE TABLE AS SELECT statement.
-     * </p>
-     * 
-     * @param updateCount
-     *        The number of rows inserted with a CREATE TABLE AS SELECT statement.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public GetQueryResultsResult withUpdateCount(Long updateCount) {
-        setUpdateCount(updateCount);
-        return this;
-    }
 
     /**
      * <p>
@@ -163,8 +117,7 @@ public class GetQueryResultsResult extends com.amazonaws.AmazonWebServiceResult<
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -174,8 +127,6 @@ public class GetQueryResultsResult extends com.amazonaws.AmazonWebServiceResult<
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
-        if (getUpdateCount() != null)
-            sb.append("UpdateCount: ").append(getUpdateCount()).append(",");
         if (getResultSet() != null)
             sb.append("ResultSet: ").append(getResultSet()).append(",");
         if (getNextToken() != null)
@@ -194,10 +145,6 @@ public class GetQueryResultsResult extends com.amazonaws.AmazonWebServiceResult<
         if (obj instanceof GetQueryResultsResult == false)
             return false;
         GetQueryResultsResult other = (GetQueryResultsResult) obj;
-        if (other.getUpdateCount() == null ^ this.getUpdateCount() == null)
-            return false;
-        if (other.getUpdateCount() != null && other.getUpdateCount().equals(this.getUpdateCount()) == false)
-            return false;
         if (other.getResultSet() == null ^ this.getResultSet() == null)
             return false;
         if (other.getResultSet() != null && other.getResultSet().equals(this.getResultSet()) == false)
@@ -214,7 +161,6 @@ public class GetQueryResultsResult extends com.amazonaws.AmazonWebServiceResult<
         final int prime = 31;
         int hashCode = 1;
 
-        hashCode = prime * hashCode + ((getUpdateCount() == null) ? 0 : getUpdateCount().hashCode());
         hashCode = prime * hashCode + ((getResultSet() == null) ? 0 : getResultSet().hashCode());
         hashCode = prime * hashCode + ((getNextToken() == null) ? 0 : getNextToken().hashCode());
         return hashCode;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -102,21 +102,21 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <p>
      * The request body must include a document with a <code>ChangeResourceRecordSetsRequest</code> element. The request
      * body contains a list of change items, known as a change batch. Change batches are considered transactional
-     * changes. When using the Amazon Route 53 API to change resource record sets, Route 53 either makes all or none of
-     * the changes in a change batch request. This ensures that Route 53 never partially implements the intended changes
-     * to the resource record sets in a hosted zone.
+     * changes. When using the Amazon Route 53 API to change resource record sets, Amazon Route 53 either makes all or
+     * none of the changes in a change batch request. This ensures that Amazon Route 53 never partially implements the
+     * intended changes to the resource record sets in a hosted zone.
      * </p>
      * <p>
      * For example, a change batch request that deletes the <code>CNAME</code> record for www.example.com and creates an
-     * alias resource record set for www.example.com. Route 53 deletes the first resource record set and creates the
-     * second resource record set in a single operation. If either the <code>DELETE</code> or the <code>CREATE</code>
-     * action fails, then both changes (plus any other changes in the batch) fail, and the original <code>CNAME</code>
-     * record continues to exist.
+     * alias resource record set for www.example.com. Amazon Route 53 deletes the first resource record set and creates
+     * the second resource record set in a single operation. If either the <code>DELETE</code> or the
+     * <code>CREATE</code> action fails, then both changes (plus any other changes in the batch) fail, and the original
+     * <code>CNAME</code> record continues to exist.
      * </p>
      * <important>
      * <p>
      * Due to the nature of transactional changes, you can't delete the same resource record set more than once in a
-     * single change batch. If you attempt to delete the same change batch more than once, Route 53 returns an
+     * single change batch. If you attempt to delete the same change batch more than once, Amazon Route 53 returns an
      * <code>InvalidChangeBatch</code> error.
      * </p>
      * </important>
@@ -125,10 +125,10 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * <p>
      * To create resource record sets for complex routing configurations, use either the traffic flow visual editor in
-     * the Route 53 console or the API actions for traffic policies and traffic policy instances. Save the configuration
-     * as a traffic policy, then associate the traffic policy with one or more domain names (such as example.com) or
-     * subdomain names (such as www.example.com), in the same hosted zone or in multiple hosted zones. You can roll back
-     * the updates if the new configuration isn't performing as expected. For more information, see <a
+     * the Amazon Route 53 console or the API actions for traffic policies and traffic policy instances. Save the
+     * configuration as a traffic policy, then associate the traffic policy with one or more domain names (such as
+     * example.com) or subdomain names (such as www.example.com), in the same hosted zone or in multiple hosted zones.
+     * You can roll back the updates if the new configuration isn't performing as expected. For more information, see <a
      * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-flow.html">Using Traffic Flow to Route DNS
      * Traffic</a> in the <i>Amazon Route 53 Developer Guide</i>.
      * </p>
@@ -152,7 +152,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <li>
      * <p>
      * <code>UPSERT</code>: If a resource record set does not already exist, AWS creates it. If a resource set does
-     * exist, Route 53 updates it with the values in the request.
+     * exist, Amazon Route 53 updates it with the values in the request.
      * </p>
      * </li>
      * </ul>
@@ -172,14 +172,14 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * resource record set that you can create, delete, or update by using <code>ChangeResourceRecordSets</code>.
      * </p>
      * <p>
-     * <b>Change Propagation to Route 53 DNS Servers</b>
+     * <b>Change Propagation to Amazon Route 53 DNS Servers</b>
      * </p>
      * <p>
-     * When you submit a <code>ChangeResourceRecordSets</code> request, Route 53 propagates your changes to all of the
-     * Route 53 authoritative DNS servers. While your changes are propagating, <code>GetChange</code> returns a status
-     * of <code>PENDING</code>. When propagation is complete, <code>GetChange</code> returns a status of
-     * <code>INSYNC</code>. Changes generally propagate to all Route 53 name servers within 60 seconds. For more
-     * information, see <a>GetChange</a>.
+     * When you submit a <code>ChangeResourceRecordSets</code> request, Amazon Route 53 propagates your changes to all
+     * of the Amazon Route 53 authoritative DNS servers. While your changes are propagating, <code>GetChange</code>
+     * returns a status of <code>PENDING</code>. When propagation is complete, <code>GetChange</code> returns a status
+     * of <code>INSYNC</code>. Changes generally propagate to all Amazon Route 53 name servers within 60 seconds. For
+     * more information, see <a>GetChange</a>.
      * </p>
      * <p>
      * <b>Limits on ChangeResourceRecordSets Requests</b>
@@ -212,21 +212,21 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <p>
      * The request body must include a document with a <code>ChangeResourceRecordSetsRequest</code> element. The request
      * body contains a list of change items, known as a change batch. Change batches are considered transactional
-     * changes. When using the Amazon Route 53 API to change resource record sets, Route 53 either makes all or none of
-     * the changes in a change batch request. This ensures that Route 53 never partially implements the intended changes
-     * to the resource record sets in a hosted zone.
+     * changes. When using the Amazon Route 53 API to change resource record sets, Amazon Route 53 either makes all or
+     * none of the changes in a change batch request. This ensures that Amazon Route 53 never partially implements the
+     * intended changes to the resource record sets in a hosted zone.
      * </p>
      * <p>
      * For example, a change batch request that deletes the <code>CNAME</code> record for www.example.com and creates an
-     * alias resource record set for www.example.com. Route 53 deletes the first resource record set and creates the
-     * second resource record set in a single operation. If either the <code>DELETE</code> or the <code>CREATE</code>
-     * action fails, then both changes (plus any other changes in the batch) fail, and the original <code>CNAME</code>
-     * record continues to exist.
+     * alias resource record set for www.example.com. Amazon Route 53 deletes the first resource record set and creates
+     * the second resource record set in a single operation. If either the <code>DELETE</code> or the
+     * <code>CREATE</code> action fails, then both changes (plus any other changes in the batch) fail, and the original
+     * <code>CNAME</code> record continues to exist.
      * </p>
      * <important>
      * <p>
      * Due to the nature of transactional changes, you can't delete the same resource record set more than once in a
-     * single change batch. If you attempt to delete the same change batch more than once, Route 53 returns an
+     * single change batch. If you attempt to delete the same change batch more than once, Amazon Route 53 returns an
      * <code>InvalidChangeBatch</code> error.
      * </p>
      * </important>
@@ -235,10 +235,10 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * <p>
      * To create resource record sets for complex routing configurations, use either the traffic flow visual editor in
-     * the Route 53 console or the API actions for traffic policies and traffic policy instances. Save the configuration
-     * as a traffic policy, then associate the traffic policy with one or more domain names (such as example.com) or
-     * subdomain names (such as www.example.com), in the same hosted zone or in multiple hosted zones. You can roll back
-     * the updates if the new configuration isn't performing as expected. For more information, see <a
+     * the Amazon Route 53 console or the API actions for traffic policies and traffic policy instances. Save the
+     * configuration as a traffic policy, then associate the traffic policy with one or more domain names (such as
+     * example.com) or subdomain names (such as www.example.com), in the same hosted zone or in multiple hosted zones.
+     * You can roll back the updates if the new configuration isn't performing as expected. For more information, see <a
      * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-flow.html">Using Traffic Flow to Route DNS
      * Traffic</a> in the <i>Amazon Route 53 Developer Guide</i>.
      * </p>
@@ -262,7 +262,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <li>
      * <p>
      * <code>UPSERT</code>: If a resource record set does not already exist, AWS creates it. If a resource set does
-     * exist, Route 53 updates it with the values in the request.
+     * exist, Amazon Route 53 updates it with the values in the request.
      * </p>
      * </li>
      * </ul>
@@ -282,14 +282,14 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * resource record set that you can create, delete, or update by using <code>ChangeResourceRecordSets</code>.
      * </p>
      * <p>
-     * <b>Change Propagation to Route 53 DNS Servers</b>
+     * <b>Change Propagation to Amazon Route 53 DNS Servers</b>
      * </p>
      * <p>
-     * When you submit a <code>ChangeResourceRecordSets</code> request, Route 53 propagates your changes to all of the
-     * Route 53 authoritative DNS servers. While your changes are propagating, <code>GetChange</code> returns a status
-     * of <code>PENDING</code>. When propagation is complete, <code>GetChange</code> returns a status of
-     * <code>INSYNC</code>. Changes generally propagate to all Route 53 name servers within 60 seconds. For more
-     * information, see <a>GetChange</a>.
+     * When you submit a <code>ChangeResourceRecordSets</code> request, Amazon Route 53 propagates your changes to all
+     * of the Amazon Route 53 authoritative DNS servers. While your changes are propagating, <code>GetChange</code>
+     * returns a status of <code>PENDING</code>. When propagation is complete, <code>GetChange</code> returns a status
+     * of <code>INSYNC</code>. Changes generally propagate to all Amazon Route 53 name servers within 60 seconds. For
+     * more information, see <a>GetChange</a>.
      * </p>
      * <p>
      * <b>Limits on ChangeResourceRecordSets Requests</b>
@@ -371,7 +371,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <p>
      * If you're registering EC2 instances with an Elastic Load Balancing (ELB) load balancer, do not create Amazon
      * Route 53 health checks for the EC2 instances. When you register an EC2 instance with a load balancer, you
-     * configure settings for an ELB health check, which performs a similar function to a Route 53 health check.
+     * configure settings for an ELB health check, which performs a similar function to an Amazon Route 53 health check.
      * </p>
      * <p>
      * <b>Private Hosted Zones</b>
@@ -382,8 +382,8 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <ul>
      * <li>
      * <p>
-     * Route 53 health checkers are outside the VPC. To check the health of an endpoint within a VPC by IP address, you
-     * must assign a public IP address to the instance in the VPC.
+     * Amazon Route 53 health checkers are outside the VPC. To check the health of an endpoint within a VPC by IP
+     * address, you must assign a public IP address to the instance in the VPC.
      * </p>
      * </li>
      * <li>
@@ -428,7 +428,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <p>
      * If you're registering EC2 instances with an Elastic Load Balancing (ELB) load balancer, do not create Amazon
      * Route 53 health checks for the EC2 instances. When you register an EC2 instance with a load balancer, you
-     * configure settings for an ELB health check, which performs a similar function to a Route 53 health check.
+     * configure settings for an ELB health check, which performs a similar function to an Amazon Route 53 health check.
      * </p>
      * <p>
      * <b>Private Hosted Zones</b>
@@ -439,8 +439,8 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <ul>
      * <li>
      * <p>
-     * Route 53 health checkers are outside the VPC. To check the health of an endpoint within a VPC by IP address, you
-     * must assign a public IP address to the instance in the VPC.
+     * Amazon Route 53 health checkers are outside the VPC. To check the health of an endpoint within a VPC by IP
+     * address, you must assign a public IP address to the instance in the VPC.
      * </p>
      * </li>
      * <li>
@@ -478,14 +478,12 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
 
     /**
      * <p>
-     * Creates a new public or private hosted zone. You create records in a public hosted zone to define how you want to
-     * route traffic on the internet for a domain, such as example.com, and its subdomains (apex.example.com,
-     * acme.example.com). You create records in a private hosted zone to define how you want to route traffic for a
-     * domain and its subdomains within one or more Amazon Virtual Private Clouds (Amazon VPCs).
+     * Creates a new public hosted zone, which you use to specify how the Domain Name System (DNS) routes traffic on the
+     * Internet for a domain, such as example.com, and its subdomains.
      * </p>
      * <important>
      * <p>
-     * You can't convert a public hosted zone to a private hosted zone or vice versa. Instead, you must create a new
+     * You can't convert a public hosted zones to a private hosted zone or vice versa. Instead, you must create a new
      * hosted zone with the same name and create new resource record sets.
      * </p>
      * </important>
@@ -499,39 +497,38 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <ul>
      * <li>
      * <p>
-     * You can't create a hosted zone for a top-level domain (TLD) such as .com.
+     * You can't create a hosted zone for a top-level domain (TLD).
      * </p>
      * </li>
      * <li>
      * <p>
-     * For public hosted zones, Amazon Route 53 automatically creates a default SOA record and four NS records for the
-     * zone. For more information about SOA and NS records, see <a
-     * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS and SOA Records that Route
-     * 53 Creates for a Hosted Zone</a> in the <i>Amazon Route 53 Developer Guide</i>.
+     * Amazon Route 53 automatically creates a default SOA record and four NS records for the zone. For more information
+     * about SOA and NS records, see <a
+     * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS and SOA Records that Amazon
+     * Route 53 Creates for a Hosted Zone</a> in the <i>Amazon Route 53 Developer Guide</i>.
      * </p>
      * <p>
-     * If you want to use the same name servers for multiple public hosted zones, you can optionally associate a
-     * reusable delegation set with the hosted zone. See the <code>DelegationSetId</code> element.
+     * If you want to use the same name servers for multiple hosted zones, you can optionally associate a reusable
+     * delegation set with the hosted zone. See the <code>DelegationSetId</code> element.
      * </p>
      * </li>
      * <li>
      * <p>
-     * If your domain is registered with a registrar other than Route 53, you must update the name servers with your
-     * registrar to make Route 53 the DNS service for the domain. For more information, see <a
-     * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html">Migrating DNS Service for an
-     * Existing Domain to Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.
+     * If your domain is registered with a registrar other than Amazon Route 53, you must update the name servers with
+     * your registrar to make Amazon Route 53 your DNS service. For more information, see <a
+     * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/creating-migrating.html">Configuring Amazon Route
+     * 53 as your DNS Service</a> in the <i>Amazon Route 53 Developer Guide</i>.
      * </p>
      * </li>
      * </ul>
      * <p>
      * When you submit a <code>CreateHostedZone</code> request, the initial status of the hosted zone is
-     * <code>PENDING</code>. For public hosted zones, this means that the NS and SOA records are not yet available on
-     * all Route 53 DNS servers. When the NS and SOA records are available, the status of the zone changes to
-     * <code>INSYNC</code>.
+     * <code>PENDING</code>. This means that the NS and SOA records are not yet available on all Amazon Route 53 DNS
+     * servers. When the NS and SOA records are available, the status of the zone changes to <code>INSYNC</code>.
      * </p>
      * 
      * @param createHostedZoneRequest
-     *        A complex type that contains information about the request to create a public or private hosted zone.
+     *        A complex type that contains information about the request to create a hosted zone.
      * @return A Java Future containing the result of the CreateHostedZone operation returned by the service.
      * @sample AmazonRoute53Async.CreateHostedZone
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/route53-2013-04-01/CreateHostedZone" target="_top">AWS API
@@ -541,14 +538,12 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
 
     /**
      * <p>
-     * Creates a new public or private hosted zone. You create records in a public hosted zone to define how you want to
-     * route traffic on the internet for a domain, such as example.com, and its subdomains (apex.example.com,
-     * acme.example.com). You create records in a private hosted zone to define how you want to route traffic for a
-     * domain and its subdomains within one or more Amazon Virtual Private Clouds (Amazon VPCs).
+     * Creates a new public hosted zone, which you use to specify how the Domain Name System (DNS) routes traffic on the
+     * Internet for a domain, such as example.com, and its subdomains.
      * </p>
      * <important>
      * <p>
-     * You can't convert a public hosted zone to a private hosted zone or vice versa. Instead, you must create a new
+     * You can't convert a public hosted zones to a private hosted zone or vice versa. Instead, you must create a new
      * hosted zone with the same name and create new resource record sets.
      * </p>
      * </important>
@@ -562,39 +557,38 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <ul>
      * <li>
      * <p>
-     * You can't create a hosted zone for a top-level domain (TLD) such as .com.
+     * You can't create a hosted zone for a top-level domain (TLD).
      * </p>
      * </li>
      * <li>
      * <p>
-     * For public hosted zones, Amazon Route 53 automatically creates a default SOA record and four NS records for the
-     * zone. For more information about SOA and NS records, see <a
-     * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS and SOA Records that Route
-     * 53 Creates for a Hosted Zone</a> in the <i>Amazon Route 53 Developer Guide</i>.
+     * Amazon Route 53 automatically creates a default SOA record and four NS records for the zone. For more information
+     * about SOA and NS records, see <a
+     * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS and SOA Records that Amazon
+     * Route 53 Creates for a Hosted Zone</a> in the <i>Amazon Route 53 Developer Guide</i>.
      * </p>
      * <p>
-     * If you want to use the same name servers for multiple public hosted zones, you can optionally associate a
-     * reusable delegation set with the hosted zone. See the <code>DelegationSetId</code> element.
+     * If you want to use the same name servers for multiple hosted zones, you can optionally associate a reusable
+     * delegation set with the hosted zone. See the <code>DelegationSetId</code> element.
      * </p>
      * </li>
      * <li>
      * <p>
-     * If your domain is registered with a registrar other than Route 53, you must update the name servers with your
-     * registrar to make Route 53 the DNS service for the domain. For more information, see <a
-     * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html">Migrating DNS Service for an
-     * Existing Domain to Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.
+     * If your domain is registered with a registrar other than Amazon Route 53, you must update the name servers with
+     * your registrar to make Amazon Route 53 your DNS service. For more information, see <a
+     * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/creating-migrating.html">Configuring Amazon Route
+     * 53 as your DNS Service</a> in the <i>Amazon Route 53 Developer Guide</i>.
      * </p>
      * </li>
      * </ul>
      * <p>
      * When you submit a <code>CreateHostedZone</code> request, the initial status of the hosted zone is
-     * <code>PENDING</code>. For public hosted zones, this means that the NS and SOA records are not yet available on
-     * all Route 53 DNS servers. When the NS and SOA records are available, the status of the zone changes to
-     * <code>INSYNC</code>.
+     * <code>PENDING</code>. This means that the NS and SOA records are not yet available on all Amazon Route 53 DNS
+     * servers. When the NS and SOA records are available, the status of the zone changes to <code>INSYNC</code>.
      * </p>
      * 
      * @param createHostedZoneRequest
-     *        A complex type that contains information about the request to create a public or private hosted zone.
+     *        A complex type that contains information about the request to create a hosted zone.
      * @param asyncHandler
      *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
      *        implementation of the callback methods in this interface to receive notification of successful or
@@ -613,13 +607,13 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * begins to publish log data to an Amazon CloudWatch Logs log group.
      * </p>
      * <p>
-     * DNS query logs contain information about the queries that Route 53 receives for a specified public hosted zone,
-     * such as the following:
+     * DNS query logs contain information about the queries that Amazon Route 53 receives for a specified public hosted
+     * zone, such as the following:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * Route 53 edge location that responded to the DNS query
+     * Amazon Route 53 edge location that responded to the DNS query
      * </p>
      * </li>
      * <li>
@@ -646,8 +640,8 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * <note>
      * <p>
-     * If you create a query logging configuration using the Route 53 console, Route 53 performs these operations
-     * automatically.
+     * If you create a query logging configuration using the Amazon Route 53 console, Amazon Route 53 performs these
+     * operations automatically.
      * </p>
      * </note>
      * <ol>
@@ -677,19 +671,20 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * <p>
      * In the next step, you'll create a resource policy, which controls access to one or more log groups and the
-     * associated AWS resources, such as Route 53 hosted zones. There's a limit on the number of resource policies that
-     * you can create, so we recommend that you use a consistent prefix so you can use the same resource policy for all
-     * the log groups that you create for query logging.
+     * associated AWS resources, such as Amazon Route 53 hosted zones. There's a limit on the number of resource
+     * policies that you can create, so we recommend that you use a consistent prefix so you can use the same resource
+     * policy for all the log groups that you create for query logging.
      * </p>
      * </li>
      * </ul>
      * </li>
      * <li>
      * <p>
-     * Create a CloudWatch Logs resource policy, and give it the permissions that Route 53 needs to create log streams
-     * and to send query logs to log streams. For the value of <code>Resource</code>, specify the ARN for the log group
-     * that you created in the previous step. To use the same resource policy for all the CloudWatch Logs log groups
-     * that you created for query logging configurations, replace the hosted zone name with <code>*</code>, for example:
+     * Create a CloudWatch Logs resource policy, and give it the permissions that Amazon Route 53 needs to create log
+     * streams and to send query logs to log streams. For the value of <code>Resource</code>, specify the ARN for the
+     * log group that you created in the previous step. To use the same resource policy for all the CloudWatch Logs log
+     * groups that you created for query logging configurations, replace the hosted zone name with <code>*</code>, for
+     * example:
      * </p>
      * <p>
      * <code>arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*</code>
@@ -705,13 +700,13 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <dt>Log Streams and Edge Locations</dt>
      * <dd>
      * <p>
-     * When Route 53 finishes creating the configuration for DNS query logging, it does the following:
+     * When Amazon Route 53 finishes creating the configuration for DNS query logging, it does the following:
      * </p>
      * <ul>
      * <li>
      * <p>
      * Creates a log stream for an edge location the first time that the edge location responds to DNS queries for the
-     * specified hosted zone. That log stream is used to log all queries that Route 53 responds to for that edge
+     * specified hosted zone. That log stream is used to log all queries that Amazon Route 53 responds to for that edge
      * location.
      * </p>
      * </li>
@@ -731,21 +726,21 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * The edge location code is a three-letter code and an arbitrarily assigned number, for example, DFW3. The
      * three-letter code typically corresponds with the International Air Transport Association airport code for an
      * airport near the edge location. (These abbreviations might change in the future.) For a list of edge locations,
-     * see "The Route 53 Global Network" on the <a href="http://aws.amazon.com/route53/details/">Route 53 Product
-     * Details</a> page.
+     * see "The Amazon Route 53 Global Network" on the <a href="http://aws.amazon.com/route53/details/">Amazon Route 53
+     * Product Details</a> page.
      * </p>
      * </dd>
      * <dt>Queries That Are Logged</dt>
      * <dd>
      * <p>
-     * Query logs contain only the queries that DNS resolvers forward to Route 53. If a DNS resolver has already cached
-     * the response to a query (such as the IP address for a load balancer for example.com), the resolver will continue
-     * to return the cached response. It doesn't forward another query to Route 53 until the TTL for the corresponding
-     * resource record set expires. Depending on how many DNS queries are submitted for a resource record set, and
-     * depending on the TTL for that resource record set, query logs might contain information about only one query out
-     * of every several thousand queries that are submitted to DNS. For more information about how DNS works, see <a
-     * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html">Routing Internet Traffic
-     * to Your Website or Web Application</a> in the <i>Amazon Route 53 Developer Guide</i>.
+     * Query logs contain only the queries that DNS resolvers forward to Amazon Route 53. If a DNS resolver has already
+     * cached the response to a query (such as the IP address for a load balancer for example.com), the resolver will
+     * continue to return the cached response. It doesn't forward another query to Amazon Route 53 until the TTL for the
+     * corresponding resource record set expires. Depending on how many DNS queries are submitted for a resource record
+     * set, and depending on the TTL for that resource record set, query logs might contain information about only one
+     * query out of every several thousand queries that are submitted to DNS. For more information about how DNS works,
+     * see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html">Routing Internet
+     * Traffic to Your Website or Web Application</a> in the <i>Amazon Route 53 Developer Guide</i>.
      * </p>
      * </dd>
      * <dt>Log File Format</dt>
@@ -766,8 +761,8 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <dt>How to Stop Logging</dt>
      * <dd>
      * <p>
-     * If you want Route 53 to stop sending query logs to CloudWatch Logs, delete the query logging configuration. For
-     * more information, see <a>DeleteQueryLoggingConfig</a>.
+     * If you want Amazon Route 53 to stop sending query logs to CloudWatch Logs, delete the query logging
+     * configuration. For more information, see <a>DeleteQueryLoggingConfig</a>.
      * </p>
      * </dd>
      * </dl>
@@ -786,13 +781,13 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * begins to publish log data to an Amazon CloudWatch Logs log group.
      * </p>
      * <p>
-     * DNS query logs contain information about the queries that Route 53 receives for a specified public hosted zone,
-     * such as the following:
+     * DNS query logs contain information about the queries that Amazon Route 53 receives for a specified public hosted
+     * zone, such as the following:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * Route 53 edge location that responded to the DNS query
+     * Amazon Route 53 edge location that responded to the DNS query
      * </p>
      * </li>
      * <li>
@@ -819,8 +814,8 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * <note>
      * <p>
-     * If you create a query logging configuration using the Route 53 console, Route 53 performs these operations
-     * automatically.
+     * If you create a query logging configuration using the Amazon Route 53 console, Amazon Route 53 performs these
+     * operations automatically.
      * </p>
      * </note>
      * <ol>
@@ -850,19 +845,20 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * <p>
      * In the next step, you'll create a resource policy, which controls access to one or more log groups and the
-     * associated AWS resources, such as Route 53 hosted zones. There's a limit on the number of resource policies that
-     * you can create, so we recommend that you use a consistent prefix so you can use the same resource policy for all
-     * the log groups that you create for query logging.
+     * associated AWS resources, such as Amazon Route 53 hosted zones. There's a limit on the number of resource
+     * policies that you can create, so we recommend that you use a consistent prefix so you can use the same resource
+     * policy for all the log groups that you create for query logging.
      * </p>
      * </li>
      * </ul>
      * </li>
      * <li>
      * <p>
-     * Create a CloudWatch Logs resource policy, and give it the permissions that Route 53 needs to create log streams
-     * and to send query logs to log streams. For the value of <code>Resource</code>, specify the ARN for the log group
-     * that you created in the previous step. To use the same resource policy for all the CloudWatch Logs log groups
-     * that you created for query logging configurations, replace the hosted zone name with <code>*</code>, for example:
+     * Create a CloudWatch Logs resource policy, and give it the permissions that Amazon Route 53 needs to create log
+     * streams and to send query logs to log streams. For the value of <code>Resource</code>, specify the ARN for the
+     * log group that you created in the previous step. To use the same resource policy for all the CloudWatch Logs log
+     * groups that you created for query logging configurations, replace the hosted zone name with <code>*</code>, for
+     * example:
      * </p>
      * <p>
      * <code>arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*</code>
@@ -878,13 +874,13 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <dt>Log Streams and Edge Locations</dt>
      * <dd>
      * <p>
-     * When Route 53 finishes creating the configuration for DNS query logging, it does the following:
+     * When Amazon Route 53 finishes creating the configuration for DNS query logging, it does the following:
      * </p>
      * <ul>
      * <li>
      * <p>
      * Creates a log stream for an edge location the first time that the edge location responds to DNS queries for the
-     * specified hosted zone. That log stream is used to log all queries that Route 53 responds to for that edge
+     * specified hosted zone. That log stream is used to log all queries that Amazon Route 53 responds to for that edge
      * location.
      * </p>
      * </li>
@@ -904,21 +900,21 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * The edge location code is a three-letter code and an arbitrarily assigned number, for example, DFW3. The
      * three-letter code typically corresponds with the International Air Transport Association airport code for an
      * airport near the edge location. (These abbreviations might change in the future.) For a list of edge locations,
-     * see "The Route 53 Global Network" on the <a href="http://aws.amazon.com/route53/details/">Route 53 Product
-     * Details</a> page.
+     * see "The Amazon Route 53 Global Network" on the <a href="http://aws.amazon.com/route53/details/">Amazon Route 53
+     * Product Details</a> page.
      * </p>
      * </dd>
      * <dt>Queries That Are Logged</dt>
      * <dd>
      * <p>
-     * Query logs contain only the queries that DNS resolvers forward to Route 53. If a DNS resolver has already cached
-     * the response to a query (such as the IP address for a load balancer for example.com), the resolver will continue
-     * to return the cached response. It doesn't forward another query to Route 53 until the TTL for the corresponding
-     * resource record set expires. Depending on how many DNS queries are submitted for a resource record set, and
-     * depending on the TTL for that resource record set, query logs might contain information about only one query out
-     * of every several thousand queries that are submitted to DNS. For more information about how DNS works, see <a
-     * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html">Routing Internet Traffic
-     * to Your Website or Web Application</a> in the <i>Amazon Route 53 Developer Guide</i>.
+     * Query logs contain only the queries that DNS resolvers forward to Amazon Route 53. If a DNS resolver has already
+     * cached the response to a query (such as the IP address for a load balancer for example.com), the resolver will
+     * continue to return the cached response. It doesn't forward another query to Amazon Route 53 until the TTL for the
+     * corresponding resource record set expires. Depending on how many DNS queries are submitted for a resource record
+     * set, and depending on the TTL for that resource record set, query logs might contain information about only one
+     * query out of every several thousand queries that are submitted to DNS. For more information about how DNS works,
+     * see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html">Routing Internet
+     * Traffic to Your Website or Web Application</a> in the <i>Amazon Route 53 Developer Guide</i>.
      * </p>
      * </dd>
      * <dt>Log File Format</dt>
@@ -939,8 +935,8 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <dt>How to Stop Logging</dt>
      * <dd>
      * <p>
-     * If you want Route 53 to stop sending query logs to CloudWatch Logs, delete the query logging configuration. For
-     * more information, see <a>DeleteQueryLoggingConfig</a>.
+     * If you want Amazon Route 53 to stop sending query logs to CloudWatch Logs, delete the query logging
+     * configuration. For more information, see <a>DeleteQueryLoggingConfig</a>.
      * </p>
      * </dd>
      * </dl>
@@ -1402,9 +1398,9 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <p>
      * You can delete a hosted zone only if it contains only the default SOA record and NS resource record sets. If the
      * hosted zone contains other resource record sets, you must delete them before you can delete the hosted zone. If
-     * you try to delete a hosted zone that contains other resource record sets, the request fails, and Route 53 returns
-     * a <code>HostedZoneNotEmpty</code> error. For information about deleting records from your hosted zone, see
-     * <a>ChangeResourceRecordSets</a>.
+     * you try to delete a hosted zone that contains other resource record sets, the request fails, and Amazon Route 53
+     * returns a <code>HostedZoneNotEmpty</code> error. For information about deleting records from your hosted zone,
+     * see <a>ChangeResourceRecordSets</a>.
      * </p>
      * <p>
      * To verify that the hosted zone has been deleted, do one of the following:
@@ -1454,9 +1450,9 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <p>
      * You can delete a hosted zone only if it contains only the default SOA record and NS resource record sets. If the
      * hosted zone contains other resource record sets, you must delete them before you can delete the hosted zone. If
-     * you try to delete a hosted zone that contains other resource record sets, the request fails, and Route 53 returns
-     * a <code>HostedZoneNotEmpty</code> error. For information about deleting records from your hosted zone, see
-     * <a>ChangeResourceRecordSets</a>.
+     * you try to delete a hosted zone that contains other resource record sets, the request fails, and Amazon Route 53
+     * returns a <code>HostedZoneNotEmpty</code> error. For information about deleting records from your hosted zone,
+     * see <a>ChangeResourceRecordSets</a>.
      * </p>
      * <p>
      * To verify that the hosted zone has been deleted, do one of the following:
@@ -1492,7 +1488,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
     /**
      * <p>
      * Deletes a configuration for DNS query logging. If you delete a configuration, Amazon Route 53 stops sending query
-     * logs to CloudWatch Logs. Route 53 doesn't delete any logs that are already in CloudWatch Logs.
+     * logs to CloudWatch Logs. Amazon Route 53 doesn't delete any logs that are already in CloudWatch Logs.
      * </p>
      * <p>
      * For more information about DNS query logs, see <a>CreateQueryLoggingConfig</a>.
@@ -1509,7 +1505,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
     /**
      * <p>
      * Deletes a configuration for DNS query logging. If you delete a configuration, Amazon Route 53 stops sending query
-     * logs to CloudWatch Logs. Route 53 doesn't delete any logs that are already in CloudWatch Logs.
+     * logs to CloudWatch Logs. Amazon Route 53 doesn't delete any logs that are already in CloudWatch Logs.
      * </p>
      * <p>
      * For more information about DNS query logs, see <a>CreateQueryLoggingConfig</a>.
@@ -1623,7 +1619,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * <note>
      * <p>
-     * In the Route 53 console, traffic policy instances are known as policy records.
+     * In the Amazon Route 53 console, traffic policy instances are known as policy records.
      * </p>
      * </note>
      * 
@@ -1644,7 +1640,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * <note>
      * <p>
-     * In the Route 53 console, traffic policy instances are known as policy records.
+     * In the Amazon Route 53 console, traffic policy instances are known as policy records.
      * </p>
      * </note>
      * 
@@ -1724,26 +1720,18 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
 
     /**
      * <p>
-     * Disassociates a VPC from a Amazon Route 53 private hosted zone. Note the following:
+     * Disassociates a VPC from a Amazon Route 53 private hosted zone.
      * </p>
-     * <ul>
-     * <li>
+     * <note>
      * <p>
      * You can't disassociate the last VPC from a private hosted zone.
      * </p>
-     * </li>
-     * <li>
+     * </note> <important>
      * <p>
-     * You can't convert a private hosted zone into a public hosted zone.
+     * You can't disassociate a VPC from a private hosted zone when only one VPC is associated with the hosted zone. You
+     * also can't convert a private hosted zone into a public hosted zone.
      * </p>
-     * </li>
-     * <li>
-     * <p>
-     * You can submit a <code>DisassociateVPCFromHostedZone</code> request using either the account that created the
-     * hosted zone or the account that created the VPC.
-     * </p>
-     * </li>
-     * </ul>
+     * </important>
      * 
      * @param disassociateVPCFromHostedZoneRequest
      *        A complex type that contains information about the VPC that you want to disassociate from a specified
@@ -1759,26 +1747,18 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
 
     /**
      * <p>
-     * Disassociates a VPC from a Amazon Route 53 private hosted zone. Note the following:
+     * Disassociates a VPC from a Amazon Route 53 private hosted zone.
      * </p>
-     * <ul>
-     * <li>
+     * <note>
      * <p>
      * You can't disassociate the last VPC from a private hosted zone.
      * </p>
-     * </li>
-     * <li>
+     * </note> <important>
      * <p>
-     * You can't convert a private hosted zone into a public hosted zone.
+     * You can't disassociate a VPC from a private hosted zone when only one VPC is associated with the hosted zone. You
+     * also can't convert a private hosted zone into a public hosted zone.
      * </p>
-     * </li>
-     * <li>
-     * <p>
-     * You can submit a <code>DisassociateVPCFromHostedZone</code> request using either the account that created the
-     * hosted zone or the account that created the VPC.
-     * </p>
-     * </li>
-     * </ul>
+     * </important>
      * 
      * @param disassociateVPCFromHostedZoneRequest
      *        A complex type that contains information about the VPC that you want to disassociate from a specified
@@ -1859,7 +1839,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </li>
      * <li>
      * <p>
-     * <code>INSYNC</code> indicates that the changes have propagated to all Route 53 DNS servers.
+     * <code>INSYNC</code> indicates that the changes have propagated to all Amazon Route 53 DNS servers.
      * </p>
      * </li>
      * </ul>
@@ -1886,7 +1866,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </li>
      * <li>
      * <p>
-     * <code>INSYNC</code> indicates that the changes have propagated to all Route 53 DNS servers.
+     * <code>INSYNC</code> indicates that the changes have propagated to all Amazon Route 53 DNS servers.
      * </p>
      * </li>
      * </ul>
@@ -1906,14 +1886,12 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
             com.amazonaws.handlers.AsyncHandler<GetChangeRequest, GetChangeResult> asyncHandler);
 
     /**
-     * <important>
      * <p>
      * <code>GetCheckerIpRanges</code> still works, but we recommend that you download ip-ranges.json, which includes IP
      * address ranges for all AWS services. For more information, see <a
      * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html">IP Address Ranges of
      * Amazon Route 53 Servers</a> in the <i>Amazon Route 53 Developer Guide</i>.
      * </p>
-     * </important>
      * 
      * @param getCheckerIpRangesRequest
      * @return A Java Future containing the result of the GetCheckerIpRanges operation returned by the service.
@@ -1924,14 +1902,12 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
     java.util.concurrent.Future<GetCheckerIpRangesResult> getCheckerIpRangesAsync(GetCheckerIpRangesRequest getCheckerIpRangesRequest);
 
     /**
-     * <important>
      * <p>
      * <code>GetCheckerIpRanges</code> still works, but we recommend that you download ip-ranges.json, which includes IP
      * address ranges for all AWS services. For more information, see <a
      * href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html">IP Address Ranges of
      * Amazon Route 53 Servers</a> in the <i>Amazon Route 53 Developer Guide</i>.
      * </p>
-     * </important>
      * 
      * @param getCheckerIpRangesRequest
      * @param asyncHandler
@@ -1970,19 +1946,19 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * Use the following syntax to determine whether a continent is supported for geolocation:
      * </p>
      * <p>
-     * <code>GET /2013-04-01/geolocation?continentcode=<i>two-letter abbreviation for a continent</i> </code>
+     * <code>GET /2013-04-01/geolocation?ContinentCode=<i>two-letter abbreviation for a continent</i> </code>
      * </p>
      * <p>
      * Use the following syntax to determine whether a country is supported for geolocation:
      * </p>
      * <p>
-     * <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i> </code>
+     * <code>GET /2013-04-01/geolocation?CountryCode=<i>two-character country code</i> </code>
      * </p>
      * <p>
      * Use the following syntax to determine whether a subdivision of a country is supported for geolocation:
      * </p>
      * <p>
-     * <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i>&amp;subdivisioncode=<i>subdivision code</i> </code>
+     * <code>GET /2013-04-01/geolocation?CountryCode=<i>two-character country code</i>&amp;SubdivisionCode=<i>subdivision code</i> </code>
      * </p>
      * 
      * @param getGeoLocationRequest
@@ -2004,19 +1980,19 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * Use the following syntax to determine whether a continent is supported for geolocation:
      * </p>
      * <p>
-     * <code>GET /2013-04-01/geolocation?continentcode=<i>two-letter abbreviation for a continent</i> </code>
+     * <code>GET /2013-04-01/geolocation?ContinentCode=<i>two-letter abbreviation for a continent</i> </code>
      * </p>
      * <p>
      * Use the following syntax to determine whether a country is supported for geolocation:
      * </p>
      * <p>
-     * <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i> </code>
+     * <code>GET /2013-04-01/geolocation?CountryCode=<i>two-character country code</i> </code>
      * </p>
      * <p>
      * Use the following syntax to determine whether a subdivision of a country is supported for geolocation:
      * </p>
      * <p>
-     * <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i>&amp;subdivisioncode=<i>subdivision code</i> </code>
+     * <code>GET /2013-04-01/geolocation?CountryCode=<i>two-character country code</i>&amp;SubdivisionCode=<i>subdivision code</i> </code>
      * </p>
      * 
      * @param getGeoLocationRequest
@@ -2500,7 +2476,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * </note> <note>
      * <p>
-     * In the Route 53 console, traffic policy instances are known as policy records.
+     * In the Amazon Route 53 console, traffic policy instances are known as policy records.
      * </p>
      * </note>
      * 
@@ -2525,7 +2501,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * </note> <note>
      * <p>
-     * In the Route 53 console, traffic policy instances are known as policy records.
+     * In the Amazon Route 53 console, traffic policy instances are known as policy records.
      * </p>
      * </note>
      * 
@@ -2598,7 +2574,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
 
     /**
      * <p>
-     * Retrieves a list of supported geographic locations.
+     * Retrieves a list of supported geo locations.
      * </p>
      * <p>
      * Countries are listed first, and continents are listed last. If Amazon Route 53 supports subdivisions for a
@@ -2618,7 +2594,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
 
     /**
      * <p>
-     * Retrieves a list of supported geographic locations.
+     * Retrieves a list of supported geo locations.
      * </p>
      * <p>
      * Countries are listed first, and continents are listed last. If Amazon Route 53 supports subdivisions for a
@@ -2794,7 +2770,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * in the <i>Amazon Route 53 Developer Guide</i>.
      * </p>
      * <p>
-     * Route 53 returns up to 100 items in each response. If you have a lot of hosted zones, use the
+     * Amazon Route 53 returns up to 100 items in each response. If you have a lot of hosted zones, use the
      * <code>MaxItems</code> parameter to list them in groups of up to 100. The response includes values that help
      * navigate from one group of <code>MaxItems</code> hosted zones to the next:
      * </p>
@@ -2874,7 +2850,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * in the <i>Amazon Route 53 Developer Guide</i>.
      * </p>
      * <p>
-     * Route 53 returns up to 100 items in each response. If you have a lot of hosted zones, use the
+     * Amazon Route 53 returns up to 100 items in each response. If you have a lot of hosted zones, use the
      * <code>MaxItems</code> parameter to list them in groups of up to 100. The response includes values that help
      * navigate from one group of <code>MaxItems</code> hosted zones to the next:
      * </p>
@@ -2995,31 +2971,21 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * <p>
      * <code>ListResourceRecordSets</code> returns up to 100 resource record sets at a time in ASCII order, beginning at
-     * a position specified by the <code>name</code> and <code>type</code> elements.
-     * </p>
-     * <p>
-     * <b>Sort order</b>
-     * </p>
-     * <p>
-     * <code>ListResourceRecordSets</code> sorts results first by DNS name with the labels reversed, for example:
+     * a position specified by the <code>name</code> and <code>type</code> elements. The action sorts results first by
+     * DNS name with the labels reversed, for example:
      * </p>
      * <p>
      * <code>com.example.www.</code>
      * </p>
      * <p>
-     * Note the trailing dot, which can change the sort order when the record name contains characters that appear
-     * before <code>.</code> (decimal 46) in the ASCII table. These characters include the following:
-     * <code>! " # $ % &amp; ' ( ) * + , -</code>
+     * Note the trailing dot, which can change the sort order in some circumstances.
      * </p>
      * <p>
-     * When multiple records have the same DNS name, <code>ListResourceRecordSets</code> sorts results by the record
-     * type.
+     * When multiple records have the same DNS name, the action sorts results by the record type.
      * </p>
      * <p>
-     * <b>Specifying where to start listing records</b>
-     * </p>
-     * <p>
-     * You can use the name and type elements to specify the resource record set that the list begins with:
+     * You can use the name and type elements to adjust the beginning position of the list of resource record sets
+     * returned:
      * </p>
      * <dl>
      * <dt>If you do not specify Name or Type</dt>
@@ -3050,30 +3016,14 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </dd>
      * </dl>
      * <p>
-     * <b>Resource record sets that are PENDING</b>
-     * </p>
-     * <p>
      * This action returns the most current version of the records. This includes records that are <code>PENDING</code>,
-     * and that are not yet available on all Route 53 DNS servers.
-     * </p>
-     * <p>
-     * <b>Changing resource record sets</b>
+     * and that are not yet available on all Amazon Route 53 DNS servers.
      * </p>
      * <p>
      * To ensure that you get an accurate listing of the resource record sets for a hosted zone at a point in time, do
      * not submit a <code>ChangeResourceRecordSets</code> request while you're paging through the results of a
      * <code>ListResourceRecordSets</code> request. If you do, some pages may display results without the latest changes
      * while other pages display results with the latest changes.
-     * </p>
-     * <p>
-     * <b>Displaying the next page of results</b>
-     * </p>
-     * <p>
-     * If a <code>ListResourceRecordSets</code> command returns more than one page of results, the value of
-     * <code>IsTruncated</code> is <code>true</code>. To display the next page of results, get the values of
-     * <code>NextRecordName</code>, <code>NextRecordType</code>, and <code>NextRecordIdentifier</code> (if any) from the
-     * response. Then submit another <code>ListResourceRecordSets</code> request, and specify those values for
-     * <code>StartRecordName</code>, <code>StartRecordType</code>, and <code>StartRecordIdentifier</code>.
      * </p>
      * 
      * @param listResourceRecordSetsRequest
@@ -3091,31 +3041,21 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * <p>
      * <code>ListResourceRecordSets</code> returns up to 100 resource record sets at a time in ASCII order, beginning at
-     * a position specified by the <code>name</code> and <code>type</code> elements.
-     * </p>
-     * <p>
-     * <b>Sort order</b>
-     * </p>
-     * <p>
-     * <code>ListResourceRecordSets</code> sorts results first by DNS name with the labels reversed, for example:
+     * a position specified by the <code>name</code> and <code>type</code> elements. The action sorts results first by
+     * DNS name with the labels reversed, for example:
      * </p>
      * <p>
      * <code>com.example.www.</code>
      * </p>
      * <p>
-     * Note the trailing dot, which can change the sort order when the record name contains characters that appear
-     * before <code>.</code> (decimal 46) in the ASCII table. These characters include the following:
-     * <code>! " # $ % &amp; ' ( ) * + , -</code>
+     * Note the trailing dot, which can change the sort order in some circumstances.
      * </p>
      * <p>
-     * When multiple records have the same DNS name, <code>ListResourceRecordSets</code> sorts results by the record
-     * type.
+     * When multiple records have the same DNS name, the action sorts results by the record type.
      * </p>
      * <p>
-     * <b>Specifying where to start listing records</b>
-     * </p>
-     * <p>
-     * You can use the name and type elements to specify the resource record set that the list begins with:
+     * You can use the name and type elements to adjust the beginning position of the list of resource record sets
+     * returned:
      * </p>
      * <dl>
      * <dt>If you do not specify Name or Type</dt>
@@ -3146,30 +3086,14 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </dd>
      * </dl>
      * <p>
-     * <b>Resource record sets that are PENDING</b>
-     * </p>
-     * <p>
      * This action returns the most current version of the records. This includes records that are <code>PENDING</code>,
-     * and that are not yet available on all Route 53 DNS servers.
-     * </p>
-     * <p>
-     * <b>Changing resource record sets</b>
+     * and that are not yet available on all Amazon Route 53 DNS servers.
      * </p>
      * <p>
      * To ensure that you get an accurate listing of the resource record sets for a hosted zone at a point in time, do
      * not submit a <code>ChangeResourceRecordSets</code> request while you're paging through the results of a
      * <code>ListResourceRecordSets</code> request. If you do, some pages may display results without the latest changes
      * while other pages display results with the latest changes.
-     * </p>
-     * <p>
-     * <b>Displaying the next page of results</b>
-     * </p>
-     * <p>
-     * If a <code>ListResourceRecordSets</code> command returns more than one page of results, the value of
-     * <code>IsTruncated</code> is <code>true</code>. To display the next page of results, get the values of
-     * <code>NextRecordName</code>, <code>NextRecordType</code>, and <code>NextRecordIdentifier</code> (if any) from the
-     * response. Then submit another <code>ListResourceRecordSets</code> request, and specify those values for
-     * <code>StartRecordName</code>, <code>StartRecordType</code>, and <code>StartRecordIdentifier</code>.
      * </p>
      * 
      * @param listResourceRecordSetsRequest
@@ -3329,7 +3253,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
     /**
      * <p>
      * Gets information about the latest version for every traffic policy that is associated with the current AWS
-     * account. Policies are listed in the order that they were created in.
+     * account. Policies are listed in the order in which they were created.
      * </p>
      * 
      * @param listTrafficPoliciesRequest
@@ -3345,7 +3269,7 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
     /**
      * <p>
      * Gets information about the latest version for every traffic policy that is associated with the current AWS
-     * account. Policies are listed in the order that they were created in.
+     * account. Policies are listed in the order in which they were created.
      * </p>
      * 
      * @param listTrafficPoliciesRequest
@@ -3390,8 +3314,8 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * </note>
      * <p>
-     * Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can
-     * use the <code>MaxItems</code> parameter to list them in groups of up to 100.
+     * Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances,
+     * you can use the <code>MaxItems</code> parameter to list them in groups of up to 100.
      * </p>
      * 
      * @param listTrafficPolicyInstancesRequest
@@ -3417,8 +3341,8 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * </note>
      * <p>
-     * Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can
-     * use the <code>MaxItems</code> parameter to list them in groups of up to 100.
+     * Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances,
+     * you can use the <code>MaxItems</code> parameter to list them in groups of up to 100.
      * </p>
      * 
      * @param listTrafficPolicyInstancesRequest
@@ -3464,8 +3388,8 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * </note>
      * <p>
-     * Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can
-     * use the <code>MaxItems</code> parameter to list them in groups of up to 100.
+     * Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances,
+     * you can use the <code>MaxItems</code> parameter to list them in groups of up to 100.
      * </p>
      * 
      * @param listTrafficPolicyInstancesByHostedZoneRequest
@@ -3491,8 +3415,8 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * </note>
      * <p>
-     * Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can
-     * use the <code>MaxItems</code> parameter to list them in groups of up to 100.
+     * Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances,
+     * you can use the <code>MaxItems</code> parameter to list them in groups of up to 100.
      * </p>
      * 
      * @param listTrafficPolicyInstancesByHostedZoneRequest
@@ -3523,8 +3447,8 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * </note>
      * <p>
-     * Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can
-     * use the <code>MaxItems</code> parameter to list them in groups of up to 100.
+     * Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances,
+     * you can use the <code>MaxItems</code> parameter to list them in groups of up to 100.
      * </p>
      * 
      * @param listTrafficPolicyInstancesByPolicyRequest
@@ -3550,8 +3474,8 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * </p>
      * </note>
      * <p>
-     * Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can
-     * use the <code>MaxItems</code> parameter to list them in groups of up to 100.
+     * Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances,
+     * you can use the <code>MaxItems</code> parameter to list them in groups of up to 100.
      * </p>
      * 
      * @param listTrafficPolicyInstancesByPolicyRequest
@@ -3818,26 +3742,26 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <p>
      * When you update a traffic policy instance, Amazon Route 53 continues to respond to DNS queries for the root
      * resource record set name (such as example.com) while it replaces one group of resource record sets with another.
-     * Route 53 performs the following operations:
+     * Amazon Route 53 performs the following operations:
      * </p>
      * <ol>
      * <li>
      * <p>
-     * Route 53 creates a new group of resource record sets based on the specified traffic policy. This is true
+     * Amazon Route 53 creates a new group of resource record sets based on the specified traffic policy. This is true
      * regardless of how significant the differences are between the existing resource record sets and the new resource
      * record sets.
      * </p>
      * </li>
      * <li>
      * <p>
-     * When all of the new resource record sets have been created, Route 53 starts to respond to DNS queries for the
-     * root resource record set name (such as example.com) by using the new resource record sets.
+     * When all of the new resource record sets have been created, Amazon Route 53 starts to respond to DNS queries for
+     * the root resource record set name (such as example.com) by using the new resource record sets.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Route 53 deletes the old group of resource record sets that are associated with the root resource record set
-     * name.
+     * Amazon Route 53 deletes the old group of resource record sets that are associated with the root resource record
+     * set name.
      * </p>
      * </li>
      * </ol>
@@ -3861,26 +3785,26 @@ public interface AmazonRoute53Async extends AmazonRoute53 {
      * <p>
      * When you update a traffic policy instance, Amazon Route 53 continues to respond to DNS queries for the root
      * resource record set name (such as example.com) while it replaces one group of resource record sets with another.
-     * Route 53 performs the following operations:
+     * Amazon Route 53 performs the following operations:
      * </p>
      * <ol>
      * <li>
      * <p>
-     * Route 53 creates a new group of resource record sets based on the specified traffic policy. This is true
+     * Amazon Route 53 creates a new group of resource record sets based on the specified traffic policy. This is true
      * regardless of how significant the differences are between the existing resource record sets and the new resource
      * record sets.
      * </p>
      * </li>
      * <li>
      * <p>
-     * When all of the new resource record sets have been created, Route 53 starts to respond to DNS queries for the
-     * root resource record set name (such as example.com) by using the new resource record sets.
+     * When all of the new resource record sets have been created, Amazon Route 53 starts to respond to DNS queries for
+     * the root resource record set name (such as example.com) by using the new resource record sets.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Route 53 deletes the old group of resource record sets that are associated with the root resource record set
-     * name.
+     * Amazon Route 53 deletes the old group of resource record sets that are associated with the root resource record
+     * set name.
      * </p>
      * </li>
      * </ol>

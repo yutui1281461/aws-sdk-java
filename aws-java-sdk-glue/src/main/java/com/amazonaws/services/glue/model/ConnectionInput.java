@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -54,7 +54,7 @@ public class ConnectionInput implements Serializable, Cloneable, StructuredPojo 
     private java.util.List<String> matchCriteria;
     /**
      * <p>
-     * These key-value pairs define parameters for the connection.
+     * A list of key-value pairs used as parameters for this connection.
      * </p>
      */
     private java.util.Map<String, String> connectionProperties;
@@ -277,10 +277,10 @@ public class ConnectionInput implements Serializable, Cloneable, StructuredPojo 
 
     /**
      * <p>
-     * These key-value pairs define parameters for the connection.
+     * A list of key-value pairs used as parameters for this connection.
      * </p>
      * 
-     * @return These key-value pairs define parameters for the connection.
+     * @return A list of key-value pairs used as parameters for this connection.
      */
 
     public java.util.Map<String, String> getConnectionProperties() {
@@ -289,11 +289,11 @@ public class ConnectionInput implements Serializable, Cloneable, StructuredPojo 
 
     /**
      * <p>
-     * These key-value pairs define parameters for the connection.
+     * A list of key-value pairs used as parameters for this connection.
      * </p>
      * 
      * @param connectionProperties
-     *        These key-value pairs define parameters for the connection.
+     *        A list of key-value pairs used as parameters for this connection.
      */
 
     public void setConnectionProperties(java.util.Map<String, String> connectionProperties) {
@@ -302,11 +302,11 @@ public class ConnectionInput implements Serializable, Cloneable, StructuredPojo 
 
     /**
      * <p>
-     * These key-value pairs define parameters for the connection.
+     * A list of key-value pairs used as parameters for this connection.
      * </p>
      * 
      * @param connectionProperties
-     *        These key-value pairs define parameters for the connection.
+     *        A list of key-value pairs used as parameters for this connection.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -383,8 +383,7 @@ public class ConnectionInput implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

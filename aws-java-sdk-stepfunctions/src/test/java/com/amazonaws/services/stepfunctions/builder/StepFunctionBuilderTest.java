@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2011-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -74,8 +74,7 @@ public class StepFunctionBuilderTest {
                         .resource("resource-arn")
                         .inputPath("$.input")
                         .resultPath("$.result")
-                        .outputPath("$.output")
-                        .parameters(new SimplePojo("value")))
+                        .outputPath("$.output"))
                 .state("NextState", succeedState())
                 .build();
 
@@ -148,7 +147,6 @@ public class StepFunctionBuilderTest {
                         .inputPath("$.input")
                         .outputPath("$.output")
                         .resultPath("$.result")
-                        .parameters("true")
                         .transition(next("NextState"))
                         .result("{\"Foo\": \"Bar\"}"))
                 .state("NextState", succeedState())
@@ -416,7 +414,6 @@ public class StepFunctionBuilderTest {
                         .inputPath("$.input")
                         .outputPath("$.output")
                         .resultPath("$.result")
-                        .parameters("{\"foo.$\": \"$.val\"}")
                         .transition(next("NextState"))
                         .branches(
                                 branch()

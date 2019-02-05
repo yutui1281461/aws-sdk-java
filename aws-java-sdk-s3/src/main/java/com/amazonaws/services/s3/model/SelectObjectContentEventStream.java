@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2018-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -34,7 +34,6 @@ import java.nio.ByteBuffer;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
@@ -52,8 +51,6 @@ import java.util.Queue;
  */
 @NotThreadSafe
 public class SelectObjectContentEventStream implements Closeable {
-    private static final InputStream EMPTY_INPUT_STREAM = new ByteArrayInputStream(new byte[0]);
-
     private final SdkFilterInputStream inputStream;
 
     private boolean readOptionChosen = false;
@@ -222,7 +219,6 @@ public class SelectObjectContentEventStream implements Closeable {
     private class EventStreamEnumeration extends LazyLoadedIterator<InputStream> implements Enumeration<InputStream> {
         private final Iterator<SelectObjectContentEvent> selectEventIterator;
         private final SelectObjectContentEventVisitor additionalVisitor;
-        private boolean initialized = false;
 
         private EventStreamEnumeration(Iterator<SelectObjectContentEvent> selectEventIterator,
                                        SelectObjectContentEventVisitor additionalVisitor) {
@@ -231,14 +227,7 @@ public class SelectObjectContentEventStream implements Closeable {
         }
 
         @Override
-        protected Collection<? extends InputStream> getNext() {
-            // Always return a single empty input stream at first. This allows the user to wrap this in a sequence input stream
-            // without taking forever to initialize (sequence input streams are not lazily loaded).
-            if (!initialized) {
-                initialized = true;
-                return Collections.singleton(EMPTY_INPUT_STREAM);
-            }
-
+        protected Collection<InputStream> getNext() {
             final Collection<InputStream> result = new ArrayList<InputStream>();
 
             while (selectEventIterator.hasNext()) {
@@ -284,24 +273,26 @@ public class SelectObjectContentEventStream implements Closeable {
      * {@link #getNext()} method.
      */
     private abstract class LazyLoadedIterator<T> implements Iterator<T> {
+        private boolean initialized = false;
+
         private final Queue<T> next = new ArrayDeque<T>();
-        private boolean isDone = false;
 
         @Override
         public boolean hasNext() {
-            advanceIfNeeded();
-            return !isDone;
+            initializeIfNeeded();
+            return !next.isEmpty();
         }
 
         @Override
         public T next() {
-            advanceIfNeeded();
-
-            if (isDone) {
+            initializeIfNeeded();
+            if (!hasNext()) {
                 throw new NoSuchElementException();
             }
 
-            return next.poll();
+            T result = next.poll();
+            advanceIfNeeded();
+            return result;
         }
 
         @Override
@@ -309,11 +300,17 @@ public class SelectObjectContentEventStream implements Closeable {
             throw new UnsupportedOperationException();
         }
 
+        private void initializeIfNeeded() {
+            if (!initialized) {
+                advanceIfNeeded();
+                initialized = true;
+            }
+        }
+
         private void advanceIfNeeded() {
-            if (!isDone && next.isEmpty()) {
+            if (next.isEmpty()) {
                 try {
-                    this.next.addAll(getNext());
-                    this.isDone = this.next.isEmpty();
+                    next.addAll(getNext());
                 } catch (IOException e) {
                     throw new SelectObjectContentEventException("Failed to read S3 select event.", e);
                 }
@@ -324,6 +321,6 @@ public class SelectObjectContentEventStream implements Closeable {
          * Load any newly-available events. This can return any number of events, in the order they should be encountered by the
          * user of the iterator. This should return an empty collection if there are no remaining events in the stream.
          */
-        protected abstract Collection<? extends T> getNext() throws IOException;
+        protected abstract Collection<T> getNext() throws IOException;
     }
 }

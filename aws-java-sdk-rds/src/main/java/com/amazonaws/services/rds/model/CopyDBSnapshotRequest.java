@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -74,7 +74,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      * <ul>
      * <li>
      * <p>
-     * Can't be null, empty, or blank
+     * Cannot be null, empty, or blank
      * </p>
      * </li>
      * <li>
@@ -89,7 +89,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens
+     * Cannot end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -194,7 +194,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      * nondefault option group. If your source DB instance uses Transparent Data Encryption for Oracle or Microsoft SQL
      * Server, you must specify this option when copying across AWS Regions. For more information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options"
-     * >Option Group Considerations</a> in the <i>Amazon RDS User Guide.</i>
+     * >Option Group Considerations</a>.
      * </p>
      */
     private String optionGroupName;
@@ -446,7 +446,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      * <ul>
      * <li>
      * <p>
-     * Can't be null, empty, or blank
+     * Cannot be null, empty, or blank
      * </p>
      * </li>
      * <li>
@@ -461,7 +461,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens
+     * Cannot end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -477,7 +477,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      *        <ul>
      *        <li>
      *        <p>
-     *        Can't be null, empty, or blank
+     *        Cannot be null, empty, or blank
      *        </p>
      *        </li>
      *        <li>
@@ -492,7 +492,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      *        </li>
      *        <li>
      *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens
+     *        Cannot end with a hyphen or contain two consecutive hyphens
      *        </p>
      *        </li>
      *        </ul>
@@ -514,7 +514,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      * <ul>
      * <li>
      * <p>
-     * Can't be null, empty, or blank
+     * Cannot be null, empty, or blank
      * </p>
      * </li>
      * <li>
@@ -529,7 +529,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens
+     * Cannot end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -544,7 +544,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      *         <ul>
      *         <li>
      *         <p>
-     *         Can't be null, empty, or blank
+     *         Cannot be null, empty, or blank
      *         </p>
      *         </li>
      *         <li>
@@ -559,7 +559,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      *         </li>
      *         <li>
      *         <p>
-     *         Can't end with a hyphen or contain two consecutive hyphens
+     *         Cannot end with a hyphen or contain two consecutive hyphens
      *         </p>
      *         </li>
      *         </ul>
@@ -581,7 +581,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      * <ul>
      * <li>
      * <p>
-     * Can't be null, empty, or blank
+     * Cannot be null, empty, or blank
      * </p>
      * </li>
      * <li>
@@ -596,7 +596,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens
+     * Cannot end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -612,7 +612,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      *        <ul>
      *        <li>
      *        <p>
-     *        Can't be null, empty, or blank
+     *        Cannot be null, empty, or blank
      *        </p>
      *        </li>
      *        <li>
@@ -627,7 +627,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      *        </li>
      *        <li>
      *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens
+     *        Cannot end with a hyphen or contain two consecutive hyphens
      *        </p>
      *        </li>
      *        </ul>
@@ -1244,7 +1244,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      * nondefault option group. If your source DB instance uses Transparent Data Encryption for Oracle or Microsoft SQL
      * Server, you must specify this option when copying across AWS Regions. For more information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options"
-     * >Option Group Considerations</a> in the <i>Amazon RDS User Guide.</i>
+     * >Option Group Considerations</a>.
      * </p>
      * 
      * @param optionGroupName
@@ -1255,7 +1255,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      *        Microsoft SQL Server, you must specify this option when copying across AWS Regions. For more information,
      *        see <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options"
-     *        >Option Group Considerations</a> in the <i>Amazon RDS User Guide.</i>
+     *        >Option Group Considerations</a>.
      */
 
     public void setOptionGroupName(String optionGroupName) {
@@ -1271,7 +1271,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      * nondefault option group. If your source DB instance uses Transparent Data Encryption for Oracle or Microsoft SQL
      * Server, you must specify this option when copying across AWS Regions. For more information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options"
-     * >Option Group Considerations</a> in the <i>Amazon RDS User Guide.</i>
+     * >Option Group Considerations</a>.
      * </p>
      * 
      * @return The name of an option group to associate with the copy of the snapshot.</p>
@@ -1281,7 +1281,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      *         Microsoft SQL Server, you must specify this option when copying across AWS Regions. For more information,
      *         see <a href=
      *         "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options"
-     *         >Option Group Considerations</a> in the <i>Amazon RDS User Guide.</i>
+     *         >Option Group Considerations</a>.
      */
 
     public String getOptionGroupName() {
@@ -1297,7 +1297,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      * nondefault option group. If your source DB instance uses Transparent Data Encryption for Oracle or Microsoft SQL
      * Server, you must specify this option when copying across AWS Regions. For more information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options"
-     * >Option Group Considerations</a> in the <i>Amazon RDS User Guide.</i>
+     * >Option Group Considerations</a>.
      * </p>
      * 
      * @param optionGroupName
@@ -1308,7 +1308,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
      *        Microsoft SQL Server, you must specify this option when copying across AWS Regions. For more information,
      *        see <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options"
-     *        >Option Group Considerations</a> in the <i>Amazon RDS User Guide.</i>
+     *        >Option Group Considerations</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1352,8 +1352,7 @@ public class CopyDBSnapshotRequest extends com.amazonaws.AmazonWebServiceRequest
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

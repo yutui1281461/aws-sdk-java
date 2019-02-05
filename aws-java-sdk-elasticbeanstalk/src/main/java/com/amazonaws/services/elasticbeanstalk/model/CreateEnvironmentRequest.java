@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -109,11 +109,6 @@ public class CreateEnvironmentRequest extends com.amazonaws.AmazonWebServiceRequ
      * <p>
      * This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration
      * values to the default values associated with the specified solution stack.
-     * </p>
-     * <p>
-     * For a list of current solution stacks, see <a
-     * href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Elastic Beanstalk Supported
-     * Platforms</a>.
      * </p>
      */
     private String solutionStackName;
@@ -721,19 +716,10 @@ public class CreateEnvironmentRequest extends com.amazonaws.AmazonWebServiceRequ
      * This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration
      * values to the default values associated with the specified solution stack.
      * </p>
-     * <p>
-     * For a list of current solution stacks, see <a
-     * href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Elastic Beanstalk Supported
-     * Platforms</a>.
-     * </p>
      * 
      * @param solutionStackName
      *        This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the
-     *        configuration values to the default values associated with the specified solution stack.</p>
-     *        <p>
-     *        For a list of current solution stacks, see <a
-     *        href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Elastic Beanstalk
-     *        Supported Platforms</a>.
+     *        configuration values to the default values associated with the specified solution stack.
      */
 
     public void setSolutionStackName(String solutionStackName) {
@@ -745,18 +731,9 @@ public class CreateEnvironmentRequest extends com.amazonaws.AmazonWebServiceRequ
      * This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration
      * values to the default values associated with the specified solution stack.
      * </p>
-     * <p>
-     * For a list of current solution stacks, see <a
-     * href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Elastic Beanstalk Supported
-     * Platforms</a>.
-     * </p>
      * 
      * @return This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the
-     *         configuration values to the default values associated with the specified solution stack.</p>
-     *         <p>
-     *         For a list of current solution stacks, see <a
-     *         href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Elastic Beanstalk
-     *         Supported Platforms</a>.
+     *         configuration values to the default values associated with the specified solution stack.
      */
 
     public String getSolutionStackName() {
@@ -768,19 +745,10 @@ public class CreateEnvironmentRequest extends com.amazonaws.AmazonWebServiceRequ
      * This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration
      * values to the default values associated with the specified solution stack.
      * </p>
-     * <p>
-     * For a list of current solution stacks, see <a
-     * href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Elastic Beanstalk Supported
-     * Platforms</a>.
-     * </p>
      * 
      * @param solutionStackName
      *        This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the
-     *        configuration values to the default values associated with the specified solution stack.</p>
-     *        <p>
-     *        For a list of current solution stacks, see <a
-     *        href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Elastic Beanstalk
-     *        Supported Platforms</a>.
+     *        configuration values to the default values associated with the specified solution stack.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1000,8 +968,7 @@ public class CreateEnvironmentRequest extends com.amazonaws.AmazonWebServiceRequ
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

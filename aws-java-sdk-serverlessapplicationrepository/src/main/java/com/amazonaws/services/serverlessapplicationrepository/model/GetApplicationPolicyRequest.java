@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,18 +27,18 @@ public class GetApplicationPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the application.
+     * The ID of the application to get.
      * </p>
      */
     private String applicationId;
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the application.
+     * The ID of the application to get.
      * </p>
      * 
      * @param applicationId
-     *        The Amazon Resource Name (ARN) of the application.
+     *        The ID of the application to get.
      */
 
     public void setApplicationId(String applicationId) {
@@ -47,10 +47,10 @@ public class GetApplicationPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the application.
+     * The ID of the application to get.
      * </p>
      * 
-     * @return The Amazon Resource Name (ARN) of the application.
+     * @return The ID of the application to get.
      */
 
     public String getApplicationId() {
@@ -59,11 +59,11 @@ public class GetApplicationPolicyRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the application.
+     * The ID of the application to get.
      * </p>
      * 
      * @param applicationId
-     *        The Amazon Resource Name (ARN) of the application.
+     *        The ID of the application to get.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -73,8 +73,7 @@ public class GetApplicationPolicyRequest extends com.amazonaws.AmazonWebServiceR
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -15,8 +15,8 @@ package com.amazonaws.services.mediaconvert.model;
 import javax.annotation.Generated;
 
 /**
- * Specify the language, using the ISO 639-2 three-letter code listed at
- * https://www.loc.gov/standards/iso639-2/php/code_list.php.
+ * Code to specify the language, following the specification
+ * "ISO 639-2 three-digit code":http://www.loc.gov/standards/iso639-2/
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public enum LanguageCode {

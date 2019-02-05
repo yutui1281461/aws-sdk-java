@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -327,10 +327,6 @@ public interface AWSElasticBeanstalkAsync extends AWSElasticBeanstalk {
      * different versions of the application with the same configuration settings.
      * </p>
      * <p>
-     * Templates aren't associated with any environment. The <code>EnvironmentName</code> response element is always
-     * <code>null</code>.
-     * </p>
-     * <p>
      * Related Topics
      * </p>
      * <ul>
@@ -365,10 +361,6 @@ public interface AWSElasticBeanstalkAsync extends AWSElasticBeanstalk {
      * <p>
      * Creates a configuration template. Templates are associated with a specific application and are used to deploy
      * different versions of the application with the same configuration settings.
-     * </p>
-     * <p>
-     * Templates aren't associated with any environment. The <code>EnvironmentName</code> response element is always
-     * <code>null</code>.
      * </p>
      * <p>
      * Related Topics
@@ -1246,7 +1238,7 @@ public interface AWSElasticBeanstalkAsync extends AWSElasticBeanstalk {
 
     /**
      * <p>
-     * Retrieves detailed information about the health of instances in your AWS Elastic Beanstalk. This operation
+     * Retrives detailed information about the health of instances in your AWS Elastic Beanstalk. This operation
      * requires <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced health
      * reporting</a>.
      * </p>
@@ -1262,7 +1254,7 @@ public interface AWSElasticBeanstalkAsync extends AWSElasticBeanstalk {
 
     /**
      * <p>
-     * Retrieves detailed information about the health of instances in your AWS Elastic Beanstalk. This operation
+     * Retrives detailed information about the health of instances in your AWS Elastic Beanstalk. This operation
      * requires <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced health
      * reporting</a>.
      * </p>

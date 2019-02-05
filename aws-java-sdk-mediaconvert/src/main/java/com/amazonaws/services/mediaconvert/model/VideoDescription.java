@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -36,8 +36,8 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     /**
      * Applies only if your input aspect ratio is different from your output aspect ratio. Use Input cropping rectangle
      * (Crop) to specify the video area the service will include in the output. This will crop the input source, causing
-     * video pixels to be removed on encode. If you crop your input frame size to smaller than your output frame size,
-     * make sure to specify the behavior you want in your output setting "Scaling behavior".
+     * video pixels to be removed on encode. Do not use this setting if you have enabled Stretch to output
+     * (stretchToOutput) in your output settings.
      */
     private Rectangle crop;
 
@@ -230,15 +230,14 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     /**
      * Applies only if your input aspect ratio is different from your output aspect ratio. Use Input cropping rectangle
      * (Crop) to specify the video area the service will include in the output. This will crop the input source, causing
-     * video pixels to be removed on encode. If you crop your input frame size to smaller than your output frame size,
-     * make sure to specify the behavior you want in your output setting "Scaling behavior".
+     * video pixels to be removed on encode. Do not use this setting if you have enabled Stretch to output
+     * (stretchToOutput) in your output settings.
      * 
      * @param crop
      *        Applies only if your input aspect ratio is different from your output aspect ratio. Use Input cropping
      *        rectangle (Crop) to specify the video area the service will include in the output. This will crop the
-     *        input source, causing video pixels to be removed on encode. If you crop your input frame size to smaller
-     *        than your output frame size, make sure to specify the behavior you want in your output setting
-     *        "Scaling behavior".
+     *        input source, causing video pixels to be removed on encode. Do not use this setting if you have enabled
+     *        Stretch to output (stretchToOutput) in your output settings.
      */
 
     public void setCrop(Rectangle crop) {
@@ -248,14 +247,13 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     /**
      * Applies only if your input aspect ratio is different from your output aspect ratio. Use Input cropping rectangle
      * (Crop) to specify the video area the service will include in the output. This will crop the input source, causing
-     * video pixels to be removed on encode. If you crop your input frame size to smaller than your output frame size,
-     * make sure to specify the behavior you want in your output setting "Scaling behavior".
+     * video pixels to be removed on encode. Do not use this setting if you have enabled Stretch to output
+     * (stretchToOutput) in your output settings.
      * 
      * @return Applies only if your input aspect ratio is different from your output aspect ratio. Use Input cropping
      *         rectangle (Crop) to specify the video area the service will include in the output. This will crop the
-     *         input source, causing video pixels to be removed on encode. If you crop your input frame size to smaller
-     *         than your output frame size, make sure to specify the behavior you want in your output setting
-     *         "Scaling behavior".
+     *         input source, causing video pixels to be removed on encode. Do not use this setting if you have enabled
+     *         Stretch to output (stretchToOutput) in your output settings.
      */
 
     public Rectangle getCrop() {
@@ -265,15 +263,14 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     /**
      * Applies only if your input aspect ratio is different from your output aspect ratio. Use Input cropping rectangle
      * (Crop) to specify the video area the service will include in the output. This will crop the input source, causing
-     * video pixels to be removed on encode. If you crop your input frame size to smaller than your output frame size,
-     * make sure to specify the behavior you want in your output setting "Scaling behavior".
+     * video pixels to be removed on encode. Do not use this setting if you have enabled Stretch to output
+     * (stretchToOutput) in your output settings.
      * 
      * @param crop
      *        Applies only if your input aspect ratio is different from your output aspect ratio. Use Input cropping
      *        rectangle (Crop) to specify the video area the service will include in the output. This will crop the
-     *        input source, causing video pixels to be removed on encode. If you crop your input frame size to smaller
-     *        than your output frame size, make sure to specify the behavior you want in your output setting
-     *        "Scaling behavior".
+     *        input source, causing video pixels to be removed on encode. Do not use this setting if you have enabled
+     *        Stretch to output (stretchToOutput) in your output settings.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -695,8 +692,7 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
