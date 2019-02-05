@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.amazonaws</groupId>
     <artifactId>aws-java-sdk-pom</artifactId>
-    <version>1.11.336-SNAPSHOT</version>
+    <version>1.11.342-SNAPSHOT</version>
   </parent>
   <groupId>com.amazonaws</groupId>
   <artifactId>aws-java-sdk-osgi</artifactId>
@@ -15,6 +15,30 @@
 
   <!-- The dependencies section in pom.xml is auto generated. No manual changes are allowed -->
   <dependencies>
+    <dependency>
+        <artifactId>aws-java-sdk-eks</artifactId>
+        <groupId>com.amazonaws</groupId>
+        <optional>false</optional>
+        <version>${awsjavasdk.version}</version>
+    </dependency>
+    <dependency>
+        <artifactId>aws-java-sdk-mediatailor</artifactId>
+        <groupId>com.amazonaws</groupId>
+        <optional>false</optional>
+        <version>${awsjavasdk.version}</version>
+    </dependency>
+    <dependency>
+        <artifactId>aws-java-sdk-neptune</artifactId>
+        <groupId>com.amazonaws</groupId>
+        <optional>false</optional>
+        <version>${awsjavasdk.version}</version>
+    </dependency>
+    <dependency>
+        <artifactId>aws-java-sdk-pi</artifactId>
+        <groupId>com.amazonaws</groupId>
+        <optional>false</optional>
+        <version>${awsjavasdk.version}</version>
+    </dependency>
     <dependency>
         <artifactId>aws-java-sdk-iot1clickprojects</artifactId>
         <groupId>com.amazonaws</groupId>
@@ -957,6 +981,22 @@
                           </taglets>
                           <groups>
                               <group>
+                                  <title>Amazon Elastic Container Service for Kubernetes</title>
+                                  <packages>com.amazonaws.services.eks*</packages>
+                              </group>
+                              <group>
+                                  <title>AWS MediaTailor</title>
+                                  <packages>com.amazonaws.services.mediatailor*</packages>
+                              </group>
+                              <group>
+                                  <title>Amazon Neptune</title>
+                                  <packages>com.amazonaws.services.neptune*</packages>
+                              </group>
+                              <group>
+                                  <title>AWS Performance Insights</title>
+                                  <packages>com.amazonaws.services.pi*</packages>
+                              </group>
+                              <group>
                                   <title>AWS IoT 1-Click Projects</title>
                                   <packages>com.amazonaws.services.iot1clickprojects*</packages>
                               </group>
@@ -1475,6 +1515,9 @@
                   <script id="syntaxhighlight_script_core" type="text/javascript" src = "http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/resources/syntaxhighlight/scripts/shCore.js">
                   </script>
                   <script id="syntaxhighlight_script_java" type="text/javascript" src = "http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/resources/syntaxhighlight/scripts/shBrushJava.js">
+                  </script>
+                  <!-- Script for GDPR highlighting -->
+                  <script src="/SdkStatic/sdk-priv.js" async="true">
                   </script>
                   <link id="syntaxhighlight_css_core" rel="stylesheet" type="text/css" href = "http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/resources/syntaxhighlight/styles/shCoreDefault.css"/>
                   <link id="syntaxhighlight_css_theme" rel="stylesheet" type="text/css" href = "http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/resources/syntaxhighlight/styles/shThemeDefault.css"/>

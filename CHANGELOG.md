@@ -1,3 +1,101 @@
+# __1.11.341__ __2018-06-04__
+## __AWS Elemental MediaConvert__
+  - ### Features
+    - This release adds the support for Common Media Application Format (CMAF) fragmented outputs, RF64 WAV audio output format, and HEV1 or HEVC1 MP4 packaging types when using HEVC in DASH or CMAF outputs.
+
+## __AWS Migration Hub__
+  - ### Features
+    - Documentation updates for AWS Migration Hub
+
+## __Amazon AppStream__
+  - ### Features
+    - Amazon AppStream 2.0 adds support for Google Drive for G Suite. With this feature, customers will be able to connect their G Suite accounts with AppStream 2.0 and enable Google Drive access for an AppStream 2.0 stack. Users of the stack can then link their Google Drive using their G Suite login credentials and use their existing files stored in Drive with their AppStream 2.0 applications. File changes will be synced automatically to Google cloud. 
+
+## __Amazon Elastic Compute Cloud__
+  - ### Features
+    - You are now able to use instance storage (up to 3600 GB of NVMe based SSD) on M5 instances, the next generation of EC2's General Purpose instances in us-east-1, us-west-2, us-east-2, eu-west-1 and ca-central-1. M5 instances offer up to 96 vCPUs, 384 GiB of DDR4 instance memory, 25 Gbps in Network bandwidth and improved EBS and Networking bandwidth on smaller instance sizes and provide a balance of compute, memory and network resources for many applications.
+
+## __Amazon Elastic Container Service for Kubernetes__
+  - ### Features
+    - Amazon Elastic Container Service for Kubernetes (Amazon EKS) is a fully managed service that makes it easy to deploy, manage, and scale containerized applications using Kubernetes on AWS. Amazon EKS runs the Kubernetes control plane for you across multiple AWS availability zones to eliminate a single point of failure. Amazon EKS is certified Kubernetes conformant so you can use existing tooling and plugins from partners and the Kubernetes community. Applications running on any standard Kubernetes environment are fully compatible and can be easily migrated to Amazon EKS. 
+
+## __Amazon SageMaker Service__
+  - ### Features
+    - Amazon SageMaker has added the ability to run hyperparameter tuning jobs. A hyperparameter tuning job will create and evaluate multiple training jobs while tuning algorithm hyperparameters, to optimize a customer specified objective metric.
+
+# __1.11.340__ __2018-06-01__
+## __AWS Directory Service__
+  - ### Features
+    - Added ResetUserPassword API. Customers can now reset their users' passwords without providing the old passwords in Simple AD and Microsoft AD.
+
+## __AWS IoT__
+  - ### Features
+    - We are releasing force CancelJob and CancelJobExecution functionalities to customers.
+
+## __AWS MediaTailor__
+  - ### Features
+    - AWS Elemental MediaTailor is a personalization and monetization service that allows scalable server-side ad insertion. The service enables you to serve targeted ads to viewers while maintaining broadcast quality in over-the-top (OTT) video applications. This SDK allows user access to the AWS Elemental MediaTailor configuration interface.
+
+## __Amazon Redshift__
+  - ### Features
+    - Documentation updates for redshift
+
+## __Amazon Simple Notification Service__
+  - ### Features
+    - The SNS Subscribe API has been updated with two new optional parameters: Attributes and ReturnSubscriptionArn. Attributes is a map of subscription attributes which can be one or more of: FilterPolicy, DeliveryPolicy, and RawMessageDelivery. ReturnSubscriptionArn is a boolean parameter that overrides the default behavior of returning "pending confirmation" for subscriptions that require confirmation instead of returning the subscription ARN.
+
+# __1.11.339__ __2018-05-30__
+## __Amazon Neptune__
+  - ### Features
+    - Amazon Neptune is a fast, reliable graph database service that makes it easy to build and run applications that work with highly connected datasets. Neptune supports popular graph models Property Graph and W3C's Resource Description Frame (RDF), and their respective query languages Apache TinkerPop Gremlin 3.3.2 and SPARQL 1.1. 
+
+## __Amazon Route53__
+  - ### Bugfixes
+    - Reverting a breaking change in ListHostedZonesByNameResult behavior introduced in version 1.11.321. See https://github.com/aws/aws-sdk-java/pull/1555 for more details.
+
+## __Elastic Load Balancing__
+  - ### Features
+    - This release of Elastic Load Balancing introduces user authentication on Application Load Balancer.
+
+# __1.11.338__ __2018-05-29__
+## __AWS Performance Insights__
+  - ### Features
+    - Performance Insights is a feature of Amazon Relational Database Service (RDS) that helps you quickly assess the load on your database, and determine when and where to take action. You can use the SDK to retrieve Performance Insights data and integrate your monitoring solutions.
+
+# __1.11.337__ __2018-05-25__
+## __AWS Config__
+  - ### Features
+    - AWS Config adds support for retention period, allowing you to specify a retention period for your AWS Config configuration items.
+
+## __AWS Glue__
+  - ### Features
+    - AWS Glue now sends a delay notification to Amazon CloudWatch Events when an ETL job runs longer than the specified delay notification threshold.
+
+## __AWS IoT__
+  - ### Features
+    - We are exposing DELETION_IN_PROGRESS as a new job status in regards to the release of DeleteJob API.
+
+## __Amazon AppStream__
+  - ### Features
+    - This API update enables customers to control whether users can transfer data between their local devices and their streaming applications through file uploads and downloads, clipboard operations, or printing to local devices
+
+# __1.11.336__ __2018-05-24__
+## __AWS CodeBuild__
+  - ### Features
+    - AWS CodeBuild Adds Support for Windows Builds.
+
+## __AWS Secrets Manager__
+  - ### Features
+    - Documentation updates for secretsmanager
+
+## __Amazon Relational Database Service__
+  - ### Features
+    - This release adds CloudWatch Logs integration capabilities to RDS Aurora MySQL clusters
+
+## __Elastic Load Balancing__
+  - ### Features
+    - Updated elasticloadbalancingV2 documentation with slow start mode details.  The slow start mode can be used to gradually increase the number of requests forwarded by a load balancer to a newly added target in a target group. It provides a new target an opportunity to warm up before it can handle its fair share of requests received from the load balancer. Slow start mode is disabled by default and can be enabled on a per target group basis.
+
 # __1.11.335__ __2018-05-22__
 ## __AWS SDK for Java__
   - ### Features

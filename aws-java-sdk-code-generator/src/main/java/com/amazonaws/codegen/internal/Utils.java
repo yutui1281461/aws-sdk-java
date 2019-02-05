@@ -32,6 +32,10 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static com.amazonaws.codegen.internal.Constants.LOGGER;
 
@@ -80,6 +84,10 @@ public class Utils {
 
     }
 
+    public static Stream<String> sanitize(String toBeSanitized) {
+        return Arrays.stream(toBeSanitized.split("[.]|\\W")).filter(StringUtils::hasValue);
+    }
+
     public static String capitialize(String name) {
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Name cannot be null or empty");
@@ -94,6 +102,10 @@ public class Utils {
      * * @return Prefix to use when writing model files (service and intermediate).
      */
     public static String getFileNamePrefix(ServiceModel serviceModel) {
+        //TODO: fix this
+        if ("neptune-2014-10-31".equals(serviceModel.getMetadata().getUid())) {
+            return "neptune-2014-10-31";
+        }
         return String.format("%s-%s", serviceModel.getMetadata().getEndpointPrefix(), serviceModel.getMetadata().getApiVersion());
     }
 
