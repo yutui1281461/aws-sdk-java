@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -198,8 +198,6 @@ public class UserPoolType implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private String domain;
-
-    private String customDomain;
     /**
      * <p>
      * The configuration for <code>AdminCreateUser</code> requests.
@@ -1698,32 +1696,6 @@ public class UserPoolType implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @param customDomain
-     */
-
-    public void setCustomDomain(String customDomain) {
-        this.customDomain = customDomain;
-    }
-
-    /**
-     * @return
-     */
-
-    public String getCustomDomain() {
-        return this.customDomain;
-    }
-
-    /**
-     * @param customDomain
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public UserPoolType withCustomDomain(String customDomain) {
-        setCustomDomain(customDomain);
-        return this;
-    }
-
-    /**
      * <p>
      * The configuration for <code>AdminCreateUser</code> requests.
      * </p>
@@ -1844,8 +1816,7 @@ public class UserPoolType implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1905,8 +1876,6 @@ public class UserPoolType implements Serializable, Cloneable, StructuredPojo {
             sb.append("EmailConfigurationFailure: ").append(getEmailConfigurationFailure()).append(",");
         if (getDomain() != null)
             sb.append("Domain: ").append(getDomain()).append(",");
-        if (getCustomDomain() != null)
-            sb.append("CustomDomain: ").append(getCustomDomain()).append(",");
         if (getAdminCreateUserConfig() != null)
             sb.append("AdminCreateUserConfig: ").append(getAdminCreateUserConfig()).append(",");
         if (getUserPoolAddOns() != null)
@@ -2027,10 +1996,6 @@ public class UserPoolType implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getDomain() != null && other.getDomain().equals(this.getDomain()) == false)
             return false;
-        if (other.getCustomDomain() == null ^ this.getCustomDomain() == null)
-            return false;
-        if (other.getCustomDomain() != null && other.getCustomDomain().equals(this.getCustomDomain()) == false)
-            return false;
         if (other.getAdminCreateUserConfig() == null ^ this.getAdminCreateUserConfig() == null)
             return false;
         if (other.getAdminCreateUserConfig() != null && other.getAdminCreateUserConfig().equals(this.getAdminCreateUserConfig()) == false)
@@ -2076,7 +2041,6 @@ public class UserPoolType implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getSmsConfigurationFailure() == null) ? 0 : getSmsConfigurationFailure().hashCode());
         hashCode = prime * hashCode + ((getEmailConfigurationFailure() == null) ? 0 : getEmailConfigurationFailure().hashCode());
         hashCode = prime * hashCode + ((getDomain() == null) ? 0 : getDomain().hashCode());
-        hashCode = prime * hashCode + ((getCustomDomain() == null) ? 0 : getCustomDomain().hashCode());
         hashCode = prime * hashCode + ((getAdminCreateUserConfig() == null) ? 0 : getAdminCreateUserConfig().hashCode());
         hashCode = prime * hashCode + ((getUserPoolAddOns() == null) ? 0 : getUserPoolAddOns().hashCode());
         hashCode = prime * hashCode + ((getArn() == null) ? 0 : getArn().hashCode());

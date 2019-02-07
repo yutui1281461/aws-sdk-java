@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -49,73 +49,6 @@ import com.amazonaws.services.config.model.*;
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public interface AmazonConfigAsync extends AmazonConfig {
-
-    /**
-     * <p>
-     * Returns the current configuration items for resources that are present in your AWS Config aggregator. The
-     * operation also returns a list of resources that are not processed in the current request. If there are no
-     * unprocessed resources, the operation returns an empty <code>unprocessedResourceIdentifiers</code> list.
-     * </p>
-     * <note>
-     * <ul>
-     * <li>
-     * <p>
-     * The API does not return results for deleted resources.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * The API does not return tags and relationships.
-     * </p>
-     * </li>
-     * </ul>
-     * </note>
-     * 
-     * @param batchGetAggregateResourceConfigRequest
-     * @return A Java Future containing the result of the BatchGetAggregateResourceConfig operation returned by the
-     *         service.
-     * @sample AmazonConfigAsync.BatchGetAggregateResourceConfig
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/BatchGetAggregateResourceConfig"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<BatchGetAggregateResourceConfigResult> batchGetAggregateResourceConfigAsync(
-            BatchGetAggregateResourceConfigRequest batchGetAggregateResourceConfigRequest);
-
-    /**
-     * <p>
-     * Returns the current configuration items for resources that are present in your AWS Config aggregator. The
-     * operation also returns a list of resources that are not processed in the current request. If there are no
-     * unprocessed resources, the operation returns an empty <code>unprocessedResourceIdentifiers</code> list.
-     * </p>
-     * <note>
-     * <ul>
-     * <li>
-     * <p>
-     * The API does not return results for deleted resources.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * The API does not return tags and relationships.
-     * </p>
-     * </li>
-     * </ul>
-     * </note>
-     * 
-     * @param batchGetAggregateResourceConfigRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the BatchGetAggregateResourceConfig operation returned by the
-     *         service.
-     * @sample AmazonConfigAsyncHandler.BatchGetAggregateResourceConfig
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/BatchGetAggregateResourceConfig"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<BatchGetAggregateResourceConfigResult> batchGetAggregateResourceConfigAsync(
-            BatchGetAggregateResourceConfigRequest batchGetAggregateResourceConfigRequest,
-            com.amazonaws.handlers.AsyncHandler<BatchGetAggregateResourceConfigRequest, BatchGetAggregateResourceConfigResult> asyncHandler);
 
     /**
      * <p>
@@ -466,41 +399,6 @@ public interface AmazonConfigAsync extends AmazonConfig {
     java.util.concurrent.Future<DeletePendingAggregationRequestResult> deletePendingAggregationRequestAsync(
             DeletePendingAggregationRequestRequest deletePendingAggregationRequestRequest,
             com.amazonaws.handlers.AsyncHandler<DeletePendingAggregationRequestRequest, DeletePendingAggregationRequestResult> asyncHandler);
-
-    /**
-     * <p>
-     * Deletes the retention configuration.
-     * </p>
-     * 
-     * @param deleteRetentionConfigurationRequest
-     * @return A Java Future containing the result of the DeleteRetentionConfiguration operation returned by the
-     *         service.
-     * @sample AmazonConfigAsync.DeleteRetentionConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DeleteRetentionConfiguration"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DeleteRetentionConfigurationResult> deleteRetentionConfigurationAsync(
-            DeleteRetentionConfigurationRequest deleteRetentionConfigurationRequest);
-
-    /**
-     * <p>
-     * Deletes the retention configuration.
-     * </p>
-     * 
-     * @param deleteRetentionConfigurationRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the DeleteRetentionConfiguration operation returned by the
-     *         service.
-     * @sample AmazonConfigAsyncHandler.DeleteRetentionConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DeleteRetentionConfiguration"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DeleteRetentionConfigurationResult> deleteRetentionConfigurationAsync(
-            DeleteRetentionConfigurationRequest deleteRetentionConfigurationRequest,
-            com.amazonaws.handlers.AsyncHandler<DeleteRetentionConfigurationRequest, DeleteRetentionConfigurationResult> asyncHandler);
 
     /**
      * <p>
@@ -1357,53 +1255,6 @@ public interface AmazonConfigAsync extends AmazonConfig {
 
     /**
      * <p>
-     * Returns the details of one or more retention configurations. If the retention configuration name is not
-     * specified, this action returns the details for all the retention configurations for that account.
-     * </p>
-     * <note>
-     * <p>
-     * Currently, AWS Config supports only one retention configuration per region in your account.
-     * </p>
-     * </note>
-     * 
-     * @param describeRetentionConfigurationsRequest
-     * @return A Java Future containing the result of the DescribeRetentionConfigurations operation returned by the
-     *         service.
-     * @sample AmazonConfigAsync.DescribeRetentionConfigurations
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DescribeRetentionConfigurations"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DescribeRetentionConfigurationsResult> describeRetentionConfigurationsAsync(
-            DescribeRetentionConfigurationsRequest describeRetentionConfigurationsRequest);
-
-    /**
-     * <p>
-     * Returns the details of one or more retention configurations. If the retention configuration name is not
-     * specified, this action returns the details for all the retention configurations for that account.
-     * </p>
-     * <note>
-     * <p>
-     * Currently, AWS Config supports only one retention configuration per region in your account.
-     * </p>
-     * </note>
-     * 
-     * @param describeRetentionConfigurationsRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the DescribeRetentionConfigurations operation returned by the
-     *         service.
-     * @sample AmazonConfigAsyncHandler.DescribeRetentionConfigurations
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DescribeRetentionConfigurations"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DescribeRetentionConfigurationsResult> describeRetentionConfigurationsAsync(
-            DescribeRetentionConfigurationsRequest describeRetentionConfigurationsRequest,
-            com.amazonaws.handlers.AsyncHandler<DescribeRetentionConfigurationsRequest, DescribeRetentionConfigurationsResult> asyncHandler);
-
-    /**
-     * <p>
      * Returns the evaluation results for the specified AWS Config rule for a specific resource in a rule. The results
      * indicate which AWS resources were evaluated by the rule, when each resource was last evaluated, and whether each
      * resource complies with the rule.
@@ -1499,86 +1350,6 @@ public interface AmazonConfigAsync extends AmazonConfig {
     java.util.concurrent.Future<GetAggregateConfigRuleComplianceSummaryResult> getAggregateConfigRuleComplianceSummaryAsync(
             GetAggregateConfigRuleComplianceSummaryRequest getAggregateConfigRuleComplianceSummaryRequest,
             com.amazonaws.handlers.AsyncHandler<GetAggregateConfigRuleComplianceSummaryRequest, GetAggregateConfigRuleComplianceSummaryResult> asyncHandler);
-
-    /**
-     * <p>
-     * Returns the resource counts across accounts and regions that are present in your AWS Config aggregator. You can
-     * request the resource counts by providing filters and GroupByKey.
-     * </p>
-     * <p>
-     * For example, if the input contains accountID 12345678910 and region us-east-1 in filters, the API returns the
-     * count of resources in account ID 12345678910 and region us-east-1. If the input contains ACCOUNT_ID as a
-     * GroupByKey, the API returns resource counts for all source accounts that are present in your aggregator.
-     * </p>
-     * 
-     * @param getAggregateDiscoveredResourceCountsRequest
-     * @return A Java Future containing the result of the GetAggregateDiscoveredResourceCounts operation returned by the
-     *         service.
-     * @sample AmazonConfigAsync.GetAggregateDiscoveredResourceCounts
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/GetAggregateDiscoveredResourceCounts"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<GetAggregateDiscoveredResourceCountsResult> getAggregateDiscoveredResourceCountsAsync(
-            GetAggregateDiscoveredResourceCountsRequest getAggregateDiscoveredResourceCountsRequest);
-
-    /**
-     * <p>
-     * Returns the resource counts across accounts and regions that are present in your AWS Config aggregator. You can
-     * request the resource counts by providing filters and GroupByKey.
-     * </p>
-     * <p>
-     * For example, if the input contains accountID 12345678910 and region us-east-1 in filters, the API returns the
-     * count of resources in account ID 12345678910 and region us-east-1. If the input contains ACCOUNT_ID as a
-     * GroupByKey, the API returns resource counts for all source accounts that are present in your aggregator.
-     * </p>
-     * 
-     * @param getAggregateDiscoveredResourceCountsRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the GetAggregateDiscoveredResourceCounts operation returned by the
-     *         service.
-     * @sample AmazonConfigAsyncHandler.GetAggregateDiscoveredResourceCounts
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/GetAggregateDiscoveredResourceCounts"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<GetAggregateDiscoveredResourceCountsResult> getAggregateDiscoveredResourceCountsAsync(
-            GetAggregateDiscoveredResourceCountsRequest getAggregateDiscoveredResourceCountsRequest,
-            com.amazonaws.handlers.AsyncHandler<GetAggregateDiscoveredResourceCountsRequest, GetAggregateDiscoveredResourceCountsResult> asyncHandler);
-
-    /**
-     * <p>
-     * Returns configuration item that is aggregated for your specific resource in a specific source account and region.
-     * </p>
-     * 
-     * @param getAggregateResourceConfigRequest
-     * @return A Java Future containing the result of the GetAggregateResourceConfig operation returned by the service.
-     * @sample AmazonConfigAsync.GetAggregateResourceConfig
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/GetAggregateResourceConfig"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<GetAggregateResourceConfigResult> getAggregateResourceConfigAsync(
-            GetAggregateResourceConfigRequest getAggregateResourceConfigRequest);
-
-    /**
-     * <p>
-     * Returns configuration item that is aggregated for your specific resource in a specific source account and region.
-     * </p>
-     * 
-     * @param getAggregateResourceConfigRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the GetAggregateResourceConfig operation returned by the service.
-     * @sample AmazonConfigAsyncHandler.GetAggregateResourceConfig
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/GetAggregateResourceConfig"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<GetAggregateResourceConfigResult> getAggregateResourceConfigAsync(
-            GetAggregateResourceConfigRequest getAggregateResourceConfigRequest,
-            com.amazonaws.handlers.AsyncHandler<GetAggregateResourceConfigRequest, GetAggregateResourceConfigResult> asyncHandler);
 
     /**
      * <p>
@@ -1930,9 +1701,7 @@ public interface AmazonConfigAsync extends AmazonConfig {
     /**
      * <p>
      * Returns a list of configuration items for the specified resource. The list contains details about each state of
-     * the resource during the specified time interval. If you specified a retention period to retain your
-     * <code>ConfigurationItems</code> between a minimum of 30 days and a maximum of 7 years (2557 days), AWS Config
-     * returns the <code>ConfigurationItems</code> for the specified retention period.
+     * the resource during the specified time interval.
      * </p>
      * <p>
      * The response is paginated. By default, AWS Config returns a limit of 10 configuration items per page. You can
@@ -1960,9 +1729,7 @@ public interface AmazonConfigAsync extends AmazonConfig {
     /**
      * <p>
      * Returns a list of configuration items for the specified resource. The list contains details about each state of
-     * the resource during the specified time interval. If you specified a retention period to retain your
-     * <code>ConfigurationItems</code> between a minimum of 30 days and a maximum of 7 years (2557 days), AWS Config
-     * returns the <code>ConfigurationItems</code> for the specified retention period.
+     * the resource during the specified time interval.
      * </p>
      * <p>
      * The response is paginated. By default, AWS Config returns a limit of 10 configuration items per page. You can
@@ -1991,57 +1758,6 @@ public interface AmazonConfigAsync extends AmazonConfig {
      */
     java.util.concurrent.Future<GetResourceConfigHistoryResult> getResourceConfigHistoryAsync(GetResourceConfigHistoryRequest getResourceConfigHistoryRequest,
             com.amazonaws.handlers.AsyncHandler<GetResourceConfigHistoryRequest, GetResourceConfigHistoryResult> asyncHandler);
-
-    /**
-     * <p>
-     * Accepts a resource type and returns a list of resource identifiers that are aggregated for a specific resource
-     * type across accounts and regions. A resource identifier includes the resource type, ID, (if available) the custom
-     * resource name, source account, and source region. You can narrow the results to include only resources that have
-     * specific resource IDs, or a resource name, or source account ID, or source region.
-     * </p>
-     * <p>
-     * For example, if the input consists of accountID 12345678910 and the region is us-east-1 for resource type
-     * <code>AWS::EC2::Instance</code> then the API returns all the EC2 instance identifiers of accountID 12345678910
-     * and region us-east-1.
-     * </p>
-     * 
-     * @param listAggregateDiscoveredResourcesRequest
-     * @return A Java Future containing the result of the ListAggregateDiscoveredResources operation returned by the
-     *         service.
-     * @sample AmazonConfigAsync.ListAggregateDiscoveredResources
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/ListAggregateDiscoveredResources"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<ListAggregateDiscoveredResourcesResult> listAggregateDiscoveredResourcesAsync(
-            ListAggregateDiscoveredResourcesRequest listAggregateDiscoveredResourcesRequest);
-
-    /**
-     * <p>
-     * Accepts a resource type and returns a list of resource identifiers that are aggregated for a specific resource
-     * type across accounts and regions. A resource identifier includes the resource type, ID, (if available) the custom
-     * resource name, source account, and source region. You can narrow the results to include only resources that have
-     * specific resource IDs, or a resource name, or source account ID, or source region.
-     * </p>
-     * <p>
-     * For example, if the input consists of accountID 12345678910 and the region is us-east-1 for resource type
-     * <code>AWS::EC2::Instance</code> then the API returns all the EC2 instance identifiers of accountID 12345678910
-     * and region us-east-1.
-     * </p>
-     * 
-     * @param listAggregateDiscoveredResourcesRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the ListAggregateDiscoveredResources operation returned by the
-     *         service.
-     * @sample AmazonConfigAsyncHandler.ListAggregateDiscoveredResources
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/ListAggregateDiscoveredResources"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<ListAggregateDiscoveredResourcesResult> listAggregateDiscoveredResourcesAsync(
-            ListAggregateDiscoveredResourcesRequest listAggregateDiscoveredResourcesRequest,
-            com.amazonaws.handlers.AsyncHandler<ListAggregateDiscoveredResourcesRequest, ListAggregateDiscoveredResourcesResult> asyncHandler);
 
     /**
      * <p>
@@ -2457,55 +2173,6 @@ public interface AmazonConfigAsync extends AmazonConfig {
      */
     java.util.concurrent.Future<PutEvaluationsResult> putEvaluationsAsync(PutEvaluationsRequest putEvaluationsRequest,
             com.amazonaws.handlers.AsyncHandler<PutEvaluationsRequest, PutEvaluationsResult> asyncHandler);
-
-    /**
-     * <p>
-     * Creates and updates the retention configuration with details about retention period (number of days) that AWS
-     * Config stores your historical information. The API creates the <code>RetentionConfiguration</code> object and
-     * names the object as <b>default</b>. When you have a <code>RetentionConfiguration</code> object named
-     * <b>default</b>, calling the API modifies the default object.
-     * </p>
-     * <note>
-     * <p>
-     * Currently, AWS Config supports only one retention configuration per region in your account.
-     * </p>
-     * </note>
-     * 
-     * @param putRetentionConfigurationRequest
-     * @return A Java Future containing the result of the PutRetentionConfiguration operation returned by the service.
-     * @sample AmazonConfigAsync.PutRetentionConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/PutRetentionConfiguration"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<PutRetentionConfigurationResult> putRetentionConfigurationAsync(
-            PutRetentionConfigurationRequest putRetentionConfigurationRequest);
-
-    /**
-     * <p>
-     * Creates and updates the retention configuration with details about retention period (number of days) that AWS
-     * Config stores your historical information. The API creates the <code>RetentionConfiguration</code> object and
-     * names the object as <b>default</b>. When you have a <code>RetentionConfiguration</code> object named
-     * <b>default</b>, calling the API modifies the default object.
-     * </p>
-     * <note>
-     * <p>
-     * Currently, AWS Config supports only one retention configuration per region in your account.
-     * </p>
-     * </note>
-     * 
-     * @param putRetentionConfigurationRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the PutRetentionConfiguration operation returned by the service.
-     * @sample AmazonConfigAsyncHandler.PutRetentionConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/PutRetentionConfiguration"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<PutRetentionConfigurationResult> putRetentionConfigurationAsync(
-            PutRetentionConfigurationRequest putRetentionConfigurationRequest,
-            com.amazonaws.handlers.AsyncHandler<PutRetentionConfigurationRequest, PutRetentionConfigurationResult> asyncHandler);
 
     /**
      * <p>

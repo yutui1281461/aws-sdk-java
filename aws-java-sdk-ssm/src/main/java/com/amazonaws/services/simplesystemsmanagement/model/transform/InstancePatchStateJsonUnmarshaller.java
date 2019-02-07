@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -64,10 +64,6 @@ public class InstancePatchStateJsonUnmarshaller implements Unmarshaller<Instance
                     context.nextToken();
                     instancePatchState.setSnapshotId(context.getUnmarshaller(String.class).unmarshall(context));
                 }
-                if (context.testExpression("InstallOverrideList", targetDepth)) {
-                    context.nextToken();
-                    instancePatchState.setInstallOverrideList(context.getUnmarshaller(String.class).unmarshall(context));
-                }
                 if (context.testExpression("OwnerInformation", targetDepth)) {
                     context.nextToken();
                     instancePatchState.setOwnerInformation(context.getUnmarshaller(String.class).unmarshall(context));
@@ -79,10 +75,6 @@ public class InstancePatchStateJsonUnmarshaller implements Unmarshaller<Instance
                 if (context.testExpression("InstalledOtherCount", targetDepth)) {
                     context.nextToken();
                     instancePatchState.setInstalledOtherCount(context.getUnmarshaller(Integer.class).unmarshall(context));
-                }
-                if (context.testExpression("InstalledRejectedCount", targetDepth)) {
-                    context.nextToken();
-                    instancePatchState.setInstalledRejectedCount(context.getUnmarshaller(Integer.class).unmarshall(context));
                 }
                 if (context.testExpression("MissingCount", targetDepth)) {
                     context.nextToken();
@@ -98,11 +90,11 @@ public class InstancePatchStateJsonUnmarshaller implements Unmarshaller<Instance
                 }
                 if (context.testExpression("OperationStartTime", targetDepth)) {
                     context.nextToken();
-                    instancePatchState.setOperationStartTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    instancePatchState.setOperationStartTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("OperationEndTime", targetDepth)) {
                     context.nextToken();
-                    instancePatchState.setOperationEndTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    instancePatchState.setOperationEndTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("Operation", targetDepth)) {
                     context.nextToken();

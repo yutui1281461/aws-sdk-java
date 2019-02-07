@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -38,8 +38,7 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
      * <p>
      * The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your own
      * custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon
-     * SageMaker requirements. Amazon SageMaker supports both <code>registry/repository[:tag]</code> and
-     * <code>registry/repository[@digest]</code> image path formats. For more information, see <a
+     * SageMaker requirements. For more information, see <a
      * href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
      * SageMaker</a>
      * </p>
@@ -50,14 +49,6 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
      * The S3 path where the model artifacts, which result from model training, are stored. This path must point to a
      * single gzip compressed tar archive (.tar.gz suffix).
      * </p>
-     * <p>
-     * If you provide a value for this parameter, Amazon SageMaker uses AWS Security Token Service to download model
-     * artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default. If you
-     * previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more
-     * information, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
-     * Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management User Guide</i>.
-     * </p>
      */
     private String modelDataUrl;
     /**
@@ -67,12 +58,6 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
      * </p>
      */
     private java.util.Map<String, String> environment;
-    /**
-     * <p>
-     * The name of the model package to use to create the model.
-     * </p>
-     */
-    private String modelPackageName;
 
     /**
      * <p>
@@ -118,8 +103,7 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
      * <p>
      * The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your own
      * custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon
-     * SageMaker requirements. Amazon SageMaker supports both <code>registry/repository[:tag]</code> and
-     * <code>registry/repository[@digest]</code> image path formats. For more information, see <a
+     * SageMaker requirements. For more information, see <a
      * href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
      * SageMaker</a>
      * </p>
@@ -127,8 +111,7 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
      * @param image
      *        The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your
      *        own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet
-     *        Amazon SageMaker requirements. Amazon SageMaker supports both <code>registry/repository[:tag]</code> and
-     *        <code>registry/repository[@digest]</code> image path formats. For more information, see <a
+     *        Amazon SageMaker requirements. For more information, see <a
      *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
      *        Amazon SageMaker</a>
      */
@@ -141,16 +124,14 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
      * <p>
      * The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your own
      * custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon
-     * SageMaker requirements. Amazon SageMaker supports both <code>registry/repository[:tag]</code> and
-     * <code>registry/repository[@digest]</code> image path formats. For more information, see <a
+     * SageMaker requirements. For more information, see <a
      * href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
      * SageMaker</a>
      * </p>
      * 
      * @return The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your
      *         own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet
-     *         Amazon SageMaker requirements. Amazon SageMaker supports both <code>registry/repository[:tag]</code> and
-     *         <code>registry/repository[@digest]</code> image path formats. For more information, see <a
+     *         Amazon SageMaker requirements. For more information, see <a
      *         href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
      *         Amazon SageMaker</a>
      */
@@ -163,8 +144,7 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
      * <p>
      * The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your own
      * custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon
-     * SageMaker requirements. Amazon SageMaker supports both <code>registry/repository[:tag]</code> and
-     * <code>registry/repository[@digest]</code> image path formats. For more information, see <a
+     * SageMaker requirements. For more information, see <a
      * href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
      * SageMaker</a>
      * </p>
@@ -172,8 +152,7 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
      * @param image
      *        The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your
      *        own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet
-     *        Amazon SageMaker requirements. Amazon SageMaker supports both <code>registry/repository[:tag]</code> and
-     *        <code>registry/repository[@digest]</code> image path formats. For more information, see <a
+     *        Amazon SageMaker requirements. For more information, see <a
      *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
      *        Amazon SageMaker</a>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -189,25 +168,10 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
      * The S3 path where the model artifacts, which result from model training, are stored. This path must point to a
      * single gzip compressed tar archive (.tar.gz suffix).
      * </p>
-     * <p>
-     * If you provide a value for this parameter, Amazon SageMaker uses AWS Security Token Service to download model
-     * artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default. If you
-     * previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more
-     * information, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
-     * Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management User Guide</i>.
-     * </p>
      * 
      * @param modelDataUrl
      *        The S3 path where the model artifacts, which result from model training, are stored. This path must point
-     *        to a single gzip compressed tar archive (.tar.gz suffix). </p>
-     *        <p>
-     *        If you provide a value for this parameter, Amazon SageMaker uses AWS Security Token Service to download
-     *        model artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default. If
-     *        you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more
-     *        information, see <a
-     *        href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
-     *        and Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management User Guide</i>.
+     *        to a single gzip compressed tar archive (.tar.gz suffix).
      */
 
     public void setModelDataUrl(String modelDataUrl) {
@@ -219,25 +183,9 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
      * The S3 path where the model artifacts, which result from model training, are stored. This path must point to a
      * single gzip compressed tar archive (.tar.gz suffix).
      * </p>
-     * <p>
-     * If you provide a value for this parameter, Amazon SageMaker uses AWS Security Token Service to download model
-     * artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default. If you
-     * previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more
-     * information, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
-     * Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management User Guide</i>.
-     * </p>
      * 
      * @return The S3 path where the model artifacts, which result from model training, are stored. This path must point
-     *         to a single gzip compressed tar archive (.tar.gz suffix). </p>
-     *         <p>
-     *         If you provide a value for this parameter, Amazon SageMaker uses AWS Security Token Service to download
-     *         model artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default.
-     *         If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For
-     *         more information, see <a
-     *         href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
-     *         and Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management User
-     *         Guide</i>.
+     *         to a single gzip compressed tar archive (.tar.gz suffix).
      */
 
     public String getModelDataUrl() {
@@ -249,25 +197,10 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
      * The S3 path where the model artifacts, which result from model training, are stored. This path must point to a
      * single gzip compressed tar archive (.tar.gz suffix).
      * </p>
-     * <p>
-     * If you provide a value for this parameter, Amazon SageMaker uses AWS Security Token Service to download model
-     * artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default. If you
-     * previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more
-     * information, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
-     * Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management User Guide</i>.
-     * </p>
      * 
      * @param modelDataUrl
      *        The S3 path where the model artifacts, which result from model training, are stored. This path must point
-     *        to a single gzip compressed tar archive (.tar.gz suffix). </p>
-     *        <p>
-     *        If you provide a value for this parameter, Amazon SageMaker uses AWS Security Token Service to download
-     *        model artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default. If
-     *        you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more
-     *        information, see <a
-     *        href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
-     *        and Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management User Guide</i>.
+     *        to a single gzip compressed tar archive (.tar.gz suffix).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -347,48 +280,7 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * <p>
-     * The name of the model package to use to create the model.
-     * </p>
-     * 
-     * @param modelPackageName
-     *        The name of the model package to use to create the model.
-     */
-
-    public void setModelPackageName(String modelPackageName) {
-        this.modelPackageName = modelPackageName;
-    }
-
-    /**
-     * <p>
-     * The name of the model package to use to create the model.
-     * </p>
-     * 
-     * @return The name of the model package to use to create the model.
-     */
-
-    public String getModelPackageName() {
-        return this.modelPackageName;
-    }
-
-    /**
-     * <p>
-     * The name of the model package to use to create the model.
-     * </p>
-     * 
-     * @param modelPackageName
-     *        The name of the model package to use to create the model.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public ContainerDefinition withModelPackageName(String modelPackageName) {
-        setModelPackageName(modelPackageName);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -405,9 +297,7 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
         if (getModelDataUrl() != null)
             sb.append("ModelDataUrl: ").append(getModelDataUrl()).append(",");
         if (getEnvironment() != null)
-            sb.append("Environment: ").append(getEnvironment()).append(",");
-        if (getModelPackageName() != null)
-            sb.append("ModelPackageName: ").append(getModelPackageName());
+            sb.append("Environment: ").append(getEnvironment());
         sb.append("}");
         return sb.toString();
     }
@@ -438,10 +328,6 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
             return false;
         if (other.getEnvironment() != null && other.getEnvironment().equals(this.getEnvironment()) == false)
             return false;
-        if (other.getModelPackageName() == null ^ this.getModelPackageName() == null)
-            return false;
-        if (other.getModelPackageName() != null && other.getModelPackageName().equals(this.getModelPackageName()) == false)
-            return false;
         return true;
     }
 
@@ -454,7 +340,6 @@ public class ContainerDefinition implements Serializable, Cloneable, StructuredP
         hashCode = prime * hashCode + ((getImage() == null) ? 0 : getImage().hashCode());
         hashCode = prime * hashCode + ((getModelDataUrl() == null) ? 0 : getModelDataUrl().hashCode());
         hashCode = prime * hashCode + ((getEnvironment() == null) ? 0 : getEnvironment().hashCode());
-        hashCode = prime * hashCode + ((getModelPackageName() == null) ? 0 : getModelPackageName().hashCode());
         return hashCode;
     }
 

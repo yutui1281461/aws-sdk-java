@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -72,14 +72,6 @@ public class RegisterContainerInstanceRequest extends com.amazonaws.AmazonWebSer
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<Attribute> attributes;
-    /**
-     * <p>
-     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
-     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
-     * characters, and tag values can have a maximum length of 256 characters.
-     * </p>
-     */
-    private com.amazonaws.internal.SdkInternalList<Tag> tags;
 
     /**
      * <p>
@@ -461,97 +453,7 @@ public class RegisterContainerInstanceRequest extends com.amazonaws.AmazonWebSer
     }
 
     /**
-     * <p>
-     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
-     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
-     * characters, and tag values can have a maximum length of 256 characters.
-     * </p>
-     * 
-     * @return The metadata that you apply to the container instance to help you categorize and organize them. Each tag
-     *         consists of a key and an optional value, both of which you define. Tag keys can have a maximum character
-     *         length of 128 characters, and tag values can have a maximum length of 256 characters.
-     */
-
-    public java.util.List<Tag> getTags() {
-        if (tags == null) {
-            tags = new com.amazonaws.internal.SdkInternalList<Tag>();
-        }
-        return tags;
-    }
-
-    /**
-     * <p>
-     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
-     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
-     * characters, and tag values can have a maximum length of 256 characters.
-     * </p>
-     * 
-     * @param tags
-     *        The metadata that you apply to the container instance to help you categorize and organize them. Each tag
-     *        consists of a key and an optional value, both of which you define. Tag keys can have a maximum character
-     *        length of 128 characters, and tag values can have a maximum length of 256 characters.
-     */
-
-    public void setTags(java.util.Collection<Tag> tags) {
-        if (tags == null) {
-            this.tags = null;
-            return;
-        }
-
-        this.tags = new com.amazonaws.internal.SdkInternalList<Tag>(tags);
-    }
-
-    /**
-     * <p>
-     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
-     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
-     * characters, and tag values can have a maximum length of 256 characters.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setTags(java.util.Collection)} or {@link #withTags(java.util.Collection)} if you want to override the
-     * existing values.
-     * </p>
-     * 
-     * @param tags
-     *        The metadata that you apply to the container instance to help you categorize and organize them. Each tag
-     *        consists of a key and an optional value, both of which you define. Tag keys can have a maximum character
-     *        length of 128 characters, and tag values can have a maximum length of 256 characters.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RegisterContainerInstanceRequest withTags(Tag... tags) {
-        if (this.tags == null) {
-            setTags(new com.amazonaws.internal.SdkInternalList<Tag>(tags.length));
-        }
-        for (Tag ele : tags) {
-            this.tags.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists
-     * of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
-     * characters, and tag values can have a maximum length of 256 characters.
-     * </p>
-     * 
-     * @param tags
-     *        The metadata that you apply to the container instance to help you categorize and organize them. Each tag
-     *        consists of a key and an optional value, both of which you define. Tag keys can have a maximum character
-     *        length of 128 characters, and tag values can have a maximum length of 256 characters.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RegisterContainerInstanceRequest withTags(java.util.Collection<Tag> tags) {
-        setTags(tags);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -574,9 +476,7 @@ public class RegisterContainerInstanceRequest extends com.amazonaws.AmazonWebSer
         if (getContainerInstanceArn() != null)
             sb.append("ContainerInstanceArn: ").append(getContainerInstanceArn()).append(",");
         if (getAttributes() != null)
-            sb.append("Attributes: ").append(getAttributes()).append(",");
-        if (getTags() != null)
-            sb.append("Tags: ").append(getTags());
+            sb.append("Attributes: ").append(getAttributes());
         sb.append("}");
         return sb.toString();
     }
@@ -620,10 +520,6 @@ public class RegisterContainerInstanceRequest extends com.amazonaws.AmazonWebSer
             return false;
         if (other.getAttributes() != null && other.getAttributes().equals(this.getAttributes()) == false)
             return false;
-        if (other.getTags() == null ^ this.getTags() == null)
-            return false;
-        if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
-            return false;
         return true;
     }
 
@@ -639,7 +535,6 @@ public class RegisterContainerInstanceRequest extends com.amazonaws.AmazonWebSer
         hashCode = prime * hashCode + ((getVersionInfo() == null) ? 0 : getVersionInfo().hashCode());
         hashCode = prime * hashCode + ((getContainerInstanceArn() == null) ? 0 : getContainerInstanceArn().hashCode());
         hashCode = prime * hashCode + ((getAttributes() == null) ? 0 : getAttributes().hashCode());
-        hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         return hashCode;
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -17,8 +17,7 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as
- * a response element in the following actions:
+ * This data type is used as a response element in the following actions:
  * </p>
  * <ul>
  * <li>
@@ -37,9 +36,6 @@ import javax.annotation.Generated;
  * </p>
  * </li>
  * </ul>
- * <p>
- * For the data structure that represents Amazon Aurora DB cluster endpoints, see <a>DBClusterEndpoint</a>.
- * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/Endpoint" target="_top">AWS API Documentation</a>
  */
@@ -186,8 +182,7 @@ public class Endpoint implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,24 +27,32 @@ public class UntagResourceRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The function's Amazon Resource Name (ARN).
+     * The ARN (Amazon Resource Name) of the function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda
+     * Developer Guide</b>.
      * </p>
      */
     private String resource;
     /**
      * <p>
-     * A list of tag keys to remove from the function.
+     * The list of tag keys to be deleted from the function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda
+     * Developer Guide</b>.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> tagKeys;
 
     /**
      * <p>
-     * The function's Amazon Resource Name (ARN).
+     * The ARN (Amazon Resource Name) of the function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda
+     * Developer Guide</b>.
      * </p>
      * 
      * @param resource
-     *        The function's Amazon Resource Name (ARN).
+     *        The ARN (Amazon Resource Name) of the function. For more information, see <a
+     *        href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS
+     *        Lambda Developer Guide</b>.
      */
 
     public void setResource(String resource) {
@@ -53,10 +61,14 @@ public class UntagResourceRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The function's Amazon Resource Name (ARN).
+     * The ARN (Amazon Resource Name) of the function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda
+     * Developer Guide</b>.
      * </p>
      * 
-     * @return The function's Amazon Resource Name (ARN).
+     * @return The ARN (Amazon Resource Name) of the function. For more information, see <a
+     *         href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the
+     *         <b>AWS Lambda Developer Guide</b>.
      */
 
     public String getResource() {
@@ -65,11 +77,15 @@ public class UntagResourceRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * The function's Amazon Resource Name (ARN).
+     * The ARN (Amazon Resource Name) of the function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda
+     * Developer Guide</b>.
      * </p>
      * 
      * @param resource
-     *        The function's Amazon Resource Name (ARN).
+     *        The ARN (Amazon Resource Name) of the function. For more information, see <a
+     *        href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS
+     *        Lambda Developer Guide</b>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -80,10 +96,14 @@ public class UntagResourceRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A list of tag keys to remove from the function.
+     * The list of tag keys to be deleted from the function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda
+     * Developer Guide</b>.
      * </p>
      * 
-     * @return A list of tag keys to remove from the function.
+     * @return The list of tag keys to be deleted from the function. For more information, see <a
+     *         href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the
+     *         <b>AWS Lambda Developer Guide</b>.
      */
 
     public java.util.List<String> getTagKeys() {
@@ -95,11 +115,15 @@ public class UntagResourceRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A list of tag keys to remove from the function.
+     * The list of tag keys to be deleted from the function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda
+     * Developer Guide</b>.
      * </p>
      * 
      * @param tagKeys
-     *        A list of tag keys to remove from the function.
+     *        The list of tag keys to be deleted from the function. For more information, see <a
+     *        href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS
+     *        Lambda Developer Guide</b>.
      */
 
     public void setTagKeys(java.util.Collection<String> tagKeys) {
@@ -113,7 +137,9 @@ public class UntagResourceRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A list of tag keys to remove from the function.
+     * The list of tag keys to be deleted from the function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda
+     * Developer Guide</b>.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -122,7 +148,9 @@ public class UntagResourceRequest extends com.amazonaws.AmazonWebServiceRequest 
      * </p>
      * 
      * @param tagKeys
-     *        A list of tag keys to remove from the function.
+     *        The list of tag keys to be deleted from the function. For more information, see <a
+     *        href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS
+     *        Lambda Developer Guide</b>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -138,11 +166,15 @@ public class UntagResourceRequest extends com.amazonaws.AmazonWebServiceRequest 
 
     /**
      * <p>
-     * A list of tag keys to remove from the function.
+     * The list of tag keys to be deleted from the function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda
+     * Developer Guide</b>.
      * </p>
      * 
      * @param tagKeys
-     *        A list of tag keys to remove from the function.
+     *        The list of tag keys to be deleted from the function. For more information, see <a
+     *        href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS
+     *        Lambda Developer Guide</b>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -152,8 +184,7 @@ public class UntagResourceRequest extends com.amazonaws.AmazonWebServiceRequest 
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

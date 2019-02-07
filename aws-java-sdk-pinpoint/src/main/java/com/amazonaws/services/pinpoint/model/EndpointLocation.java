@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,7 +18,7 @@ import com.amazonaws.protocol.StructuredPojo;
 import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
- * Location data for the endpoint.
+ * Endpoint location data
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/EndpointLocation" target="_top">AWS API
  *      Documentation</a>
@@ -28,18 +28,15 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
 
     /** The city where the endpoint is located. */
     private String city;
-    /**
-     * The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as
-     * "US" for the United States.
-     */
+    /** Country according to ISO 3166-1 Alpha-2 codes. For example, US. */
     private String country;
-    /** The latitude of the endpoint location, rounded to one decimal place. */
+    /** The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile). */
     private Double latitude;
-    /** The longitude of the endpoint location, rounded to one decimal place. */
+    /** The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile). */
     private Double longitude;
     /** The postal code or zip code of the endpoint. */
     private String postalCode;
-    /** The region of the endpoint location. For example, in the United States, this corresponds to a state. */
+    /** The region of the endpoint location. For example, corresponds to a state in US. */
     private String region;
 
     /**
@@ -77,12 +74,10 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as
-     * "US" for the United States.
+     * Country according to ISO 3166-1 Alpha-2 codes. For example, US.
      * 
      * @param country
-     *        The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code,
-     *        such as "US" for the United States.
+     *        Country according to ISO 3166-1 Alpha-2 codes. For example, US.
      */
 
     public void setCountry(String country) {
@@ -90,11 +85,9 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as
-     * "US" for the United States.
+     * Country according to ISO 3166-1 Alpha-2 codes. For example, US.
      * 
-     * @return The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code,
-     *         such as "US" for the United States.
+     * @return Country according to ISO 3166-1 Alpha-2 codes. For example, US.
      */
 
     public String getCountry() {
@@ -102,12 +95,10 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as
-     * "US" for the United States.
+     * Country according to ISO 3166-1 Alpha-2 codes. For example, US.
      * 
      * @param country
-     *        The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code,
-     *        such as "US" for the United States.
+     *        Country according to ISO 3166-1 Alpha-2 codes. For example, US.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -117,10 +108,10 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The latitude of the endpoint location, rounded to one decimal place.
+     * The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
      * 
      * @param latitude
-     *        The latitude of the endpoint location, rounded to one decimal place.
+     *        The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
      */
 
     public void setLatitude(Double latitude) {
@@ -128,9 +119,9 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The latitude of the endpoint location, rounded to one decimal place.
+     * The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
      * 
-     * @return The latitude of the endpoint location, rounded to one decimal place.
+     * @return The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
      */
 
     public Double getLatitude() {
@@ -138,10 +129,10 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The latitude of the endpoint location, rounded to one decimal place.
+     * The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
      * 
      * @param latitude
-     *        The latitude of the endpoint location, rounded to one decimal place.
+     *        The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -151,10 +142,10 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The longitude of the endpoint location, rounded to one decimal place.
+     * The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
      * 
      * @param longitude
-     *        The longitude of the endpoint location, rounded to one decimal place.
+     *        The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
      */
 
     public void setLongitude(Double longitude) {
@@ -162,9 +153,9 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The longitude of the endpoint location, rounded to one decimal place.
+     * The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
      * 
-     * @return The longitude of the endpoint location, rounded to one decimal place.
+     * @return The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
      */
 
     public Double getLongitude() {
@@ -172,10 +163,10 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The longitude of the endpoint location, rounded to one decimal place.
+     * The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
      * 
      * @param longitude
-     *        The longitude of the endpoint location, rounded to one decimal place.
+     *        The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -219,10 +210,10 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The region of the endpoint location. For example, in the United States, this corresponds to a state.
+     * The region of the endpoint location. For example, corresponds to a state in US.
      * 
      * @param region
-     *        The region of the endpoint location. For example, in the United States, this corresponds to a state.
+     *        The region of the endpoint location. For example, corresponds to a state in US.
      */
 
     public void setRegion(String region) {
@@ -230,9 +221,9 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The region of the endpoint location. For example, in the United States, this corresponds to a state.
+     * The region of the endpoint location. For example, corresponds to a state in US.
      * 
-     * @return The region of the endpoint location. For example, in the United States, this corresponds to a state.
+     * @return The region of the endpoint location. For example, corresponds to a state in US.
      */
 
     public String getRegion() {
@@ -240,10 +231,10 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The region of the endpoint location. For example, in the United States, this corresponds to a state.
+     * The region of the endpoint location. For example, corresponds to a state in US.
      * 
      * @param region
-     *        The region of the endpoint location. For example, in the United States, this corresponds to a state.
+     *        The region of the endpoint location. For example, corresponds to a state in US.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -253,8 +244,7 @@ public class EndpointLocation implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

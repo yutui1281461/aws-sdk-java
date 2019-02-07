@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon Technologies, Inc.
+ * Copyright 2014-2018 Amazon Technologies, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,13 +14,10 @@
  */
 package com.amazonaws.services.s3.event;
 
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.List;
 
-import com.amazonaws.util.DateUtils;
 import com.amazonaws.util.SdkHttpUtils;
+import org.joda.time.DateTime;
 
 import com.amazonaws.internal.DateTimeJsonSerializer;
 import com.amazonaws.util.json.Jackson;
@@ -289,83 +286,17 @@ public class S3EventNotification {
         }
     }
 
-    public static class GlacierEventDataEntity {
-        private final RestoreEventDataEntity restoreEventData;
-
-        @JsonCreator
-        public GlacierEventDataEntity(
-                @JsonProperty(value = "restoreEventData") RestoreEventDataEntity restoreEventData)
-        {
-            this.restoreEventData = restoreEventData;
-        }
-
-        public RestoreEventDataEntity getRestoreEventData() {
-            return restoreEventData;
-        }
-    }
-
-    public static class RestoreEventDataEntity {
-        private ZonedDateTime lifecycleRestorationExpiryTime;
-        private final String lifecycleRestoreStorageClass;
-
-        @JsonCreator
-        public RestoreEventDataEntity(
-                @JsonProperty("lifecycleRestorationExpiryTime") String lifecycleRestorationExpiryTime,
-                @JsonProperty("lifecycleRestoreStorageClass") String lifecycleRestoreStorageClass)
-        {
-            if (lifecycleRestorationExpiryTime != null) {
-                Instant instant = DateUtils.parseISO8601Instant(lifecycleRestorationExpiryTime);
-                this.lifecycleRestorationExpiryTime = ZonedDateTime.ofInstant(instant, ZoneId.systemDefault());
-            }
-            this.lifecycleRestoreStorageClass = lifecycleRestoreStorageClass;
-        }
-
-        @JsonSerialize(using=DateTimeJsonSerializer.class)
-        public ZonedDateTime getLifecycleRestorationExpiryTime() {
-            return lifecycleRestorationExpiryTime;
-        }
-
-        public String getLifecycleRestoreStorageClass() {
-            return lifecycleRestoreStorageClass;
-        }
-    }
-
     public static class S3EventNotificationRecord {
 
         private final String awsRegion;
         private final String eventName;
         private final String eventSource;
-        private ZonedDateTime eventTime;
+        private DateTime eventTime;
         private final String eventVersion;
         private final RequestParametersEntity requestParameters;
         private final ResponseElementsEntity responseElements;
         private final S3Entity s3;
         private final UserIdentityEntity userIdentity;
-        private final GlacierEventDataEntity glacierEventData;
-
-        @Deprecated
-        public S3EventNotificationRecord(
-                String awsRegion,
-                String eventName,
-                String eventSource,
-                String eventTime,
-                String eventVersion,
-                RequestParametersEntity requestParameters,
-                ResponseElementsEntity responseElements,
-                S3Entity s3,
-                UserIdentityEntity userIdentity)
-        {
-            this(awsRegion,
-                 eventName,
-                 eventSource,
-                 eventTime,
-                 eventVersion,
-                 requestParameters,
-                 responseElements,
-                 s3,
-                 userIdentity,
-                 null);
-        }
 
         @JsonCreator
         public S3EventNotificationRecord(
@@ -377,8 +308,7 @@ public class S3EventNotification {
                 @JsonProperty(value = "requestParameters") RequestParametersEntity requestParameters,
                 @JsonProperty(value = "responseElements") ResponseElementsEntity responseElements,
                 @JsonProperty(value = "s3") S3Entity s3,
-                @JsonProperty(value = "userIdentity") UserIdentityEntity userIdentity,
-                @JsonProperty(value = "glacierEventData") GlacierEventDataEntity glacierEventData)
+                @JsonProperty(value = "userIdentity") UserIdentityEntity userIdentity)
         {
             this.awsRegion = awsRegion;
             this.eventName = eventName;
@@ -386,8 +316,7 @@ public class S3EventNotification {
 
             if (eventTime != null)
             {
-                Instant instant = DateUtils.parseISO8601Instant(eventTime);
-                this.eventTime = ZonedDateTime.ofInstant(instant, ZoneId.systemDefault());
+                this.eventTime = DateTime.parse(eventTime);
             }
 
             this.eventVersion = eventVersion;
@@ -395,7 +324,6 @@ public class S3EventNotification {
             this.responseElements = responseElements;
             this.s3 = s3;
             this.userIdentity = userIdentity;
-            this.glacierEventData = glacierEventData;
         }
 
         public String getAwsRegion() {
@@ -411,7 +339,7 @@ public class S3EventNotification {
         }
 
         @JsonSerialize(using=DateTimeJsonSerializer.class)
-        public ZonedDateTime getEventTime() {
+        public DateTime getEventTime() {
             return eventTime;
         }
 
@@ -433,10 +361,6 @@ public class S3EventNotification {
 
         public UserIdentityEntity getUserIdentity() {
             return userIdentity;
-        }
-
-        public GlacierEventDataEntity getGlacierEventData() {
-            return glacierEventData;
         }
     }
 }

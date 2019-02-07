@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -48,11 +48,7 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private String architecture;
-    /**
-     * <p>
-     * The instance's Amazon Resource Number (ARN).
-     * </p>
-     */
+
     private String arn;
     /**
      * <p>
@@ -535,12 +531,7 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The instance's Amazon Resource Number (ARN).
-     * </p>
-     * 
      * @param arn
-     *        The instance's Amazon Resource Number (ARN).
      */
 
     public void setArn(String arn) {
@@ -548,11 +539,7 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The instance's Amazon Resource Number (ARN).
-     * </p>
-     * 
-     * @return The instance's Amazon Resource Number (ARN).
+     * @return
      */
 
     public String getArn() {
@@ -560,12 +547,7 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The instance's Amazon Resource Number (ARN).
-     * </p>
-     * 
      * @param arn
-     *        The instance's Amazon Resource Number (ARN).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -2845,8 +2827,7 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2016-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,12 +19,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.TimeZone;
+
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 /**
  * Annotation to format a timestamp object using Java's standard date and time
@@ -69,26 +70,25 @@ public @interface DynamoDBTypeConvertedTimestamp {
     /**
      * Timestamp format converter.
      */
-    final class Converter<T> implements DynamoDBTypeConverter<String,T> {
-        private final DynamoDBTypeConverter<ZonedDateTime,T> converter;
+    static final class Converter<T> implements DynamoDBTypeConverter<String,T> {
+        private final DynamoDBTypeConverter<DateTime,T> converter;
         private final DateTimeFormatter formatter;
-        private final TimeZone timeZone;
 
         public Converter(Class<T> targetType, DynamoDBTypeConvertedTimestamp annotation) {
-            this.timeZone = StandardTypeConverters.Scalar.TIME_ZONE.convert(annotation.timeZone());
-            this.formatter = DateTimeFormatter.ofPattern(annotation.pattern()).withZone(this.timeZone.toZoneId());
-            this.converter = StandardTypeConverters.factory().getConverter(ZonedDateTime.class, targetType);
+            this.formatter = DateTimeFormat.forPattern(annotation.pattern()).withZone(
+                DateTimeZone.forTimeZone(StandardTypeConverters.Scalar.TIME_ZONE.<TimeZone>convert(annotation.timeZone()))
+            );
+            this.converter = StandardTypeConverters.factory().getConverter(DateTime.class, targetType);
         }
 
         @Override
         public final String convert(final T object) {
-            return formatter.format(converter.convert(object));
+            return formatter.print(converter.convert(object));
         }
 
         @Override
         public final T unconvert(final String object) {
-            Instant instant = Instant.from(formatter.parse(object));
-            return converter.unconvert(ZonedDateTime.ofInstant(instant, this.timeZone.toZoneId()));
+            return converter.unconvert(formatter.parseDateTime(object));
         }
     }
 

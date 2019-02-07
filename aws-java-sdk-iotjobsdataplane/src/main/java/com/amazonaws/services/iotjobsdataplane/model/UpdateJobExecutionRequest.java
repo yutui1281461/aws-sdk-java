@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -51,17 +51,6 @@ public class UpdateJobExecutionRequest extends com.amazonaws.AmazonWebServiceReq
      * </p>
      */
     private java.util.Map<String, String> statusDetails;
-    /**
-     * <p>
-     * Specifies the amount of time this device has to finish execution of this job. If the job execution status is not
-     * set to a terminal state before this timer expires, or before the timer is reset (by again calling
-     * <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code> and specifying a new timeout
-     * value in this field) the job execution status will be automatically set to <code>TIMED_OUT</code>. Note that
-     * setting or resetting this timeout has no effect on that job execution timeout which may have been specified when
-     * the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).
-     * </p>
-     */
-    private Long stepTimeoutInMinutes;
     /**
      * <p>
      * Optional. The expected current version of the job execution. Each time you update the job execution, its version
@@ -307,76 +296,6 @@ public class UpdateJobExecutionRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * Specifies the amount of time this device has to finish execution of this job. If the job execution status is not
-     * set to a terminal state before this timer expires, or before the timer is reset (by again calling
-     * <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code> and specifying a new timeout
-     * value in this field) the job execution status will be automatically set to <code>TIMED_OUT</code>. Note that
-     * setting or resetting this timeout has no effect on that job execution timeout which may have been specified when
-     * the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).
-     * </p>
-     * 
-     * @param stepTimeoutInMinutes
-     *        Specifies the amount of time this device has to finish execution of this job. If the job execution status
-     *        is not set to a terminal state before this timer expires, or before the timer is reset (by again calling
-     *        <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code> and specifying a new
-     *        timeout value in this field) the job execution status will be automatically set to <code>TIMED_OUT</code>.
-     *        Note that setting or resetting this timeout has no effect on that job execution timeout which may have
-     *        been specified when the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).
-     */
-
-    public void setStepTimeoutInMinutes(Long stepTimeoutInMinutes) {
-        this.stepTimeoutInMinutes = stepTimeoutInMinutes;
-    }
-
-    /**
-     * <p>
-     * Specifies the amount of time this device has to finish execution of this job. If the job execution status is not
-     * set to a terminal state before this timer expires, or before the timer is reset (by again calling
-     * <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code> and specifying a new timeout
-     * value in this field) the job execution status will be automatically set to <code>TIMED_OUT</code>. Note that
-     * setting or resetting this timeout has no effect on that job execution timeout which may have been specified when
-     * the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).
-     * </p>
-     * 
-     * @return Specifies the amount of time this device has to finish execution of this job. If the job execution status
-     *         is not set to a terminal state before this timer expires, or before the timer is reset (by again calling
-     *         <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code> and specifying a new
-     *         timeout value in this field) the job execution status will be automatically set to <code>TIMED_OUT</code>
-     *         . Note that setting or resetting this timeout has no effect on that job execution timeout which may have
-     *         been specified when the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).
-     */
-
-    public Long getStepTimeoutInMinutes() {
-        return this.stepTimeoutInMinutes;
-    }
-
-    /**
-     * <p>
-     * Specifies the amount of time this device has to finish execution of this job. If the job execution status is not
-     * set to a terminal state before this timer expires, or before the timer is reset (by again calling
-     * <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code> and specifying a new timeout
-     * value in this field) the job execution status will be automatically set to <code>TIMED_OUT</code>. Note that
-     * setting or resetting this timeout has no effect on that job execution timeout which may have been specified when
-     * the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).
-     * </p>
-     * 
-     * @param stepTimeoutInMinutes
-     *        Specifies the amount of time this device has to finish execution of this job. If the job execution status
-     *        is not set to a terminal state before this timer expires, or before the timer is reset (by again calling
-     *        <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code> and specifying a new
-     *        timeout value in this field) the job execution status will be automatically set to <code>TIMED_OUT</code>.
-     *        Note that setting or resetting this timeout has no effect on that job execution timeout which may have
-     *        been specified when the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public UpdateJobExecutionRequest withStepTimeoutInMinutes(Long stepTimeoutInMinutes) {
-        setStepTimeoutInMinutes(stepTimeoutInMinutes);
-        return this;
-    }
-
-    /**
-     * <p>
      * Optional. The expected current version of the job execution. Each time you update the job execution, its version
      * is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a
      * VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned.
@@ -588,8 +507,7 @@ public class UpdateJobExecutionRequest extends com.amazonaws.AmazonWebServiceReq
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -607,8 +525,6 @@ public class UpdateJobExecutionRequest extends com.amazonaws.AmazonWebServiceReq
             sb.append("Status: ").append(getStatus()).append(",");
         if (getStatusDetails() != null)
             sb.append("StatusDetails: ").append(getStatusDetails()).append(",");
-        if (getStepTimeoutInMinutes() != null)
-            sb.append("StepTimeoutInMinutes: ").append(getStepTimeoutInMinutes()).append(",");
         if (getExpectedVersion() != null)
             sb.append("ExpectedVersion: ").append(getExpectedVersion()).append(",");
         if (getIncludeJobExecutionState() != null)
@@ -647,10 +563,6 @@ public class UpdateJobExecutionRequest extends com.amazonaws.AmazonWebServiceReq
             return false;
         if (other.getStatusDetails() != null && other.getStatusDetails().equals(this.getStatusDetails()) == false)
             return false;
-        if (other.getStepTimeoutInMinutes() == null ^ this.getStepTimeoutInMinutes() == null)
-            return false;
-        if (other.getStepTimeoutInMinutes() != null && other.getStepTimeoutInMinutes().equals(this.getStepTimeoutInMinutes()) == false)
-            return false;
         if (other.getExpectedVersion() == null ^ this.getExpectedVersion() == null)
             return false;
         if (other.getExpectedVersion() != null && other.getExpectedVersion().equals(this.getExpectedVersion()) == false)
@@ -679,7 +591,6 @@ public class UpdateJobExecutionRequest extends com.amazonaws.AmazonWebServiceReq
         hashCode = prime * hashCode + ((getThingName() == null) ? 0 : getThingName().hashCode());
         hashCode = prime * hashCode + ((getStatus() == null) ? 0 : getStatus().hashCode());
         hashCode = prime * hashCode + ((getStatusDetails() == null) ? 0 : getStatusDetails().hashCode());
-        hashCode = prime * hashCode + ((getStepTimeoutInMinutes() == null) ? 0 : getStepTimeoutInMinutes().hashCode());
         hashCode = prime * hashCode + ((getExpectedVersion() == null) ? 0 : getExpectedVersion().hashCode());
         hashCode = prime * hashCode + ((getIncludeJobExecutionState() == null) ? 0 : getIncludeJobExecutionState().hashCode());
         hashCode = prime * hashCode + ((getIncludeJobDocument() == null) ? 0 : getIncludeJobDocument().hashCode());

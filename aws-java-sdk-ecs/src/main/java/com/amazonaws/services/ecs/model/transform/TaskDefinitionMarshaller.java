@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -58,10 +58,6 @@ public class TaskDefinitionMarshaller {
             .marshallLocationName("cpu").build();
     private static final MarshallingInfo<String> MEMORY_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("memory").build();
-    private static final MarshallingInfo<String> PIDMODE_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
-            .marshallLocationName("pidMode").build();
-    private static final MarshallingInfo<String> IPCMODE_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
-            .marshallLocationName("ipcMode").build();
 
     private static final TaskDefinitionMarshaller instance = new TaskDefinitionMarshaller();
 
@@ -94,8 +90,6 @@ public class TaskDefinitionMarshaller {
             protocolMarshaller.marshall(taskDefinition.getRequiresCompatibilities(), REQUIRESCOMPATIBILITIES_BINDING);
             protocolMarshaller.marshall(taskDefinition.getCpu(), CPU_BINDING);
             protocolMarshaller.marshall(taskDefinition.getMemory(), MEMORY_BINDING);
-            protocolMarshaller.marshall(taskDefinition.getPidMode(), PIDMODE_BINDING);
-            protocolMarshaller.marshall(taskDefinition.getIpcMode(), IPCMODE_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

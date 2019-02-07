@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,8 +37,6 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
-import com.amazonaws.client.builder.AdvancedConfig;
-
 import com.amazonaws.services.elasticfilesystem.AmazonElasticFileSystemClientBuilder;
 
 import com.amazonaws.AmazonServiceException;
@@ -61,7 +59,6 @@ import com.amazonaws.services.elasticfilesystem.model.transform.*;
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implements AmazonElasticFileSystem {
-
     /** Provider for AWS credentials. */
     private final AWSCredentialsProvider awsCredentialsProvider;
 
@@ -73,14 +70,21 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
 
-    private final AdvancedConfig advancedConfig;
-
     private static final com.amazonaws.protocol.json.SdkJsonProtocolFactory protocolFactory = new com.amazonaws.protocol.json.SdkJsonProtocolFactory(
             new JsonClientMetadata()
                     .withProtocolVersion("1.1")
                     .withSupportsCbor(false)
                     .withSupportsIon(false)
                     .withContentTypeOverride("")
+                    .addErrorMetadata(
+                            new JsonErrorShapeMetadata().withErrorCode("MountTargetNotFound").withModeledClass(
+                                    com.amazonaws.services.elasticfilesystem.model.MountTargetNotFoundException.class))
+                    .addErrorMetadata(
+                            new JsonErrorShapeMetadata().withErrorCode("SubnetNotFound").withModeledClass(
+                                    com.amazonaws.services.elasticfilesystem.model.SubnetNotFoundException.class))
+                    .addErrorMetadata(
+                            new JsonErrorShapeMetadata().withErrorCode("IncorrectMountTargetState").withModeledClass(
+                                    com.amazonaws.services.elasticfilesystem.model.IncorrectMountTargetStateException.class))
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("UnsupportedAvailabilityZone").withModeledClass(
                                     com.amazonaws.services.elasticfilesystem.model.UnsupportedAvailabilityZoneException.class))
@@ -100,44 +104,26 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
                             new JsonErrorShapeMetadata().withErrorCode("FileSystemAlreadyExists").withModeledClass(
                                     com.amazonaws.services.elasticfilesystem.model.FileSystemAlreadyExistsException.class))
                     .addErrorMetadata(
+                            new JsonErrorShapeMetadata().withErrorCode("SecurityGroupLimitExceeded").withModeledClass(
+                                    com.amazonaws.services.elasticfilesystem.model.SecurityGroupLimitExceededException.class))
+                    .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("NetworkInterfaceLimitExceeded").withModeledClass(
                                     com.amazonaws.services.elasticfilesystem.model.NetworkInterfaceLimitExceededException.class))
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("IncorrectFileSystemLifeCycleState").withModeledClass(
                                     com.amazonaws.services.elasticfilesystem.model.IncorrectFileSystemLifeCycleStateException.class))
                     .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("NoFreeAddressesInSubnet").withModeledClass(
-                                    com.amazonaws.services.elasticfilesystem.model.NoFreeAddressesInSubnetException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("FileSystemNotFound").withModeledClass(
-                                    com.amazonaws.services.elasticfilesystem.model.FileSystemNotFoundException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("InsufficientThroughputCapacity").withModeledClass(
-                                    com.amazonaws.services.elasticfilesystem.model.InsufficientThroughputCapacityException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("MountTargetNotFound").withModeledClass(
-                                    com.amazonaws.services.elasticfilesystem.model.MountTargetNotFoundException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("SubnetNotFound").withModeledClass(
-                                    com.amazonaws.services.elasticfilesystem.model.SubnetNotFoundException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("IncorrectMountTargetState").withModeledClass(
-                                    com.amazonaws.services.elasticfilesystem.model.IncorrectMountTargetStateException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("SecurityGroupLimitExceeded").withModeledClass(
-                                    com.amazonaws.services.elasticfilesystem.model.SecurityGroupLimitExceededException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("ThroughputLimitExceeded").withModeledClass(
-                                    com.amazonaws.services.elasticfilesystem.model.ThroughputLimitExceededException.class))
-                    .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("DependencyTimeout").withModeledClass(
                                     com.amazonaws.services.elasticfilesystem.model.DependencyTimeoutException.class))
                     .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("TooManyRequests").withModeledClass(
-                                    com.amazonaws.services.elasticfilesystem.model.TooManyRequestsException.class))
+                            new JsonErrorShapeMetadata().withErrorCode("NoFreeAddressesInSubnet").withModeledClass(
+                                    com.amazonaws.services.elasticfilesystem.model.NoFreeAddressesInSubnetException.class))
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("FileSystemLimitExceeded").withModeledClass(
                                     com.amazonaws.services.elasticfilesystem.model.FileSystemLimitExceededException.class))
+                    .addErrorMetadata(
+                            new JsonErrorShapeMetadata().withErrorCode("FileSystemNotFound").withModeledClass(
+                                    com.amazonaws.services.elasticfilesystem.model.FileSystemNotFoundException.class))
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("BadRequest").withModeledClass(
                                     com.amazonaws.services.elasticfilesystem.model.BadRequestException.class))
@@ -229,7 +215,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
     public AmazonElasticFileSystemClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -294,7 +279,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -313,23 +297,8 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
      *        Object providing client parameters.
      */
     AmazonElasticFileSystemClient(AwsSyncClientParams clientParams) {
-        this(clientParams, false);
-    }
-
-    /**
-     * Constructs a new client to invoke service methods on EFS using the specified parameters.
-     *
-     * <p>
-     * All service calls made using this new client object are blocking, and will not return until the service call
-     * completes.
-     *
-     * @param clientParams
-     *        Object providing client parameters.
-     */
-    AmazonElasticFileSystemClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -418,15 +387,7 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
      *         Returned if the file system you are trying to create already exists, with the creation token you
      *         provided.
      * @throws FileSystemLimitExceededException
-     *         Returned if the AWS account has already created the maximum number of file systems allowed per account.
-     * @throws InsufficientThroughputCapacityException
-     *         Returned if there's not enough capacity to provision additional throughput. This value might be returned
-     *         when you try to create a file system in provisioned throughput mode, when you attempt to increase the
-     *         provisioned throughput of an existing file system, or when you attempt to change an existing file system
-     *         from bursting to provisioned throughput mode.
-     * @throws ThroughputLimitExceededException
-     *         Returned if the throughput mode or amount of provisioned throughput can't be changed because the
-     *         throughput limit of 1024 MiB/s has been reached.
+     *         Returned if the AWS account has already created maximum number of file systems allowed per account.
      * @sample AmazonElasticFileSystem.CreateFileSystem
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/CreateFileSystem"
      *      target="_top">AWS API Documentation</a>
@@ -453,9 +414,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "EFS");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateFileSystem");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -637,9 +595,9 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
      * @throws InternalServerErrorException
      *         Returned if an error occurred on the server side.
      * @throws FileSystemNotFoundException
-     *         Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's AWS account.
+     *         Returned if the specified <code>FileSystemId</code> does not exist in the requester's AWS account.
      * @throws IncorrectFileSystemLifeCycleStateException
-     *         Returned if the file system's lifecycle state is not "available".
+     *         Returned if the file system's life cycle state is not "created".
      * @throws MountTargetConflictException
      *         Returned if the mount target would violate one of the specified restrictions based on the file system's
      *         existing mount targets.
@@ -651,15 +609,15 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
      * @throws IpAddressInUseException
      *         Returned if the request specified an <code>IpAddress</code> that is already in use in the subnet.
      * @throws NetworkInterfaceLimitExceededException
-     *         The calling account has reached the limit for elastic network interfaces for the specific AWS Region. The
-     *         client should try to delete some elastic network interfaces or get the account limit raised. For more
-     *         information, see <a
+     *         The calling account has reached the ENI limit for the specific AWS region. Client should try to delete
+     *         some ENIs or get its account limit raised. For more information, see <a
      *         href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC
-     *         Limits</a> in the <i>Amazon VPC User Guide </i> (see the Network interfaces per VPC entry in the table).
+     *         Limits</a> in the Amazon Virtual Private Cloud User Guide (see the Network interfaces per VPC entry in
+     *         the table).
      * @throws SecurityGroupLimitExceededException
      *         Returned if the size of <code>SecurityGroups</code> specified in the request is greater than five.
      * @throws SecurityGroupNotFoundException
-     *         Returned if one of the specified security groups doesn't exist in the subnet's VPC.
+     *         Returned if one of the specified security groups does not exist in the subnet's VPC.
      * @throws UnsupportedAvailabilityZoneException
      * @sample AmazonElasticFileSystem.CreateMountTarget
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/CreateMountTarget"
@@ -687,9 +645,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "EFS");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateMountTarget");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -725,7 +680,7 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
      * @throws InternalServerErrorException
      *         Returned if an error occurred on the server side.
      * @throws FileSystemNotFoundException
-     *         Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's AWS account.
+     *         Returned if the specified <code>FileSystemId</code> does not exist in the requester's AWS account.
      * @sample AmazonElasticFileSystem.CreateTags
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/CreateTags" target="_top">AWS
      *      API Documentation</a>
@@ -752,9 +707,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "EFS");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateTags");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -800,7 +752,7 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
      * @throws InternalServerErrorException
      *         Returned if an error occurred on the server side.
      * @throws FileSystemNotFoundException
-     *         Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's AWS account.
+     *         Returned if the specified <code>FileSystemId</code> does not exist in the requester's AWS account.
      * @throws FileSystemInUseException
      *         Returned if a file system has mount targets.
      * @sample AmazonElasticFileSystem.DeleteFileSystem
@@ -829,9 +781,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "EFS");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteFileSystem");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -926,9 +875,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "EFS");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteMountTarget");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -964,7 +910,7 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
      * @throws InternalServerErrorException
      *         Returned if an error occurred on the server side.
      * @throws FileSystemNotFoundException
-     *         Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's AWS account.
+     *         Returned if the specified <code>FileSystemId</code> does not exist in the requester's AWS account.
      * @sample AmazonElasticFileSystem.DeleteTags
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/DeleteTags" target="_top">AWS
      *      API Documentation</a>
@@ -991,9 +937,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "EFS");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteTags");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1048,7 +991,7 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
      * @throws InternalServerErrorException
      *         Returned if an error occurred on the server side.
      * @throws FileSystemNotFoundException
-     *         Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's AWS account.
+     *         Returned if the specified <code>FileSystemId</code> does not exist in the requester's AWS account.
      * @sample AmazonElasticFileSystem.DescribeFileSystems
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/DescribeFileSystems"
      *      target="_top">AWS API Documentation</a>
@@ -1075,9 +1018,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "EFS");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeFileSystems");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1161,9 +1101,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "EFS");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeMountTargetSecurityGroups");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1200,7 +1137,7 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
      * @throws InternalServerErrorException
      *         Returned if an error occurred on the server side.
      * @throws FileSystemNotFoundException
-     *         Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's AWS account.
+     *         Returned if the specified <code>FileSystemId</code> does not exist in the requester's AWS account.
      * @throws MountTargetNotFoundException
      *         Returned if there is no mount target with the specified ID found in the caller's account.
      * @sample AmazonElasticFileSystem.DescribeMountTargets
@@ -1229,9 +1166,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "EFS");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeMountTargets");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1266,7 +1200,7 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
      * @throws InternalServerErrorException
      *         Returned if an error occurred on the server side.
      * @throws FileSystemNotFoundException
-     *         Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's AWS account.
+     *         Returned if the specified <code>FileSystemId</code> does not exist in the requester's AWS account.
      * @sample AmazonElasticFileSystem.DescribeTags
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/DescribeTags" target="_top">AWS
      *      API Documentation</a>
@@ -1293,9 +1227,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "EFS");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeTags");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1353,7 +1284,7 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
      * @throws SecurityGroupLimitExceededException
      *         Returned if the size of <code>SecurityGroups</code> specified in the request is greater than five.
      * @throws SecurityGroupNotFoundException
-     *         Returned if one of the specified security groups doesn't exist in the subnet's VPC.
+     *         Returned if one of the specified security groups does not exist in the subnet's VPC.
      * @sample AmazonElasticFileSystem.ModifyMountTargetSecurityGroups
      * @see <a
      *      href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/ModifyMountTargetSecurityGroups"
@@ -1383,9 +1314,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "EFS");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ModifyMountTargetSecurityGroups");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1393,78 +1321,6 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
             HttpResponseHandler<AmazonWebServiceResponse<ModifyMountTargetSecurityGroupsResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
                     new ModifyMountTargetSecurityGroupsResultJsonUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
-     * Updates the throughput mode or the amount of provisioned throughput of an existing file system.
-     * </p>
-     * 
-     * @param updateFileSystemRequest
-     * @return Result of the UpdateFileSystem operation returned by the service.
-     * @throws BadRequestException
-     *         Returned if the request is malformed or contains an error such as an invalid parameter value or a missing
-     *         required parameter.
-     * @throws FileSystemNotFoundException
-     *         Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's AWS account.
-     * @throws IncorrectFileSystemLifeCycleStateException
-     *         Returned if the file system's lifecycle state is not "available".
-     * @throws InsufficientThroughputCapacityException
-     *         Returned if there's not enough capacity to provision additional throughput. This value might be returned
-     *         when you try to create a file system in provisioned throughput mode, when you attempt to increase the
-     *         provisioned throughput of an existing file system, or when you attempt to change an existing file system
-     *         from bursting to provisioned throughput mode.
-     * @throws InternalServerErrorException
-     *         Returned if an error occurred on the server side.
-     * @throws ThroughputLimitExceededException
-     *         Returned if the throughput mode or amount of provisioned throughput can't be changed because the
-     *         throughput limit of 1024 MiB/s has been reached.
-     * @throws TooManyRequestsException
-     *         Returned if you don’t wait at least 24 hours before changing the throughput mode, or decreasing the
-     *         Provisioned Throughput value.
-     * @sample AmazonElasticFileSystem.UpdateFileSystem
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/UpdateFileSystem"
-     *      target="_top">AWS API Documentation</a>
-     */
-    @Override
-    public UpdateFileSystemResult updateFileSystem(UpdateFileSystemRequest request) {
-        request = beforeClientExecution(request);
-        return executeUpdateFileSystem(request);
-    }
-
-    @SdkInternalApi
-    final UpdateFileSystemResult executeUpdateFileSystem(UpdateFileSystemRequest updateFileSystemRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(updateFileSystemRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<UpdateFileSystemRequest> request = null;
-        Response<UpdateFileSystemResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new UpdateFileSystemRequestProtocolMarshaller(protocolFactory).marshall(super.beforeMarshalling(updateFileSystemRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "EFS");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateFileSystem");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            HttpResponseHandler<AmazonWebServiceResponse<UpdateFileSystemResult>> responseHandler = protocolFactory.createResponseHandler(
-                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new UpdateFileSystemResultJsonUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
 
             return response.getAwsResponse();
@@ -1499,18 +1355,9 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null, null);
-    }
-
-    /**
-     * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
-     **/
-    private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
-
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -1520,7 +1367,7 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null, null);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -1528,17 +1375,8 @@ public class AmazonElasticFileSystemClient extends AmazonWebServiceClient implem
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
-
-        if (discoveredEndpoint != null) {
-            request.setEndpoint(discoveredEndpoint);
-            request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
-        } else if (uriFromEndpointTrait != null) {
-            request.setEndpoint(uriFromEndpointTrait);
-        } else {
-            request.setEndpoint(endpoint);
-        }
-
+            ExecutionContext executionContext) {
+        request.setEndpoint(endpoint);
         request.setTimeOffset(timeOffset);
 
         HttpResponseHandler<AmazonServiceException> errorResponseHandler = protocolFactory.createErrorResponseHandler(new JsonErrorResponseMetadata());

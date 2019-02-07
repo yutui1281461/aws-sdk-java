@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private
+ * A direct connect gateway is an intermediate object that enables you to connect virtual interfaces and virtual private
  * gateways.
  * </p>
  * 
@@ -29,17 +29,8 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class DirectConnectGateway implements Serializable, Cloneable, StructuredPojo {
 
-    /**
-     * <p>
-     * The ID of the Direct Connect gateway.
-     * </p>
-     */
     private String directConnectGatewayId;
-    /**
-     * <p>
-     * The name of the Direct Connect gateway.
-     * </p>
-     */
+
     private String directConnectGatewayName;
     /**
      * <p>
@@ -49,52 +40,17 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     private Long amazonSideAsn;
     /**
      * <p>
-     * The ID of the AWS account that owns the Direct Connect gateway.
+     * The AWS account ID of the owner of the direct connect gateway.
      * </p>
      */
     private String ownerAccount;
-    /**
-     * <p>
-     * The state of the Direct Connect gateway. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>pending</code>: The initial state after calling <a>CreateDirectConnectGateway</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The Direct Connect gateway is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The initial state after calling <a>DeleteDirectConnectGateway</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The Direct Connect gateway is deleted and cannot pass traffic.
-     * </p>
-     * </li>
-     * </ul>
-     */
+
     private String directConnectGatewayState;
-    /**
-     * <p>
-     * The error message if the state of an object failed to advance.
-     * </p>
-     */
+
     private String stateChangeError;
 
     /**
-     * <p>
-     * The ID of the Direct Connect gateway.
-     * </p>
-     * 
      * @param directConnectGatewayId
-     *        The ID of the Direct Connect gateway.
      */
 
     public void setDirectConnectGatewayId(String directConnectGatewayId) {
@@ -102,11 +58,7 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     }
 
     /**
-     * <p>
-     * The ID of the Direct Connect gateway.
-     * </p>
-     * 
-     * @return The ID of the Direct Connect gateway.
+     * @return
      */
 
     public String getDirectConnectGatewayId() {
@@ -114,12 +66,7 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     }
 
     /**
-     * <p>
-     * The ID of the Direct Connect gateway.
-     * </p>
-     * 
      * @param directConnectGatewayId
-     *        The ID of the Direct Connect gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -129,12 +76,7 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     }
 
     /**
-     * <p>
-     * The name of the Direct Connect gateway.
-     * </p>
-     * 
      * @param directConnectGatewayName
-     *        The name of the Direct Connect gateway.
      */
 
     public void setDirectConnectGatewayName(String directConnectGatewayName) {
@@ -142,11 +84,7 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     }
 
     /**
-     * <p>
-     * The name of the Direct Connect gateway.
-     * </p>
-     * 
-     * @return The name of the Direct Connect gateway.
+     * @return
      */
 
     public String getDirectConnectGatewayName() {
@@ -154,12 +92,7 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     }
 
     /**
-     * <p>
-     * The name of the Direct Connect gateway.
-     * </p>
-     * 
      * @param directConnectGatewayName
-     *        The name of the Direct Connect gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -210,11 +143,11 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
 
     /**
      * <p>
-     * The ID of the AWS account that owns the Direct Connect gateway.
+     * The AWS account ID of the owner of the direct connect gateway.
      * </p>
      * 
      * @param ownerAccount
-     *        The ID of the AWS account that owns the Direct Connect gateway.
+     *        The AWS account ID of the owner of the direct connect gateway.
      */
 
     public void setOwnerAccount(String ownerAccount) {
@@ -223,10 +156,10 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
 
     /**
      * <p>
-     * The ID of the AWS account that owns the Direct Connect gateway.
+     * The AWS account ID of the owner of the direct connect gateway.
      * </p>
      * 
-     * @return The ID of the AWS account that owns the Direct Connect gateway.
+     * @return The AWS account ID of the owner of the direct connect gateway.
      */
 
     public String getOwnerAccount() {
@@ -235,11 +168,11 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
 
     /**
      * <p>
-     * The ID of the AWS account that owns the Direct Connect gateway.
+     * The AWS account ID of the owner of the direct connect gateway.
      * </p>
      * 
      * @param ownerAccount
-     *        The ID of the AWS account that owns the Direct Connect gateway.
+     *        The AWS account ID of the owner of the direct connect gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -249,55 +182,7 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     }
 
     /**
-     * <p>
-     * The state of the Direct Connect gateway. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>pending</code>: The initial state after calling <a>CreateDirectConnectGateway</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The Direct Connect gateway is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The initial state after calling <a>DeleteDirectConnectGateway</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The Direct Connect gateway is deleted and cannot pass traffic.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param directConnectGatewayState
-     *        The state of the Direct Connect gateway. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The initial state after calling <a>CreateDirectConnectGateway</a>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The Direct Connect gateway is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The initial state after calling <a>DeleteDirectConnectGateway</a>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The Direct Connect gateway is deleted and cannot pass traffic.
-     *        </p>
-     *        </li>
      * @see DirectConnectGatewayState
      */
 
@@ -306,54 +191,7 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     }
 
     /**
-     * <p>
-     * The state of the Direct Connect gateway. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>pending</code>: The initial state after calling <a>CreateDirectConnectGateway</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The Direct Connect gateway is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The initial state after calling <a>DeleteDirectConnectGateway</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The Direct Connect gateway is deleted and cannot pass traffic.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @return The state of the Direct Connect gateway. The following are the possible values:</p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         <code>pending</code>: The initial state after calling <a>CreateDirectConnectGateway</a>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>available</code>: The Direct Connect gateway is ready for use.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>deleting</code>: The initial state after calling <a>DeleteDirectConnectGateway</a>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>deleted</code>: The Direct Connect gateway is deleted and cannot pass traffic.
-     *         </p>
-     *         </li>
+     * @return
      * @see DirectConnectGatewayState
      */
 
@@ -362,55 +200,7 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     }
 
     /**
-     * <p>
-     * The state of the Direct Connect gateway. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>pending</code>: The initial state after calling <a>CreateDirectConnectGateway</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The Direct Connect gateway is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The initial state after calling <a>DeleteDirectConnectGateway</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The Direct Connect gateway is deleted and cannot pass traffic.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param directConnectGatewayState
-     *        The state of the Direct Connect gateway. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The initial state after calling <a>CreateDirectConnectGateway</a>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The Direct Connect gateway is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The initial state after calling <a>DeleteDirectConnectGateway</a>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The Direct Connect gateway is deleted and cannot pass traffic.
-     *        </p>
-     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DirectConnectGatewayState
      */
@@ -421,55 +211,7 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     }
 
     /**
-     * <p>
-     * The state of the Direct Connect gateway. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>pending</code>: The initial state after calling <a>CreateDirectConnectGateway</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The Direct Connect gateway is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The initial state after calling <a>DeleteDirectConnectGateway</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The Direct Connect gateway is deleted and cannot pass traffic.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param directConnectGatewayState
-     *        The state of the Direct Connect gateway. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The initial state after calling <a>CreateDirectConnectGateway</a>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The Direct Connect gateway is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The initial state after calling <a>DeleteDirectConnectGateway</a>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The Direct Connect gateway is deleted and cannot pass traffic.
-     *        </p>
-     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DirectConnectGatewayState
      */
@@ -480,12 +222,7 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     }
 
     /**
-     * <p>
-     * The error message if the state of an object failed to advance.
-     * </p>
-     * 
      * @param stateChangeError
-     *        The error message if the state of an object failed to advance.
      */
 
     public void setStateChangeError(String stateChangeError) {
@@ -493,11 +230,7 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     }
 
     /**
-     * <p>
-     * The error message if the state of an object failed to advance.
-     * </p>
-     * 
-     * @return The error message if the state of an object failed to advance.
+     * @return
      */
 
     public String getStateChangeError() {
@@ -505,12 +238,7 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     }
 
     /**
-     * <p>
-     * The error message if the state of an object failed to advance.
-     * </p>
-     * 
      * @param stateChangeError
-     *        The error message if the state of an object failed to advance.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -520,8 +248,7 @@ public class DirectConnectGateway implements Serializable, Cloneable, Structured
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

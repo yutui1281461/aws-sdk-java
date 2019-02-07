@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -16,6 +16,9 @@ import java.io.Serializable;
 import javax.annotation.Generated;
 
 /**
+ * <p>
+ * Container for the response from the CreateDirectConnectGatewayAssociation API call
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateDirectConnectGatewayAssociation"
  *      target="_top">AWS API Documentation</a>
@@ -26,18 +29,18 @@ public class CreateDirectConnectGatewayAssociationResult extends com.amazonaws.A
 
     /**
      * <p>
-     * The association to be created.
+     * The direct connect gateway association to be created.
      * </p>
      */
     private DirectConnectGatewayAssociation directConnectGatewayAssociation;
 
     /**
      * <p>
-     * The association to be created.
+     * The direct connect gateway association to be created.
      * </p>
      * 
      * @param directConnectGatewayAssociation
-     *        The association to be created.
+     *        The direct connect gateway association to be created.
      */
 
     public void setDirectConnectGatewayAssociation(DirectConnectGatewayAssociation directConnectGatewayAssociation) {
@@ -46,10 +49,10 @@ public class CreateDirectConnectGatewayAssociationResult extends com.amazonaws.A
 
     /**
      * <p>
-     * The association to be created.
+     * The direct connect gateway association to be created.
      * </p>
      * 
-     * @return The association to be created.
+     * @return The direct connect gateway association to be created.
      */
 
     public DirectConnectGatewayAssociation getDirectConnectGatewayAssociation() {
@@ -58,11 +61,11 @@ public class CreateDirectConnectGatewayAssociationResult extends com.amazonaws.A
 
     /**
      * <p>
-     * The association to be created.
+     * The direct connect gateway association to be created.
      * </p>
      * 
      * @param directConnectGatewayAssociation
-     *        The association to be created.
+     *        The direct connect gateway association to be created.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -72,8 +75,7 @@ public class CreateDirectConnectGatewayAssociationResult extends com.amazonaws.A
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,8 +33,7 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
     private java.util.List<String> scheduledActionNames;
     /**
      * <p>
-     * The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
-     * provided by your own application or service. For more information, see <a
+     * The namespace of the AWS service. For more information, see <a
      * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      * >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * </p>
@@ -92,13 +91,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      * <p>
      * Amazon SageMaker endpoint variants - The resource type is <code>variant</code> and the unique identifier is the
      * resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code>
-     * from the CloudFormation template stack used to access the resources. The unique identifier is defined by the
-     * service provider.
      * </p>
      * </li>
      * </ul>
@@ -162,12 +154,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      * <p>
      * <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model
      * endpoint variant.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by
-     * your own application or service.
      * </p>
      * </li>
      * </ul>
@@ -264,15 +250,13 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
-     * provided by your own application or service. For more information, see <a
+     * The namespace of the AWS service. For more information, see <a
      * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      * >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * </p>
      * 
      * @param serviceNamespace
-     *        The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
-     *        provided by your own application or service. For more information, see <a href=
+     *        The namespace of the AWS service. For more information, see <a href=
      *        "http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      *        >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * @see ServiceNamespace
@@ -284,15 +268,13 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
-     * provided by your own application or service. For more information, see <a
+     * The namespace of the AWS service. For more information, see <a
      * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      * >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * </p>
      * 
-     * @return The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a
-     *         resource provided by your own application or service. For more information, see <a href=
-     *         "http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
+     * @return The namespace of the AWS service. For more information, see <a
+     *         href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      *         >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * @see ServiceNamespace
      */
@@ -303,15 +285,13 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
-     * provided by your own application or service. For more information, see <a
+     * The namespace of the AWS service. For more information, see <a
      * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      * >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * </p>
      * 
      * @param serviceNamespace
-     *        The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
-     *        provided by your own application or service. For more information, see <a href=
+     *        The namespace of the AWS service. For more information, see <a href=
      *        "http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      *        >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -325,15 +305,13 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
-     * provided by your own application or service. For more information, see <a
+     * The namespace of the AWS service. For more information, see <a
      * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      * >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * </p>
      * 
      * @param serviceNamespace
-     *        The namespace of the AWS service that provides the resource or <code>custom-resource</code> for a resource
-     *        provided by your own application or service. For more information, see <a href=
+     *        The namespace of the AWS service. For more information, see <a href=
      *        "http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces"
      *        >AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -399,13 +377,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      * resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code>
-     * from the CloudFormation template stack used to access the resources. The unique identifier is defined by the
-     * service provider.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @param resourceId
@@ -458,13 +429,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      *        <p>
      *        Amazon SageMaker endpoint variants - The resource type is <code>variant</code> and the unique identifier
      *        is the resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        Custom resources are not supported with a resource type. This parameter must specify the
-     *        <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique
-     *        identifier is defined by the service provider.
      *        </p>
      *        </li>
      */
@@ -527,13 +491,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      * resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code>
-     * from the CloudFormation template stack used to access the resources. The unique identifier is defined by the
-     * service provider.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @return The identifier of the resource associated with the scheduled action. This string consists of the resource
@@ -586,13 +543,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      *         <p>
      *         Amazon SageMaker endpoint variants - The resource type is <code>variant</code> and the unique identifier
      *         is the resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         Custom resources are not supported with a resource type. This parameter must specify the
-     *         <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique
-     *         identifier is defined by the service provider.
      *         </p>
      *         </li>
      */
@@ -655,13 +605,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      * resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * Custom resources are not supported with a resource type. This parameter must specify the <code>OutputValue</code>
-     * from the CloudFormation template stack used to access the resources. The unique identifier is defined by the
-     * service provider.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @param resourceId
@@ -714,13 +657,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      *        <p>
      *        Amazon SageMaker endpoint variants - The resource type is <code>variant</code> and the unique identifier
      *        is the resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        Custom resources are not supported with a resource type. This parameter must specify the
-     *        <code>OutputValue</code> from the CloudFormation template stack used to access the resources. The unique
-     *        identifier is defined by the service provider.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -791,12 +727,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      * endpoint variant.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by
-     * your own application or service.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @param scalableDimension
@@ -855,12 +785,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      *        <p>
      *        <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker
      *        model endpoint variant.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided
-     *        by your own application or service.
      *        </p>
      *        </li>
      * @see ScalableDimension
@@ -930,12 +854,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      * endpoint variant.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by
-     * your own application or service.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @return The scalable dimension. This string consists of the service namespace, resource type, and scaling
@@ -993,12 +911,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      *         <p>
      *         <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker
      *         model endpoint variant.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource
-     *         provided by your own application or service.
      *         </p>
      *         </li>
      * @see ScalableDimension
@@ -1068,12 +980,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      * endpoint variant.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by
-     * your own application or service.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @param scalableDimension
@@ -1132,12 +1038,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      *        <p>
      *        <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker
      *        model endpoint variant.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided
-     *        by your own application or service.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -1209,12 +1109,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      * endpoint variant.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided by
-     * your own application or service.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @param scalableDimension
@@ -1273,12 +1167,6 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
      *        <p>
      *        <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker
      *        model endpoint variant.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>custom-resource:ResourceType:Property</code> - The scalable dimension for a custom resource provided
-     *        by your own application or service.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -1407,8 +1295,7 @@ public class DescribeScheduledActionsRequest extends com.amazonaws.AmazonWebServ
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

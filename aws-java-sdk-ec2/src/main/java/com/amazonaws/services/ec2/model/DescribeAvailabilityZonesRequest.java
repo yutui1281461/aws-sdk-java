@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -20,7 +20,9 @@ import com.amazonaws.Request;
 import com.amazonaws.services.ec2.model.transform.DescribeAvailabilityZonesRequestMarshaller;
 
 /**
- * 
+ * <p>
+ * Contains the parameters for DescribeAvailabilityZones.
+ * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest implements Serializable, Cloneable,
@@ -50,11 +52,6 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
      * </li>
      * <li>
      * <p>
-     * <code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * <code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>).
      * </p>
      * </li>
@@ -67,12 +64,6 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> zoneNames;
-    /**
-     * <p>
-     * The IDs of one or more Availability Zones.
-     * </p>
-     */
-    private com.amazonaws.internal.SdkInternalList<String> zoneIds;
 
     /**
      * <p>
@@ -94,11 +85,6 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
      * <p>
      * <code>state</code> - The state of the Availability Zone (<code>available</code> | <code>information</code> |
      * <code>impaired</code> | <code>unavailable</code>).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>).
      * </p>
      * </li>
      * <li>
@@ -125,11 +111,6 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
      *         <p>
      *         <code>state</code> - The state of the Availability Zone (<code>available</code> |
      *         <code>information</code> | <code>impaired</code> | <code>unavailable</code>).
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>).
      *         </p>
      *         </li>
      *         <li>
@@ -170,11 +151,6 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
      * </li>
      * <li>
      * <p>
-     * <code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * <code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>).
      * </p>
      * </li>
@@ -198,11 +174,6 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
      *        <p>
      *        <code>state</code> - The state of the Availability Zone (<code>available</code> | <code>information</code>
      *        | <code>impaired</code> | <code>unavailable</code>).
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>).
      *        </p>
      *        </li>
      *        <li>
@@ -245,11 +216,6 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
      * </li>
      * <li>
      * <p>
-     * <code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * <code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>).
      * </p>
      * </li>
@@ -278,11 +244,6 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
      *        <p>
      *        <code>state</code> - The state of the Availability Zone (<code>available</code> | <code>information</code>
      *        | <code>impaired</code> | <code>unavailable</code>).
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>).
      *        </p>
      *        </li>
      *        <li>
@@ -327,11 +288,6 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
      * </li>
      * <li>
      * <p>
-     * <code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>).
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * <code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>).
      * </p>
      * </li>
@@ -355,11 +311,6 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
      *        <p>
      *        <code>state</code> - The state of the Availability Zone (<code>available</code> | <code>information</code>
      *        | <code>impaired</code> | <code>unavailable</code>).
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>).
      *        </p>
      *        </li>
      *        <li>
@@ -449,79 +400,6 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
     }
 
     /**
-     * <p>
-     * The IDs of one or more Availability Zones.
-     * </p>
-     * 
-     * @return The IDs of one or more Availability Zones.
-     */
-
-    public java.util.List<String> getZoneIds() {
-        if (zoneIds == null) {
-            zoneIds = new com.amazonaws.internal.SdkInternalList<String>();
-        }
-        return zoneIds;
-    }
-
-    /**
-     * <p>
-     * The IDs of one or more Availability Zones.
-     * </p>
-     * 
-     * @param zoneIds
-     *        The IDs of one or more Availability Zones.
-     */
-
-    public void setZoneIds(java.util.Collection<String> zoneIds) {
-        if (zoneIds == null) {
-            this.zoneIds = null;
-            return;
-        }
-
-        this.zoneIds = new com.amazonaws.internal.SdkInternalList<String>(zoneIds);
-    }
-
-    /**
-     * <p>
-     * The IDs of one or more Availability Zones.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setZoneIds(java.util.Collection)} or {@link #withZoneIds(java.util.Collection)} if you want to override
-     * the existing values.
-     * </p>
-     * 
-     * @param zoneIds
-     *        The IDs of one or more Availability Zones.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DescribeAvailabilityZonesRequest withZoneIds(String... zoneIds) {
-        if (this.zoneIds == null) {
-            setZoneIds(new com.amazonaws.internal.SdkInternalList<String>(zoneIds.length));
-        }
-        for (String ele : zoneIds) {
-            this.zoneIds.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * The IDs of one or more Availability Zones.
-     * </p>
-     * 
-     * @param zoneIds
-     *        The IDs of one or more Availability Zones.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DescribeAvailabilityZonesRequest withZoneIds(java.util.Collection<String> zoneIds) {
-        setZoneIds(zoneIds);
-        return this;
-    }
-
-    /**
      * This method is intended for internal use only. Returns the marshaled request configured with additional
      * parameters to enable operation dry-run.
      */
@@ -533,8 +411,7 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -547,9 +424,7 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
         if (getFilters() != null)
             sb.append("Filters: ").append(getFilters()).append(",");
         if (getZoneNames() != null)
-            sb.append("ZoneNames: ").append(getZoneNames()).append(",");
-        if (getZoneIds() != null)
-            sb.append("ZoneIds: ").append(getZoneIds());
+            sb.append("ZoneNames: ").append(getZoneNames());
         sb.append("}");
         return sb.toString();
     }
@@ -572,10 +447,6 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
             return false;
         if (other.getZoneNames() != null && other.getZoneNames().equals(this.getZoneNames()) == false)
             return false;
-        if (other.getZoneIds() == null ^ this.getZoneIds() == null)
-            return false;
-        if (other.getZoneIds() != null && other.getZoneIds().equals(this.getZoneIds()) == false)
-            return false;
         return true;
     }
 
@@ -586,7 +457,6 @@ public class DescribeAvailabilityZonesRequest extends AmazonWebServiceRequest im
 
         hashCode = prime * hashCode + ((getFilters() == null) ? 0 : getFilters().hashCode());
         hashCode = prime * hashCode + ((getZoneNames() == null) ? 0 : getZoneNames().hashCode());
-        hashCode = prime * hashCode + ((getZoneIds() == null) ? 0 : getZoneIds().hashCode());
         return hashCode;
     }
 

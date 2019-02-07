@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,10 +31,10 @@ public class ProresSettings implements Serializable, Cloneable, StructuredPojo {
     private String framerateControl;
 
     private String framerateConversionAlgorithm;
-    /** Frame rate denominator. */
+    /** Framerate denominator. */
     private Integer framerateDenominator;
     /**
-     * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For
+     * When you use the API for transcode jobs that use framerate conversion, specify the framerate as a fraction. For
      * example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this
      * example, use 24000 for the value of FramerateNumerator.
      */
@@ -173,10 +173,10 @@ public class ProresSettings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Frame rate denominator.
+     * Framerate denominator.
      * 
      * @param framerateDenominator
-     *        Frame rate denominator.
+     *        Framerate denominator.
      */
 
     public void setFramerateDenominator(Integer framerateDenominator) {
@@ -184,9 +184,9 @@ public class ProresSettings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Frame rate denominator.
+     * Framerate denominator.
      * 
-     * @return Frame rate denominator.
+     * @return Framerate denominator.
      */
 
     public Integer getFramerateDenominator() {
@@ -194,10 +194,10 @@ public class ProresSettings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Frame rate denominator.
+     * Framerate denominator.
      * 
      * @param framerateDenominator
-     *        Frame rate denominator.
+     *        Framerate denominator.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -207,12 +207,12 @@ public class ProresSettings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For
+     * When you use the API for transcode jobs that use framerate conversion, specify the framerate as a fraction. For
      * example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this
      * example, use 24000 for the value of FramerateNumerator.
      * 
      * @param framerateNumerator
-     *        When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a
+     *        When you use the API for transcode jobs that use framerate conversion, specify the framerate as a
      *        fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this
      *        fraction. In this example, use 24000 for the value of FramerateNumerator.
      */
@@ -222,11 +222,11 @@ public class ProresSettings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For
+     * When you use the API for transcode jobs that use framerate conversion, specify the framerate as a fraction. For
      * example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this
      * example, use 24000 for the value of FramerateNumerator.
      * 
-     * @return When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a
+     * @return When you use the API for transcode jobs that use framerate conversion, specify the framerate as a
      *         fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this
      *         fraction. In this example, use 24000 for the value of FramerateNumerator.
      */
@@ -236,12 +236,12 @@ public class ProresSettings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For
+     * When you use the API for transcode jobs that use framerate conversion, specify the framerate as a fraction. For
      * example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this
      * example, use 24000 for the value of FramerateNumerator.
      * 
      * @param framerateNumerator
-     *        When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a
+     *        When you use the API for transcode jobs that use framerate conversion, specify the framerate as a
      *        fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this
      *        fraction. In this example, use 24000 for the value of FramerateNumerator.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -481,8 +481,7 @@ public class ProresSettings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

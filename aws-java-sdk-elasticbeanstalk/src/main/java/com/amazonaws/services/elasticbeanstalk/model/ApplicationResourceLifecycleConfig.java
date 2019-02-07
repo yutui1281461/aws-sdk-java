@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -32,14 +32,6 @@ public class ApplicationResourceLifecycleConfig implements Serializable, Cloneab
      * <p>
      * The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
      * </p>
-     * <p>
-     * The <code>ServiceRole</code> property is required the first time that you provide a
-     * <code>VersionLifecycleConfig</code> for the application in one of the supporting calls (
-     * <code>CreateApplication</code> or <code>UpdateApplicationResourceLifecycle</code>). After you provide it once, in
-     * either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to
-     * specify it again in subsequent <code>UpdateApplicationResourceLifecycle</code> calls. You can, however, specify
-     * it in subsequent calls to change the Service Role to another value.
-     * </p>
      */
     private String serviceRole;
     /**
@@ -53,24 +45,9 @@ public class ApplicationResourceLifecycleConfig implements Serializable, Cloneab
      * <p>
      * The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
      * </p>
-     * <p>
-     * The <code>ServiceRole</code> property is required the first time that you provide a
-     * <code>VersionLifecycleConfig</code> for the application in one of the supporting calls (
-     * <code>CreateApplication</code> or <code>UpdateApplicationResourceLifecycle</code>). After you provide it once, in
-     * either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to
-     * specify it again in subsequent <code>UpdateApplicationResourceLifecycle</code> calls. You can, however, specify
-     * it in subsequent calls to change the Service Role to another value.
-     * </p>
      * 
      * @param serviceRole
-     *        The ARN of an IAM service role that Elastic Beanstalk has permission to assume.</p>
-     *        <p>
-     *        The <code>ServiceRole</code> property is required the first time that you provide a
-     *        <code>VersionLifecycleConfig</code> for the application in one of the supporting calls (
-     *        <code>CreateApplication</code> or <code>UpdateApplicationResourceLifecycle</code>). After you provide it
-     *        once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and
-     *        you don't need to specify it again in subsequent <code>UpdateApplicationResourceLifecycle</code> calls.
-     *        You can, however, specify it in subsequent calls to change the Service Role to another value.
+     *        The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
      */
 
     public void setServiceRole(String serviceRole) {
@@ -81,23 +58,8 @@ public class ApplicationResourceLifecycleConfig implements Serializable, Cloneab
      * <p>
      * The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
      * </p>
-     * <p>
-     * The <code>ServiceRole</code> property is required the first time that you provide a
-     * <code>VersionLifecycleConfig</code> for the application in one of the supporting calls (
-     * <code>CreateApplication</code> or <code>UpdateApplicationResourceLifecycle</code>). After you provide it once, in
-     * either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to
-     * specify it again in subsequent <code>UpdateApplicationResourceLifecycle</code> calls. You can, however, specify
-     * it in subsequent calls to change the Service Role to another value.
-     * </p>
      * 
-     * @return The ARN of an IAM service role that Elastic Beanstalk has permission to assume.</p>
-     *         <p>
-     *         The <code>ServiceRole</code> property is required the first time that you provide a
-     *         <code>VersionLifecycleConfig</code> for the application in one of the supporting calls (
-     *         <code>CreateApplication</code> or <code>UpdateApplicationResourceLifecycle</code>). After you provide it
-     *         once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and
-     *         you don't need to specify it again in subsequent <code>UpdateApplicationResourceLifecycle</code> calls.
-     *         You can, however, specify it in subsequent calls to change the Service Role to another value.
+     * @return The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
      */
 
     public String getServiceRole() {
@@ -108,24 +70,9 @@ public class ApplicationResourceLifecycleConfig implements Serializable, Cloneab
      * <p>
      * The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
      * </p>
-     * <p>
-     * The <code>ServiceRole</code> property is required the first time that you provide a
-     * <code>VersionLifecycleConfig</code> for the application in one of the supporting calls (
-     * <code>CreateApplication</code> or <code>UpdateApplicationResourceLifecycle</code>). After you provide it once, in
-     * either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to
-     * specify it again in subsequent <code>UpdateApplicationResourceLifecycle</code> calls. You can, however, specify
-     * it in subsequent calls to change the Service Role to another value.
-     * </p>
      * 
      * @param serviceRole
-     *        The ARN of an IAM service role that Elastic Beanstalk has permission to assume.</p>
-     *        <p>
-     *        The <code>ServiceRole</code> property is required the first time that you provide a
-     *        <code>VersionLifecycleConfig</code> for the application in one of the supporting calls (
-     *        <code>CreateApplication</code> or <code>UpdateApplicationResourceLifecycle</code>). After you provide it
-     *        once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and
-     *        you don't need to specify it again in subsequent <code>UpdateApplicationResourceLifecycle</code> calls.
-     *        You can, however, specify it in subsequent calls to change the Service Role to another value.
+     *        The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -175,8 +122,7 @@ public class ApplicationResourceLifecycleConfig implements Serializable, Cloneab
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

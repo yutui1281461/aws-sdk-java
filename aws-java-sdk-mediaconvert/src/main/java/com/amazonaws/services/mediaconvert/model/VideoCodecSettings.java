@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class VideoCodecSettings implements Serializable, Cloneable, StructuredPojo {
 
-    /** Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec. */
     private String codec;
 
     private FrameCaptureSettings frameCaptureSettings;
@@ -44,10 +43,7 @@ public class VideoCodecSettings implements Serializable, Cloneable, StructuredPo
     private ProresSettings proresSettings;
 
     /**
-     * Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
-     * 
      * @param codec
-     *        Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
      * @see VideoCodec
      */
 
@@ -56,9 +52,7 @@ public class VideoCodecSettings implements Serializable, Cloneable, StructuredPo
     }
 
     /**
-     * Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
-     * 
-     * @return Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
+     * @return
      * @see VideoCodec
      */
 
@@ -67,10 +61,7 @@ public class VideoCodecSettings implements Serializable, Cloneable, StructuredPo
     }
 
     /**
-     * Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
-     * 
      * @param codec
-     *        Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see VideoCodec
      */
@@ -81,10 +72,7 @@ public class VideoCodecSettings implements Serializable, Cloneable, StructuredPo
     }
 
     /**
-     * Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
-     * 
      * @param codec
-     *        Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see VideoCodec
      */
@@ -225,8 +213,7 @@ public class VideoCodecSettings implements Serializable, Cloneable, StructuredPo
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

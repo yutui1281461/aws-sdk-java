@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,8 +37,6 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
-import com.amazonaws.client.builder.AdvancedConfig;
-
 import com.amazonaws.services.codedeploy.AmazonCodeDeployClientBuilder;
 import com.amazonaws.services.codedeploy.waiters.AmazonCodeDeployWaiters;
 
@@ -54,13 +52,13 @@ import com.amazonaws.services.codedeploy.model.transform.*;
  * <fullname>AWS CodeDeploy</fullname>
  * <p>
  * AWS CodeDeploy is a deployment service that automates application deployments to Amazon EC2 instances, on-premises
- * instances running in your own facility, serverless AWS Lambda functions, or applications in an Amazon ECS service.
+ * instances running in your own facility, or serverless AWS Lambda functions.
  * </p>
  * <p>
- * You can deploy a nearly unlimited variety of application content, such as an updated Lambda function, updated
- * applications in an Amazon ECS service, code, web and configuration files, executables, packages, scripts, multimedia
- * files, and so on. AWS CodeDeploy can deploy application content stored in Amazon S3 buckets, GitHub repositories, or
- * Bitbucket repositories. You do not need to make changes to your existing code before you can use AWS CodeDeploy.
+ * You can deploy a nearly unlimited variety of application content, such as an updated Lambda function, code, web and
+ * configuration files, executables, packages, scripts, multimedia files, and so on. AWS CodeDeploy can deploy
+ * application content stored in Amazon S3 buckets, GitHub repositories, or Bitbucket repositories. You do not need to
+ * make changes to your existing code before you can use AWS CodeDeploy.
  * </p>
  * <p>
  * AWS CodeDeploy makes it easier for you to rapidly release new features, helps you avoid downtime during application
@@ -83,12 +81,9 @@ import com.amazonaws.services.codedeploy.model.transform.*;
  * </li>
  * <li>
  * <p>
- * <b>Deployment group</b>: A set of individual instances, CodeDeploy Lambda deployment configuration settings, or an
- * Amazon ECS service and network details. A Lambda deployment group specifies how to route traffic to a new version of
- * a Lambda function. An Amazon ECS deployment group specifies the service created in Amazon ECS to deploy, a load
- * balancer, and a listener to reroute production traffic to an updated containerized application. An EC2/On-premises
- * deployment group contains individually tagged instances, Amazon EC2 instances in Amazon EC2 Auto Scaling groups, or
- * both. All deployment groups can specify optional trigger, alarm, and rollback settings.
+ * <b>Deployment group</b>: A set of individual instances or CodeDeploy Lambda applications. A Lambda deployment group
+ * contains a group of applications. An EC2/On-premises deployment group contains individually tagged instances, Amazon
+ * EC2 instances in Auto Scaling groups, or both.
  * </p>
  * </li>
  * <li>
@@ -99,26 +94,25 @@ import com.amazonaws.services.codedeploy.model.transform.*;
  * </li>
  * <li>
  * <p>
- * <b>Deployment</b>: The process and the components used when updating a Lambda function, a containerized application
- * in an Amazon ECS service, or of installing content on one or more instances.
+ * <b>Deployment</b>: The process and the components used in the process of updating a Lambda function or of installing
+ * content on one or more instances.
  * </p>
  * </li>
  * <li>
  * <p>
  * <b>Application revisions</b>: For an AWS Lambda deployment, this is an AppSpec file that specifies the Lambda
- * function to be updated and one or more functions to validate deployment lifecycle events. For an Amazon ECS
- * deployment, this is an AppSpec file that specifies the Amazon ECS task definition, container, and port where
- * production traffic is rerouted. For an EC2/On-premises deployment, this is an archive file that contains source
- * content—source code, webpages, executable files, and deployment scripts—along with an AppSpec file. Revisions are
- * stored in Amazon S3 buckets or GitHub repositories. For Amazon S3, a revision is uniquely identified by its Amazon S3
- * object key and its ETag, version, or both. For GitHub, a revision is uniquely identified by its commit ID.
+ * function to update and one or more functions to validate deployment lifecycle events. For an EC2/On-premises
+ * deployment, this is an archive file containing source content—source code, web pages, executable files, and
+ * deployment scripts—along with an AppSpec file. Revisions are stored in Amazon S3 buckets or GitHub repositories. For
+ * Amazon S3, a revision is uniquely identified by its Amazon S3 object key and its ETag, version, or both. For GitHub,
+ * a revision is uniquely identified by its commit ID.
  * </p>
  * </li>
  * </ul>
  * <p>
  * This guide also contains information to help you get details about the instances in your deployments, to make
- * on-premises instances available for AWS CodeDeploy deployments, to get details about a Lambda function deployment,
- * and to get details about Amazon ECS service deployments.
+ * on-premises instances available for AWS CodeDeploy deployments, and to get details about a Lambda function
+ * deployment.
  * </p>
  * <p>
  * <b>AWS CodeDeploy Information Resources</b>
@@ -149,7 +143,6 @@ import com.amazonaws.services.codedeploy.model.transform.*;
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class AmazonCodeDeployClient extends AmazonWebServiceClient implements AmazonCodeDeploy {
-
     /** Provider for AWS credentials. */
     private final AWSCredentialsProvider awsCredentialsProvider;
 
@@ -162,8 +155,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
-
-    private final AdvancedConfig advancedConfig;
 
     private static final com.amazonaws.protocol.json.SdkJsonProtocolFactory protocolFactory = new com.amazonaws.protocol.json.SdkJsonProtocolFactory(
             new JsonClientMetadata()
@@ -213,9 +204,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                             new JsonErrorShapeMetadata().withErrorCode("InvalidDeploymentGroupNameException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.InvalidDeploymentGroupNameException.class))
                     .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("DeploymentTargetDoesNotExistException").withModeledClass(
-                                    com.amazonaws.services.codedeploy.model.DeploymentTargetDoesNotExistException.class))
-                    .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("AlarmsLimitExceededException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.AlarmsLimitExceededException.class))
                     .addErrorMetadata(
@@ -264,14 +252,8 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                             new JsonErrorShapeMetadata().withErrorCode("InvalidDeployedStateFilterException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.InvalidDeployedStateFilterException.class))
                     .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("DeploymentTargetIdRequiredException").withModeledClass(
-                                    com.amazonaws.services.codedeploy.model.DeploymentTargetIdRequiredException.class))
-                    .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("InstanceDoesNotExistException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.InstanceDoesNotExistException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("InvalidECSServiceException").withModeledClass(
-                                    com.amazonaws.services.codedeploy.model.InvalidECSServiceException.class))
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("InvalidAlarmConfigException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.InvalidAlarmConfigException.class))
@@ -293,12 +275,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("DeploymentConfigNameRequiredException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.DeploymentConfigNameRequiredException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("InvalidTargetGroupPairException").withModeledClass(
-                                    com.amazonaws.services.codedeploy.model.InvalidTargetGroupPairException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("InvalidTargetFilterNameException").withModeledClass(
-                                    com.amazonaws.services.codedeploy.model.InvalidTargetFilterNameException.class))
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("ApplicationLimitExceededException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.ApplicationLimitExceededException.class))
@@ -351,9 +327,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                             new JsonErrorShapeMetadata().withErrorCode("GitHubAccountTokenNameRequiredException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.GitHubAccountTokenNameRequiredException.class))
                     .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("ECSServiceMappingLimitExceededException").withModeledClass(
-                                    com.amazonaws.services.codedeploy.model.ECSServiceMappingLimitExceededException.class))
-                    .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("InvalidBucketNameFilterException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.InvalidBucketNameFilterException.class))
                     .addErrorMetadata(
@@ -401,9 +374,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("InvalidDeploymentIdException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.InvalidDeploymentIdException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("DeploymentTargetListSizeExceededException").withModeledClass(
-                                    com.amazonaws.services.codedeploy.model.DeploymentTargetListSizeExceededException.class))
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("InvalidDeploymentStatusException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.InvalidDeploymentStatusException.class))
@@ -468,14 +438,8 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                             new JsonErrorShapeMetadata().withErrorCode("InvalidFileExistsBehaviorException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.InvalidFileExistsBehaviorException.class))
                     .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("InvalidDeploymentTargetIdException").withModeledClass(
-                                    com.amazonaws.services.codedeploy.model.InvalidDeploymentTargetIdException.class))
-                    .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("TagLimitExceededException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.TagLimitExceededException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("InvalidDeploymentWaitTypeException").withModeledClass(
-                                    com.amazonaws.services.codedeploy.model.InvalidDeploymentWaitTypeException.class))
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("InvalidAutoScalingGroupException").withModeledClass(
                                     com.amazonaws.services.codedeploy.model.InvalidAutoScalingGroupException.class))
@@ -567,7 +531,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
     public AmazonCodeDeployClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -633,7 +596,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -652,23 +614,8 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      *        Object providing client parameters.
      */
     AmazonCodeDeployClient(AwsSyncClientParams clientParams) {
-        this(clientParams, false);
-    }
-
-    /**
-     * Constructs a new client to invoke service methods on CodeDeploy using the specified parameters.
-     *
-     * <p>
-     * All service calls made using this new client object are blocking, and will not return until the service call
-     * completes.
-     *
-     * @param clientParams
-     *        Object providing client parameters.
-     */
-    AmazonCodeDeployClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -694,11 +641,11 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InstanceNameRequiredException
      *         An on-premises instance name was not specified.
      * @throws InvalidInstanceNameException
-     *         The on-premises instance name was specified in an invalid format.
+     *         The specified on-premises instance name was specified in an invalid format.
      * @throws TagRequiredException
      *         A tag was not specified.
      * @throws InvalidTagException
-     *         The tag was specified in an invalid format.
+     *         The specified tag was specified in an invalid format.
      * @throws TagLimitExceededException
      *         The maximum allowed number of tags was exceeded.
      * @throws InstanceLimitExceededException
@@ -732,9 +679,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AddTagsToOnPremisesInstances");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -761,7 +705,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      *        Represents the input of a BatchGetApplicationRevisions operation.
      * @return Result of the BatchGetApplicationRevisions operation returned by the service.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @throws ApplicationNameRequiredException
      *         The minimum number of required application names was not specified.
      * @throws InvalidApplicationNameException
@@ -799,9 +743,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "BatchGetApplicationRevisions");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -832,7 +773,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidApplicationNameException
      *         The application name was specified in an invalid format.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @throws BatchLimitExceededException
      *         The maximum number of names or IDs allowed for this request (100) was exceeded.
      * @sample AmazonCodeDeploy.BatchGetApplications
@@ -861,9 +802,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "BatchGetApplications");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -898,15 +836,13 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidApplicationNameException
      *         The application name was specified in an invalid format.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @throws DeploymentGroupNameRequiredException
      *         The deployment group name was not specified.
      * @throws InvalidDeploymentGroupNameException
      *         The deployment group name was specified in an invalid format.
      * @throws BatchLimitExceededException
      *         The maximum number of names or IDs allowed for this request (100) was exceeded.
-     * @throws DeploymentConfigDoesNotExistException
-     *         The deployment configuration does not exist with the IAM user or AWS account.
      * @sample AmazonCodeDeploy.BatchGetDeploymentGroups
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/BatchGetDeploymentGroups"
      *      target="_top">AWS API Documentation</a>
@@ -934,9 +870,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "BatchGetDeploymentGroups");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -955,14 +888,8 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
     }
 
     /**
-     * <note>
      * <p>
-     * This method works, but is deprecated. Use <code>BatchGetDeploymentTargets</code> instead.
-     * </p>
-     * </note>
-     * <p>
-     * Returns an array of instances associated with a deployment. This method works with EC2/On-premises and AWS Lambda
-     * compute platforms. The newer <code>BatchGetDeploymentTargets</code> works with all compute platforms.
+     * Gets information about one or more instance that are part of a deployment group.
      * </p>
      * 
      * @param batchGetDeploymentInstancesRequest
@@ -971,23 +898,20 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws DeploymentIdRequiredException
      *         At least one deployment ID must be specified.
      * @throws DeploymentDoesNotExistException
-     *         The deployment with the IAM user or AWS account does not exist.
+     *         The deployment does not exist with the applicable IAM user or AWS account.
      * @throws InstanceIdRequiredException
      *         The instance ID was not specified.
      * @throws InvalidDeploymentIdException
      *         At least one of the deployment IDs was specified in an invalid format.
      * @throws InvalidInstanceNameException
-     *         The on-premises instance name was specified in an invalid format.
+     *         The specified on-premises instance name was specified in an invalid format.
      * @throws BatchLimitExceededException
      *         The maximum number of names or IDs allowed for this request (100) was exceeded.
-     * @throws InvalidComputePlatformException
-     *         The computePlatform is invalid. The computePlatform should be <code>Lambda</code> or <code>Server</code>.
      * @sample AmazonCodeDeploy.BatchGetDeploymentInstances
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/BatchGetDeploymentInstances"
      *      target="_top">AWS API Documentation</a>
      */
     @Override
-    @Deprecated
     public BatchGetDeploymentInstancesResult batchGetDeploymentInstances(BatchGetDeploymentInstancesRequest request) {
         request = beforeClientExecution(request);
         return executeBatchGetDeploymentInstances(request);
@@ -1010,9 +934,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "BatchGetDeploymentInstances");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1020,97 +941,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
             HttpResponseHandler<AmazonWebServiceResponse<BatchGetDeploymentInstancesResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
                     new BatchGetDeploymentInstancesResultJsonUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
-     * Returns an array of targets associated with a deployment. This method works with all compute types and should be
-     * used instead of the deprecated <code>BatchGetDeploymentInstances</code>.
-     * </p>
-     * <p>
-     * The type of targets returned depends on the deployment's compute platform:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>EC2/On-premises</b>: Information about EC2 instance targets.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>AWS Lambda</b>: Information about Lambda functions targets.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon ECS</b>: Information about Amazon ECS service targets.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @param batchGetDeploymentTargetsRequest
-     * @return Result of the BatchGetDeploymentTargets operation returned by the service.
-     * @throws InvalidDeploymentIdException
-     *         At least one of the deployment IDs was specified in an invalid format.
-     * @throws DeploymentIdRequiredException
-     *         At least one deployment ID must be specified.
-     * @throws DeploymentDoesNotExistException
-     *         The deployment with the IAM user or AWS account does not exist.
-     * @throws DeploymentTargetIdRequiredException
-     *         A deployment target ID was not provided.
-     * @throws InvalidDeploymentTargetIdException
-     *         The target ID provided was not valid.
-     * @throws DeploymentTargetDoesNotExistException
-     *         The provided target ID does not belong to the attempted deployment.
-     * @throws DeploymentTargetListSizeExceededException
-     *         The maximum number of targets that can be associated with an Amazon ECS or AWS Lambda deployment was
-     *         exceeded. The target list of both types of deployments must have exactly one item. This exception does
-     *         not apply to EC2/On-premises deployments.
-     * @sample AmazonCodeDeploy.BatchGetDeploymentTargets
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/BatchGetDeploymentTargets"
-     *      target="_top">AWS API Documentation</a>
-     */
-    @Override
-    public BatchGetDeploymentTargetsResult batchGetDeploymentTargets(BatchGetDeploymentTargetsRequest request) {
-        request = beforeClientExecution(request);
-        return executeBatchGetDeploymentTargets(request);
-    }
-
-    @SdkInternalApi
-    final BatchGetDeploymentTargetsResult executeBatchGetDeploymentTargets(BatchGetDeploymentTargetsRequest batchGetDeploymentTargetsRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(batchGetDeploymentTargetsRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<BatchGetDeploymentTargetsRequest> request = null;
-        Response<BatchGetDeploymentTargetsResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new BatchGetDeploymentTargetsRequestProtocolMarshaller(protocolFactory).marshall(super
-                        .beforeMarshalling(batchGetDeploymentTargetsRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "BatchGetDeploymentTargets");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            HttpResponseHandler<AmazonWebServiceResponse<BatchGetDeploymentTargetsResult>> responseHandler = protocolFactory.createResponseHandler(
-                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
-                    new BatchGetDeploymentTargetsResultJsonUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
 
             return response.getAwsResponse();
@@ -1161,9 +991,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "BatchGetDeployments");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1196,7 +1023,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InstanceNameRequiredException
      *         An on-premises instance name was not specified.
      * @throws InvalidInstanceNameException
-     *         The on-premises instance name was specified in an invalid format.
+     *         The specified on-premises instance name was specified in an invalid format.
      * @throws BatchLimitExceededException
      *         The maximum number of names or IDs allowed for this request (100) was exceeded.
      * @sample AmazonCodeDeploy.BatchGetOnPremisesInstances
@@ -1226,9 +1053,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "BatchGetOnPremisesInstances");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1264,7 +1088,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws DeploymentIdRequiredException
      *         At least one deployment ID must be specified.
      * @throws DeploymentDoesNotExistException
-     *         The deployment with the IAM user or AWS account does not exist.
+     *         The deployment does not exist with the applicable IAM user or AWS account.
      * @throws DeploymentAlreadyCompletedException
      *         The deployment is already complete.
      * @throws InvalidDeploymentIdException
@@ -1273,10 +1097,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      *         The deployment does not have a status of Ready and can't continue yet.
      * @throws UnsupportedActionForDeploymentTypeException
      *         A call was submitted that is not supported for the specified deployment type.
-     * @throws InvalidDeploymentWaitTypeException
-     *         The wait type is invalid.
-     * @throws InvalidDeploymentStatusException
-     *         The specified deployment status doesn't exist or cannot be determined.
      * @sample AmazonCodeDeploy.ContinueDeployment
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/ContinueDeployment" target="_top">AWS
      *      API Documentation</a>
@@ -1303,9 +1123,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ContinueDeployment");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1335,7 +1152,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidApplicationNameException
      *         The application name was specified in an invalid format.
      * @throws ApplicationAlreadyExistsException
-     *         An application with the specified name with the IAM user or AWS account already exists.
+     *         An application with the specified name already exists with the applicable IAM user or AWS account.
      * @throws ApplicationLimitExceededException
      *         More applications were attempted to be created than are allowed.
      * @throws InvalidComputePlatformException
@@ -1366,9 +1183,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateApplication");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1398,23 +1212,23 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidApplicationNameException
      *         The application name was specified in an invalid format.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @throws DeploymentGroupNameRequiredException
      *         The deployment group name was not specified.
      * @throws InvalidDeploymentGroupNameException
      *         The deployment group name was specified in an invalid format.
      * @throws DeploymentGroupDoesNotExistException
-     *         The named deployment group with the IAM user or AWS account does not exist.
+     *         The named deployment group does not exist with the applicable IAM user or AWS account.
      * @throws RevisionRequiredException
      *         The revision ID was not specified.
      * @throws RevisionDoesNotExistException
-     *         The named revision does not exist with the IAM user or AWS account.
+     *         The named revision does not exist with the applicable IAM user or AWS account.
      * @throws InvalidRevisionException
      *         The revision was specified in an invalid format.
      * @throws InvalidDeploymentConfigNameException
      *         The deployment configuration name was specified in an invalid format.
      * @throws DeploymentConfigDoesNotExistException
-     *         The deployment configuration does not exist with the IAM user or AWS account.
+     *         The deployment configuration does not exist with the applicable IAM user or AWS account.
      * @throws DescriptionTooLongException
      *         The description is too long.
      * @throws DeploymentLimitExceededException
@@ -1444,16 +1258,16 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      *         </li>
      * @throws InvalidAutoRollbackConfigException
      *         The automatic rollback configuration was specified in an invalid format. For example, automatic rollback
-     *         is enabled, but an invalid triggering event type or no event types were listed.
+     *         is enabled but an invalid triggering event type or no event types were listed.
      * @throws InvalidLoadBalancerInfoException
      *         An invalid load balancer name, or no load balancer name, was specified.
      * @throws InvalidFileExistsBehaviorException
      *         An invalid fileExistsBehavior option was specified to determine how AWS CodeDeploy handles files or
-     *         directories that already exist in a deployment target location, but weren't part of the previous
-     *         successful deployment. Valid values include "DISALLOW," "OVERWRITE," and "RETAIN."
+     *         directories that already exist in a deployment target location but weren't part of the previous
+     *         successful deployment. Valid values include "DISALLOW", "OVERWRITE", and "RETAIN".
      * @throws InvalidRoleException
      *         The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the
-     *         specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.
+     *         specified service role does not grant the appropriate permissions to Auto Scaling.
      * @throws InvalidAutoScalingGroupException
      *         The Auto Scaling group was specified in an invalid format or does not exist.
      * @throws ThrottlingException
@@ -1492,9 +1306,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateDeployment");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1524,7 +1335,8 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws DeploymentConfigNameRequiredException
      *         The deployment configuration name was not specified.
      * @throws DeploymentConfigAlreadyExistsException
-     *         A deployment configuration with the specified name with the IAM user or AWS account already exists .
+     *         A deployment configuration with the specified name already exists with the applicable IAM user or AWS
+     *         account.
      * @throws InvalidMinimumHealthyHostValueException
      *         The minimum healthy instance value was specified in an invalid format.
      * @throws DeploymentConfigLimitExceededException
@@ -1559,9 +1371,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateDeploymentConfig");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1581,7 +1390,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
 
     /**
      * <p>
-     * Creates a deployment group to which application revisions are deployed.
+     * Creates a deployment group to which application revisions will be deployed.
      * </p>
      * 
      * @param createDeploymentGroupRequest
@@ -1592,28 +1401,28 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidApplicationNameException
      *         The application name was specified in an invalid format.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @throws DeploymentGroupNameRequiredException
      *         The deployment group name was not specified.
      * @throws InvalidDeploymentGroupNameException
      *         The deployment group name was specified in an invalid format.
      * @throws DeploymentGroupAlreadyExistsException
-     *         A deployment group with the specified name with the IAM user or AWS account already exists.
+     *         A deployment group with the specified name already exists with the applicable IAM user or AWS account.
      * @throws InvalidEC2TagException
      *         The tag was specified in an invalid format.
      * @throws InvalidTagException
-     *         The tag was specified in an invalid format.
+     *         The specified tag was specified in an invalid format.
      * @throws InvalidAutoScalingGroupException
      *         The Auto Scaling group was specified in an invalid format or does not exist.
      * @throws InvalidDeploymentConfigNameException
      *         The deployment configuration name was specified in an invalid format.
      * @throws DeploymentConfigDoesNotExistException
-     *         The deployment configuration does not exist with the IAM user or AWS account.
+     *         The deployment configuration does not exist with the applicable IAM user or AWS account.
      * @throws RoleRequiredException
      *         The role ID was not specified.
      * @throws InvalidRoleException
      *         The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the
-     *         specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.
+     *         specified service role does not grant the appropriate permissions to Auto Scaling.
      * @throws DeploymentGroupLimitExceededException
      *         The deployment groups limit was exceeded.
      * @throws LifecycleHookLimitExceededException
@@ -1637,7 +1446,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      *         </li>
      *         <li>
      *         <p>
-     *         The alarm name is empty or null or exceeds the limit of 255 characters.
+     *         The alarm name is empty or null or exceeds the 255 character limit.
      *         </p>
      *         </li>
      *         <li>
@@ -1647,19 +1456,19 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      *         </li>
      *         <li>
      *         <p>
-     *         The alarm configuration is enabled, but the alarm list is empty.
+     *         The alarm configuration is enabled but the alarm list is empty.
      *         </p>
      *         </li>
      * @throws AlarmsLimitExceededException
      *         The maximum number of alarms for a deployment group (10) was exceeded.
      * @throws InvalidAutoRollbackConfigException
      *         The automatic rollback configuration was specified in an invalid format. For example, automatic rollback
-     *         is enabled, but an invalid triggering event type or no event types were listed.
+     *         is enabled but an invalid triggering event type or no event types were listed.
      * @throws InvalidLoadBalancerInfoException
      *         An invalid load balancer name, or no load balancer name, was specified.
      * @throws InvalidDeploymentStyleException
-     *         An invalid deployment style was specified. Valid deployment types include "IN_PLACE" and "BLUE_GREEN."
-     *         Valid deployment options include "WITH_TRAFFIC_CONTROL" and "WITHOUT_TRAFFIC_CONTROL."
+     *         An invalid deployment style was specified. Valid deployment types include "IN_PLACE" and "BLUE_GREEN".
+     *         Valid deployment options include "WITH_TRAFFIC_CONTROL" and "WITHOUT_TRAFFIC_CONTROL".
      * @throws InvalidBlueGreenDeploymentConfigurationException
      *         The configuration for the blue/green deployment group was provided in an invalid format. For information
      *         about deployment configuration format, see <a>CreateDeploymentConfig</a>.
@@ -1672,16 +1481,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws TagSetListLimitExceededException
      *         The number of tag groups included in the tag set list exceeded the maximum allowed limit of 3.
      * @throws InvalidInputException
-     *         The input was specified in an invalid format.
-     * @throws ThrottlingException
-     *         An API function was called too frequently.
-     * @throws InvalidECSServiceException
-     *         The Amazon ECS service identifier is not valid.
-     * @throws InvalidTargetGroupPairException
-     *         A target group pair associated with this deployment is not valid.
-     * @throws ECSServiceMappingLimitExceededException
-     *         The Amazon ECS service is associated with more than one deployment groups. An Amazon ECS service can be
-     *         associated with only one deployment group.
+     *         The specified input was specified in an invalid format.
      * @sample AmazonCodeDeploy.CreateDeploymentGroup
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/CreateDeploymentGroup"
      *      target="_top">AWS API Documentation</a>
@@ -1708,9 +1508,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateDeploymentGroup");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1766,9 +1563,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteApplication");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1833,9 +1627,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteDeploymentConfig");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1871,7 +1662,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      *         The deployment group name was specified in an invalid format.
      * @throws InvalidRoleException
      *         The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the
-     *         specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.
+     *         specified service role does not grant the appropriate permissions to Auto Scaling.
      * @sample AmazonCodeDeploy.DeleteDeploymentGroup
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/DeleteDeploymentGroup"
      *      target="_top">AWS API Documentation</a>
@@ -1898,9 +1689,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteDeploymentGroup");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1963,9 +1751,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteGitHubAccountToken");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1994,7 +1779,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InstanceNameRequiredException
      *         An on-premises instance name was not specified.
      * @throws InvalidInstanceNameException
-     *         The on-premises instance name was specified in an invalid format.
+     *         The specified on-premises instance name was specified in an invalid format.
      * @sample AmazonCodeDeploy.DeregisterOnPremisesInstance
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/DeregisterOnPremisesInstance"
      *      target="_top">AWS API Documentation</a>
@@ -2022,9 +1807,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeregisterOnPremisesInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2055,7 +1837,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidApplicationNameException
      *         The application name was specified in an invalid format.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @sample AmazonCodeDeploy.GetApplication
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/GetApplication" target="_top">AWS API
      *      Documentation</a>
@@ -2082,9 +1864,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetApplication");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2110,13 +1889,13 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      *        Represents the input of a GetApplicationRevision operation.
      * @return Result of the GetApplicationRevision operation returned by the service.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @throws ApplicationNameRequiredException
      *         The minimum number of required application names was not specified.
      * @throws InvalidApplicationNameException
      *         The application name was specified in an invalid format.
      * @throws RevisionDoesNotExistException
-     *         The named revision does not exist with the IAM user or AWS account.
+     *         The named revision does not exist with the applicable IAM user or AWS account.
      * @throws RevisionRequiredException
      *         The revision ID was not specified.
      * @throws InvalidRevisionException
@@ -2147,9 +1926,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetApplicationRevision");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2180,7 +1956,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidDeploymentIdException
      *         At least one of the deployment IDs was specified in an invalid format.
      * @throws DeploymentDoesNotExistException
-     *         The deployment with the IAM user or AWS account does not exist.
+     *         The deployment does not exist with the applicable IAM user or AWS account.
      * @sample AmazonCodeDeploy.GetDeployment
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/GetDeployment" target="_top">AWS API
      *      Documentation</a>
@@ -2207,9 +1983,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetDeployment");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2239,9 +2012,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws DeploymentConfigNameRequiredException
      *         The deployment configuration name was not specified.
      * @throws DeploymentConfigDoesNotExistException
-     *         The deployment configuration does not exist with the IAM user or AWS account.
-     * @throws InvalidComputePlatformException
-     *         The computePlatform is invalid. The computePlatform should be <code>Lambda</code> or <code>Server</code>.
+     *         The deployment configuration does not exist with the applicable IAM user or AWS account.
      * @sample AmazonCodeDeploy.GetDeploymentConfig
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/GetDeploymentConfig" target="_top">AWS
      *      API Documentation</a>
@@ -2268,9 +2039,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetDeploymentConfig");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2300,15 +2068,13 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidApplicationNameException
      *         The application name was specified in an invalid format.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @throws DeploymentGroupNameRequiredException
      *         The deployment group name was not specified.
      * @throws InvalidDeploymentGroupNameException
      *         The deployment group name was specified in an invalid format.
      * @throws DeploymentGroupDoesNotExistException
-     *         The named deployment group with the IAM user or AWS account does not exist.
-     * @throws DeploymentConfigDoesNotExistException
-     *         The deployment configuration does not exist with the IAM user or AWS account.
+     *         The named deployment group does not exist with the applicable IAM user or AWS account.
      * @sample AmazonCodeDeploy.GetDeploymentGroup
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/GetDeploymentGroup" target="_top">AWS
      *      API Documentation</a>
@@ -2335,9 +2101,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetDeploymentGroup");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2365,7 +2128,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws DeploymentIdRequiredException
      *         At least one deployment ID must be specified.
      * @throws DeploymentDoesNotExistException
-     *         The deployment with the IAM user or AWS account does not exist.
+     *         The deployment does not exist with the applicable IAM user or AWS account.
      * @throws InstanceIdRequiredException
      *         The instance ID was not specified.
      * @throws InvalidDeploymentIdException
@@ -2373,15 +2136,12 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InstanceDoesNotExistException
      *         The specified instance does not exist in the deployment group.
      * @throws InvalidInstanceNameException
-     *         The on-premises instance name was specified in an invalid format.
-     * @throws InvalidComputePlatformException
-     *         The computePlatform is invalid. The computePlatform should be <code>Lambda</code> or <code>Server</code>.
+     *         The specified on-premises instance name was specified in an invalid format.
      * @sample AmazonCodeDeploy.GetDeploymentInstance
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/GetDeploymentInstance"
      *      target="_top">AWS API Documentation</a>
      */
     @Override
-    @Deprecated
     public GetDeploymentInstanceResult getDeploymentInstance(GetDeploymentInstanceRequest request) {
         request = beforeClientExecution(request);
         return executeGetDeploymentInstance(request);
@@ -2403,9 +2163,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetDeploymentInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2413,72 +2170,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
             HttpResponseHandler<AmazonWebServiceResponse<GetDeploymentInstanceResult>> responseHandler = protocolFactory
                     .createResponseHandler(new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
                             new GetDeploymentInstanceResultJsonUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
-     * Returns information about a deployment target.
-     * </p>
-     * 
-     * @param getDeploymentTargetRequest
-     * @return Result of the GetDeploymentTarget operation returned by the service.
-     * @throws InvalidDeploymentIdException
-     *         At least one of the deployment IDs was specified in an invalid format.
-     * @throws DeploymentIdRequiredException
-     *         At least one deployment ID must be specified.
-     * @throws DeploymentDoesNotExistException
-     *         The deployment with the IAM user or AWS account does not exist.
-     * @throws DeploymentTargetIdRequiredException
-     *         A deployment target ID was not provided.
-     * @throws InvalidDeploymentTargetIdException
-     *         The target ID provided was not valid.
-     * @throws DeploymentTargetDoesNotExistException
-     *         The provided target ID does not belong to the attempted deployment.
-     * @throws InvalidInstanceNameException
-     *         The on-premises instance name was specified in an invalid format.
-     * @sample AmazonCodeDeploy.GetDeploymentTarget
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/GetDeploymentTarget" target="_top">AWS
-     *      API Documentation</a>
-     */
-    @Override
-    public GetDeploymentTargetResult getDeploymentTarget(GetDeploymentTargetRequest request) {
-        request = beforeClientExecution(request);
-        return executeGetDeploymentTarget(request);
-    }
-
-    @SdkInternalApi
-    final GetDeploymentTargetResult executeGetDeploymentTarget(GetDeploymentTargetRequest getDeploymentTargetRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(getDeploymentTargetRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<GetDeploymentTargetRequest> request = null;
-        Response<GetDeploymentTargetResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new GetDeploymentTargetRequestProtocolMarshaller(protocolFactory).marshall(super.beforeMarshalling(getDeploymentTargetRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetDeploymentTarget");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            HttpResponseHandler<AmazonWebServiceResponse<GetDeploymentTargetResult>> responseHandler = protocolFactory.createResponseHandler(
-                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new GetDeploymentTargetResultJsonUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
 
             return response.getAwsResponse();
@@ -2502,7 +2193,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InstanceNotRegisteredException
      *         The specified on-premises instance is not registered.
      * @throws InvalidInstanceNameException
-     *         The on-premises instance name was specified in an invalid format.
+     *         The specified on-premises instance name was specified in an invalid format.
      * @sample AmazonCodeDeploy.GetOnPremisesInstance
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/GetOnPremisesInstance"
      *      target="_top">AWS API Documentation</a>
@@ -2529,9 +2220,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetOnPremisesInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2558,7 +2246,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      *        Represents the input of a ListApplicationRevisions operation.
      * @return Result of the ListApplicationRevisions operation returned by the service.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @throws ApplicationNameRequiredException
      *         The minimum number of required application names was not specified.
      * @throws InvalidApplicationNameException
@@ -2604,9 +2292,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListApplicationRevisions");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2626,7 +2311,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
 
     /**
      * <p>
-     * Lists the applications registered with the IAM user or AWS account.
+     * Lists the applications registered with the applicable IAM user or AWS account.
      * </p>
      * 
      * @param listApplicationsRequest
@@ -2660,9 +2345,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListApplications");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2686,7 +2368,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
 
     /**
      * <p>
-     * Lists the deployment configurations with the IAM user or AWS account.
+     * Lists the deployment configurations with the applicable IAM user or AWS account.
      * </p>
      * 
      * @param listDeploymentConfigsRequest
@@ -2720,9 +2402,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListDeploymentConfigs");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2747,7 +2426,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
 
     /**
      * <p>
-     * Lists the deployment groups for an application registered with the IAM user or AWS account.
+     * Lists the deployment groups for an application registered with the applicable IAM user or AWS account.
      * </p>
      * 
      * @param listDeploymentGroupsRequest
@@ -2758,7 +2437,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidApplicationNameException
      *         The application name was specified in an invalid format.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @throws InvalidNextTokenException
      *         The next token was specified in an invalid format.
      * @sample AmazonCodeDeploy.ListDeploymentGroups
@@ -2787,9 +2466,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListDeploymentGroups");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2807,15 +2483,8 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
     }
 
     /**
-     * <note>
      * <p>
-     * The newer BatchGetDeploymentTargets should be used instead because it works with all compute types.
-     * <code>ListDeploymentInstances</code> throws an exception if it is used with a compute platform other than
-     * EC2/On-premises or AWS Lambda.
-     * </p>
-     * </note>
-     * <p>
-     * Lists the instance for a deployment associated with the IAM user or AWS account.
+     * Lists the instance for a deployment associated with the applicable IAM user or AWS account.
      * </p>
      * 
      * @param listDeploymentInstancesRequest
@@ -2824,7 +2493,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws DeploymentIdRequiredException
      *         At least one deployment ID must be specified.
      * @throws DeploymentDoesNotExistException
-     *         The deployment with the IAM user or AWS account does not exist.
+     *         The deployment does not exist with the applicable IAM user or AWS account.
      * @throws DeploymentNotStartedException
      *         The specified deployment has not started.
      * @throws InvalidNextTokenException
@@ -2839,16 +2508,11 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidDeploymentInstanceTypeException
      *         An instance type was specified for an in-place deployment. Instance types are supported for blue/green
      *         deployments only.
-     * @throws InvalidTargetFilterNameException
-     *         The target filter name is invalid.
-     * @throws InvalidComputePlatformException
-     *         The computePlatform is invalid. The computePlatform should be <code>Lambda</code> or <code>Server</code>.
      * @sample AmazonCodeDeploy.ListDeploymentInstances
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/ListDeploymentInstances"
      *      target="_top">AWS API Documentation</a>
      */
     @Override
-    @Deprecated
     public ListDeploymentInstancesResult listDeploymentInstances(ListDeploymentInstancesRequest request) {
         request = beforeClientExecution(request);
         return executeListDeploymentInstances(request);
@@ -2871,9 +2535,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListDeploymentInstances");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2893,78 +2554,8 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
 
     /**
      * <p>
-     * Returns an array of target IDs that are associated a deployment.
-     * </p>
-     * 
-     * @param listDeploymentTargetsRequest
-     * @return Result of the ListDeploymentTargets operation returned by the service.
-     * @throws DeploymentIdRequiredException
-     *         At least one deployment ID must be specified.
-     * @throws DeploymentDoesNotExistException
-     *         The deployment with the IAM user or AWS account does not exist.
-     * @throws DeploymentNotStartedException
-     *         The specified deployment has not started.
-     * @throws InvalidNextTokenException
-     *         The next token was specified in an invalid format.
-     * @throws InvalidDeploymentIdException
-     *         At least one of the deployment IDs was specified in an invalid format.
-     * @throws InvalidInstanceStatusException
-     *         The specified instance status does not exist.
-     * @throws InvalidInstanceTypeException
-     *         An invalid instance type was specified for instances in a blue/green deployment. Valid values include
-     *         "Blue" for an original environment and "Green" for a replacement environment.
-     * @throws InvalidDeploymentInstanceTypeException
-     *         An instance type was specified for an in-place deployment. Instance types are supported for blue/green
-     *         deployments only.
-     * @sample AmazonCodeDeploy.ListDeploymentTargets
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/ListDeploymentTargets"
-     *      target="_top">AWS API Documentation</a>
-     */
-    @Override
-    public ListDeploymentTargetsResult listDeploymentTargets(ListDeploymentTargetsRequest request) {
-        request = beforeClientExecution(request);
-        return executeListDeploymentTargets(request);
-    }
-
-    @SdkInternalApi
-    final ListDeploymentTargetsResult executeListDeploymentTargets(ListDeploymentTargetsRequest listDeploymentTargetsRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(listDeploymentTargetsRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<ListDeploymentTargetsRequest> request = null;
-        Response<ListDeploymentTargetsResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new ListDeploymentTargetsRequestProtocolMarshaller(protocolFactory).marshall(super.beforeMarshalling(listDeploymentTargetsRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListDeploymentTargets");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            HttpResponseHandler<AmazonWebServiceResponse<ListDeploymentTargetsResult>> responseHandler = protocolFactory
-                    .createResponseHandler(new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false),
-                            new ListDeploymentTargetsResultJsonUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
-     * Lists the deployments in a deployment group for an application registered with the IAM user or AWS account.
+     * Lists the deployments in a deployment group for an application registered with the applicable IAM user or AWS
+     * account.
      * </p>
      * 
      * @param listDeploymentsRequest
@@ -2975,11 +2566,11 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidApplicationNameException
      *         The application name was specified in an invalid format.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @throws InvalidDeploymentGroupNameException
      *         The deployment group name was specified in an invalid format.
      * @throws DeploymentGroupDoesNotExistException
-     *         The named deployment group with the IAM user or AWS account does not exist.
+     *         The named deployment group does not exist with the applicable IAM user or AWS account.
      * @throws DeploymentGroupNameRequiredException
      *         The deployment group name was not specified.
      * @throws InvalidTimeRangeException
@@ -3014,9 +2605,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListDeployments");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3079,9 +2667,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListGitHubAccountTokenNames");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3104,8 +2689,8 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * Gets a list of names for one or more on-premises instances.
      * </p>
      * <p>
-     * Unless otherwise specified, both registered and deregistered on-premises instance names are listed. To list only
-     * registered or deregistered on-premises instance names, use the registration status parameter.
+     * Unless otherwise specified, both registered and deregistered on-premises instance names will be listed. To list
+     * only registered or deregistered on-premises instance names, use the registration status parameter.
      * </p>
      * 
      * @param listOnPremisesInstancesRequest
@@ -3114,7 +2699,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidRegistrationStatusException
      *         The registration status was specified in an invalid format.
      * @throws InvalidTagFilterException
-     *         The tag filter was specified in an invalid format.
+     *         The specified tag filter was specified in an invalid format.
      * @throws InvalidNextTokenException
      *         The next token was specified in an invalid format.
      * @sample AmazonCodeDeploy.ListOnPremisesInstances
@@ -3144,9 +2729,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListOnPremisesInstances");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3189,7 +2771,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws DeploymentIdRequiredException
      *         At least one deployment ID must be specified.
      * @throws DeploymentDoesNotExistException
-     *         The deployment with the IAM user or AWS account does not exist.
+     *         The deployment does not exist with the applicable IAM user or AWS account.
      * @throws InvalidDeploymentIdException
      *         At least one of the deployment IDs was specified in an invalid format.
      * @throws UnsupportedActionForDeploymentTypeException
@@ -3222,9 +2804,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutLifecycleEventHookExecutionStatus");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3251,7 +2830,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      *        Represents the input of a RegisterApplicationRevision operation.
      * @return Result of the RegisterApplicationRevision operation returned by the service.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @throws ApplicationNameRequiredException
      *         The minimum number of required application names was not specified.
      * @throws InvalidApplicationNameException
@@ -3289,9 +2868,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RegisterApplicationRevision");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3335,7 +2911,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws IamUserArnRequiredException
      *         An IAM user ARN was not specified.
      * @throws InvalidInstanceNameException
-     *         The on-premises instance name was specified in an invalid format.
+     *         The specified on-premises instance name was specified in an invalid format.
      * @throws InvalidIamSessionArnException
      *         The IAM session ARN was specified in an invalid format.
      * @throws InvalidIamUserArnException
@@ -3369,9 +2945,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RegisterOnPremisesInstance");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3400,11 +2973,11 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InstanceNameRequiredException
      *         An on-premises instance name was not specified.
      * @throws InvalidInstanceNameException
-     *         The on-premises instance name was specified in an invalid format.
+     *         The specified on-premises instance name was specified in an invalid format.
      * @throws TagRequiredException
      *         A tag was not specified.
      * @throws InvalidTagException
-     *         The tag was specified in an invalid format.
+     *         The specified tag was specified in an invalid format.
      * @throws TagLimitExceededException
      *         The maximum allowed number of tags was exceeded.
      * @throws InstanceLimitExceededException
@@ -3439,9 +3012,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RemoveTagsFromOnPremisesInstances");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3462,7 +3032,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
     /**
      * <p>
      * In a blue/green deployment, overrides any specified wait time and starts terminating instances immediately after
-     * the traffic routing is complete.
+     * the traffic routing is completed.
      * </p>
      * 
      * @param skipWaitTimeForInstanceTerminationRequest
@@ -3470,7 +3040,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws DeploymentIdRequiredException
      *         At least one deployment ID must be specified.
      * @throws DeploymentDoesNotExistException
-     *         The deployment with the IAM user or AWS account does not exist.
+     *         The deployment does not exist with the applicable IAM user or AWS account.
      * @throws DeploymentAlreadyCompletedException
      *         The deployment is already complete.
      * @throws InvalidDeploymentIdException
@@ -3484,7 +3054,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      *      target="_top">AWS API Documentation</a>
      */
     @Override
-    @Deprecated
     public SkipWaitTimeForInstanceTerminationResult skipWaitTimeForInstanceTermination(SkipWaitTimeForInstanceTerminationRequest request) {
         request = beforeClientExecution(request);
         return executeSkipWaitTimeForInstanceTermination(request);
@@ -3508,9 +3077,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SkipWaitTimeForInstanceTermination");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3539,9 +3105,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws DeploymentIdRequiredException
      *         At least one deployment ID must be specified.
      * @throws DeploymentDoesNotExistException
-     *         The deployment with the IAM user or AWS account does not exist.
-     * @throws DeploymentGroupDoesNotExistException
-     *         The named deployment group with the IAM user or AWS account does not exist.
+     *         The deployment does not exist with the applicable IAM user or AWS account.
      * @throws DeploymentAlreadyCompletedException
      *         The deployment is already complete.
      * @throws InvalidDeploymentIdException
@@ -3572,9 +3136,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "StopDeployment");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3604,9 +3165,9 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidApplicationNameException
      *         The application name was specified in an invalid format.
      * @throws ApplicationAlreadyExistsException
-     *         An application with the specified name with the IAM user or AWS account already exists.
+     *         An application with the specified name already exists with the applicable IAM user or AWS account.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @sample AmazonCodeDeploy.UpdateApplication
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/UpdateApplication" target="_top">AWS
      *      API Documentation</a>
@@ -3633,9 +3194,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateApplication");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3670,28 +3228,28 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws InvalidApplicationNameException
      *         The application name was specified in an invalid format.
      * @throws ApplicationDoesNotExistException
-     *         The application does not exist with the IAM user or AWS account.
+     *         The application does not exist with the applicable IAM user or AWS account.
      * @throws InvalidDeploymentGroupNameException
      *         The deployment group name was specified in an invalid format.
      * @throws DeploymentGroupAlreadyExistsException
-     *         A deployment group with the specified name with the IAM user or AWS account already exists.
+     *         A deployment group with the specified name already exists with the applicable IAM user or AWS account.
      * @throws DeploymentGroupNameRequiredException
      *         The deployment group name was not specified.
      * @throws DeploymentGroupDoesNotExistException
-     *         The named deployment group with the IAM user or AWS account does not exist.
+     *         The named deployment group does not exist with the applicable IAM user or AWS account.
      * @throws InvalidEC2TagException
      *         The tag was specified in an invalid format.
      * @throws InvalidTagException
-     *         The tag was specified in an invalid format.
+     *         The specified tag was specified in an invalid format.
      * @throws InvalidAutoScalingGroupException
      *         The Auto Scaling group was specified in an invalid format or does not exist.
      * @throws InvalidDeploymentConfigNameException
      *         The deployment configuration name was specified in an invalid format.
      * @throws DeploymentConfigDoesNotExistException
-     *         The deployment configuration does not exist with the IAM user or AWS account.
+     *         The deployment configuration does not exist with the applicable IAM user or AWS account.
      * @throws InvalidRoleException
      *         The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the
-     *         specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.
+     *         specified service role does not grant the appropriate permissions to Auto Scaling.
      * @throws LifecycleHookLimitExceededException
      *         The limit for lifecycle hooks was exceeded.
      * @throws InvalidTriggerConfigException
@@ -3713,7 +3271,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      *         </li>
      *         <li>
      *         <p>
-     *         The alarm name is empty or null or exceeds the limit of 255 characters.
+     *         The alarm name is empty or null or exceeds the 255 character limit.
      *         </p>
      *         </li>
      *         <li>
@@ -3723,19 +3281,19 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      *         </li>
      *         <li>
      *         <p>
-     *         The alarm configuration is enabled, but the alarm list is empty.
+     *         The alarm configuration is enabled but the alarm list is empty.
      *         </p>
      *         </li>
      * @throws AlarmsLimitExceededException
      *         The maximum number of alarms for a deployment group (10) was exceeded.
      * @throws InvalidAutoRollbackConfigException
      *         The automatic rollback configuration was specified in an invalid format. For example, automatic rollback
-     *         is enabled, but an invalid triggering event type or no event types were listed.
+     *         is enabled but an invalid triggering event type or no event types were listed.
      * @throws InvalidLoadBalancerInfoException
      *         An invalid load balancer name, or no load balancer name, was specified.
      * @throws InvalidDeploymentStyleException
-     *         An invalid deployment style was specified. Valid deployment types include "IN_PLACE" and "BLUE_GREEN."
-     *         Valid deployment options include "WITH_TRAFFIC_CONTROL" and "WITHOUT_TRAFFIC_CONTROL."
+     *         An invalid deployment style was specified. Valid deployment types include "IN_PLACE" and "BLUE_GREEN".
+     *         Valid deployment options include "WITH_TRAFFIC_CONTROL" and "WITHOUT_TRAFFIC_CONTROL".
      * @throws InvalidBlueGreenDeploymentConfigurationException
      *         The configuration for the blue/green deployment group was provided in an invalid format. For information
      *         about deployment configuration format, see <a>CreateDeploymentConfig</a>.
@@ -3748,16 +3306,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * @throws TagSetListLimitExceededException
      *         The number of tag groups included in the tag set list exceeded the maximum allowed limit of 3.
      * @throws InvalidInputException
-     *         The input was specified in an invalid format.
-     * @throws ThrottlingException
-     *         An API function was called too frequently.
-     * @throws InvalidECSServiceException
-     *         The Amazon ECS service identifier is not valid.
-     * @throws InvalidTargetGroupPairException
-     *         A target group pair associated with this deployment is not valid.
-     * @throws ECSServiceMappingLimitExceededException
-     *         The Amazon ECS service is associated with more than one deployment groups. An Amazon ECS service can be
-     *         associated with only one deployment group.
+     *         The specified input was specified in an invalid format.
      * @sample AmazonCodeDeploy.UpdateDeploymentGroup
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/UpdateDeploymentGroup"
      *      target="_top">AWS API Documentation</a>
@@ -3784,9 +3333,6 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "CodeDeploy");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateDeploymentGroup");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3828,18 +3374,9 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null, null);
-    }
-
-    /**
-     * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
-     **/
-    private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
-
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -3849,7 +3386,7 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null, null);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -3857,17 +3394,8 @@ public class AmazonCodeDeployClient extends AmazonWebServiceClient implements Am
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
-
-        if (discoveredEndpoint != null) {
-            request.setEndpoint(discoveredEndpoint);
-            request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
-        } else if (uriFromEndpointTrait != null) {
-            request.setEndpoint(uriFromEndpointTrait);
-        } else {
-            request.setEndpoint(endpoint);
-        }
-
+            ExecutionContext executionContext) {
+        request.setEndpoint(endpoint);
         request.setTimeOffset(timeOffset);
 
         HttpResponseHandler<AmazonServiceException> errorResponseHandler = protocolFactory.createErrorResponseHandler(new JsonErrorResponseMetadata());

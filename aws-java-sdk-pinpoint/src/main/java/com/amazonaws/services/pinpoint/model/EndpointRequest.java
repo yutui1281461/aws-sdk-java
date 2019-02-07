@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,7 +18,7 @@ import com.amazonaws.protocol.StructuredPojo;
 import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
- * An endpoint update request.
+ * Endpoint update request
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/EndpointRequest" target="_top">AWS API
  *      Documentation</a>
@@ -26,12 +26,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class EndpointRequest implements Serializable, Cloneable, StructuredPojo {
 
-    /**
-     * The destination for messages that you send to this endpoint. The address varies by channel. For mobile push
-     * channels, use the token provided by the push notification service, such as the APNs device token or the FCM
-     * registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email
-     * channel, use an email address.
-     */
+    /** The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId). */
     private String address;
     /**
      * Custom attributes that describe the endpoint by associating a name with an array of values. For example, an
@@ -48,11 +43,14 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
      * Valid values: GCM | APNS | APNS_SANDBOX | APNS_VOIP | APNS_VOIP_SANDBOX | ADM | SMS | EMAIL | BAIDU
      */
     private String channelType;
-    /** Demographic attributes for the endpoint. */
+    /** The endpoint demographic attributes. */
     private EndpointDemographic demographic;
-    /** The date and time when the endpoint was updated, shown in ISO 8601 format. */
+    /** The last time the endpoint was updated. Provided in ISO 8601 format. */
     private String effectiveDate;
-    /** Unused. */
+    /**
+     * The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set
+     * to ACTIVE if the address is updated.
+     */
     private String endpointStatus;
     /** The endpoint location attributes. */
     private EndpointLocation location;
@@ -72,16 +70,11 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
     private EndpointUser user;
 
     /**
-     * The destination for messages that you send to this endpoint. The address varies by channel. For mobile push
-     * channels, use the token provided by the push notification service, such as the APNs device token or the FCM
-     * registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email
-     * channel, use an email address.
+     * The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
      * 
      * @param address
-     *        The destination for messages that you send to this endpoint. The address varies by channel. For mobile
-     *        push channels, use the token provided by the push notification service, such as the APNs device token or
-     *        the FCM registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100.
-     *        For the email channel, use an email address.
+     *        The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or
+     *        RegistrationId).
      */
 
     public void setAddress(String address) {
@@ -89,15 +82,10 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * The destination for messages that you send to this endpoint. The address varies by channel. For mobile push
-     * channels, use the token provided by the push notification service, such as the APNs device token or the FCM
-     * registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email
-     * channel, use an email address.
+     * The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
      * 
-     * @return The destination for messages that you send to this endpoint. The address varies by channel. For mobile
-     *         push channels, use the token provided by the push notification service, such as the APNs device token or
-     *         the FCM registration token. For the SMS channel, use a phone number in E.164 format, such as
-     *         +12065550100. For the email channel, use an email address.
+     * @return The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or
+     *         RegistrationId).
      */
 
     public String getAddress() {
@@ -105,16 +93,11 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * The destination for messages that you send to this endpoint. The address varies by channel. For mobile push
-     * channels, use the token provided by the push notification service, such as the APNs device token or the FCM
-     * registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email
-     * channel, use an email address.
+     * The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
      * 
      * @param address
-     *        The destination for messages that you send to this endpoint. The address varies by channel. For mobile
-     *        push channels, use the token provided by the push notification service, such as the APNs device token or
-     *        the FCM registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100.
-     *        For the email channel, use an email address.
+     *        The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or
+     *        RegistrationId).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -295,10 +278,10 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * Demographic attributes for the endpoint.
+     * The endpoint demographic attributes.
      * 
      * @param demographic
-     *        Demographic attributes for the endpoint.
+     *        The endpoint demographic attributes.
      */
 
     public void setDemographic(EndpointDemographic demographic) {
@@ -306,9 +289,9 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * Demographic attributes for the endpoint.
+     * The endpoint demographic attributes.
      * 
-     * @return Demographic attributes for the endpoint.
+     * @return The endpoint demographic attributes.
      */
 
     public EndpointDemographic getDemographic() {
@@ -316,10 +299,10 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * Demographic attributes for the endpoint.
+     * The endpoint demographic attributes.
      * 
      * @param demographic
-     *        Demographic attributes for the endpoint.
+     *        The endpoint demographic attributes.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -329,10 +312,10 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * The date and time when the endpoint was updated, shown in ISO 8601 format.
+     * The last time the endpoint was updated. Provided in ISO 8601 format.
      * 
      * @param effectiveDate
-     *        The date and time when the endpoint was updated, shown in ISO 8601 format.
+     *        The last time the endpoint was updated. Provided in ISO 8601 format.
      */
 
     public void setEffectiveDate(String effectiveDate) {
@@ -340,9 +323,9 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * The date and time when the endpoint was updated, shown in ISO 8601 format.
+     * The last time the endpoint was updated. Provided in ISO 8601 format.
      * 
-     * @return The date and time when the endpoint was updated, shown in ISO 8601 format.
+     * @return The last time the endpoint was updated. Provided in ISO 8601 format.
      */
 
     public String getEffectiveDate() {
@@ -350,10 +333,10 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * The date and time when the endpoint was updated, shown in ISO 8601 format.
+     * The last time the endpoint was updated. Provided in ISO 8601 format.
      * 
      * @param effectiveDate
-     *        The date and time when the endpoint was updated, shown in ISO 8601 format.
+     *        The last time the endpoint was updated. Provided in ISO 8601 format.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -363,10 +346,12 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * Unused.
+     * The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set
+     * to ACTIVE if the address is updated.
      * 
      * @param endpointStatus
-     *        Unused.
+     *        The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will
+     *        be set to ACTIVE if the address is updated.
      */
 
     public void setEndpointStatus(String endpointStatus) {
@@ -374,9 +359,11 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * Unused.
+     * The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set
+     * to ACTIVE if the address is updated.
      * 
-     * @return Unused.
+     * @return The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will
+     *         be set to ACTIVE if the address is updated.
      */
 
     public String getEndpointStatus() {
@@ -384,10 +371,12 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * Unused.
+     * The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set
+     * to ACTIVE if the address is updated.
      * 
      * @param endpointStatus
-     *        Unused.
+     *        The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will
+     *        be set to ACTIVE if the address is updated.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -612,8 +601,7 @@ public class EndpointRequest implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

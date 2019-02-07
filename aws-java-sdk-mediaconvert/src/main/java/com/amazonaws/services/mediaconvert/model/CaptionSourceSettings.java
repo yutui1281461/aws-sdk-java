@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,8 +37,6 @@ public class CaptionSourceSettings implements Serializable, Cloneable, Structure
     private String sourceType;
 
     private TeletextSourceSettings teletextSourceSettings;
-
-    private TrackSourceSettings trackSourceSettings;
 
     /**
      * @param ancillarySourceSettings
@@ -211,34 +209,7 @@ public class CaptionSourceSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * @param trackSourceSettings
-     */
-
-    public void setTrackSourceSettings(TrackSourceSettings trackSourceSettings) {
-        this.trackSourceSettings = trackSourceSettings;
-    }
-
-    /**
-     * @return
-     */
-
-    public TrackSourceSettings getTrackSourceSettings() {
-        return this.trackSourceSettings;
-    }
-
-    /**
-     * @param trackSourceSettings
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CaptionSourceSettings withTrackSourceSettings(TrackSourceSettings trackSourceSettings) {
-        setTrackSourceSettings(trackSourceSettings);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -259,9 +230,7 @@ public class CaptionSourceSettings implements Serializable, Cloneable, Structure
         if (getSourceType() != null)
             sb.append("SourceType: ").append(getSourceType()).append(",");
         if (getTeletextSourceSettings() != null)
-            sb.append("TeletextSourceSettings: ").append(getTeletextSourceSettings()).append(",");
-        if (getTrackSourceSettings() != null)
-            sb.append("TrackSourceSettings: ").append(getTrackSourceSettings());
+            sb.append("TeletextSourceSettings: ").append(getTeletextSourceSettings());
         sb.append("}");
         return sb.toString();
     }
@@ -300,10 +269,6 @@ public class CaptionSourceSettings implements Serializable, Cloneable, Structure
             return false;
         if (other.getTeletextSourceSettings() != null && other.getTeletextSourceSettings().equals(this.getTeletextSourceSettings()) == false)
             return false;
-        if (other.getTrackSourceSettings() == null ^ this.getTrackSourceSettings() == null)
-            return false;
-        if (other.getTrackSourceSettings() != null && other.getTrackSourceSettings().equals(this.getTrackSourceSettings()) == false)
-            return false;
         return true;
     }
 
@@ -318,7 +283,6 @@ public class CaptionSourceSettings implements Serializable, Cloneable, Structure
         hashCode = prime * hashCode + ((getFileSourceSettings() == null) ? 0 : getFileSourceSettings().hashCode());
         hashCode = prime * hashCode + ((getSourceType() == null) ? 0 : getSourceType().hashCode());
         hashCode = prime * hashCode + ((getTeletextSourceSettings() == null) ? 0 : getTeletextSourceSettings().hashCode());
-        hashCode = prime * hashCode + ((getTrackSourceSettings() == null) ? 0 : getTrackSourceSettings().hashCode());
         return hashCode;
     }
 

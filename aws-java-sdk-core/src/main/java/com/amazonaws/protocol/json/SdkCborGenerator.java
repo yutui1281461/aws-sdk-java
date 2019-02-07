@@ -17,7 +17,6 @@
 package com.amazonaws.protocol.json;
 
 import com.amazonaws.annotation.SdkInternalApi;
-import com.amazonaws.util.TimestampFormat;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.dataformat.cbor.CBORGenerator;
 
@@ -45,7 +44,7 @@ class SdkCborGenerator extends SdkJsonGenerator {
      * write a tag and write the epoch.
      */
     @Override
-    public StructuredJsonGenerator writeValue(Date date, TimestampFormat timestampFormat) {
+    public StructuredJsonGenerator writeValue(Date date) {
 
         if (!(getGenerator() instanceof CBORGenerator)) {
             throw new IllegalStateException("SdkCborGenerator is not created with a CBORGenerator.");

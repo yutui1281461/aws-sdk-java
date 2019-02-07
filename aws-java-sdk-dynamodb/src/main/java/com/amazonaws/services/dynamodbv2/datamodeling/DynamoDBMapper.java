@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2015-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -499,17 +499,16 @@ public class DynamoDBMapper extends AbstractDynamoDBMapper {
         final DynamoDBMapperTableModel<T> model = getTableModel(clazz, finalConfig);
 
         /*
-         * We use a putItem request instead of updateItem request either when
-         * CLOBBER or PUT is configured, or part of the primary key of the object needs
+         * We force a putItem request instead of updateItem request either when
+         * CLOBBER is configured, or part of the primary key of the object needs
          * to be auto-generated.
          */
-        boolean usePut = (finalConfig.getSaveBehavior() == SaveBehavior.CLOBBER
-                         || finalConfig.getSaveBehavior() == SaveBehavior.PUT)
-                         || anyKeyGeneratable(model, object, finalConfig.getSaveBehavior());
+        boolean forcePut = (finalConfig.getSaveBehavior() == SaveBehavior.CLOBBER)
+                || anyKeyGeneratable(model, object, finalConfig.getSaveBehavior());
 
         SaveObjectHandler saveObjectHandler;
 
-        if (usePut) {
+        if (forcePut) {
             saveObjectHandler = this.new SaveObjectHandler(clazz, object,
                     tableName, finalConfig, saveExpression) {
 
@@ -1416,9 +1415,9 @@ public class DynamoDBMapper extends AbstractDynamoDBMapper {
             return false;
         } else if (field.keyType() != null || field.indexed()) {
             return true;
-        } else if (saveBehavior == SaveBehavior.CLOBBER
-                   || saveBehavior == SaveBehavior.UPDATE
-                   || saveBehavior == SaveBehavior.PUT) {
+        } else if (saveBehavior == SaveBehavior.CLOBBER) {
+            return true;
+        } else if (saveBehavior == SaveBehavior.UPDATE) {
             return true;
         } else if (anyKeyGeneratable(model, object, saveBehavior)) {
             return true;

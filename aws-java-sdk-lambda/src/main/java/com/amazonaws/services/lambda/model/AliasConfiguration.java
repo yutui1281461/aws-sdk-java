@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,8 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Provides configuration information about a Lambda function <a
- * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.
+ * Provides configuration information about a Lambda function version alias.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/AliasConfiguration" target="_top">AWS API
@@ -31,49 +30,55 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the alias.
+     * Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an alias
+     * called <code>BETA</code> that points to a helloworld function version, the ARN is
+     * <code>arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA</code>.
      * </p>
      */
     private String aliasArn;
     /**
      * <p>
-     * The name of the alias.
+     * Alias name.
      * </p>
      */
     private String name;
     /**
      * <p>
-     * The function version that the alias invokes.
+     * Function version to which the alias points.
      * </p>
      */
     private String functionVersion;
     /**
      * <p>
-     * A description of the alias.
+     * Alias description.
      * </p>
      */
     private String description;
     /**
      * <p>
-     * The <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing
-     * configuration</a> of the alias.
+     * Specifies an additional function versions the alias points to, allowing you to dictate what percentage of traffic
+     * will invoke each version. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
      * </p>
      */
     private AliasRoutingConfiguration routingConfig;
     /**
      * <p>
-     * A unique identifier that changes when you update the alias.
+     * Represents the latest updated revision of the function or alias.
      * </p>
      */
     private String revisionId;
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the alias.
+     * Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an alias
+     * called <code>BETA</code> that points to a helloworld function version, the ARN is
+     * <code>arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA</code>.
      * </p>
      * 
      * @param aliasArn
-     *        The Amazon Resource Name (ARN) of the alias.
+     *        Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an
+     *        alias called <code>BETA</code> that points to a helloworld function version, the ARN is
+     *        <code>arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA</code>.
      */
 
     public void setAliasArn(String aliasArn) {
@@ -82,10 +87,14 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the alias.
+     * Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an alias
+     * called <code>BETA</code> that points to a helloworld function version, the ARN is
+     * <code>arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA</code>.
      * </p>
      * 
-     * @return The Amazon Resource Name (ARN) of the alias.
+     * @return Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an
+     *         alias called <code>BETA</code> that points to a helloworld function version, the ARN is
+     *         <code>arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA</code>.
      */
 
     public String getAliasArn() {
@@ -94,11 +103,15 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the alias.
+     * Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an alias
+     * called <code>BETA</code> that points to a helloworld function version, the ARN is
+     * <code>arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA</code>.
      * </p>
      * 
      * @param aliasArn
-     *        The Amazon Resource Name (ARN) of the alias.
+     *        Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an
+     *        alias called <code>BETA</code> that points to a helloworld function version, the ARN is
+     *        <code>arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -109,11 +122,11 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The name of the alias.
+     * Alias name.
      * </p>
      * 
      * @param name
-     *        The name of the alias.
+     *        Alias name.
      */
 
     public void setName(String name) {
@@ -122,10 +135,10 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The name of the alias.
+     * Alias name.
      * </p>
      * 
-     * @return The name of the alias.
+     * @return Alias name.
      */
 
     public String getName() {
@@ -134,11 +147,11 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The name of the alias.
+     * Alias name.
      * </p>
      * 
      * @param name
-     *        The name of the alias.
+     *        Alias name.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -149,11 +162,11 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The function version that the alias invokes.
+     * Function version to which the alias points.
      * </p>
      * 
      * @param functionVersion
-     *        The function version that the alias invokes.
+     *        Function version to which the alias points.
      */
 
     public void setFunctionVersion(String functionVersion) {
@@ -162,10 +175,10 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The function version that the alias invokes.
+     * Function version to which the alias points.
      * </p>
      * 
-     * @return The function version that the alias invokes.
+     * @return Function version to which the alias points.
      */
 
     public String getFunctionVersion() {
@@ -174,11 +187,11 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The function version that the alias invokes.
+     * Function version to which the alias points.
      * </p>
      * 
      * @param functionVersion
-     *        The function version that the alias invokes.
+     *        Function version to which the alias points.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -189,11 +202,11 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * A description of the alias.
+     * Alias description.
      * </p>
      * 
      * @param description
-     *        A description of the alias.
+     *        Alias description.
      */
 
     public void setDescription(String description) {
@@ -202,10 +215,10 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * A description of the alias.
+     * Alias description.
      * </p>
      * 
-     * @return A description of the alias.
+     * @return Alias description.
      */
 
     public String getDescription() {
@@ -214,11 +227,11 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * A description of the alias.
+     * Alias description.
      * </p>
      * 
      * @param description
-     *        A description of the alias.
+     *        Alias description.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -229,14 +242,13 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing
-     * configuration</a> of the alias.
+     * Specifies an additional function versions the alias points to, allowing you to dictate what percentage of traffic
+     * will invoke each version. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
      * </p>
      * 
      * @param routingConfig
-     *        The <a
-     *        href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing
-     *        configuration</a> of the alias.
+     *        Specifies an additional function versions the alias points to, allowing you to dictate what percentage of
+     *        traffic will invoke each version. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
      */
 
     public void setRoutingConfig(AliasRoutingConfiguration routingConfig) {
@@ -245,13 +257,12 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing
-     * configuration</a> of the alias.
+     * Specifies an additional function versions the alias points to, allowing you to dictate what percentage of traffic
+     * will invoke each version. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
      * </p>
      * 
-     * @return The <a
-     *         href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing
-     *         configuration</a> of the alias.
+     * @return Specifies an additional function versions the alias points to, allowing you to dictate what percentage of
+     *         traffic will invoke each version. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
      */
 
     public AliasRoutingConfiguration getRoutingConfig() {
@@ -260,14 +271,13 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing
-     * configuration</a> of the alias.
+     * Specifies an additional function versions the alias points to, allowing you to dictate what percentage of traffic
+     * will invoke each version. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
      * </p>
      * 
      * @param routingConfig
-     *        The <a
-     *        href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing
-     *        configuration</a> of the alias.
+     *        Specifies an additional function versions the alias points to, allowing you to dictate what percentage of
+     *        traffic will invoke each version. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -278,11 +288,11 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * A unique identifier that changes when you update the alias.
+     * Represents the latest updated revision of the function or alias.
      * </p>
      * 
      * @param revisionId
-     *        A unique identifier that changes when you update the alias.
+     *        Represents the latest updated revision of the function or alias.
      */
 
     public void setRevisionId(String revisionId) {
@@ -291,10 +301,10 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * A unique identifier that changes when you update the alias.
+     * Represents the latest updated revision of the function or alias.
      * </p>
      * 
-     * @return A unique identifier that changes when you update the alias.
+     * @return Represents the latest updated revision of the function or alias.
      */
 
     public String getRevisionId() {
@@ -303,11 +313,11 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * A unique identifier that changes when you update the alias.
+     * Represents the latest updated revision of the function or alias.
      * </p>
      * 
      * @param revisionId
-     *        A unique identifier that changes when you update the alias.
+     *        Represents the latest updated revision of the function or alias.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -317,8 +327,7 @@ public class AliasConfiguration implements Serializable, Cloneable, StructuredPo
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -262,41 +262,6 @@ public class AmazonConfigAsyncClient extends AmazonConfigClient implements Amazo
     }
 
     @Override
-    public java.util.concurrent.Future<BatchGetAggregateResourceConfigResult> batchGetAggregateResourceConfigAsync(
-            BatchGetAggregateResourceConfigRequest request) {
-
-        return batchGetAggregateResourceConfigAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<BatchGetAggregateResourceConfigResult> batchGetAggregateResourceConfigAsync(
-            final BatchGetAggregateResourceConfigRequest request,
-            final com.amazonaws.handlers.AsyncHandler<BatchGetAggregateResourceConfigRequest, BatchGetAggregateResourceConfigResult> asyncHandler) {
-        final BatchGetAggregateResourceConfigRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<BatchGetAggregateResourceConfigResult>() {
-            @Override
-            public BatchGetAggregateResourceConfigResult call() throws Exception {
-                BatchGetAggregateResourceConfigResult result = null;
-
-                try {
-                    result = executeBatchGetAggregateResourceConfig(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
     public java.util.concurrent.Future<BatchGetResourceConfigResult> batchGetResourceConfigAsync(BatchGetResourceConfigRequest request) {
 
         return batchGetResourceConfigAsync(request, null);
@@ -549,39 +514,6 @@ public class AmazonConfigAsyncClient extends AmazonConfigClient implements Amazo
 
                 try {
                     result = executeDeletePendingAggregationRequest(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
-    public java.util.concurrent.Future<DeleteRetentionConfigurationResult> deleteRetentionConfigurationAsync(DeleteRetentionConfigurationRequest request) {
-
-        return deleteRetentionConfigurationAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<DeleteRetentionConfigurationResult> deleteRetentionConfigurationAsync(final DeleteRetentionConfigurationRequest request,
-            final com.amazonaws.handlers.AsyncHandler<DeleteRetentionConfigurationRequest, DeleteRetentionConfigurationResult> asyncHandler) {
-        final DeleteRetentionConfigurationRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<DeleteRetentionConfigurationResult>() {
-            @Override
-            public DeleteRetentionConfigurationResult call() throws Exception {
-                DeleteRetentionConfigurationResult result = null;
-
-                try {
-                    result = executeDeleteRetentionConfiguration(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);
@@ -1266,41 +1198,6 @@ public class AmazonConfigAsyncClient extends AmazonConfigClient implements Amazo
     }
 
     @Override
-    public java.util.concurrent.Future<DescribeRetentionConfigurationsResult> describeRetentionConfigurationsAsync(
-            DescribeRetentionConfigurationsRequest request) {
-
-        return describeRetentionConfigurationsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<DescribeRetentionConfigurationsResult> describeRetentionConfigurationsAsync(
-            final DescribeRetentionConfigurationsRequest request,
-            final com.amazonaws.handlers.AsyncHandler<DescribeRetentionConfigurationsRequest, DescribeRetentionConfigurationsResult> asyncHandler) {
-        final DescribeRetentionConfigurationsRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<DescribeRetentionConfigurationsResult>() {
-            @Override
-            public DescribeRetentionConfigurationsResult call() throws Exception {
-                DescribeRetentionConfigurationsResult result = null;
-
-                try {
-                    result = executeDescribeRetentionConfigurations(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
     public java.util.concurrent.Future<GetAggregateComplianceDetailsByConfigRuleResult> getAggregateComplianceDetailsByConfigRuleAsync(
             GetAggregateComplianceDetailsByConfigRuleRequest request) {
 
@@ -1355,74 +1252,6 @@ public class AmazonConfigAsyncClient extends AmazonConfigClient implements Amazo
 
                 try {
                     result = executeGetAggregateConfigRuleComplianceSummary(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetAggregateDiscoveredResourceCountsResult> getAggregateDiscoveredResourceCountsAsync(
-            GetAggregateDiscoveredResourceCountsRequest request) {
-
-        return getAggregateDiscoveredResourceCountsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetAggregateDiscoveredResourceCountsResult> getAggregateDiscoveredResourceCountsAsync(
-            final GetAggregateDiscoveredResourceCountsRequest request,
-            final com.amazonaws.handlers.AsyncHandler<GetAggregateDiscoveredResourceCountsRequest, GetAggregateDiscoveredResourceCountsResult> asyncHandler) {
-        final GetAggregateDiscoveredResourceCountsRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<GetAggregateDiscoveredResourceCountsResult>() {
-            @Override
-            public GetAggregateDiscoveredResourceCountsResult call() throws Exception {
-                GetAggregateDiscoveredResourceCountsResult result = null;
-
-                try {
-                    result = executeGetAggregateDiscoveredResourceCounts(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetAggregateResourceConfigResult> getAggregateResourceConfigAsync(GetAggregateResourceConfigRequest request) {
-
-        return getAggregateResourceConfigAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetAggregateResourceConfigResult> getAggregateResourceConfigAsync(final GetAggregateResourceConfigRequest request,
-            final com.amazonaws.handlers.AsyncHandler<GetAggregateResourceConfigRequest, GetAggregateResourceConfigResult> asyncHandler) {
-        final GetAggregateResourceConfigRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<GetAggregateResourceConfigResult>() {
-            @Override
-            public GetAggregateResourceConfigResult call() throws Exception {
-                GetAggregateResourceConfigResult result = null;
-
-                try {
-                    result = executeGetAggregateResourceConfig(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);
@@ -1692,41 +1521,6 @@ public class AmazonConfigAsyncClient extends AmazonConfigClient implements Amazo
     }
 
     @Override
-    public java.util.concurrent.Future<ListAggregateDiscoveredResourcesResult> listAggregateDiscoveredResourcesAsync(
-            ListAggregateDiscoveredResourcesRequest request) {
-
-        return listAggregateDiscoveredResourcesAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<ListAggregateDiscoveredResourcesResult> listAggregateDiscoveredResourcesAsync(
-            final ListAggregateDiscoveredResourcesRequest request,
-            final com.amazonaws.handlers.AsyncHandler<ListAggregateDiscoveredResourcesRequest, ListAggregateDiscoveredResourcesResult> asyncHandler) {
-        final ListAggregateDiscoveredResourcesRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<ListAggregateDiscoveredResourcesResult>() {
-            @Override
-            public ListAggregateDiscoveredResourcesResult call() throws Exception {
-                ListAggregateDiscoveredResourcesResult result = null;
-
-                try {
-                    result = executeListAggregateDiscoveredResources(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
     public java.util.concurrent.Future<ListDiscoveredResourcesResult> listDiscoveredResourcesAsync(ListDiscoveredResourcesRequest request) {
 
         return listDiscoveredResourcesAsync(request, null);
@@ -1942,39 +1736,6 @@ public class AmazonConfigAsyncClient extends AmazonConfigClient implements Amazo
 
                 try {
                     result = executePutEvaluations(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
-    public java.util.concurrent.Future<PutRetentionConfigurationResult> putRetentionConfigurationAsync(PutRetentionConfigurationRequest request) {
-
-        return putRetentionConfigurationAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<PutRetentionConfigurationResult> putRetentionConfigurationAsync(final PutRetentionConfigurationRequest request,
-            final com.amazonaws.handlers.AsyncHandler<PutRetentionConfigurationRequest, PutRetentionConfigurationResult> asyncHandler) {
-        final PutRetentionConfigurationRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<PutRetentionConfigurationResult>() {
-            @Override
-            public PutRetentionConfigurationResult call() throws Exception {
-                PutRetentionConfigurationResult result = null;
-
-                try {
-                    result = executePutRetentionConfiguration(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -39,12 +39,8 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
     private String service;
     /**
      * <p>
-     * The account scope that you want recommendations for. <code>PAYER</code> means that AWS includes the master
-     * account and any member accounts when it calculates its recommendations. <code>LINKED</code> means that AWS
-     * includes only member accounts when it calculates its recommendations.
-     * </p>
-     * <p>
-     * Valid values are <code>PAYER</code> and <code>LINKED</code>.
+     * The account scope that you want recommendations for. The only valid value is <code>Payer</code>. This means that
+     * AWS includes the master account and any member accounts when it calculates its recommendations.
      * </p>
      */
     private String accountScope;
@@ -69,7 +65,7 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
     /**
      * <p>
      * The hardware specifications for the service instances that you want recommendations for, such as standard or
-     * convertible Amazon EC2 instances.
+     * convertible EC2 instances.
      * </p>
      */
     private ServiceSpecification serviceSpecification;
@@ -168,20 +164,13 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
 
     /**
      * <p>
-     * The account scope that you want recommendations for. <code>PAYER</code> means that AWS includes the master
-     * account and any member accounts when it calculates its recommendations. <code>LINKED</code> means that AWS
-     * includes only member accounts when it calculates its recommendations.
-     * </p>
-     * <p>
-     * Valid values are <code>PAYER</code> and <code>LINKED</code>.
+     * The account scope that you want recommendations for. The only valid value is <code>Payer</code>. This means that
+     * AWS includes the master account and any member accounts when it calculates its recommendations.
      * </p>
      * 
      * @param accountScope
-     *        The account scope that you want recommendations for. <code>PAYER</code> means that AWS includes the master
-     *        account and any member accounts when it calculates its recommendations. <code>LINKED</code> means that AWS
-     *        includes only member accounts when it calculates its recommendations.</p>
-     *        <p>
-     *        Valid values are <code>PAYER</code> and <code>LINKED</code>.
+     *        The account scope that you want recommendations for. The only valid value is <code>Payer</code>. This
+     *        means that AWS includes the master account and any member accounts when it calculates its recommendations.
      * @see AccountScope
      */
 
@@ -191,19 +180,13 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
 
     /**
      * <p>
-     * The account scope that you want recommendations for. <code>PAYER</code> means that AWS includes the master
-     * account and any member accounts when it calculates its recommendations. <code>LINKED</code> means that AWS
-     * includes only member accounts when it calculates its recommendations.
-     * </p>
-     * <p>
-     * Valid values are <code>PAYER</code> and <code>LINKED</code>.
+     * The account scope that you want recommendations for. The only valid value is <code>Payer</code>. This means that
+     * AWS includes the master account and any member accounts when it calculates its recommendations.
      * </p>
      * 
-     * @return The account scope that you want recommendations for. <code>PAYER</code> means that AWS includes the
-     *         master account and any member accounts when it calculates its recommendations. <code>LINKED</code> means
-     *         that AWS includes only member accounts when it calculates its recommendations.</p>
-     *         <p>
-     *         Valid values are <code>PAYER</code> and <code>LINKED</code>.
+     * @return The account scope that you want recommendations for. The only valid value is <code>Payer</code>. This
+     *         means that AWS includes the master account and any member accounts when it calculates its
+     *         recommendations.
      * @see AccountScope
      */
 
@@ -213,20 +196,13 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
 
     /**
      * <p>
-     * The account scope that you want recommendations for. <code>PAYER</code> means that AWS includes the master
-     * account and any member accounts when it calculates its recommendations. <code>LINKED</code> means that AWS
-     * includes only member accounts when it calculates its recommendations.
-     * </p>
-     * <p>
-     * Valid values are <code>PAYER</code> and <code>LINKED</code>.
+     * The account scope that you want recommendations for. The only valid value is <code>Payer</code>. This means that
+     * AWS includes the master account and any member accounts when it calculates its recommendations.
      * </p>
      * 
      * @param accountScope
-     *        The account scope that you want recommendations for. <code>PAYER</code> means that AWS includes the master
-     *        account and any member accounts when it calculates its recommendations. <code>LINKED</code> means that AWS
-     *        includes only member accounts when it calculates its recommendations.</p>
-     *        <p>
-     *        Valid values are <code>PAYER</code> and <code>LINKED</code>.
+     *        The account scope that you want recommendations for. The only valid value is <code>Payer</code>. This
+     *        means that AWS includes the master account and any member accounts when it calculates its recommendations.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see AccountScope
      */
@@ -238,20 +214,13 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
 
     /**
      * <p>
-     * The account scope that you want recommendations for. <code>PAYER</code> means that AWS includes the master
-     * account and any member accounts when it calculates its recommendations. <code>LINKED</code> means that AWS
-     * includes only member accounts when it calculates its recommendations.
-     * </p>
-     * <p>
-     * Valid values are <code>PAYER</code> and <code>LINKED</code>.
+     * The account scope that you want recommendations for. The only valid value is <code>Payer</code>. This means that
+     * AWS includes the master account and any member accounts when it calculates its recommendations.
      * </p>
      * 
      * @param accountScope
-     *        The account scope that you want recommendations for. <code>PAYER</code> means that AWS includes the master
-     *        account and any member accounts when it calculates its recommendations. <code>LINKED</code> means that AWS
-     *        includes only member accounts when it calculates its recommendations.</p>
-     *        <p>
-     *        Valid values are <code>PAYER</code> and <code>LINKED</code>.
+     *        The account scope that you want recommendations for. The only valid value is <code>Payer</code>. This
+     *        means that AWS includes the master account and any member accounts when it calculates its recommendations.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see AccountScope
      */
@@ -441,12 +410,12 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
     /**
      * <p>
      * The hardware specifications for the service instances that you want recommendations for, such as standard or
-     * convertible Amazon EC2 instances.
+     * convertible EC2 instances.
      * </p>
      * 
      * @param serviceSpecification
      *        The hardware specifications for the service instances that you want recommendations for, such as standard
-     *        or convertible Amazon EC2 instances.
+     *        or convertible EC2 instances.
      */
 
     public void setServiceSpecification(ServiceSpecification serviceSpecification) {
@@ -456,11 +425,11 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
     /**
      * <p>
      * The hardware specifications for the service instances that you want recommendations for, such as standard or
-     * convertible Amazon EC2 instances.
+     * convertible EC2 instances.
      * </p>
      * 
      * @return The hardware specifications for the service instances that you want recommendations for, such as standard
-     *         or convertible Amazon EC2 instances.
+     *         or convertible EC2 instances.
      */
 
     public ServiceSpecification getServiceSpecification() {
@@ -470,12 +439,12 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
     /**
      * <p>
      * The hardware specifications for the service instances that you want recommendations for, such as standard or
-     * convertible Amazon EC2 instances.
+     * convertible EC2 instances.
      * </p>
      * 
      * @param serviceSpecification
      *        The hardware specifications for the service instances that you want recommendations for, such as standard
-     *        or convertible Amazon EC2 instances.
+     *        or convertible EC2 instances.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -565,8 +534,7 @@ public class GetReservationPurchaseRecommendationRequest extends com.amazonaws.A
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

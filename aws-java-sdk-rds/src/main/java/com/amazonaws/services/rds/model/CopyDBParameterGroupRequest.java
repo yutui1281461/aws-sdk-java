@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      * <p>
      * The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.
+     * Constructing an RDS Amazon Resource Name (ARN)</a>.
      * </p>
      * <p>
      * Constraints:
@@ -59,7 +59,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      * <ul>
      * <li>
      * <p>
-     * Can't be null, empty, or blank
+     * Cannot be null, empty, or blank
      * </p>
      * </li>
      * <li>
@@ -74,7 +74,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens
+     * Cannot end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -96,7 +96,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      * <p>
      * The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.
+     * Constructing an RDS Amazon Resource Name (ARN)</a>.
      * </p>
      * <p>
      * Constraints:
@@ -118,7 +118,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      *        The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <a
      *        href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing"
-     *        > Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </p>
+     *        > Constructing an RDS Amazon Resource Name (ARN)</a>. </p>
      *        <p>
      *        Constraints:
      *        </p>
@@ -144,7 +144,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      * <p>
      * The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.
+     * Constructing an RDS Amazon Resource Name (ARN)</a>.
      * </p>
      * <p>
      * Constraints:
@@ -165,7 +165,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      * @return The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <a
      *         href=
      *         "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing"
-     *         > Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </p>
+     *         > Constructing an RDS Amazon Resource Name (ARN)</a>. </p>
      *         <p>
      *         Constraints:
      *         </p>
@@ -191,7 +191,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      * <p>
      * The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.
+     * Constructing an RDS Amazon Resource Name (ARN)</a>.
      * </p>
      * <p>
      * Constraints:
@@ -213,7 +213,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      *        The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <a
      *        href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing"
-     *        > Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </p>
+     *        > Constructing an RDS Amazon Resource Name (ARN)</a>. </p>
      *        <p>
      *        Constraints:
      *        </p>
@@ -247,7 +247,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      * <ul>
      * <li>
      * <p>
-     * Can't be null, empty, or blank
+     * Cannot be null, empty, or blank
      * </p>
      * </li>
      * <li>
@@ -262,7 +262,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens
+     * Cannot end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -278,7 +278,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      *        <ul>
      *        <li>
      *        <p>
-     *        Can't be null, empty, or blank
+     *        Cannot be null, empty, or blank
      *        </p>
      *        </li>
      *        <li>
@@ -293,7 +293,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      *        </li>
      *        <li>
      *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens
+     *        Cannot end with a hyphen or contain two consecutive hyphens
      *        </p>
      *        </li>
      *        </ul>
@@ -315,7 +315,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      * <ul>
      * <li>
      * <p>
-     * Can't be null, empty, or blank
+     * Cannot be null, empty, or blank
      * </p>
      * </li>
      * <li>
@@ -330,7 +330,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens
+     * Cannot end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -345,7 +345,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      *         <ul>
      *         <li>
      *         <p>
-     *         Can't be null, empty, or blank
+     *         Cannot be null, empty, or blank
      *         </p>
      *         </li>
      *         <li>
@@ -360,7 +360,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      *         </li>
      *         <li>
      *         <p>
-     *         Can't end with a hyphen or contain two consecutive hyphens
+     *         Cannot end with a hyphen or contain two consecutive hyphens
      *         </p>
      *         </li>
      *         </ul>
@@ -382,7 +382,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      * <ul>
      * <li>
      * <p>
-     * Can't be null, empty, or blank
+     * Cannot be null, empty, or blank
      * </p>
      * </li>
      * <li>
@@ -397,7 +397,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens
+     * Cannot end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -413,7 +413,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      *        <ul>
      *        <li>
      *        <p>
-     *        Can't be null, empty, or blank
+     *        Cannot be null, empty, or blank
      *        </p>
      *        </li>
      *        <li>
@@ -428,7 +428,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
      *        </li>
      *        <li>
      *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens
+     *        Cannot end with a hyphen or contain two consecutive hyphens
      *        </p>
      *        </li>
      *        </ul>
@@ -538,8 +538,7 @@ public class CopyDBParameterGroupRequest extends com.amazonaws.AmazonWebServiceR
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

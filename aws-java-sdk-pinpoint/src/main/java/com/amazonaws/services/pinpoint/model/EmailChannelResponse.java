@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -28,15 +28,13 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
 
     /** The unique ID of the application to which the email channel belongs. */
     private String applicationId;
-    /** The configuration set that you want to use when you send email using the Pinpoint Email API. */
-    private String configurationSet;
     /** The date that the settings were last updated in ISO 8601 format. */
     private String creationDate;
     /** If the channel is enabled for sending messages. */
     private Boolean enabled;
     /** The email address used to send emails from. */
     private String fromAddress;
-    /** Not used. Retained for backwards compatibility. */
+    /** If the channel is registered with a credential for authentication. */
     private Boolean hasCredential;
     /** Channel ID. Not used, only for backwards compatibility. */
     private String id;
@@ -48,8 +46,6 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
     private String lastModifiedBy;
     /** Last date this was updated */
     private String lastModifiedDate;
-    /** Messages per second that can be sent */
-    private Integer messagesPerSecond;
     /** Platform type. Will be "EMAIL" */
     private String platform;
     /** The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service */
@@ -88,40 +84,6 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
 
     public EmailChannelResponse withApplicationId(String applicationId) {
         setApplicationId(applicationId);
-        return this;
-    }
-
-    /**
-     * The configuration set that you want to use when you send email using the Pinpoint Email API.
-     * 
-     * @param configurationSet
-     *        The configuration set that you want to use when you send email using the Pinpoint Email API.
-     */
-
-    public void setConfigurationSet(String configurationSet) {
-        this.configurationSet = configurationSet;
-    }
-
-    /**
-     * The configuration set that you want to use when you send email using the Pinpoint Email API.
-     * 
-     * @return The configuration set that you want to use when you send email using the Pinpoint Email API.
-     */
-
-    public String getConfigurationSet() {
-        return this.configurationSet;
-    }
-
-    /**
-     * The configuration set that you want to use when you send email using the Pinpoint Email API.
-     * 
-     * @param configurationSet
-     *        The configuration set that you want to use when you send email using the Pinpoint Email API.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public EmailChannelResponse withConfigurationSet(String configurationSet) {
-        setConfigurationSet(configurationSet);
         return this;
     }
 
@@ -238,10 +200,10 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
     }
 
     /**
-     * Not used. Retained for backwards compatibility.
+     * If the channel is registered with a credential for authentication.
      * 
      * @param hasCredential
-     *        Not used. Retained for backwards compatibility.
+     *        If the channel is registered with a credential for authentication.
      */
 
     public void setHasCredential(Boolean hasCredential) {
@@ -249,9 +211,9 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
     }
 
     /**
-     * Not used. Retained for backwards compatibility.
+     * If the channel is registered with a credential for authentication.
      * 
-     * @return Not used. Retained for backwards compatibility.
+     * @return If the channel is registered with a credential for authentication.
      */
 
     public Boolean getHasCredential() {
@@ -259,10 +221,10 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
     }
 
     /**
-     * Not used. Retained for backwards compatibility.
+     * If the channel is registered with a credential for authentication.
      * 
      * @param hasCredential
-     *        Not used. Retained for backwards compatibility.
+     *        If the channel is registered with a credential for authentication.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -272,9 +234,9 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
     }
 
     /**
-     * Not used. Retained for backwards compatibility.
+     * If the channel is registered with a credential for authentication.
      * 
-     * @return Not used. Retained for backwards compatibility.
+     * @return If the channel is registered with a credential for authentication.
      */
 
     public Boolean isHasCredential() {
@@ -462,40 +424,6 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
     }
 
     /**
-     * Messages per second that can be sent
-     * 
-     * @param messagesPerSecond
-     *        Messages per second that can be sent
-     */
-
-    public void setMessagesPerSecond(Integer messagesPerSecond) {
-        this.messagesPerSecond = messagesPerSecond;
-    }
-
-    /**
-     * Messages per second that can be sent
-     * 
-     * @return Messages per second that can be sent
-     */
-
-    public Integer getMessagesPerSecond() {
-        return this.messagesPerSecond;
-    }
-
-    /**
-     * Messages per second that can be sent
-     * 
-     * @param messagesPerSecond
-     *        Messages per second that can be sent
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public EmailChannelResponse withMessagesPerSecond(Integer messagesPerSecond) {
-        setMessagesPerSecond(messagesPerSecond);
-        return this;
-    }
-
-    /**
      * Platform type. Will be "EMAIL"
      * 
      * @param platform
@@ -598,8 +526,7 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -611,8 +538,6 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
         sb.append("{");
         if (getApplicationId() != null)
             sb.append("ApplicationId: ").append(getApplicationId()).append(",");
-        if (getConfigurationSet() != null)
-            sb.append("ConfigurationSet: ").append(getConfigurationSet()).append(",");
         if (getCreationDate() != null)
             sb.append("CreationDate: ").append(getCreationDate()).append(",");
         if (getEnabled() != null)
@@ -631,8 +556,6 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
             sb.append("LastModifiedBy: ").append(getLastModifiedBy()).append(",");
         if (getLastModifiedDate() != null)
             sb.append("LastModifiedDate: ").append(getLastModifiedDate()).append(",");
-        if (getMessagesPerSecond() != null)
-            sb.append("MessagesPerSecond: ").append(getMessagesPerSecond()).append(",");
         if (getPlatform() != null)
             sb.append("Platform: ").append(getPlatform()).append(",");
         if (getRoleArn() != null)
@@ -656,10 +579,6 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
         if (other.getApplicationId() == null ^ this.getApplicationId() == null)
             return false;
         if (other.getApplicationId() != null && other.getApplicationId().equals(this.getApplicationId()) == false)
-            return false;
-        if (other.getConfigurationSet() == null ^ this.getConfigurationSet() == null)
-            return false;
-        if (other.getConfigurationSet() != null && other.getConfigurationSet().equals(this.getConfigurationSet()) == false)
             return false;
         if (other.getCreationDate() == null ^ this.getCreationDate() == null)
             return false;
@@ -697,10 +616,6 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
             return false;
         if (other.getLastModifiedDate() != null && other.getLastModifiedDate().equals(this.getLastModifiedDate()) == false)
             return false;
-        if (other.getMessagesPerSecond() == null ^ this.getMessagesPerSecond() == null)
-            return false;
-        if (other.getMessagesPerSecond() != null && other.getMessagesPerSecond().equals(this.getMessagesPerSecond()) == false)
-            return false;
         if (other.getPlatform() == null ^ this.getPlatform() == null)
             return false;
         if (other.getPlatform() != null && other.getPlatform().equals(this.getPlatform()) == false)
@@ -722,7 +637,6 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getApplicationId() == null) ? 0 : getApplicationId().hashCode());
-        hashCode = prime * hashCode + ((getConfigurationSet() == null) ? 0 : getConfigurationSet().hashCode());
         hashCode = prime * hashCode + ((getCreationDate() == null) ? 0 : getCreationDate().hashCode());
         hashCode = prime * hashCode + ((getEnabled() == null) ? 0 : getEnabled().hashCode());
         hashCode = prime * hashCode + ((getFromAddress() == null) ? 0 : getFromAddress().hashCode());
@@ -732,7 +646,6 @@ public class EmailChannelResponse implements Serializable, Cloneable, Structured
         hashCode = prime * hashCode + ((getIsArchived() == null) ? 0 : getIsArchived().hashCode());
         hashCode = prime * hashCode + ((getLastModifiedBy() == null) ? 0 : getLastModifiedBy().hashCode());
         hashCode = prime * hashCode + ((getLastModifiedDate() == null) ? 0 : getLastModifiedDate().hashCode());
-        hashCode = prime * hashCode + ((getMessagesPerSecond() == null) ? 0 : getMessagesPerSecond().hashCode());
         hashCode = prime * hashCode + ((getPlatform() == null) ? 0 : getPlatform().hashCode());
         hashCode = prime * hashCode + ((getRoleArn() == null) ? 0 : getRoleArn().hashCode());
         hashCode = prime * hashCode + ((getVersion() == null) ? 0 : getVersion().hashCode());

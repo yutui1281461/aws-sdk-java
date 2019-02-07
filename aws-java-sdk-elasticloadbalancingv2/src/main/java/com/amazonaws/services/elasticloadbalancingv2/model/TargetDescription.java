@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -29,8 +29,7 @@ public class TargetDescription implements Serializable, Cloneable {
     /**
      * <p>
      * The ID of the target. If the target type of the target group is <code>instance</code>, specify an instance ID. If
-     * the target type is <code>ip</code>, specify an IP address. If the target type is <code>lambda</code>, specify the
-     * ARN of the Lambda function.
+     * the target type is <code>ip</code>, specify an IP address.
      * </p>
      */
     private String id;
@@ -46,20 +45,13 @@ public class TargetDescription implements Serializable, Cloneable {
      * balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
      * </p>
      * <p>
-     * This parameter is not supported if the target type of the target group is <code>instance</code>.
+     * This parameter is not supported if the target type of the target group is <code>instance</code>. If the IP
+     * address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this
+     * parameter is optional. If the IP address is outside the VPC, this parameter is required.
      * </p>
      * <p>
-     * If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group, the
-     * Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC,
-     * this parameter is required.
-     * </p>
-     * <p>
-     * With an Application Load Balancer, if the target type is <code>ip</code> and the IP address is outside the VPC
-     * for the target group, the only supported value is <code>all</code>.
-     * </p>
-     * <p>
-     * If the target type is <code>lambda</code>, this parameter is optional and the only supported value is
-     * <code>all</code>.
+     * With an Application Load Balancer, if the IP address is outside the VPC for the target group, the only supported
+     * value is <code>all</code>.
      * </p>
      */
     private String availabilityZone;
@@ -67,14 +59,12 @@ public class TargetDescription implements Serializable, Cloneable {
     /**
      * <p>
      * The ID of the target. If the target type of the target group is <code>instance</code>, specify an instance ID. If
-     * the target type is <code>ip</code>, specify an IP address. If the target type is <code>lambda</code>, specify the
-     * ARN of the Lambda function.
+     * the target type is <code>ip</code>, specify an IP address.
      * </p>
      * 
      * @param id
      *        The ID of the target. If the target type of the target group is <code>instance</code>, specify an instance
-     *        ID. If the target type is <code>ip</code>, specify an IP address. If the target type is
-     *        <code>lambda</code>, specify the ARN of the Lambda function.
+     *        ID. If the target type is <code>ip</code>, specify an IP address.
      */
 
     public void setId(String id) {
@@ -84,13 +74,11 @@ public class TargetDescription implements Serializable, Cloneable {
     /**
      * <p>
      * The ID of the target. If the target type of the target group is <code>instance</code>, specify an instance ID. If
-     * the target type is <code>ip</code>, specify an IP address. If the target type is <code>lambda</code>, specify the
-     * ARN of the Lambda function.
+     * the target type is <code>ip</code>, specify an IP address.
      * </p>
      * 
      * @return The ID of the target. If the target type of the target group is <code>instance</code>, specify an
-     *         instance ID. If the target type is <code>ip</code>, specify an IP address. If the target type is
-     *         <code>lambda</code>, specify the ARN of the Lambda function.
+     *         instance ID. If the target type is <code>ip</code>, specify an IP address.
      */
 
     public String getId() {
@@ -100,14 +88,12 @@ public class TargetDescription implements Serializable, Cloneable {
     /**
      * <p>
      * The ID of the target. If the target type of the target group is <code>instance</code>, specify an instance ID. If
-     * the target type is <code>ip</code>, specify an IP address. If the target type is <code>lambda</code>, specify the
-     * ARN of the Lambda function.
+     * the target type is <code>ip</code>, specify an IP address.
      * </p>
      * 
      * @param id
      *        The ID of the target. If the target type of the target group is <code>instance</code>, specify an instance
-     *        ID. If the target type is <code>ip</code>, specify an IP address. If the target type is
-     *        <code>lambda</code>, specify the ARN of the Lambda function.
+     *        ID. If the target type is <code>ip</code>, specify an IP address.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -162,20 +148,13 @@ public class TargetDescription implements Serializable, Cloneable {
      * balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
      * </p>
      * <p>
-     * This parameter is not supported if the target type of the target group is <code>instance</code>.
+     * This parameter is not supported if the target type of the target group is <code>instance</code>. If the IP
+     * address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this
+     * parameter is optional. If the IP address is outside the VPC, this parameter is required.
      * </p>
      * <p>
-     * If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group, the
-     * Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC,
-     * this parameter is required.
-     * </p>
-     * <p>
-     * With an Application Load Balancer, if the target type is <code>ip</code> and the IP address is outside the VPC
-     * for the target group, the only supported value is <code>all</code>.
-     * </p>
-     * <p>
-     * If the target type is <code>lambda</code>, this parameter is optional and the only supported value is
-     * <code>all</code>.
+     * With an Application Load Balancer, if the IP address is outside the VPC for the target group, the only supported
+     * value is <code>all</code>.
      * </p>
      * 
      * @param availabilityZone
@@ -183,20 +162,13 @@ public class TargetDescription implements Serializable, Cloneable {
      *        load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load
      *        balancer.</p>
      *        <p>
-     *        This parameter is not supported if the target type of the target group is <code>instance</code>.
+     *        This parameter is not supported if the target type of the target group is <code>instance</code>. If the IP
+     *        address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected
+     *        and this parameter is optional. If the IP address is outside the VPC, this parameter is required.
      *        </p>
      *        <p>
-     *        If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group,
-     *        the Availability Zone is automatically detected and this parameter is optional. If the IP address is
-     *        outside the VPC, this parameter is required.
-     *        </p>
-     *        <p>
-     *        With an Application Load Balancer, if the target type is <code>ip</code> and the IP address is outside the
-     *        VPC for the target group, the only supported value is <code>all</code>.
-     *        </p>
-     *        <p>
-     *        If the target type is <code>lambda</code>, this parameter is optional and the only supported value is
-     *        <code>all</code>.
+     *        With an Application Load Balancer, if the IP address is outside the VPC for the target group, the only
+     *        supported value is <code>all</code>.
      */
 
     public void setAvailabilityZone(String availabilityZone) {
@@ -209,40 +181,27 @@ public class TargetDescription implements Serializable, Cloneable {
      * balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
      * </p>
      * <p>
-     * This parameter is not supported if the target type of the target group is <code>instance</code>.
+     * This parameter is not supported if the target type of the target group is <code>instance</code>. If the IP
+     * address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this
+     * parameter is optional. If the IP address is outside the VPC, this parameter is required.
      * </p>
      * <p>
-     * If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group, the
-     * Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC,
-     * this parameter is required.
-     * </p>
-     * <p>
-     * With an Application Load Balancer, if the target type is <code>ip</code> and the IP address is outside the VPC
-     * for the target group, the only supported value is <code>all</code>.
-     * </p>
-     * <p>
-     * If the target type is <code>lambda</code>, this parameter is optional and the only supported value is
-     * <code>all</code>.
+     * With an Application Load Balancer, if the IP address is outside the VPC for the target group, the only supported
+     * value is <code>all</code>.
      * </p>
      * 
      * @return An Availability Zone or <code>all</code>. This determines whether the target receives traffic from the
      *         load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the
      *         load balancer.</p>
      *         <p>
-     *         This parameter is not supported if the target type of the target group is <code>instance</code>.
+     *         This parameter is not supported if the target type of the target group is <code>instance</code>. If the
+     *         IP address is in a subnet of the VPC for the target group, the Availability Zone is automatically
+     *         detected and this parameter is optional. If the IP address is outside the VPC, this parameter is
+     *         required.
      *         </p>
      *         <p>
-     *         If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group,
-     *         the Availability Zone is automatically detected and this parameter is optional. If the IP address is
-     *         outside the VPC, this parameter is required.
-     *         </p>
-     *         <p>
-     *         With an Application Load Balancer, if the target type is <code>ip</code> and the IP address is outside
-     *         the VPC for the target group, the only supported value is <code>all</code>.
-     *         </p>
-     *         <p>
-     *         If the target type is <code>lambda</code>, this parameter is optional and the only supported value is
-     *         <code>all</code>.
+     *         With an Application Load Balancer, if the IP address is outside the VPC for the target group, the only
+     *         supported value is <code>all</code>.
      */
 
     public String getAvailabilityZone() {
@@ -255,20 +214,13 @@ public class TargetDescription implements Serializable, Cloneable {
      * balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
      * </p>
      * <p>
-     * This parameter is not supported if the target type of the target group is <code>instance</code>.
+     * This parameter is not supported if the target type of the target group is <code>instance</code>. If the IP
+     * address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this
+     * parameter is optional. If the IP address is outside the VPC, this parameter is required.
      * </p>
      * <p>
-     * If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group, the
-     * Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC,
-     * this parameter is required.
-     * </p>
-     * <p>
-     * With an Application Load Balancer, if the target type is <code>ip</code> and the IP address is outside the VPC
-     * for the target group, the only supported value is <code>all</code>.
-     * </p>
-     * <p>
-     * If the target type is <code>lambda</code>, this parameter is optional and the only supported value is
-     * <code>all</code>.
+     * With an Application Load Balancer, if the IP address is outside the VPC for the target group, the only supported
+     * value is <code>all</code>.
      * </p>
      * 
      * @param availabilityZone
@@ -276,20 +228,13 @@ public class TargetDescription implements Serializable, Cloneable {
      *        load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load
      *        balancer.</p>
      *        <p>
-     *        This parameter is not supported if the target type of the target group is <code>instance</code>.
+     *        This parameter is not supported if the target type of the target group is <code>instance</code>. If the IP
+     *        address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected
+     *        and this parameter is optional. If the IP address is outside the VPC, this parameter is required.
      *        </p>
      *        <p>
-     *        If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group,
-     *        the Availability Zone is automatically detected and this parameter is optional. If the IP address is
-     *        outside the VPC, this parameter is required.
-     *        </p>
-     *        <p>
-     *        With an Application Load Balancer, if the target type is <code>ip</code> and the IP address is outside the
-     *        VPC for the target group, the only supported value is <code>all</code>.
-     *        </p>
-     *        <p>
-     *        If the target type is <code>lambda</code>, this parameter is optional and the only supported value is
-     *        <code>all</code>.
+     *        With an Application Load Balancer, if the IP address is outside the VPC for the target group, the only
+     *        supported value is <code>all</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -299,8 +244,7 @@ public class TargetDescription implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

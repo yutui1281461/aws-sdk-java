@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2011-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ public final class S3AbortableInputStream extends SdkFilterInputStream {
     private long markedBytes;
     private boolean eofReached = false;
 
-    public S3AbortableInputStream(InputStream in, HttpRequestBase httpRequest, long contentLength) {
+    S3AbortableInputStream(InputStream in, HttpRequestBase httpRequest, long contentLength) {
         super(in);
         this.httpRequest = httpRequest;
         this.contentLength = contentLength;
@@ -172,7 +172,7 @@ public final class S3AbortableInputStream extends SdkFilterInputStream {
      */
     @Override
     public void close() throws IOException {
-        if (_readAllBytes() || isAborted()) {
+        if (readAllBytes() || isAborted()) {
             super.close();
         } else {
             LOG.warn(
@@ -218,8 +218,7 @@ public final class S3AbortableInputStream extends SdkFilterInputStream {
         }
     }
 
-    // Underscore to prevent clash with Java 9's method.
-    private boolean _readAllBytes() {
+    private boolean readAllBytes() {
         return bytesRead >= contentLength || eofReached;
     }
 }

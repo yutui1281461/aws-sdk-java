@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -67,13 +67,6 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
     private String resourceType;
     /**
      * <p>
-     * The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <a
-     * href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail Dev Guide</a>.
-     * </p>
-     */
-    private java.util.List<Tag> tags;
-    /**
-     * <p>
      * The size of the disk in GB.
      * </p>
      */
@@ -92,28 +85,16 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
     private String progress;
     /**
      * <p>
-     * The unique name of the source disk from which the disk snapshot was created.
+     * The unique name of the source disk from which you are creating the disk snapshot.
      * </p>
      */
     private String fromDiskName;
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
+     * The Amazon Resource Name (ARN) of the source disk from which you are creating the disk snapshot.
      * </p>
      */
     private String fromDiskArn;
-    /**
-     * <p>
-     * The unique name of the source instance from which the disk (system volume) snapshot was created.
-     * </p>
-     */
-    private String fromInstanceName;
-    /**
-     * <p>
-     * The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was created.
-     * </p>
-     */
-    private String fromInstanceArn;
 
     /**
      * <p>
@@ -385,88 +366,6 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <a
-     * href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail Dev Guide</a>.
-     * </p>
-     * 
-     * @return The tag keys and optional values for the resource. For more information about tags in Lightsail, see the
-     *         <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail Dev
-     *         Guide</a>.
-     */
-
-    public java.util.List<Tag> getTags() {
-        return tags;
-    }
-
-    /**
-     * <p>
-     * The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <a
-     * href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail Dev Guide</a>.
-     * </p>
-     * 
-     * @param tags
-     *        The tag keys and optional values for the resource. For more information about tags in Lightsail, see the
-     *        <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail Dev
-     *        Guide</a>.
-     */
-
-    public void setTags(java.util.Collection<Tag> tags) {
-        if (tags == null) {
-            this.tags = null;
-            return;
-        }
-
-        this.tags = new java.util.ArrayList<Tag>(tags);
-    }
-
-    /**
-     * <p>
-     * The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <a
-     * href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail Dev Guide</a>.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setTags(java.util.Collection)} or {@link #withTags(java.util.Collection)} if you want to override the
-     * existing values.
-     * </p>
-     * 
-     * @param tags
-     *        The tag keys and optional values for the resource. For more information about tags in Lightsail, see the
-     *        <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail Dev
-     *        Guide</a>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DiskSnapshot withTags(Tag... tags) {
-        if (this.tags == null) {
-            setTags(new java.util.ArrayList<Tag>(tags.length));
-        }
-        for (Tag ele : tags) {
-            this.tags.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <a
-     * href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail Dev Guide</a>.
-     * </p>
-     * 
-     * @param tags
-     *        The tag keys and optional values for the resource. For more information about tags in Lightsail, see the
-     *        <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail Dev
-     *        Guide</a>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DiskSnapshot withTags(java.util.Collection<Tag> tags) {
-        setTags(tags);
-        return this;
-    }
-
-    /**
-     * <p>
      * The size of the disk in GB.
      * </p>
      * 
@@ -606,11 +505,11 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The unique name of the source disk from which the disk snapshot was created.
+     * The unique name of the source disk from which you are creating the disk snapshot.
      * </p>
      * 
      * @param fromDiskName
-     *        The unique name of the source disk from which the disk snapshot was created.
+     *        The unique name of the source disk from which you are creating the disk snapshot.
      */
 
     public void setFromDiskName(String fromDiskName) {
@@ -619,10 +518,10 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The unique name of the source disk from which the disk snapshot was created.
+     * The unique name of the source disk from which you are creating the disk snapshot.
      * </p>
      * 
-     * @return The unique name of the source disk from which the disk snapshot was created.
+     * @return The unique name of the source disk from which you are creating the disk snapshot.
      */
 
     public String getFromDiskName() {
@@ -631,11 +530,11 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The unique name of the source disk from which the disk snapshot was created.
+     * The unique name of the source disk from which you are creating the disk snapshot.
      * </p>
      * 
      * @param fromDiskName
-     *        The unique name of the source disk from which the disk snapshot was created.
+     *        The unique name of the source disk from which you are creating the disk snapshot.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -646,11 +545,11 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
+     * The Amazon Resource Name (ARN) of the source disk from which you are creating the disk snapshot.
      * </p>
      * 
      * @param fromDiskArn
-     *        The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
+     *        The Amazon Resource Name (ARN) of the source disk from which you are creating the disk snapshot.
      */
 
     public void setFromDiskArn(String fromDiskArn) {
@@ -659,10 +558,10 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
+     * The Amazon Resource Name (ARN) of the source disk from which you are creating the disk snapshot.
      * </p>
      * 
-     * @return The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
+     * @return The Amazon Resource Name (ARN) of the source disk from which you are creating the disk snapshot.
      */
 
     public String getFromDiskArn() {
@@ -671,11 +570,11 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
+     * The Amazon Resource Name (ARN) of the source disk from which you are creating the disk snapshot.
      * </p>
      * 
      * @param fromDiskArn
-     *        The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
+     *        The Amazon Resource Name (ARN) of the source disk from which you are creating the disk snapshot.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -685,91 +584,7 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The unique name of the source instance from which the disk (system volume) snapshot was created.
-     * </p>
-     * 
-     * @param fromInstanceName
-     *        The unique name of the source instance from which the disk (system volume) snapshot was created.
-     */
-
-    public void setFromInstanceName(String fromInstanceName) {
-        this.fromInstanceName = fromInstanceName;
-    }
-
-    /**
-     * <p>
-     * The unique name of the source instance from which the disk (system volume) snapshot was created.
-     * </p>
-     * 
-     * @return The unique name of the source instance from which the disk (system volume) snapshot was created.
-     */
-
-    public String getFromInstanceName() {
-        return this.fromInstanceName;
-    }
-
-    /**
-     * <p>
-     * The unique name of the source instance from which the disk (system volume) snapshot was created.
-     * </p>
-     * 
-     * @param fromInstanceName
-     *        The unique name of the source instance from which the disk (system volume) snapshot was created.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DiskSnapshot withFromInstanceName(String fromInstanceName) {
-        setFromInstanceName(fromInstanceName);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was created.
-     * </p>
-     * 
-     * @param fromInstanceArn
-     *        The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was
-     *        created.
-     */
-
-    public void setFromInstanceArn(String fromInstanceArn) {
-        this.fromInstanceArn = fromInstanceArn;
-    }
-
-    /**
-     * <p>
-     * The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was created.
-     * </p>
-     * 
-     * @return The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was
-     *         created.
-     */
-
-    public String getFromInstanceArn() {
-        return this.fromInstanceArn;
-    }
-
-    /**
-     * <p>
-     * The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was created.
-     * </p>
-     * 
-     * @param fromInstanceArn
-     *        The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was
-     *        created.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DiskSnapshot withFromInstanceArn(String fromInstanceArn) {
-        setFromInstanceArn(fromInstanceArn);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -791,8 +606,6 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
             sb.append("Location: ").append(getLocation()).append(",");
         if (getResourceType() != null)
             sb.append("ResourceType: ").append(getResourceType()).append(",");
-        if (getTags() != null)
-            sb.append("Tags: ").append(getTags()).append(",");
         if (getSizeInGb() != null)
             sb.append("SizeInGb: ").append(getSizeInGb()).append(",");
         if (getState() != null)
@@ -802,11 +615,7 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
         if (getFromDiskName() != null)
             sb.append("FromDiskName: ").append(getFromDiskName()).append(",");
         if (getFromDiskArn() != null)
-            sb.append("FromDiskArn: ").append(getFromDiskArn()).append(",");
-        if (getFromInstanceName() != null)
-            sb.append("FromInstanceName: ").append(getFromInstanceName()).append(",");
-        if (getFromInstanceArn() != null)
-            sb.append("FromInstanceArn: ").append(getFromInstanceArn());
+            sb.append("FromDiskArn: ").append(getFromDiskArn());
         sb.append("}");
         return sb.toString();
     }
@@ -845,10 +654,6 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getResourceType() != null && other.getResourceType().equals(this.getResourceType()) == false)
             return false;
-        if (other.getTags() == null ^ this.getTags() == null)
-            return false;
-        if (other.getTags() != null && other.getTags().equals(this.getTags()) == false)
-            return false;
         if (other.getSizeInGb() == null ^ this.getSizeInGb() == null)
             return false;
         if (other.getSizeInGb() != null && other.getSizeInGb().equals(this.getSizeInGb()) == false)
@@ -869,14 +674,6 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getFromDiskArn() != null && other.getFromDiskArn().equals(this.getFromDiskArn()) == false)
             return false;
-        if (other.getFromInstanceName() == null ^ this.getFromInstanceName() == null)
-            return false;
-        if (other.getFromInstanceName() != null && other.getFromInstanceName().equals(this.getFromInstanceName()) == false)
-            return false;
-        if (other.getFromInstanceArn() == null ^ this.getFromInstanceArn() == null)
-            return false;
-        if (other.getFromInstanceArn() != null && other.getFromInstanceArn().equals(this.getFromInstanceArn()) == false)
-            return false;
         return true;
     }
 
@@ -891,14 +688,11 @@ public class DiskSnapshot implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getCreatedAt() == null) ? 0 : getCreatedAt().hashCode());
         hashCode = prime * hashCode + ((getLocation() == null) ? 0 : getLocation().hashCode());
         hashCode = prime * hashCode + ((getResourceType() == null) ? 0 : getResourceType().hashCode());
-        hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         hashCode = prime * hashCode + ((getSizeInGb() == null) ? 0 : getSizeInGb().hashCode());
         hashCode = prime * hashCode + ((getState() == null) ? 0 : getState().hashCode());
         hashCode = prime * hashCode + ((getProgress() == null) ? 0 : getProgress().hashCode());
         hashCode = prime * hashCode + ((getFromDiskName() == null) ? 0 : getFromDiskName().hashCode());
         hashCode = prime * hashCode + ((getFromDiskArn() == null) ? 0 : getFromDiskArn().hashCode());
-        hashCode = prime * hashCode + ((getFromInstanceName() == null) ? 0 : getFromInstanceName().hashCode());
-        hashCode = prime * hashCode + ((getFromInstanceArn() == null) ? 0 : getFromInstanceArn().hashCode());
         return hashCode;
     }
 

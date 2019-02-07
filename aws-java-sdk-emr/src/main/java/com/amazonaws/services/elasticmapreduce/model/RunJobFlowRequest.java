@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -49,20 +49,31 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
     private String additionalInfo;
     /**
      * <p>
-     * Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     * <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     * For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the Linux AMI is determined by
+     * the <code>ReleaseLabel</code> specified or by <code>CustomAmiID</code>. The version of the Amazon Machine Image
+     * (AMI) to use when launching Amazon EC2 instances in the job flow. For details about the AMI versions currently
+     * supported in EMR version 3.x and 2.x, see <a
+     * href="emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI Versions Supported in EMR</a> in
+     * the <i>Amazon EMR Developer Guide</i>.
      * </p>
+     * <p>
+     * If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20), you
+     * can use the <a>JobFlowInstancesConfig</a> <code>HadoopVersion</code> parameter to modify the version of Hadoop
+     * from the defaults shown above.
+     * </p>
+     * <note>
+     * <p>
+     * Previously, the EMR AMI version API parameter options allowed you to use latest for the latest AMI version rather
+     * than specify a numerical value. Some regions no longer support this deprecated option as they only have a newer
+     * release label version of EMR, which requires you to specify an EMR release label release (EMR 4.x or later).
+     * </p>
+     * </note>
      */
     private String amiVersion;
     /**
      * <p>
-     * The Amazon EMR release label, which determines the version of open-source application packages installed on the
-     * cluster. Release labels are in the form <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version, for
-     * example, <code>emr-5.14.0</code>. For more information about Amazon EMR release versions and included application
-     * versions and features, see <a
-     * href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">http://docs.aws.amazon.com
-     * /emr/latest/ReleaseGuide/</a>. The release label applies only to Amazon EMR releases versions 4.x and later.
-     * Earlier versions use <code>AmiVersion</code>.
+     * The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use <code>AmiVersion</code>
+     * instead.
      * </p>
      */
     private String releaseLabel;
@@ -169,9 +180,8 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
     private com.amazonaws.internal.SdkInternalList<SupportedProductConfig> newSupportedProducts;
     /**
      * <p>
-     * Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install
-     * and configure when launching the cluster. For a list of applications available for each Amazon EMR release
-     * version, see the <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMR Release Guide</a>.
+     * For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: "Hadoop",
+     * "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<Application> applications;
@@ -430,13 +440,45 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     * <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     * For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the Linux AMI is determined by
+     * the <code>ReleaseLabel</code> specified or by <code>CustomAmiID</code>. The version of the Amazon Machine Image
+     * (AMI) to use when launching Amazon EC2 instances in the job flow. For details about the AMI versions currently
+     * supported in EMR version 3.x and 2.x, see <a
+     * href="emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI Versions Supported in EMR</a> in
+     * the <i>Amazon EMR Developer Guide</i>.
      * </p>
+     * <p>
+     * If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20), you
+     * can use the <a>JobFlowInstancesConfig</a> <code>HadoopVersion</code> parameter to modify the version of Hadoop
+     * from the defaults shown above.
+     * </p>
+     * <note>
+     * <p>
+     * Previously, the EMR AMI version API parameter options allowed you to use latest for the latest AMI version rather
+     * than specify a numerical value. Some regions no longer support this deprecated option as they only have a newer
+     * release label version of EMR, which requires you to specify an EMR release label release (EMR 4.x or later).
+     * </p>
+     * </note>
      * 
      * @param amiVersion
-     *        Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     *        <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     *        For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the Linux AMI is
+     *        determined by the <code>ReleaseLabel</code> specified or by <code>CustomAmiID</code>. The version of the
+     *        Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. For details about
+     *        the AMI versions currently supported in EMR version 3.x and 2.x, see <a
+     *        href="emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI Versions Supported in
+     *        EMR</a> in the <i>Amazon EMR Developer Guide</i>. </p>
+     *        <p>
+     *        If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20),
+     *        you can use the <a>JobFlowInstancesConfig</a> <code>HadoopVersion</code> parameter to modify the version
+     *        of Hadoop from the defaults shown above.
+     *        </p>
+     *        <note>
+     *        <p>
+     *        Previously, the EMR AMI version API parameter options allowed you to use latest for the latest AMI version
+     *        rather than specify a numerical value. Some regions no longer support this deprecated option as they only
+     *        have a newer release label version of EMR, which requires you to specify an EMR release label release (EMR
+     *        4.x or later).
+     *        </p>
      */
 
     public void setAmiVersion(String amiVersion) {
@@ -445,12 +487,44 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     * <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     * For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the Linux AMI is determined by
+     * the <code>ReleaseLabel</code> specified or by <code>CustomAmiID</code>. The version of the Amazon Machine Image
+     * (AMI) to use when launching Amazon EC2 instances in the job flow. For details about the AMI versions currently
+     * supported in EMR version 3.x and 2.x, see <a
+     * href="emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI Versions Supported in EMR</a> in
+     * the <i>Amazon EMR Developer Guide</i>.
      * </p>
+     * <p>
+     * If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20), you
+     * can use the <a>JobFlowInstancesConfig</a> <code>HadoopVersion</code> parameter to modify the version of Hadoop
+     * from the defaults shown above.
+     * </p>
+     * <note>
+     * <p>
+     * Previously, the EMR AMI version API parameter options allowed you to use latest for the latest AMI version rather
+     * than specify a numerical value. Some regions no longer support this deprecated option as they only have a newer
+     * release label version of EMR, which requires you to specify an EMR release label release (EMR 4.x or later).
+     * </p>
+     * </note>
      * 
-     * @return Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     *         <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     * @return For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the Linux AMI is
+     *         determined by the <code>ReleaseLabel</code> specified or by <code>CustomAmiID</code>. The version of the
+     *         Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. For details about
+     *         the AMI versions currently supported in EMR version 3.x and 2.x, see <a
+     *         href="emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI Versions Supported in
+     *         EMR</a> in the <i>Amazon EMR Developer Guide</i>. </p>
+     *         <p>
+     *         If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and
+     *         0.20), you can use the <a>JobFlowInstancesConfig</a> <code>HadoopVersion</code> parameter to modify the
+     *         version of Hadoop from the defaults shown above.
+     *         </p>
+     *         <note>
+     *         <p>
+     *         Previously, the EMR AMI version API parameter options allowed you to use latest for the latest AMI
+     *         version rather than specify a numerical value. Some regions no longer support this deprecated option as
+     *         they only have a newer release label version of EMR, which requires you to specify an EMR release label
+     *         release (EMR 4.x or later).
+     *         </p>
      */
 
     public String getAmiVersion() {
@@ -459,13 +533,45 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     * <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     * For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the Linux AMI is determined by
+     * the <code>ReleaseLabel</code> specified or by <code>CustomAmiID</code>. The version of the Amazon Machine Image
+     * (AMI) to use when launching Amazon EC2 instances in the job flow. For details about the AMI versions currently
+     * supported in EMR version 3.x and 2.x, see <a
+     * href="emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI Versions Supported in EMR</a> in
+     * the <i>Amazon EMR Developer Guide</i>.
      * </p>
+     * <p>
+     * If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20), you
+     * can use the <a>JobFlowInstancesConfig</a> <code>HadoopVersion</code> parameter to modify the version of Hadoop
+     * from the defaults shown above.
+     * </p>
+     * <note>
+     * <p>
+     * Previously, the EMR AMI version API parameter options allowed you to use latest for the latest AMI version rather
+     * than specify a numerical value. Some regions no longer support this deprecated option as they only have a newer
+     * release label version of EMR, which requires you to specify an EMR release label release (EMR 4.x or later).
+     * </p>
+     * </note>
      * 
      * @param amiVersion
-     *        Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later,
-     *        <code>ReleaseLabel</code> is used. To specify a custom AMI, use <code>CustomAmiID</code>.
+     *        For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the Linux AMI is
+     *        determined by the <code>ReleaseLabel</code> specified or by <code>CustomAmiID</code>. The version of the
+     *        Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. For details about
+     *        the AMI versions currently supported in EMR version 3.x and 2.x, see <a
+     *        href="emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI Versions Supported in
+     *        EMR</a> in the <i>Amazon EMR Developer Guide</i>. </p>
+     *        <p>
+     *        If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20),
+     *        you can use the <a>JobFlowInstancesConfig</a> <code>HadoopVersion</code> parameter to modify the version
+     *        of Hadoop from the defaults shown above.
+     *        </p>
+     *        <note>
+     *        <p>
+     *        Previously, the EMR AMI version API parameter options allowed you to use latest for the latest AMI version
+     *        rather than specify a numerical value. Some regions no longer support this deprecated option as they only
+     *        have a newer release label version of EMR, which requires you to specify an EMR release label release (EMR
+     *        4.x or later).
+     *        </p>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -476,23 +582,13 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The Amazon EMR release label, which determines the version of open-source application packages installed on the
-     * cluster. Release labels are in the form <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version, for
-     * example, <code>emr-5.14.0</code>. For more information about Amazon EMR release versions and included application
-     * versions and features, see <a
-     * href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">http://docs.aws.amazon.com
-     * /emr/latest/ReleaseGuide/</a>. The release label applies only to Amazon EMR releases versions 4.x and later.
-     * Earlier versions use <code>AmiVersion</code>.
+     * The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use <code>AmiVersion</code>
+     * instead.
      * </p>
      * 
      * @param releaseLabel
-     *        The Amazon EMR release label, which determines the version of open-source application packages installed
-     *        on the cluster. Release labels are in the form <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR
-     *        release version, for example, <code>emr-5.14.0</code>. For more information about Amazon EMR release
-     *        versions and included application versions and features, see <a
-     *        href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/"
-     *        >http://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>. The release label applies only to Amazon EMR
-     *        releases versions 4.x and later. Earlier versions use <code>AmiVersion</code>.
+     *        The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use <code>AmiVersion</code>
+     *        instead.
      */
 
     public void setReleaseLabel(String releaseLabel) {
@@ -501,22 +597,12 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The Amazon EMR release label, which determines the version of open-source application packages installed on the
-     * cluster. Release labels are in the form <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version, for
-     * example, <code>emr-5.14.0</code>. For more information about Amazon EMR release versions and included application
-     * versions and features, see <a
-     * href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">http://docs.aws.amazon.com
-     * /emr/latest/ReleaseGuide/</a>. The release label applies only to Amazon EMR releases versions 4.x and later.
-     * Earlier versions use <code>AmiVersion</code>.
+     * The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use <code>AmiVersion</code>
+     * instead.
      * </p>
      * 
-     * @return The Amazon EMR release label, which determines the version of open-source application packages installed
-     *         on the cluster. Release labels are in the form <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR
-     *         release version, for example, <code>emr-5.14.0</code>. For more information about Amazon EMR release
-     *         versions and included application versions and features, see <a
-     *         href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/"
-     *         >http://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>. The release label applies only to Amazon EMR
-     *         releases versions 4.x and later. Earlier versions use <code>AmiVersion</code>.
+     * @return The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use
+     *         <code>AmiVersion</code> instead.
      */
 
     public String getReleaseLabel() {
@@ -525,23 +611,13 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The Amazon EMR release label, which determines the version of open-source application packages installed on the
-     * cluster. Release labels are in the form <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version, for
-     * example, <code>emr-5.14.0</code>. For more information about Amazon EMR release versions and included application
-     * versions and features, see <a
-     * href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">http://docs.aws.amazon.com
-     * /emr/latest/ReleaseGuide/</a>. The release label applies only to Amazon EMR releases versions 4.x and later.
-     * Earlier versions use <code>AmiVersion</code>.
+     * The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use <code>AmiVersion</code>
+     * instead.
      * </p>
      * 
      * @param releaseLabel
-     *        The Amazon EMR release label, which determines the version of open-source application packages installed
-     *        on the cluster. Release labels are in the form <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR
-     *        release version, for example, <code>emr-5.14.0</code>. For more information about Amazon EMR release
-     *        versions and included application versions and features, see <a
-     *        href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/"
-     *        >http://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>. The release label applies only to Amazon EMR
-     *        releases versions 4.x and later. Earlier versions use <code>AmiVersion</code>.
+     *        The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use <code>AmiVersion</code>
+     *        instead.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1456,15 +1532,12 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install
-     * and configure when launching the cluster. For a list of applications available for each Amazon EMR release
-     * version, see the <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMR Release Guide</a>.
+     * For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: "Hadoop",
+     * "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
      * </p>
      * 
-     * @return Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to
-     *         install and configure when launching the cluster. For a list of applications available for each Amazon
-     *         EMR release version, see the <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMR
-     *         Release Guide</a>.
+     * @return For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are:
+     *         "Hadoop", "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
      */
 
     public java.util.List<Application> getApplications() {
@@ -1476,16 +1549,13 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install
-     * and configure when launching the cluster. For a list of applications available for each Amazon EMR release
-     * version, see the <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMR Release Guide</a>.
+     * For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: "Hadoop",
+     * "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
      * </p>
      * 
      * @param applications
-     *        Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to
-     *        install and configure when launching the cluster. For a list of applications available for each Amazon EMR
-     *        release version, see the <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMR Release
-     *        Guide</a>.
+     *        For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: "Hadoop",
+     *        "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
      */
 
     public void setApplications(java.util.Collection<Application> applications) {
@@ -1499,9 +1569,8 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install
-     * and configure when launching the cluster. For a list of applications available for each Amazon EMR release
-     * version, see the <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMR Release Guide</a>.
+     * For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: "Hadoop",
+     * "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -1510,10 +1579,8 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * </p>
      * 
      * @param applications
-     *        Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to
-     *        install and configure when launching the cluster. For a list of applications available for each Amazon EMR
-     *        release version, see the <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMR Release
-     *        Guide</a>.
+     *        For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: "Hadoop",
+     *        "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1529,16 +1596,13 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install
-     * and configure when launching the cluster. For a list of applications available for each Amazon EMR release
-     * version, see the <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMR Release Guide</a>.
+     * For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: "Hadoop",
+     * "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
      * </p>
      * 
      * @param applications
-     *        Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to
-     *        install and configure when launching the cluster. For a list of applications available for each Amazon EMR
-     *        release version, see the <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMR Release
-     *        Guide</a>.
+     *        For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: "Hadoop",
+     *        "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -2432,8 +2496,7 @@ public class RunJobFlowRequest extends com.amazonaws.AmazonWebServiceRequest imp
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

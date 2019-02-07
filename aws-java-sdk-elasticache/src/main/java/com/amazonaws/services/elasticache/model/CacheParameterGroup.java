@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -38,7 +38,7 @@ public class CacheParameterGroup implements Serializable, Cloneable {
      * </p>
      * <p>
      * Valid values are: <code>memcached1.4</code> | <code>redis2.6</code> | <code>redis2.8</code> |
-     * <code>redis3.2</code> | <code>redis4.0</code>
+     * <code>redis3.2</code>
      * </p>
      */
     private String cacheParameterGroupFamily;
@@ -95,14 +95,14 @@ public class CacheParameterGroup implements Serializable, Cloneable {
      * </p>
      * <p>
      * Valid values are: <code>memcached1.4</code> | <code>redis2.6</code> | <code>redis2.8</code> |
-     * <code>redis3.2</code> | <code>redis4.0</code>
+     * <code>redis3.2</code>
      * </p>
      * 
      * @param cacheParameterGroupFamily
      *        The name of the cache parameter group family that this cache parameter group is compatible with.</p>
      *        <p>
      *        Valid values are: <code>memcached1.4</code> | <code>redis2.6</code> | <code>redis2.8</code> |
-     *        <code>redis3.2</code> | <code>redis4.0</code>
+     *        <code>redis3.2</code>
      */
 
     public void setCacheParameterGroupFamily(String cacheParameterGroupFamily) {
@@ -115,13 +115,13 @@ public class CacheParameterGroup implements Serializable, Cloneable {
      * </p>
      * <p>
      * Valid values are: <code>memcached1.4</code> | <code>redis2.6</code> | <code>redis2.8</code> |
-     * <code>redis3.2</code> | <code>redis4.0</code>
+     * <code>redis3.2</code>
      * </p>
      * 
      * @return The name of the cache parameter group family that this cache parameter group is compatible with.</p>
      *         <p>
      *         Valid values are: <code>memcached1.4</code> | <code>redis2.6</code> | <code>redis2.8</code> |
-     *         <code>redis3.2</code> | <code>redis4.0</code>
+     *         <code>redis3.2</code>
      */
 
     public String getCacheParameterGroupFamily() {
@@ -134,14 +134,14 @@ public class CacheParameterGroup implements Serializable, Cloneable {
      * </p>
      * <p>
      * Valid values are: <code>memcached1.4</code> | <code>redis2.6</code> | <code>redis2.8</code> |
-     * <code>redis3.2</code> | <code>redis4.0</code>
+     * <code>redis3.2</code>
      * </p>
      * 
      * @param cacheParameterGroupFamily
      *        The name of the cache parameter group family that this cache parameter group is compatible with.</p>
      *        <p>
      *        Valid values are: <code>memcached1.4</code> | <code>redis2.6</code> | <code>redis2.8</code> |
-     *        <code>redis3.2</code> | <code>redis4.0</code>
+     *        <code>redis3.2</code>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -191,8 +191,7 @@ public class CacheParameterGroup implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

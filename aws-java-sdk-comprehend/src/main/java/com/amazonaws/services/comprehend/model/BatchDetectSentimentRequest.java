@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -34,8 +34,7 @@ public class BatchDetectSentimentRequest extends com.amazonaws.AmazonWebServiceR
     private java.util.List<String> textList;
     /**
      * <p>
-     * The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in
-     * the same language.
+     * The language of the input documents. All documents must be in the same language.
      * </p>
      */
     private String languageCode;
@@ -120,14 +119,11 @@ public class BatchDetectSentimentRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in
-     * the same language.
+     * The language of the input documents. All documents must be in the same language.
      * </p>
      * 
      * @param languageCode
-     *        The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must
-     *        be in the same language.
-     * @see LanguageCode
+     *        The language of the input documents. All documents must be in the same language.
      */
 
     public void setLanguageCode(String languageCode) {
@@ -136,13 +132,10 @@ public class BatchDetectSentimentRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in
-     * the same language.
+     * The language of the input documents. All documents must be in the same language.
      * </p>
      * 
-     * @return The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must
-     *         be in the same language.
-     * @see LanguageCode
+     * @return The language of the input documents. All documents must be in the same language.
      */
 
     public String getLanguageCode() {
@@ -151,15 +144,12 @@ public class BatchDetectSentimentRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in
-     * the same language.
+     * The language of the input documents. All documents must be in the same language.
      * </p>
      * 
      * @param languageCode
-     *        The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must
-     *        be in the same language.
+     *        The language of the input documents. All documents must be in the same language.
      * @return Returns a reference to this object so that method calls can be chained together.
-     * @see LanguageCode
      */
 
     public BatchDetectSentimentRequest withLanguageCode(String languageCode) {
@@ -168,26 +158,7 @@ public class BatchDetectSentimentRequest extends com.amazonaws.AmazonWebServiceR
     }
 
     /**
-     * <p>
-     * The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in
-     * the same language.
-     * </p>
-     * 
-     * @param languageCode
-     *        The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must
-     *        be in the same language.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see LanguageCode
-     */
-
-    public BatchDetectSentimentRequest withLanguageCode(LanguageCode languageCode) {
-        this.languageCode = languageCode.toString();
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -98,14 +98,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * <li>
  * <p>
  * <code>WindowsServer2016</code>
- * </p>
- * </li>
- * <li>
- * <p>
- * <code>*</code>
- * </p>
- * <p>
- * <i>Use a wildcard character (*) to target all supported operating system versions.</i>
  * </p>
  * </li>
  * </ul>
@@ -224,14 +216,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * <code>Ubuntu16.04</code>
  * </p>
  * </li>
- * <li>
- * <p>
- * <code>*</code>
- * </p>
- * <p>
- * <i>Use a wildcard character (*) to target all supported operating system versions.</i>
- * </p>
- * </li>
  * </ul>
  * <p>
  * <i>Supported key:</i> <code>PRIORITY</code>
@@ -344,108 +328,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * <li>
  * <p>
  * <code>AmazonLinux2017.09</code>
- * </p>
- * </li>
- * <li>
- * <p>
- * <code>*</code>
- * </p>
- * <p>
- * <i>Use a wildcard character (*) to target all supported operating system versions.</i>
- * </p>
- * </li>
- * </ul>
- * <p>
- * <i>Supported key:</i> <code>CLASSIFICATION</code>
- * </p>
- * <p>
- * <i>Supported values:</i>
- * </p>
- * <ul>
- * <li>
- * <p>
- * <code>Security</code>
- * </p>
- * </li>
- * <li>
- * <p>
- * <code>Bugfix</code>
- * </p>
- * </li>
- * <li>
- * <p>
- * <code>Enhancement</code>
- * </p>
- * </li>
- * <li>
- * <p>
- * <code>Recommended</code>
- * </p>
- * </li>
- * <li>
- * <p>
- * <code>Newpackage</code>
- * </p>
- * </li>
- * </ul>
- * <p>
- * <i>Supported key:</i> <code>SEVERITY</code>
- * </p>
- * <p>
- * <i>Supported values:</i>
- * </p>
- * <ul>
- * <li>
- * <p>
- * <code>Critical</code>
- * </p>
- * </li>
- * <li>
- * <p>
- * <code>Important</code>
- * </p>
- * </li>
- * <li>
- * <p>
- * <code>Medium</code>
- * </p>
- * </li>
- * <li>
- * <p>
- * <code>Low</code>
- * </p>
- * </li>
- * </ul>
- * <p>
- * <b>Amazon Linux 2 Operating Systems</b>
- * </p>
- * <p>
- * The supported keys for Amazon Linux 2 operating systems are <code>PRODUCT</code>, <code>CLASSIFICATION</code>, and
- * <code>SEVERITY</code>. See the following lists for valid values for each of these keys.
- * </p>
- * <p>
- * <i>Supported key:</i> <code>PRODUCT</code>
- * </p>
- * <p>
- * <i>Supported values:</i>
- * </p>
- * <ul>
- * <li>
- * <p>
- * <code>AmazonLinux2</code>
- * </p>
- * </li>
- * <li>
- * <p>
- * <code>AmazonLinux2.0</code>
- * </p>
- * </li>
- * <li>
- * <p>
- * <code>*</code>
- * </p>
- * <p>
- * <i>Use a wildcard character (*) to target all supported operating system versions.</i>
  * </p>
  * </li>
  * </ul>
@@ -575,14 +457,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * <code>RedhatEnterpriseLinux7.4</code>
  * </p>
  * </li>
- * <li>
- * <p>
- * <code>*</code>
- * </p>
- * <p>
- * <i>Use a wildcard character (*) to target all supported operating system versions.</i>
- * </p>
- * </li>
  * </ul>
  * <p>
  * <i>Supported key:</i> <code>CLASSIFICATION</code>
@@ -707,14 +581,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * <li>
  * <p>
  * <code>Suse12.9</code>
- * </p>
- * </li>
- * <li>
- * <p>
- * <code>*</code>
- * </p>
- * <p>
- * <i>Use a wildcard character (*) to target all supported operating system versions.</i>
  * </p>
  * </li>
  * </ul>
@@ -846,14 +712,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * <li>
  * <p>
  * <code>CentOS7.4</code>
- * </p>
- * </li>
- * <li>
- * <p>
- * <code>*</code>
- * </p>
- * <p>
- * <i>Use a wildcard character (*) to target all supported operating system versions.</i>
  * </p>
  * </li>
  * </ul>
@@ -1136,8 +994,7 @@ public class PatchFilter implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

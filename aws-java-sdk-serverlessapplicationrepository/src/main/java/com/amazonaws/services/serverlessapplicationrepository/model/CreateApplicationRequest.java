@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * The name of the author publishing the app.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=127.
+     * Min Length=1. Max Length=127.
      * </p>
      * <p>
      * Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
@@ -42,7 +42,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * The description of the application.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=256
+     * Min Length=1. Max Length=256
      * </p>
      */
     private String description;
@@ -58,7 +58,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * Labels to improve discovery of apps in search results.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=127. Maximum number of labels: 10
+     * Min Length=1. Max Length=127. Maximum number of labels: 10
      * </p>
      * <p>
      * Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
@@ -67,36 +67,28 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
     private java.util.List<String> labels;
     /**
      * <p>
-     * A local text file that contains the license of the app that matches the spdxLicenseID value of your application.
-     * The file has the format file://&lt;path>/&lt;filename>.
+     * A raw text file that contains the license of the app that matches the spdxLicenseID of your application.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      */
     private String licenseBody;
     /**
      * <p>
-     * A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your
-     * application.
+     * A link to a license file of the app that matches the spdxLicenseID of your application.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      */
     private String licenseUrl;
     /**
      * <p>
-     * The name of the application that you want to publish.
+     * The name of the application you want to publish.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=140
+     * Min Length=1. Max Length=140
      * </p>
      * <p>
      * Pattern: "[a-zA-Z0-9\\-]+";
@@ -105,27 +97,21 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
     private String name;
     /**
      * <p>
-     * A local text readme file in Markdown language that contains a more detailed description of the application and
-     * how it works. The file has the format file://&lt;path>/&lt;filename>.
+     * A raw text Readme file that contains a more detailed description of the application and how it works in markdown
+     * language.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      */
     private String readmeBody;
     /**
      * <p>
-     * A link to the S3 object in Markdown language that contains a more detailed description of the application and how
-     * it works.
+     * A link to the Readme file that contains a more detailed description of the application and how it works in
+     * markdown language.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      */
     private String readmeUrl;
@@ -152,20 +138,13 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
     private String spdxLicenseId;
     /**
      * <p>
-     * The local raw packaged AWS SAM template file of your application. The file has the format
-     * file://&lt;path>/&lt;filename>.
-     * </p>
-     * <p>
-     * You can specify only one of templateBody and templateUrl; otherwise an error results.
+     * The raw packaged AWS SAM template of your application.
      * </p>
      */
     private String templateBody;
     /**
      * <p>
-     * A link to the S3 object containing the packaged AWS SAM template of your application.
-     * </p>
-     * <p>
-     * You can specify only one of templateBody and templateUrl; otherwise an error results.
+     * A link to the packaged AWS SAM template of your application.
      * </p>
      */
     private String templateUrl;
@@ -175,7 +154,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * The name of the author publishing the app.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=127.
+     * Min Length=1. Max Length=127.
      * </p>
      * <p>
      * Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
@@ -184,7 +163,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * @param author
      *        The name of the author publishing the app.</p>
      *        <p>
-     *        Minimum length=1. Maximum length=127.
+     *        Min Length=1. Max Length=127.
      *        </p>
      *        <p>
      *        Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
@@ -199,7 +178,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * The name of the author publishing the app.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=127.
+     * Min Length=1. Max Length=127.
      * </p>
      * <p>
      * Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
@@ -207,7 +186,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * 
      * @return The name of the author publishing the app.</p>
      *         <p>
-     *         Minimum length=1. Maximum length=127.
+     *         Min Length=1. Max Length=127.
      *         </p>
      *         <p>
      *         Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
@@ -222,7 +201,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * The name of the author publishing the app.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=127.
+     * Min Length=1. Max Length=127.
      * </p>
      * <p>
      * Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
@@ -231,7 +210,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * @param author
      *        The name of the author publishing the app.</p>
      *        <p>
-     *        Minimum length=1. Maximum length=127.
+     *        Min Length=1. Max Length=127.
      *        </p>
      *        <p>
      *        Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
@@ -248,13 +227,13 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * The description of the application.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=256
+     * Min Length=1. Max Length=256
      * </p>
      * 
      * @param description
      *        The description of the application.</p>
      *        <p>
-     *        Minimum length=1. Maximum length=256
+     *        Min Length=1. Max Length=256
      */
 
     public void setDescription(String description) {
@@ -266,12 +245,12 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * The description of the application.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=256
+     * Min Length=1. Max Length=256
      * </p>
      * 
      * @return The description of the application.</p>
      *         <p>
-     *         Minimum length=1. Maximum length=256
+     *         Min Length=1. Max Length=256
      */
 
     public String getDescription() {
@@ -283,13 +262,13 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * The description of the application.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=256
+     * Min Length=1. Max Length=256
      * </p>
      * 
      * @param description
      *        The description of the application.</p>
      *        <p>
-     *        Minimum length=1. Maximum length=256
+     *        Min Length=1. Max Length=256
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -349,7 +328,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * Labels to improve discovery of apps in search results.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=127. Maximum number of labels: 10
+     * Min Length=1. Max Length=127. Maximum number of labels: 10
      * </p>
      * <p>
      * Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
@@ -357,7 +336,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * 
      * @return Labels to improve discovery of apps in search results.</p>
      *         <p>
-     *         Minimum length=1. Maximum length=127. Maximum number of labels: 10
+     *         Min Length=1. Max Length=127. Maximum number of labels: 10
      *         </p>
      *         <p>
      *         Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
@@ -372,7 +351,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * Labels to improve discovery of apps in search results.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=127. Maximum number of labels: 10
+     * Min Length=1. Max Length=127. Maximum number of labels: 10
      * </p>
      * <p>
      * Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
@@ -381,7 +360,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * @param labels
      *        Labels to improve discovery of apps in search results.</p>
      *        <p>
-     *        Minimum length=1. Maximum length=127. Maximum number of labels: 10
+     *        Min Length=1. Max Length=127. Maximum number of labels: 10
      *        </p>
      *        <p>
      *        Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
@@ -401,7 +380,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * Labels to improve discovery of apps in search results.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=127. Maximum number of labels: 10
+     * Min Length=1. Max Length=127. Maximum number of labels: 10
      * </p>
      * <p>
      * Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
@@ -415,7 +394,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * @param labels
      *        Labels to improve discovery of apps in search results.</p>
      *        <p>
-     *        Minimum length=1. Maximum length=127. Maximum number of labels: 10
+     *        Min Length=1. Max Length=127. Maximum number of labels: 10
      *        </p>
      *        <p>
      *        Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
@@ -437,7 +416,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * Labels to improve discovery of apps in search results.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=127. Maximum number of labels: 10
+     * Min Length=1. Max Length=127. Maximum number of labels: 10
      * </p>
      * <p>
      * Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
@@ -446,7 +425,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
      * @param labels
      *        Labels to improve discovery of apps in search results.</p>
      *        <p>
-     *        Minimum length=1. Maximum length=127. Maximum number of labels: 10
+     *        Min Length=1. Max Length=127. Maximum number of labels: 10
      *        </p>
      *        <p>
      *        Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
@@ -460,24 +439,17 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A local text file that contains the license of the app that matches the spdxLicenseID value of your application.
-     * The file has the format file://&lt;path>/&lt;filename>.
+     * A raw text file that contains the license of the app that matches the spdxLicenseID of your application.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      * 
      * @param licenseBody
-     *        A local text file that contains the license of the app that matches the spdxLicenseID value of your
-     *        application. The file has the format file://&lt;path>/&lt;filename>.</p>
+     *        A raw text file that contains the license of the app that matches the spdxLicenseID of your
+     *        application.</p>
      *        <p>
-     *        Maximum size 5 MB
-     *        </p>
-     *        <p>
-     *        You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     *        Max size 5 MB
      */
 
     public void setLicenseBody(String licenseBody) {
@@ -486,23 +458,16 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A local text file that contains the license of the app that matches the spdxLicenseID value of your application.
-     * The file has the format file://&lt;path>/&lt;filename>.
+     * A raw text file that contains the license of the app that matches the spdxLicenseID of your application.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      * 
-     * @return A local text file that contains the license of the app that matches the spdxLicenseID value of your
-     *         application. The file has the format file://&lt;path>/&lt;filename>.</p>
+     * @return A raw text file that contains the license of the app that matches the spdxLicenseID of your
+     *         application.</p>
      *         <p>
-     *         Maximum size 5 MB
-     *         </p>
-     *         <p>
-     *         You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     *         Max size 5 MB
      */
 
     public String getLicenseBody() {
@@ -511,24 +476,17 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A local text file that contains the license of the app that matches the spdxLicenseID value of your application.
-     * The file has the format file://&lt;path>/&lt;filename>.
+     * A raw text file that contains the license of the app that matches the spdxLicenseID of your application.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      * 
      * @param licenseBody
-     *        A local text file that contains the license of the app that matches the spdxLicenseID value of your
-     *        application. The file has the format file://&lt;path>/&lt;filename>.</p>
+     *        A raw text file that contains the license of the app that matches the spdxLicenseID of your
+     *        application.</p>
      *        <p>
-     *        Maximum size 5 MB
-     *        </p>
-     *        <p>
-     *        You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     *        Max size 5 MB
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -539,24 +497,16 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your
-     * application.
+     * A link to a license file of the app that matches the spdxLicenseID of your application.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      * 
      * @param licenseUrl
-     *        A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your
-     *        application.</p>
+     *        A link to a license file of the app that matches the spdxLicenseID of your application.</p>
      *        <p>
-     *        Maximum size 5 MB
-     *        </p>
-     *        <p>
-     *        You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     *        Max size 5 MB
      */
 
     public void setLicenseUrl(String licenseUrl) {
@@ -565,23 +515,15 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your
-     * application.
+     * A link to a license file of the app that matches the spdxLicenseID of your application.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      * 
-     * @return A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your
-     *         application.</p>
+     * @return A link to a license file of the app that matches the spdxLicenseID of your application.</p>
      *         <p>
-     *         Maximum size 5 MB
-     *         </p>
-     *         <p>
-     *         You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     *         Max size 5 MB
      */
 
     public String getLicenseUrl() {
@@ -590,24 +532,16 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your
-     * application.
+     * A link to a license file of the app that matches the spdxLicenseID of your application.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      * 
      * @param licenseUrl
-     *        A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your
-     *        application.</p>
+     *        A link to a license file of the app that matches the spdxLicenseID of your application.</p>
      *        <p>
-     *        Maximum size 5 MB
-     *        </p>
-     *        <p>
-     *        You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+     *        Max size 5 MB
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -618,19 +552,19 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * The name of the application that you want to publish.
+     * The name of the application you want to publish.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=140
+     * Min Length=1. Max Length=140
      * </p>
      * <p>
      * Pattern: "[a-zA-Z0-9\\-]+";
      * </p>
      * 
      * @param name
-     *        The name of the application that you want to publish.</p>
+     *        The name of the application you want to publish.</p>
      *        <p>
-     *        Minimum length=1. Maximum length=140
+     *        Min Length=1. Max Length=140
      *        </p>
      *        <p>
      *        Pattern: "[a-zA-Z0-9\\-]+";
@@ -642,18 +576,18 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * The name of the application that you want to publish.
+     * The name of the application you want to publish.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=140
+     * Min Length=1. Max Length=140
      * </p>
      * <p>
      * Pattern: "[a-zA-Z0-9\\-]+";
      * </p>
      * 
-     * @return The name of the application that you want to publish.</p>
+     * @return The name of the application you want to publish.</p>
      *         <p>
-     *         Minimum length=1. Maximum length=140
+     *         Min Length=1. Max Length=140
      *         </p>
      *         <p>
      *         Pattern: "[a-zA-Z0-9\\-]+";
@@ -665,19 +599,19 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * The name of the application that you want to publish.
+     * The name of the application you want to publish.
      * </p>
      * <p>
-     * Minimum length=1. Maximum length=140
+     * Min Length=1. Max Length=140
      * </p>
      * <p>
      * Pattern: "[a-zA-Z0-9\\-]+";
      * </p>
      * 
      * @param name
-     *        The name of the application that you want to publish.</p>
+     *        The name of the application you want to publish.</p>
      *        <p>
-     *        Minimum length=1. Maximum length=140
+     *        Min Length=1. Max Length=140
      *        </p>
      *        <p>
      *        Pattern: "[a-zA-Z0-9\\-]+";
@@ -691,24 +625,18 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A local text readme file in Markdown language that contains a more detailed description of the application and
-     * how it works. The file has the format file://&lt;path>/&lt;filename>.
+     * A raw text Readme file that contains a more detailed description of the application and how it works in markdown
+     * language.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      * 
      * @param readmeBody
-     *        A local text readme file in Markdown language that contains a more detailed description of the application
-     *        and how it works. The file has the format file://&lt;path>/&lt;filename>.</p>
+     *        A raw text Readme file that contains a more detailed description of the application and how it works in
+     *        markdown language.</p>
      *        <p>
-     *        Maximum size 5 MB
-     *        </p>
-     *        <p>
-     *        You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     *        Max size 5 MB
      */
 
     public void setReadmeBody(String readmeBody) {
@@ -717,23 +645,17 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A local text readme file in Markdown language that contains a more detailed description of the application and
-     * how it works. The file has the format file://&lt;path>/&lt;filename>.
+     * A raw text Readme file that contains a more detailed description of the application and how it works in markdown
+     * language.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      * 
-     * @return A local text readme file in Markdown language that contains a more detailed description of the
-     *         application and how it works. The file has the format file://&lt;path>/&lt;filename>.</p>
+     * @return A raw text Readme file that contains a more detailed description of the application and how it works in
+     *         markdown language.</p>
      *         <p>
-     *         Maximum size 5 MB
-     *         </p>
-     *         <p>
-     *         You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     *         Max size 5 MB
      */
 
     public String getReadmeBody() {
@@ -742,24 +664,18 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A local text readme file in Markdown language that contains a more detailed description of the application and
-     * how it works. The file has the format file://&lt;path>/&lt;filename>.
+     * A raw text Readme file that contains a more detailed description of the application and how it works in markdown
+     * language.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      * 
      * @param readmeBody
-     *        A local text readme file in Markdown language that contains a more detailed description of the application
-     *        and how it works. The file has the format file://&lt;path>/&lt;filename>.</p>
+     *        A raw text Readme file that contains a more detailed description of the application and how it works in
+     *        markdown language.</p>
      *        <p>
-     *        Maximum size 5 MB
-     *        </p>
-     *        <p>
-     *        You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     *        Max size 5 MB
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -770,24 +686,18 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A link to the S3 object in Markdown language that contains a more detailed description of the application and how
-     * it works.
+     * A link to the Readme file that contains a more detailed description of the application and how it works in
+     * markdown language.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      * 
      * @param readmeUrl
-     *        A link to the S3 object in Markdown language that contains a more detailed description of the application
-     *        and how it works.</p>
+     *        A link to the Readme file that contains a more detailed description of the application and how it works in
+     *        markdown language.</p>
      *        <p>
-     *        Maximum size 5 MB
-     *        </p>
-     *        <p>
-     *        You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     *        Max size 5 MB
      */
 
     public void setReadmeUrl(String readmeUrl) {
@@ -796,23 +706,17 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A link to the S3 object in Markdown language that contains a more detailed description of the application and how
-     * it works.
+     * A link to the Readme file that contains a more detailed description of the application and how it works in
+     * markdown language.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      * 
-     * @return A link to the S3 object in Markdown language that contains a more detailed description of the application
-     *         and how it works.</p>
+     * @return A link to the Readme file that contains a more detailed description of the application and how it works
+     *         in markdown language.</p>
      *         <p>
-     *         Maximum size 5 MB
-     *         </p>
-     *         <p>
-     *         You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     *         Max size 5 MB
      */
 
     public String getReadmeUrl() {
@@ -821,24 +725,18 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A link to the S3 object in Markdown language that contains a more detailed description of the application and how
-     * it works.
+     * A link to the Readme file that contains a more detailed description of the application and how it works in
+     * markdown language.
      * </p>
      * <p>
-     * Maximum size 5 MB
-     * </p>
-     * <p>
-     * You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     * Max size 5 MB
      * </p>
      * 
      * @param readmeUrl
-     *        A link to the S3 object in Markdown language that contains a more detailed description of the application
-     *        and how it works.</p>
+     *        A link to the Readme file that contains a more detailed description of the application and how it works in
+     *        markdown language.</p>
      *        <p>
-     *        Maximum size 5 MB
-     *        </p>
-     *        <p>
-     *        You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+     *        Max size 5 MB
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -984,18 +882,11 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * The local raw packaged AWS SAM template file of your application. The file has the format
-     * file://&lt;path>/&lt;filename>.
-     * </p>
-     * <p>
-     * You can specify only one of templateBody and templateUrl; otherwise an error results.
+     * The raw packaged AWS SAM template of your application.
      * </p>
      * 
      * @param templateBody
-     *        The local raw packaged AWS SAM template file of your application. The file has the format
-     *        file://&lt;path>/&lt;filename>.</p>
-     *        <p>
-     *        You can specify only one of templateBody and templateUrl; otherwise an error results.
+     *        The raw packaged AWS SAM template of your application.
      */
 
     public void setTemplateBody(String templateBody) {
@@ -1004,17 +895,10 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * The local raw packaged AWS SAM template file of your application. The file has the format
-     * file://&lt;path>/&lt;filename>.
-     * </p>
-     * <p>
-     * You can specify only one of templateBody and templateUrl; otherwise an error results.
+     * The raw packaged AWS SAM template of your application.
      * </p>
      * 
-     * @return The local raw packaged AWS SAM template file of your application. The file has the format
-     *         file://&lt;path>/&lt;filename>.</p>
-     *         <p>
-     *         You can specify only one of templateBody and templateUrl; otherwise an error results.
+     * @return The raw packaged AWS SAM template of your application.
      */
 
     public String getTemplateBody() {
@@ -1023,18 +907,11 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * The local raw packaged AWS SAM template file of your application. The file has the format
-     * file://&lt;path>/&lt;filename>.
-     * </p>
-     * <p>
-     * You can specify only one of templateBody and templateUrl; otherwise an error results.
+     * The raw packaged AWS SAM template of your application.
      * </p>
      * 
      * @param templateBody
-     *        The local raw packaged AWS SAM template file of your application. The file has the format
-     *        file://&lt;path>/&lt;filename>.</p>
-     *        <p>
-     *        You can specify only one of templateBody and templateUrl; otherwise an error results.
+     *        The raw packaged AWS SAM template of your application.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1045,16 +922,11 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A link to the S3 object containing the packaged AWS SAM template of your application.
-     * </p>
-     * <p>
-     * You can specify only one of templateBody and templateUrl; otherwise an error results.
+     * A link to the packaged AWS SAM template of your application.
      * </p>
      * 
      * @param templateUrl
-     *        A link to the S3 object containing the packaged AWS SAM template of your application.</p>
-     *        <p>
-     *        You can specify only one of templateBody and templateUrl; otherwise an error results.
+     *        A link to the packaged AWS SAM template of your application.
      */
 
     public void setTemplateUrl(String templateUrl) {
@@ -1063,15 +935,10 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A link to the S3 object containing the packaged AWS SAM template of your application.
-     * </p>
-     * <p>
-     * You can specify only one of templateBody and templateUrl; otherwise an error results.
+     * A link to the packaged AWS SAM template of your application.
      * </p>
      * 
-     * @return A link to the S3 object containing the packaged AWS SAM template of your application.</p>
-     *         <p>
-     *         You can specify only one of templateBody and templateUrl; otherwise an error results.
+     * @return A link to the packaged AWS SAM template of your application.
      */
 
     public String getTemplateUrl() {
@@ -1080,16 +947,11 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A link to the S3 object containing the packaged AWS SAM template of your application.
-     * </p>
-     * <p>
-     * You can specify only one of templateBody and templateUrl; otherwise an error results.
+     * A link to the packaged AWS SAM template of your application.
      * </p>
      * 
      * @param templateUrl
-     *        A link to the S3 object containing the packaged AWS SAM template of your application.</p>
-     *        <p>
-     *        You can specify only one of templateBody and templateUrl; otherwise an error results.
+     *        A link to the packaged AWS SAM template of your application.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1099,8 +961,7 @@ public class CreateApplicationRequest extends com.amazonaws.AmazonWebServiceRequ
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

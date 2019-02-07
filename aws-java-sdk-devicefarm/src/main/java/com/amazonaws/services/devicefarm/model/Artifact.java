@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -66,11 +66,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      * <li>
      * <p>
      * MESSAGE_LOG: The message log type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * VIDEO_LOG: The video log type.
      * </p>
      * </li>
      * <li>
@@ -166,26 +161,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      * <li>
      * <p>
      * XCTEST_LOG: The XCode test output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * VIDEO: The Video output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * CUSTOMER_ARTIFACT:The Customer Artifact output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * CUSTOMER_ARTIFACT_LOG: The Customer Artifact Log output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * TESTSPEC_OUTPUT: The Test Spec Output type.
      * </p>
      * </li>
      * </ul>
@@ -314,11 +289,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * VIDEO_LOG: The video log type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * RESULT_LOG: The result log type.
      * </p>
      * </li>
@@ -412,26 +382,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      * XCTEST_LOG: The XCode test output type.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * VIDEO: The Video output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * CUSTOMER_ARTIFACT:The Customer Artifact output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * CUSTOMER_ARTIFACT_LOG: The Customer Artifact Log output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * TESTSPEC_OUTPUT: The Test Spec Output type.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @param type
@@ -458,11 +408,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      *        <li>
      *        <p>
      *        MESSAGE_LOG: The message log type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        VIDEO_LOG: The video log type.
      *        </p>
      *        </li>
      *        <li>
@@ -560,26 +505,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      *        XCTEST_LOG: The XCode test output type.
      *        </p>
      *        </li>
-     *        <li>
-     *        <p>
-     *        VIDEO: The Video output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        CUSTOMER_ARTIFACT:The Customer Artifact output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        CUSTOMER_ARTIFACT_LOG: The Customer Artifact Log output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        TESTSPEC_OUTPUT: The Test Spec Output type.
-     *        </p>
-     *        </li>
      * @see ArtifactType
      */
 
@@ -613,11 +538,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      * <li>
      * <p>
      * MESSAGE_LOG: The message log type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * VIDEO_LOG: The video log type.
      * </p>
      * </li>
      * <li>
@@ -715,26 +635,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      * XCTEST_LOG: The XCode test output type.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * VIDEO: The Video output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * CUSTOMER_ARTIFACT:The Customer Artifact output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * CUSTOMER_ARTIFACT_LOG: The Customer Artifact Log output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * TESTSPEC_OUTPUT: The Test Spec Output type.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @return The artifact's type.</p>
@@ -760,11 +660,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      *         <li>
      *         <p>
      *         MESSAGE_LOG: The message log type.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         VIDEO_LOG: The video log type.
      *         </p>
      *         </li>
      *         <li>
@@ -862,26 +757,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      *         XCTEST_LOG: The XCode test output type.
      *         </p>
      *         </li>
-     *         <li>
-     *         <p>
-     *         VIDEO: The Video output type.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         CUSTOMER_ARTIFACT:The Customer Artifact output type.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         CUSTOMER_ARTIFACT_LOG: The Customer Artifact Log output type.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         TESTSPEC_OUTPUT: The Test Spec Output type.
-     *         </p>
-     *         </li>
      * @see ArtifactType
      */
 
@@ -915,11 +790,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      * <li>
      * <p>
      * MESSAGE_LOG: The message log type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * VIDEO_LOG: The video log type.
      * </p>
      * </li>
      * <li>
@@ -1017,26 +887,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      * XCTEST_LOG: The XCode test output type.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * VIDEO: The Video output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * CUSTOMER_ARTIFACT:The Customer Artifact output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * CUSTOMER_ARTIFACT_LOG: The Customer Artifact Log output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * TESTSPEC_OUTPUT: The Test Spec Output type.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @param type
@@ -1063,11 +913,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      *        <li>
      *        <p>
      *        MESSAGE_LOG: The message log type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        VIDEO_LOG: The video log type.
      *        </p>
      *        </li>
      *        <li>
@@ -1163,26 +1008,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      *        <li>
      *        <p>
      *        XCTEST_LOG: The XCode test output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        VIDEO: The Video output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        CUSTOMER_ARTIFACT:The Customer Artifact output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        CUSTOMER_ARTIFACT_LOG: The Customer Artifact Log output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        TESTSPEC_OUTPUT: The Test Spec Output type.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -1224,11 +1049,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * VIDEO_LOG: The video log type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * RESULT_LOG: The result log type.
      * </p>
      * </li>
@@ -1322,26 +1142,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      * XCTEST_LOG: The XCode test output type.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * VIDEO: The Video output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * CUSTOMER_ARTIFACT:The Customer Artifact output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * CUSTOMER_ARTIFACT_LOG: The Customer Artifact Log output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * TESTSPEC_OUTPUT: The Test Spec Output type.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @param type
@@ -1368,11 +1168,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      *        <li>
      *        <p>
      *        MESSAGE_LOG: The message log type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        VIDEO_LOG: The video log type.
      *        </p>
      *        </li>
      *        <li>
@@ -1468,26 +1263,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      *        <li>
      *        <p>
      *        XCTEST_LOG: The XCode test output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        VIDEO: The Video output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        CUSTOMER_ARTIFACT:The Customer Artifact output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        CUSTOMER_ARTIFACT_LOG: The Customer Artifact Log output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        TESTSPEC_OUTPUT: The Test Spec Output type.
      *        </p>
      *        </li>
      * @see ArtifactType
@@ -1527,11 +1302,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * VIDEO_LOG: The video log type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
      * RESULT_LOG: The result log type.
      * </p>
      * </li>
@@ -1625,26 +1395,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      * XCTEST_LOG: The XCode test output type.
      * </p>
      * </li>
-     * <li>
-     * <p>
-     * VIDEO: The Video output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * CUSTOMER_ARTIFACT:The Customer Artifact output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * CUSTOMER_ARTIFACT_LOG: The Customer Artifact Log output type.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * TESTSPEC_OUTPUT: The Test Spec Output type.
-     * </p>
-     * </li>
      * </ul>
      * 
      * @param type
@@ -1671,11 +1421,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      *        <li>
      *        <p>
      *        MESSAGE_LOG: The message log type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        VIDEO_LOG: The video log type.
      *        </p>
      *        </li>
      *        <li>
@@ -1771,26 +1516,6 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
      *        <li>
      *        <p>
      *        XCTEST_LOG: The XCode test output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        VIDEO: The Video output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        CUSTOMER_ARTIFACT:The Customer Artifact output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        CUSTOMER_ARTIFACT_LOG: The Customer Artifact Log output type.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        TESTSPEC_OUTPUT: The Test Spec Output type.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -1886,8 +1611,7 @@ public class Artifact implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

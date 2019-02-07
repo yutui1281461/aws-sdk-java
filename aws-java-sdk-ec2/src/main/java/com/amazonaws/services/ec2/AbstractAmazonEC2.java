@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -44,11 +44,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public AcceptTransitGatewayVpcAttachmentResult acceptTransitGatewayVpcAttachment(AcceptTransitGatewayVpcAttachmentRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public AcceptVpcEndpointConnectionsResult acceptVpcEndpointConnections(AcceptVpcEndpointConnectionsRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -61,11 +56,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     @Override
     public AcceptVpcPeeringConnectionResult acceptVpcPeeringConnection() {
         return acceptVpcPeeringConnection(new AcceptVpcPeeringConnectionRequest());
-    }
-
-    @Override
-    public AdvertiseByoipCidrResult advertiseByoipCidr(AdvertiseByoipCidrRequest request) {
-        throw new java.lang.UnsupportedOperationException();
     }
 
     @Override
@@ -84,12 +74,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public ApplySecurityGroupsToClientVpnTargetNetworkResult applySecurityGroupsToClientVpnTargetNetwork(
-            ApplySecurityGroupsToClientVpnTargetNetworkRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public AssignIpv6AddressesResult assignIpv6Addresses(AssignIpv6AddressesRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -101,11 +85,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
 
     @Override
     public AssociateAddressResult associateAddress(AssociateAddressRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public AssociateClientVpnTargetNetworkResult associateClientVpnTargetNetwork(AssociateClientVpnTargetNetworkRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -126,11 +105,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
 
     @Override
     public AssociateSubnetCidrBlockResult associateSubnetCidrBlock(AssociateSubnetCidrBlockRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public AssociateTransitGatewayRouteTableResult associateTransitGatewayRouteTable(AssociateTransitGatewayRouteTableRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -165,11 +139,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public AuthorizeClientVpnIngressResult authorizeClientVpnIngress(AuthorizeClientVpnIngressRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public AuthorizeSecurityGroupEgressResult authorizeSecurityGroupEgress(AuthorizeSecurityGroupEgressRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -186,11 +155,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
 
     @Override
     public CancelBundleTaskResult cancelBundleTask(CancelBundleTaskRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public CancelCapacityReservationResult cancelCapacityReservation(CancelCapacityReservationRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -246,21 +210,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
 
     @Override
     public CopySnapshotResult copySnapshot(CopySnapshotRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public CreateCapacityReservationResult createCapacityReservation(CreateCapacityReservationRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public CreateClientVpnEndpointResult createClientVpnEndpoint(CreateClientVpnEndpointRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public CreateClientVpnRouteResult createClientVpnRoute(CreateClientVpnRouteRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -410,26 +359,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public CreateTransitGatewayResult createTransitGateway(CreateTransitGatewayRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public CreateTransitGatewayRouteResult createTransitGatewayRoute(CreateTransitGatewayRouteRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public CreateTransitGatewayRouteTableResult createTransitGatewayRouteTable(CreateTransitGatewayRouteTableRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public CreateTransitGatewayVpcAttachmentResult createTransitGatewayVpcAttachment(CreateTransitGatewayVpcAttachmentRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public CreateVolumeResult createVolume(CreateVolumeRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -476,16 +405,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
 
     @Override
     public CreateVpnGatewayResult createVpnGateway(CreateVpnGatewayRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DeleteClientVpnEndpointResult deleteClientVpnEndpoint(DeleteClientVpnEndpointRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DeleteClientVpnRouteResult deleteClientVpnRoute(DeleteClientVpnRouteRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -610,26 +529,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public DeleteTransitGatewayResult deleteTransitGateway(DeleteTransitGatewayRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DeleteTransitGatewayRouteResult deleteTransitGatewayRoute(DeleteTransitGatewayRouteRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DeleteTransitGatewayRouteTableResult deleteTransitGatewayRouteTable(DeleteTransitGatewayRouteTableRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DeleteTransitGatewayVpcAttachmentResult deleteTransitGatewayVpcAttachment(DeleteTransitGatewayVpcAttachmentRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public DeleteVolumeResult deleteVolume(DeleteVolumeRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -671,11 +570,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
 
     @Override
     public DeleteVpnGatewayResult deleteVpnGateway(DeleteVpnGatewayRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DeprovisionByoipCidrResult deprovisionByoipCidr(DeprovisionByoipCidrRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -730,16 +624,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public DescribeByoipCidrsResult describeByoipCidrs(DescribeByoipCidrsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DescribeCapacityReservationsResult describeCapacityReservations(DescribeCapacityReservationsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public DescribeClassicLinkInstancesResult describeClassicLinkInstances(DescribeClassicLinkInstancesRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -747,31 +631,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     @Override
     public DescribeClassicLinkInstancesResult describeClassicLinkInstances() {
         return describeClassicLinkInstances(new DescribeClassicLinkInstancesRequest());
-    }
-
-    @Override
-    public DescribeClientVpnAuthorizationRulesResult describeClientVpnAuthorizationRules(DescribeClientVpnAuthorizationRulesRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DescribeClientVpnConnectionsResult describeClientVpnConnections(DescribeClientVpnConnectionsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DescribeClientVpnEndpointsResult describeClientVpnEndpoints(DescribeClientVpnEndpointsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DescribeClientVpnRoutesResult describeClientVpnRoutes(DescribeClientVpnRoutesRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DescribeClientVpnTargetNetworksResult describeClientVpnTargetNetworks(DescribeClientVpnTargetNetworksRequest request) {
-        throw new java.lang.UnsupportedOperationException();
     }
 
     @Override
@@ -1065,11 +924,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public DescribePublicIpv4PoolsResult describePublicIpv4Pools(DescribePublicIpv4PoolsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public DescribeRegionsResult describeRegions(DescribeRegionsRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -1245,26 +1099,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public DescribeTransitGatewayAttachmentsResult describeTransitGatewayAttachments(DescribeTransitGatewayAttachmentsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DescribeTransitGatewayRouteTablesResult describeTransitGatewayRouteTables(DescribeTransitGatewayRouteTablesRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DescribeTransitGatewayVpcAttachmentsResult describeTransitGatewayVpcAttachments(DescribeTransitGatewayVpcAttachmentsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DescribeTransitGatewaysResult describeTransitGateways(DescribeTransitGatewaysRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public DescribeVolumeAttributeResult describeVolumeAttribute(DescribeVolumeAttributeRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -1420,11 +1254,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public DisableTransitGatewayRouteTablePropagationResult disableTransitGatewayRouteTablePropagation(DisableTransitGatewayRouteTablePropagationRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public DisableVgwRoutePropagationResult disableVgwRoutePropagation(DisableVgwRoutePropagationRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -1445,11 +1274,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public DisassociateClientVpnTargetNetworkResult disassociateClientVpnTargetNetwork(DisassociateClientVpnTargetNetworkRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public DisassociateIamInstanceProfileResult disassociateIamInstanceProfile(DisassociateIamInstanceProfileRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -1465,17 +1289,7 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public DisassociateTransitGatewayRouteTableResult disassociateTransitGatewayRouteTable(DisassociateTransitGatewayRouteTableRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public DisassociateVpcCidrBlockResult disassociateVpcCidrBlock(DisassociateVpcCidrBlockRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public EnableTransitGatewayRouteTablePropagationResult enableTransitGatewayRouteTablePropagation(EnableTransitGatewayRouteTablePropagationRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -1496,22 +1310,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
 
     @Override
     public EnableVpcClassicLinkDnsSupportResult enableVpcClassicLinkDnsSupport(EnableVpcClassicLinkDnsSupportRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public ExportClientVpnClientCertificateRevocationListResult exportClientVpnClientCertificateRevocationList(
-            ExportClientVpnClientCertificateRevocationListRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public ExportClientVpnClientConfigurationResult exportClientVpnClientConfiguration(ExportClientVpnClientConfigurationRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public ExportTransitGatewayRoutesResult exportTransitGatewayRoutes(ExportTransitGatewayRoutesRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -1542,27 +1340,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
 
     @Override
     public GetReservedInstancesExchangeQuoteResult getReservedInstancesExchangeQuote(GetReservedInstancesExchangeQuoteRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public GetTransitGatewayAttachmentPropagationsResult getTransitGatewayAttachmentPropagations(GetTransitGatewayAttachmentPropagationsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public GetTransitGatewayRouteTableAssociationsResult getTransitGatewayRouteTableAssociations(GetTransitGatewayRouteTableAssociationsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public GetTransitGatewayRouteTablePropagationsResult getTransitGatewayRouteTablePropagations(GetTransitGatewayRouteTablePropagationsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public ImportClientVpnClientCertificateRevocationListResult importClientVpnClientCertificateRevocationList(
-            ImportClientVpnClientCertificateRevocationListRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -1602,16 +1379,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public ModifyCapacityReservationResult modifyCapacityReservation(ModifyCapacityReservationRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public ModifyClientVpnEndpointResult modifyClientVpnEndpoint(ModifyClientVpnEndpointRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public ModifyFleetResult modifyFleet(ModifyFleetRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -1643,12 +1410,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
 
     @Override
     public ModifyInstanceAttributeResult modifyInstanceAttribute(ModifyInstanceAttributeRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public ModifyInstanceCapacityReservationAttributesResult modifyInstanceCapacityReservationAttributes(
-            ModifyInstanceCapacityReservationAttributesRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -1689,11 +1450,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
 
     @Override
     public ModifySubnetAttributeResult modifySubnetAttribute(ModifySubnetAttributeRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public ModifyTransitGatewayVpcAttachmentResult modifyTransitGatewayVpcAttachment(ModifyTransitGatewayVpcAttachmentRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -1753,11 +1509,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public ProvisionByoipCidrResult provisionByoipCidr(ProvisionByoipCidrRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public PurchaseHostReservationResult purchaseHostReservation(PurchaseHostReservationRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -1779,11 +1530,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
 
     @Override
     public RegisterImageResult registerImage(RegisterImageRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public RejectTransitGatewayVpcAttachmentResult rejectTransitGatewayVpcAttachment(RejectTransitGatewayVpcAttachmentRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -1833,11 +1579,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public ReplaceTransitGatewayRouteResult replaceTransitGatewayRoute(ReplaceTransitGatewayRouteRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public ReportInstanceStatusResult reportInstanceStatus(ReportInstanceStatusRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -1883,11 +1624,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public RevokeClientVpnIngressResult revokeClientVpnIngress(RevokeClientVpnIngressRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public RevokeSecurityGroupEgressResult revokeSecurityGroupEgress(RevokeSecurityGroupEgressRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -1914,22 +1650,12 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
     }
 
     @Override
-    public SearchTransitGatewayRoutesResult searchTransitGatewayRoutes(SearchTransitGatewayRoutesRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public StartInstancesResult startInstances(StartInstancesRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
     @Override
     public StopInstancesResult stopInstances(StopInstancesRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public TerminateClientVpnConnectionsResult terminateClientVpnConnections(TerminateClientVpnConnectionsRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -1960,11 +1686,6 @@ public class AbstractAmazonEC2 implements AmazonEC2 {
 
     @Override
     public UpdateSecurityGroupRuleDescriptionsIngressResult updateSecurityGroupRuleDescriptionsIngress(UpdateSecurityGroupRuleDescriptionsIngressRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public WithdrawByoipCidrResult withdrawByoipCidr(WithdrawByoipCidrRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 

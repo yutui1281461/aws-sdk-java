@@ -116,14 +116,6 @@ public class IntermediateModelBuilder {
         waiters.putAll(new AddWaiters(this.waiters, operations, codeGenBinDirectory).constructWaiters());
         authorizers.putAll(new AddCustomAuthorizers(this.service, getNamingStrategy()).constructAuthorizers());
 
-        OperationModel endpointOperation = null;
-
-        for (OperationModel o : operations.values()) {
-            if (o.isEndpointOperation()) {
-                endpointOperation = o;
-            }
-        }
-
         for (IntermediateModelShapeProcessor processor : shapeProcessors) {
             shapes.putAll(processor.process(Collections.unmodifiableMap(operations),
                                             Collections.unmodifiableMap(shapes)));
@@ -133,7 +125,7 @@ public class IntermediateModelBuilder {
 
         IntermediateModel fullModel = new IntermediateModel(
                 constructMetadata(service, codeGenConfig, customConfig), operations, shapes,
-                customConfig, examples, endpointOperation, waiters, authorizers);
+                customConfig, examples, waiters, authorizers);
 
         customization.postprocess(fullModel);
 
@@ -149,7 +141,6 @@ public class IntermediateModelBuilder {
                                                                trimmedShapes,
                                                                fullModel.getCustomizationConfig(),
                                                                fullModel.getExamples(),
-                                                               fullModel.getEndpointOperation(),
                                                                fullModel.getWaiters(),
                                                                fullModel.getCustomAuthorizers());
 

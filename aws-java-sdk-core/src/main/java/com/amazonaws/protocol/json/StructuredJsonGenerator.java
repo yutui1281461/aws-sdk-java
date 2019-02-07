@@ -19,7 +19,6 @@ package com.amazonaws.protocol.json;
 
 import com.amazonaws.annotation.SdkProtectedApi;
 
-import com.amazonaws.util.TimestampFormat;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
@@ -109,7 +108,7 @@ public interface StructuredJsonGenerator {
         }
 
         @Override
-        public StructuredJsonGenerator writeValue(Date date, TimestampFormat timestampFormat) {
+        public StructuredJsonGenerator writeValue(Date date) {
             return this;
         }
 
@@ -162,7 +161,7 @@ public interface StructuredJsonGenerator {
 
     StructuredJsonGenerator writeValue(ByteBuffer bytes);
 
-    StructuredJsonGenerator writeValue(Date date, TimestampFormat timestampFormat);
+    StructuredJsonGenerator writeValue(Date date);
 
     StructuredJsonGenerator writeValue(BigDecimal value);
 

@@ -175,7 +175,7 @@ public class InternalConfigTest {
     private void loadFrom(String resource) throws Exception {
         URL url = ClassLoaderHelper.getResource(resource);
         assertNotNull(url);
-        InternalConfigJsonHelper config = InternalConfig.loadfrom(url, InternalConfigJsonHelper.class);
+        InternalConfigJsonHelper config = InternalConfig.loadfrom(url);
         assertNotNull(config);
     }
 

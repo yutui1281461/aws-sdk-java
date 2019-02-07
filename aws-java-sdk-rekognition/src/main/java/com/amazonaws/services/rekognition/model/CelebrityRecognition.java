@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -20,7 +20,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 /**
  * <p>
  * Information about a detected celebrity and the time the celebrity was detected in a stored video. For more
- * information, see GetCelebrityRecognition in the Amazon Rekognition Developer Guide.
+ * information, see .
  * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -120,8 +120,7 @@ public class CelebrityRecognition implements Serializable, Cloneable, Structured
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,8 +33,7 @@ public class PutFileRequest extends com.amazonaws.AmazonWebServiceRequest implem
     private String repositoryName;
     /**
      * <p>
-     * The name of the branch where you want to add or update the file. If this is an empty repository, this branch will
-     * be created.
+     * The name of the branch where you want to add or update the file.
      * </p>
      */
     private String branchName;
@@ -63,12 +62,9 @@ public class PutFileRequest extends com.amazonaws.AmazonWebServiceRequest implem
     private String fileMode;
     /**
      * <p>
-     * The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty
-     * repository, no commit ID is required. If this is not an empty repository, a commit ID is required.
-     * </p>
-     * <p>
-     * The commit ID must match the ID of the head commit at the time of the operation, or an error will occur, and the
-     * file will not be added or updated.
+     * The full commit ID of the head commit in the branch where you want to add or update the file. If the commit ID
+     * does not match the ID of the head commit at the time of the operation, an error will occur, and the file will not
+     * be added or updated.
      * </p>
      */
     private String parentCommitId;
@@ -135,13 +131,11 @@ public class PutFileRequest extends com.amazonaws.AmazonWebServiceRequest implem
 
     /**
      * <p>
-     * The name of the branch where you want to add or update the file. If this is an empty repository, this branch will
-     * be created.
+     * The name of the branch where you want to add or update the file.
      * </p>
      * 
      * @param branchName
-     *        The name of the branch where you want to add or update the file. If this is an empty repository, this
-     *        branch will be created.
+     *        The name of the branch where you want to add or update the file.
      */
 
     public void setBranchName(String branchName) {
@@ -150,12 +144,10 @@ public class PutFileRequest extends com.amazonaws.AmazonWebServiceRequest implem
 
     /**
      * <p>
-     * The name of the branch where you want to add or update the file. If this is an empty repository, this branch will
-     * be created.
+     * The name of the branch where you want to add or update the file.
      * </p>
      * 
-     * @return The name of the branch where you want to add or update the file. If this is an empty repository, this
-     *         branch will be created.
+     * @return The name of the branch where you want to add or update the file.
      */
 
     public String getBranchName() {
@@ -164,13 +156,11 @@ public class PutFileRequest extends com.amazonaws.AmazonWebServiceRequest implem
 
     /**
      * <p>
-     * The name of the branch where you want to add or update the file. If this is an empty repository, this branch will
-     * be created.
+     * The name of the branch where you want to add or update the file.
      * </p>
      * 
      * @param branchName
-     *        The name of the branch where you want to add or update the file. If this is an empty repository, this
-     *        branch will be created.
+     *        The name of the branch where you want to add or update the file.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -377,21 +367,15 @@ public class PutFileRequest extends com.amazonaws.AmazonWebServiceRequest implem
 
     /**
      * <p>
-     * The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty
-     * repository, no commit ID is required. If this is not an empty repository, a commit ID is required.
-     * </p>
-     * <p>
-     * The commit ID must match the ID of the head commit at the time of the operation, or an error will occur, and the
-     * file will not be added or updated.
+     * The full commit ID of the head commit in the branch where you want to add or update the file. If the commit ID
+     * does not match the ID of the head commit at the time of the operation, an error will occur, and the file will not
+     * be added or updated.
      * </p>
      * 
      * @param parentCommitId
-     *        The full commit ID of the head commit in the branch where you want to add or update the file. If this is
-     *        an empty repository, no commit ID is required. If this is not an empty repository, a commit ID is
-     *        required. </p>
-     *        <p>
-     *        The commit ID must match the ID of the head commit at the time of the operation, or an error will occur,
-     *        and the file will not be added or updated.
+     *        The full commit ID of the head commit in the branch where you want to add or update the file. If the
+     *        commit ID does not match the ID of the head commit at the time of the operation, an error will occur, and
+     *        the file will not be added or updated.
      */
 
     public void setParentCommitId(String parentCommitId) {
@@ -400,20 +384,14 @@ public class PutFileRequest extends com.amazonaws.AmazonWebServiceRequest implem
 
     /**
      * <p>
-     * The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty
-     * repository, no commit ID is required. If this is not an empty repository, a commit ID is required.
-     * </p>
-     * <p>
-     * The commit ID must match the ID of the head commit at the time of the operation, or an error will occur, and the
-     * file will not be added or updated.
+     * The full commit ID of the head commit in the branch where you want to add or update the file. If the commit ID
+     * does not match the ID of the head commit at the time of the operation, an error will occur, and the file will not
+     * be added or updated.
      * </p>
      * 
-     * @return The full commit ID of the head commit in the branch where you want to add or update the file. If this is
-     *         an empty repository, no commit ID is required. If this is not an empty repository, a commit ID is
-     *         required. </p>
-     *         <p>
-     *         The commit ID must match the ID of the head commit at the time of the operation, or an error will occur,
-     *         and the file will not be added or updated.
+     * @return The full commit ID of the head commit in the branch where you want to add or update the file. If the
+     *         commit ID does not match the ID of the head commit at the time of the operation, an error will occur, and
+     *         the file will not be added or updated.
      */
 
     public String getParentCommitId() {
@@ -422,21 +400,15 @@ public class PutFileRequest extends com.amazonaws.AmazonWebServiceRequest implem
 
     /**
      * <p>
-     * The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty
-     * repository, no commit ID is required. If this is not an empty repository, a commit ID is required.
-     * </p>
-     * <p>
-     * The commit ID must match the ID of the head commit at the time of the operation, or an error will occur, and the
-     * file will not be added or updated.
+     * The full commit ID of the head commit in the branch where you want to add or update the file. If the commit ID
+     * does not match the ID of the head commit at the time of the operation, an error will occur, and the file will not
+     * be added or updated.
      * </p>
      * 
      * @param parentCommitId
-     *        The full commit ID of the head commit in the branch where you want to add or update the file. If this is
-     *        an empty repository, no commit ID is required. If this is not an empty repository, a commit ID is
-     *        required. </p>
-     *        <p>
-     *        The commit ID must match the ID of the head commit at the time of the operation, or an error will occur,
-     *        and the file will not be added or updated.
+     *        The full commit ID of the head commit in the branch where you want to add or update the file. If the
+     *        commit ID does not match the ID of the head commit at the time of the operation, an error will occur, and
+     *        the file will not be added or updated.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -578,8 +550,7 @@ public class PutFileRequest extends com.amazonaws.AmazonWebServiceRequest implem
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

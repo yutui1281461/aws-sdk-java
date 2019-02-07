@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * The number of functions and amount of storage in use.
+ * Provides code size usage and function count associated with the current account and region.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/AccountUsage" target="_top">AWS API
@@ -30,24 +30,24 @@ public class AccountUsage implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The amount of storage space, in bytes, in use by deployment packages and layer archives.
+     * Total size, in bytes, of the account's deployment packages per region.
      * </p>
      */
     private Long totalCodeSize;
     /**
      * <p>
-     * The number of Lambda functions.
+     * The number of your account's existing functions per region.
      * </p>
      */
     private Long functionCount;
 
     /**
      * <p>
-     * The amount of storage space, in bytes, in use by deployment packages and layer archives.
+     * Total size, in bytes, of the account's deployment packages per region.
      * </p>
      * 
      * @param totalCodeSize
-     *        The amount of storage space, in bytes, in use by deployment packages and layer archives.
+     *        Total size, in bytes, of the account's deployment packages per region.
      */
 
     public void setTotalCodeSize(Long totalCodeSize) {
@@ -56,10 +56,10 @@ public class AccountUsage implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The amount of storage space, in bytes, in use by deployment packages and layer archives.
+     * Total size, in bytes, of the account's deployment packages per region.
      * </p>
      * 
-     * @return The amount of storage space, in bytes, in use by deployment packages and layer archives.
+     * @return Total size, in bytes, of the account's deployment packages per region.
      */
 
     public Long getTotalCodeSize() {
@@ -68,11 +68,11 @@ public class AccountUsage implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The amount of storage space, in bytes, in use by deployment packages and layer archives.
+     * Total size, in bytes, of the account's deployment packages per region.
      * </p>
      * 
      * @param totalCodeSize
-     *        The amount of storage space, in bytes, in use by deployment packages and layer archives.
+     *        Total size, in bytes, of the account's deployment packages per region.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -83,11 +83,11 @@ public class AccountUsage implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The number of Lambda functions.
+     * The number of your account's existing functions per region.
      * </p>
      * 
      * @param functionCount
-     *        The number of Lambda functions.
+     *        The number of your account's existing functions per region.
      */
 
     public void setFunctionCount(Long functionCount) {
@@ -96,10 +96,10 @@ public class AccountUsage implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The number of Lambda functions.
+     * The number of your account's existing functions per region.
      * </p>
      * 
-     * @return The number of Lambda functions.
+     * @return The number of your account's existing functions per region.
      */
 
     public Long getFunctionCount() {
@@ -108,11 +108,11 @@ public class AccountUsage implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The number of Lambda functions.
+     * The number of your account's existing functions per region.
      * </p>
      * 
      * @param functionCount
-     *        The number of Lambda functions.
+     *        The number of your account's existing functions per region.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -122,8 +122,7 @@ public class AccountUsage implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

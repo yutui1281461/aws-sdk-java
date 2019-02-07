@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -22,7 +22,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * Contains configuration information for your private certificate authority (CA). This includes information about the
  * class of public key algorithm and the key pair that your private CA creates when it issues a certificate, the
  * signature algorithm it uses used when issuing certificates, and its X.500 distinguished name. You must specify this
- * information when you call the <a>CreateCertificateAuthority</a> operation.
+ * information when you call the <a>CreateCertificateAuthority</a> function.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/CertificateAuthorityConfiguration"
@@ -218,8 +218,7 @@ public class CertificateAuthorityConfiguration implements Serializable, Cloneabl
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

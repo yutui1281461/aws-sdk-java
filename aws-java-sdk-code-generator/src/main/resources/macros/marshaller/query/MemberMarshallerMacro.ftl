@@ -139,11 +139,9 @@
         <#local parameterPath = contextPath + "." + parameterPath/>
     </#if>
     <#local memberVariableName = variable.variableName/>
-    {
-        ${variable.variableType} ${memberVariableName} = ${getMember}();
-        if (${memberVariableName} != null) {
-            <@MemberMarshallerMacro.content customConfig variable.variableType memberVariableName shapes parameterPath/>
-        }
+    ${variable.variableType} ${memberVariableName} = ${getMember}();
+    if (${memberVariableName} != null) {
+        <@MemberMarshallerMacro.content customConfig variable.variableType memberVariableName shapes parameterPath/>
     }
 </#if>
 </#list>

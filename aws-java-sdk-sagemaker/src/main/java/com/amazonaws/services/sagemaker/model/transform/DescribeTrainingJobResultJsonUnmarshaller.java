@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -56,14 +56,6 @@ public class DescribeTrainingJobResultJsonUnmarshaller implements Unmarshaller<D
                     context.nextToken();
                     describeTrainingJobResult.setTrainingJobArn(context.getUnmarshaller(String.class).unmarshall(context));
                 }
-                if (context.testExpression("TuningJobArn", targetDepth)) {
-                    context.nextToken();
-                    describeTrainingJobResult.setTuningJobArn(context.getUnmarshaller(String.class).unmarshall(context));
-                }
-                if (context.testExpression("LabelingJobArn", targetDepth)) {
-                    context.nextToken();
-                    describeTrainingJobResult.setLabelingJobArn(context.getUnmarshaller(String.class).unmarshall(context));
-                }
                 if (context.testExpression("ModelArtifacts", targetDepth)) {
                     context.nextToken();
                     describeTrainingJobResult.setModelArtifacts(ModelArtifactsJsonUnmarshaller.getInstance().unmarshall(context));
@@ -115,37 +107,19 @@ public class DescribeTrainingJobResultJsonUnmarshaller implements Unmarshaller<D
                 }
                 if (context.testExpression("CreationTime", targetDepth)) {
                     context.nextToken();
-                    describeTrainingJobResult.setCreationTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    describeTrainingJobResult.setCreationTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("TrainingStartTime", targetDepth)) {
                     context.nextToken();
-                    describeTrainingJobResult.setTrainingStartTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    describeTrainingJobResult.setTrainingStartTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("TrainingEndTime", targetDepth)) {
                     context.nextToken();
-                    describeTrainingJobResult.setTrainingEndTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    describeTrainingJobResult.setTrainingEndTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("LastModifiedTime", targetDepth)) {
                     context.nextToken();
-                    describeTrainingJobResult.setLastModifiedTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
-                }
-                if (context.testExpression("SecondaryStatusTransitions", targetDepth)) {
-                    context.nextToken();
-                    describeTrainingJobResult.setSecondaryStatusTransitions(new ListUnmarshaller<SecondaryStatusTransition>(
-                            SecondaryStatusTransitionJsonUnmarshaller.getInstance()).unmarshall(context));
-                }
-                if (context.testExpression("FinalMetricDataList", targetDepth)) {
-                    context.nextToken();
-                    describeTrainingJobResult.setFinalMetricDataList(new ListUnmarshaller<MetricData>(MetricDataJsonUnmarshaller.getInstance())
-                            .unmarshall(context));
-                }
-                if (context.testExpression("EnableNetworkIsolation", targetDepth)) {
-                    context.nextToken();
-                    describeTrainingJobResult.setEnableNetworkIsolation(context.getUnmarshaller(Boolean.class).unmarshall(context));
-                }
-                if (context.testExpression("EnableInterContainerTrafficEncryption", targetDepth)) {
-                    context.nextToken();
-                    describeTrainingJobResult.setEnableInterContainerTrafficEncryption(context.getUnmarshaller(Boolean.class).unmarshall(context));
+                    describeTrainingJobResult.setLastModifiedTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

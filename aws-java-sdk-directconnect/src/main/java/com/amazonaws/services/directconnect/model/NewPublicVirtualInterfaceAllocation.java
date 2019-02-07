@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Information about a public virtual interface to be provisioned on a connection.
+ * A structure containing information about a public virtual interface that will be provisioned on a connection.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/NewPublicVirtualInterfaceAllocation"
@@ -28,62 +28,24 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class NewPublicVirtualInterfaceAllocation implements Serializable, Cloneable, StructuredPojo {
 
-    /**
-     * <p>
-     * The name of the virtual interface assigned by the customer network.
-     * </p>
-     */
     private String virtualInterfaceName;
-    /**
-     * <p>
-     * The ID of the VLAN.
-     * </p>
-     */
+
     private Integer vlan;
-    /**
-     * <p>
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     * </p>
-     */
+
     private Integer asn;
-    /**
-     * <p>
-     * The authentication key for BGP configuration.
-     * </p>
-     */
+
     private String authKey;
-    /**
-     * <p>
-     * The IP address assigned to the Amazon interface.
-     * </p>
-     */
+
     private String amazonAddress;
-    /**
-     * <p>
-     * The IP address assigned to the customer interface.
-     * </p>
-     */
+
     private String customerAddress;
-    /**
-     * <p>
-     * The address family for the BGP peer.
-     * </p>
-     */
+
     private String addressFamily;
-    /**
-     * <p>
-     * The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
-     * </p>
-     */
+
     private com.amazonaws.internal.SdkInternalList<RouteFilterPrefix> routeFilterPrefixes;
 
     /**
-     * <p>
-     * The name of the virtual interface assigned by the customer network.
-     * </p>
-     * 
      * @param virtualInterfaceName
-     *        The name of the virtual interface assigned by the customer network.
      */
 
     public void setVirtualInterfaceName(String virtualInterfaceName) {
@@ -91,11 +53,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The name of the virtual interface assigned by the customer network.
-     * </p>
-     * 
-     * @return The name of the virtual interface assigned by the customer network.
+     * @return
      */
 
     public String getVirtualInterfaceName() {
@@ -103,12 +61,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The name of the virtual interface assigned by the customer network.
-     * </p>
-     * 
      * @param virtualInterfaceName
-     *        The name of the virtual interface assigned by the customer network.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -118,12 +71,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The ID of the VLAN.
-     * </p>
-     * 
      * @param vlan
-     *        The ID of the VLAN.
      */
 
     public void setVlan(Integer vlan) {
@@ -131,11 +79,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The ID of the VLAN.
-     * </p>
-     * 
-     * @return The ID of the VLAN.
+     * @return
      */
 
     public Integer getVlan() {
@@ -143,12 +87,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The ID of the VLAN.
-     * </p>
-     * 
      * @param vlan
-     *        The ID of the VLAN.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -158,12 +97,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     * </p>
-     * 
      * @param asn
-     *        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
 
     public void setAsn(Integer asn) {
@@ -171,11 +105,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     * </p>
-     * 
-     * @return The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * @return
      */
 
     public Integer getAsn() {
@@ -183,12 +113,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     * </p>
-     * 
      * @param asn
-     *        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -198,12 +123,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The authentication key for BGP configuration.
-     * </p>
-     * 
      * @param authKey
-     *        The authentication key for BGP configuration.
      */
 
     public void setAuthKey(String authKey) {
@@ -211,11 +131,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The authentication key for BGP configuration.
-     * </p>
-     * 
-     * @return The authentication key for BGP configuration.
+     * @return
      */
 
     public String getAuthKey() {
@@ -223,12 +139,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The authentication key for BGP configuration.
-     * </p>
-     * 
      * @param authKey
-     *        The authentication key for BGP configuration.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -238,12 +149,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The IP address assigned to the Amazon interface.
-     * </p>
-     * 
      * @param amazonAddress
-     *        The IP address assigned to the Amazon interface.
      */
 
     public void setAmazonAddress(String amazonAddress) {
@@ -251,11 +157,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The IP address assigned to the Amazon interface.
-     * </p>
-     * 
-     * @return The IP address assigned to the Amazon interface.
+     * @return
      */
 
     public String getAmazonAddress() {
@@ -263,12 +165,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The IP address assigned to the Amazon interface.
-     * </p>
-     * 
      * @param amazonAddress
-     *        The IP address assigned to the Amazon interface.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -278,12 +175,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The IP address assigned to the customer interface.
-     * </p>
-     * 
      * @param customerAddress
-     *        The IP address assigned to the customer interface.
      */
 
     public void setCustomerAddress(String customerAddress) {
@@ -291,11 +183,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The IP address assigned to the customer interface.
-     * </p>
-     * 
-     * @return The IP address assigned to the customer interface.
+     * @return
      */
 
     public String getCustomerAddress() {
@@ -303,12 +191,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The IP address assigned to the customer interface.
-     * </p>
-     * 
      * @param customerAddress
-     *        The IP address assigned to the customer interface.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -318,12 +201,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The address family for the BGP peer.
-     * </p>
-     * 
      * @param addressFamily
-     *        The address family for the BGP peer.
      * @see AddressFamily
      */
 
@@ -332,11 +210,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The address family for the BGP peer.
-     * </p>
-     * 
-     * @return The address family for the BGP peer.
+     * @return
      * @see AddressFamily
      */
 
@@ -345,12 +219,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The address family for the BGP peer.
-     * </p>
-     * 
      * @param addressFamily
-     *        The address family for the BGP peer.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see AddressFamily
      */
@@ -361,12 +230,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The address family for the BGP peer.
-     * </p>
-     * 
      * @param addressFamily
-     *        The address family for the BGP peer.
      * @see AddressFamily
      */
 
@@ -375,12 +239,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The address family for the BGP peer.
-     * </p>
-     * 
      * @param addressFamily
-     *        The address family for the BGP peer.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see AddressFamily
      */
@@ -391,11 +250,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
-     * </p>
-     * 
-     * @return The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
+     * @return
      */
 
     public java.util.List<RouteFilterPrefix> getRouteFilterPrefixes() {
@@ -406,12 +261,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
-     * </p>
-     * 
      * @param routeFilterPrefixes
-     *        The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
      */
 
     public void setRouteFilterPrefixes(java.util.Collection<RouteFilterPrefix> routeFilterPrefixes) {
@@ -425,16 +275,12 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
 
     /**
      * <p>
-     * The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
-     * </p>
-     * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
      * {@link #setRouteFilterPrefixes(java.util.Collection)} or {@link #withRouteFilterPrefixes(java.util.Collection)}
      * if you want to override the existing values.
      * </p>
      * 
      * @param routeFilterPrefixes
-     *        The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -449,12 +295,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * <p>
-     * The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
-     * </p>
-     * 
      * @param routeFilterPrefixes
-     *        The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -464,8 +305,7 @@ public class NewPublicVirtualInterfaceAllocation implements Serializable, Clonea
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

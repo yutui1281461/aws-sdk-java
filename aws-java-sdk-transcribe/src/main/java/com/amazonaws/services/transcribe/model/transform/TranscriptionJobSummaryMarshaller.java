@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,17 +30,15 @@ public class TranscriptionJobSummaryMarshaller {
     private static final MarshallingInfo<String> TRANSCRIPTIONJOBNAME_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("TranscriptionJobName").build();
     private static final MarshallingInfo<java.util.Date> CREATIONTIME_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CreationTime").timestampFormat("unixTimestamp").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CreationTime").build();
     private static final MarshallingInfo<java.util.Date> COMPLETIONTIME_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CompletionTime").timestampFormat("unixTimestamp").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CompletionTime").build();
     private static final MarshallingInfo<String> LANGUAGECODE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("LanguageCode").build();
     private static final MarshallingInfo<String> TRANSCRIPTIONJOBSTATUS_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("TranscriptionJobStatus").build();
     private static final MarshallingInfo<String> FAILUREREASON_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("FailureReason").build();
-    private static final MarshallingInfo<String> OUTPUTLOCATIONTYPE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("OutputLocationType").build();
 
     private static final TranscriptionJobSummaryMarshaller instance = new TranscriptionJobSummaryMarshaller();
 
@@ -64,7 +62,6 @@ public class TranscriptionJobSummaryMarshaller {
             protocolMarshaller.marshall(transcriptionJobSummary.getLanguageCode(), LANGUAGECODE_BINDING);
             protocolMarshaller.marshall(transcriptionJobSummary.getTranscriptionJobStatus(), TRANSCRIPTIONJOBSTATUS_BINDING);
             protocolMarshaller.marshall(transcriptionJobSummary.getFailureReason(), FAILUREREASON_BINDING);
-            protocolMarshaller.marshall(transcriptionJobSummary.getOutputLocationType(), OUTPUTLOCATIONTYPE_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

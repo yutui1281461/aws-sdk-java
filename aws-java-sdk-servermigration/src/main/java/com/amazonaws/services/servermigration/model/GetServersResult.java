@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -23,39 +23,16 @@ import javax.annotation.Generated;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata> implements Serializable, Cloneable {
 
-    /**
-     * <p>
-     * The time when the server was last modified.
-     * </p>
-     */
     private java.util.Date lastModifiedOn;
-    /**
-     * <p>
-     * The status of the server catalog.
-     * </p>
-     */
+
     private String serverCatalogStatus;
-    /**
-     * <p>
-     * Information about the servers.
-     * </p>
-     */
+
     private java.util.List<Server> serverList;
-    /**
-     * <p>
-     * The token required to retrieve the next set of results. This value is null when there are no more results to
-     * return.
-     * </p>
-     */
+
     private String nextToken;
 
     /**
-     * <p>
-     * The time when the server was last modified.
-     * </p>
-     * 
      * @param lastModifiedOn
-     *        The time when the server was last modified.
      */
 
     public void setLastModifiedOn(java.util.Date lastModifiedOn) {
@@ -63,11 +40,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * The time when the server was last modified.
-     * </p>
-     * 
-     * @return The time when the server was last modified.
+     * @return
      */
 
     public java.util.Date getLastModifiedOn() {
@@ -75,12 +48,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * The time when the server was last modified.
-     * </p>
-     * 
      * @param lastModifiedOn
-     *        The time when the server was last modified.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -90,12 +58,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * The status of the server catalog.
-     * </p>
-     * 
      * @param serverCatalogStatus
-     *        The status of the server catalog.
      * @see ServerCatalogStatus
      */
 
@@ -104,11 +67,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * The status of the server catalog.
-     * </p>
-     * 
-     * @return The status of the server catalog.
+     * @return
      * @see ServerCatalogStatus
      */
 
@@ -117,12 +76,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * The status of the server catalog.
-     * </p>
-     * 
      * @param serverCatalogStatus
-     *        The status of the server catalog.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ServerCatalogStatus
      */
@@ -133,12 +87,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * The status of the server catalog.
-     * </p>
-     * 
      * @param serverCatalogStatus
-     *        The status of the server catalog.
      * @see ServerCatalogStatus
      */
 
@@ -147,12 +96,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * The status of the server catalog.
-     * </p>
-     * 
      * @param serverCatalogStatus
-     *        The status of the server catalog.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ServerCatalogStatus
      */
@@ -163,11 +107,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * Information about the servers.
-     * </p>
-     * 
-     * @return Information about the servers.
+     * @return
      */
 
     public java.util.List<Server> getServerList() {
@@ -175,12 +115,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * Information about the servers.
-     * </p>
-     * 
      * @param serverList
-     *        Information about the servers.
      */
 
     public void setServerList(java.util.Collection<Server> serverList) {
@@ -194,16 +129,12 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
 
     /**
      * <p>
-     * Information about the servers.
-     * </p>
-     * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
      * {@link #setServerList(java.util.Collection)} or {@link #withServerList(java.util.Collection)} if you want to
      * override the existing values.
      * </p>
      * 
      * @param serverList
-     *        Information about the servers.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -218,12 +149,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * Information about the servers.
-     * </p>
-     * 
      * @param serverList
-     *        Information about the servers.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -233,14 +159,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * The token required to retrieve the next set of results. This value is null when there are no more results to
-     * return.
-     * </p>
-     * 
      * @param nextToken
-     *        The token required to retrieve the next set of results. This value is null when there are no more results
-     *        to return.
      */
 
     public void setNextToken(String nextToken) {
@@ -248,13 +167,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * The token required to retrieve the next set of results. This value is null when there are no more results to
-     * return.
-     * </p>
-     * 
-     * @return The token required to retrieve the next set of results. This value is null when there are no more results
-     *         to return.
+     * @return
      */
 
     public String getNextToken() {
@@ -262,14 +175,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * <p>
-     * The token required to retrieve the next set of results. This value is null when there are no more results to
-     * return.
-     * </p>
-     * 
      * @param nextToken
-     *        The token required to retrieve the next set of results. This value is null when there are no more results
-     *        to return.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -279,8 +185,7 @@ public class GetServersResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

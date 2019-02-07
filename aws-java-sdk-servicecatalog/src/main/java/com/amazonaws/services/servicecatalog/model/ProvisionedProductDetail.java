@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -42,7 +42,7 @@ public class ProvisionedProductDetail implements Serializable, Cloneable, Struct
     private String arn;
     /**
      * <p>
-     * The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.
+     * The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      * </p>
      */
     private String type;
@@ -110,18 +110,6 @@ public class ProvisionedProductDetail implements Serializable, Cloneable, Struct
      * </p>
      */
     private String lastRecordId;
-    /**
-     * <p>
-     * The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.
-     * </p>
-     */
-    private String productId;
-    /**
-     * <p>
-     * The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.
-     * </p>
-     */
-    private String provisioningArtifactId;
 
     /**
      * <p>
@@ -205,12 +193,11 @@ public class ProvisionedProductDetail implements Serializable, Cloneable, Struct
 
     /**
      * <p>
-     * The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.
+     * The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      * </p>
      * 
      * @param type
-     *        The type of provisioned product. The supported values are <code>CFN_STACK</code> and
-     *        <code>CFN_STACKSET</code>.
+     *        The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      */
 
     public void setType(String type) {
@@ -219,11 +206,10 @@ public class ProvisionedProductDetail implements Serializable, Cloneable, Struct
 
     /**
      * <p>
-     * The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.
+     * The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      * </p>
      * 
-     * @return The type of provisioned product. The supported values are <code>CFN_STACK</code> and
-     *         <code>CFN_STACKSET</code>.
+     * @return The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      */
 
     public String getType() {
@@ -232,12 +218,11 @@ public class ProvisionedProductDetail implements Serializable, Cloneable, Struct
 
     /**
      * <p>
-     * The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.
+     * The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      * </p>
      * 
      * @param type
-     *        The type of provisioned product. The supported values are <code>CFN_STACK</code> and
-     *        <code>CFN_STACKSET</code>.
+     *        The type of provisioned product. The supported value is <code>CFN_STACK</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -796,88 +781,7 @@ public class ProvisionedProductDetail implements Serializable, Cloneable, Struct
     }
 
     /**
-     * <p>
-     * The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.
-     * </p>
-     * 
-     * @param productId
-     *        The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.
-     */
-
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    /**
-     * <p>
-     * The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.
-     * </p>
-     * 
-     * @return The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.
-     */
-
-    public String getProductId() {
-        return this.productId;
-    }
-
-    /**
-     * <p>
-     * The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.
-     * </p>
-     * 
-     * @param productId
-     *        The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public ProvisionedProductDetail withProductId(String productId) {
-        setProductId(productId);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.
-     * </p>
-     * 
-     * @param provisioningArtifactId
-     *        The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.
-     */
-
-    public void setProvisioningArtifactId(String provisioningArtifactId) {
-        this.provisioningArtifactId = provisioningArtifactId;
-    }
-
-    /**
-     * <p>
-     * The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.
-     * </p>
-     * 
-     * @return The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.
-     */
-
-    public String getProvisioningArtifactId() {
-        return this.provisioningArtifactId;
-    }
-
-    /**
-     * <p>
-     * The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.
-     * </p>
-     * 
-     * @param provisioningArtifactId
-     *        The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public ProvisionedProductDetail withProvisioningArtifactId(String provisioningArtifactId) {
-        setProvisioningArtifactId(provisioningArtifactId);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -904,11 +808,7 @@ public class ProvisionedProductDetail implements Serializable, Cloneable, Struct
         if (getIdempotencyToken() != null)
             sb.append("IdempotencyToken: ").append(getIdempotencyToken()).append(",");
         if (getLastRecordId() != null)
-            sb.append("LastRecordId: ").append(getLastRecordId()).append(",");
-        if (getProductId() != null)
-            sb.append("ProductId: ").append(getProductId()).append(",");
-        if (getProvisioningArtifactId() != null)
-            sb.append("ProvisioningArtifactId: ").append(getProvisioningArtifactId());
+            sb.append("LastRecordId: ").append(getLastRecordId());
         sb.append("}");
         return sb.toString();
     }
@@ -959,14 +859,6 @@ public class ProvisionedProductDetail implements Serializable, Cloneable, Struct
             return false;
         if (other.getLastRecordId() != null && other.getLastRecordId().equals(this.getLastRecordId()) == false)
             return false;
-        if (other.getProductId() == null ^ this.getProductId() == null)
-            return false;
-        if (other.getProductId() != null && other.getProductId().equals(this.getProductId()) == false)
-            return false;
-        if (other.getProvisioningArtifactId() == null ^ this.getProvisioningArtifactId() == null)
-            return false;
-        if (other.getProvisioningArtifactId() != null && other.getProvisioningArtifactId().equals(this.getProvisioningArtifactId()) == false)
-            return false;
         return true;
     }
 
@@ -984,8 +876,6 @@ public class ProvisionedProductDetail implements Serializable, Cloneable, Struct
         hashCode = prime * hashCode + ((getCreatedTime() == null) ? 0 : getCreatedTime().hashCode());
         hashCode = prime * hashCode + ((getIdempotencyToken() == null) ? 0 : getIdempotencyToken().hashCode());
         hashCode = prime * hashCode + ((getLastRecordId() == null) ? 0 : getLastRecordId().hashCode());
-        hashCode = prime * hashCode + ((getProductId() == null) ? 0 : getProductId().hashCode());
-        hashCode = prime * hashCode + ((getProvisioningArtifactId() == null) ? 0 : getProvisioningArtifactId().hashCode());
         return hashCode;
     }
 

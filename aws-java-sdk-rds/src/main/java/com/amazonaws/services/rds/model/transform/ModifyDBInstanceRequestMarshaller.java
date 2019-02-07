@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -201,73 +201,38 @@ public class ModifyDBInstanceRequestMarshaller implements Marshaller<Request<Mod
             request.addParameter("PerformanceInsightsKMSKeyId", StringUtils.fromString(modifyDBInstanceRequest.getPerformanceInsightsKMSKeyId()));
         }
 
-        if (modifyDBInstanceRequest.getPerformanceInsightsRetentionPeriod() != null) {
-            request.addParameter("PerformanceInsightsRetentionPeriod", StringUtils.fromInteger(modifyDBInstanceRequest.getPerformanceInsightsRetentionPeriod()));
-        }
+        CloudwatchLogsExportConfiguration cloudwatchLogsExportConfiguration = modifyDBInstanceRequest.getCloudwatchLogsExportConfiguration();
+        if (cloudwatchLogsExportConfiguration != null) {
 
-        {
-            CloudwatchLogsExportConfiguration cloudwatchLogsExportConfiguration = modifyDBInstanceRequest.getCloudwatchLogsExportConfiguration();
-            if (cloudwatchLogsExportConfiguration != null) {
+            if (!cloudwatchLogsExportConfiguration.getEnableLogTypes().isEmpty()
+                    || !((com.amazonaws.internal.SdkInternalList<String>) cloudwatchLogsExportConfiguration.getEnableLogTypes()).isAutoConstruct()) {
+                com.amazonaws.internal.SdkInternalList<String> enableLogTypesList = (com.amazonaws.internal.SdkInternalList<String>) cloudwatchLogsExportConfiguration
+                        .getEnableLogTypes();
+                int enableLogTypesListIndex = 1;
 
-                if (!cloudwatchLogsExportConfiguration.getEnableLogTypes().isEmpty()
-                        || !((com.amazonaws.internal.SdkInternalList<String>) cloudwatchLogsExportConfiguration.getEnableLogTypes()).isAutoConstruct()) {
-                    com.amazonaws.internal.SdkInternalList<String> enableLogTypesList = (com.amazonaws.internal.SdkInternalList<String>) cloudwatchLogsExportConfiguration
-                            .getEnableLogTypes();
-                    int enableLogTypesListIndex = 1;
-
-                    for (String enableLogTypesListValue : enableLogTypesList) {
-                        if (enableLogTypesListValue != null) {
-                            request.addParameter("CloudwatchLogsExportConfiguration.EnableLogTypes.member." + enableLogTypesListIndex,
-                                    StringUtils.fromString(enableLogTypesListValue));
-                        }
-                        enableLogTypesListIndex++;
+                for (String enableLogTypesListValue : enableLogTypesList) {
+                    if (enableLogTypesListValue != null) {
+                        request.addParameter("CloudwatchLogsExportConfiguration.EnableLogTypes.member." + enableLogTypesListIndex,
+                                StringUtils.fromString(enableLogTypesListValue));
                     }
-                }
-
-                if (!cloudwatchLogsExportConfiguration.getDisableLogTypes().isEmpty()
-                        || !((com.amazonaws.internal.SdkInternalList<String>) cloudwatchLogsExportConfiguration.getDisableLogTypes()).isAutoConstruct()) {
-                    com.amazonaws.internal.SdkInternalList<String> disableLogTypesList = (com.amazonaws.internal.SdkInternalList<String>) cloudwatchLogsExportConfiguration
-                            .getDisableLogTypes();
-                    int disableLogTypesListIndex = 1;
-
-                    for (String disableLogTypesListValue : disableLogTypesList) {
-                        if (disableLogTypesListValue != null) {
-                            request.addParameter("CloudwatchLogsExportConfiguration.DisableLogTypes.member." + disableLogTypesListIndex,
-                                    StringUtils.fromString(disableLogTypesListValue));
-                        }
-                        disableLogTypesListIndex++;
-                    }
+                    enableLogTypesListIndex++;
                 }
             }
-        }
 
-        if (!modifyDBInstanceRequest.getProcessorFeatures().isEmpty()
-                || !((com.amazonaws.internal.SdkInternalList<ProcessorFeature>) modifyDBInstanceRequest.getProcessorFeatures()).isAutoConstruct()) {
-            com.amazonaws.internal.SdkInternalList<ProcessorFeature> processorFeaturesList = (com.amazonaws.internal.SdkInternalList<ProcessorFeature>) modifyDBInstanceRequest
-                    .getProcessorFeatures();
-            int processorFeaturesListIndex = 1;
+            if (!cloudwatchLogsExportConfiguration.getDisableLogTypes().isEmpty()
+                    || !((com.amazonaws.internal.SdkInternalList<String>) cloudwatchLogsExportConfiguration.getDisableLogTypes()).isAutoConstruct()) {
+                com.amazonaws.internal.SdkInternalList<String> disableLogTypesList = (com.amazonaws.internal.SdkInternalList<String>) cloudwatchLogsExportConfiguration
+                        .getDisableLogTypes();
+                int disableLogTypesListIndex = 1;
 
-            for (ProcessorFeature processorFeaturesListValue : processorFeaturesList) {
-
-                if (processorFeaturesListValue.getName() != null) {
-                    request.addParameter("ProcessorFeatures.ProcessorFeature." + processorFeaturesListIndex + ".Name",
-                            StringUtils.fromString(processorFeaturesListValue.getName()));
+                for (String disableLogTypesListValue : disableLogTypesList) {
+                    if (disableLogTypesListValue != null) {
+                        request.addParameter("CloudwatchLogsExportConfiguration.DisableLogTypes.member." + disableLogTypesListIndex,
+                                StringUtils.fromString(disableLogTypesListValue));
+                    }
+                    disableLogTypesListIndex++;
                 }
-
-                if (processorFeaturesListValue.getValue() != null) {
-                    request.addParameter("ProcessorFeatures.ProcessorFeature." + processorFeaturesListIndex + ".Value",
-                            StringUtils.fromString(processorFeaturesListValue.getValue()));
-                }
-                processorFeaturesListIndex++;
             }
-        }
-
-        if (modifyDBInstanceRequest.getUseDefaultProcessorFeatures() != null) {
-            request.addParameter("UseDefaultProcessorFeatures", StringUtils.fromBoolean(modifyDBInstanceRequest.getUseDefaultProcessorFeatures()));
-        }
-
-        if (modifyDBInstanceRequest.getDeletionProtection() != null) {
-            request.addParameter("DeletionProtection", StringUtils.fromBoolean(modifyDBInstanceRequest.getDeletionProtection()));
         }
 
         return request;

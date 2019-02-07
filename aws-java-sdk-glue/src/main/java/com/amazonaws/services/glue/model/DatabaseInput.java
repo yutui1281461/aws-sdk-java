@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -48,7 +48,7 @@ public class DatabaseInput implements Serializable, Cloneable, StructuredPojo {
     private String locationUri;
     /**
      * <p>
-     * Thes key-value pairs define parameters and properties of the database.
+     * A list of key-value pairs that define parameters and properties of the database.
      * </p>
      */
     private java.util.Map<String, String> parameters;
@@ -175,10 +175,10 @@ public class DatabaseInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Thes key-value pairs define parameters and properties of the database.
+     * A list of key-value pairs that define parameters and properties of the database.
      * </p>
      * 
-     * @return Thes key-value pairs define parameters and properties of the database.
+     * @return A list of key-value pairs that define parameters and properties of the database.
      */
 
     public java.util.Map<String, String> getParameters() {
@@ -187,11 +187,11 @@ public class DatabaseInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Thes key-value pairs define parameters and properties of the database.
+     * A list of key-value pairs that define parameters and properties of the database.
      * </p>
      * 
      * @param parameters
-     *        Thes key-value pairs define parameters and properties of the database.
+     *        A list of key-value pairs that define parameters and properties of the database.
      */
 
     public void setParameters(java.util.Map<String, String> parameters) {
@@ -200,11 +200,11 @@ public class DatabaseInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Thes key-value pairs define parameters and properties of the database.
+     * A list of key-value pairs that define parameters and properties of the database.
      * </p>
      * 
      * @param parameters
-     *        Thes key-value pairs define parameters and properties of the database.
+     *        A list of key-value pairs that define parameters and properties of the database.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -235,8 +235,7 @@ public class DatabaseInput implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

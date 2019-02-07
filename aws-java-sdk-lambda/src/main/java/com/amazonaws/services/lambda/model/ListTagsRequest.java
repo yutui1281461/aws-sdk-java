@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,18 +27,24 @@ public class ListTagsRequest extends com.amazonaws.AmazonWebServiceRequest imple
 
     /**
      * <p>
-     * The function's Amazon Resource Name (ARN).
+     * The ARN (Amazon Resource Name) of the function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda
+     * Developer Guide</b>.
      * </p>
      */
     private String resource;
 
     /**
      * <p>
-     * The function's Amazon Resource Name (ARN).
+     * The ARN (Amazon Resource Name) of the function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda
+     * Developer Guide</b>.
      * </p>
      * 
      * @param resource
-     *        The function's Amazon Resource Name (ARN).
+     *        The ARN (Amazon Resource Name) of the function. For more information, see <a
+     *        href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS
+     *        Lambda Developer Guide</b>.
      */
 
     public void setResource(String resource) {
@@ -47,10 +53,14 @@ public class ListTagsRequest extends com.amazonaws.AmazonWebServiceRequest imple
 
     /**
      * <p>
-     * The function's Amazon Resource Name (ARN).
+     * The ARN (Amazon Resource Name) of the function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda
+     * Developer Guide</b>.
      * </p>
      * 
-     * @return The function's Amazon Resource Name (ARN).
+     * @return The ARN (Amazon Resource Name) of the function. For more information, see <a
+     *         href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the
+     *         <b>AWS Lambda Developer Guide</b>.
      */
 
     public String getResource() {
@@ -59,11 +69,15 @@ public class ListTagsRequest extends com.amazonaws.AmazonWebServiceRequest imple
 
     /**
      * <p>
-     * The function's Amazon Resource Name (ARN).
+     * The ARN (Amazon Resource Name) of the function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda
+     * Developer Guide</b>.
      * </p>
      * 
      * @param resource
-     *        The function's Amazon Resource Name (ARN).
+     *        The ARN (Amazon Resource Name) of the function. For more information, see <a
+     *        href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS
+     *        Lambda Developer Guide</b>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -73,8 +87,7 @@ public class ListTagsRequest extends com.amazonaws.AmazonWebServiceRequest imple
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

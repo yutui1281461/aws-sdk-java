@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -42,7 +42,7 @@ public class ResourcePolicy implements Serializable, Cloneable, StructuredPojo {
     private String policyDocument;
     /**
      * <p>
-     * Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970
+     * Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970
      * 00:00:00 UTC.
      * </p>
      */
@@ -130,12 +130,12 @@ public class ResourcePolicy implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970
+     * Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970
      * 00:00:00 UTC.
      * </p>
      * 
      * @param lastUpdatedTime
-     *        Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1,
+     *        Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1,
      *        1970 00:00:00 UTC.
      */
 
@@ -145,12 +145,12 @@ public class ResourcePolicy implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970
+     * Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970
      * 00:00:00 UTC.
      * </p>
      * 
-     * @return Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1,
-     *         1970 00:00:00 UTC.
+     * @return Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan
+     *         1, 1970 00:00:00 UTC.
      */
 
     public Long getLastUpdatedTime() {
@@ -159,12 +159,12 @@ public class ResourcePolicy implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970
+     * Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970
      * 00:00:00 UTC.
      * </p>
      * 
      * @param lastUpdatedTime
-     *        Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1,
+     *        Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1,
      *        1970 00:00:00 UTC.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -175,8 +175,7 @@ public class ResourcePolicy implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

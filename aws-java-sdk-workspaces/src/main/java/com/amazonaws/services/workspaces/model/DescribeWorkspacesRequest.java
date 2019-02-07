@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,7 +27,7 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.
+     * The IDs of the WorkSpaces. This parameter cannot be combined with any other filter.
      * </p>
      * <p>
      * Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns is not immediately
@@ -37,8 +37,8 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
     private com.amazonaws.internal.SdkInternalList<String> workspaceIds;
     /**
      * <p>
-     * The identifier of the directory. In addition, you can optionally specify a specific directory user (see
-     * <code>UserName</code>). You cannot combine this parameter with any other filter.
+     * The ID of the directory. In addition, you can optionally specify a specific directory user (see
+     * <code>UserName</code>). This parameter cannot be combined with any other filter.
      * </p>
      */
     private String directoryId;
@@ -50,8 +50,8 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
     private String userName;
     /**
      * <p>
-     * The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine
-     * this parameter with any other filter.
+     * The ID of the bundle. All WorkSpaces that are created from this bundle are retrieved. This parameter cannot be
+     * combined with any other filter.
      * </p>
      */
     private String bundleId;
@@ -63,22 +63,21 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
     private Integer limit;
     /**
      * <p>
-     * If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive
-     * the next set of results.
+     * The token for the next set of results. (You received this token from a previous call.)
      * </p>
      */
     private String nextToken;
 
     /**
      * <p>
-     * The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.
+     * The IDs of the WorkSpaces. This parameter cannot be combined with any other filter.
      * </p>
      * <p>
      * Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns is not immediately
      * available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no information is returned.
      * </p>
      * 
-     * @return The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.</p>
+     * @return The IDs of the WorkSpaces. This parameter cannot be combined with any other filter.</p>
      *         <p>
      *         Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns is not
      *         immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no
@@ -94,7 +93,7 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.
+     * The IDs of the WorkSpaces. This parameter cannot be combined with any other filter.
      * </p>
      * <p>
      * Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns is not immediately
@@ -102,7 +101,7 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
      * </p>
      * 
      * @param workspaceIds
-     *        The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.</p>
+     *        The IDs of the WorkSpaces. This parameter cannot be combined with any other filter.</p>
      *        <p>
      *        Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns is not
      *        immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no
@@ -120,7 +119,7 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.
+     * The IDs of the WorkSpaces. This parameter cannot be combined with any other filter.
      * </p>
      * <p>
      * Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns is not immediately
@@ -133,7 +132,7 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
      * </p>
      * 
      * @param workspaceIds
-     *        The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.</p>
+     *        The IDs of the WorkSpaces. This parameter cannot be combined with any other filter.</p>
      *        <p>
      *        Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns is not
      *        immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no
@@ -153,7 +152,7 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.
+     * The IDs of the WorkSpaces. This parameter cannot be combined with any other filter.
      * </p>
      * <p>
      * Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns is not immediately
@@ -161,7 +160,7 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
      * </p>
      * 
      * @param workspaceIds
-     *        The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.</p>
+     *        The IDs of the WorkSpaces. This parameter cannot be combined with any other filter.</p>
      *        <p>
      *        Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns is not
      *        immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no
@@ -176,13 +175,13 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The identifier of the directory. In addition, you can optionally specify a specific directory user (see
-     * <code>UserName</code>). You cannot combine this parameter with any other filter.
+     * The ID of the directory. In addition, you can optionally specify a specific directory user (see
+     * <code>UserName</code>). This parameter cannot be combined with any other filter.
      * </p>
      * 
      * @param directoryId
-     *        The identifier of the directory. In addition, you can optionally specify a specific directory user (see
-     *        <code>UserName</code>). You cannot combine this parameter with any other filter.
+     *        The ID of the directory. In addition, you can optionally specify a specific directory user (see
+     *        <code>UserName</code>). This parameter cannot be combined with any other filter.
      */
 
     public void setDirectoryId(String directoryId) {
@@ -191,12 +190,12 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The identifier of the directory. In addition, you can optionally specify a specific directory user (see
-     * <code>UserName</code>). You cannot combine this parameter with any other filter.
+     * The ID of the directory. In addition, you can optionally specify a specific directory user (see
+     * <code>UserName</code>). This parameter cannot be combined with any other filter.
      * </p>
      * 
-     * @return The identifier of the directory. In addition, you can optionally specify a specific directory user (see
-     *         <code>UserName</code>). You cannot combine this parameter with any other filter.
+     * @return The ID of the directory. In addition, you can optionally specify a specific directory user (see
+     *         <code>UserName</code>). This parameter cannot be combined with any other filter.
      */
 
     public String getDirectoryId() {
@@ -205,13 +204,13 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The identifier of the directory. In addition, you can optionally specify a specific directory user (see
-     * <code>UserName</code>). You cannot combine this parameter with any other filter.
+     * The ID of the directory. In addition, you can optionally specify a specific directory user (see
+     * <code>UserName</code>). This parameter cannot be combined with any other filter.
      * </p>
      * 
      * @param directoryId
-     *        The identifier of the directory. In addition, you can optionally specify a specific directory user (see
-     *        <code>UserName</code>). You cannot combine this parameter with any other filter.
+     *        The ID of the directory. In addition, you can optionally specify a specific directory user (see
+     *        <code>UserName</code>). This parameter cannot be combined with any other filter.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -262,13 +261,13 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine
-     * this parameter with any other filter.
+     * The ID of the bundle. All WorkSpaces that are created from this bundle are retrieved. This parameter cannot be
+     * combined with any other filter.
      * </p>
      * 
      * @param bundleId
-     *        The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot
-     *        combine this parameter with any other filter.
+     *        The ID of the bundle. All WorkSpaces that are created from this bundle are retrieved. This parameter
+     *        cannot be combined with any other filter.
      */
 
     public void setBundleId(String bundleId) {
@@ -277,12 +276,12 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine
-     * this parameter with any other filter.
+     * The ID of the bundle. All WorkSpaces that are created from this bundle are retrieved. This parameter cannot be
+     * combined with any other filter.
      * </p>
      * 
-     * @return The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot
-     *         combine this parameter with any other filter.
+     * @return The ID of the bundle. All WorkSpaces that are created from this bundle are retrieved. This parameter
+     *         cannot be combined with any other filter.
      */
 
     public String getBundleId() {
@@ -291,13 +290,13 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine
-     * this parameter with any other filter.
+     * The ID of the bundle. All WorkSpaces that are created from this bundle are retrieved. This parameter cannot be
+     * combined with any other filter.
      * </p>
      * 
      * @param bundleId
-     *        The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot
-     *        combine this parameter with any other filter.
+     *        The ID of the bundle. All WorkSpaces that are created from this bundle are retrieved. This parameter
+     *        cannot be combined with any other filter.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -348,13 +347,11 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive
-     * the next set of results.
+     * The token for the next set of results. (You received this token from a previous call.)
      * </p>
      * 
      * @param nextToken
-     *        If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to
-     *        receive the next set of results.
+     *        The token for the next set of results. (You received this token from a previous call.)
      */
 
     public void setNextToken(String nextToken) {
@@ -363,12 +360,10 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive
-     * the next set of results.
+     * The token for the next set of results. (You received this token from a previous call.)
      * </p>
      * 
-     * @return If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to
-     *         receive the next set of results.
+     * @return The token for the next set of results. (You received this token from a previous call.)
      */
 
     public String getNextToken() {
@@ -377,13 +372,11 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive
-     * the next set of results.
+     * The token for the next set of results. (You received this token from a previous call.)
      * </p>
      * 
      * @param nextToken
-     *        If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to
-     *        receive the next set of results.
+     *        The token for the next set of results. (You received this token from a previous call.)
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -393,8 +386,7 @@ public class DescribeWorkspacesRequest extends com.amazonaws.AmazonWebServiceReq
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

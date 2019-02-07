@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -52,8 +52,7 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
      * The status of the resize operation.
      * </p>
      * <p>
-     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code> |
-     * <code>CANCELLING</code>
+     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
      * </p>
      */
     private String status;
@@ -121,29 +120,6 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
      * </p>
      */
     private Long estimatedTimeToCompletionInSeconds;
-    /**
-     * <p>
-     * An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values describe
-     * the type of resize operation being performed.
-     * </p>
-     */
-    private String resizeType;
-    /**
-     * <p>
-     * An optional string to provide additional details about the resize action.
-     * </p>
-     */
-    private String message;
-    /**
-     * <p>
-     * The type of encryption for the cluster after the resize is complete.
-     * </p>
-     * <p>
-     * Possible values are <code>KMS</code> and <code>None</code>. In the China region possible values are:
-     * <code>Legacy</code> and <code>None</code>.
-     * </p>
-     */
-    private String targetEncryptionType;
 
     /**
      * <p>
@@ -285,15 +261,13 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
      * The status of the resize operation.
      * </p>
      * <p>
-     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code> |
-     * <code>CANCELLING</code>
+     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
      * </p>
      * 
      * @param status
      *        The status of the resize operation.</p>
      *        <p>
      *        Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
-     *        | <code>CANCELLING</code>
      */
 
     public void setStatus(String status) {
@@ -305,14 +279,12 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
      * The status of the resize operation.
      * </p>
      * <p>
-     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code> |
-     * <code>CANCELLING</code>
+     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
      * </p>
      * 
      * @return The status of the resize operation.</p>
      *         <p>
      *         Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
-     *         | <code>CANCELLING</code>
      */
 
     public String getStatus() {
@@ -324,15 +296,13 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
      * The status of the resize operation.
      * </p>
      * <p>
-     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code> |
-     * <code>CANCELLING</code>
+     * Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
      * </p>
      * 
      * @param status
      *        The status of the resize operation.</p>
      *        <p>
      *        Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> | <code>SUCCEEDED</code>
-     *        | <code>CANCELLING</code>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -863,155 +833,7 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
     }
 
     /**
-     * <p>
-     * An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values describe
-     * the type of resize operation being performed.
-     * </p>
-     * 
-     * @param resizeType
-     *        An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values
-     *        describe the type of resize operation being performed.
-     */
-
-    public void setResizeType(String resizeType) {
-        this.resizeType = resizeType;
-    }
-
-    /**
-     * <p>
-     * An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values describe
-     * the type of resize operation being performed.
-     * </p>
-     * 
-     * @return An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values
-     *         describe the type of resize operation being performed.
-     */
-
-    public String getResizeType() {
-        return this.resizeType;
-    }
-
-    /**
-     * <p>
-     * An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values describe
-     * the type of resize operation being performed.
-     * </p>
-     * 
-     * @param resizeType
-     *        An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values
-     *        describe the type of resize operation being performed.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DescribeResizeResult withResizeType(String resizeType) {
-        setResizeType(resizeType);
-        return this;
-    }
-
-    /**
-     * <p>
-     * An optional string to provide additional details about the resize action.
-     * </p>
-     * 
-     * @param message
-     *        An optional string to provide additional details about the resize action.
-     */
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    /**
-     * <p>
-     * An optional string to provide additional details about the resize action.
-     * </p>
-     * 
-     * @return An optional string to provide additional details about the resize action.
-     */
-
-    public String getMessage() {
-        return this.message;
-    }
-
-    /**
-     * <p>
-     * An optional string to provide additional details about the resize action.
-     * </p>
-     * 
-     * @param message
-     *        An optional string to provide additional details about the resize action.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DescribeResizeResult withMessage(String message) {
-        setMessage(message);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The type of encryption for the cluster after the resize is complete.
-     * </p>
-     * <p>
-     * Possible values are <code>KMS</code> and <code>None</code>. In the China region possible values are:
-     * <code>Legacy</code> and <code>None</code>.
-     * </p>
-     * 
-     * @param targetEncryptionType
-     *        The type of encryption for the cluster after the resize is complete.</p>
-     *        <p>
-     *        Possible values are <code>KMS</code> and <code>None</code>. In the China region possible values are:
-     *        <code>Legacy</code> and <code>None</code>.
-     */
-
-    public void setTargetEncryptionType(String targetEncryptionType) {
-        this.targetEncryptionType = targetEncryptionType;
-    }
-
-    /**
-     * <p>
-     * The type of encryption for the cluster after the resize is complete.
-     * </p>
-     * <p>
-     * Possible values are <code>KMS</code> and <code>None</code>. In the China region possible values are:
-     * <code>Legacy</code> and <code>None</code>.
-     * </p>
-     * 
-     * @return The type of encryption for the cluster after the resize is complete.</p>
-     *         <p>
-     *         Possible values are <code>KMS</code> and <code>None</code>. In the China region possible values are:
-     *         <code>Legacy</code> and <code>None</code>.
-     */
-
-    public String getTargetEncryptionType() {
-        return this.targetEncryptionType;
-    }
-
-    /**
-     * <p>
-     * The type of encryption for the cluster after the resize is complete.
-     * </p>
-     * <p>
-     * Possible values are <code>KMS</code> and <code>None</code>. In the China region possible values are:
-     * <code>Legacy</code> and <code>None</code>.
-     * </p>
-     * 
-     * @param targetEncryptionType
-     *        The type of encryption for the cluster after the resize is complete.</p>
-     *        <p>
-     *        Possible values are <code>KMS</code> and <code>None</code>. In the China region possible values are:
-     *        <code>Legacy</code> and <code>None</code>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DescribeResizeResult withTargetEncryptionType(String targetEncryptionType) {
-        setTargetEncryptionType(targetEncryptionType);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1044,13 +866,7 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
         if (getElapsedTimeInSeconds() != null)
             sb.append("ElapsedTimeInSeconds: ").append(getElapsedTimeInSeconds()).append(",");
         if (getEstimatedTimeToCompletionInSeconds() != null)
-            sb.append("EstimatedTimeToCompletionInSeconds: ").append(getEstimatedTimeToCompletionInSeconds()).append(",");
-        if (getResizeType() != null)
-            sb.append("ResizeType: ").append(getResizeType()).append(",");
-        if (getMessage() != null)
-            sb.append("Message: ").append(getMessage()).append(",");
-        if (getTargetEncryptionType() != null)
-            sb.append("TargetEncryptionType: ").append(getTargetEncryptionType());
+            sb.append("EstimatedTimeToCompletionInSeconds: ").append(getEstimatedTimeToCompletionInSeconds());
         sb.append("}");
         return sb.toString();
     }
@@ -1115,18 +931,6 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
         if (other.getEstimatedTimeToCompletionInSeconds() != null
                 && other.getEstimatedTimeToCompletionInSeconds().equals(this.getEstimatedTimeToCompletionInSeconds()) == false)
             return false;
-        if (other.getResizeType() == null ^ this.getResizeType() == null)
-            return false;
-        if (other.getResizeType() != null && other.getResizeType().equals(this.getResizeType()) == false)
-            return false;
-        if (other.getMessage() == null ^ this.getMessage() == null)
-            return false;
-        if (other.getMessage() != null && other.getMessage().equals(this.getMessage()) == false)
-            return false;
-        if (other.getTargetEncryptionType() == null ^ this.getTargetEncryptionType() == null)
-            return false;
-        if (other.getTargetEncryptionType() != null && other.getTargetEncryptionType().equals(this.getTargetEncryptionType()) == false)
-            return false;
         return true;
     }
 
@@ -1147,9 +951,6 @@ public class DescribeResizeResult extends com.amazonaws.AmazonWebServiceResult<c
         hashCode = prime * hashCode + ((getProgressInMegaBytes() == null) ? 0 : getProgressInMegaBytes().hashCode());
         hashCode = prime * hashCode + ((getElapsedTimeInSeconds() == null) ? 0 : getElapsedTimeInSeconds().hashCode());
         hashCode = prime * hashCode + ((getEstimatedTimeToCompletionInSeconds() == null) ? 0 : getEstimatedTimeToCompletionInSeconds().hashCode());
-        hashCode = prime * hashCode + ((getResizeType() == null) ? 0 : getResizeType().hashCode());
-        hashCode = prime * hashCode + ((getMessage() == null) ? 0 : getMessage().hashCode());
-        hashCode = prime * hashCode + ((getTargetEncryptionType() == null) ? 0 : getTargetEncryptionType().hashCode());
         return hashCode;
     }
 

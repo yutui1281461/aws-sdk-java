@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -26,39 +26,43 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class APNSChannelResponse implements Serializable, Cloneable, StructuredPojo {
 
-    /** The ID of the application that the channel applies to. */
+    /** The ID of the application to which the channel applies. */
     private String applicationId;
-    /** The date and time when this channel was created. */
+    /** When was this segment created */
     private String creationDate;
     /** The default authentication method used for APNs. */
     private String defaultAuthenticationMethod;
     /** If the channel is enabled for sending messages. */
     private Boolean enabled;
-    /** Not used. Retained for backwards compatibility. */
+    /**
+     * Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials to
+     * authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId, TokenKey,
+     * and TokenKeyId attributes. To use certificate authentication, set the Certificate and PrivateKey attributes.
+     */
     private Boolean hasCredential;
     /**
      * Indicates whether the channel is configured with a key for APNs token authentication. Provide a token key by
      * setting the TokenKey attribute.
      */
     private Boolean hasTokenKey;
-    /** (Deprecated) An identifier for the channel. Retained for backwards compatibility. */
+    /** Channel ID. Not used. Present only for backwards compatibility. */
     private String id;
-    /** Indicates whether or not the channel is archived. */
+    /** Is this channel archived */
     private Boolean isArchived;
-    /** The user who last updated this channel. */
+    /** Who last updated this entry */
     private String lastModifiedBy;
-    /** The date and time when this channel was last modified. */
+    /** Last date this was updated */
     private String lastModifiedDate;
-    /** The platform type. For this channel, the value is always "ADM." */
+    /** The platform type. Will be APNS. */
     private String platform;
-    /** The channel version. */
+    /** Version of channel */
     private Integer version;
 
     /**
-     * The ID of the application that the channel applies to.
+     * The ID of the application to which the channel applies.
      * 
      * @param applicationId
-     *        The ID of the application that the channel applies to.
+     *        The ID of the application to which the channel applies.
      */
 
     public void setApplicationId(String applicationId) {
@@ -66,9 +70,9 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The ID of the application that the channel applies to.
+     * The ID of the application to which the channel applies.
      * 
-     * @return The ID of the application that the channel applies to.
+     * @return The ID of the application to which the channel applies.
      */
 
     public String getApplicationId() {
@@ -76,10 +80,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The ID of the application that the channel applies to.
+     * The ID of the application to which the channel applies.
      * 
      * @param applicationId
-     *        The ID of the application that the channel applies to.
+     *        The ID of the application to which the channel applies.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -89,10 +93,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The date and time when this channel was created.
+     * When was this segment created
      * 
      * @param creationDate
-     *        The date and time when this channel was created.
+     *        When was this segment created
      */
 
     public void setCreationDate(String creationDate) {
@@ -100,9 +104,9 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The date and time when this channel was created.
+     * When was this segment created
      * 
-     * @return The date and time when this channel was created.
+     * @return When was this segment created
      */
 
     public String getCreationDate() {
@@ -110,10 +114,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The date and time when this channel was created.
+     * When was this segment created
      * 
      * @param creationDate
-     *        The date and time when this channel was created.
+     *        When was this segment created
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -201,10 +205,15 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Not used. Retained for backwards compatibility.
+     * Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials to
+     * authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId, TokenKey,
+     * and TokenKeyId attributes. To use certificate authentication, set the Certificate and PrivateKey attributes.
      * 
      * @param hasCredential
-     *        Not used. Retained for backwards compatibility.
+     *        Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials
+     *        to authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId,
+     *        TokenKey, and TokenKeyId attributes. To use certificate authentication, set the Certificate and PrivateKey
+     *        attributes.
      */
 
     public void setHasCredential(Boolean hasCredential) {
@@ -212,9 +221,14 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Not used. Retained for backwards compatibility.
+     * Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials to
+     * authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId, TokenKey,
+     * and TokenKeyId attributes. To use certificate authentication, set the Certificate and PrivateKey attributes.
      * 
-     * @return Not used. Retained for backwards compatibility.
+     * @return Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials
+     *         to authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId,
+     *         TokenKey, and TokenKeyId attributes. To use certificate authentication, set the Certificate and
+     *         PrivateKey attributes.
      */
 
     public Boolean getHasCredential() {
@@ -222,10 +236,15 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Not used. Retained for backwards compatibility.
+     * Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials to
+     * authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId, TokenKey,
+     * and TokenKeyId attributes. To use certificate authentication, set the Certificate and PrivateKey attributes.
      * 
      * @param hasCredential
-     *        Not used. Retained for backwards compatibility.
+     *        Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials
+     *        to authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId,
+     *        TokenKey, and TokenKeyId attributes. To use certificate authentication, set the Certificate and PrivateKey
+     *        attributes.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -235,9 +254,14 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Not used. Retained for backwards compatibility.
+     * Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials to
+     * authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId, TokenKey,
+     * and TokenKeyId attributes. To use certificate authentication, set the Certificate and PrivateKey attributes.
      * 
-     * @return Not used. Retained for backwards compatibility.
+     * @return Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials
+     *         to authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId,
+     *         TokenKey, and TokenKeyId attributes. To use certificate authentication, set the Certificate and
+     *         PrivateKey attributes.
      */
 
     public Boolean isHasCredential() {
@@ -297,10 +321,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * (Deprecated) An identifier for the channel. Retained for backwards compatibility.
+     * Channel ID. Not used. Present only for backwards compatibility.
      * 
      * @param id
-     *        (Deprecated) An identifier for the channel. Retained for backwards compatibility.
+     *        Channel ID. Not used. Present only for backwards compatibility.
      */
 
     public void setId(String id) {
@@ -308,9 +332,9 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * (Deprecated) An identifier for the channel. Retained for backwards compatibility.
+     * Channel ID. Not used. Present only for backwards compatibility.
      * 
-     * @return (Deprecated) An identifier for the channel. Retained for backwards compatibility.
+     * @return Channel ID. Not used. Present only for backwards compatibility.
      */
 
     public String getId() {
@@ -318,10 +342,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * (Deprecated) An identifier for the channel. Retained for backwards compatibility.
+     * Channel ID. Not used. Present only for backwards compatibility.
      * 
      * @param id
-     *        (Deprecated) An identifier for the channel. Retained for backwards compatibility.
+     *        Channel ID. Not used. Present only for backwards compatibility.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -331,10 +355,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Indicates whether or not the channel is archived.
+     * Is this channel archived
      * 
      * @param isArchived
-     *        Indicates whether or not the channel is archived.
+     *        Is this channel archived
      */
 
     public void setIsArchived(Boolean isArchived) {
@@ -342,9 +366,9 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Indicates whether or not the channel is archived.
+     * Is this channel archived
      * 
-     * @return Indicates whether or not the channel is archived.
+     * @return Is this channel archived
      */
 
     public Boolean getIsArchived() {
@@ -352,10 +376,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Indicates whether or not the channel is archived.
+     * Is this channel archived
      * 
      * @param isArchived
-     *        Indicates whether or not the channel is archived.
+     *        Is this channel archived
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -365,9 +389,9 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Indicates whether or not the channel is archived.
+     * Is this channel archived
      * 
-     * @return Indicates whether or not the channel is archived.
+     * @return Is this channel archived
      */
 
     public Boolean isArchived() {
@@ -375,10 +399,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The user who last updated this channel.
+     * Who last updated this entry
      * 
      * @param lastModifiedBy
-     *        The user who last updated this channel.
+     *        Who last updated this entry
      */
 
     public void setLastModifiedBy(String lastModifiedBy) {
@@ -386,9 +410,9 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The user who last updated this channel.
+     * Who last updated this entry
      * 
-     * @return The user who last updated this channel.
+     * @return Who last updated this entry
      */
 
     public String getLastModifiedBy() {
@@ -396,10 +420,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The user who last updated this channel.
+     * Who last updated this entry
      * 
      * @param lastModifiedBy
-     *        The user who last updated this channel.
+     *        Who last updated this entry
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -409,10 +433,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The date and time when this channel was last modified.
+     * Last date this was updated
      * 
      * @param lastModifiedDate
-     *        The date and time when this channel was last modified.
+     *        Last date this was updated
      */
 
     public void setLastModifiedDate(String lastModifiedDate) {
@@ -420,9 +444,9 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The date and time when this channel was last modified.
+     * Last date this was updated
      * 
-     * @return The date and time when this channel was last modified.
+     * @return Last date this was updated
      */
 
     public String getLastModifiedDate() {
@@ -430,10 +454,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The date and time when this channel was last modified.
+     * Last date this was updated
      * 
      * @param lastModifiedDate
-     *        The date and time when this channel was last modified.
+     *        Last date this was updated
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -443,10 +467,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The platform type. For this channel, the value is always "ADM."
+     * The platform type. Will be APNS.
      * 
      * @param platform
-     *        The platform type. For this channel, the value is always "ADM."
+     *        The platform type. Will be APNS.
      */
 
     public void setPlatform(String platform) {
@@ -454,9 +478,9 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The platform type. For this channel, the value is always "ADM."
+     * The platform type. Will be APNS.
      * 
-     * @return The platform type. For this channel, the value is always "ADM."
+     * @return The platform type. Will be APNS.
      */
 
     public String getPlatform() {
@@ -464,10 +488,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The platform type. For this channel, the value is always "ADM."
+     * The platform type. Will be APNS.
      * 
      * @param platform
-     *        The platform type. For this channel, the value is always "ADM."
+     *        The platform type. Will be APNS.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -477,10 +501,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The channel version.
+     * Version of channel
      * 
      * @param version
-     *        The channel version.
+     *        Version of channel
      */
 
     public void setVersion(Integer version) {
@@ -488,9 +512,9 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The channel version.
+     * Version of channel
      * 
-     * @return The channel version.
+     * @return Version of channel
      */
 
     public Integer getVersion() {
@@ -498,10 +522,10 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * The channel version.
+     * Version of channel
      * 
      * @param version
-     *        The channel version.
+     *        Version of channel
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -511,8 +535,7 @@ public class APNSChannelResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

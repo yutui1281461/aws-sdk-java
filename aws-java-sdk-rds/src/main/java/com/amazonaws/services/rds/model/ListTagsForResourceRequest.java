@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,7 +31,7 @@ public class ListTagsForResourceRequest extends com.amazonaws.AmazonWebServiceRe
      * The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information
      * about creating an ARN, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.
+     * Constructing an RDS Amazon Resource Name (ARN)</a>.
      * </p>
      */
     private String resourceName;
@@ -47,14 +47,14 @@ public class ListTagsForResourceRequest extends com.amazonaws.AmazonWebServiceRe
      * The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information
      * about creating an ARN, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.
+     * Constructing an RDS Amazon Resource Name (ARN)</a>.
      * </p>
      * 
      * @param resourceName
      *        The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For
      *        information about creating an ARN, see <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing"
-     *        > Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.
+     *        > Constructing an RDS Amazon Resource Name (ARN)</a>.
      */
 
     public void setResourceName(String resourceName) {
@@ -66,13 +66,13 @@ public class ListTagsForResourceRequest extends com.amazonaws.AmazonWebServiceRe
      * The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information
      * about creating an ARN, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.
+     * Constructing an RDS Amazon Resource Name (ARN)</a>.
      * </p>
      * 
      * @return The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For
      *         information about creating an ARN, see <a href=
      *         "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing"
-     *         > Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.
+     *         > Constructing an RDS Amazon Resource Name (ARN)</a>.
      */
 
     public String getResourceName() {
@@ -84,14 +84,14 @@ public class ListTagsForResourceRequest extends com.amazonaws.AmazonWebServiceRe
      * The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information
      * about creating an ARN, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.
+     * Constructing an RDS Amazon Resource Name (ARN)</a>.
      * </p>
      * 
      * @param resourceName
      *        The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For
      *        information about creating an ARN, see <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing"
-     *        > Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.
+     *        > Constructing an RDS Amazon Resource Name (ARN)</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -174,8 +174,7 @@ public class ListTagsForResourceRequest extends com.amazonaws.AmazonWebServiceRe
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Information about a private virtual interface to be provisioned on a connection.
+ * A structure containing information about a private virtual interface that will be provisioned on a connection.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/NewPrivateVirtualInterfaceAllocation"
@@ -28,62 +28,22 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class NewPrivateVirtualInterfaceAllocation implements Serializable, Cloneable, StructuredPojo {
 
-    /**
-     * <p>
-     * The name of the virtual interface assigned by the customer network.
-     * </p>
-     */
     private String virtualInterfaceName;
-    /**
-     * <p>
-     * The ID of the VLAN.
-     * </p>
-     */
+
     private Integer vlan;
-    /**
-     * <p>
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     * </p>
-     */
+
     private Integer asn;
-    /**
-     * <p>
-     * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
-     * </p>
-     */
-    private Integer mtu;
-    /**
-     * <p>
-     * The authentication key for BGP configuration.
-     * </p>
-     */
+
     private String authKey;
-    /**
-     * <p>
-     * The IP address assigned to the Amazon interface.
-     * </p>
-     */
+
     private String amazonAddress;
-    /**
-     * <p>
-     * The address family for the BGP peer.
-     * </p>
-     */
+
     private String addressFamily;
-    /**
-     * <p>
-     * The IP address assigned to the customer interface.
-     * </p>
-     */
+
     private String customerAddress;
 
     /**
-     * <p>
-     * The name of the virtual interface assigned by the customer network.
-     * </p>
-     * 
      * @param virtualInterfaceName
-     *        The name of the virtual interface assigned by the customer network.
      */
 
     public void setVirtualInterfaceName(String virtualInterfaceName) {
@@ -91,11 +51,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The name of the virtual interface assigned by the customer network.
-     * </p>
-     * 
-     * @return The name of the virtual interface assigned by the customer network.
+     * @return
      */
 
     public String getVirtualInterfaceName() {
@@ -103,12 +59,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The name of the virtual interface assigned by the customer network.
-     * </p>
-     * 
      * @param virtualInterfaceName
-     *        The name of the virtual interface assigned by the customer network.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -118,12 +69,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The ID of the VLAN.
-     * </p>
-     * 
      * @param vlan
-     *        The ID of the VLAN.
      */
 
     public void setVlan(Integer vlan) {
@@ -131,11 +77,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The ID of the VLAN.
-     * </p>
-     * 
-     * @return The ID of the VLAN.
+     * @return
      */
 
     public Integer getVlan() {
@@ -143,12 +85,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The ID of the VLAN.
-     * </p>
-     * 
      * @param vlan
-     *        The ID of the VLAN.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -158,12 +95,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     * </p>
-     * 
      * @param asn
-     *        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
 
     public void setAsn(Integer asn) {
@@ -171,11 +103,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     * </p>
-     * 
-     * @return The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * @return
      */
 
     public Integer getAsn() {
@@ -183,12 +111,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     * </p>
-     * 
      * @param asn
-     *        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -198,55 +121,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
-     * </p>
-     * 
-     * @param mtu
-     *        The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value
-     *        is 1500.
-     */
-
-    public void setMtu(Integer mtu) {
-        this.mtu = mtu;
-    }
-
-    /**
-     * <p>
-     * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
-     * </p>
-     * 
-     * @return The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value
-     *         is 1500.
-     */
-
-    public Integer getMtu() {
-        return this.mtu;
-    }
-
-    /**
-     * <p>
-     * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
-     * </p>
-     * 
-     * @param mtu
-     *        The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value
-     *        is 1500.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public NewPrivateVirtualInterfaceAllocation withMtu(Integer mtu) {
-        setMtu(mtu);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The authentication key for BGP configuration.
-     * </p>
-     * 
      * @param authKey
-     *        The authentication key for BGP configuration.
      */
 
     public void setAuthKey(String authKey) {
@@ -254,11 +129,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The authentication key for BGP configuration.
-     * </p>
-     * 
-     * @return The authentication key for BGP configuration.
+     * @return
      */
 
     public String getAuthKey() {
@@ -266,12 +137,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The authentication key for BGP configuration.
-     * </p>
-     * 
      * @param authKey
-     *        The authentication key for BGP configuration.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -281,12 +147,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The IP address assigned to the Amazon interface.
-     * </p>
-     * 
      * @param amazonAddress
-     *        The IP address assigned to the Amazon interface.
      */
 
     public void setAmazonAddress(String amazonAddress) {
@@ -294,11 +155,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The IP address assigned to the Amazon interface.
-     * </p>
-     * 
-     * @return The IP address assigned to the Amazon interface.
+     * @return
      */
 
     public String getAmazonAddress() {
@@ -306,12 +163,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The IP address assigned to the Amazon interface.
-     * </p>
-     * 
      * @param amazonAddress
-     *        The IP address assigned to the Amazon interface.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -321,12 +173,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The address family for the BGP peer.
-     * </p>
-     * 
      * @param addressFamily
-     *        The address family for the BGP peer.
      * @see AddressFamily
      */
 
@@ -335,11 +182,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The address family for the BGP peer.
-     * </p>
-     * 
-     * @return The address family for the BGP peer.
+     * @return
      * @see AddressFamily
      */
 
@@ -348,12 +191,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The address family for the BGP peer.
-     * </p>
-     * 
      * @param addressFamily
-     *        The address family for the BGP peer.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see AddressFamily
      */
@@ -364,12 +202,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The address family for the BGP peer.
-     * </p>
-     * 
      * @param addressFamily
-     *        The address family for the BGP peer.
      * @see AddressFamily
      */
 
@@ -378,12 +211,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The address family for the BGP peer.
-     * </p>
-     * 
      * @param addressFamily
-     *        The address family for the BGP peer.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see AddressFamily
      */
@@ -394,12 +222,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The IP address assigned to the customer interface.
-     * </p>
-     * 
      * @param customerAddress
-     *        The IP address assigned to the customer interface.
      */
 
     public void setCustomerAddress(String customerAddress) {
@@ -407,11 +230,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The IP address assigned to the customer interface.
-     * </p>
-     * 
-     * @return The IP address assigned to the customer interface.
+     * @return
      */
 
     public String getCustomerAddress() {
@@ -419,12 +238,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * <p>
-     * The IP address assigned to the customer interface.
-     * </p>
-     * 
      * @param customerAddress
-     *        The IP address assigned to the customer interface.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -434,8 +248,7 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -451,8 +264,6 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
             sb.append("Vlan: ").append(getVlan()).append(",");
         if (getAsn() != null)
             sb.append("Asn: ").append(getAsn()).append(",");
-        if (getMtu() != null)
-            sb.append("Mtu: ").append(getMtu()).append(",");
         if (getAuthKey() != null)
             sb.append("AuthKey: ").append(getAuthKey()).append(",");
         if (getAmazonAddress() != null)
@@ -487,10 +298,6 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
             return false;
         if (other.getAsn() != null && other.getAsn().equals(this.getAsn()) == false)
             return false;
-        if (other.getMtu() == null ^ this.getMtu() == null)
-            return false;
-        if (other.getMtu() != null && other.getMtu().equals(this.getMtu()) == false)
-            return false;
         if (other.getAuthKey() == null ^ this.getAuthKey() == null)
             return false;
         if (other.getAuthKey() != null && other.getAuthKey().equals(this.getAuthKey()) == false)
@@ -518,7 +325,6 @@ public class NewPrivateVirtualInterfaceAllocation implements Serializable, Clone
         hashCode = prime * hashCode + ((getVirtualInterfaceName() == null) ? 0 : getVirtualInterfaceName().hashCode());
         hashCode = prime * hashCode + ((getVlan() == null) ? 0 : getVlan().hashCode());
         hashCode = prime * hashCode + ((getAsn() == null) ? 0 : getAsn().hashCode());
-        hashCode = prime * hashCode + ((getMtu() == null) ? 0 : getMtu().hashCode());
         hashCode = prime * hashCode + ((getAuthKey() == null) ? 0 : getAuthKey().hashCode());
         hashCode = prime * hashCode + ((getAmazonAddress() == null) ? 0 : getAmazonAddress().hashCode());
         hashCode = prime * hashCode + ((getAddressFamily() == null) ? 0 : getAddressFamily().hashCode());

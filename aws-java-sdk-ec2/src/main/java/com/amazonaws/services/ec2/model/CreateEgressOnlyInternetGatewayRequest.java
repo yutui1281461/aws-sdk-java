@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -28,28 +28,28 @@ public class CreateEgressOnlyInternetGatewayRequest extends AmazonWebServiceRequ
 
     /**
      * <p>
-     * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
-     * information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a>.
+     * Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see
+     * <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+     * Idempotency</a>.
      * </p>
      */
     private String clientToken;
     /**
      * <p>
-     * The ID of the VPC for which to create the egress-only internet gateway.
+     * The ID of the VPC for which to create the egress-only Internet gateway.
      * </p>
      */
     private String vpcId;
 
     /**
      * <p>
-     * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
-     * information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a>.
+     * Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see
+     * <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+     * Idempotency</a>.
      * </p>
      * 
      * @param clientToken
-     *        Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
+     *        Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more
      *        information, see <a
      *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
      *        Idempotency</a>.
@@ -61,12 +61,12 @@ public class CreateEgressOnlyInternetGatewayRequest extends AmazonWebServiceRequ
 
     /**
      * <p>
-     * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
-     * information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a>.
+     * Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see
+     * <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+     * Idempotency</a>.
      * </p>
      * 
-     * @return Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
+     * @return Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more
      *         information, see <a
      *         href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
      *         Idempotency</a>.
@@ -78,13 +78,13 @@ public class CreateEgressOnlyInternetGatewayRequest extends AmazonWebServiceRequ
 
     /**
      * <p>
-     * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
-     * information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a>.
+     * Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see
+     * <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+     * Idempotency</a>.
      * </p>
      * 
      * @param clientToken
-     *        Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more
+     *        Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more
      *        information, see <a
      *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
      *        Idempotency</a>.
@@ -98,11 +98,11 @@ public class CreateEgressOnlyInternetGatewayRequest extends AmazonWebServiceRequ
 
     /**
      * <p>
-     * The ID of the VPC for which to create the egress-only internet gateway.
+     * The ID of the VPC for which to create the egress-only Internet gateway.
      * </p>
      * 
      * @param vpcId
-     *        The ID of the VPC for which to create the egress-only internet gateway.
+     *        The ID of the VPC for which to create the egress-only Internet gateway.
      */
 
     public void setVpcId(String vpcId) {
@@ -111,10 +111,10 @@ public class CreateEgressOnlyInternetGatewayRequest extends AmazonWebServiceRequ
 
     /**
      * <p>
-     * The ID of the VPC for which to create the egress-only internet gateway.
+     * The ID of the VPC for which to create the egress-only Internet gateway.
      * </p>
      * 
-     * @return The ID of the VPC for which to create the egress-only internet gateway.
+     * @return The ID of the VPC for which to create the egress-only Internet gateway.
      */
 
     public String getVpcId() {
@@ -123,11 +123,11 @@ public class CreateEgressOnlyInternetGatewayRequest extends AmazonWebServiceRequ
 
     /**
      * <p>
-     * The ID of the VPC for which to create the egress-only internet gateway.
+     * The ID of the VPC for which to create the egress-only Internet gateway.
      * </p>
      * 
      * @param vpcId
-     *        The ID of the VPC for which to create the egress-only internet gateway.
+     *        The ID of the VPC for which to create the egress-only Internet gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -148,8 +148,7 @@ public class CreateEgressOnlyInternetGatewayRequest extends AmazonWebServiceRequ
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -17,7 +17,8 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * Gives a detailed description of the result of an action on each entry in the request.
+ * This is used in the responses of batch API to give a detailed description of the result of an action on each entry in
+ * the request.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/BatchResultErrorEntry" target="_top">AWS API
@@ -34,7 +35,7 @@ public class BatchResultErrorEntry implements Serializable, Cloneable {
     private String id;
     /**
      * <p>
-     * Specifies whether the error happened due to the producer.
+     * Specifies whether the error happened due to the sender's fault.
      * </p>
      */
     private Boolean senderFault;
@@ -93,11 +94,11 @@ public class BatchResultErrorEntry implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Specifies whether the error happened due to the producer.
+     * Specifies whether the error happened due to the sender's fault.
      * </p>
      * 
      * @param senderFault
-     *        Specifies whether the error happened due to the producer.
+     *        Specifies whether the error happened due to the sender's fault.
      */
 
     public void setSenderFault(Boolean senderFault) {
@@ -106,10 +107,10 @@ public class BatchResultErrorEntry implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Specifies whether the error happened due to the producer.
+     * Specifies whether the error happened due to the sender's fault.
      * </p>
      * 
-     * @return Specifies whether the error happened due to the producer.
+     * @return Specifies whether the error happened due to the sender's fault.
      */
 
     public Boolean getSenderFault() {
@@ -118,11 +119,11 @@ public class BatchResultErrorEntry implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Specifies whether the error happened due to the producer.
+     * Specifies whether the error happened due to the sender's fault.
      * </p>
      * 
      * @param senderFault
-     *        Specifies whether the error happened due to the producer.
+     *        Specifies whether the error happened due to the sender's fault.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -133,10 +134,10 @@ public class BatchResultErrorEntry implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Specifies whether the error happened due to the producer.
+     * Specifies whether the error happened due to the sender's fault.
      * </p>
      * 
-     * @return Specifies whether the error happened due to the producer.
+     * @return Specifies whether the error happened due to the sender's fault.
      */
 
     public Boolean isSenderFault() {
@@ -224,8 +225,7 @@ public class BatchResultErrorEntry implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

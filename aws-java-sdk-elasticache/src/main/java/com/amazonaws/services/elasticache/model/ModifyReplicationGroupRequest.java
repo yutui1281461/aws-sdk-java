@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -212,10 +212,10 @@ public class ModifyReplicationGroupRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * <p>
      * <b>Important:</b> You can upgrade to a newer engine version (see <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting a
-     * Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version. If you want to use an
-     * earlier engine version, you must delete the existing replication group and create it anew with the earlier engine
-     * version.
+     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement"
+     * >Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version. If you want to
+     * use an earlier engine version, you must delete the existing replication group and create it anew with the earlier
+     * engine version.
      * </p>
      */
     private String engineVersion;
@@ -257,10 +257,9 @@ public class ModifyReplicationGroupRequest extends com.amazonaws.AmazonWebServic
     private String cacheNodeType;
     /**
      * <p>
-     * Deprecated. This parameter is not used.
+     * The name of the Node Group (called shard in the console).
      * </p>
      */
-    @Deprecated
     private String nodeGroupId;
 
     /**
@@ -1546,17 +1545,17 @@ public class ModifyReplicationGroupRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * <p>
      * <b>Important:</b> You can upgrade to a newer engine version (see <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting a
-     * Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version. If you want to use an
-     * earlier engine version, you must delete the existing replication group and create it anew with the earlier engine
-     * version.
+     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement"
+     * >Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version. If you want to
+     * use an earlier engine version, you must delete the existing replication group and create it anew with the earlier
+     * engine version.
      * </p>
      * 
      * @param engineVersion
      *        The upgraded version of the cache engine to be run on the clusters in the replication group.</p>
      *        <p>
      *        <b>Important:</b> You can upgrade to a newer engine version (see <a
-     *        href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement"
+     *        href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement"
      *        >Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version. If you
      *        want to use an earlier engine version, you must delete the existing replication group and create it anew
      *        with the earlier engine version.
@@ -1572,16 +1571,16 @@ public class ModifyReplicationGroupRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * <p>
      * <b>Important:</b> You can upgrade to a newer engine version (see <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting a
-     * Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version. If you want to use an
-     * earlier engine version, you must delete the existing replication group and create it anew with the earlier engine
-     * version.
+     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement"
+     * >Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version. If you want to
+     * use an earlier engine version, you must delete the existing replication group and create it anew with the earlier
+     * engine version.
      * </p>
      * 
      * @return The upgraded version of the cache engine to be run on the clusters in the replication group.</p>
      *         <p>
-     *         <b>Important:</b> You can upgrade to a newer engine version (see <a
-     *         href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement"
+     *         <b>Important:</b> You can upgrade to a newer engine version (see <a href=
+     *         "http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement"
      *         >Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version. If you
      *         want to use an earlier engine version, you must delete the existing replication group and create it anew
      *         with the earlier engine version.
@@ -1597,17 +1596,17 @@ public class ModifyReplicationGroupRequest extends com.amazonaws.AmazonWebServic
      * </p>
      * <p>
      * <b>Important:</b> You can upgrade to a newer engine version (see <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting a
-     * Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version. If you want to use an
-     * earlier engine version, you must delete the existing replication group and create it anew with the earlier engine
-     * version.
+     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement"
+     * >Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version. If you want to
+     * use an earlier engine version, you must delete the existing replication group and create it anew with the earlier
+     * engine version.
      * </p>
      * 
      * @param engineVersion
      *        The upgraded version of the cache engine to be run on the clusters in the replication group.</p>
      *        <p>
      *        <b>Important:</b> You can upgrade to a newer engine version (see <a
-     *        href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement"
+     *        href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement"
      *        >Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version. If you
      *        want to use an earlier engine version, you must delete the existing replication group and create it anew
      *        with the earlier engine version.
@@ -1859,47 +1858,46 @@ public class ModifyReplicationGroupRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * Deprecated. This parameter is not used.
+     * The name of the Node Group (called shard in the console).
      * </p>
      * 
      * @param nodeGroupId
-     *        Deprecated. This parameter is not used.
+     *        The name of the Node Group (called shard in the console).
      */
-    @Deprecated
+
     public void setNodeGroupId(String nodeGroupId) {
         this.nodeGroupId = nodeGroupId;
     }
 
     /**
      * <p>
-     * Deprecated. This parameter is not used.
+     * The name of the Node Group (called shard in the console).
      * </p>
      * 
-     * @return Deprecated. This parameter is not used.
+     * @return The name of the Node Group (called shard in the console).
      */
-    @Deprecated
+
     public String getNodeGroupId() {
         return this.nodeGroupId;
     }
 
     /**
      * <p>
-     * Deprecated. This parameter is not used.
+     * The name of the Node Group (called shard in the console).
      * </p>
      * 
      * @param nodeGroupId
-     *        Deprecated. This parameter is not used.
+     *        The name of the Node Group (called shard in the console).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
-    @Deprecated
+
     public ModifyReplicationGroupRequest withNodeGroupId(String nodeGroupId) {
         setNodeGroupId(nodeGroupId);
         return this;
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,6 +18,7 @@ import javax.annotation.Generated;
 import com.amazonaws.AmazonWebServiceRequest;
 
 /**
+ * <p/>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListEventSourceMappings" target="_top">AWS API
  *      Documentation</a>
@@ -27,115 +28,46 @@ public class ListEventSourceMappingsRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the event source.
+     * The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     * </p>
-     * </li>
-     * </ul>
      */
     private String eventSourceArn;
     /**
      * <p>
      * The name of the Lambda function.
      * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
      * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
-     * characters in length.
+     * You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name
+     * (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). If you
+     * are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version
+     * or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID
+     * qualifier (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the
+     * ARN. If you specify only the function name, it is limited to 64 characters in length.
      * </p>
      */
     private String functionName;
     /**
      * <p>
-     * A pagination token returned by a previous call.
+     * Optional string. An opaque pagination token returned from a previous <code>ListEventSourceMappings</code>
+     * operation. If present, specifies to continue the list from where the returning call left off.
      * </p>
      */
     private String marker;
     /**
      * <p>
-     * The maximum number of event source mappings to return.
+     * Optional integer. Specifies the maximum number of event sources to return in response. This value must be greater
+     * than 0.
      * </p>
      */
     private Integer maxItems;
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the event source.
+     * The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param eventSourceArn
-     *        The Amazon Resource Name (ARN) of the event source.</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     *        </p>
-     *        </li>
+     *        The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)
      */
 
     public void setEventSourceArn(String eventSourceArn) {
@@ -144,43 +76,10 @@ public class ListEventSourceMappingsRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the event source.
+     * The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     * </p>
-     * </li>
-     * </ul>
      * 
-     * @return The Amazon Resource Name (ARN) of the event source.</p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     *         </p>
-     *         </li>
+     * @return The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)
      */
 
     public String getEventSourceArn() {
@@ -189,44 +88,11 @@ public class ListEventSourceMappingsRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the event source.
+     * The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param eventSourceArn
-     *        The Amazon Resource Name (ARN) of the event source.</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Amazon DynamoDB Streams</b> - The ARN of the stream.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Amazon Simple Queue Service</b> - The ARN of the queue.
-     *        </p>
-     *        </li>
+     *        The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -239,66 +105,25 @@ public class ListEventSourceMappingsRequest extends com.amazonaws.AmazonWebServi
      * <p>
      * The name of the Lambda function.
      * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
      * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
-     * characters in length.
+     * You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name
+     * (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). If you
+     * are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version
+     * or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID
+     * qualifier (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the
+     * ARN. If you specify only the function name, it is limited to 64 characters in length.
      * </p>
      * 
      * @param functionName
      *        The name of the Lambda function.</p>
-     *        <p class="title">
-     *        <b>Name formats</b>
-     *        </p>
-     *        <ul>
-     *        <li>
      *        <p>
-     *        <b>Function name</b> - <code>MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        The length constraint applies only to the full ARN. If you specify only the function name, it's limited to
-     *        64 characters in length.
+     *        You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource
+     *        Name (ARN) of the function (for example,
+     *        <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). If you are using versioning, you can
+     *        also provide a qualified function ARN (ARN that is qualified with function version or alias name as
+     *        suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for
+     *        example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the ARN. If
+     *        you specify only the function name, it is limited to 64 characters in length.
      */
 
     public void setFunctionName(String functionName) {
@@ -309,66 +134,24 @@ public class ListEventSourceMappingsRequest extends com.amazonaws.AmazonWebServi
      * <p>
      * The name of the Lambda function.
      * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
      * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
-     * characters in length.
+     * You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name
+     * (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). If you
+     * are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version
+     * or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID
+     * qualifier (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the
+     * ARN. If you specify only the function name, it is limited to 64 characters in length.
      * </p>
      * 
      * @return The name of the Lambda function.</p>
-     *         <p class="title">
-     *         <b>Name formats</b>
-     *         </p>
-     *         <ul>
-     *         <li>
      *         <p>
-     *         <b>Function name</b> - <code>MyFunction</code>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>
-     *         .
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *         </p>
-     *         </li>
-     *         </ul>
-     *         <p>
-     *         The length constraint applies only to the full ARN. If you specify only the function name, it's limited
-     *         to 64 characters in length.
+     *         You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon
+     *         Resource Name (ARN) of the function (for example,
+     *         <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). If you are using versioning, you
+     *         can also provide a qualified function ARN (ARN that is qualified with function version or alias name as
+     *         suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for
+     *         example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the ARN. If
+     *         you specify only the function name, it is limited to 64 characters in length.
      */
 
     public String getFunctionName() {
@@ -379,66 +162,25 @@ public class ListEventSourceMappingsRequest extends com.amazonaws.AmazonWebServi
      * <p>
      * The name of the Lambda function.
      * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
      * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64
-     * characters in length.
+     * You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name
+     * (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). If you
+     * are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version
+     * or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID
+     * qualifier (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the
+     * ARN. If you specify only the function name, it is limited to 64 characters in length.
      * </p>
      * 
      * @param functionName
      *        The name of the Lambda function.</p>
-     *        <p class="title">
-     *        <b>Name formats</b>
-     *        </p>
-     *        <ul>
-     *        <li>
      *        <p>
-     *        <b>Function name</b> - <code>MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        The length constraint applies only to the full ARN. If you specify only the function name, it's limited to
-     *        64 characters in length.
+     *        You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource
+     *        Name (ARN) of the function (for example,
+     *        <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). If you are using versioning, you can
+     *        also provide a qualified function ARN (ARN that is qualified with function version or alias name as
+     *        suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for
+     *        example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the ARN. If
+     *        you specify only the function name, it is limited to 64 characters in length.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -449,11 +191,13 @@ public class ListEventSourceMappingsRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * A pagination token returned by a previous call.
+     * Optional string. An opaque pagination token returned from a previous <code>ListEventSourceMappings</code>
+     * operation. If present, specifies to continue the list from where the returning call left off.
      * </p>
      * 
      * @param marker
-     *        A pagination token returned by a previous call.
+     *        Optional string. An opaque pagination token returned from a previous <code>ListEventSourceMappings</code>
+     *        operation. If present, specifies to continue the list from where the returning call left off.
      */
 
     public void setMarker(String marker) {
@@ -462,10 +206,12 @@ public class ListEventSourceMappingsRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * A pagination token returned by a previous call.
+     * Optional string. An opaque pagination token returned from a previous <code>ListEventSourceMappings</code>
+     * operation. If present, specifies to continue the list from where the returning call left off.
      * </p>
      * 
-     * @return A pagination token returned by a previous call.
+     * @return Optional string. An opaque pagination token returned from a previous <code>ListEventSourceMappings</code>
+     *         operation. If present, specifies to continue the list from where the returning call left off.
      */
 
     public String getMarker() {
@@ -474,11 +220,13 @@ public class ListEventSourceMappingsRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * A pagination token returned by a previous call.
+     * Optional string. An opaque pagination token returned from a previous <code>ListEventSourceMappings</code>
+     * operation. If present, specifies to continue the list from where the returning call left off.
      * </p>
      * 
      * @param marker
-     *        A pagination token returned by a previous call.
+     *        Optional string. An opaque pagination token returned from a previous <code>ListEventSourceMappings</code>
+     *        operation. If present, specifies to continue the list from where the returning call left off.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -489,11 +237,13 @@ public class ListEventSourceMappingsRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The maximum number of event source mappings to return.
+     * Optional integer. Specifies the maximum number of event sources to return in response. This value must be greater
+     * than 0.
      * </p>
      * 
      * @param maxItems
-     *        The maximum number of event source mappings to return.
+     *        Optional integer. Specifies the maximum number of event sources to return in response. This value must be
+     *        greater than 0.
      */
 
     public void setMaxItems(Integer maxItems) {
@@ -502,10 +252,12 @@ public class ListEventSourceMappingsRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The maximum number of event source mappings to return.
+     * Optional integer. Specifies the maximum number of event sources to return in response. This value must be greater
+     * than 0.
      * </p>
      * 
-     * @return The maximum number of event source mappings to return.
+     * @return Optional integer. Specifies the maximum number of event sources to return in response. This value must be
+     *         greater than 0.
      */
 
     public Integer getMaxItems() {
@@ -514,11 +266,13 @@ public class ListEventSourceMappingsRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The maximum number of event source mappings to return.
+     * Optional integer. Specifies the maximum number of event sources to return in response. This value must be greater
+     * than 0.
      * </p>
      * 
      * @param maxItems
-     *        The maximum number of event source mappings to return.
+     *        Optional integer. Specifies the maximum number of event sources to return in response. This value must be
+     *        greater than 0.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -528,8 +282,7 @@ public class ListEventSourceMappingsRequest extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

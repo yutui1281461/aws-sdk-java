@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -22,29 +22,32 @@ public class DescribeExportConfigurationsRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * A list of continuous export ids to search for.
+     * A unique identifier that you can use to query the export status.
      * </p>
      */
     private java.util.List<String> exportIds;
     /**
      * <p>
-     * A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.
+     * The maximum number of results that you want to display as a part of the query.
      * </p>
      */
     private Integer maxResults;
     /**
      * <p>
-     * The token from the previous call to describe-export-tasks.
+     * A token to get the next set of results. For example, if you specify 100 IDs for
+     * <code>DescribeExportConfigurationsRequest$exportIds</code> but set
+     * <code>DescribeExportConfigurationsRequest$maxResults</code> to 10, you get results in a set of 10. Use the token
+     * in the query to get the next set of 10.
      * </p>
      */
     private String nextToken;
 
     /**
      * <p>
-     * A list of continuous export ids to search for.
+     * A unique identifier that you can use to query the export status.
      * </p>
      * 
-     * @return A list of continuous export ids to search for.
+     * @return A unique identifier that you can use to query the export status.
      */
 
     public java.util.List<String> getExportIds() {
@@ -53,11 +56,11 @@ public class DescribeExportConfigurationsRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * A list of continuous export ids to search for.
+     * A unique identifier that you can use to query the export status.
      * </p>
      * 
      * @param exportIds
-     *        A list of continuous export ids to search for.
+     *        A unique identifier that you can use to query the export status.
      */
 
     public void setExportIds(java.util.Collection<String> exportIds) {
@@ -71,7 +74,7 @@ public class DescribeExportConfigurationsRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * A list of continuous export ids to search for.
+     * A unique identifier that you can use to query the export status.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -80,7 +83,7 @@ public class DescribeExportConfigurationsRequest extends com.amazonaws.AmazonWeb
      * </p>
      * 
      * @param exportIds
-     *        A list of continuous export ids to search for.
+     *        A unique identifier that you can use to query the export status.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -96,11 +99,11 @@ public class DescribeExportConfigurationsRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * A list of continuous export ids to search for.
+     * A unique identifier that you can use to query the export status.
      * </p>
      * 
      * @param exportIds
-     *        A list of continuous export ids to search for.
+     *        A unique identifier that you can use to query the export status.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -111,11 +114,11 @@ public class DescribeExportConfigurationsRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.
+     * The maximum number of results that you want to display as a part of the query.
      * </p>
      * 
      * @param maxResults
-     *        A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.
+     *        The maximum number of results that you want to display as a part of the query.
      */
 
     public void setMaxResults(Integer maxResults) {
@@ -124,10 +127,10 @@ public class DescribeExportConfigurationsRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.
+     * The maximum number of results that you want to display as a part of the query.
      * </p>
      * 
-     * @return A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.
+     * @return The maximum number of results that you want to display as a part of the query.
      */
 
     public Integer getMaxResults() {
@@ -136,11 +139,11 @@ public class DescribeExportConfigurationsRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.
+     * The maximum number of results that you want to display as a part of the query.
      * </p>
      * 
      * @param maxResults
-     *        A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.
+     *        The maximum number of results that you want to display as a part of the query.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -151,11 +154,17 @@ public class DescribeExportConfigurationsRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The token from the previous call to describe-export-tasks.
+     * A token to get the next set of results. For example, if you specify 100 IDs for
+     * <code>DescribeExportConfigurationsRequest$exportIds</code> but set
+     * <code>DescribeExportConfigurationsRequest$maxResults</code> to 10, you get results in a set of 10. Use the token
+     * in the query to get the next set of 10.
      * </p>
      * 
      * @param nextToken
-     *        The token from the previous call to describe-export-tasks.
+     *        A token to get the next set of results. For example, if you specify 100 IDs for
+     *        <code>DescribeExportConfigurationsRequest$exportIds</code> but set
+     *        <code>DescribeExportConfigurationsRequest$maxResults</code> to 10, you get results in a set of 10. Use the
+     *        token in the query to get the next set of 10.
      */
 
     public void setNextToken(String nextToken) {
@@ -164,10 +173,16 @@ public class DescribeExportConfigurationsRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The token from the previous call to describe-export-tasks.
+     * A token to get the next set of results. For example, if you specify 100 IDs for
+     * <code>DescribeExportConfigurationsRequest$exportIds</code> but set
+     * <code>DescribeExportConfigurationsRequest$maxResults</code> to 10, you get results in a set of 10. Use the token
+     * in the query to get the next set of 10.
      * </p>
      * 
-     * @return The token from the previous call to describe-export-tasks.
+     * @return A token to get the next set of results. For example, if you specify 100 IDs for
+     *         <code>DescribeExportConfigurationsRequest$exportIds</code> but set
+     *         <code>DescribeExportConfigurationsRequest$maxResults</code> to 10, you get results in a set of 10. Use
+     *         the token in the query to get the next set of 10.
      */
 
     public String getNextToken() {
@@ -176,11 +191,17 @@ public class DescribeExportConfigurationsRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The token from the previous call to describe-export-tasks.
+     * A token to get the next set of results. For example, if you specify 100 IDs for
+     * <code>DescribeExportConfigurationsRequest$exportIds</code> but set
+     * <code>DescribeExportConfigurationsRequest$maxResults</code> to 10, you get results in a set of 10. Use the token
+     * in the query to get the next set of 10.
      * </p>
      * 
      * @param nextToken
-     *        The token from the previous call to describe-export-tasks.
+     *        A token to get the next set of results. For example, if you specify 100 IDs for
+     *        <code>DescribeExportConfigurationsRequest$exportIds</code> but set
+     *        <code>DescribeExportConfigurationsRequest$maxResults</code> to 10, you get results in a set of 10. Use the
+     *        token in the query to get the next set of 10.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -190,8 +211,7 @@ public class DescribeExportConfigurationsRequest extends com.amazonaws.AmazonWeb
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

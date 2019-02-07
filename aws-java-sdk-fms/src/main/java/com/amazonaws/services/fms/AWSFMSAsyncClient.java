@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -347,39 +347,6 @@ public class AWSFMSAsyncClient extends AWSFMSClient implements AWSFMSAsync {
 
                 try {
                     result = executeListComplianceStatus(finalRequest);
-                } catch (Exception ex) {
-                    if (asyncHandler != null) {
-                        asyncHandler.onError(ex);
-                    }
-                    throw ex;
-                }
-
-                if (asyncHandler != null) {
-                    asyncHandler.onSuccess(finalRequest, result);
-                }
-                return result;
-            }
-        });
-    }
-
-    @Override
-    public java.util.concurrent.Future<ListMemberAccountsResult> listMemberAccountsAsync(ListMemberAccountsRequest request) {
-
-        return listMemberAccountsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<ListMemberAccountsResult> listMemberAccountsAsync(final ListMemberAccountsRequest request,
-            final com.amazonaws.handlers.AsyncHandler<ListMemberAccountsRequest, ListMemberAccountsResult> asyncHandler) {
-        final ListMemberAccountsRequest finalRequest = beforeClientExecution(request);
-
-        return executorService.submit(new java.util.concurrent.Callable<ListMemberAccountsResult>() {
-            @Override
-            public ListMemberAccountsResult call() throws Exception {
-                ListMemberAccountsResult result = null;
-
-                try {
-                    result = executeListMemberAccounts(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);

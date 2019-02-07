@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -12,7 +12,6 @@
  */
 package com.amazonaws.services.devicefarm.model.transform;
 
-import java.util.List;
 import javax.annotation.Generated;
 
 import com.amazonaws.SdkClientException;
@@ -30,8 +29,6 @@ public class CreateRemoteAccessSessionConfigurationMarshaller {
 
     private static final MarshallingInfo<String> BILLINGMETHOD_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("billingMethod").build();
-    private static final MarshallingInfo<List> VPCECONFIGURATIONARNS_BINDING = MarshallingInfo.builder(MarshallingType.LIST)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("vpceConfigurationArns").build();
 
     private static final CreateRemoteAccessSessionConfigurationMarshaller instance = new CreateRemoteAccessSessionConfigurationMarshaller();
 
@@ -50,7 +47,6 @@ public class CreateRemoteAccessSessionConfigurationMarshaller {
 
         try {
             protocolMarshaller.marshall(createRemoteAccessSessionConfiguration.getBillingMethod(), BILLINGMETHOD_BINDING);
-            protocolMarshaller.marshall(createRemoteAccessSessionConfiguration.getVpceConfigurationArns(), VPCECONFIGURATIONARNS_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

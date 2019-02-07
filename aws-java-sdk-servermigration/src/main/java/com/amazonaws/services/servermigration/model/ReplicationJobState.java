@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -15,7 +15,7 @@ package com.amazonaws.services.servermigration.model;
 import javax.annotation.Generated;
 
 /**
- * 
+ * Current state of Replication Job
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public enum ReplicationJobState {
@@ -24,10 +24,7 @@ public enum ReplicationJobState {
     ACTIVE("ACTIVE"),
     FAILED("FAILED"),
     DELETING("DELETING"),
-    DELETED("DELETED"),
-    COMPLETED("COMPLETED"),
-    PAUSED_ON_FAILURE("PAUSED_ON_FAILURE"),
-    FAILING("FAILING");
+    DELETED("DELETED");
 
     private String value;
 

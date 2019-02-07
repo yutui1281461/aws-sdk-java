@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -25,18 +25,10 @@ public class PutRecordBatchResult extends com.amazonaws.AmazonWebServiceResult<c
 
     /**
      * <p>
-     * The number of records that might have failed processing. This number might be greater than 0 even if the
-     * <a>PutRecordBatch</a> call succeeds. Check <code>FailedPutCount</code> to determine whether there are records
-     * that you need to resend.
+     * The number of records that might have failed processing.
      * </p>
      */
     private Integer failedPutCount;
-    /**
-     * <p>
-     * Indicates whether server-side encryption (SSE) was enabled during this operation.
-     * </p>
-     */
-    private Boolean encrypted;
     /**
      * <p>
      * The results array. For each record, the index of the response element is the same as the index used in the
@@ -47,15 +39,11 @@ public class PutRecordBatchResult extends com.amazonaws.AmazonWebServiceResult<c
 
     /**
      * <p>
-     * The number of records that might have failed processing. This number might be greater than 0 even if the
-     * <a>PutRecordBatch</a> call succeeds. Check <code>FailedPutCount</code> to determine whether there are records
-     * that you need to resend.
+     * The number of records that might have failed processing.
      * </p>
      * 
      * @param failedPutCount
-     *        The number of records that might have failed processing. This number might be greater than 0 even if the
-     *        <a>PutRecordBatch</a> call succeeds. Check <code>FailedPutCount</code> to determine whether there are
-     *        records that you need to resend.
+     *        The number of records that might have failed processing.
      */
 
     public void setFailedPutCount(Integer failedPutCount) {
@@ -64,14 +52,10 @@ public class PutRecordBatchResult extends com.amazonaws.AmazonWebServiceResult<c
 
     /**
      * <p>
-     * The number of records that might have failed processing. This number might be greater than 0 even if the
-     * <a>PutRecordBatch</a> call succeeds. Check <code>FailedPutCount</code> to determine whether there are records
-     * that you need to resend.
+     * The number of records that might have failed processing.
      * </p>
      * 
-     * @return The number of records that might have failed processing. This number might be greater than 0 even if the
-     *         <a>PutRecordBatch</a> call succeeds. Check <code>FailedPutCount</code> to determine whether there are
-     *         records that you need to resend.
+     * @return The number of records that might have failed processing.
      */
 
     public Integer getFailedPutCount() {
@@ -80,73 +64,17 @@ public class PutRecordBatchResult extends com.amazonaws.AmazonWebServiceResult<c
 
     /**
      * <p>
-     * The number of records that might have failed processing. This number might be greater than 0 even if the
-     * <a>PutRecordBatch</a> call succeeds. Check <code>FailedPutCount</code> to determine whether there are records
-     * that you need to resend.
+     * The number of records that might have failed processing.
      * </p>
      * 
      * @param failedPutCount
-     *        The number of records that might have failed processing. This number might be greater than 0 even if the
-     *        <a>PutRecordBatch</a> call succeeds. Check <code>FailedPutCount</code> to determine whether there are
-     *        records that you need to resend.
+     *        The number of records that might have failed processing.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
     public PutRecordBatchResult withFailedPutCount(Integer failedPutCount) {
         setFailedPutCount(failedPutCount);
         return this;
-    }
-
-    /**
-     * <p>
-     * Indicates whether server-side encryption (SSE) was enabled during this operation.
-     * </p>
-     * 
-     * @param encrypted
-     *        Indicates whether server-side encryption (SSE) was enabled during this operation.
-     */
-
-    public void setEncrypted(Boolean encrypted) {
-        this.encrypted = encrypted;
-    }
-
-    /**
-     * <p>
-     * Indicates whether server-side encryption (SSE) was enabled during this operation.
-     * </p>
-     * 
-     * @return Indicates whether server-side encryption (SSE) was enabled during this operation.
-     */
-
-    public Boolean getEncrypted() {
-        return this.encrypted;
-    }
-
-    /**
-     * <p>
-     * Indicates whether server-side encryption (SSE) was enabled during this operation.
-     * </p>
-     * 
-     * @param encrypted
-     *        Indicates whether server-side encryption (SSE) was enabled during this operation.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public PutRecordBatchResult withEncrypted(Boolean encrypted) {
-        setEncrypted(encrypted);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Indicates whether server-side encryption (SSE) was enabled during this operation.
-     * </p>
-     * 
-     * @return Indicates whether server-side encryption (SSE) was enabled during this operation.
-     */
-
-    public Boolean isEncrypted() {
-        return this.encrypted;
     }
 
     /**
@@ -228,8 +156,7 @@ public class PutRecordBatchResult extends com.amazonaws.AmazonWebServiceResult<c
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -241,8 +168,6 @@ public class PutRecordBatchResult extends com.amazonaws.AmazonWebServiceResult<c
         sb.append("{");
         if (getFailedPutCount() != null)
             sb.append("FailedPutCount: ").append(getFailedPutCount()).append(",");
-        if (getEncrypted() != null)
-            sb.append("Encrypted: ").append(getEncrypted()).append(",");
         if (getRequestResponses() != null)
             sb.append("RequestResponses: ").append(getRequestResponses());
         sb.append("}");
@@ -263,10 +188,6 @@ public class PutRecordBatchResult extends com.amazonaws.AmazonWebServiceResult<c
             return false;
         if (other.getFailedPutCount() != null && other.getFailedPutCount().equals(this.getFailedPutCount()) == false)
             return false;
-        if (other.getEncrypted() == null ^ this.getEncrypted() == null)
-            return false;
-        if (other.getEncrypted() != null && other.getEncrypted().equals(this.getEncrypted()) == false)
-            return false;
         if (other.getRequestResponses() == null ^ this.getRequestResponses() == null)
             return false;
         if (other.getRequestResponses() != null && other.getRequestResponses().equals(this.getRequestResponses()) == false)
@@ -280,7 +201,6 @@ public class PutRecordBatchResult extends com.amazonaws.AmazonWebServiceResult<c
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getFailedPutCount() == null) ? 0 : getFailedPutCount().hashCode());
-        hashCode = prime * hashCode + ((getEncrypted() == null) ? 0 : getEncrypted().hashCode());
         hashCode = prime * hashCode + ((getRequestResponses() == null) ? 0 : getRequestResponses().hashCode());
         return hashCode;
     }

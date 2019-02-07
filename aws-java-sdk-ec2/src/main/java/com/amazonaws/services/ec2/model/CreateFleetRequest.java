@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -35,16 +35,11 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
     private String clientToken;
     /**
      * <p>
-     * Describes the configuration of Spot Instances in an EC2 Fleet.
+     * Includes <code>SpotAllocationStrategy</code> and <code>SpotInstanceInterruptionBehavior</code> inside this
+     * structure.
      * </p>
      */
     private SpotOptionsRequest spotOptions;
-    /**
-     * <p>
-     * The allocation strategy of On-Demand Instances in an EC2 Fleet.
-     * </p>
-     */
-    private OnDemandOptionsRequest onDemandOptions;
     /**
      * <p>
      * Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is
@@ -73,13 +68,12 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
     private Boolean terminateInstancesWithExpiration;
     /**
      * <p>
-     * The type of the request. By default, the EC2 Fleet places an asynchronous request for your desired capacity, and
-     * maintains it by replenishing interrupted Spot Instances (<code>maintain</code>). A value of <code>instant</code>
-     * places a synchronous one-time request, and returns errors for any instances that could not be launched. A value
-     * of <code>request</code> places an asynchronous one-time request without maintaining capacity or submitting
-     * requests in alternative capacity pools if capacity is unavailable. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type"
-     * >EC2 Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target capacity, or also
+     * attempts to <code>maintain</code> it. If you request a certain target capacity, EC2 Fleet only places the
+     * required requests. It does not attempt to replenish instances if capacity is diminished, and does not submit
+     * requests in alternative capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2
+     * Fleet places the required requests to meet this target capacity. It also automatically replenishes any
+     * interrupted Spot Instances. Default: <code>maintain</code>.
      * </p>
      */
     private String type;
@@ -107,12 +101,7 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
     private Boolean replaceUnhealthyInstances;
     /**
      * <p>
-     * The key-value pair for tagging the EC2 Fleet request on creation. The value for <code>ResourceType</code> must be
-     * <code>fleet</code>, otherwise the fleet request fails. To tag instances at launch, specify the tags in the <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
-     * template</a>. For information about tagging after launch, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your
-     * Resources</a>.
+     * The tags for an EC2 Fleet resource.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<TagSpecification> tagSpecifications;
@@ -174,11 +163,13 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
 
     /**
      * <p>
-     * Describes the configuration of Spot Instances in an EC2 Fleet.
+     * Includes <code>SpotAllocationStrategy</code> and <code>SpotInstanceInterruptionBehavior</code> inside this
+     * structure.
      * </p>
      * 
      * @param spotOptions
-     *        Describes the configuration of Spot Instances in an EC2 Fleet.
+     *        Includes <code>SpotAllocationStrategy</code> and <code>SpotInstanceInterruptionBehavior</code> inside this
+     *        structure.
      */
 
     public void setSpotOptions(SpotOptionsRequest spotOptions) {
@@ -187,10 +178,12 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
 
     /**
      * <p>
-     * Describes the configuration of Spot Instances in an EC2 Fleet.
+     * Includes <code>SpotAllocationStrategy</code> and <code>SpotInstanceInterruptionBehavior</code> inside this
+     * structure.
      * </p>
      * 
-     * @return Describes the configuration of Spot Instances in an EC2 Fleet.
+     * @return Includes <code>SpotAllocationStrategy</code> and <code>SpotInstanceInterruptionBehavior</code> inside
+     *         this structure.
      */
 
     public SpotOptionsRequest getSpotOptions() {
@@ -199,56 +192,18 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
 
     /**
      * <p>
-     * Describes the configuration of Spot Instances in an EC2 Fleet.
+     * Includes <code>SpotAllocationStrategy</code> and <code>SpotInstanceInterruptionBehavior</code> inside this
+     * structure.
      * </p>
      * 
      * @param spotOptions
-     *        Describes the configuration of Spot Instances in an EC2 Fleet.
+     *        Includes <code>SpotAllocationStrategy</code> and <code>SpotInstanceInterruptionBehavior</code> inside this
+     *        structure.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
     public CreateFleetRequest withSpotOptions(SpotOptionsRequest spotOptions) {
         setSpotOptions(spotOptions);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The allocation strategy of On-Demand Instances in an EC2 Fleet.
-     * </p>
-     * 
-     * @param onDemandOptions
-     *        The allocation strategy of On-Demand Instances in an EC2 Fleet.
-     */
-
-    public void setOnDemandOptions(OnDemandOptionsRequest onDemandOptions) {
-        this.onDemandOptions = onDemandOptions;
-    }
-
-    /**
-     * <p>
-     * The allocation strategy of On-Demand Instances in an EC2 Fleet.
-     * </p>
-     * 
-     * @return The allocation strategy of On-Demand Instances in an EC2 Fleet.
-     */
-
-    public OnDemandOptionsRequest getOnDemandOptions() {
-        return this.onDemandOptions;
-    }
-
-    /**
-     * <p>
-     * The allocation strategy of On-Demand Instances in an EC2 Fleet.
-     * </p>
-     * 
-     * @param onDemandOptions
-     *        The allocation strategy of On-Demand Instances in an EC2 Fleet.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateFleetRequest withOnDemandOptions(OnDemandOptionsRequest onDemandOptions) {
-        setOnDemandOptions(onDemandOptions);
         return this;
     }
 
@@ -492,24 +447,21 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
 
     /**
      * <p>
-     * The type of the request. By default, the EC2 Fleet places an asynchronous request for your desired capacity, and
-     * maintains it by replenishing interrupted Spot Instances (<code>maintain</code>). A value of <code>instant</code>
-     * places a synchronous one-time request, and returns errors for any instances that could not be launched. A value
-     * of <code>request</code> places an asynchronous one-time request without maintaining capacity or submitting
-     * requests in alternative capacity pools if capacity is unavailable. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type"
-     * >EC2 Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target capacity, or also
+     * attempts to <code>maintain</code> it. If you request a certain target capacity, EC2 Fleet only places the
+     * required requests. It does not attempt to replenish instances if capacity is diminished, and does not submit
+     * requests in alternative capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2
+     * Fleet places the required requests to meet this target capacity. It also automatically replenishes any
+     * interrupted Spot Instances. Default: <code>maintain</code>.
      * </p>
      * 
      * @param type
-     *        The type of the request. By default, the EC2 Fleet places an asynchronous request for your desired
-     *        capacity, and maintains it by replenishing interrupted Spot Instances (<code>maintain</code>). A value of
-     *        <code>instant</code> places a synchronous one-time request, and returns errors for any instances that
-     *        could not be launched. A value of <code>request</code> places an asynchronous one-time request without
-     *        maintaining capacity or submitting requests in alternative capacity pools if capacity is unavailable. For
-     *        more information, see <a href=
-     *        "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type"
-     *        >EC2 Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     *        The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target capacity, or
+     *        also attempts to <code>maintain</code> it. If you request a certain target capacity, EC2 Fleet only places
+     *        the required requests. It does not attempt to replenish instances if capacity is diminished, and does not
+     *        submit requests in alternative capacity pools if capacity is unavailable. To maintain a certain target
+     *        capacity, EC2 Fleet places the required requests to meet this target capacity. It also automatically
+     *        replenishes any interrupted Spot Instances. Default: <code>maintain</code>.
      * @see FleetType
      */
 
@@ -519,23 +471,20 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
 
     /**
      * <p>
-     * The type of the request. By default, the EC2 Fleet places an asynchronous request for your desired capacity, and
-     * maintains it by replenishing interrupted Spot Instances (<code>maintain</code>). A value of <code>instant</code>
-     * places a synchronous one-time request, and returns errors for any instances that could not be launched. A value
-     * of <code>request</code> places an asynchronous one-time request without maintaining capacity or submitting
-     * requests in alternative capacity pools if capacity is unavailable. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type"
-     * >EC2 Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target capacity, or also
+     * attempts to <code>maintain</code> it. If you request a certain target capacity, EC2 Fleet only places the
+     * required requests. It does not attempt to replenish instances if capacity is diminished, and does not submit
+     * requests in alternative capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2
+     * Fleet places the required requests to meet this target capacity. It also automatically replenishes any
+     * interrupted Spot Instances. Default: <code>maintain</code>.
      * </p>
      * 
-     * @return The type of the request. By default, the EC2 Fleet places an asynchronous request for your desired
-     *         capacity, and maintains it by replenishing interrupted Spot Instances (<code>maintain</code>). A value of
-     *         <code>instant</code> places a synchronous one-time request, and returns errors for any instances that
-     *         could not be launched. A value of <code>request</code> places an asynchronous one-time request without
-     *         maintaining capacity or submitting requests in alternative capacity pools if capacity is unavailable. For
-     *         more information, see <a href=
-     *         "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type"
-     *         >EC2 Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * @return The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target capacity, or
+     *         also attempts to <code>maintain</code> it. If you request a certain target capacity, EC2 Fleet only
+     *         places the required requests. It does not attempt to replenish instances if capacity is diminished, and
+     *         does not submit requests in alternative capacity pools if capacity is unavailable. To maintain a certain
+     *         target capacity, EC2 Fleet places the required requests to meet this target capacity. It also
+     *         automatically replenishes any interrupted Spot Instances. Default: <code>maintain</code>.
      * @see FleetType
      */
 
@@ -545,24 +494,21 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
 
     /**
      * <p>
-     * The type of the request. By default, the EC2 Fleet places an asynchronous request for your desired capacity, and
-     * maintains it by replenishing interrupted Spot Instances (<code>maintain</code>). A value of <code>instant</code>
-     * places a synchronous one-time request, and returns errors for any instances that could not be launched. A value
-     * of <code>request</code> places an asynchronous one-time request without maintaining capacity or submitting
-     * requests in alternative capacity pools if capacity is unavailable. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type"
-     * >EC2 Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target capacity, or also
+     * attempts to <code>maintain</code> it. If you request a certain target capacity, EC2 Fleet only places the
+     * required requests. It does not attempt to replenish instances if capacity is diminished, and does not submit
+     * requests in alternative capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2
+     * Fleet places the required requests to meet this target capacity. It also automatically replenishes any
+     * interrupted Spot Instances. Default: <code>maintain</code>.
      * </p>
      * 
      * @param type
-     *        The type of the request. By default, the EC2 Fleet places an asynchronous request for your desired
-     *        capacity, and maintains it by replenishing interrupted Spot Instances (<code>maintain</code>). A value of
-     *        <code>instant</code> places a synchronous one-time request, and returns errors for any instances that
-     *        could not be launched. A value of <code>request</code> places an asynchronous one-time request without
-     *        maintaining capacity or submitting requests in alternative capacity pools if capacity is unavailable. For
-     *        more information, see <a href=
-     *        "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type"
-     *        >EC2 Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     *        The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target capacity, or
+     *        also attempts to <code>maintain</code> it. If you request a certain target capacity, EC2 Fleet only places
+     *        the required requests. It does not attempt to replenish instances if capacity is diminished, and does not
+     *        submit requests in alternative capacity pools if capacity is unavailable. To maintain a certain target
+     *        capacity, EC2 Fleet places the required requests to meet this target capacity. It also automatically
+     *        replenishes any interrupted Spot Instances. Default: <code>maintain</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see FleetType
      */
@@ -574,24 +520,21 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
 
     /**
      * <p>
-     * The type of the request. By default, the EC2 Fleet places an asynchronous request for your desired capacity, and
-     * maintains it by replenishing interrupted Spot Instances (<code>maintain</code>). A value of <code>instant</code>
-     * places a synchronous one-time request, and returns errors for any instances that could not be launched. A value
-     * of <code>request</code> places an asynchronous one-time request without maintaining capacity or submitting
-     * requests in alternative capacity pools if capacity is unavailable. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type"
-     * >EC2 Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     * The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target capacity, or also
+     * attempts to <code>maintain</code> it. If you request a certain target capacity, EC2 Fleet only places the
+     * required requests. It does not attempt to replenish instances if capacity is diminished, and does not submit
+     * requests in alternative capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2
+     * Fleet places the required requests to meet this target capacity. It also automatically replenishes any
+     * interrupted Spot Instances. Default: <code>maintain</code>.
      * </p>
      * 
      * @param type
-     *        The type of the request. By default, the EC2 Fleet places an asynchronous request for your desired
-     *        capacity, and maintains it by replenishing interrupted Spot Instances (<code>maintain</code>). A value of
-     *        <code>instant</code> places a synchronous one-time request, and returns errors for any instances that
-     *        could not be launched. A value of <code>request</code> places an asynchronous one-time request without
-     *        maintaining capacity or submitting requests in alternative capacity pools if capacity is unavailable. For
-     *        more information, see <a href=
-     *        "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type"
-     *        >EC2 Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+     *        The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target capacity, or
+     *        also attempts to <code>maintain</code> it. If you request a certain target capacity, EC2 Fleet only places
+     *        the required requests. It does not attempt to replenish instances if capacity is diminished, and does not
+     *        submit requests in alternative capacity pools if capacity is unavailable. To maintain a certain target
+     *        capacity, EC2 Fleet places the required requests to meet this target capacity. It also automatically
+     *        replenishes any interrupted Spot Instances. Default: <code>maintain</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see FleetType
      */
@@ -759,21 +702,10 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
 
     /**
      * <p>
-     * The key-value pair for tagging the EC2 Fleet request on creation. The value for <code>ResourceType</code> must be
-     * <code>fleet</code>, otherwise the fleet request fails. To tag instances at launch, specify the tags in the <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
-     * template</a>. For information about tagging after launch, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your
-     * Resources</a>.
+     * The tags for an EC2 Fleet resource.
      * </p>
      * 
-     * @return The key-value pair for tagging the EC2 Fleet request on creation. The value for <code>ResourceType</code>
-     *         must be <code>fleet</code>, otherwise the fleet request fails. To tag instances at launch, specify the
-     *         tags in the <a href=
-     *         "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template"
-     *         >launch template</a>. For information about tagging after launch, see <a
-     *         href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your
-     *         Resources</a>.
+     * @return The tags for an EC2 Fleet resource.
      */
 
     public java.util.List<TagSpecification> getTagSpecifications() {
@@ -785,22 +717,11 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
 
     /**
      * <p>
-     * The key-value pair for tagging the EC2 Fleet request on creation. The value for <code>ResourceType</code> must be
-     * <code>fleet</code>, otherwise the fleet request fails. To tag instances at launch, specify the tags in the <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
-     * template</a>. For information about tagging after launch, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your
-     * Resources</a>.
+     * The tags for an EC2 Fleet resource.
      * </p>
      * 
      * @param tagSpecifications
-     *        The key-value pair for tagging the EC2 Fleet request on creation. The value for <code>ResourceType</code>
-     *        must be <code>fleet</code>, otherwise the fleet request fails. To tag instances at launch, specify the
-     *        tags in the <a href=
-     *        "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template"
-     *        >launch template</a>. For information about tagging after launch, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your
-     *        Resources</a>.
+     *        The tags for an EC2 Fleet resource.
      */
 
     public void setTagSpecifications(java.util.Collection<TagSpecification> tagSpecifications) {
@@ -814,12 +735,7 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
 
     /**
      * <p>
-     * The key-value pair for tagging the EC2 Fleet request on creation. The value for <code>ResourceType</code> must be
-     * <code>fleet</code>, otherwise the fleet request fails. To tag instances at launch, specify the tags in the <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
-     * template</a>. For information about tagging after launch, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your
-     * Resources</a>.
+     * The tags for an EC2 Fleet resource.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -828,13 +744,7 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
      * </p>
      * 
      * @param tagSpecifications
-     *        The key-value pair for tagging the EC2 Fleet request on creation. The value for <code>ResourceType</code>
-     *        must be <code>fleet</code>, otherwise the fleet request fails. To tag instances at launch, specify the
-     *        tags in the <a href=
-     *        "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template"
-     *        >launch template</a>. For information about tagging after launch, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your
-     *        Resources</a>.
+     *        The tags for an EC2 Fleet resource.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -850,22 +760,11 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
 
     /**
      * <p>
-     * The key-value pair for tagging the EC2 Fleet request on creation. The value for <code>ResourceType</code> must be
-     * <code>fleet</code>, otherwise the fleet request fails. To tag instances at launch, specify the tags in the <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
-     * template</a>. For information about tagging after launch, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your
-     * Resources</a>.
+     * The tags for an EC2 Fleet resource.
      * </p>
      * 
      * @param tagSpecifications
-     *        The key-value pair for tagging the EC2 Fleet request on creation. The value for <code>ResourceType</code>
-     *        must be <code>fleet</code>, otherwise the fleet request fails. To tag instances at launch, specify the
-     *        tags in the <a href=
-     *        "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template"
-     *        >launch template</a>. For information about tagging after launch, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your
-     *        Resources</a>.
+     *        The tags for an EC2 Fleet resource.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -886,8 +785,7 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -901,8 +799,6 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
             sb.append("ClientToken: ").append(getClientToken()).append(",");
         if (getSpotOptions() != null)
             sb.append("SpotOptions: ").append(getSpotOptions()).append(",");
-        if (getOnDemandOptions() != null)
-            sb.append("OnDemandOptions: ").append(getOnDemandOptions()).append(",");
         if (getExcessCapacityTerminationPolicy() != null)
             sb.append("ExcessCapacityTerminationPolicy: ").append(getExcessCapacityTerminationPolicy()).append(",");
         if (getLaunchTemplateConfigs() != null)
@@ -942,10 +838,6 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
         if (other.getSpotOptions() == null ^ this.getSpotOptions() == null)
             return false;
         if (other.getSpotOptions() != null && other.getSpotOptions().equals(this.getSpotOptions()) == false)
-            return false;
-        if (other.getOnDemandOptions() == null ^ this.getOnDemandOptions() == null)
-            return false;
-        if (other.getOnDemandOptions() != null && other.getOnDemandOptions().equals(this.getOnDemandOptions()) == false)
             return false;
         if (other.getExcessCapacityTerminationPolicy() == null ^ this.getExcessCapacityTerminationPolicy() == null)
             return false;
@@ -995,7 +887,6 @@ public class CreateFleetRequest extends AmazonWebServiceRequest implements Seria
 
         hashCode = prime * hashCode + ((getClientToken() == null) ? 0 : getClientToken().hashCode());
         hashCode = prime * hashCode + ((getSpotOptions() == null) ? 0 : getSpotOptions().hashCode());
-        hashCode = prime * hashCode + ((getOnDemandOptions() == null) ? 0 : getOnDemandOptions().hashCode());
         hashCode = prime * hashCode + ((getExcessCapacityTerminationPolicy() == null) ? 0 : getExcessCapacityTerminationPolicy().hashCode());
         hashCode = prime * hashCode + ((getLaunchTemplateConfigs() == null) ? 0 : getLaunchTemplateConfigs().hashCode());
         hashCode = prime * hashCode + ((getTargetCapacitySpecification() == null) ? 0 : getTargetCapacitySpecification().hashCode());

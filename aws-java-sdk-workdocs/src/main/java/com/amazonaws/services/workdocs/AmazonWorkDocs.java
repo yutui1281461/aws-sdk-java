@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -172,8 +172,6 @@ public interface AmazonWorkDocs {
      * @throws DocumentLockedForCommentsException
      *         This exception is thrown when the document is locked for comments and user tries to create or delete a
      *         comment on that document.
-     * @throws InvalidCommentOperationException
-     *         The requested operation is not allowed on the specified comment object.
      * @sample AmazonWorkDocs.CreateComment
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/CreateComment" target="_top">AWS API
      *      Documentation</a>
@@ -221,8 +219,6 @@ public interface AmazonWorkDocs {
      *         The resource already exists.
      * @throws ProhibitedStateException
      *         The specified document version is not in the INITIALIZED state.
-     * @throws ConflictingOperationException
-     *         Another operation is in progress on the resource that conflicts with the current operation.
      * @throws LimitExceededException
      *         The maximum of 100,000 folders under the parent folder has been exceeded.
      * @throws UnauthorizedOperationException
@@ -268,13 +264,12 @@ public interface AmazonWorkDocs {
 
     /**
      * <p>
-     * Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a confirmation message, and must
-     * confirm the subscription.
+     * Configure WorkDocs to use Amazon SNS notifications.
      * </p>
      * <p>
-     * For more information, see <a
-     * href="http://docs.aws.amazon.com/workdocs/latest/developerguide/subscribe-notifications.html">Subscribe to
-     * Notifications</a> in the <i>Amazon WorkDocs Developer Guide</i>.
+     * The endpoint receives a confirmation message, and must confirm the subscription. For more information, see <a
+     * href="http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.confirm">Confirm the
+     * Subscription</a> in the <i>Amazon Simple Notification Service Developer Guide</i>.
      * </p>
      * 
      * @param createNotificationSubscriptionRequest
@@ -406,8 +401,6 @@ public interface AmazonWorkDocs {
      *         The resource does not exist.
      * @throws ProhibitedStateException
      *         The specified document version is not in the INITIALIZED state.
-     * @throws ConflictingOperationException
-     *         Another operation is in progress on the resource that conflicts with the current operation.
      * @throws ConcurrentModificationException
      *         The resource hierarchy is changing.
      * @throws UnauthorizedOperationException
@@ -436,8 +429,6 @@ public interface AmazonWorkDocs {
      *         The resource does not exist.
      * @throws ProhibitedStateException
      *         The specified document version is not in the INITIALIZED state.
-     * @throws ConflictingOperationException
-     *         Another operation is in progress on the resource that conflicts with the current operation.
      * @throws ConcurrentModificationException
      *         The resource hierarchy is changing.
      * @throws UnauthorizedOperationException
@@ -464,10 +455,6 @@ public interface AmazonWorkDocs {
      * @return Result of the DeleteFolderContents operation returned by the service.
      * @throws EntityNotExistsException
      *         The resource does not exist.
-     * @throws ProhibitedStateException
-     *         The specified document version is not in the INITIALIZED state.
-     * @throws ConflictingOperationException
-     *         Another operation is in progress on the resource that conflicts with the current operation.
      * @throws UnauthorizedOperationException
      *         The operation is not permitted.
      * @throws UnauthorizedResourceAccessException
@@ -666,7 +653,7 @@ public interface AmazonWorkDocs {
 
     /**
      * <p>
-     * Describes the groups specified by the query. Groups are defined by the underlying Active Directory.
+     * Describes the groups specified by query.
      * </p>
      * 
      * @param describeGroupsRequest
@@ -733,12 +720,6 @@ public interface AmazonWorkDocs {
      * <code>RootFolder</code> is the root of user's files and folders and <code>RecycleBin</code> is the root of
      * recycled items. This is not a valid action for SigV4 (administrative API) clients.
      * </p>
-     * <p>
-     * This action requires an authentication token. To get an authentication token, register an application with Amazon
-     * WorkDocs. For more information, see <a
-     * href="http://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html">Authentication and Access
-     * Control for User Applications</a> in the <i>Amazon WorkDocs Developer Guide</i>.
-     * </p>
      * 
      * @param describeRootFoldersRequest
      * @return Result of the DescribeRootFolders operation returned by the service.
@@ -771,8 +752,6 @@ public interface AmazonWorkDocs {
      * 
      * @param describeUsersRequest
      * @return Result of the DescribeUsers operation returned by the service.
-     * @throws EntityNotExistsException
-     *         The resource does not exist.
      * @throws UnauthorizedOperationException
      *         The operation is not permitted.
      * @throws UnauthorizedResourceAccessException
@@ -784,9 +763,6 @@ public interface AmazonWorkDocs {
      *         One or more of the dependencies is unavailable.
      * @throws InvalidArgumentException
      *         The pagination marker or limit fields are not valid.
-     * @throws RequestedEntityTooLargeException
-     *         The response is too large to return. The request must include a filter to reduce the size of the
-     *         response.
      * @sample AmazonWorkDocs.DescribeUsers
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/DescribeUsers" target="_top">AWS API
      *      Documentation</a>
@@ -962,31 +938,6 @@ public interface AmazonWorkDocs {
 
     /**
      * <p>
-     * Retrieves a collection of resources, including folders and documents. The only <code>CollectionType</code>
-     * supported is <code>SHARED_WITH_ME</code>.
-     * </p>
-     * 
-     * @param getResourcesRequest
-     * @return Result of the GetResources operation returned by the service.
-     * @throws UnauthorizedResourceAccessException
-     *         The caller does not have access to perform the action on the resource.
-     * @throws UnauthorizedOperationException
-     *         The operation is not permitted.
-     * @throws InvalidArgumentException
-     *         The pagination marker or limit fields are not valid.
-     * @throws FailedDependencyException
-     *         The AWS Directory Service cannot reach an on-premises instance. Or a dependency under the control of the
-     *         organization is failing, such as a connected Active Directory.
-     * @throws ServiceUnavailableException
-     *         One or more of the dependencies is unavailable.
-     * @sample AmazonWorkDocs.GetResources
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/workdocs-2016-05-01/GetResources" target="_top">AWS API
-     *      Documentation</a>
-     */
-    GetResourcesResult getResources(GetResourcesRequest getResourcesRequest);
-
-    /**
-     * <p>
      * Creates a new document object and version object.
      * </p>
      * <p>
@@ -1090,8 +1041,6 @@ public interface AmazonWorkDocs {
      *         The maximum of 100,000 folders under the parent folder has been exceeded.
      * @throws ProhibitedStateException
      *         The specified document version is not in the INITIALIZED state.
-     * @throws ConflictingOperationException
-     *         Another operation is in progress on the resource that conflicts with the current operation.
      * @throws ConcurrentModificationException
      *         The resource hierarchy is changing.
      * @throws UnauthorizedOperationException
@@ -1157,8 +1106,6 @@ public interface AmazonWorkDocs {
      *         The resource already exists.
      * @throws ProhibitedStateException
      *         The specified document version is not in the INITIALIZED state.
-     * @throws ConflictingOperationException
-     *         Another operation is in progress on the resource that conflicts with the current operation.
      * @throws ConcurrentModificationException
      *         The resource hierarchy is changing.
      * @throws LimitExceededException

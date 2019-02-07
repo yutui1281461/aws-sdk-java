@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -52,7 +52,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
+     * Cannot end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -80,7 +80,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes,
      * and availability for your engine, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a>
-     * in the <i>Amazon RDS User Guide.</i>
+     * in the Amazon RDS User Guide.
      * </p>
      * <p>
      * Importing from Amazon S3 is not supported on the db.t2.micro DB instance class.
@@ -116,7 +116,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * </li>
      * <li>
      * <p>
-     * Can't be a reserved word for the chosen database engine.
+     * Cannot be a reserved word for the chosen database engine.
      * </p>
      * </li>
      * </ul>
@@ -151,7 +151,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The Availability Zone that the DB instance is created in. For information about AWS Regions and Availability
      * Zones, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
-     * and Availability Zones</a> in the <i>Amazon RDS User Guide.</i>
+     * and Availability Zones</a>.
      * </p>
      * <p>
      * Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.
@@ -176,7 +176,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC). For more
      * information, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance"
-     * >Amazon RDS Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
+     * >Amazon RDS Maintenance Window</a>.
      * </p>
      * <p>
      * Constraints:
@@ -229,7 +229,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The time range each day during which automated backups are created if automated backups are enabled. For more
      * information, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow"
-     * >The Backup Window</a> in the <i>Amazon RDS User Guide.</i>
+     * >The Backup Window</a>.
      * </p>
      * <p>
      * Constraints:
@@ -282,8 +282,8 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
     private Boolean multiAZ;
     /**
      * <p>
-     * The version number of the database engine to use. Choose the latest minor version of your database engine. For
-     * information about engine versions, see <a>CreateDBInstance</a>, or call <a>DescribeDBEngineVersions</a>.
+     * The version number of the database engine to use. Choose the latest minor version of your database engine as
+     * specified in <a>CreateDBInstance</a>.
      * </p>
      */
     private String engineVersion;
@@ -308,7 +308,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The amount of Provisioned IOPS (input/output operations per second) to allocate initially for the DB instance.
      * For information about valid Iops values, see see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned
-     * IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User Guide.</i>
+     * IOPS Storage to Improve Performance</a>.
      * </p>
      */
     private Integer iops;
@@ -321,9 +321,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
     private String optionGroupName;
     /**
      * <p>
-     * Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance
-     * with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an
-     * internal instance with a DNS name that resolves to a private IP address. For more information, see
+     * Specifies whether the DB instance is publicly accessible or not. For more information, see
      * <a>CreateDBInstance</a>.
      * </p>
      */
@@ -331,8 +329,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
     /**
      * <p>
      * A list of tags to associate with this DB instance. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a>
-     * in the <i>Amazon RDS User Guide.</i>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a>.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<Tag> tags;
@@ -406,7 +403,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role, see
      * <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling"
-     * >Setting Up and Enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
+     * >Setting Up and Enabling Enhanced Monitoring</a>.
      * </p>
      * <p>
      * If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
@@ -464,11 +461,6 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * <p>
      * True to enable Performance Insights for the DB instance, and otherwise false.
      * </p>
-     * <p>
-     * For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance
-     * Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
-     * </p>
      */
     private Boolean enablePerformanceInsights;
     /**
@@ -480,40 +472,10 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
     private String performanceInsightsKMSKeyId;
     /**
      * <p>
-     * The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
-     * </p>
-     */
-    private Integer performanceInsightsRetentionPeriod;
-    /**
-     * <p>
-     * The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     * The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> enableCloudwatchLogsExports;
-    /**
-     * <p>
-     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * </p>
-     */
-    private com.amazonaws.internal.SdkInternalList<ProcessorFeature> processorFeatures;
-    /**
-     * <p>
-     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     * </p>
-     */
-    private Boolean useDefaultProcessorFeatures;
-    /**
-     * <p>
-     * Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     * Instance</a>.
-     * </p>
-     */
-    private Boolean deletionProtection;
 
     /**
      * <p>
@@ -581,7 +543,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
+     * Cannot end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -607,7 +569,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        </li>
      *        <li>
      *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens.
+     *        Cannot end with a hyphen or contain two consecutive hyphens.
      *        </p>
      *        </li>
      *        </ul>
@@ -639,7 +601,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
+     * Cannot end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -664,7 +626,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *         </li>
      *         <li>
      *         <p>
-     *         Can't end with a hyphen or contain two consecutive hyphens.
+     *         Cannot end with a hyphen or contain two consecutive hyphens.
      *         </p>
      *         </li>
      *         </ul>
@@ -696,7 +658,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
+     * Cannot end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -722,7 +684,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        </li>
      *        <li>
      *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens.
+     *        Cannot end with a hyphen or contain two consecutive hyphens.
      *        </p>
      *        </li>
      *        </ul>
@@ -818,7 +780,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes,
      * and availability for your engine, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a>
-     * in the <i>Amazon RDS User Guide.</i>
+     * in the Amazon RDS User Guide.
      * </p>
      * <p>
      * Importing from Amazon S3 is not supported on the db.t2.micro DB instance class.
@@ -829,7 +791,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        instance classes are available in all AWS Regions, or for all database engines. For the full list of DB
      *        instance classes, and availability for your engine, see <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance
-     *        Class</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *        Class</a> in the Amazon RDS User Guide. </p>
      *        <p>
      *        Importing from Amazon S3 is not supported on the db.t2.micro DB instance class.
      */
@@ -844,7 +806,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes,
      * and availability for your engine, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a>
-     * in the <i>Amazon RDS User Guide.</i>
+     * in the Amazon RDS User Guide.
      * </p>
      * <p>
      * Importing from Amazon S3 is not supported on the db.t2.micro DB instance class.
@@ -854,7 +816,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *         instance classes are available in all AWS Regions, or for all database engines. For the full list of DB
      *         instance classes, and availability for your engine, see <a
      *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance
-     *         Class</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *         Class</a> in the Amazon RDS User Guide. </p>
      *         <p>
      *         Importing from Amazon S3 is not supported on the db.t2.micro DB instance class.
      */
@@ -869,7 +831,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes,
      * and availability for your engine, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a>
-     * in the <i>Amazon RDS User Guide.</i>
+     * in the Amazon RDS User Guide.
      * </p>
      * <p>
      * Importing from Amazon S3 is not supported on the db.t2.micro DB instance class.
@@ -880,7 +842,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        instance classes are available in all AWS Regions, or for all database engines. For the full list of DB
      *        instance classes, and availability for your engine, see <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance
-     *        Class</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *        Class</a> in the Amazon RDS User Guide. </p>
      *        <p>
      *        Importing from Amazon S3 is not supported on the db.t2.micro DB instance class.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -966,7 +928,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * </li>
      * <li>
      * <p>
-     * Can't be a reserved word for the chosen database engine.
+     * Cannot be a reserved word for the chosen database engine.
      * </p>
      * </li>
      * </ul>
@@ -989,7 +951,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        </li>
      *        <li>
      *        <p>
-     *        Can't be a reserved word for the chosen database engine.
+     *        Cannot be a reserved word for the chosen database engine.
      *        </p>
      *        </li>
      */
@@ -1018,7 +980,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * </li>
      * <li>
      * <p>
-     * Can't be a reserved word for the chosen database engine.
+     * Cannot be a reserved word for the chosen database engine.
      * </p>
      * </li>
      * </ul>
@@ -1040,7 +1002,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *         </li>
      *         <li>
      *         <p>
-     *         Can't be a reserved word for the chosen database engine.
+     *         Cannot be a reserved word for the chosen database engine.
      *         </p>
      *         </li>
      */
@@ -1069,7 +1031,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * </li>
      * <li>
      * <p>
-     * Can't be a reserved word for the chosen database engine.
+     * Cannot be a reserved word for the chosen database engine.
      * </p>
      * </li>
      * </ul>
@@ -1092,7 +1054,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        </li>
      *        <li>
      *        <p>
-     *        Can't be a reserved word for the chosen database engine.
+     *        Cannot be a reserved word for the chosen database engine.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -1332,7 +1294,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The Availability Zone that the DB instance is created in. For information about AWS Regions and Availability
      * Zones, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
-     * and Availability Zones</a> in the <i>Amazon RDS User Guide.</i>
+     * and Availability Zones</a>.
      * </p>
      * <p>
      * Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.
@@ -1349,7 +1311,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        The Availability Zone that the DB instance is created in. For information about AWS Regions and
      *        Availability Zones, see <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html"
-     *        >Regions and Availability Zones</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *        >Regions and Availability Zones</a>. </p>
      *        <p>
      *        Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.
      *        </p>
@@ -1370,7 +1332,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The Availability Zone that the DB instance is created in. For information about AWS Regions and Availability
      * Zones, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
-     * and Availability Zones</a> in the <i>Amazon RDS User Guide.</i>
+     * and Availability Zones</a>.
      * </p>
      * <p>
      * Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.
@@ -1386,7 +1348,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * @return The Availability Zone that the DB instance is created in. For information about AWS Regions and
      *         Availability Zones, see <a
      *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html"
-     *         >Regions and Availability Zones</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *         >Regions and Availability Zones</a>. </p>
      *         <p>
      *         Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.
      *         </p>
@@ -1408,7 +1370,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The Availability Zone that the DB instance is created in. For information about AWS Regions and Availability
      * Zones, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
-     * and Availability Zones</a> in the <i>Amazon RDS User Guide.</i>
+     * and Availability Zones</a>.
      * </p>
      * <p>
      * Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.
@@ -1425,7 +1387,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        The Availability Zone that the DB instance is created in. For information about AWS Regions and
      *        Availability Zones, see <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html"
-     *        >Regions and Availability Zones</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *        >Regions and Availability Zones</a>. </p>
      *        <p>
      *        Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.
      *        </p>
@@ -1488,7 +1450,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC). For more
      * information, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance"
-     * >Amazon RDS Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
+     * >Amazon RDS Maintenance Window</a>.
      * </p>
      * <p>
      * Constraints:
@@ -1525,7 +1487,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC).
      *        For more information, see <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance"
-     *        >Amazon RDS Maintenance Window</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *        >Amazon RDS Maintenance Window</a>. </p>
      *        <p>
      *        Constraints:
      *        </p>
@@ -1566,7 +1528,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC). For more
      * information, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance"
-     * >Amazon RDS Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
+     * >Amazon RDS Maintenance Window</a>.
      * </p>
      * <p>
      * Constraints:
@@ -1602,7 +1564,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * @return The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC).
      *         For more information, see <a href=
      *         "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance"
-     *         >Amazon RDS Maintenance Window</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *         >Amazon RDS Maintenance Window</a>. </p>
      *         <p>
      *         Constraints:
      *         </p>
@@ -1643,7 +1605,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC). For more
      * information, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance"
-     * >Amazon RDS Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
+     * >Amazon RDS Maintenance Window</a>.
      * </p>
      * <p>
      * Constraints:
@@ -1680,7 +1642,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC).
      *        For more information, see <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance"
-     *        >Amazon RDS Maintenance Window</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *        >Amazon RDS Maintenance Window</a>. </p>
      *        <p>
      *        Constraints:
      *        </p>
@@ -1815,7 +1777,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The time range each day during which automated backups are created if automated backups are enabled. For more
      * information, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow"
-     * >The Backup Window</a> in the <i>Amazon RDS User Guide.</i>
+     * >The Backup Window</a>.
      * </p>
      * <p>
      * Constraints:
@@ -1847,7 +1809,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        The time range each day during which automated backups are created if automated backups are enabled. For
      *        more information, see <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow"
-     *        >The Backup Window</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *        >The Backup Window</a>. </p>
      *        <p>
      *        Constraints:
      *        </p>
@@ -1883,7 +1845,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The time range each day during which automated backups are created if automated backups are enabled. For more
      * information, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow"
-     * >The Backup Window</a> in the <i>Amazon RDS User Guide.</i>
+     * >The Backup Window</a>.
      * </p>
      * <p>
      * Constraints:
@@ -1914,7 +1876,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * @return The time range each day during which automated backups are created if automated backups are enabled. For
      *         more information, see <a href=
      *         "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow"
-     *         >The Backup Window</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *         >The Backup Window</a>. </p>
      *         <p>
      *         Constraints:
      *         </p>
@@ -1950,7 +1912,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The time range each day during which automated backups are created if automated backups are enabled. For more
      * information, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow"
-     * >The Backup Window</a> in the <i>Amazon RDS User Guide.</i>
+     * >The Backup Window</a>.
      * </p>
      * <p>
      * Constraints:
@@ -1982,7 +1944,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        The time range each day during which automated backups are created if automated backups are enabled. For
      *        more information, see <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow"
-     *        >The Backup Window</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *        >The Backup Window</a>. </p>
      *        <p>
      *        Constraints:
      *        </p>
@@ -2168,14 +2130,13 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The version number of the database engine to use. Choose the latest minor version of your database engine. For
-     * information about engine versions, see <a>CreateDBInstance</a>, or call <a>DescribeDBEngineVersions</a>.
+     * The version number of the database engine to use. Choose the latest minor version of your database engine as
+     * specified in <a>CreateDBInstance</a>.
      * </p>
      * 
      * @param engineVersion
-     *        The version number of the database engine to use. Choose the latest minor version of your database engine.
-     *        For information about engine versions, see <a>CreateDBInstance</a>, or call
-     *        <a>DescribeDBEngineVersions</a>.
+     *        The version number of the database engine to use. Choose the latest minor version of your database engine
+     *        as specified in <a>CreateDBInstance</a>.
      */
 
     public void setEngineVersion(String engineVersion) {
@@ -2184,13 +2145,12 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The version number of the database engine to use. Choose the latest minor version of your database engine. For
-     * information about engine versions, see <a>CreateDBInstance</a>, or call <a>DescribeDBEngineVersions</a>.
+     * The version number of the database engine to use. Choose the latest minor version of your database engine as
+     * specified in <a>CreateDBInstance</a>.
      * </p>
      * 
-     * @return The version number of the database engine to use. Choose the latest minor version of your database
-     *         engine. For information about engine versions, see <a>CreateDBInstance</a>, or call
-     *         <a>DescribeDBEngineVersions</a>.
+     * @return The version number of the database engine to use. Choose the latest minor version of your database engine
+     *         as specified in <a>CreateDBInstance</a>.
      */
 
     public String getEngineVersion() {
@@ -2199,14 +2159,13 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The version number of the database engine to use. Choose the latest minor version of your database engine. For
-     * information about engine versions, see <a>CreateDBInstance</a>, or call <a>DescribeDBEngineVersions</a>.
+     * The version number of the database engine to use. Choose the latest minor version of your database engine as
+     * specified in <a>CreateDBInstance</a>.
      * </p>
      * 
      * @param engineVersion
-     *        The version number of the database engine to use. Choose the latest minor version of your database engine.
-     *        For information about engine versions, see <a>CreateDBInstance</a>, or call
-     *        <a>DescribeDBEngineVersions</a>.
+     *        The version number of the database engine to use. Choose the latest minor version of your database engine
+     *        as specified in <a>CreateDBInstance</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -2340,14 +2299,14 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The amount of Provisioned IOPS (input/output operations per second) to allocate initially for the DB instance.
      * For information about valid Iops values, see see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned
-     * IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User Guide.</i>
+     * IOPS Storage to Improve Performance</a>.
      * </p>
      * 
      * @param iops
      *        The amount of Provisioned IOPS (input/output operations per second) to allocate initially for the DB
      *        instance. For information about valid Iops values, see see <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS
-     *        Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User Guide.</i>
+     *        Provisioned IOPS Storage to Improve Performance</a>.
      */
 
     public void setIops(Integer iops) {
@@ -2359,13 +2318,13 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The amount of Provisioned IOPS (input/output operations per second) to allocate initially for the DB instance.
      * For information about valid Iops values, see see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned
-     * IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User Guide.</i>
+     * IOPS Storage to Improve Performance</a>.
      * </p>
      * 
      * @return The amount of Provisioned IOPS (input/output operations per second) to allocate initially for the DB
      *         instance. For information about valid Iops values, see see <a
      *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS
-     *         Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User Guide.</i>
+     *         Provisioned IOPS Storage to Improve Performance</a>.
      */
 
     public Integer getIops() {
@@ -2377,14 +2336,14 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * The amount of Provisioned IOPS (input/output operations per second) to allocate initially for the DB instance.
      * For information about valid Iops values, see see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned
-     * IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User Guide.</i>
+     * IOPS Storage to Improve Performance</a>.
      * </p>
      * 
      * @param iops
      *        The amount of Provisioned IOPS (input/output operations per second) to allocate initially for the DB
      *        instance. For information about valid Iops values, see see <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS
-     *        Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User Guide.</i>
+     *        Provisioned IOPS Storage to Improve Performance</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -2441,17 +2400,13 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance
-     * with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an
-     * internal instance with a DNS name that resolves to a private IP address. For more information, see
+     * Specifies whether the DB instance is publicly accessible or not. For more information, see
      * <a>CreateDBInstance</a>.
      * </p>
      * 
      * @param publiclyAccessible
-     *        Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing
-     *        instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false
-     *        specifies an internal instance with a DNS name that resolves to a private IP address. For more
-     *        information, see <a>CreateDBInstance</a>.
+     *        Specifies whether the DB instance is publicly accessible or not. For more information, see
+     *        <a>CreateDBInstance</a>.
      */
 
     public void setPubliclyAccessible(Boolean publiclyAccessible) {
@@ -2460,16 +2415,12 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance
-     * with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an
-     * internal instance with a DNS name that resolves to a private IP address. For more information, see
+     * Specifies whether the DB instance is publicly accessible or not. For more information, see
      * <a>CreateDBInstance</a>.
      * </p>
      * 
-     * @return Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing
-     *         instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false
-     *         specifies an internal instance with a DNS name that resolves to a private IP address. For more
-     *         information, see <a>CreateDBInstance</a>.
+     * @return Specifies whether the DB instance is publicly accessible or not. For more information, see
+     *         <a>CreateDBInstance</a>.
      */
 
     public Boolean getPubliclyAccessible() {
@@ -2478,17 +2429,13 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance
-     * with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an
-     * internal instance with a DNS name that resolves to a private IP address. For more information, see
+     * Specifies whether the DB instance is publicly accessible or not. For more information, see
      * <a>CreateDBInstance</a>.
      * </p>
      * 
      * @param publiclyAccessible
-     *        Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing
-     *        instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false
-     *        specifies an internal instance with a DNS name that resolves to a private IP address. For more
-     *        information, see <a>CreateDBInstance</a>.
+     *        Specifies whether the DB instance is publicly accessible or not. For more information, see
+     *        <a>CreateDBInstance</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -2499,16 +2446,12 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance
-     * with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an
-     * internal instance with a DNS name that resolves to a private IP address. For more information, see
+     * Specifies whether the DB instance is publicly accessible or not. For more information, see
      * <a>CreateDBInstance</a>.
      * </p>
      * 
-     * @return Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing
-     *         instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false
-     *         specifies an internal instance with a DNS name that resolves to a private IP address. For more
-     *         information, see <a>CreateDBInstance</a>.
+     * @return Specifies whether the DB instance is publicly accessible or not. For more information, see
+     *         <a>CreateDBInstance</a>.
      */
 
     public Boolean isPubliclyAccessible() {
@@ -2518,13 +2461,12 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
     /**
      * <p>
      * A list of tags to associate with this DB instance. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a>
-     * in the <i>Amazon RDS User Guide.</i>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a>.
      * </p>
      * 
      * @return A list of tags to associate with this DB instance. For more information, see <a
      *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS
-     *         Resources</a> in the <i>Amazon RDS User Guide.</i>
+     *         Resources</a>.
      */
 
     public java.util.List<Tag> getTags() {
@@ -2537,14 +2479,13 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
     /**
      * <p>
      * A list of tags to associate with this DB instance. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a>
-     * in the <i>Amazon RDS User Guide.</i>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a>.
      * </p>
      * 
      * @param tags
      *        A list of tags to associate with this DB instance. For more information, see <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS
-     *        Resources</a> in the <i>Amazon RDS User Guide.</i>
+     *        Resources</a>.
      */
 
     public void setTags(java.util.Collection<Tag> tags) {
@@ -2559,8 +2500,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
     /**
      * <p>
      * A list of tags to associate with this DB instance. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a>
-     * in the <i>Amazon RDS User Guide.</i>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a>.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -2571,7 +2511,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * @param tags
      *        A list of tags to associate with this DB instance. For more information, see <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS
-     *        Resources</a> in the <i>Amazon RDS User Guide.</i>
+     *        Resources</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -2588,14 +2528,13 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
     /**
      * <p>
      * A list of tags to associate with this DB instance. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a>
-     * in the <i>Amazon RDS User Guide.</i>
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a>.
      * </p>
      * 
      * @param tags
      *        A list of tags to associate with this DB instance. For more information, see <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS
-     *        Resources</a> in the <i>Amazon RDS User Guide.</i>
+     *        Resources</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -3032,7 +2971,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role, see
      * <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling"
-     * >Setting Up and Enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
+     * >Setting Up and Enabling Enhanced Monitoring</a>.
      * </p>
      * <p>
      * If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
@@ -3044,7 +2983,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring
      *        role, see <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling"
-     *        >Setting Up and Enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *        >Setting Up and Enabling Enhanced Monitoring</a>. </p>
      *        <p>
      *        If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
      *        <code>MonitoringRoleArn</code> value.
@@ -3060,7 +2999,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role, see
      * <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling"
-     * >Setting Up and Enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
+     * >Setting Up and Enabling Enhanced Monitoring</a>.
      * </p>
      * <p>
      * If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
@@ -3071,7 +3010,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *         For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a
      *         monitoring role, see <a href=
      *         "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling"
-     *         >Setting Up and Enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *         >Setting Up and Enabling Enhanced Monitoring</a>. </p>
      *         <p>
      *         If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
      *         <code>MonitoringRoleArn</code> value.
@@ -3087,7 +3026,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role, see
      * <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling"
-     * >Setting Up and Enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
+     * >Setting Up and Enabling Enhanced Monitoring</a>.
      * </p>
      * <p>
      * If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
@@ -3099,7 +3038,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      *        For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring
      *        role, see <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling"
-     *        >Setting Up and Enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *        >Setting Up and Enabling Enhanced Monitoring</a>. </p>
      *        <p>
      *        If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
      *        <code>MonitoringRoleArn</code> value.
@@ -3425,18 +3364,9 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * <p>
      * True to enable Performance Insights for the DB instance, and otherwise false.
      * </p>
-     * <p>
-     * For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance
-     * Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
-     * </p>
      * 
      * @param enablePerformanceInsights
-     *        True to enable Performance Insights for the DB instance, and otherwise false. </p>
-     *        <p>
-     *        For more information, see <a
-     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon
-     *        Performance Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
+     *        True to enable Performance Insights for the DB instance, and otherwise false.
      */
 
     public void setEnablePerformanceInsights(Boolean enablePerformanceInsights) {
@@ -3447,17 +3377,8 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * <p>
      * True to enable Performance Insights for the DB instance, and otherwise false.
      * </p>
-     * <p>
-     * For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance
-     * Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
-     * </p>
      * 
-     * @return True to enable Performance Insights for the DB instance, and otherwise false. </p>
-     *         <p>
-     *         For more information, see <a
-     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon
-     *         Performance Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
+     * @return True to enable Performance Insights for the DB instance, and otherwise false.
      */
 
     public Boolean getEnablePerformanceInsights() {
@@ -3468,18 +3389,9 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * <p>
      * True to enable Performance Insights for the DB instance, and otherwise false.
      * </p>
-     * <p>
-     * For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance
-     * Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
-     * </p>
      * 
      * @param enablePerformanceInsights
-     *        True to enable Performance Insights for the DB instance, and otherwise false. </p>
-     *        <p>
-     *        For more information, see <a
-     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon
-     *        Performance Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
+     *        True to enable Performance Insights for the DB instance, and otherwise false.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -3492,17 +3404,8 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * <p>
      * True to enable Performance Insights for the DB instance, and otherwise false.
      * </p>
-     * <p>
-     * For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance
-     * Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
-     * </p>
      * 
-     * @return True to enable Performance Insights for the DB instance, and otherwise false. </p>
-     *         <p>
-     *         For more information, see <a
-     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon
-     *         Performance Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
+     * @return True to enable Performance Insights for the DB instance, and otherwise false.
      */
 
     public Boolean isEnablePerformanceInsights() {
@@ -3557,56 +3460,10 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+     * The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * </p>
      * 
-     * @param performanceInsightsRetentionPeriod
-     *        The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
-     */
-
-    public void setPerformanceInsightsRetentionPeriod(Integer performanceInsightsRetentionPeriod) {
-        this.performanceInsightsRetentionPeriod = performanceInsightsRetentionPeriod;
-    }
-
-    /**
-     * <p>
-     * The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
-     * </p>
-     * 
-     * @return The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
-     */
-
-    public Integer getPerformanceInsightsRetentionPeriod() {
-        return this.performanceInsightsRetentionPeriod;
-    }
-
-    /**
-     * <p>
-     * The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
-     * </p>
-     * 
-     * @param performanceInsightsRetentionPeriod
-     *        The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBInstanceFromS3Request withPerformanceInsightsRetentionPeriod(Integer performanceInsightsRetentionPeriod) {
-        setPerformanceInsightsRetentionPeriod(performanceInsightsRetentionPeriod);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
-     * </p>
-     * 
-     * @return The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list
-     *         depend on the DB engine being used. For more information, see <a href=
-     *         "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     *         >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     * @return The list of logs that the restored DB instance is to export to CloudWatch Logs.
      */
 
     public java.util.List<String> getEnableCloudwatchLogsExports() {
@@ -3618,17 +3475,11 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     * The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * </p>
      * 
      * @param enableCloudwatchLogsExports
-     *        The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list
-     *        depend on the DB engine being used. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     *        >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     *        The list of logs that the restored DB instance is to export to CloudWatch Logs.
      */
 
     public void setEnableCloudwatchLogsExports(java.util.Collection<String> enableCloudwatchLogsExports) {
@@ -3642,10 +3493,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     * The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -3654,10 +3502,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
      * </p>
      * 
      * @param enableCloudwatchLogsExports
-     *        The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list
-     *        depend on the DB engine being used. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     *        >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     *        The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -3673,17 +3518,11 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     * The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * </p>
      * 
      * @param enableCloudwatchLogsExports
-     *        The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list
-     *        depend on the DB engine being used. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     *        >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     *        The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -3693,209 +3532,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * <p>
-     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * </p>
-     * 
-     * @return The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     */
-
-    public java.util.List<ProcessorFeature> getProcessorFeatures() {
-        if (processorFeatures == null) {
-            processorFeatures = new com.amazonaws.internal.SdkInternalList<ProcessorFeature>();
-        }
-        return processorFeatures;
-    }
-
-    /**
-     * <p>
-     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * </p>
-     * 
-     * @param processorFeatures
-     *        The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     */
-
-    public void setProcessorFeatures(java.util.Collection<ProcessorFeature> processorFeatures) {
-        if (processorFeatures == null) {
-            this.processorFeatures = null;
-            return;
-        }
-
-        this.processorFeatures = new com.amazonaws.internal.SdkInternalList<ProcessorFeature>(processorFeatures);
-    }
-
-    /**
-     * <p>
-     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setProcessorFeatures(java.util.Collection)} or {@link #withProcessorFeatures(java.util.Collection)} if
-     * you want to override the existing values.
-     * </p>
-     * 
-     * @param processorFeatures
-     *        The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBInstanceFromS3Request withProcessorFeatures(ProcessorFeature... processorFeatures) {
-        if (this.processorFeatures == null) {
-            setProcessorFeatures(new com.amazonaws.internal.SdkInternalList<ProcessorFeature>(processorFeatures.length));
-        }
-        for (ProcessorFeature ele : processorFeatures) {
-            this.processorFeatures.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * </p>
-     * 
-     * @param processorFeatures
-     *        The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBInstanceFromS3Request withProcessorFeatures(java.util.Collection<ProcessorFeature> processorFeatures) {
-        setProcessorFeatures(processorFeatures);
-        return this;
-    }
-
-    /**
-     * <p>
-     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     * </p>
-     * 
-     * @param useDefaultProcessorFeatures
-     *        A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     */
-
-    public void setUseDefaultProcessorFeatures(Boolean useDefaultProcessorFeatures) {
-        this.useDefaultProcessorFeatures = useDefaultProcessorFeatures;
-    }
-
-    /**
-     * <p>
-     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     * </p>
-     * 
-     * @return A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     */
-
-    public Boolean getUseDefaultProcessorFeatures() {
-        return this.useDefaultProcessorFeatures;
-    }
-
-    /**
-     * <p>
-     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     * </p>
-     * 
-     * @param useDefaultProcessorFeatures
-     *        A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBInstanceFromS3Request withUseDefaultProcessorFeatures(Boolean useDefaultProcessorFeatures) {
-        setUseDefaultProcessorFeatures(useDefaultProcessorFeatures);
-        return this;
-    }
-
-    /**
-     * <p>
-     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     * </p>
-     * 
-     * @return A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     */
-
-    public Boolean isUseDefaultProcessorFeatures() {
-        return this.useDefaultProcessorFeatures;
-    }
-
-    /**
-     * <p>
-     * Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     * Instance</a>.
-     * </p>
-     * 
-     * @param deletionProtection
-     *        Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when
-     *        this value is set to true. The default is false. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     *        Instance</a>.
-     */
-
-    public void setDeletionProtection(Boolean deletionProtection) {
-        this.deletionProtection = deletionProtection;
-    }
-
-    /**
-     * <p>
-     * Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     * Instance</a>.
-     * </p>
-     * 
-     * @return Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when
-     *         this value is set to true. The default is false. For more information, see <a
-     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     *         Instance</a>.
-     */
-
-    public Boolean getDeletionProtection() {
-        return this.deletionProtection;
-    }
-
-    /**
-     * <p>
-     * Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     * Instance</a>.
-     * </p>
-     * 
-     * @param deletionProtection
-     *        Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when
-     *        this value is set to true. The default is false. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     *        Instance</a>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBInstanceFromS3Request withDeletionProtection(Boolean deletionProtection) {
-        setDeletionProtection(deletionProtection);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     * Instance</a>.
-     * </p>
-     * 
-     * @return Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when
-     *         this value is set to true. The default is false. For more information, see <a
-     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     *         Instance</a>.
-     */
-
-    public Boolean isDeletionProtection() {
-        return this.deletionProtection;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -3981,16 +3618,8 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
             sb.append("EnablePerformanceInsights: ").append(getEnablePerformanceInsights()).append(",");
         if (getPerformanceInsightsKMSKeyId() != null)
             sb.append("PerformanceInsightsKMSKeyId: ").append(getPerformanceInsightsKMSKeyId()).append(",");
-        if (getPerformanceInsightsRetentionPeriod() != null)
-            sb.append("PerformanceInsightsRetentionPeriod: ").append(getPerformanceInsightsRetentionPeriod()).append(",");
         if (getEnableCloudwatchLogsExports() != null)
-            sb.append("EnableCloudwatchLogsExports: ").append(getEnableCloudwatchLogsExports()).append(",");
-        if (getProcessorFeatures() != null)
-            sb.append("ProcessorFeatures: ").append(getProcessorFeatures()).append(",");
-        if (getUseDefaultProcessorFeatures() != null)
-            sb.append("UseDefaultProcessorFeatures: ").append(getUseDefaultProcessorFeatures()).append(",");
-        if (getDeletionProtection() != null)
-            sb.append("DeletionProtection: ").append(getDeletionProtection());
+            sb.append("EnableCloudwatchLogsExports: ").append(getEnableCloudwatchLogsExports());
         sb.append("}");
         return sb.toString();
     }
@@ -4158,26 +3787,9 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
             return false;
         if (other.getPerformanceInsightsKMSKeyId() != null && other.getPerformanceInsightsKMSKeyId().equals(this.getPerformanceInsightsKMSKeyId()) == false)
             return false;
-        if (other.getPerformanceInsightsRetentionPeriod() == null ^ this.getPerformanceInsightsRetentionPeriod() == null)
-            return false;
-        if (other.getPerformanceInsightsRetentionPeriod() != null
-                && other.getPerformanceInsightsRetentionPeriod().equals(this.getPerformanceInsightsRetentionPeriod()) == false)
-            return false;
         if (other.getEnableCloudwatchLogsExports() == null ^ this.getEnableCloudwatchLogsExports() == null)
             return false;
         if (other.getEnableCloudwatchLogsExports() != null && other.getEnableCloudwatchLogsExports().equals(this.getEnableCloudwatchLogsExports()) == false)
-            return false;
-        if (other.getProcessorFeatures() == null ^ this.getProcessorFeatures() == null)
-            return false;
-        if (other.getProcessorFeatures() != null && other.getProcessorFeatures().equals(this.getProcessorFeatures()) == false)
-            return false;
-        if (other.getUseDefaultProcessorFeatures() == null ^ this.getUseDefaultProcessorFeatures() == null)
-            return false;
-        if (other.getUseDefaultProcessorFeatures() != null && other.getUseDefaultProcessorFeatures().equals(this.getUseDefaultProcessorFeatures()) == false)
-            return false;
-        if (other.getDeletionProtection() == null ^ this.getDeletionProtection() == null)
-            return false;
-        if (other.getDeletionProtection() != null && other.getDeletionProtection().equals(this.getDeletionProtection()) == false)
             return false;
         return true;
     }
@@ -4225,11 +3837,7 @@ public class RestoreDBInstanceFromS3Request extends com.amazonaws.AmazonWebServi
         hashCode = prime * hashCode + ((getS3IngestionRoleArn() == null) ? 0 : getS3IngestionRoleArn().hashCode());
         hashCode = prime * hashCode + ((getEnablePerformanceInsights() == null) ? 0 : getEnablePerformanceInsights().hashCode());
         hashCode = prime * hashCode + ((getPerformanceInsightsKMSKeyId() == null) ? 0 : getPerformanceInsightsKMSKeyId().hashCode());
-        hashCode = prime * hashCode + ((getPerformanceInsightsRetentionPeriod() == null) ? 0 : getPerformanceInsightsRetentionPeriod().hashCode());
         hashCode = prime * hashCode + ((getEnableCloudwatchLogsExports() == null) ? 0 : getEnableCloudwatchLogsExports().hashCode());
-        hashCode = prime * hashCode + ((getProcessorFeatures() == null) ? 0 : getProcessorFeatures().hashCode());
-        hashCode = prime * hashCode + ((getUseDefaultProcessorFeatures() == null) ? 0 : getUseDefaultProcessorFeatures().hashCode());
-        hashCode = prime * hashCode + ((getDeletionProtection() == null) ? 0 : getDeletionProtection().hashCode());
         return hashCode;
     }
 

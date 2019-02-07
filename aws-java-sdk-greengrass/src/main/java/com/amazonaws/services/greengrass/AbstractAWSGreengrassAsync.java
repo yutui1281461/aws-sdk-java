@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -49,34 +49,6 @@ public class AbstractAWSGreengrassAsync extends AbstractAWSGreengrass implements
     @Override
     public java.util.concurrent.Future<AssociateServiceRoleToAccountResult> associateServiceRoleToAccountAsync(AssociateServiceRoleToAccountRequest request,
             com.amazonaws.handlers.AsyncHandler<AssociateServiceRoleToAccountRequest, AssociateServiceRoleToAccountResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<CreateConnectorDefinitionResult> createConnectorDefinitionAsync(CreateConnectorDefinitionRequest request) {
-
-        return createConnectorDefinitionAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<CreateConnectorDefinitionResult> createConnectorDefinitionAsync(CreateConnectorDefinitionRequest request,
-            com.amazonaws.handlers.AsyncHandler<CreateConnectorDefinitionRequest, CreateConnectorDefinitionResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<CreateConnectorDefinitionVersionResult> createConnectorDefinitionVersionAsync(
-            CreateConnectorDefinitionVersionRequest request) {
-
-        return createConnectorDefinitionVersionAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<CreateConnectorDefinitionVersionResult> createConnectorDefinitionVersionAsync(
-            CreateConnectorDefinitionVersionRequest request,
-            com.amazonaws.handlers.AsyncHandler<CreateConnectorDefinitionVersionRequest, CreateConnectorDefinitionVersionResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }
@@ -311,19 +283,6 @@ public class AbstractAWSGreengrassAsync extends AbstractAWSGreengrass implements
     }
 
     @Override
-    public java.util.concurrent.Future<DeleteConnectorDefinitionResult> deleteConnectorDefinitionAsync(DeleteConnectorDefinitionRequest request) {
-
-        return deleteConnectorDefinitionAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<DeleteConnectorDefinitionResult> deleteConnectorDefinitionAsync(DeleteConnectorDefinitionRequest request,
-            com.amazonaws.handlers.AsyncHandler<DeleteConnectorDefinitionRequest, DeleteConnectorDefinitionResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public java.util.concurrent.Future<DeleteCoreDefinitionResult> deleteCoreDefinitionAsync(DeleteCoreDefinitionRequest request) {
 
         return deleteCoreDefinitionAsync(request, null);
@@ -456,19 +415,6 @@ public class AbstractAWSGreengrassAsync extends AbstractAWSGreengrass implements
     }
 
     @Override
-    public java.util.concurrent.Future<GetBulkDeploymentStatusResult> getBulkDeploymentStatusAsync(GetBulkDeploymentStatusRequest request) {
-
-        return getBulkDeploymentStatusAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetBulkDeploymentStatusResult> getBulkDeploymentStatusAsync(GetBulkDeploymentStatusRequest request,
-            com.amazonaws.handlers.AsyncHandler<GetBulkDeploymentStatusRequest, GetBulkDeploymentStatusResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public java.util.concurrent.Future<GetConnectivityInfoResult> getConnectivityInfoAsync(GetConnectivityInfoRequest request) {
 
         return getConnectivityInfoAsync(request, null);
@@ -477,32 +423,6 @@ public class AbstractAWSGreengrassAsync extends AbstractAWSGreengrass implements
     @Override
     public java.util.concurrent.Future<GetConnectivityInfoResult> getConnectivityInfoAsync(GetConnectivityInfoRequest request,
             com.amazonaws.handlers.AsyncHandler<GetConnectivityInfoRequest, GetConnectivityInfoResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetConnectorDefinitionResult> getConnectorDefinitionAsync(GetConnectorDefinitionRequest request) {
-
-        return getConnectorDefinitionAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetConnectorDefinitionResult> getConnectorDefinitionAsync(GetConnectorDefinitionRequest request,
-            com.amazonaws.handlers.AsyncHandler<GetConnectorDefinitionRequest, GetConnectorDefinitionResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetConnectorDefinitionVersionResult> getConnectorDefinitionVersionAsync(GetConnectorDefinitionVersionRequest request) {
-
-        return getConnectorDefinitionVersionAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<GetConnectorDefinitionVersionResult> getConnectorDefinitionVersionAsync(GetConnectorDefinitionVersionRequest request,
-            com.amazonaws.handlers.AsyncHandler<GetConnectorDefinitionVersionRequest, GetConnectorDefinitionVersionResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }
@@ -746,62 +666,6 @@ public class AbstractAWSGreengrassAsync extends AbstractAWSGreengrass implements
     }
 
     @Override
-    public java.util.concurrent.Future<ListBulkDeploymentDetailedReportsResult> listBulkDeploymentDetailedReportsAsync(
-            ListBulkDeploymentDetailedReportsRequest request) {
-
-        return listBulkDeploymentDetailedReportsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<ListBulkDeploymentDetailedReportsResult> listBulkDeploymentDetailedReportsAsync(
-            ListBulkDeploymentDetailedReportsRequest request,
-            com.amazonaws.handlers.AsyncHandler<ListBulkDeploymentDetailedReportsRequest, ListBulkDeploymentDetailedReportsResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<ListBulkDeploymentsResult> listBulkDeploymentsAsync(ListBulkDeploymentsRequest request) {
-
-        return listBulkDeploymentsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<ListBulkDeploymentsResult> listBulkDeploymentsAsync(ListBulkDeploymentsRequest request,
-            com.amazonaws.handlers.AsyncHandler<ListBulkDeploymentsRequest, ListBulkDeploymentsResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<ListConnectorDefinitionVersionsResult> listConnectorDefinitionVersionsAsync(
-            ListConnectorDefinitionVersionsRequest request) {
-
-        return listConnectorDefinitionVersionsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<ListConnectorDefinitionVersionsResult> listConnectorDefinitionVersionsAsync(
-            ListConnectorDefinitionVersionsRequest request,
-            com.amazonaws.handlers.AsyncHandler<ListConnectorDefinitionVersionsRequest, ListConnectorDefinitionVersionsResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<ListConnectorDefinitionsResult> listConnectorDefinitionsAsync(ListConnectorDefinitionsRequest request) {
-
-        return listConnectorDefinitionsAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<ListConnectorDefinitionsResult> listConnectorDefinitionsAsync(ListConnectorDefinitionsRequest request,
-            com.amazonaws.handlers.AsyncHandler<ListConnectorDefinitionsRequest, ListConnectorDefinitionsResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public java.util.concurrent.Future<ListCoreDefinitionVersionsResult> listCoreDefinitionVersionsAsync(ListCoreDefinitionVersionsRequest request) {
 
         return listCoreDefinitionVersionsAsync(request, null);
@@ -1027,32 +891,6 @@ public class AbstractAWSGreengrassAsync extends AbstractAWSGreengrass implements
     }
 
     @Override
-    public java.util.concurrent.Future<StartBulkDeploymentResult> startBulkDeploymentAsync(StartBulkDeploymentRequest request) {
-
-        return startBulkDeploymentAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<StartBulkDeploymentResult> startBulkDeploymentAsync(StartBulkDeploymentRequest request,
-            com.amazonaws.handlers.AsyncHandler<StartBulkDeploymentRequest, StartBulkDeploymentResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<StopBulkDeploymentResult> stopBulkDeploymentAsync(StopBulkDeploymentRequest request) {
-
-        return stopBulkDeploymentAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<StopBulkDeploymentResult> stopBulkDeploymentAsync(StopBulkDeploymentRequest request,
-            com.amazonaws.handlers.AsyncHandler<StopBulkDeploymentRequest, StopBulkDeploymentResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public java.util.concurrent.Future<UpdateConnectivityInfoResult> updateConnectivityInfoAsync(UpdateConnectivityInfoRequest request) {
 
         return updateConnectivityInfoAsync(request, null);
@@ -1061,19 +899,6 @@ public class AbstractAWSGreengrassAsync extends AbstractAWSGreengrass implements
     @Override
     public java.util.concurrent.Future<UpdateConnectivityInfoResult> updateConnectivityInfoAsync(UpdateConnectivityInfoRequest request,
             com.amazonaws.handlers.AsyncHandler<UpdateConnectivityInfoRequest, UpdateConnectivityInfoResult> asyncHandler) {
-
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public java.util.concurrent.Future<UpdateConnectorDefinitionResult> updateConnectorDefinitionAsync(UpdateConnectorDefinitionRequest request) {
-
-        return updateConnectorDefinitionAsync(request, null);
-    }
-
-    @Override
-    public java.util.concurrent.Future<UpdateConnectorDefinitionResult> updateConnectorDefinitionAsync(UpdateConnectorDefinitionRequest request,
-            com.amazonaws.handlers.AsyncHandler<UpdateConnectorDefinitionRequest, UpdateConnectorDefinitionResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }

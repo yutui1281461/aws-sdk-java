@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -17,7 +17,7 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * Describes an egress-only internet gateway.
+ * Describes an egress-only Internet gateway.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EgressOnlyInternetGateway" target="_top">AWS API
@@ -28,23 +28,23 @@ public class EgressOnlyInternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Information about the attachment of the egress-only internet gateway.
+     * Information about the attachment of the egress-only Internet gateway.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<InternetGatewayAttachment> attachments;
     /**
      * <p>
-     * The ID of the egress-only internet gateway.
+     * The ID of the egress-only Internet gateway.
      * </p>
      */
     private String egressOnlyInternetGatewayId;
 
     /**
      * <p>
-     * Information about the attachment of the egress-only internet gateway.
+     * Information about the attachment of the egress-only Internet gateway.
      * </p>
      * 
-     * @return Information about the attachment of the egress-only internet gateway.
+     * @return Information about the attachment of the egress-only Internet gateway.
      */
 
     public java.util.List<InternetGatewayAttachment> getAttachments() {
@@ -56,11 +56,11 @@ public class EgressOnlyInternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Information about the attachment of the egress-only internet gateway.
+     * Information about the attachment of the egress-only Internet gateway.
      * </p>
      * 
      * @param attachments
-     *        Information about the attachment of the egress-only internet gateway.
+     *        Information about the attachment of the egress-only Internet gateway.
      */
 
     public void setAttachments(java.util.Collection<InternetGatewayAttachment> attachments) {
@@ -74,7 +74,7 @@ public class EgressOnlyInternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Information about the attachment of the egress-only internet gateway.
+     * Information about the attachment of the egress-only Internet gateway.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -83,7 +83,7 @@ public class EgressOnlyInternetGateway implements Serializable, Cloneable {
      * </p>
      * 
      * @param attachments
-     *        Information about the attachment of the egress-only internet gateway.
+     *        Information about the attachment of the egress-only Internet gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -99,11 +99,11 @@ public class EgressOnlyInternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Information about the attachment of the egress-only internet gateway.
+     * Information about the attachment of the egress-only Internet gateway.
      * </p>
      * 
      * @param attachments
-     *        Information about the attachment of the egress-only internet gateway.
+     *        Information about the attachment of the egress-only Internet gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -114,11 +114,11 @@ public class EgressOnlyInternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the egress-only internet gateway.
+     * The ID of the egress-only Internet gateway.
      * </p>
      * 
      * @param egressOnlyInternetGatewayId
-     *        The ID of the egress-only internet gateway.
+     *        The ID of the egress-only Internet gateway.
      */
 
     public void setEgressOnlyInternetGatewayId(String egressOnlyInternetGatewayId) {
@@ -127,10 +127,10 @@ public class EgressOnlyInternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the egress-only internet gateway.
+     * The ID of the egress-only Internet gateway.
      * </p>
      * 
-     * @return The ID of the egress-only internet gateway.
+     * @return The ID of the egress-only Internet gateway.
      */
 
     public String getEgressOnlyInternetGatewayId() {
@@ -139,11 +139,11 @@ public class EgressOnlyInternetGateway implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the egress-only internet gateway.
+     * The ID of the egress-only Internet gateway.
      * </p>
      * 
      * @param egressOnlyInternetGatewayId
-     *        The ID of the egress-only internet gateway.
+     *        The ID of the egress-only Internet gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -153,8 +153,7 @@ public class EgressOnlyInternetGateway implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

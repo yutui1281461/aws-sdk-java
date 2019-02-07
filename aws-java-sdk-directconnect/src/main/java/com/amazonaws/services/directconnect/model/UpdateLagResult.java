@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -17,7 +17,10 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * Information about a link aggregation group (LAG).
+ * Describes a link aggregation group (LAG). A LAG is a connection that uses the Link Aggregation Control Protocol
+ * (LACP) to logically aggregate a bundle of physical connections. Like an interconnect, it can host other connections.
+ * All connections in a LAG must terminate on the same physical AWS Direct Connect endpoint, and must be the same
+ * bandwidth.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/UpdateLag" target="_top">AWS API
@@ -28,8 +31,10 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and
-     * 10Gbps.
+     * The individual bandwidth of the physical connections bundled by the LAG.
+     * </p>
+     * <p>
+     * Available values: 1Gbps, 10Gbps
      * </p>
      */
     private String connectionsBandwidth;
@@ -39,15 +44,11 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
      * </p>
      */
     private Integer numberOfConnections;
-    /**
-     * <p>
-     * The ID of the LAG.
-     * </p>
-     */
+
     private String lagId;
     /**
      * <p>
-     * The ID of the AWS account that owns the LAG.
+     * The owner of the LAG.
      * </p>
      */
     private String ownerAccount;
@@ -57,78 +58,30 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
      * </p>
      */
     private String lagName;
-    /**
-     * <p>
-     * The state of the LAG. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of a LAG. The LAG stays in the requested state until the Letter of
-     * Authorization (LOA) is available.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The LAG has been approved and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is established and the LAG is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The LAG is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The LAG is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     */
+
     private String lagState;
-    /**
-     * <p>
-     * The location of the LAG.
-     * </p>
-     */
+
     private String location;
-    /**
-     * <p>
-     * The AWS Region where the connection is located.
-     * </p>
-     */
+
     private String region;
     /**
      * <p>
-     * The minimum number of physical connections that must be operational for the LAG itself to be operational.
+     * The minimum number of physical connections that must be operational for the LAG itself to be operational. If the
+     * number of operational connections drops below this setting, the LAG state changes to <code>down</code>. This
+     * value can help to ensure that a LAG is not overutilized if a significant number of its bundled connections go
+     * down.
      * </p>
      */
     private Integer minimumLinks;
     /**
      * <p>
-     * The Direct Connect endpoint that hosts the LAG.
+     * The AWS Direct Connection endpoint that hosts the LAG.
      * </p>
      */
     private String awsDevice;
     /**
      * <p>
-     * The Direct Connect endpoint that hosts the LAG.
-     * </p>
-     */
-    private String awsDeviceV2;
-    /**
-     * <p>
-     * The connections bundled by the LAG.
+     * A list of connections bundled by this LAG.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<Connection> connections;
@@ -136,30 +89,26 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
      * <p>
      * Indicates whether the LAG can host other connections.
      * </p>
+     * <note>
+     * <p>
+     * This is intended for use by AWS Direct Connect partners only.
+     * </p>
+     * </note>
      */
     private Boolean allowsHostedConnections;
-    /**
-     * <p>
-     * Indicates whether jumbo frames (9001 MTU) are supported.
-     * </p>
-     */
-    private Boolean jumboFrameCapable;
-    /**
-     * <p>
-     * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * </p>
-     */
-    private String hasLogicalRedundancy;
 
     /**
      * <p>
-     * The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and
-     * 10Gbps.
+     * The individual bandwidth of the physical connections bundled by the LAG.
+     * </p>
+     * <p>
+     * Available values: 1Gbps, 10Gbps
      * </p>
      * 
      * @param connectionsBandwidth
-     *        The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and
-     *        10Gbps.
+     *        The individual bandwidth of the physical connections bundled by the LAG.</p>
+     *        <p>
+     *        Available values: 1Gbps, 10Gbps
      */
 
     public void setConnectionsBandwidth(String connectionsBandwidth) {
@@ -168,12 +117,15 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and
-     * 10Gbps.
+     * The individual bandwidth of the physical connections bundled by the LAG.
+     * </p>
+     * <p>
+     * Available values: 1Gbps, 10Gbps
      * </p>
      * 
-     * @return The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps
-     *         and 10Gbps.
+     * @return The individual bandwidth of the physical connections bundled by the LAG.</p>
+     *         <p>
+     *         Available values: 1Gbps, 10Gbps
      */
 
     public String getConnectionsBandwidth() {
@@ -182,13 +134,16 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and
-     * 10Gbps.
+     * The individual bandwidth of the physical connections bundled by the LAG.
+     * </p>
+     * <p>
+     * Available values: 1Gbps, 10Gbps
      * </p>
      * 
      * @param connectionsBandwidth
-     *        The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and
-     *        10Gbps.
+     *        The individual bandwidth of the physical connections bundled by the LAG.</p>
+     *        <p>
+     *        Available values: 1Gbps, 10Gbps
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -238,12 +193,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The ID of the LAG.
-     * </p>
-     * 
      * @param lagId
-     *        The ID of the LAG.
      */
 
     public void setLagId(String lagId) {
@@ -251,11 +201,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The ID of the LAG.
-     * </p>
-     * 
-     * @return The ID of the LAG.
+     * @return
      */
 
     public String getLagId() {
@@ -263,12 +209,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The ID of the LAG.
-     * </p>
-     * 
      * @param lagId
-     *        The ID of the LAG.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -279,11 +220,11 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The ID of the AWS account that owns the LAG.
+     * The owner of the LAG.
      * </p>
      * 
      * @param ownerAccount
-     *        The ID of the AWS account that owns the LAG.
+     *        The owner of the LAG.
      */
 
     public void setOwnerAccount(String ownerAccount) {
@@ -292,10 +233,10 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The ID of the AWS account that owns the LAG.
+     * The owner of the LAG.
      * </p>
      * 
-     * @return The ID of the AWS account that owns the LAG.
+     * @return The owner of the LAG.
      */
 
     public String getOwnerAccount() {
@@ -304,11 +245,11 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The ID of the AWS account that owns the LAG.
+     * The owner of the LAG.
      * </p>
      * 
      * @param ownerAccount
-     *        The ID of the AWS account that owns the LAG.
+     *        The owner of the LAG.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -358,77 +299,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The state of the LAG. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of a LAG. The LAG stays in the requested state until the Letter of
-     * Authorization (LOA) is available.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The LAG has been approved and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is established and the LAG is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The LAG is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The LAG is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param lagState
-     *        The state of the LAG. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>requested</code>: The initial state of a LAG. The LAG stays in the requested state until the Letter
-     *        of Authorization (LOA) is available.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The LAG has been approved and is being initialized.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The network link is established and the LAG is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>down</code>: The network link is down.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The LAG is being deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The LAG is deleted.
-     *        </p>
-     *        </li>
      * @see LagState
      */
 
@@ -437,76 +308,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The state of the LAG. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of a LAG. The LAG stays in the requested state until the Letter of
-     * Authorization (LOA) is available.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The LAG has been approved and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is established and the LAG is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The LAG is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The LAG is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @return The state of the LAG. The following are the possible values:</p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         <code>requested</code>: The initial state of a LAG. The LAG stays in the requested state until the Letter
-     *         of Authorization (LOA) is available.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>pending</code>: The LAG has been approved and is being initialized.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>available</code>: The network link is established and the LAG is ready for use.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>down</code>: The network link is down.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>deleting</code>: The LAG is being deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>deleted</code>: The LAG is deleted.
-     *         </p>
-     *         </li>
+     * @return
      * @see LagState
      */
 
@@ -515,77 +317,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The state of the LAG. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of a LAG. The LAG stays in the requested state until the Letter of
-     * Authorization (LOA) is available.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The LAG has been approved and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is established and the LAG is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The LAG is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The LAG is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param lagState
-     *        The state of the LAG. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>requested</code>: The initial state of a LAG. The LAG stays in the requested state until the Letter
-     *        of Authorization (LOA) is available.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The LAG has been approved and is being initialized.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The network link is established and the LAG is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>down</code>: The network link is down.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The LAG is being deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The LAG is deleted.
-     *        </p>
-     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LagState
      */
@@ -596,77 +328,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The state of the LAG. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of a LAG. The LAG stays in the requested state until the Letter of
-     * Authorization (LOA) is available.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The LAG has been approved and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is established and the LAG is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The LAG is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The LAG is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param lagState
-     *        The state of the LAG. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>requested</code>: The initial state of a LAG. The LAG stays in the requested state until the Letter
-     *        of Authorization (LOA) is available.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The LAG has been approved and is being initialized.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The network link is established and the LAG is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>down</code>: The network link is down.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The LAG is being deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The LAG is deleted.
-     *        </p>
-     *        </li>
      * @see LagState
      */
 
@@ -675,77 +337,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The state of the LAG. The following are the possible values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <code>requested</code>: The initial state of a LAG. The LAG stays in the requested state until the Letter of
-     * Authorization (LOA) is available.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>pending</code>: The LAG has been approved and is being initialized.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>available</code>: The network link is established and the LAG is ready for use.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>down</code>: The network link is down.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleting</code>: The LAG is being deleted.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>deleted</code>: The LAG is deleted.
-     * </p>
-     * </li>
-     * </ul>
-     * 
      * @param lagState
-     *        The state of the LAG. The following are the possible values:</p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <code>requested</code>: The initial state of a LAG. The LAG stays in the requested state until the Letter
-     *        of Authorization (LOA) is available.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>pending</code>: The LAG has been approved and is being initialized.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>available</code>: The network link is established and the LAG is ready for use.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>down</code>: The network link is down.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleting</code>: The LAG is being deleted.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>deleted</code>: The LAG is deleted.
-     *        </p>
-     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LagState
      */
@@ -756,12 +348,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The location of the LAG.
-     * </p>
-     * 
      * @param location
-     *        The location of the LAG.
      */
 
     public void setLocation(String location) {
@@ -769,11 +356,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The location of the LAG.
-     * </p>
-     * 
-     * @return The location of the LAG.
+     * @return
      */
 
     public String getLocation() {
@@ -781,12 +364,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The location of the LAG.
-     * </p>
-     * 
      * @param location
-     *        The location of the LAG.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -796,12 +374,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The AWS Region where the connection is located.
-     * </p>
-     * 
      * @param region
-     *        The AWS Region where the connection is located.
      */
 
     public void setRegion(String region) {
@@ -809,11 +382,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The AWS Region where the connection is located.
-     * </p>
-     * 
-     * @return The AWS Region where the connection is located.
+     * @return
      */
 
     public String getRegion() {
@@ -821,12 +390,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * The AWS Region where the connection is located.
-     * </p>
-     * 
      * @param region
-     *        The AWS Region where the connection is located.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -837,11 +401,17 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The minimum number of physical connections that must be operational for the LAG itself to be operational.
+     * The minimum number of physical connections that must be operational for the LAG itself to be operational. If the
+     * number of operational connections drops below this setting, the LAG state changes to <code>down</code>. This
+     * value can help to ensure that a LAG is not overutilized if a significant number of its bundled connections go
+     * down.
      * </p>
      * 
      * @param minimumLinks
      *        The minimum number of physical connections that must be operational for the LAG itself to be operational.
+     *        If the number of operational connections drops below this setting, the LAG state changes to
+     *        <code>down</code>. This value can help to ensure that a LAG is not overutilized if a significant number of
+     *        its bundled connections go down.
      */
 
     public void setMinimumLinks(Integer minimumLinks) {
@@ -850,10 +420,16 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The minimum number of physical connections that must be operational for the LAG itself to be operational.
+     * The minimum number of physical connections that must be operational for the LAG itself to be operational. If the
+     * number of operational connections drops below this setting, the LAG state changes to <code>down</code>. This
+     * value can help to ensure that a LAG is not overutilized if a significant number of its bundled connections go
+     * down.
      * </p>
      * 
      * @return The minimum number of physical connections that must be operational for the LAG itself to be operational.
+     *         If the number of operational connections drops below this setting, the LAG state changes to
+     *         <code>down</code>. This value can help to ensure that a LAG is not overutilized if a significant number
+     *         of its bundled connections go down.
      */
 
     public Integer getMinimumLinks() {
@@ -862,11 +438,17 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The minimum number of physical connections that must be operational for the LAG itself to be operational.
+     * The minimum number of physical connections that must be operational for the LAG itself to be operational. If the
+     * number of operational connections drops below this setting, the LAG state changes to <code>down</code>. This
+     * value can help to ensure that a LAG is not overutilized if a significant number of its bundled connections go
+     * down.
      * </p>
      * 
      * @param minimumLinks
      *        The minimum number of physical connections that must be operational for the LAG itself to be operational.
+     *        If the number of operational connections drops below this setting, the LAG state changes to
+     *        <code>down</code>. This value can help to ensure that a LAG is not overutilized if a significant number of
+     *        its bundled connections go down.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -877,11 +459,11 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The Direct Connect endpoint that hosts the LAG.
+     * The AWS Direct Connection endpoint that hosts the LAG.
      * </p>
      * 
      * @param awsDevice
-     *        The Direct Connect endpoint that hosts the LAG.
+     *        The AWS Direct Connection endpoint that hosts the LAG.
      */
 
     public void setAwsDevice(String awsDevice) {
@@ -890,10 +472,10 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The Direct Connect endpoint that hosts the LAG.
+     * The AWS Direct Connection endpoint that hosts the LAG.
      * </p>
      * 
-     * @return The Direct Connect endpoint that hosts the LAG.
+     * @return The AWS Direct Connection endpoint that hosts the LAG.
      */
 
     public String getAwsDevice() {
@@ -902,11 +484,11 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The Direct Connect endpoint that hosts the LAG.
+     * The AWS Direct Connection endpoint that hosts the LAG.
      * </p>
      * 
      * @param awsDevice
-     *        The Direct Connect endpoint that hosts the LAG.
+     *        The AWS Direct Connection endpoint that hosts the LAG.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -917,50 +499,10 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The Direct Connect endpoint that hosts the LAG.
+     * A list of connections bundled by this LAG.
      * </p>
      * 
-     * @param awsDeviceV2
-     *        The Direct Connect endpoint that hosts the LAG.
-     */
-
-    public void setAwsDeviceV2(String awsDeviceV2) {
-        this.awsDeviceV2 = awsDeviceV2;
-    }
-
-    /**
-     * <p>
-     * The Direct Connect endpoint that hosts the LAG.
-     * </p>
-     * 
-     * @return The Direct Connect endpoint that hosts the LAG.
-     */
-
-    public String getAwsDeviceV2() {
-        return this.awsDeviceV2;
-    }
-
-    /**
-     * <p>
-     * The Direct Connect endpoint that hosts the LAG.
-     * </p>
-     * 
-     * @param awsDeviceV2
-     *        The Direct Connect endpoint that hosts the LAG.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public UpdateLagResult withAwsDeviceV2(String awsDeviceV2) {
-        setAwsDeviceV2(awsDeviceV2);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The connections bundled by the LAG.
-     * </p>
-     * 
-     * @return The connections bundled by the LAG.
+     * @return A list of connections bundled by this LAG.
      */
 
     public java.util.List<Connection> getConnections() {
@@ -972,11 +514,11 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The connections bundled by the LAG.
+     * A list of connections bundled by this LAG.
      * </p>
      * 
      * @param connections
-     *        The connections bundled by the LAG.
+     *        A list of connections bundled by this LAG.
      */
 
     public void setConnections(java.util.Collection<Connection> connections) {
@@ -990,7 +532,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The connections bundled by the LAG.
+     * A list of connections bundled by this LAG.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -999,7 +541,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
      * </p>
      * 
      * @param connections
-     *        The connections bundled by the LAG.
+     *        A list of connections bundled by this LAG.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1015,11 +557,11 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The connections bundled by the LAG.
+     * A list of connections bundled by this LAG.
      * </p>
      * 
      * @param connections
-     *        The connections bundled by the LAG.
+     *        A list of connections bundled by this LAG.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1032,9 +574,17 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
      * <p>
      * Indicates whether the LAG can host other connections.
      * </p>
+     * <note>
+     * <p>
+     * This is intended for use by AWS Direct Connect partners only.
+     * </p>
+     * </note>
      * 
      * @param allowsHostedConnections
-     *        Indicates whether the LAG can host other connections.
+     *        Indicates whether the LAG can host other connections.</p> <note>
+     *        <p>
+     *        This is intended for use by AWS Direct Connect partners only.
+     *        </p>
      */
 
     public void setAllowsHostedConnections(Boolean allowsHostedConnections) {
@@ -1045,8 +595,16 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
      * <p>
      * Indicates whether the LAG can host other connections.
      * </p>
+     * <note>
+     * <p>
+     * This is intended for use by AWS Direct Connect partners only.
+     * </p>
+     * </note>
      * 
-     * @return Indicates whether the LAG can host other connections.
+     * @return Indicates whether the LAG can host other connections.</p> <note>
+     *         <p>
+     *         This is intended for use by AWS Direct Connect partners only.
+     *         </p>
      */
 
     public Boolean getAllowsHostedConnections() {
@@ -1057,9 +615,17 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
      * <p>
      * Indicates whether the LAG can host other connections.
      * </p>
+     * <note>
+     * <p>
+     * This is intended for use by AWS Direct Connect partners only.
+     * </p>
+     * </note>
      * 
      * @param allowsHostedConnections
-     *        Indicates whether the LAG can host other connections.
+     *        Indicates whether the LAG can host other connections.</p> <note>
+     *        <p>
+     *        This is intended for use by AWS Direct Connect partners only.
+     *        </p>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1072,8 +638,16 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
      * <p>
      * Indicates whether the LAG can host other connections.
      * </p>
+     * <note>
+     * <p>
+     * This is intended for use by AWS Direct Connect partners only.
+     * </p>
+     * </note>
      * 
-     * @return Indicates whether the LAG can host other connections.
+     * @return Indicates whether the LAG can host other connections.</p> <note>
+     *         <p>
+     *         This is intended for use by AWS Direct Connect partners only.
+     *         </p>
      */
 
     public Boolean isAllowsHostedConnections() {
@@ -1081,133 +655,7 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * <p>
-     * Indicates whether jumbo frames (9001 MTU) are supported.
-     * </p>
-     * 
-     * @param jumboFrameCapable
-     *        Indicates whether jumbo frames (9001 MTU) are supported.
-     */
-
-    public void setJumboFrameCapable(Boolean jumboFrameCapable) {
-        this.jumboFrameCapable = jumboFrameCapable;
-    }
-
-    /**
-     * <p>
-     * Indicates whether jumbo frames (9001 MTU) are supported.
-     * </p>
-     * 
-     * @return Indicates whether jumbo frames (9001 MTU) are supported.
-     */
-
-    public Boolean getJumboFrameCapable() {
-        return this.jumboFrameCapable;
-    }
-
-    /**
-     * <p>
-     * Indicates whether jumbo frames (9001 MTU) are supported.
-     * </p>
-     * 
-     * @param jumboFrameCapable
-     *        Indicates whether jumbo frames (9001 MTU) are supported.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public UpdateLagResult withJumboFrameCapable(Boolean jumboFrameCapable) {
-        setJumboFrameCapable(jumboFrameCapable);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Indicates whether jumbo frames (9001 MTU) are supported.
-     * </p>
-     * 
-     * @return Indicates whether jumbo frames (9001 MTU) are supported.
-     */
-
-    public Boolean isJumboFrameCapable() {
-        return this.jumboFrameCapable;
-    }
-
-    /**
-     * <p>
-     * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * </p>
-     * 
-     * @param hasLogicalRedundancy
-     *        Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * @see HasLogicalRedundancy
-     */
-
-    public void setHasLogicalRedundancy(String hasLogicalRedundancy) {
-        this.hasLogicalRedundancy = hasLogicalRedundancy;
-    }
-
-    /**
-     * <p>
-     * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * </p>
-     * 
-     * @return Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * @see HasLogicalRedundancy
-     */
-
-    public String getHasLogicalRedundancy() {
-        return this.hasLogicalRedundancy;
-    }
-
-    /**
-     * <p>
-     * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * </p>
-     * 
-     * @param hasLogicalRedundancy
-     *        Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see HasLogicalRedundancy
-     */
-
-    public UpdateLagResult withHasLogicalRedundancy(String hasLogicalRedundancy) {
-        setHasLogicalRedundancy(hasLogicalRedundancy);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * </p>
-     * 
-     * @param hasLogicalRedundancy
-     *        Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * @see HasLogicalRedundancy
-     */
-
-    public void setHasLogicalRedundancy(HasLogicalRedundancy hasLogicalRedundancy) {
-        withHasLogicalRedundancy(hasLogicalRedundancy);
-    }
-
-    /**
-     * <p>
-     * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * </p>
-     * 
-     * @param hasLogicalRedundancy
-     *        Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see HasLogicalRedundancy
-     */
-
-    public UpdateLagResult withHasLogicalRedundancy(HasLogicalRedundancy hasLogicalRedundancy) {
-        this.hasLogicalRedundancy = hasLogicalRedundancy.toString();
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1237,16 +685,10 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
             sb.append("MinimumLinks: ").append(getMinimumLinks()).append(",");
         if (getAwsDevice() != null)
             sb.append("AwsDevice: ").append(getAwsDevice()).append(",");
-        if (getAwsDeviceV2() != null)
-            sb.append("AwsDeviceV2: ").append(getAwsDeviceV2()).append(",");
         if (getConnections() != null)
             sb.append("Connections: ").append(getConnections()).append(",");
         if (getAllowsHostedConnections() != null)
-            sb.append("AllowsHostedConnections: ").append(getAllowsHostedConnections()).append(",");
-        if (getJumboFrameCapable() != null)
-            sb.append("JumboFrameCapable: ").append(getJumboFrameCapable()).append(",");
-        if (getHasLogicalRedundancy() != null)
-            sb.append("HasLogicalRedundancy: ").append(getHasLogicalRedundancy());
+            sb.append("AllowsHostedConnections: ").append(getAllowsHostedConnections());
         sb.append("}");
         return sb.toString();
     }
@@ -1301,10 +743,6 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
             return false;
         if (other.getAwsDevice() != null && other.getAwsDevice().equals(this.getAwsDevice()) == false)
             return false;
-        if (other.getAwsDeviceV2() == null ^ this.getAwsDeviceV2() == null)
-            return false;
-        if (other.getAwsDeviceV2() != null && other.getAwsDeviceV2().equals(this.getAwsDeviceV2()) == false)
-            return false;
         if (other.getConnections() == null ^ this.getConnections() == null)
             return false;
         if (other.getConnections() != null && other.getConnections().equals(this.getConnections()) == false)
@@ -1312,14 +750,6 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
         if (other.getAllowsHostedConnections() == null ^ this.getAllowsHostedConnections() == null)
             return false;
         if (other.getAllowsHostedConnections() != null && other.getAllowsHostedConnections().equals(this.getAllowsHostedConnections()) == false)
-            return false;
-        if (other.getJumboFrameCapable() == null ^ this.getJumboFrameCapable() == null)
-            return false;
-        if (other.getJumboFrameCapable() != null && other.getJumboFrameCapable().equals(this.getJumboFrameCapable()) == false)
-            return false;
-        if (other.getHasLogicalRedundancy() == null ^ this.getHasLogicalRedundancy() == null)
-            return false;
-        if (other.getHasLogicalRedundancy() != null && other.getHasLogicalRedundancy().equals(this.getHasLogicalRedundancy()) == false)
             return false;
         return true;
     }
@@ -1339,11 +769,8 @@ public class UpdateLagResult extends com.amazonaws.AmazonWebServiceResult<com.am
         hashCode = prime * hashCode + ((getRegion() == null) ? 0 : getRegion().hashCode());
         hashCode = prime * hashCode + ((getMinimumLinks() == null) ? 0 : getMinimumLinks().hashCode());
         hashCode = prime * hashCode + ((getAwsDevice() == null) ? 0 : getAwsDevice().hashCode());
-        hashCode = prime * hashCode + ((getAwsDeviceV2() == null) ? 0 : getAwsDeviceV2().hashCode());
         hashCode = prime * hashCode + ((getConnections() == null) ? 0 : getConnections().hashCode());
         hashCode = prime * hashCode + ((getAllowsHostedConnections() == null) ? 0 : getAllowsHostedConnections().hashCode());
-        hashCode = prime * hashCode + ((getJumboFrameCapable() == null) ? 0 : getJumboFrameCapable().hashCode());
-        hashCode = prime * hashCode + ((getHasLogicalRedundancy() == null) ? 0 : getHasLogicalRedundancy().hashCode());
         return hashCode;
     }
 

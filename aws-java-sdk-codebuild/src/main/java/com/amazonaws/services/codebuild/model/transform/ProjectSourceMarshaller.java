@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,12 +37,8 @@ public class ProjectSourceMarshaller {
             .marshallLocationName("buildspec").build();
     private static final MarshallingInfo<StructuredPojo> AUTH_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("auth").build();
-    private static final MarshallingInfo<Boolean> REPORTBUILDSTATUS_BINDING = MarshallingInfo.builder(MarshallingType.BOOLEAN)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("reportBuildStatus").build();
     private static final MarshallingInfo<Boolean> INSECURESSL_BINDING = MarshallingInfo.builder(MarshallingType.BOOLEAN)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("insecureSsl").build();
-    private static final MarshallingInfo<String> SOURCEIDENTIFIER_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("sourceIdentifier").build();
 
     private static final ProjectSourceMarshaller instance = new ProjectSourceMarshaller();
 
@@ -65,9 +61,7 @@ public class ProjectSourceMarshaller {
             protocolMarshaller.marshall(projectSource.getGitCloneDepth(), GITCLONEDEPTH_BINDING);
             protocolMarshaller.marshall(projectSource.getBuildspec(), BUILDSPEC_BINDING);
             protocolMarshaller.marshall(projectSource.getAuth(), AUTH_BINDING);
-            protocolMarshaller.marshall(projectSource.getReportBuildStatus(), REPORTBUILDSTATUS_BINDING);
             protocolMarshaller.marshall(projectSource.getInsecureSsl(), INSECURESSL_BINDING);
-            protocolMarshaller.marshall(projectSource.getSourceIdentifier(), SOURCEIDENTIFIER_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

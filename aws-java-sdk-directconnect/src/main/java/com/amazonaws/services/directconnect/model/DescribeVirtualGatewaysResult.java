@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -16,6 +16,9 @@ import java.io.Serializable;
 import javax.annotation.Generated;
 
 /**
+ * <p>
+ * A structure containing a list of virtual private gateways.
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeVirtualGateways"
  *      target="_top">AWS API Documentation</a>
@@ -25,17 +28,17 @@ public class DescribeVirtualGatewaysResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The virtual private gateways.
+     * A list of virtual private gateways.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<VirtualGateway> virtualGateways;
 
     /**
      * <p>
-     * The virtual private gateways.
+     * A list of virtual private gateways.
      * </p>
      * 
-     * @return The virtual private gateways.
+     * @return A list of virtual private gateways.
      */
 
     public java.util.List<VirtualGateway> getVirtualGateways() {
@@ -47,11 +50,11 @@ public class DescribeVirtualGatewaysResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The virtual private gateways.
+     * A list of virtual private gateways.
      * </p>
      * 
      * @param virtualGateways
-     *        The virtual private gateways.
+     *        A list of virtual private gateways.
      */
 
     public void setVirtualGateways(java.util.Collection<VirtualGateway> virtualGateways) {
@@ -65,7 +68,7 @@ public class DescribeVirtualGatewaysResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The virtual private gateways.
+     * A list of virtual private gateways.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -74,7 +77,7 @@ public class DescribeVirtualGatewaysResult extends com.amazonaws.AmazonWebServic
      * </p>
      * 
      * @param virtualGateways
-     *        The virtual private gateways.
+     *        A list of virtual private gateways.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -90,11 +93,11 @@ public class DescribeVirtualGatewaysResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The virtual private gateways.
+     * A list of virtual private gateways.
      * </p>
      * 
      * @param virtualGateways
-     *        The virtual private gateways.
+     *        A list of virtual private gateways.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -104,8 +107,7 @@ public class DescribeVirtualGatewaysResult extends com.amazonaws.AmazonWebServic
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

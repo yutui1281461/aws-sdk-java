@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,43 +30,34 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
      * Specifies the secret with the version whose list of staging labels you want to modify. You can specify either the
      * Amazon Resource Name (ARN) or the friendly name of the secret.
      * </p>
-     * <note>
-     * <p>
-     * If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN
-     * too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the
-     * end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one
-     * secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets
-     * Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those
-     * characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause
-     * unexpected results. To avoid this situation, we recommend that you don’t create secret names that end with a
-     * hyphen followed by six characters.
-     * </p>
-     * </note>
      */
     private String secretId;
     /**
      * <p>
-     * The staging label to add to this version.
+     * The list of staging labels to add to this version.
      * </p>
      */
     private String versionStage;
     /**
      * <p>
-     * Specifies the secret version ID of the version that the staging label is to be removed from. If the staging label
-     * you are trying to attach to one version is already attached to a different version, then you must include this
-     * parameter and specify the version that the label is to be removed from. If the label is attached and you either
-     * do not specify this parameter, or the version ID does not match, then the operation fails.
+     * (Optional) Specifies the secret version ID of the version that the staging labels are to be removed from.
+     * </p>
+     * <p>
+     * If you want to move a label to a new version, you do not have to explicitly remove it with this parameter. Adding
+     * a label using the <code>MoveToVersionId</code> parameter automatically removes it from the old version. However,
+     * if you do include both the "MoveTo" and "RemoveFrom" parameters, then the move is successful only if the staging
+     * labels are actually present on the "RemoveFrom" version. If a staging label was on a different version than
+     * "RemoveFrom", then the request fails.
      * </p>
      */
     private String removeFromVersionId;
     /**
      * <p>
-     * (Optional) The secret version ID that you want to add the staging label to. If you want to remove a label from a
-     * version, then do not specify this parameter.
+     * (Optional) The secret version ID that you want to add the staging labels to.
      * </p>
      * <p>
-     * If the staging label is already attached to a different version of the secret, then you must also specify the
-     * <code>RemoveFromVersionId</code> parameter.
+     * If any of the staging labels are already attached to a different version of the secret, then they are removed
+     * from that version before adding them to this version.
      * </p>
      */
     private String moveToVersionId;
@@ -76,32 +67,10 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
      * Specifies the secret with the version whose list of staging labels you want to modify. You can specify either the
      * Amazon Resource Name (ARN) or the friendly name of the secret.
      * </p>
-     * <note>
-     * <p>
-     * If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN
-     * too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the
-     * end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one
-     * secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets
-     * Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those
-     * characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause
-     * unexpected results. To avoid this situation, we recommend that you don’t create secret names that end with a
-     * hyphen followed by six characters.
-     * </p>
-     * </note>
      * 
      * @param secretId
      *        Specifies the secret with the version whose list of staging labels you want to modify. You can specify
-     *        either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note>
-     *        <p>
-     *        If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial
-     *        ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager
-     *        adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it
-     *        uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six
-     *        characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that
-     *        as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete
-     *        ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t
-     *        create secret names that end with a hyphen followed by six characters.
-     *        </p>
+     *        either the Amazon Resource Name (ARN) or the friendly name of the secret.
      */
 
     public void setSecretId(String secretId) {
@@ -113,31 +82,9 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
      * Specifies the secret with the version whose list of staging labels you want to modify. You can specify either the
      * Amazon Resource Name (ARN) or the friendly name of the secret.
      * </p>
-     * <note>
-     * <p>
-     * If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN
-     * too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the
-     * end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one
-     * secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets
-     * Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those
-     * characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause
-     * unexpected results. To avoid this situation, we recommend that you don’t create secret names that end with a
-     * hyphen followed by six characters.
-     * </p>
-     * </note>
      * 
      * @return Specifies the secret with the version whose list of staging labels you want to modify. You can specify
-     *         either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note>
-     *         <p>
-     *         If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial
-     *         ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager
-     *         adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it
-     *         uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by
-     *         six characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use
-     *         that as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a
-     *         complete ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you
-     *         don’t create secret names that end with a hyphen followed by six characters.
-     *         </p>
+     *         either the Amazon Resource Name (ARN) or the friendly name of the secret.
      */
 
     public String getSecretId() {
@@ -149,32 +96,10 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
      * Specifies the secret with the version whose list of staging labels you want to modify. You can specify either the
      * Amazon Resource Name (ARN) or the friendly name of the secret.
      * </p>
-     * <note>
-     * <p>
-     * If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial ARN
-     * too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager adds at the
-     * end of the ARN when you created the secret. A partial ARN match can work as long as it uniquely matches only one
-     * secret. However, if your secret has a name that ends in a hyphen followed by six characters (before Secrets
-     * Manager adds the hyphen and six characters to the ARN) and you try to use that as a partial ARN, then those
-     * characters cause Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause
-     * unexpected results. To avoid this situation, we recommend that you don’t create secret names that end with a
-     * hyphen followed by six characters.
-     * </p>
-     * </note>
      * 
      * @param secretId
      *        Specifies the secret with the version whose list of staging labels you want to modify. You can specify
-     *        either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <note>
-     *        <p>
-     *        If you specify an ARN, we generally recommend that you specify a complete ARN. You can specify a partial
-     *        ARN too—for example, if you don’t include the final hyphen and six random characters that Secrets Manager
-     *        adds at the end of the ARN when you created the secret. A partial ARN match can work as long as it
-     *        uniquely matches only one secret. However, if your secret has a name that ends in a hyphen followed by six
-     *        characters (before Secrets Manager adds the hyphen and six characters to the ARN) and you try to use that
-     *        as a partial ARN, then those characters cause Secrets Manager to assume that you’re specifying a complete
-     *        ARN. This confusion can cause unexpected results. To avoid this situation, we recommend that you don’t
-     *        create secret names that end with a hyphen followed by six characters.
-     *        </p>
+     *        either the Amazon Resource Name (ARN) or the friendly name of the secret.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -185,11 +110,11 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The staging label to add to this version.
+     * The list of staging labels to add to this version.
      * </p>
      * 
      * @param versionStage
-     *        The staging label to add to this version.
+     *        The list of staging labels to add to this version.
      */
 
     public void setVersionStage(String versionStage) {
@@ -198,10 +123,10 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The staging label to add to this version.
+     * The list of staging labels to add to this version.
      * </p>
      * 
-     * @return The staging label to add to this version.
+     * @return The list of staging labels to add to this version.
      */
 
     public String getVersionStage() {
@@ -210,11 +135,11 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The staging label to add to this version.
+     * The list of staging labels to add to this version.
      * </p>
      * 
      * @param versionStage
-     *        The staging label to add to this version.
+     *        The list of staging labels to add to this version.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -225,18 +150,25 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * Specifies the secret version ID of the version that the staging label is to be removed from. If the staging label
-     * you are trying to attach to one version is already attached to a different version, then you must include this
-     * parameter and specify the version that the label is to be removed from. If the label is attached and you either
-     * do not specify this parameter, or the version ID does not match, then the operation fails.
+     * (Optional) Specifies the secret version ID of the version that the staging labels are to be removed from.
+     * </p>
+     * <p>
+     * If you want to move a label to a new version, you do not have to explicitly remove it with this parameter. Adding
+     * a label using the <code>MoveToVersionId</code> parameter automatically removes it from the old version. However,
+     * if you do include both the "MoveTo" and "RemoveFrom" parameters, then the move is successful only if the staging
+     * labels are actually present on the "RemoveFrom" version. If a staging label was on a different version than
+     * "RemoveFrom", then the request fails.
      * </p>
      * 
      * @param removeFromVersionId
-     *        Specifies the secret version ID of the version that the staging label is to be removed from. If the
-     *        staging label you are trying to attach to one version is already attached to a different version, then you
-     *        must include this parameter and specify the version that the label is to be removed from. If the label is
-     *        attached and you either do not specify this parameter, or the version ID does not match, then the
-     *        operation fails.
+     *        (Optional) Specifies the secret version ID of the version that the staging labels are to be removed
+     *        from.</p>
+     *        <p>
+     *        If you want to move a label to a new version, you do not have to explicitly remove it with this parameter.
+     *        Adding a label using the <code>MoveToVersionId</code> parameter automatically removes it from the old
+     *        version. However, if you do include both the "MoveTo" and "RemoveFrom" parameters, then the move is
+     *        successful only if the staging labels are actually present on the "RemoveFrom" version. If a staging label
+     *        was on a different version than "RemoveFrom", then the request fails.
      */
 
     public void setRemoveFromVersionId(String removeFromVersionId) {
@@ -245,17 +177,24 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * Specifies the secret version ID of the version that the staging label is to be removed from. If the staging label
-     * you are trying to attach to one version is already attached to a different version, then you must include this
-     * parameter and specify the version that the label is to be removed from. If the label is attached and you either
-     * do not specify this parameter, or the version ID does not match, then the operation fails.
+     * (Optional) Specifies the secret version ID of the version that the staging labels are to be removed from.
+     * </p>
+     * <p>
+     * If you want to move a label to a new version, you do not have to explicitly remove it with this parameter. Adding
+     * a label using the <code>MoveToVersionId</code> parameter automatically removes it from the old version. However,
+     * if you do include both the "MoveTo" and "RemoveFrom" parameters, then the move is successful only if the staging
+     * labels are actually present on the "RemoveFrom" version. If a staging label was on a different version than
+     * "RemoveFrom", then the request fails.
      * </p>
      * 
-     * @return Specifies the secret version ID of the version that the staging label is to be removed from. If the
-     *         staging label you are trying to attach to one version is already attached to a different version, then
-     *         you must include this parameter and specify the version that the label is to be removed from. If the
-     *         label is attached and you either do not specify this parameter, or the version ID does not match, then
-     *         the operation fails.
+     * @return (Optional) Specifies the secret version ID of the version that the staging labels are to be removed
+     *         from.</p>
+     *         <p>
+     *         If you want to move a label to a new version, you do not have to explicitly remove it with this
+     *         parameter. Adding a label using the <code>MoveToVersionId</code> parameter automatically removes it from
+     *         the old version. However, if you do include both the "MoveTo" and "RemoveFrom" parameters, then the move
+     *         is successful only if the staging labels are actually present on the "RemoveFrom" version. If a staging
+     *         label was on a different version than "RemoveFrom", then the request fails.
      */
 
     public String getRemoveFromVersionId() {
@@ -264,18 +203,25 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * Specifies the secret version ID of the version that the staging label is to be removed from. If the staging label
-     * you are trying to attach to one version is already attached to a different version, then you must include this
-     * parameter and specify the version that the label is to be removed from. If the label is attached and you either
-     * do not specify this parameter, or the version ID does not match, then the operation fails.
+     * (Optional) Specifies the secret version ID of the version that the staging labels are to be removed from.
+     * </p>
+     * <p>
+     * If you want to move a label to a new version, you do not have to explicitly remove it with this parameter. Adding
+     * a label using the <code>MoveToVersionId</code> parameter automatically removes it from the old version. However,
+     * if you do include both the "MoveTo" and "RemoveFrom" parameters, then the move is successful only if the staging
+     * labels are actually present on the "RemoveFrom" version. If a staging label was on a different version than
+     * "RemoveFrom", then the request fails.
      * </p>
      * 
      * @param removeFromVersionId
-     *        Specifies the secret version ID of the version that the staging label is to be removed from. If the
-     *        staging label you are trying to attach to one version is already attached to a different version, then you
-     *        must include this parameter and specify the version that the label is to be removed from. If the label is
-     *        attached and you either do not specify this parameter, or the version ID does not match, then the
-     *        operation fails.
+     *        (Optional) Specifies the secret version ID of the version that the staging labels are to be removed
+     *        from.</p>
+     *        <p>
+     *        If you want to move a label to a new version, you do not have to explicitly remove it with this parameter.
+     *        Adding a label using the <code>MoveToVersionId</code> parameter automatically removes it from the old
+     *        version. However, if you do include both the "MoveTo" and "RemoveFrom" parameters, then the move is
+     *        successful only if the staging labels are actually present on the "RemoveFrom" version. If a staging label
+     *        was on a different version than "RemoveFrom", then the request fails.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -286,20 +232,18 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * (Optional) The secret version ID that you want to add the staging label to. If you want to remove a label from a
-     * version, then do not specify this parameter.
+     * (Optional) The secret version ID that you want to add the staging labels to.
      * </p>
      * <p>
-     * If the staging label is already attached to a different version of the secret, then you must also specify the
-     * <code>RemoveFromVersionId</code> parameter.
+     * If any of the staging labels are already attached to a different version of the secret, then they are removed
+     * from that version before adding them to this version.
      * </p>
      * 
      * @param moveToVersionId
-     *        (Optional) The secret version ID that you want to add the staging label to. If you want to remove a label
-     *        from a version, then do not specify this parameter.</p>
+     *        (Optional) The secret version ID that you want to add the staging labels to.</p>
      *        <p>
-     *        If the staging label is already attached to a different version of the secret, then you must also specify
-     *        the <code>RemoveFromVersionId</code> parameter.
+     *        If any of the staging labels are already attached to a different version of the secret, then they are
+     *        removed from that version before adding them to this version.
      */
 
     public void setMoveToVersionId(String moveToVersionId) {
@@ -308,19 +252,17 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * (Optional) The secret version ID that you want to add the staging label to. If you want to remove a label from a
-     * version, then do not specify this parameter.
+     * (Optional) The secret version ID that you want to add the staging labels to.
      * </p>
      * <p>
-     * If the staging label is already attached to a different version of the secret, then you must also specify the
-     * <code>RemoveFromVersionId</code> parameter.
+     * If any of the staging labels are already attached to a different version of the secret, then they are removed
+     * from that version before adding them to this version.
      * </p>
      * 
-     * @return (Optional) The secret version ID that you want to add the staging label to. If you want to remove a label
-     *         from a version, then do not specify this parameter.</p>
+     * @return (Optional) The secret version ID that you want to add the staging labels to.</p>
      *         <p>
-     *         If the staging label is already attached to a different version of the secret, then you must also specify
-     *         the <code>RemoveFromVersionId</code> parameter.
+     *         If any of the staging labels are already attached to a different version of the secret, then they are
+     *         removed from that version before adding them to this version.
      */
 
     public String getMoveToVersionId() {
@@ -329,20 +271,18 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * (Optional) The secret version ID that you want to add the staging label to. If you want to remove a label from a
-     * version, then do not specify this parameter.
+     * (Optional) The secret version ID that you want to add the staging labels to.
      * </p>
      * <p>
-     * If the staging label is already attached to a different version of the secret, then you must also specify the
-     * <code>RemoveFromVersionId</code> parameter.
+     * If any of the staging labels are already attached to a different version of the secret, then they are removed
+     * from that version before adding them to this version.
      * </p>
      * 
      * @param moveToVersionId
-     *        (Optional) The secret version ID that you want to add the staging label to. If you want to remove a label
-     *        from a version, then do not specify this parameter.</p>
+     *        (Optional) The secret version ID that you want to add the staging labels to.</p>
      *        <p>
-     *        If the staging label is already attached to a different version of the secret, then you must also specify
-     *        the <code>RemoveFromVersionId</code> parameter.
+     *        If any of the staging labels are already attached to a different version of the secret, then they are
+     *        removed from that version before adding them to this version.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -352,8 +292,7 @@ public class UpdateSecretVersionStageRequest extends com.amazonaws.AmazonWebServ
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

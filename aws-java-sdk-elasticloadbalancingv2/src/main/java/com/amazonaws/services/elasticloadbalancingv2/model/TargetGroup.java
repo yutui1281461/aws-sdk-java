@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -68,12 +68,6 @@ public class TargetGroup implements Serializable, Cloneable {
      * </p>
      */
     private String healthCheckPort;
-    /**
-     * <p>
-     * Indicates whether health checks are enabled.
-     * </p>
-     */
-    private Boolean healthCheckEnabled;
     /**
      * <p>
      * The approximate amount of time, in seconds, between health checks of an individual target.
@@ -469,58 +463,6 @@ public class TargetGroup implements Serializable, Cloneable {
     public TargetGroup withHealthCheckPort(String healthCheckPort) {
         setHealthCheckPort(healthCheckPort);
         return this;
-    }
-
-    /**
-     * <p>
-     * Indicates whether health checks are enabled.
-     * </p>
-     * 
-     * @param healthCheckEnabled
-     *        Indicates whether health checks are enabled.
-     */
-
-    public void setHealthCheckEnabled(Boolean healthCheckEnabled) {
-        this.healthCheckEnabled = healthCheckEnabled;
-    }
-
-    /**
-     * <p>
-     * Indicates whether health checks are enabled.
-     * </p>
-     * 
-     * @return Indicates whether health checks are enabled.
-     */
-
-    public Boolean getHealthCheckEnabled() {
-        return this.healthCheckEnabled;
-    }
-
-    /**
-     * <p>
-     * Indicates whether health checks are enabled.
-     * </p>
-     * 
-     * @param healthCheckEnabled
-     *        Indicates whether health checks are enabled.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public TargetGroup withHealthCheckEnabled(Boolean healthCheckEnabled) {
-        setHealthCheckEnabled(healthCheckEnabled);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Indicates whether health checks are enabled.
-     * </p>
-     * 
-     * @return Indicates whether health checks are enabled.
-     */
-
-    public Boolean isHealthCheckEnabled() {
-        return this.healthCheckEnabled;
     }
 
     /**
@@ -928,8 +870,7 @@ public class TargetGroup implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -953,8 +894,6 @@ public class TargetGroup implements Serializable, Cloneable {
             sb.append("HealthCheckProtocol: ").append(getHealthCheckProtocol()).append(",");
         if (getHealthCheckPort() != null)
             sb.append("HealthCheckPort: ").append(getHealthCheckPort()).append(",");
-        if (getHealthCheckEnabled() != null)
-            sb.append("HealthCheckEnabled: ").append(getHealthCheckEnabled()).append(",");
         if (getHealthCheckIntervalSeconds() != null)
             sb.append("HealthCheckIntervalSeconds: ").append(getHealthCheckIntervalSeconds()).append(",");
         if (getHealthCheckTimeoutSeconds() != null)
@@ -1013,10 +952,6 @@ public class TargetGroup implements Serializable, Cloneable {
             return false;
         if (other.getHealthCheckPort() != null && other.getHealthCheckPort().equals(this.getHealthCheckPort()) == false)
             return false;
-        if (other.getHealthCheckEnabled() == null ^ this.getHealthCheckEnabled() == null)
-            return false;
-        if (other.getHealthCheckEnabled() != null && other.getHealthCheckEnabled().equals(this.getHealthCheckEnabled()) == false)
-            return false;
         if (other.getHealthCheckIntervalSeconds() == null ^ this.getHealthCheckIntervalSeconds() == null)
             return false;
         if (other.getHealthCheckIntervalSeconds() != null && other.getHealthCheckIntervalSeconds().equals(this.getHealthCheckIntervalSeconds()) == false)
@@ -1064,7 +999,6 @@ public class TargetGroup implements Serializable, Cloneable {
         hashCode = prime * hashCode + ((getVpcId() == null) ? 0 : getVpcId().hashCode());
         hashCode = prime * hashCode + ((getHealthCheckProtocol() == null) ? 0 : getHealthCheckProtocol().hashCode());
         hashCode = prime * hashCode + ((getHealthCheckPort() == null) ? 0 : getHealthCheckPort().hashCode());
-        hashCode = prime * hashCode + ((getHealthCheckEnabled() == null) ? 0 : getHealthCheckEnabled().hashCode());
         hashCode = prime * hashCode + ((getHealthCheckIntervalSeconds() == null) ? 0 : getHealthCheckIntervalSeconds().hashCode());
         hashCode = prime * hashCode + ((getHealthCheckTimeoutSeconds() == null) ? 0 : getHealthCheckTimeoutSeconds().hashCode());
         hashCode = prime * hashCode + ((getHealthyThresholdCount() == null) ? 0 : getHealthyThresholdCount().hashCode());

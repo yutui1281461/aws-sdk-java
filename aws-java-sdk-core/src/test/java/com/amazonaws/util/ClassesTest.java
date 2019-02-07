@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights
+ * Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights
  * Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
@@ -27,7 +27,7 @@ import java.util.jar.Attributes;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.joda.time.DateTimeZone;
 import org.junit.Test;
 
 public class ClassesTest {
@@ -44,7 +44,7 @@ public class ClassesTest {
     
     @Test
     public void jarFileOf() throws IOException {
-        JarFile jf = Classes.jarFileOf(ObjectMapper.class);
+        JarFile jf = Classes.jarFileOf(DateTimeZone.class);
         Manifest mf = jf.getManifest();
         Attributes attrs = mf.getMainAttributes();
         String name = attrs.getValue("Bundle-Name");

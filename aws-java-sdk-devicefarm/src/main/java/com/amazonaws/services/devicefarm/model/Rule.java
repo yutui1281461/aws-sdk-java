@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,136 +33,88 @@ public class Rule implements Serializable, Cloneable, StructuredPojo {
      * The rule's stringified attribute. For example, specify the value as <code>"\"abc\""</code>.
      * </p>
      * <p>
-     * The supported operators for each attribute are provided in the following list.
+     * Allowed values include:
      * </p>
-     * <dl>
-     * <dt>APPIUM_VERSION</dt>
-     * <dd>
+     * <ul>
+     * <li>
      * <p>
-     * The Appium version for the test.
+     * ARN: The ARN.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>
+     * FORM_FACTOR: The form factor (for example, phone or tablet).
      * </p>
-     * </dd>
-     * <dt>ARN</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The Amazon Resource Name (ARN) of the device. For example, "arn:aws:devicefarm:us-west-2::device:12345Example".
+     * MANUFACTURER: The manufacturer.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
+     * PLATFORM: The platform (for example, Android or iOS).
      * </p>
-     * </dd>
-     * <dt>AVAILABILITY</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The current availability of the device. Valid values are "AVAILABLE", "HIGHLY_AVAILABLE", "BUSY", or
-     * "TEMPORARY_NOT_AVAILABLE".
+     * REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
+     * APPIUM_VERSION: The Appium version for the test.
      * </p>
-     * </dd>
-     * <dt>FLEET_TYPE</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The fleet type. Valid values are "PUBLIC" or "PRIVATE".
+     * INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
+     * INSTANCE_LABELS: The label of the device instance.
      * </p>
-     * </dd>
-     * <dt>FORM_FACTOR</dt>
-     * <dd>
-     * <p>
-     * The device form factor. Valid values are "PHONE" or "TABLET".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>INSTANCE_ARN</dt>
-     * <dd>
-     * <p>
-     * The Amazon Resource Name (ARN) of the device instance.
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>INSTANCE_LABELS</dt>
-     * <dd>
-     * <p>
-     * The label of the device instance.
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>
-     * </p>
-     * </dd>
-     * <dt>MANUFACTURER</dt>
-     * <dd>
-     * <p>
-     * The device manufacturer. For example, "Apple".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>MODEL</dt>
-     * <dd>
-     * <p>
-     * The device model, such as "Apple iPad Air 2" or "Google Pixel".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>, <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>OS_VERSION</dt>
-     * <dd>
-     * <p>
-     * The operating system version. For example, "10.3.2".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>GREATER_THAN</code>, <code>GREATER_THAN_OR_EQUALS</code>,
-     * <code>IN</code>, <code>LESS_THAN</code>, <code>LESS_THAN_OR_EQUALS</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>PLATFORM</dt>
-     * <dd>
-     * <p>
-     * The device platform. Valid values are "ANDROID" or "IOS".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>REMOTE_ACCESS_ENABLED</dt>
-     * <dd>
-     * <p>
-     * Whether the device is enabled for remote access. Valid values are "TRUE" or "FALSE".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
-     * </p>
-     * </dd>
-     * <dt>REMOTE_DEBUG_ENABLED</dt>
-     * <dd>
-     * <p>
-     * Whether the device is enabled for remote debugging. Valid values are "TRUE" or "FALSE".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
-     * </p>
-     * </dd>
-     * </dl>
+     * </li>
+     * </ul>
      */
     private String attribute;
     /**
      * <p>
-     * Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by
-     * each attribute, see the attribute descriptions.
+     * The rule's operator.
      * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * EQUALS: The equals operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * GREATER_THAN: The greater-than operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * IN: The in operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * LESS_THAN: The less-than operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * NOT_IN: The not-in operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * CONTAINS: The contains operator.
+     * </p>
+     * </li>
+     * </ul>
      */
     private String operator;
     /**
@@ -177,258 +129,97 @@ public class Rule implements Serializable, Cloneable, StructuredPojo {
      * The rule's stringified attribute. For example, specify the value as <code>"\"abc\""</code>.
      * </p>
      * <p>
-     * The supported operators for each attribute are provided in the following list.
+     * Allowed values include:
      * </p>
-     * <dl>
-     * <dt>APPIUM_VERSION</dt>
-     * <dd>
+     * <ul>
+     * <li>
      * <p>
-     * The Appium version for the test.
+     * ARN: The ARN.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>
+     * FORM_FACTOR: The form factor (for example, phone or tablet).
      * </p>
-     * </dd>
-     * <dt>ARN</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The Amazon Resource Name (ARN) of the device. For example, "arn:aws:devicefarm:us-west-2::device:12345Example".
+     * MANUFACTURER: The manufacturer.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
+     * PLATFORM: The platform (for example, Android or iOS).
      * </p>
-     * </dd>
-     * <dt>AVAILABILITY</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The current availability of the device. Valid values are "AVAILABLE", "HIGHLY_AVAILABLE", "BUSY", or
-     * "TEMPORARY_NOT_AVAILABLE".
+     * REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
+     * APPIUM_VERSION: The Appium version for the test.
      * </p>
-     * </dd>
-     * <dt>FLEET_TYPE</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The fleet type. Valid values are "PUBLIC" or "PRIVATE".
+     * INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
+     * INSTANCE_LABELS: The label of the device instance.
      * </p>
-     * </dd>
-     * <dt>FORM_FACTOR</dt>
-     * <dd>
-     * <p>
-     * The device form factor. Valid values are "PHONE" or "TABLET".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>INSTANCE_ARN</dt>
-     * <dd>
-     * <p>
-     * The Amazon Resource Name (ARN) of the device instance.
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>INSTANCE_LABELS</dt>
-     * <dd>
-     * <p>
-     * The label of the device instance.
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>
-     * </p>
-     * </dd>
-     * <dt>MANUFACTURER</dt>
-     * <dd>
-     * <p>
-     * The device manufacturer. For example, "Apple".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>MODEL</dt>
-     * <dd>
-     * <p>
-     * The device model, such as "Apple iPad Air 2" or "Google Pixel".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>, <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>OS_VERSION</dt>
-     * <dd>
-     * <p>
-     * The operating system version. For example, "10.3.2".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>GREATER_THAN</code>, <code>GREATER_THAN_OR_EQUALS</code>,
-     * <code>IN</code>, <code>LESS_THAN</code>, <code>LESS_THAN_OR_EQUALS</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>PLATFORM</dt>
-     * <dd>
-     * <p>
-     * The device platform. Valid values are "ANDROID" or "IOS".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>REMOTE_ACCESS_ENABLED</dt>
-     * <dd>
-     * <p>
-     * Whether the device is enabled for remote access. Valid values are "TRUE" or "FALSE".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
-     * </p>
-     * </dd>
-     * <dt>REMOTE_DEBUG_ENABLED</dt>
-     * <dd>
-     * <p>
-     * Whether the device is enabled for remote debugging. Valid values are "TRUE" or "FALSE".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
-     * </p>
-     * </dd>
-     * </dl>
+     * </li>
+     * </ul>
      * 
      * @param attribute
      *        The rule's stringified attribute. For example, specify the value as <code>"\"abc\""</code>.</p>
      *        <p>
-     *        The supported operators for each attribute are provided in the following list.
+     *        Allowed values include:
      *        </p>
-     *        <dl>
-     *        <dt>APPIUM_VERSION</dt>
-     *        <dd>
+     *        <ul>
+     *        <li>
      *        <p>
-     *        The Appium version for the test.
+     *        ARN: The ARN.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>CONTAINS</code>
+     *        FORM_FACTOR: The form factor (for example, phone or tablet).
      *        </p>
-     *        </dd>
-     *        <dt>ARN</dt>
-     *        <dd>
+     *        </li>
+     *        <li>
      *        <p>
-     *        The Amazon Resource Name (ARN) of the device. For example,
-     *        "arn:aws:devicefarm:us-west-2::device:12345Example".
+     *        MANUFACTURER: The manufacturer.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
+     *        PLATFORM: The platform (for example, Android or iOS).
      *        </p>
-     *        </dd>
-     *        <dt>AVAILABILITY</dt>
-     *        <dd>
+     *        </li>
+     *        <li>
      *        <p>
-     *        The current availability of the device. Valid values are "AVAILABLE", "HIGHLY_AVAILABLE", "BUSY", or
-     *        "TEMPORARY_NOT_AVAILABLE".
+     *        REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
+     *        APPIUM_VERSION: The Appium version for the test.
      *        </p>
-     *        </dd>
-     *        <dt>FLEET_TYPE</dt>
-     *        <dd>
+     *        </li>
+     *        <li>
      *        <p>
-     *        The fleet type. Valid values are "PUBLIC" or "PRIVATE".
+     *        INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
+     *        INSTANCE_LABELS: The label of the device instance.
      *        </p>
-     *        </dd>
-     *        <dt>FORM_FACTOR</dt>
-     *        <dd>
-     *        <p>
-     *        The device form factor. Valid values are "PHONE" or "TABLET".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>INSTANCE_ARN</dt>
-     *        <dd>
-     *        <p>
-     *        The Amazon Resource Name (ARN) of the device instance.
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>INSTANCE_LABELS</dt>
-     *        <dd>
-     *        <p>
-     *        The label of the device instance.
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>CONTAINS</code>
-     *        </p>
-     *        </dd>
-     *        <dt>MANUFACTURER</dt>
-     *        <dd>
-     *        <p>
-     *        The device manufacturer. For example, "Apple".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>MODEL</dt>
-     *        <dd>
-     *        <p>
-     *        The device model, such as "Apple iPad Air 2" or "Google Pixel".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>CONTAINS</code>, <code>EQUALS</code>, <code>IN</code>,
-     *        <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>OS_VERSION</dt>
-     *        <dd>
-     *        <p>
-     *        The operating system version. For example, "10.3.2".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>GREATER_THAN</code>,
-     *        <code>GREATER_THAN_OR_EQUALS</code>, <code>IN</code>, <code>LESS_THAN</code>,
-     *        <code>LESS_THAN_OR_EQUALS</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>PLATFORM</dt>
-     *        <dd>
-     *        <p>
-     *        The device platform. Valid values are "ANDROID" or "IOS".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>REMOTE_ACCESS_ENABLED</dt>
-     *        <dd>
-     *        <p>
-     *        Whether the device is enabled for remote access. Valid values are "TRUE" or "FALSE".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
-     *        </p>
-     *        </dd>
-     *        <dt>REMOTE_DEBUG_ENABLED</dt>
-     *        <dd>
-     *        <p>
-     *        Whether the device is enabled for remote debugging. Valid values are "TRUE" or "FALSE".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
-     *        </p>
-     *        </dd>
+     *        </li>
      * @see DeviceAttribute
      */
 
@@ -441,257 +232,96 @@ public class Rule implements Serializable, Cloneable, StructuredPojo {
      * The rule's stringified attribute. For example, specify the value as <code>"\"abc\""</code>.
      * </p>
      * <p>
-     * The supported operators for each attribute are provided in the following list.
+     * Allowed values include:
      * </p>
-     * <dl>
-     * <dt>APPIUM_VERSION</dt>
-     * <dd>
+     * <ul>
+     * <li>
      * <p>
-     * The Appium version for the test.
+     * ARN: The ARN.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>
+     * FORM_FACTOR: The form factor (for example, phone or tablet).
      * </p>
-     * </dd>
-     * <dt>ARN</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The Amazon Resource Name (ARN) of the device. For example, "arn:aws:devicefarm:us-west-2::device:12345Example".
+     * MANUFACTURER: The manufacturer.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
+     * PLATFORM: The platform (for example, Android or iOS).
      * </p>
-     * </dd>
-     * <dt>AVAILABILITY</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The current availability of the device. Valid values are "AVAILABLE", "HIGHLY_AVAILABLE", "BUSY", or
-     * "TEMPORARY_NOT_AVAILABLE".
+     * REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
+     * APPIUM_VERSION: The Appium version for the test.
      * </p>
-     * </dd>
-     * <dt>FLEET_TYPE</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The fleet type. Valid values are "PUBLIC" or "PRIVATE".
+     * INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
+     * INSTANCE_LABELS: The label of the device instance.
      * </p>
-     * </dd>
-     * <dt>FORM_FACTOR</dt>
-     * <dd>
-     * <p>
-     * The device form factor. Valid values are "PHONE" or "TABLET".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>INSTANCE_ARN</dt>
-     * <dd>
-     * <p>
-     * The Amazon Resource Name (ARN) of the device instance.
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>INSTANCE_LABELS</dt>
-     * <dd>
-     * <p>
-     * The label of the device instance.
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>
-     * </p>
-     * </dd>
-     * <dt>MANUFACTURER</dt>
-     * <dd>
-     * <p>
-     * The device manufacturer. For example, "Apple".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>MODEL</dt>
-     * <dd>
-     * <p>
-     * The device model, such as "Apple iPad Air 2" or "Google Pixel".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>, <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>OS_VERSION</dt>
-     * <dd>
-     * <p>
-     * The operating system version. For example, "10.3.2".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>GREATER_THAN</code>, <code>GREATER_THAN_OR_EQUALS</code>,
-     * <code>IN</code>, <code>LESS_THAN</code>, <code>LESS_THAN_OR_EQUALS</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>PLATFORM</dt>
-     * <dd>
-     * <p>
-     * The device platform. Valid values are "ANDROID" or "IOS".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>REMOTE_ACCESS_ENABLED</dt>
-     * <dd>
-     * <p>
-     * Whether the device is enabled for remote access. Valid values are "TRUE" or "FALSE".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
-     * </p>
-     * </dd>
-     * <dt>REMOTE_DEBUG_ENABLED</dt>
-     * <dd>
-     * <p>
-     * Whether the device is enabled for remote debugging. Valid values are "TRUE" or "FALSE".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
-     * </p>
-     * </dd>
-     * </dl>
+     * </li>
+     * </ul>
      * 
      * @return The rule's stringified attribute. For example, specify the value as <code>"\"abc\""</code>.</p>
      *         <p>
-     *         The supported operators for each attribute are provided in the following list.
+     *         Allowed values include:
      *         </p>
-     *         <dl>
-     *         <dt>APPIUM_VERSION</dt>
-     *         <dd>
+     *         <ul>
+     *         <li>
      *         <p>
-     *         The Appium version for the test.
+     *         ARN: The ARN.
      *         </p>
+     *         </li>
+     *         <li>
      *         <p>
-     *         <i>Supported operators</i>: <code>CONTAINS</code>
+     *         FORM_FACTOR: The form factor (for example, phone or tablet).
      *         </p>
-     *         </dd>
-     *         <dt>ARN</dt>
-     *         <dd>
+     *         </li>
+     *         <li>
      *         <p>
-     *         The Amazon Resource Name (ARN) of the device. For example,
-     *         "arn:aws:devicefarm:us-west-2::device:12345Example".
+     *         MANUFACTURER: The manufacturer.
      *         </p>
+     *         </li>
+     *         <li>
      *         <p>
-     *         <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
+     *         PLATFORM: The platform (for example, Android or iOS).
      *         </p>
-     *         </dd>
-     *         <dt>AVAILABILITY</dt>
-     *         <dd>
+     *         </li>
+     *         <li>
      *         <p>
-     *         The current availability of the device. Valid values are "AVAILABLE", "HIGHLY_AVAILABLE", "BUSY", or
-     *         "TEMPORARY_NOT_AVAILABLE".
+     *         REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.
      *         </p>
+     *         </li>
+     *         <li>
      *         <p>
-     *         <i>Supported operators</i>: <code>EQUALS</code>
+     *         APPIUM_VERSION: The Appium version for the test.
      *         </p>
-     *         </dd>
-     *         <dt>FLEET_TYPE</dt>
-     *         <dd>
+     *         </li>
+     *         <li>
      *         <p>
-     *         The fleet type. Valid values are "PUBLIC" or "PRIVATE".
+     *         INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.
      *         </p>
+     *         </li>
+     *         <li>
      *         <p>
-     *         <i>Supported operators</i>: <code>EQUALS</code>
+     *         INSTANCE_LABELS: The label of the device instance.
      *         </p>
-     *         </dd>
-     *         <dt>FORM_FACTOR</dt>
-     *         <dd>
-     *         <p>
-     *         The device form factor. Valid values are "PHONE" or "TABLET".
-     *         </p>
-     *         <p>
-     *         <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *         </p>
-     *         </dd>
-     *         <dt>INSTANCE_ARN</dt>
-     *         <dd>
-     *         <p>
-     *         The Amazon Resource Name (ARN) of the device instance.
-     *         </p>
-     *         <p>
-     *         <i>Supported operators</i>: <code>IN</code>, <code>NOT_IN</code>
-     *         </p>
-     *         </dd>
-     *         <dt>INSTANCE_LABELS</dt>
-     *         <dd>
-     *         <p>
-     *         The label of the device instance.
-     *         </p>
-     *         <p>
-     *         <i>Supported operators</i>: <code>CONTAINS</code>
-     *         </p>
-     *         </dd>
-     *         <dt>MANUFACTURER</dt>
-     *         <dd>
-     *         <p>
-     *         The device manufacturer. For example, "Apple".
-     *         </p>
-     *         <p>
-     *         <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *         </p>
-     *         </dd>
-     *         <dt>MODEL</dt>
-     *         <dd>
-     *         <p>
-     *         The device model, such as "Apple iPad Air 2" or "Google Pixel".
-     *         </p>
-     *         <p>
-     *         <i>Supported operators</i>: <code>CONTAINS</code>, <code>EQUALS</code>, <code>IN</code>,
-     *         <code>NOT_IN</code>
-     *         </p>
-     *         </dd>
-     *         <dt>OS_VERSION</dt>
-     *         <dd>
-     *         <p>
-     *         The operating system version. For example, "10.3.2".
-     *         </p>
-     *         <p>
-     *         <i>Supported operators</i>: <code>EQUALS</code>, <code>GREATER_THAN</code>,
-     *         <code>GREATER_THAN_OR_EQUALS</code>, <code>IN</code>, <code>LESS_THAN</code>,
-     *         <code>LESS_THAN_OR_EQUALS</code>, <code>NOT_IN</code>
-     *         </p>
-     *         </dd>
-     *         <dt>PLATFORM</dt>
-     *         <dd>
-     *         <p>
-     *         The device platform. Valid values are "ANDROID" or "IOS".
-     *         </p>
-     *         <p>
-     *         <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *         </p>
-     *         </dd>
-     *         <dt>REMOTE_ACCESS_ENABLED</dt>
-     *         <dd>
-     *         <p>
-     *         Whether the device is enabled for remote access. Valid values are "TRUE" or "FALSE".
-     *         </p>
-     *         <p>
-     *         <i>Supported operators</i>: <code>EQUALS</code>
-     *         </p>
-     *         </dd>
-     *         <dt>REMOTE_DEBUG_ENABLED</dt>
-     *         <dd>
-     *         <p>
-     *         Whether the device is enabled for remote debugging. Valid values are "TRUE" or "FALSE".
-     *         </p>
-     *         <p>
-     *         <i>Supported operators</i>: <code>EQUALS</code>
-     *         </p>
-     *         </dd>
+     *         </li>
      * @see DeviceAttribute
      */
 
@@ -704,258 +334,97 @@ public class Rule implements Serializable, Cloneable, StructuredPojo {
      * The rule's stringified attribute. For example, specify the value as <code>"\"abc\""</code>.
      * </p>
      * <p>
-     * The supported operators for each attribute are provided in the following list.
+     * Allowed values include:
      * </p>
-     * <dl>
-     * <dt>APPIUM_VERSION</dt>
-     * <dd>
+     * <ul>
+     * <li>
      * <p>
-     * The Appium version for the test.
+     * ARN: The ARN.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>
+     * FORM_FACTOR: The form factor (for example, phone or tablet).
      * </p>
-     * </dd>
-     * <dt>ARN</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The Amazon Resource Name (ARN) of the device. For example, "arn:aws:devicefarm:us-west-2::device:12345Example".
+     * MANUFACTURER: The manufacturer.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
+     * PLATFORM: The platform (for example, Android or iOS).
      * </p>
-     * </dd>
-     * <dt>AVAILABILITY</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The current availability of the device. Valid values are "AVAILABLE", "HIGHLY_AVAILABLE", "BUSY", or
-     * "TEMPORARY_NOT_AVAILABLE".
+     * REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
+     * APPIUM_VERSION: The Appium version for the test.
      * </p>
-     * </dd>
-     * <dt>FLEET_TYPE</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The fleet type. Valid values are "PUBLIC" or "PRIVATE".
+     * INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
+     * INSTANCE_LABELS: The label of the device instance.
      * </p>
-     * </dd>
-     * <dt>FORM_FACTOR</dt>
-     * <dd>
-     * <p>
-     * The device form factor. Valid values are "PHONE" or "TABLET".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>INSTANCE_ARN</dt>
-     * <dd>
-     * <p>
-     * The Amazon Resource Name (ARN) of the device instance.
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>INSTANCE_LABELS</dt>
-     * <dd>
-     * <p>
-     * The label of the device instance.
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>
-     * </p>
-     * </dd>
-     * <dt>MANUFACTURER</dt>
-     * <dd>
-     * <p>
-     * The device manufacturer. For example, "Apple".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>MODEL</dt>
-     * <dd>
-     * <p>
-     * The device model, such as "Apple iPad Air 2" or "Google Pixel".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>, <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>OS_VERSION</dt>
-     * <dd>
-     * <p>
-     * The operating system version. For example, "10.3.2".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>GREATER_THAN</code>, <code>GREATER_THAN_OR_EQUALS</code>,
-     * <code>IN</code>, <code>LESS_THAN</code>, <code>LESS_THAN_OR_EQUALS</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>PLATFORM</dt>
-     * <dd>
-     * <p>
-     * The device platform. Valid values are "ANDROID" or "IOS".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>REMOTE_ACCESS_ENABLED</dt>
-     * <dd>
-     * <p>
-     * Whether the device is enabled for remote access. Valid values are "TRUE" or "FALSE".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
-     * </p>
-     * </dd>
-     * <dt>REMOTE_DEBUG_ENABLED</dt>
-     * <dd>
-     * <p>
-     * Whether the device is enabled for remote debugging. Valid values are "TRUE" or "FALSE".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
-     * </p>
-     * </dd>
-     * </dl>
+     * </li>
+     * </ul>
      * 
      * @param attribute
      *        The rule's stringified attribute. For example, specify the value as <code>"\"abc\""</code>.</p>
      *        <p>
-     *        The supported operators for each attribute are provided in the following list.
+     *        Allowed values include:
      *        </p>
-     *        <dl>
-     *        <dt>APPIUM_VERSION</dt>
-     *        <dd>
+     *        <ul>
+     *        <li>
      *        <p>
-     *        The Appium version for the test.
+     *        ARN: The ARN.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>CONTAINS</code>
+     *        FORM_FACTOR: The form factor (for example, phone or tablet).
      *        </p>
-     *        </dd>
-     *        <dt>ARN</dt>
-     *        <dd>
+     *        </li>
+     *        <li>
      *        <p>
-     *        The Amazon Resource Name (ARN) of the device. For example,
-     *        "arn:aws:devicefarm:us-west-2::device:12345Example".
+     *        MANUFACTURER: The manufacturer.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
+     *        PLATFORM: The platform (for example, Android or iOS).
      *        </p>
-     *        </dd>
-     *        <dt>AVAILABILITY</dt>
-     *        <dd>
+     *        </li>
+     *        <li>
      *        <p>
-     *        The current availability of the device. Valid values are "AVAILABLE", "HIGHLY_AVAILABLE", "BUSY", or
-     *        "TEMPORARY_NOT_AVAILABLE".
+     *        REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
+     *        APPIUM_VERSION: The Appium version for the test.
      *        </p>
-     *        </dd>
-     *        <dt>FLEET_TYPE</dt>
-     *        <dd>
+     *        </li>
+     *        <li>
      *        <p>
-     *        The fleet type. Valid values are "PUBLIC" or "PRIVATE".
+     *        INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
+     *        INSTANCE_LABELS: The label of the device instance.
      *        </p>
-     *        </dd>
-     *        <dt>FORM_FACTOR</dt>
-     *        <dd>
-     *        <p>
-     *        The device form factor. Valid values are "PHONE" or "TABLET".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>INSTANCE_ARN</dt>
-     *        <dd>
-     *        <p>
-     *        The Amazon Resource Name (ARN) of the device instance.
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>INSTANCE_LABELS</dt>
-     *        <dd>
-     *        <p>
-     *        The label of the device instance.
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>CONTAINS</code>
-     *        </p>
-     *        </dd>
-     *        <dt>MANUFACTURER</dt>
-     *        <dd>
-     *        <p>
-     *        The device manufacturer. For example, "Apple".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>MODEL</dt>
-     *        <dd>
-     *        <p>
-     *        The device model, such as "Apple iPad Air 2" or "Google Pixel".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>CONTAINS</code>, <code>EQUALS</code>, <code>IN</code>,
-     *        <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>OS_VERSION</dt>
-     *        <dd>
-     *        <p>
-     *        The operating system version. For example, "10.3.2".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>GREATER_THAN</code>,
-     *        <code>GREATER_THAN_OR_EQUALS</code>, <code>IN</code>, <code>LESS_THAN</code>,
-     *        <code>LESS_THAN_OR_EQUALS</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>PLATFORM</dt>
-     *        <dd>
-     *        <p>
-     *        The device platform. Valid values are "ANDROID" or "IOS".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>REMOTE_ACCESS_ENABLED</dt>
-     *        <dd>
-     *        <p>
-     *        Whether the device is enabled for remote access. Valid values are "TRUE" or "FALSE".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
-     *        </p>
-     *        </dd>
-     *        <dt>REMOTE_DEBUG_ENABLED</dt>
-     *        <dd>
-     *        <p>
-     *        Whether the device is enabled for remote debugging. Valid values are "TRUE" or "FALSE".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
-     *        </p>
-     *        </dd>
+     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DeviceAttribute
      */
@@ -970,258 +439,97 @@ public class Rule implements Serializable, Cloneable, StructuredPojo {
      * The rule's stringified attribute. For example, specify the value as <code>"\"abc\""</code>.
      * </p>
      * <p>
-     * The supported operators for each attribute are provided in the following list.
+     * Allowed values include:
      * </p>
-     * <dl>
-     * <dt>APPIUM_VERSION</dt>
-     * <dd>
+     * <ul>
+     * <li>
      * <p>
-     * The Appium version for the test.
+     * ARN: The ARN.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>
+     * FORM_FACTOR: The form factor (for example, phone or tablet).
      * </p>
-     * </dd>
-     * <dt>ARN</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The Amazon Resource Name (ARN) of the device. For example, "arn:aws:devicefarm:us-west-2::device:12345Example".
+     * MANUFACTURER: The manufacturer.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
+     * PLATFORM: The platform (for example, Android or iOS).
      * </p>
-     * </dd>
-     * <dt>AVAILABILITY</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The current availability of the device. Valid values are "AVAILABLE", "HIGHLY_AVAILABLE", "BUSY", or
-     * "TEMPORARY_NOT_AVAILABLE".
+     * REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
+     * APPIUM_VERSION: The Appium version for the test.
      * </p>
-     * </dd>
-     * <dt>FLEET_TYPE</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The fleet type. Valid values are "PUBLIC" or "PRIVATE".
+     * INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
+     * INSTANCE_LABELS: The label of the device instance.
      * </p>
-     * </dd>
-     * <dt>FORM_FACTOR</dt>
-     * <dd>
-     * <p>
-     * The device form factor. Valid values are "PHONE" or "TABLET".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>INSTANCE_ARN</dt>
-     * <dd>
-     * <p>
-     * The Amazon Resource Name (ARN) of the device instance.
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>INSTANCE_LABELS</dt>
-     * <dd>
-     * <p>
-     * The label of the device instance.
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>
-     * </p>
-     * </dd>
-     * <dt>MANUFACTURER</dt>
-     * <dd>
-     * <p>
-     * The device manufacturer. For example, "Apple".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>MODEL</dt>
-     * <dd>
-     * <p>
-     * The device model, such as "Apple iPad Air 2" or "Google Pixel".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>, <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>OS_VERSION</dt>
-     * <dd>
-     * <p>
-     * The operating system version. For example, "10.3.2".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>GREATER_THAN</code>, <code>GREATER_THAN_OR_EQUALS</code>,
-     * <code>IN</code>, <code>LESS_THAN</code>, <code>LESS_THAN_OR_EQUALS</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>PLATFORM</dt>
-     * <dd>
-     * <p>
-     * The device platform. Valid values are "ANDROID" or "IOS".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>REMOTE_ACCESS_ENABLED</dt>
-     * <dd>
-     * <p>
-     * Whether the device is enabled for remote access. Valid values are "TRUE" or "FALSE".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
-     * </p>
-     * </dd>
-     * <dt>REMOTE_DEBUG_ENABLED</dt>
-     * <dd>
-     * <p>
-     * Whether the device is enabled for remote debugging. Valid values are "TRUE" or "FALSE".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
-     * </p>
-     * </dd>
-     * </dl>
+     * </li>
+     * </ul>
      * 
      * @param attribute
      *        The rule's stringified attribute. For example, specify the value as <code>"\"abc\""</code>.</p>
      *        <p>
-     *        The supported operators for each attribute are provided in the following list.
+     *        Allowed values include:
      *        </p>
-     *        <dl>
-     *        <dt>APPIUM_VERSION</dt>
-     *        <dd>
+     *        <ul>
+     *        <li>
      *        <p>
-     *        The Appium version for the test.
+     *        ARN: The ARN.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>CONTAINS</code>
+     *        FORM_FACTOR: The form factor (for example, phone or tablet).
      *        </p>
-     *        </dd>
-     *        <dt>ARN</dt>
-     *        <dd>
+     *        </li>
+     *        <li>
      *        <p>
-     *        The Amazon Resource Name (ARN) of the device. For example,
-     *        "arn:aws:devicefarm:us-west-2::device:12345Example".
+     *        MANUFACTURER: The manufacturer.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
+     *        PLATFORM: The platform (for example, Android or iOS).
      *        </p>
-     *        </dd>
-     *        <dt>AVAILABILITY</dt>
-     *        <dd>
+     *        </li>
+     *        <li>
      *        <p>
-     *        The current availability of the device. Valid values are "AVAILABLE", "HIGHLY_AVAILABLE", "BUSY", or
-     *        "TEMPORARY_NOT_AVAILABLE".
+     *        REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
+     *        APPIUM_VERSION: The Appium version for the test.
      *        </p>
-     *        </dd>
-     *        <dt>FLEET_TYPE</dt>
-     *        <dd>
+     *        </li>
+     *        <li>
      *        <p>
-     *        The fleet type. Valid values are "PUBLIC" or "PRIVATE".
+     *        INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
+     *        INSTANCE_LABELS: The label of the device instance.
      *        </p>
-     *        </dd>
-     *        <dt>FORM_FACTOR</dt>
-     *        <dd>
-     *        <p>
-     *        The device form factor. Valid values are "PHONE" or "TABLET".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>INSTANCE_ARN</dt>
-     *        <dd>
-     *        <p>
-     *        The Amazon Resource Name (ARN) of the device instance.
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>INSTANCE_LABELS</dt>
-     *        <dd>
-     *        <p>
-     *        The label of the device instance.
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>CONTAINS</code>
-     *        </p>
-     *        </dd>
-     *        <dt>MANUFACTURER</dt>
-     *        <dd>
-     *        <p>
-     *        The device manufacturer. For example, "Apple".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>MODEL</dt>
-     *        <dd>
-     *        <p>
-     *        The device model, such as "Apple iPad Air 2" or "Google Pixel".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>CONTAINS</code>, <code>EQUALS</code>, <code>IN</code>,
-     *        <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>OS_VERSION</dt>
-     *        <dd>
-     *        <p>
-     *        The operating system version. For example, "10.3.2".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>GREATER_THAN</code>,
-     *        <code>GREATER_THAN_OR_EQUALS</code>, <code>IN</code>, <code>LESS_THAN</code>,
-     *        <code>LESS_THAN_OR_EQUALS</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>PLATFORM</dt>
-     *        <dd>
-     *        <p>
-     *        The device platform. Valid values are "ANDROID" or "IOS".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>REMOTE_ACCESS_ENABLED</dt>
-     *        <dd>
-     *        <p>
-     *        Whether the device is enabled for remote access. Valid values are "TRUE" or "FALSE".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
-     *        </p>
-     *        </dd>
-     *        <dt>REMOTE_DEBUG_ENABLED</dt>
-     *        <dd>
-     *        <p>
-     *        Whether the device is enabled for remote debugging. Valid values are "TRUE" or "FALSE".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
-     *        </p>
-     *        </dd>
+     *        </li>
      * @see DeviceAttribute
      */
 
@@ -1234,258 +542,97 @@ public class Rule implements Serializable, Cloneable, StructuredPojo {
      * The rule's stringified attribute. For example, specify the value as <code>"\"abc\""</code>.
      * </p>
      * <p>
-     * The supported operators for each attribute are provided in the following list.
+     * Allowed values include:
      * </p>
-     * <dl>
-     * <dt>APPIUM_VERSION</dt>
-     * <dd>
+     * <ul>
+     * <li>
      * <p>
-     * The Appium version for the test.
+     * ARN: The ARN.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>
+     * FORM_FACTOR: The form factor (for example, phone or tablet).
      * </p>
-     * </dd>
-     * <dt>ARN</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The Amazon Resource Name (ARN) of the device. For example, "arn:aws:devicefarm:us-west-2::device:12345Example".
+     * MANUFACTURER: The manufacturer.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
+     * PLATFORM: The platform (for example, Android or iOS).
      * </p>
-     * </dd>
-     * <dt>AVAILABILITY</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The current availability of the device. Valid values are "AVAILABLE", "HIGHLY_AVAILABLE", "BUSY", or
-     * "TEMPORARY_NOT_AVAILABLE".
+     * REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
+     * APPIUM_VERSION: The Appium version for the test.
      * </p>
-     * </dd>
-     * <dt>FLEET_TYPE</dt>
-     * <dd>
+     * </li>
+     * <li>
      * <p>
-     * The fleet type. Valid values are "PUBLIC" or "PRIVATE".
+     * INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
+     * INSTANCE_LABELS: The label of the device instance.
      * </p>
-     * </dd>
-     * <dt>FORM_FACTOR</dt>
-     * <dd>
-     * <p>
-     * The device form factor. Valid values are "PHONE" or "TABLET".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>INSTANCE_ARN</dt>
-     * <dd>
-     * <p>
-     * The Amazon Resource Name (ARN) of the device instance.
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>INSTANCE_LABELS</dt>
-     * <dd>
-     * <p>
-     * The label of the device instance.
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>
-     * </p>
-     * </dd>
-     * <dt>MANUFACTURER</dt>
-     * <dd>
-     * <p>
-     * The device manufacturer. For example, "Apple".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>MODEL</dt>
-     * <dd>
-     * <p>
-     * The device model, such as "Apple iPad Air 2" or "Google Pixel".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>CONTAINS</code>, <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>OS_VERSION</dt>
-     * <dd>
-     * <p>
-     * The operating system version. For example, "10.3.2".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>GREATER_THAN</code>, <code>GREATER_THAN_OR_EQUALS</code>,
-     * <code>IN</code>, <code>LESS_THAN</code>, <code>LESS_THAN_OR_EQUALS</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>PLATFORM</dt>
-     * <dd>
-     * <p>
-     * The device platform. Valid values are "ANDROID" or "IOS".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     * </p>
-     * </dd>
-     * <dt>REMOTE_ACCESS_ENABLED</dt>
-     * <dd>
-     * <p>
-     * Whether the device is enabled for remote access. Valid values are "TRUE" or "FALSE".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
-     * </p>
-     * </dd>
-     * <dt>REMOTE_DEBUG_ENABLED</dt>
-     * <dd>
-     * <p>
-     * Whether the device is enabled for remote debugging. Valid values are "TRUE" or "FALSE".
-     * </p>
-     * <p>
-     * <i>Supported operators</i>: <code>EQUALS</code>
-     * </p>
-     * </dd>
-     * </dl>
+     * </li>
+     * </ul>
      * 
      * @param attribute
      *        The rule's stringified attribute. For example, specify the value as <code>"\"abc\""</code>.</p>
      *        <p>
-     *        The supported operators for each attribute are provided in the following list.
+     *        Allowed values include:
      *        </p>
-     *        <dl>
-     *        <dt>APPIUM_VERSION</dt>
-     *        <dd>
+     *        <ul>
+     *        <li>
      *        <p>
-     *        The Appium version for the test.
+     *        ARN: The ARN.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>CONTAINS</code>
+     *        FORM_FACTOR: The form factor (for example, phone or tablet).
      *        </p>
-     *        </dd>
-     *        <dt>ARN</dt>
-     *        <dd>
+     *        </li>
+     *        <li>
      *        <p>
-     *        The Amazon Resource Name (ARN) of the device. For example,
-     *        "arn:aws:devicefarm:us-west-2::device:12345Example".
+     *        MANUFACTURER: The manufacturer.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
+     *        PLATFORM: The platform (for example, Android or iOS).
      *        </p>
-     *        </dd>
-     *        <dt>AVAILABILITY</dt>
-     *        <dd>
+     *        </li>
+     *        <li>
      *        <p>
-     *        The current availability of the device. Valid values are "AVAILABLE", "HIGHLY_AVAILABLE", "BUSY", or
-     *        "TEMPORARY_NOT_AVAILABLE".
+     *        REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
+     *        APPIUM_VERSION: The Appium version for the test.
      *        </p>
-     *        </dd>
-     *        <dt>FLEET_TYPE</dt>
-     *        <dd>
+     *        </li>
+     *        <li>
      *        <p>
-     *        The fleet type. Valid values are "PUBLIC" or "PRIVATE".
+     *        INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.
      *        </p>
+     *        </li>
+     *        <li>
      *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
+     *        INSTANCE_LABELS: The label of the device instance.
      *        </p>
-     *        </dd>
-     *        <dt>FORM_FACTOR</dt>
-     *        <dd>
-     *        <p>
-     *        The device form factor. Valid values are "PHONE" or "TABLET".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>INSTANCE_ARN</dt>
-     *        <dd>
-     *        <p>
-     *        The Amazon Resource Name (ARN) of the device instance.
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>INSTANCE_LABELS</dt>
-     *        <dd>
-     *        <p>
-     *        The label of the device instance.
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>CONTAINS</code>
-     *        </p>
-     *        </dd>
-     *        <dt>MANUFACTURER</dt>
-     *        <dd>
-     *        <p>
-     *        The device manufacturer. For example, "Apple".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>MODEL</dt>
-     *        <dd>
-     *        <p>
-     *        The device model, such as "Apple iPad Air 2" or "Google Pixel".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>CONTAINS</code>, <code>EQUALS</code>, <code>IN</code>,
-     *        <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>OS_VERSION</dt>
-     *        <dd>
-     *        <p>
-     *        The operating system version. For example, "10.3.2".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>GREATER_THAN</code>,
-     *        <code>GREATER_THAN_OR_EQUALS</code>, <code>IN</code>, <code>LESS_THAN</code>,
-     *        <code>LESS_THAN_OR_EQUALS</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>PLATFORM</dt>
-     *        <dd>
-     *        <p>
-     *        The device platform. Valid values are "ANDROID" or "IOS".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-     *        </p>
-     *        </dd>
-     *        <dt>REMOTE_ACCESS_ENABLED</dt>
-     *        <dd>
-     *        <p>
-     *        Whether the device is enabled for remote access. Valid values are "TRUE" or "FALSE".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
-     *        </p>
-     *        </dd>
-     *        <dt>REMOTE_DEBUG_ENABLED</dt>
-     *        <dd>
-     *        <p>
-     *        Whether the device is enabled for remote debugging. Valid values are "TRUE" or "FALSE".
-     *        </p>
-     *        <p>
-     *        <i>Supported operators</i>: <code>EQUALS</code>
-     *        </p>
-     *        </dd>
+     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DeviceAttribute
      */
@@ -1497,13 +644,74 @@ public class Rule implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by
-     * each attribute, see the attribute descriptions.
+     * The rule's operator.
      * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * EQUALS: The equals operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * GREATER_THAN: The greater-than operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * IN: The in operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * LESS_THAN: The less-than operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * NOT_IN: The not-in operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * CONTAINS: The contains operator.
+     * </p>
+     * </li>
+     * </ul>
      * 
      * @param operator
-     *        Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported
-     *        by each attribute, see the attribute descriptions.
+     *        The rule's operator.</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        EQUALS: The equals operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        GREATER_THAN: The greater-than operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        IN: The in operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        LESS_THAN: The less-than operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        NOT_IN: The not-in operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        CONTAINS: The contains operator.
+     *        </p>
+     *        </li>
      * @see RuleOperator
      */
 
@@ -1513,12 +721,73 @@ public class Rule implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by
-     * each attribute, see the attribute descriptions.
+     * The rule's operator.
      * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * EQUALS: The equals operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * GREATER_THAN: The greater-than operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * IN: The in operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * LESS_THAN: The less-than operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * NOT_IN: The not-in operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * CONTAINS: The contains operator.
+     * </p>
+     * </li>
+     * </ul>
      * 
-     * @return Specifies how Device Farm compares the rule's attribute to the value. For the operators that are
-     *         supported by each attribute, see the attribute descriptions.
+     * @return The rule's operator.</p>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         EQUALS: The equals operator.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         GREATER_THAN: The greater-than operator.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         IN: The in operator.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         LESS_THAN: The less-than operator.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         NOT_IN: The not-in operator.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         CONTAINS: The contains operator.
+     *         </p>
+     *         </li>
      * @see RuleOperator
      */
 
@@ -1528,13 +797,74 @@ public class Rule implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by
-     * each attribute, see the attribute descriptions.
+     * The rule's operator.
      * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * EQUALS: The equals operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * GREATER_THAN: The greater-than operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * IN: The in operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * LESS_THAN: The less-than operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * NOT_IN: The not-in operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * CONTAINS: The contains operator.
+     * </p>
+     * </li>
+     * </ul>
      * 
      * @param operator
-     *        Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported
-     *        by each attribute, see the attribute descriptions.
+     *        The rule's operator.</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        EQUALS: The equals operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        GREATER_THAN: The greater-than operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        IN: The in operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        LESS_THAN: The less-than operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        NOT_IN: The not-in operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        CONTAINS: The contains operator.
+     *        </p>
+     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see RuleOperator
      */
@@ -1546,13 +876,74 @@ public class Rule implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by
-     * each attribute, see the attribute descriptions.
+     * The rule's operator.
      * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * EQUALS: The equals operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * GREATER_THAN: The greater-than operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * IN: The in operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * LESS_THAN: The less-than operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * NOT_IN: The not-in operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * CONTAINS: The contains operator.
+     * </p>
+     * </li>
+     * </ul>
      * 
      * @param operator
-     *        Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported
-     *        by each attribute, see the attribute descriptions.
+     *        The rule's operator.</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        EQUALS: The equals operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        GREATER_THAN: The greater-than operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        IN: The in operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        LESS_THAN: The less-than operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        NOT_IN: The not-in operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        CONTAINS: The contains operator.
+     *        </p>
+     *        </li>
      * @see RuleOperator
      */
 
@@ -1562,13 +953,74 @@ public class Rule implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by
-     * each attribute, see the attribute descriptions.
+     * The rule's operator.
      * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * EQUALS: The equals operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * GREATER_THAN: The greater-than operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * IN: The in operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * LESS_THAN: The less-than operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * NOT_IN: The not-in operator.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * CONTAINS: The contains operator.
+     * </p>
+     * </li>
+     * </ul>
      * 
      * @param operator
-     *        Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported
-     *        by each attribute, see the attribute descriptions.
+     *        The rule's operator.</p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        EQUALS: The equals operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        GREATER_THAN: The greater-than operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        IN: The in operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        LESS_THAN: The less-than operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        NOT_IN: The not-in operator.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        CONTAINS: The contains operator.
+     *        </p>
+     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see RuleOperator
      */
@@ -1619,8 +1071,7 @@ public class Rule implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

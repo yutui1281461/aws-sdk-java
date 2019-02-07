@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,95 +27,30 @@ public class GetAliasRequest extends com.amazonaws.AmazonWebServiceRequest imple
 
     /**
      * <p>
-     * The name of the lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * Function name for which the alias is created. An alias is a subresource that exists only in the context of an
+     * existing Lambda function so you must specify the function name. Note that the length constraint applies only to
+     * the ARN. If you specify only the function name, it is limited to 64 characters in length.
      * </p>
      */
     private String functionName;
     /**
      * <p>
-     * The name of the alias.
+     * Name of the alias for which you want to retrieve information.
      * </p>
      */
     private String name;
 
     /**
      * <p>
-     * The name of the lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * Function name for which the alias is created. An alias is a subresource that exists only in the context of an
+     * existing Lambda function so you must specify the function name. Note that the length constraint applies only to
+     * the ARN. If you specify only the function name, it is limited to 64 characters in length.
      * </p>
      * 
      * @param functionName
-     *        The name of the lambda function.</p>
-     *        <p class="title">
-     *        <b>Name formats</b>
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Function name</b> - <code>MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        The length constraint applies only to the full ARN. If you specify only the function name, it is limited
-     *        to 64 characters in length.
+     *        Function name for which the alias is created. An alias is a subresource that exists only in the context of
+     *        an existing Lambda function so you must specify the function name. Note that the length constraint applies
+     *        only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
      */
 
     public void setFunctionName(String functionName) {
@@ -124,57 +59,14 @@ public class GetAliasRequest extends com.amazonaws.AmazonWebServiceRequest imple
 
     /**
      * <p>
-     * The name of the lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * Function name for which the alias is created. An alias is a subresource that exists only in the context of an
+     * existing Lambda function so you must specify the function name. Note that the length constraint applies only to
+     * the ARN. If you specify only the function name, it is limited to 64 characters in length.
      * </p>
      * 
-     * @return The name of the lambda function.</p>
-     *         <p class="title">
-     *         <b>Name formats</b>
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         <b>Function name</b> - <code>MyFunction</code>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *         </p>
-     *         </li>
-     *         </ul>
-     *         <p>
-     *         The length constraint applies only to the full ARN. If you specify only the function name, it is limited
-     *         to 64 characters in length.
+     * @return Function name for which the alias is created. An alias is a subresource that exists only in the context
+     *         of an existing Lambda function so you must specify the function name. Note that the length constraint
+     *         applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
      */
 
     public String getFunctionName() {
@@ -183,58 +75,15 @@ public class GetAliasRequest extends com.amazonaws.AmazonWebServiceRequest imple
 
     /**
      * <p>
-     * The name of the lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * Function name for which the alias is created. An alias is a subresource that exists only in the context of an
+     * existing Lambda function so you must specify the function name. Note that the length constraint applies only to
+     * the ARN. If you specify only the function name, it is limited to 64 characters in length.
      * </p>
      * 
      * @param functionName
-     *        The name of the lambda function.</p>
-     *        <p class="title">
-     *        <b>Name formats</b>
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Function name</b> - <code>MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        The length constraint applies only to the full ARN. If you specify only the function name, it is limited
-     *        to 64 characters in length.
+     *        Function name for which the alias is created. An alias is a subresource that exists only in the context of
+     *        an existing Lambda function so you must specify the function name. Note that the length constraint applies
+     *        only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -245,11 +94,11 @@ public class GetAliasRequest extends com.amazonaws.AmazonWebServiceRequest imple
 
     /**
      * <p>
-     * The name of the alias.
+     * Name of the alias for which you want to retrieve information.
      * </p>
      * 
      * @param name
-     *        The name of the alias.
+     *        Name of the alias for which you want to retrieve information.
      */
 
     public void setName(String name) {
@@ -258,10 +107,10 @@ public class GetAliasRequest extends com.amazonaws.AmazonWebServiceRequest imple
 
     /**
      * <p>
-     * The name of the alias.
+     * Name of the alias for which you want to retrieve information.
      * </p>
      * 
-     * @return The name of the alias.
+     * @return Name of the alias for which you want to retrieve information.
      */
 
     public String getName() {
@@ -270,11 +119,11 @@ public class GetAliasRequest extends com.amazonaws.AmazonWebServiceRequest imple
 
     /**
      * <p>
-     * The name of the alias.
+     * Name of the alias for which you want to retrieve information.
      * </p>
      * 
      * @param name
-     *        The name of the alias.
+     *        Name of the alias for which you want to retrieve information.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -284,8 +133,7 @@ public class GetAliasRequest extends com.amazonaws.AmazonWebServiceRequest imple
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

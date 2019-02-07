@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -28,24 +28,21 @@ public class SubscribeResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription requires
-     * confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true, then the value is
-     * always the subscription ARN, even if the subscription requires confirmation.
+     * The ARN of the subscription, if the service was able to create a subscription immediately (without requiring
+     * endpoint owner confirmation).
      * </p>
      */
     private String subscriptionArn;
 
     /**
      * <p>
-     * The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription requires
-     * confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true, then the value is
-     * always the subscription ARN, even if the subscription requires confirmation.
+     * The ARN of the subscription, if the service was able to create a subscription immediately (without requiring
+     * endpoint owner confirmation).
      * </p>
      * 
      * @param subscriptionArn
-     *        The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription
-     *        requires confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true,
-     *        then the value is always the subscription ARN, even if the subscription requires confirmation.
+     *        The ARN of the subscription, if the service was able to create a subscription immediately (without
+     *        requiring endpoint owner confirmation).
      */
 
     public void setSubscriptionArn(String subscriptionArn) {
@@ -54,14 +51,12 @@ public class SubscribeResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription requires
-     * confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true, then the value is
-     * always the subscription ARN, even if the subscription requires confirmation.
+     * The ARN of the subscription, if the service was able to create a subscription immediately (without requiring
+     * endpoint owner confirmation).
      * </p>
      * 
-     * @return The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription
-     *         requires confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true,
-     *         then the value is always the subscription ARN, even if the subscription requires confirmation.
+     * @return The ARN of the subscription, if the service was able to create a subscription immediately (without
+     *         requiring endpoint owner confirmation).
      */
 
     public String getSubscriptionArn() {
@@ -70,15 +65,13 @@ public class SubscribeResult extends com.amazonaws.AmazonWebServiceResult<com.am
 
     /**
      * <p>
-     * The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription requires
-     * confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true, then the value is
-     * always the subscription ARN, even if the subscription requires confirmation.
+     * The ARN of the subscription, if the service was able to create a subscription immediately (without requiring
+     * endpoint owner confirmation).
      * </p>
      * 
      * @param subscriptionArn
-     *        The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription
-     *        requires confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true,
-     *        then the value is always the subscription ARN, even if the subscription requires confirmation.
+     *        The ARN of the subscription, if the service was able to create a subscription immediately (without
+     *        requiring endpoint owner confirmation).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -88,8 +81,7 @@ public class SubscribeResult extends com.amazonaws.AmazonWebServiceResult<com.am
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

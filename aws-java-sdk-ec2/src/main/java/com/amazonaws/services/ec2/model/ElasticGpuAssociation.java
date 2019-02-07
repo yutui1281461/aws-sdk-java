@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -17,7 +17,7 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * Describes the association between an instance and an Elastic Graphics accelerator.
+ * Describes the association between an instance and an Elastic GPU.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ElasticGpuAssociation" target="_top">AWS API
@@ -28,7 +28,7 @@ public class ElasticGpuAssociation implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the Elastic Graphics accelerator.
+     * The ID of the Elastic GPU.
      * </p>
      */
     private String elasticGpuId;
@@ -40,24 +40,24 @@ public class ElasticGpuAssociation implements Serializable, Cloneable {
     private String elasticGpuAssociationId;
     /**
      * <p>
-     * The state of the association between the instance and the Elastic Graphics accelerator.
+     * The state of the association between the instance and the Elastic GPU.
      * </p>
      */
     private String elasticGpuAssociationState;
     /**
      * <p>
-     * The time the Elastic Graphics accelerator was associated with the instance.
+     * The time the Elastic GPU was associated with the instance.
      * </p>
      */
     private String elasticGpuAssociationTime;
 
     /**
      * <p>
-     * The ID of the Elastic Graphics accelerator.
+     * The ID of the Elastic GPU.
      * </p>
      * 
      * @param elasticGpuId
-     *        The ID of the Elastic Graphics accelerator.
+     *        The ID of the Elastic GPU.
      */
 
     public void setElasticGpuId(String elasticGpuId) {
@@ -66,10 +66,10 @@ public class ElasticGpuAssociation implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the Elastic Graphics accelerator.
+     * The ID of the Elastic GPU.
      * </p>
      * 
-     * @return The ID of the Elastic Graphics accelerator.
+     * @return The ID of the Elastic GPU.
      */
 
     public String getElasticGpuId() {
@@ -78,11 +78,11 @@ public class ElasticGpuAssociation implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the Elastic Graphics accelerator.
+     * The ID of the Elastic GPU.
      * </p>
      * 
      * @param elasticGpuId
-     *        The ID of the Elastic Graphics accelerator.
+     *        The ID of the Elastic GPU.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -133,11 +133,11 @@ public class ElasticGpuAssociation implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The state of the association between the instance and the Elastic Graphics accelerator.
+     * The state of the association between the instance and the Elastic GPU.
      * </p>
      * 
      * @param elasticGpuAssociationState
-     *        The state of the association between the instance and the Elastic Graphics accelerator.
+     *        The state of the association between the instance and the Elastic GPU.
      */
 
     public void setElasticGpuAssociationState(String elasticGpuAssociationState) {
@@ -146,10 +146,10 @@ public class ElasticGpuAssociation implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The state of the association between the instance and the Elastic Graphics accelerator.
+     * The state of the association between the instance and the Elastic GPU.
      * </p>
      * 
-     * @return The state of the association between the instance and the Elastic Graphics accelerator.
+     * @return The state of the association between the instance and the Elastic GPU.
      */
 
     public String getElasticGpuAssociationState() {
@@ -158,11 +158,11 @@ public class ElasticGpuAssociation implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The state of the association between the instance and the Elastic Graphics accelerator.
+     * The state of the association between the instance and the Elastic GPU.
      * </p>
      * 
      * @param elasticGpuAssociationState
-     *        The state of the association between the instance and the Elastic Graphics accelerator.
+     *        The state of the association between the instance and the Elastic GPU.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -173,11 +173,11 @@ public class ElasticGpuAssociation implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The time the Elastic Graphics accelerator was associated with the instance.
+     * The time the Elastic GPU was associated with the instance.
      * </p>
      * 
      * @param elasticGpuAssociationTime
-     *        The time the Elastic Graphics accelerator was associated with the instance.
+     *        The time the Elastic GPU was associated with the instance.
      */
 
     public void setElasticGpuAssociationTime(String elasticGpuAssociationTime) {
@@ -186,10 +186,10 @@ public class ElasticGpuAssociation implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The time the Elastic Graphics accelerator was associated with the instance.
+     * The time the Elastic GPU was associated with the instance.
      * </p>
      * 
-     * @return The time the Elastic Graphics accelerator was associated with the instance.
+     * @return The time the Elastic GPU was associated with the instance.
      */
 
     public String getElasticGpuAssociationTime() {
@@ -198,11 +198,11 @@ public class ElasticGpuAssociation implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The time the Elastic Graphics accelerator was associated with the instance.
+     * The time the Elastic GPU was associated with the instance.
      * </p>
      * 
      * @param elasticGpuAssociationTime
-     *        The time the Elastic Graphics accelerator was associated with the instance.
+     *        The time the Elastic GPU was associated with the instance.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -212,8 +212,7 @@ public class ElasticGpuAssociation implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

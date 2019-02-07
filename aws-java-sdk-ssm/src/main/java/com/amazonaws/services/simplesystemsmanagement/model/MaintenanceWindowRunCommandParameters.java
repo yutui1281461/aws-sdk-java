@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -100,7 +100,7 @@ public class MaintenanceWindowRunCommandParameters implements Serializable, Clon
     private String serviceRoleArn;
     /**
      * <p>
-     * If this time is reached and the command has not already started executing, it doesn't run.
+     * If this time is reached and the command has not already started executing, it doesn not execute.
      * </p>
      */
     private Integer timeoutSeconds;
@@ -470,11 +470,11 @@ public class MaintenanceWindowRunCommandParameters implements Serializable, Clon
 
     /**
      * <p>
-     * If this time is reached and the command has not already started executing, it doesn't run.
+     * If this time is reached and the command has not already started executing, it doesn not execute.
      * </p>
      * 
      * @param timeoutSeconds
-     *        If this time is reached and the command has not already started executing, it doesn't run.
+     *        If this time is reached and the command has not already started executing, it doesn not execute.
      */
 
     public void setTimeoutSeconds(Integer timeoutSeconds) {
@@ -483,10 +483,10 @@ public class MaintenanceWindowRunCommandParameters implements Serializable, Clon
 
     /**
      * <p>
-     * If this time is reached and the command has not already started executing, it doesn't run.
+     * If this time is reached and the command has not already started executing, it doesn not execute.
      * </p>
      * 
-     * @return If this time is reached and the command has not already started executing, it doesn't run.
+     * @return If this time is reached and the command has not already started executing, it doesn not execute.
      */
 
     public Integer getTimeoutSeconds() {
@@ -495,11 +495,11 @@ public class MaintenanceWindowRunCommandParameters implements Serializable, Clon
 
     /**
      * <p>
-     * If this time is reached and the command has not already started executing, it doesn't run.
+     * If this time is reached and the command has not already started executing, it doesn not execute.
      * </p>
      * 
      * @param timeoutSeconds
-     *        If this time is reached and the command has not already started executing, it doesn't run.
+     *        If this time is reached and the command has not already started executing, it doesn not execute.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -509,8 +509,7 @@ public class MaintenanceWindowRunCommandParameters implements Serializable, Clon
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

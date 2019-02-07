@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,12 +40,12 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      * </li>
      * <li>
      * <p>
-     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
+     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)
      * </p>
      * </li>
      * <li>
      * <p>
-     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).
+     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)
      * </p>
      * </li>
      * </ul>
@@ -69,13 +69,6 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      * </p>
      */
     private RawString string;
-    /**
-     * <p>
-     * The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or
-     * YAML and stored as a RawString.
-     * </p>
-     */
-    private AppSpecContent appSpecContent;
 
     /**
      * <p>
@@ -89,12 +82,12 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      * </li>
      * <li>
      * <p>
-     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
+     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)
      * </p>
      * </li>
      * <li>
      * <p>
-     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).
+     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)
      * </p>
      * </li>
      * </ul>
@@ -109,12 +102,12 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      *        </li>
      *        <li>
      *        <p>
-     *        GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
+     *        GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).
+     *        String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)
      *        </p>
      *        </li>
      * @see RevisionLocationType
@@ -136,12 +129,12 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      * </li>
      * <li>
      * <p>
-     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
+     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)
      * </p>
      * </li>
      * <li>
      * <p>
-     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).
+     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)
      * </p>
      * </li>
      * </ul>
@@ -155,12 +148,12 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      *         </li>
      *         <li>
      *         <p>
-     *         GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
+     *         GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).
+     *         String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)
      *         </p>
      *         </li>
      * @see RevisionLocationType
@@ -182,12 +175,12 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      * </li>
      * <li>
      * <p>
-     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
+     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)
      * </p>
      * </li>
      * <li>
      * <p>
-     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).
+     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)
      * </p>
      * </li>
      * </ul>
@@ -202,12 +195,12 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      *        </li>
      *        <li>
      *        <p>
-     *        GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
+     *        GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).
+     *        String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -231,12 +224,12 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      * </li>
      * <li>
      * <p>
-     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
+     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)
      * </p>
      * </li>
      * <li>
      * <p>
-     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).
+     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)
      * </p>
      * </li>
      * </ul>
@@ -251,12 +244,12 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      *        </li>
      *        <li>
      *        <p>
-     *        GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
+     *        GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).
+     *        String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)
      *        </p>
      *        </li>
      * @see RevisionLocationType
@@ -278,12 +271,12 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      * </li>
      * <li>
      * <p>
-     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
+     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)
      * </p>
      * </li>
      * <li>
      * <p>
-     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).
+     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)
      * </p>
      * </li>
      * </ul>
@@ -298,12 +291,12 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      *        </li>
      *        <li>
      *        <p>
-     *        GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
+     *        GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).
+     *        String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -403,7 +396,7 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      * @param string
      *        Information about the location of an AWS Lambda deployment revision stored as a RawString.
      */
-    @Deprecated
+
     public void setString(RawString string) {
         this.string = string;
     }
@@ -415,7 +408,7 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      * 
      * @return Information about the location of an AWS Lambda deployment revision stored as a RawString.
      */
-    @Deprecated
+
     public RawString getString() {
         return this.string;
     }
@@ -429,61 +422,14 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
      *        Information about the location of an AWS Lambda deployment revision stored as a RawString.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
-    @Deprecated
+
     public RevisionLocation withString(RawString string) {
         setString(string);
         return this;
     }
 
     /**
-     * <p>
-     * The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or
-     * YAML and stored as a RawString.
-     * </p>
-     * 
-     * @param appSpecContent
-     *        The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as
-     *        JSON or YAML and stored as a RawString.
-     */
-
-    public void setAppSpecContent(AppSpecContent appSpecContent) {
-        this.appSpecContent = appSpecContent;
-    }
-
-    /**
-     * <p>
-     * The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or
-     * YAML and stored as a RawString.
-     * </p>
-     * 
-     * @return The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as
-     *         JSON or YAML and stored as a RawString.
-     */
-
-    public AppSpecContent getAppSpecContent() {
-        return this.appSpecContent;
-    }
-
-    /**
-     * <p>
-     * The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or
-     * YAML and stored as a RawString.
-     * </p>
-     * 
-     * @param appSpecContent
-     *        The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as
-     *        JSON or YAML and stored as a RawString.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RevisionLocation withAppSpecContent(AppSpecContent appSpecContent) {
-        setAppSpecContent(appSpecContent);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -500,9 +446,7 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
         if (getGitHubLocation() != null)
             sb.append("GitHubLocation: ").append(getGitHubLocation()).append(",");
         if (getString() != null)
-            sb.append("String: ").append(getString()).append(",");
-        if (getAppSpecContent() != null)
-            sb.append("AppSpecContent: ").append(getAppSpecContent());
+            sb.append("String: ").append(getString());
         sb.append("}");
         return sb.toString();
     }
@@ -533,10 +477,6 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
             return false;
         if (other.getString() != null && other.getString().equals(this.getString()) == false)
             return false;
-        if (other.getAppSpecContent() == null ^ this.getAppSpecContent() == null)
-            return false;
-        if (other.getAppSpecContent() != null && other.getAppSpecContent().equals(this.getAppSpecContent()) == false)
-            return false;
         return true;
     }
 
@@ -549,7 +489,6 @@ public class RevisionLocation implements Serializable, Cloneable, StructuredPojo
         hashCode = prime * hashCode + ((getS3Location() == null) ? 0 : getS3Location().hashCode());
         hashCode = prime * hashCode + ((getGitHubLocation() == null) ? 0 : getGitHubLocation().hashCode());
         hashCode = prime * hashCode + ((getString() == null) ? 0 : getString().hashCode());
-        hashCode = prime * hashCode + ((getAppSpecContent() == null) ? 0 : getAppSpecContent().hashCode());
         return hashCode;
     }
 

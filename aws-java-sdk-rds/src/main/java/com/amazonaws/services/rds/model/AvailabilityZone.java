@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -38,18 +38,18 @@ public class AvailabilityZone implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The name of the Availability Zone.
+     * The name of the availability zone.
      * </p>
      */
     private String name;
 
     /**
      * <p>
-     * The name of the Availability Zone.
+     * The name of the availability zone.
      * </p>
      * 
      * @param name
-     *        The name of the Availability Zone.
+     *        The name of the availability zone.
      */
 
     public void setName(String name) {
@@ -58,10 +58,10 @@ public class AvailabilityZone implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The name of the Availability Zone.
+     * The name of the availability zone.
      * </p>
      * 
-     * @return The name of the Availability Zone.
+     * @return The name of the availability zone.
      */
 
     public String getName() {
@@ -70,11 +70,11 @@ public class AvailabilityZone implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The name of the Availability Zone.
+     * The name of the availability zone.
      * </p>
      * 
      * @param name
-     *        The name of the Availability Zone.
+     *        The name of the availability zone.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -84,8 +84,7 @@ public class AvailabilityZone implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

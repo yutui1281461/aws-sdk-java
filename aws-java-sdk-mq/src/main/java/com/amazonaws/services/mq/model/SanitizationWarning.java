@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,14 @@ public class SanitizationWarning implements Serializable, Cloneable, StructuredP
     private String attributeName;
     /** The name of the XML element that has been sanitized. */
     private String elementName;
-    /** Required. The reason for which the XML elements or attributes were sanitized. */
+    /**
+     * Required. The reason for which the XML elements or attributes were sanitized. Possible values:
+     * DISALLOWED_ELEMENT_REMOVED, DISALLOWED_ATTRIBUTE_REMOVED, INVALID_ATTRIBUTE_VALUE_REMOVED
+     * DISALLOWED_ELEMENT_REMOVED shows that the provided element isn't allowed and has been removed.
+     * DISALLOWED_ATTRIBUTE_REMOVED shows that the provided attribute isn't allowed and has been removed.
+     * INVALID_ATTRIBUTE_VALUE_REMOVED shows that the provided value for the attribute isn't allowed and has been
+     * removed.
+     */
     private String reason;
 
     /**
@@ -102,10 +109,20 @@ public class SanitizationWarning implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Required. The reason for which the XML elements or attributes were sanitized.
+     * Required. The reason for which the XML elements or attributes were sanitized. Possible values:
+     * DISALLOWED_ELEMENT_REMOVED, DISALLOWED_ATTRIBUTE_REMOVED, INVALID_ATTRIBUTE_VALUE_REMOVED
+     * DISALLOWED_ELEMENT_REMOVED shows that the provided element isn't allowed and has been removed.
+     * DISALLOWED_ATTRIBUTE_REMOVED shows that the provided attribute isn't allowed and has been removed.
+     * INVALID_ATTRIBUTE_VALUE_REMOVED shows that the provided value for the attribute isn't allowed and has been
+     * removed.
      * 
      * @param reason
-     *        Required. The reason for which the XML elements or attributes were sanitized.
+     *        Required. The reason for which the XML elements or attributes were sanitized. Possible values:
+     *        DISALLOWED_ELEMENT_REMOVED, DISALLOWED_ATTRIBUTE_REMOVED, INVALID_ATTRIBUTE_VALUE_REMOVED
+     *        DISALLOWED_ELEMENT_REMOVED shows that the provided element isn't allowed and has been removed.
+     *        DISALLOWED_ATTRIBUTE_REMOVED shows that the provided attribute isn't allowed and has been removed.
+     *        INVALID_ATTRIBUTE_VALUE_REMOVED shows that the provided value for the attribute isn't allowed and has been
+     *        removed.
      * @see SanitizationWarningReason
      */
 
@@ -114,9 +131,19 @@ public class SanitizationWarning implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Required. The reason for which the XML elements or attributes were sanitized.
+     * Required. The reason for which the XML elements or attributes were sanitized. Possible values:
+     * DISALLOWED_ELEMENT_REMOVED, DISALLOWED_ATTRIBUTE_REMOVED, INVALID_ATTRIBUTE_VALUE_REMOVED
+     * DISALLOWED_ELEMENT_REMOVED shows that the provided element isn't allowed and has been removed.
+     * DISALLOWED_ATTRIBUTE_REMOVED shows that the provided attribute isn't allowed and has been removed.
+     * INVALID_ATTRIBUTE_VALUE_REMOVED shows that the provided value for the attribute isn't allowed and has been
+     * removed.
      * 
-     * @return Required. The reason for which the XML elements or attributes were sanitized.
+     * @return Required. The reason for which the XML elements or attributes were sanitized. Possible values:
+     *         DISALLOWED_ELEMENT_REMOVED, DISALLOWED_ATTRIBUTE_REMOVED, INVALID_ATTRIBUTE_VALUE_REMOVED
+     *         DISALLOWED_ELEMENT_REMOVED shows that the provided element isn't allowed and has been removed.
+     *         DISALLOWED_ATTRIBUTE_REMOVED shows that the provided attribute isn't allowed and has been removed.
+     *         INVALID_ATTRIBUTE_VALUE_REMOVED shows that the provided value for the attribute isn't allowed and has
+     *         been removed.
      * @see SanitizationWarningReason
      */
 
@@ -125,10 +152,20 @@ public class SanitizationWarning implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Required. The reason for which the XML elements or attributes were sanitized.
+     * Required. The reason for which the XML elements or attributes were sanitized. Possible values:
+     * DISALLOWED_ELEMENT_REMOVED, DISALLOWED_ATTRIBUTE_REMOVED, INVALID_ATTRIBUTE_VALUE_REMOVED
+     * DISALLOWED_ELEMENT_REMOVED shows that the provided element isn't allowed and has been removed.
+     * DISALLOWED_ATTRIBUTE_REMOVED shows that the provided attribute isn't allowed and has been removed.
+     * INVALID_ATTRIBUTE_VALUE_REMOVED shows that the provided value for the attribute isn't allowed and has been
+     * removed.
      * 
      * @param reason
-     *        Required. The reason for which the XML elements or attributes were sanitized.
+     *        Required. The reason for which the XML elements or attributes were sanitized. Possible values:
+     *        DISALLOWED_ELEMENT_REMOVED, DISALLOWED_ATTRIBUTE_REMOVED, INVALID_ATTRIBUTE_VALUE_REMOVED
+     *        DISALLOWED_ELEMENT_REMOVED shows that the provided element isn't allowed and has been removed.
+     *        DISALLOWED_ATTRIBUTE_REMOVED shows that the provided attribute isn't allowed and has been removed.
+     *        INVALID_ATTRIBUTE_VALUE_REMOVED shows that the provided value for the attribute isn't allowed and has been
+     *        removed.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see SanitizationWarningReason
      */
@@ -139,10 +176,20 @@ public class SanitizationWarning implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Required. The reason for which the XML elements or attributes were sanitized.
+     * Required. The reason for which the XML elements or attributes were sanitized. Possible values:
+     * DISALLOWED_ELEMENT_REMOVED, DISALLOWED_ATTRIBUTE_REMOVED, INVALID_ATTRIBUTE_VALUE_REMOVED
+     * DISALLOWED_ELEMENT_REMOVED shows that the provided element isn't allowed and has been removed.
+     * DISALLOWED_ATTRIBUTE_REMOVED shows that the provided attribute isn't allowed and has been removed.
+     * INVALID_ATTRIBUTE_VALUE_REMOVED shows that the provided value for the attribute isn't allowed and has been
+     * removed.
      * 
      * @param reason
-     *        Required. The reason for which the XML elements or attributes were sanitized.
+     *        Required. The reason for which the XML elements or attributes were sanitized. Possible values:
+     *        DISALLOWED_ELEMENT_REMOVED, DISALLOWED_ATTRIBUTE_REMOVED, INVALID_ATTRIBUTE_VALUE_REMOVED
+     *        DISALLOWED_ELEMENT_REMOVED shows that the provided element isn't allowed and has been removed.
+     *        DISALLOWED_ATTRIBUTE_REMOVED shows that the provided attribute isn't allowed and has been removed.
+     *        INVALID_ATTRIBUTE_VALUE_REMOVED shows that the provided value for the attribute isn't allowed and has been
+     *        removed.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see SanitizationWarningReason
      */
@@ -153,8 +200,7 @@ public class SanitizationWarning implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

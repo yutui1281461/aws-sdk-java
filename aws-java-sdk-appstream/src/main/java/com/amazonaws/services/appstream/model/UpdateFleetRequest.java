@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,12 +31,6 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
      * </p>
      */
     private String imageName;
-    /**
-     * <p>
-     * The ARN of the public, private, or shared image to use.
-     * </p>
-     */
-    private String imageArn;
     /**
      * <p>
      * A unique name for the fleet.
@@ -186,13 +180,13 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
     private Boolean deleteVpcConfig;
     /**
      * <p>
-     * The description to display.
+     * The description for display.
      * </p>
      */
     private String description;
     /**
      * <p>
-     * The fleet name to display.
+     * The fleet name for display.
      * </p>
      */
     private String displayName;
@@ -204,8 +198,7 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
     private Boolean enableDefaultInternetAccess;
     /**
      * <p>
-     * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory
-     * domain.
+     * The information needed to join a Microsoft Active Directory domain.
      * </p>
      */
     private DomainJoinInfo domainJoinInfo;
@@ -253,46 +246,6 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     public UpdateFleetRequest withImageName(String imageName) {
         setImageName(imageName);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The ARN of the public, private, or shared image to use.
-     * </p>
-     * 
-     * @param imageArn
-     *        The ARN of the public, private, or shared image to use.
-     */
-
-    public void setImageArn(String imageArn) {
-        this.imageArn = imageArn;
-    }
-
-    /**
-     * <p>
-     * The ARN of the public, private, or shared image to use.
-     * </p>
-     * 
-     * @return The ARN of the public, private, or shared image to use.
-     */
-
-    public String getImageArn() {
-        return this.imageArn;
-    }
-
-    /**
-     * <p>
-     * The ARN of the public, private, or shared image to use.
-     * </p>
-     * 
-     * @param imageArn
-     *        The ARN of the public, private, or shared image to use.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public UpdateFleetRequest withImageArn(String imageArn) {
-        setImageArn(imageArn);
         return this;
     }
 
@@ -1211,11 +1164,11 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The description to display.
+     * The description for display.
      * </p>
      * 
      * @param description
-     *        The description to display.
+     *        The description for display.
      */
 
     public void setDescription(String description) {
@@ -1224,10 +1177,10 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The description to display.
+     * The description for display.
      * </p>
      * 
-     * @return The description to display.
+     * @return The description for display.
      */
 
     public String getDescription() {
@@ -1236,11 +1189,11 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The description to display.
+     * The description for display.
      * </p>
      * 
      * @param description
-     *        The description to display.
+     *        The description for display.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1251,11 +1204,11 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The fleet name to display.
+     * The fleet name for display.
      * </p>
      * 
      * @param displayName
-     *        The fleet name to display.
+     *        The fleet name for display.
      */
 
     public void setDisplayName(String displayName) {
@@ -1264,10 +1217,10 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The fleet name to display.
+     * The fleet name for display.
      * </p>
      * 
-     * @return The fleet name to display.
+     * @return The fleet name for display.
      */
 
     public String getDisplayName() {
@@ -1276,11 +1229,11 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The fleet name to display.
+     * The fleet name for display.
      * </p>
      * 
      * @param displayName
-     *        The fleet name to display.
+     *        The fleet name for display.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1343,13 +1296,11 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory
-     * domain.
+     * The information needed to join a Microsoft Active Directory domain.
      * </p>
      * 
      * @param domainJoinInfo
-     *        The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active
-     *        Directory domain.
+     *        The information needed to join a Microsoft Active Directory domain.
      */
 
     public void setDomainJoinInfo(DomainJoinInfo domainJoinInfo) {
@@ -1358,12 +1309,10 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory
-     * domain.
+     * The information needed to join a Microsoft Active Directory domain.
      * </p>
      * 
-     * @return The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active
-     *         Directory domain.
+     * @return The information needed to join a Microsoft Active Directory domain.
      */
 
     public DomainJoinInfo getDomainJoinInfo() {
@@ -1372,13 +1321,11 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory
-     * domain.
+     * The information needed to join a Microsoft Active Directory domain.
      * </p>
      * 
      * @param domainJoinInfo
-     *        The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active
-     *        Directory domain.
+     *        The information needed to join a Microsoft Active Directory domain.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1486,8 +1433,7 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1499,8 +1445,6 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
         sb.append("{");
         if (getImageName() != null)
             sb.append("ImageName: ").append(getImageName()).append(",");
-        if (getImageArn() != null)
-            sb.append("ImageArn: ").append(getImageArn()).append(",");
         if (getName() != null)
             sb.append("Name: ").append(getName()).append(",");
         if (getInstanceType() != null)
@@ -1542,10 +1486,6 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
         if (other.getImageName() == null ^ this.getImageName() == null)
             return false;
         if (other.getImageName() != null && other.getImageName().equals(this.getImageName()) == false)
-            return false;
-        if (other.getImageArn() == null ^ this.getImageArn() == null)
-            return false;
-        if (other.getImageArn() != null && other.getImageArn().equals(this.getImageArn()) == false)
             return false;
         if (other.getName() == null ^ this.getName() == null)
             return false;
@@ -1604,7 +1544,6 @@ public class UpdateFleetRequest extends com.amazonaws.AmazonWebServiceRequest im
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getImageName() == null) ? 0 : getImageName().hashCode());
-        hashCode = prime * hashCode + ((getImageArn() == null) ? 0 : getImageArn().hashCode());
         hashCode = prime * hashCode + ((getName() == null) ? 0 : getName().hashCode());
         hashCode = prime * hashCode + ((getInstanceType() == null) ? 0 : getInstanceType().hashCode());
         hashCode = prime * hashCode + ((getComputeCapacity() == null) ? 0 : getComputeCapacity().hashCode());

@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2011-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,15 +14,16 @@
  */
 package com.amazonaws.services.stepfunctions.builder.states;
 
-import static com.amazonaws.services.stepfunctions.builder.internal.JacksonUtils.jsonToString;
-import static com.amazonaws.services.stepfunctions.builder.internal.JacksonUtils.objectToJsonNode;
-import static com.amazonaws.services.stepfunctions.builder.internal.JacksonUtils.stringToJsonNode;
-
+import com.amazonaws.SdkClientException;
 import com.amazonaws.services.stepfunctions.builder.internal.PropertyNames;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 
 /**
  * The Pass State simply passes its input to its output, performing no work. Pass States are useful when constructing and
@@ -34,6 +35,15 @@ import com.fasterxml.jackson.databind.JsonNode;
  * @see <a href="https://states-language.net/spec.html#pass-state">https://states-language.net/spec.html#pass-state</a>
  */
 public final class PassState extends TransitionState {
+
+    /**
+     * Disable Jackson specific features like annotations. Support only
+     * basic POJO serialization to limit our coupling to Jackson.
+     */
+    private static final ObjectMapper MAPPER = new ObjectMapper()
+            .disable(MapperFeature.USE_ANNOTATIONS)
+            .disable(MapperFeature.CAN_OVERRIDE_ACCESS_MODIFIERS)
+            .disable(MapperFeature.AUTO_DETECT_FIELDS);
 
     @JsonProperty(PropertyNames.COMMENT)
     private final String comment;
@@ -74,7 +84,11 @@ public final class PassState extends TransitionState {
      */
     @JsonIgnore
     public String getResult() {
-        return jsonToString(result);
+        try {
+            return result == null ? null : MAPPER.writeValueAsString(result);
+        } catch (JsonProcessingException e) {
+            throw new SdkClientException("Could not serialize result", e);
+        }
     }
 
     /**
@@ -102,14 +116,6 @@ public final class PassState extends TransitionState {
     }
 
     /**
-     * @return The Parameters JSON document that may optionally transform the effective input to the task.
-     */
-    @JsonIgnore
-    public String getParameters() {
-        return jsonToString(pathContainer.getParameters());
-    }
-
-    /**
      * @return The {@link Transition} for this state.
      */
     public Transition getTransition() {
@@ -131,8 +137,7 @@ public final class PassState extends TransitionState {
     /**
      * Builder for a {@link PassState}.
      */
-    public static final class Builder extends TransitionStateBuilder
-        implements InputOutputResultPathBuilder<Builder>, ParametersBuilder<Builder> {
+    public static final class Builder extends TransitionStateBuilder implements InputOutputResultPathBuilder<Builder> {
 
         @JsonProperty(PropertyNames.COMMENT)
         private String comment;
@@ -140,7 +145,6 @@ public final class PassState extends TransitionState {
         @JsonProperty(PropertyNames.RESULT)
         private JsonNode result;
 
-        @JsonUnwrapped
         private final PathContainer.Builder pathContainer = PathContainer.builder();
 
         private Transition.Builder transition = Transition.NULL_BUILDER;
@@ -166,7 +170,7 @@ public final class PassState extends TransitionState {
          * @return This object for method chaining.
          */
         public Builder result(Object result) {
-            this.result = objectToJsonNode(result);
+            this.result = MAPPER.valueToTree(result);
             return this;
         }
 
@@ -177,7 +181,11 @@ public final class PassState extends TransitionState {
          * @return This object for method chaining.
          */
         public Builder result(String result) {
-            this.result = stringToJsonNode("Result", result);
+            try {
+                this.result = MAPPER.readTree(result);
+            } catch (IOException e) {
+                throw new SdkClientException("Result must be a JSON document", e);
+            }
             return this;
         }
 
@@ -196,18 +204,6 @@ public final class PassState extends TransitionState {
         @Override
         public Builder resultPath(String resultPath) {
             pathContainer.resultPath(resultPath);
-            return this;
-        }
-
-        @Override
-        public Builder parameters(String parameters) {
-            pathContainer.parameters(stringToJsonNode("Parameters", parameters));
-            return this;
-        }
-
-        @Override
-        public Builder parameters(Object parameters) {
-            pathContainer.parameters(objectToJsonNode(parameters));
             return this;
         }
 

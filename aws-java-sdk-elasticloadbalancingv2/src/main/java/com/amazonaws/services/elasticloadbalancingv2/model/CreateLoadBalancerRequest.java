@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,7 +31,7 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * </p>
      * <p>
      * This name must be unique per region per account, can have a maximum of 32 characters, must contain only
-     * alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+     * alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * </p>
      */
     private String name;
@@ -73,7 +73,7 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load
      * balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load
-     * balancers can route requests from clients over the internet.
+     * balancers can route requests from clients over the Internet.
      * </p>
      * <p>
      * The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer
@@ -112,15 +112,14 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * </p>
      * <p>
      * This name must be unique per region per account, can have a maximum of 32 characters, must contain only
-     * alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+     * alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * </p>
      * 
      * @param name
      *        The name of the load balancer.</p>
      *        <p>
      *        This name must be unique per region per account, can have a maximum of 32 characters, must contain only
-     *        alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with
-     *        "internal-".
+     *        alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      */
 
     public void setName(String name) {
@@ -133,14 +132,13 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * </p>
      * <p>
      * This name must be unique per region per account, can have a maximum of 32 characters, must contain only
-     * alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+     * alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * </p>
      * 
      * @return The name of the load balancer.</p>
      *         <p>
      *         This name must be unique per region per account, can have a maximum of 32 characters, must contain only
-     *         alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with
-     *         "internal-".
+     *         alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      */
 
     public String getName() {
@@ -153,15 +151,14 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * </p>
      * <p>
      * This name must be unique per region per account, can have a maximum of 32 characters, must contain only
-     * alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+     * alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * </p>
      * 
      * @param name
      *        The name of the load balancer.</p>
      *        <p>
      *        This name must be unique per region per account, can have a maximum of 32 characters, must contain only
-     *        alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with
-     *        "internal-".
+     *        alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -504,7 +501,7 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load
      * balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load
-     * balancers can route requests from clients over the internet.
+     * balancers can route requests from clients over the Internet.
      * </p>
      * <p>
      * The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer
@@ -518,7 +515,7 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * @param scheme
      *        The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing
      *        load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing
-     *        load balancers can route requests from clients over the internet.</p>
+     *        load balancers can route requests from clients over the Internet.</p>
      *        <p>
      *        The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load
      *        balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load
@@ -537,7 +534,7 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load
      * balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load
-     * balancers can route requests from clients over the internet.
+     * balancers can route requests from clients over the Internet.
      * </p>
      * <p>
      * The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer
@@ -550,7 +547,7 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * 
      * @return The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an
      *         Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore,
-     *         Internet-facing load balancers can route requests from clients over the internet.</p>
+     *         Internet-facing load balancers can route requests from clients over the Internet.</p>
      *         <p>
      *         The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load
      *         balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load
@@ -569,7 +566,7 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load
      * balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load
-     * balancers can route requests from clients over the internet.
+     * balancers can route requests from clients over the Internet.
      * </p>
      * <p>
      * The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer
@@ -583,7 +580,7 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * @param scheme
      *        The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing
      *        load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing
-     *        load balancers can route requests from clients over the internet.</p>
+     *        load balancers can route requests from clients over the Internet.</p>
      *        <p>
      *        The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load
      *        balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load
@@ -604,7 +601,7 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load
      * balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load
-     * balancers can route requests from clients over the internet.
+     * balancers can route requests from clients over the Internet.
      * </p>
      * <p>
      * The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer
@@ -618,7 +615,7 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * @param scheme
      *        The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing
      *        load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing
-     *        load balancers can route requests from clients over the internet.</p>
+     *        load balancers can route requests from clients over the Internet.</p>
      *        <p>
      *        The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load
      *        balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load
@@ -637,7 +634,7 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * <p>
      * The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load
      * balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load
-     * balancers can route requests from clients over the internet.
+     * balancers can route requests from clients over the Internet.
      * </p>
      * <p>
      * The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer
@@ -651,7 +648,7 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
      * @param scheme
      *        The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing
      *        load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing
-     *        load balancers can route requests from clients over the internet.</p>
+     *        load balancers can route requests from clients over the Internet.</p>
      *        <p>
      *        The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load
      *        balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load
@@ -905,8 +902,7 @@ public class CreateLoadBalancerRequest extends com.amazonaws.AmazonWebServiceReq
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -16,7 +16,8 @@
 package com.amazonaws.internal;
 
 import java.io.IOException;
-import java.time.ZonedDateTime;
+
+import org.joda.time.DateTime;
 
 import com.amazonaws.util.DateUtils;
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -26,11 +27,11 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 /**
  * A Jackson serializer for Joda {@code DateTime}s.
  */
-public final class DateTimeJsonSerializer extends JsonSerializer<ZonedDateTime> {
+public final class DateTimeJsonSerializer extends JsonSerializer<DateTime> {
 
     @Override
     public void serialize(
-            ZonedDateTime value,
+            DateTime value,
             JsonGenerator jgen,
             SerializerProvider provider) throws IOException {
 

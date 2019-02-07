@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,17 +19,36 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * With Amazon EMR release version 4.0 and later, the only accepted parameter is the application name. To pass arguments
- * to applications, you use configuration classifications specified using configuration JSON objects. For more
- * information, see <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html">Configuring
- * Applications</a>.
+ * An application is any Amazon or third-party software that you can add to the cluster. This structure contains a list
+ * of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts
+ * and forwards the argument list to the corresponding installation script as bootstrap action argument. For more
+ * information, see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-mapr.html">Using the MapR
+ * Distribution for Hadoop</a>. Currently supported values are:
  * </p>
+ * <ul>
+ * <li>
  * <p>
- * With earlier Amazon EMR releases, the application is any Amazon or third-party software that you can add to the
- * cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a
- * user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as
- * bootstrap action argument.
+ * "mapr-m3" - launch the cluster using MapR M3 Edition.
  * </p>
+ * </li>
+ * <li>
+ * <p>
+ * "mapr-m5" - launch the cluster using MapR M5 Edition.
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * "mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the cluster using MapR M3 or M5
+ * Edition, respectively.
+ * </p>
+ * </li>
+ * </ul>
+ * <note>
+ * <p>
+ * In Amazon EMR releases 4.x and later, the only accepted parameter is the application name. To pass arguments to
+ * applications, you supply a configuration for each application.
+ * </p>
+ * </note>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/elasticmapreduce-2009-03-31/Application" target="_top">AWS API
  *      Documentation</a>
@@ -287,8 +306,7 @@ public class Application implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

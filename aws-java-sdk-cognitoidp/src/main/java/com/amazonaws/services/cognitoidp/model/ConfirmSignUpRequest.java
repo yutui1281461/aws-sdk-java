@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -414,8 +414,7 @@ public class ConfirmSignUpRequest extends com.amazonaws.AmazonWebServiceRequest 
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -426,11 +425,11 @@ public class ConfirmSignUpRequest extends com.amazonaws.AmazonWebServiceRequest 
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         if (getClientId() != null)
-            sb.append("ClientId: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("ClientId: ").append(getClientId()).append(",");
         if (getSecretHash() != null)
-            sb.append("SecretHash: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("SecretHash: ").append(getSecretHash()).append(",");
         if (getUsername() != null)
-            sb.append("Username: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("Username: ").append(getUsername()).append(",");
         if (getConfirmationCode() != null)
             sb.append("ConfirmationCode: ").append(getConfirmationCode()).append(",");
         if (getForceAliasCreation() != null)

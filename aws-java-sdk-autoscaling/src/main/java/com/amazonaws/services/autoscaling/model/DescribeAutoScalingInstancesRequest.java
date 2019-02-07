@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,8 +27,8 @@ public class DescribeAutoScalingInstancesRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The IDs of the instances. You can specify up to <code>MaxRecords</code> IDs. If you omit this parameter, all Auto
-     * Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
+     * The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances are
+     * described. If you specify an ID that does not exist, it is ignored with no error.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> instanceIds;
@@ -47,13 +47,12 @@ public class DescribeAutoScalingInstancesRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The IDs of the instances. You can specify up to <code>MaxRecords</code> IDs. If you omit this parameter, all Auto
-     * Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
+     * The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances are
+     * described. If you specify an ID that does not exist, it is ignored with no error.
      * </p>
      * 
-     * @return The IDs of the instances. You can specify up to <code>MaxRecords</code> IDs. If you omit this parameter,
-     *         all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no
-     *         error.
+     * @return The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances
+     *         are described. If you specify an ID that does not exist, it is ignored with no error.
      */
 
     public java.util.List<String> getInstanceIds() {
@@ -65,14 +64,13 @@ public class DescribeAutoScalingInstancesRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The IDs of the instances. You can specify up to <code>MaxRecords</code> IDs. If you omit this parameter, all Auto
-     * Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
+     * The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances are
+     * described. If you specify an ID that does not exist, it is ignored with no error.
      * </p>
      * 
      * @param instanceIds
-     *        The IDs of the instances. You can specify up to <code>MaxRecords</code> IDs. If you omit this parameter,
-     *        all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no
-     *        error.
+     *        The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances
+     *        are described. If you specify an ID that does not exist, it is ignored with no error.
      */
 
     public void setInstanceIds(java.util.Collection<String> instanceIds) {
@@ -86,8 +84,8 @@ public class DescribeAutoScalingInstancesRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The IDs of the instances. You can specify up to <code>MaxRecords</code> IDs. If you omit this parameter, all Auto
-     * Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
+     * The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances are
+     * described. If you specify an ID that does not exist, it is ignored with no error.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -96,9 +94,8 @@ public class DescribeAutoScalingInstancesRequest extends com.amazonaws.AmazonWeb
      * </p>
      * 
      * @param instanceIds
-     *        The IDs of the instances. You can specify up to <code>MaxRecords</code> IDs. If you omit this parameter,
-     *        all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no
-     *        error.
+     *        The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances
+     *        are described. If you specify an ID that does not exist, it is ignored with no error.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -114,14 +111,13 @@ public class DescribeAutoScalingInstancesRequest extends com.amazonaws.AmazonWeb
 
     /**
      * <p>
-     * The IDs of the instances. You can specify up to <code>MaxRecords</code> IDs. If you omit this parameter, all Auto
-     * Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
+     * The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances are
+     * described. If you specify an ID that does not exist, it is ignored with no error.
      * </p>
      * 
      * @param instanceIds
-     *        The IDs of the instances. You can specify up to <code>MaxRecords</code> IDs. If you omit this parameter,
-     *        all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no
-     *        error.
+     *        The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances
+     *        are described. If you specify an ID that does not exist, it is ignored with no error.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -212,8 +208,7 @@ public class DescribeAutoScalingInstancesRequest extends com.amazonaws.AmazonWeb
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

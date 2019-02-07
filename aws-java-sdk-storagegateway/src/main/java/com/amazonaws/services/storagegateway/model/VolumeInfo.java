@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -73,8 +73,6 @@ public class VolumeInfo implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private Long volumeSizeInBytes;
-
-    private String volumeAttachmentStatus;
 
     /**
      * <p>
@@ -379,34 +377,7 @@ public class VolumeInfo implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @param volumeAttachmentStatus
-     */
-
-    public void setVolumeAttachmentStatus(String volumeAttachmentStatus) {
-        this.volumeAttachmentStatus = volumeAttachmentStatus;
-    }
-
-    /**
-     * @return
-     */
-
-    public String getVolumeAttachmentStatus() {
-        return this.volumeAttachmentStatus;
-    }
-
-    /**
-     * @param volumeAttachmentStatus
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public VolumeInfo withVolumeAttachmentStatus(String volumeAttachmentStatus) {
-        setVolumeAttachmentStatus(volumeAttachmentStatus);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -427,9 +398,7 @@ public class VolumeInfo implements Serializable, Cloneable, StructuredPojo {
         if (getVolumeType() != null)
             sb.append("VolumeType: ").append(getVolumeType()).append(",");
         if (getVolumeSizeInBytes() != null)
-            sb.append("VolumeSizeInBytes: ").append(getVolumeSizeInBytes()).append(",");
-        if (getVolumeAttachmentStatus() != null)
-            sb.append("VolumeAttachmentStatus: ").append(getVolumeAttachmentStatus());
+            sb.append("VolumeSizeInBytes: ").append(getVolumeSizeInBytes());
         sb.append("}");
         return sb.toString();
     }
@@ -468,10 +437,6 @@ public class VolumeInfo implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getVolumeSizeInBytes() != null && other.getVolumeSizeInBytes().equals(this.getVolumeSizeInBytes()) == false)
             return false;
-        if (other.getVolumeAttachmentStatus() == null ^ this.getVolumeAttachmentStatus() == null)
-            return false;
-        if (other.getVolumeAttachmentStatus() != null && other.getVolumeAttachmentStatus().equals(this.getVolumeAttachmentStatus()) == false)
-            return false;
         return true;
     }
 
@@ -486,7 +451,6 @@ public class VolumeInfo implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getGatewayId() == null) ? 0 : getGatewayId().hashCode());
         hashCode = prime * hashCode + ((getVolumeType() == null) ? 0 : getVolumeType().hashCode());
         hashCode = prime * hashCode + ((getVolumeSizeInBytes() == null) ? 0 : getVolumeSizeInBytes().hashCode());
-        hashCode = prime * hashCode + ((getVolumeAttachmentStatus() == null) ? 0 : getVolumeAttachmentStatus().hashCode());
         return hashCode;
     }
 

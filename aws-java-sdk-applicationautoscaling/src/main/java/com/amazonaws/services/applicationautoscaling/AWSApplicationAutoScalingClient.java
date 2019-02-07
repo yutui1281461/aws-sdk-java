@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,8 +37,6 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
-import com.amazonaws.client.builder.AdvancedConfig;
-
 import com.amazonaws.services.applicationautoscaling.AWSApplicationAutoScalingClientBuilder;
 
 import com.amazonaws.AmazonServiceException;
@@ -51,13 +49,13 @@ import com.amazonaws.services.applicationautoscaling.model.transform.*;
  * return until the service call completes.
  * <p>
  * <p>
- * With Application Auto Scaling, you can configure automatic scaling for your scalable resources. You can use
+ * With Application Auto Scaling, you can configure automatic scaling for your scalable AWS resources. You can use
  * Application Auto Scaling to accomplish the following tasks:
  * </p>
  * <ul>
  * <li>
  * <p>
- * Define scaling policies to automatically scale your AWS or custom resources
+ * Define scaling policies to automatically scale your AWS resources
  * </p>
  * </li>
  * <li>
@@ -77,7 +75,7 @@ import com.amazonaws.services.applicationautoscaling.model.transform.*;
  * </li>
  * </ul>
  * <p>
- * Application Auto Scaling can scale the following resources:
+ * Application Auto Scaling can scale the following AWS resources:
  * </p>
  * <ul>
  * <li>
@@ -124,34 +122,26 @@ import com.amazonaws.services.applicationautoscaling.model.transform.*;
  * </li>
  * <li>
  * <p>
- * Amazon SageMaker endpoint variants. For more information, see <a
+ * Amazon SageMaker endpoints. For more information, see <a
  * href="http://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-auto-scaling.html">Automatically Scaling Amazon
  * SageMaker Models</a>.
  * </p>
  * </li>
- * <li>
- * <p>
- * Custom resources provided by your own applications or services. More information is available in our <a
- * href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub repository</a>.
- * </p>
- * </li>
  * </ul>
  * <p>
- * To learn more about Application Auto Scaling, see the <a
- * href="http://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application
- * Auto Scaling User Guide</a>.
+ * To configure automatic scaling for multiple resources across multiple services, use AWS Auto Scaling to create a
+ * scaling plan for your application. For more information, see <a href="http://aws.amazon.com/autoscaling">AWS Auto
+ * Scaling</a>.
  * </p>
  * <p>
- * To configure automatic scaling for multiple resources across multiple services, use AWS Auto Scaling to create a
- * scaling plan for your application. For more information, see the <a
- * href="http://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html">AWS Auto Scaling User
- * Guide</a>.
+ * For a list of supported regions, see <a
+ * href="http://docs.aws.amazon.com/general/latest/gr/rande.html#as-app_region">AWS Regions and Endpoints: Application
+ * Auto Scaling</a> in the <i>AWS General Reference</i>.
  * </p>
  */
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient implements AWSApplicationAutoScaling {
-
     /** Provider for AWS credentials. */
     private final AWSCredentialsProvider awsCredentialsProvider;
 
@@ -162,8 +152,6 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
-
-    private final AdvancedConfig advancedConfig;
 
     private static final com.amazonaws.protocol.json.SdkJsonProtocolFactory protocolFactory = new com.amazonaws.protocol.json.SdkJsonProtocolFactory(
             new JsonClientMetadata()
@@ -278,7 +266,6 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
     public AWSApplicationAutoScalingClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -344,7 +331,6 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -363,23 +349,8 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
      *        Object providing client parameters.
      */
     AWSApplicationAutoScalingClient(AwsSyncClientParams clientParams) {
-        this(clientParams, false);
-    }
-
-    /**
-     * Constructs a new client to invoke service methods on Application Auto Scaling using the specified parameters.
-     *
-     * <p>
-     * All service calls made using this new client object are blocking, and will not return until the service call
-     * completes.
-     *
-     * @param clientParams
-     *        Object providing client parameters.
-     */
-    AWSApplicationAutoScalingClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -446,9 +417,6 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Application Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteScalingPolicy");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -510,9 +478,6 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Application Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteScheduledAction");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -582,9 +547,6 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Application Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeregisterScalableTarget");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -652,9 +614,6 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Application Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeScalableTargets");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -725,9 +684,6 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Application Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeScalingActivities");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -802,9 +758,6 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Application Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeScalingPolicies");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -873,9 +826,6 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Application Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeScheduledActions");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -961,9 +911,6 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Application Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutScalingPolicy");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1043,9 +990,6 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Application Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutScheduledAction");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1113,9 +1057,6 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Application Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RegisterScalableTarget");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1157,18 +1098,9 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null, null);
-    }
-
-    /**
-     * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
-     **/
-    private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
-
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -1178,7 +1110,7 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null, null);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -1186,17 +1118,8 @@ public class AWSApplicationAutoScalingClient extends AmazonWebServiceClient impl
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
-
-        if (discoveredEndpoint != null) {
-            request.setEndpoint(discoveredEndpoint);
-            request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
-        } else if (uriFromEndpointTrait != null) {
-            request.setEndpoint(uriFromEndpointTrait);
-        } else {
-            request.setEndpoint(endpoint);
-        }
-
+            ExecutionContext executionContext) {
+        request.setEndpoint(endpoint);
         request.setTimeOffset(timeOffset);
 
         HttpResponseHandler<AmazonServiceException> errorResponseHandler = protocolFactory.createErrorResponseHandler(new JsonErrorResponseMetadata());

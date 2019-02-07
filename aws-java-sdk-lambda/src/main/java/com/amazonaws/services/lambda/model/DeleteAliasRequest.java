@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,95 +27,30 @@ public class DeleteAliasRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * The Lambda function name for which the alias is created. Deleting an alias does not delete the function version
+     * to which it is pointing. Note that the length constraint applies only to the ARN. If you specify only the
+     * function name, it is limited to 64 characters in length.
      * </p>
      */
     private String functionName;
     /**
      * <p>
-     * The name of the alias.
+     * Name of the alias to delete.
      * </p>
      */
     private String name;
 
     /**
      * <p>
-     * The name of the lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * The Lambda function name for which the alias is created. Deleting an alias does not delete the function version
+     * to which it is pointing. Note that the length constraint applies only to the ARN. If you specify only the
+     * function name, it is limited to 64 characters in length.
      * </p>
      * 
      * @param functionName
-     *        The name of the lambda function.</p>
-     *        <p class="title">
-     *        <b>Name formats</b>
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Function name</b> - <code>MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        The length constraint applies only to the full ARN. If you specify only the function name, it is limited
-     *        to 64 characters in length.
+     *        The Lambda function name for which the alias is created. Deleting an alias does not delete the function
+     *        version to which it is pointing. Note that the length constraint applies only to the ARN. If you specify
+     *        only the function name, it is limited to 64 characters in length.
      */
 
     public void setFunctionName(String functionName) {
@@ -124,57 +59,14 @@ public class DeleteAliasRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * The Lambda function name for which the alias is created. Deleting an alias does not delete the function version
+     * to which it is pointing. Note that the length constraint applies only to the ARN. If you specify only the
+     * function name, it is limited to 64 characters in length.
      * </p>
      * 
-     * @return The name of the lambda function.</p>
-     *         <p class="title">
-     *         <b>Name formats</b>
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         <b>Function name</b> - <code>MyFunction</code>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *         </p>
-     *         </li>
-     *         </ul>
-     *         <p>
-     *         The length constraint applies only to the full ARN. If you specify only the function name, it is limited
-     *         to 64 characters in length.
+     * @return The Lambda function name for which the alias is created. Deleting an alias does not delete the function
+     *         version to which it is pointing. Note that the length constraint applies only to the ARN. If you specify
+     *         only the function name, it is limited to 64 characters in length.
      */
 
     public String getFunctionName() {
@@ -183,58 +75,15 @@ public class DeleteAliasRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * The Lambda function name for which the alias is created. Deleting an alias does not delete the function version
+     * to which it is pointing. Note that the length constraint applies only to the ARN. If you specify only the
+     * function name, it is limited to 64 characters in length.
      * </p>
      * 
      * @param functionName
-     *        The name of the lambda function.</p>
-     *        <p class="title">
-     *        <b>Name formats</b>
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Function name</b> - <code>MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        The length constraint applies only to the full ARN. If you specify only the function name, it is limited
-     *        to 64 characters in length.
+     *        The Lambda function name for which the alias is created. Deleting an alias does not delete the function
+     *        version to which it is pointing. Note that the length constraint applies only to the ARN. If you specify
+     *        only the function name, it is limited to 64 characters in length.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -245,11 +94,11 @@ public class DeleteAliasRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the alias.
+     * Name of the alias to delete.
      * </p>
      * 
      * @param name
-     *        The name of the alias.
+     *        Name of the alias to delete.
      */
 
     public void setName(String name) {
@@ -258,10 +107,10 @@ public class DeleteAliasRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the alias.
+     * Name of the alias to delete.
      * </p>
      * 
-     * @return The name of the alias.
+     * @return Name of the alias to delete.
      */
 
     public String getName() {
@@ -270,11 +119,11 @@ public class DeleteAliasRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the alias.
+     * Name of the alias to delete.
      * </p>
      * 
      * @param name
-     *        The name of the alias.
+     *        Name of the alias to delete.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -284,8 +133,7 @@ public class DeleteAliasRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

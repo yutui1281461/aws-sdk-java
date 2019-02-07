@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights
+ * Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights
  * Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
@@ -40,7 +40,6 @@ import com.amazonaws.util.AWSRequestMetrics;
 public class AmazonHttpClientRetryPolicyTest extends RetryPolicyTestBase {
 
     private static final int EXPECTED_RETRY_COUNT = 5;
-    private static final int EXPECTED_SHOULD_RETRY_CALL_COUNT = EXPECTED_RETRY_COUNT + 1;
     private static final Random random = new Random();
     private AmazonHttpClient testedClient;
 
@@ -96,7 +95,7 @@ public class AmazonHttpClientRetryPolicyTest extends RetryPolicyTestBase {
         verifyExpectedContextData(retryCondition,
                                   originalRequest,
                                   expectedServiceException,
-                                  EXPECTED_SHOULD_RETRY_CALL_COUNT); // shouldRetry is being called again to record MaxRetriesExceeded
+                                  EXPECTED_RETRY_COUNT);
         verifyExpectedContextData(backoffStrategy,
                                   originalRequest,
                                   expectedServiceException,
@@ -143,7 +142,7 @@ public class AmazonHttpClientRetryPolicyTest extends RetryPolicyTestBase {
         verifyExpectedContextData(retryCondition,
                                   originalRequest,
                                   expectedClientException,
-                                  EXPECTED_SHOULD_RETRY_CALL_COUNT); // shouldRetry is being called again to record MaxRetriesExceeded
+                                  EXPECTED_RETRY_COUNT);
         verifyExpectedContextData(backoffStrategy,
                                   originalRequest,
                                   expectedClientException,
@@ -191,8 +190,8 @@ public class AmazonHttpClientRetryPolicyTest extends RetryPolicyTestBase {
         // Verifies that shouldRetry and calculateSleepTime were never called
         verifyExpectedContextData(retryCondition,
                                   null,
-                                  null,
-                                  EXPECTED_SHOULD_RETRY_CALL_COUNT); // shouldRetry is being called again to record MaxRetriesExceeded
+                                  null, 
+                                  EXPECTED_RETRY_COUNT);
         verifyExpectedContextData(backoffStrategy,
                                   null,
                                   null, 
@@ -236,8 +235,8 @@ public class AmazonHttpClientRetryPolicyTest extends RetryPolicyTestBase {
         // Verifies that shouldRetry and calculateSleepTime are still called
         verifyExpectedContextData(retryCondition,
                                   null,
-                                  null,
-                                  EXPECTED_SHOULD_RETRY_CALL_COUNT); // shouldRetry is being called again to record MaxRetriesExceeded
+                                  null, 
+                                  EXPECTED_RETRY_COUNT);
         verifyExpectedContextData(backoffStrategy,
                                   null,
                                   null, 

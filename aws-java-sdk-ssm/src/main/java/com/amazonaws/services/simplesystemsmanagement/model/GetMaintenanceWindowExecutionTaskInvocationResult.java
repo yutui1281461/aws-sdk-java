@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -632,8 +632,7 @@ public class GetMaintenanceWindowExecutionTaskInvocationResult extends com.amazo
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -654,7 +653,7 @@ public class GetMaintenanceWindowExecutionTaskInvocationResult extends com.amazo
         if (getTaskType() != null)
             sb.append("TaskType: ").append(getTaskType()).append(",");
         if (getParameters() != null)
-            sb.append("Parameters: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("Parameters: ").append(getParameters()).append(",");
         if (getStatus() != null)
             sb.append("Status: ").append(getStatus()).append(",");
         if (getStatusDetails() != null)
@@ -664,7 +663,7 @@ public class GetMaintenanceWindowExecutionTaskInvocationResult extends com.amazo
         if (getEndTime() != null)
             sb.append("EndTime: ").append(getEndTime()).append(",");
         if (getOwnerInformation() != null)
-            sb.append("OwnerInformation: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("OwnerInformation: ").append(getOwnerInformation()).append(",");
         if (getWindowTargetId() != null)
             sb.append("WindowTargetId: ").append(getWindowTargetId());
         sb.append("}");

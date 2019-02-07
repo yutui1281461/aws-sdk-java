@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,10 +14,8 @@
  */
 package com.amazonaws.auth.internal;
 
-import com.amazonaws.util.DateUtils;
-
-import java.time.Instant;
-import java.time.format.DateTimeFormatter;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 /**
  * Utility methods that is used by the different AWS Signer implementations.
@@ -25,11 +23,11 @@ import java.time.format.DateTimeFormatter;
  */
 public final class AWS4SignerUtils {
 
-    private static final DateTimeFormatter dateFormatter = DateTimeFormatter
-            .ofPattern("yyyyMMdd").withZone(DateUtils.GMT);
+    private static final DateTimeFormatter dateFormatter = DateTimeFormat
+            .forPattern("yyyyMMdd").withZoneUTC();
 
-    private static final DateTimeFormatter timeFormatter = DateTimeFormatter
-            .ofPattern("yyyyMMdd'T'HHmmss'Z'").withZone(DateUtils.GMT);
+    private static final DateTimeFormatter timeFormatter = DateTimeFormat
+            .forPattern("yyyyMMdd'T'HHmmss'Z'").withZoneUTC();
 
     /**
      * Returns a string representation of the given date time in yyyyMMdd
@@ -38,7 +36,7 @@ public final class AWS4SignerUtils {
      * For example, given a time "1416863450581", this method returns "20141124"
      */
     public static String formatDateStamp(long timeMilli) {
-        return dateFormatter.format(Instant.ofEpochMilli(timeMilli));
+        return dateFormatter.print(timeMilli);
     }
 
     /**
@@ -49,6 +47,6 @@ public final class AWS4SignerUtils {
      * "20141124T211050Z"
      */
     public static String formatTimestamp(long timeMilli) {
-        return timeFormatter.format(Instant.ofEpochMilli(timeMilli));
+        return timeFormatter.print(timeMilli);
     }
 }

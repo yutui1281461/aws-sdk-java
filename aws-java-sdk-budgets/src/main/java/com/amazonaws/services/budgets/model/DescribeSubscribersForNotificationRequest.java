@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -45,14 +45,13 @@ public class DescribeSubscribersForNotificationRequest extends com.amazonaws.Ama
     private Notification notification;
     /**
      * <p>
-     * An optional integer that represents how many entries a paginated response contains. The maximum is 100.
+     * Optional integer. Specifies the maximum number of results to return in response.
      * </p>
      */
     private Integer maxResults;
     /**
      * <p>
-     * The pagination token that you include in your request to indicate the next set of results that you want to
-     * retrieve.
+     * The pagination token that indicates the next set of results to retrieve.
      * </p>
      */
     private String nextToken;
@@ -179,11 +178,11 @@ public class DescribeSubscribersForNotificationRequest extends com.amazonaws.Ama
 
     /**
      * <p>
-     * An optional integer that represents how many entries a paginated response contains. The maximum is 100.
+     * Optional integer. Specifies the maximum number of results to return in response.
      * </p>
      * 
      * @param maxResults
-     *        An optional integer that represents how many entries a paginated response contains. The maximum is 100.
+     *        Optional integer. Specifies the maximum number of results to return in response.
      */
 
     public void setMaxResults(Integer maxResults) {
@@ -192,10 +191,10 @@ public class DescribeSubscribersForNotificationRequest extends com.amazonaws.Ama
 
     /**
      * <p>
-     * An optional integer that represents how many entries a paginated response contains. The maximum is 100.
+     * Optional integer. Specifies the maximum number of results to return in response.
      * </p>
      * 
-     * @return An optional integer that represents how many entries a paginated response contains. The maximum is 100.
+     * @return Optional integer. Specifies the maximum number of results to return in response.
      */
 
     public Integer getMaxResults() {
@@ -204,11 +203,11 @@ public class DescribeSubscribersForNotificationRequest extends com.amazonaws.Ama
 
     /**
      * <p>
-     * An optional integer that represents how many entries a paginated response contains. The maximum is 100.
+     * Optional integer. Specifies the maximum number of results to return in response.
      * </p>
      * 
      * @param maxResults
-     *        An optional integer that represents how many entries a paginated response contains. The maximum is 100.
+     *        Optional integer. Specifies the maximum number of results to return in response.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -219,13 +218,11 @@ public class DescribeSubscribersForNotificationRequest extends com.amazonaws.Ama
 
     /**
      * <p>
-     * The pagination token that you include in your request to indicate the next set of results that you want to
-     * retrieve.
+     * The pagination token that indicates the next set of results to retrieve.
      * </p>
      * 
      * @param nextToken
-     *        The pagination token that you include in your request to indicate the next set of results that you want to
-     *        retrieve.
+     *        The pagination token that indicates the next set of results to retrieve.
      */
 
     public void setNextToken(String nextToken) {
@@ -234,12 +231,10 @@ public class DescribeSubscribersForNotificationRequest extends com.amazonaws.Ama
 
     /**
      * <p>
-     * The pagination token that you include in your request to indicate the next set of results that you want to
-     * retrieve.
+     * The pagination token that indicates the next set of results to retrieve.
      * </p>
      * 
-     * @return The pagination token that you include in your request to indicate the next set of results that you want
-     *         to retrieve.
+     * @return The pagination token that indicates the next set of results to retrieve.
      */
 
     public String getNextToken() {
@@ -248,13 +243,11 @@ public class DescribeSubscribersForNotificationRequest extends com.amazonaws.Ama
 
     /**
      * <p>
-     * The pagination token that you include in your request to indicate the next set of results that you want to
-     * retrieve.
+     * The pagination token that indicates the next set of results to retrieve.
      * </p>
      * 
      * @param nextToken
-     *        The pagination token that you include in your request to indicate the next set of results that you want to
-     *        retrieve.
+     *        The pagination token that indicates the next set of results to retrieve.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -264,8 +257,7 @@ public class DescribeSubscribersForNotificationRequest extends com.amazonaws.Ama
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

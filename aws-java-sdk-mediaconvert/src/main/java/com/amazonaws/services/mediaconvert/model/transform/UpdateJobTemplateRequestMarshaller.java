@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,8 +27,6 @@ import com.amazonaws.annotation.SdkInternalApi;
 @SdkInternalApi
 public class UpdateJobTemplateRequestMarshaller {
 
-    private static final MarshallingInfo<StructuredPojo> ACCELERATIONSETTINGS_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("accelerationSettings").build();
     private static final MarshallingInfo<String> CATEGORY_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("category").build();
     private static final MarshallingInfo<String> DESCRIPTION_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
@@ -56,7 +54,6 @@ public class UpdateJobTemplateRequestMarshaller {
         }
 
         try {
-            protocolMarshaller.marshall(updateJobTemplateRequest.getAccelerationSettings(), ACCELERATIONSETTINGS_BINDING);
             protocolMarshaller.marshall(updateJobTemplateRequest.getCategory(), CATEGORY_BINDING);
             protocolMarshaller.marshall(updateJobTemplateRequest.getDescription(), DESCRIPTION_BINDING);
             protocolMarshaller.marshall(updateJobTemplateRequest.getName(), NAME_BINDING);

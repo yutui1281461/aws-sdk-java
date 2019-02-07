@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -16,6 +16,9 @@ import java.io.Serializable;
 import javax.annotation.Generated;
 
 /**
+ * <p>
+ * A structure containing a list of virtual interfaces.
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeVirtualInterfaces"
  *      target="_top">AWS API Documentation</a>
@@ -25,17 +28,17 @@ public class DescribeVirtualInterfacesResult extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The virtual interfaces
+     * A list of virtual interfaces.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<VirtualInterface> virtualInterfaces;
 
     /**
      * <p>
-     * The virtual interfaces
+     * A list of virtual interfaces.
      * </p>
      * 
-     * @return The virtual interfaces
+     * @return A list of virtual interfaces.
      */
 
     public java.util.List<VirtualInterface> getVirtualInterfaces() {
@@ -47,11 +50,11 @@ public class DescribeVirtualInterfacesResult extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The virtual interfaces
+     * A list of virtual interfaces.
      * </p>
      * 
      * @param virtualInterfaces
-     *        The virtual interfaces
+     *        A list of virtual interfaces.
      */
 
     public void setVirtualInterfaces(java.util.Collection<VirtualInterface> virtualInterfaces) {
@@ -65,7 +68,7 @@ public class DescribeVirtualInterfacesResult extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The virtual interfaces
+     * A list of virtual interfaces.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -74,7 +77,7 @@ public class DescribeVirtualInterfacesResult extends com.amazonaws.AmazonWebServ
      * </p>
      * 
      * @param virtualInterfaces
-     *        The virtual interfaces
+     *        A list of virtual interfaces.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -90,11 +93,11 @@ public class DescribeVirtualInterfacesResult extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The virtual interfaces
+     * A list of virtual interfaces.
      * </p>
      * 
      * @param virtualInterfaces
-     *        The virtual interfaces
+     *        A list of virtual interfaces.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -104,8 +107,7 @@ public class DescribeVirtualInterfacesResult extends com.amazonaws.AmazonWebServ
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

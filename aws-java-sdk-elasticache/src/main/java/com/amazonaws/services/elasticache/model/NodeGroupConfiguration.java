@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -26,12 +26,6 @@ import javax.annotation.Generated;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class NodeGroupConfiguration implements Serializable, Cloneable {
 
-    /**
-     * <p>
-     * The 4-digit id for the node group these configuration values apply to.
-     * </p>
-     */
-    private String nodeGroupId;
     /**
      * <p>
      * A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is
@@ -61,46 +55,6 @@ public class NodeGroupConfiguration implements Serializable, Cloneable {
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> replicaAvailabilityZones;
-
-    /**
-     * <p>
-     * The 4-digit id for the node group these configuration values apply to.
-     * </p>
-     * 
-     * @param nodeGroupId
-     *        The 4-digit id for the node group these configuration values apply to.
-     */
-
-    public void setNodeGroupId(String nodeGroupId) {
-        this.nodeGroupId = nodeGroupId;
-    }
-
-    /**
-     * <p>
-     * The 4-digit id for the node group these configuration values apply to.
-     * </p>
-     * 
-     * @return The 4-digit id for the node group these configuration values apply to.
-     */
-
-    public String getNodeGroupId() {
-        return this.nodeGroupId;
-    }
-
-    /**
-     * <p>
-     * The 4-digit id for the node group these configuration values apply to.
-     * </p>
-     * 
-     * @param nodeGroupId
-     *        The 4-digit id for the node group these configuration values apply to.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public NodeGroupConfiguration withNodeGroupId(String nodeGroupId) {
-        setNodeGroupId(nodeGroupId);
-        return this;
-    }
 
     /**
      * <p>
@@ -329,8 +283,7 @@ public class NodeGroupConfiguration implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -340,8 +293,6 @@ public class NodeGroupConfiguration implements Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
-        if (getNodeGroupId() != null)
-            sb.append("NodeGroupId: ").append(getNodeGroupId()).append(",");
         if (getSlots() != null)
             sb.append("Slots: ").append(getSlots()).append(",");
         if (getReplicaCount() != null)
@@ -364,10 +315,6 @@ public class NodeGroupConfiguration implements Serializable, Cloneable {
         if (obj instanceof NodeGroupConfiguration == false)
             return false;
         NodeGroupConfiguration other = (NodeGroupConfiguration) obj;
-        if (other.getNodeGroupId() == null ^ this.getNodeGroupId() == null)
-            return false;
-        if (other.getNodeGroupId() != null && other.getNodeGroupId().equals(this.getNodeGroupId()) == false)
-            return false;
         if (other.getSlots() == null ^ this.getSlots() == null)
             return false;
         if (other.getSlots() != null && other.getSlots().equals(this.getSlots()) == false)
@@ -392,7 +339,6 @@ public class NodeGroupConfiguration implements Serializable, Cloneable {
         final int prime = 31;
         int hashCode = 1;
 
-        hashCode = prime * hashCode + ((getNodeGroupId() == null) ? 0 : getNodeGroupId().hashCode());
         hashCode = prime * hashCode + ((getSlots() == null) ? 0 : getSlots().hashCode());
         hashCode = prime * hashCode + ((getReplicaCount() == null) ? 0 : getReplicaCount().hashCode());
         hashCode = prime * hashCode + ((getPrimaryAvailabilityZone() == null) ? 0 : getPrimaryAvailabilityZone().hashCode());

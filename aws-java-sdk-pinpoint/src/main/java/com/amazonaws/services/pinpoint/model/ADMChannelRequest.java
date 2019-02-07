@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -26,18 +26,18 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class ADMChannelRequest implements Serializable, Cloneable, StructuredPojo {
 
-    /** The Client ID that you obtained from the Amazon App Distribution Portal. */
+    /** Client ID as gotten from Amazon */
     private String clientId;
-    /** The Client Secret that you obtained from the Amazon App Distribution Portal. */
+    /** Client secret as gotten from Amazon */
     private String clientSecret;
-    /** Indicates whether or not the channel is enabled for sending messages. */
+    /** If the channel is enabled for sending messages. */
     private Boolean enabled;
 
     /**
-     * The Client ID that you obtained from the Amazon App Distribution Portal.
+     * Client ID as gotten from Amazon
      * 
      * @param clientId
-     *        The Client ID that you obtained from the Amazon App Distribution Portal.
+     *        Client ID as gotten from Amazon
      */
 
     public void setClientId(String clientId) {
@@ -45,9 +45,9 @@ public class ADMChannelRequest implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * The Client ID that you obtained from the Amazon App Distribution Portal.
+     * Client ID as gotten from Amazon
      * 
-     * @return The Client ID that you obtained from the Amazon App Distribution Portal.
+     * @return Client ID as gotten from Amazon
      */
 
     public String getClientId() {
@@ -55,10 +55,10 @@ public class ADMChannelRequest implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * The Client ID that you obtained from the Amazon App Distribution Portal.
+     * Client ID as gotten from Amazon
      * 
      * @param clientId
-     *        The Client ID that you obtained from the Amazon App Distribution Portal.
+     *        Client ID as gotten from Amazon
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -68,10 +68,10 @@ public class ADMChannelRequest implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * The Client Secret that you obtained from the Amazon App Distribution Portal.
+     * Client secret as gotten from Amazon
      * 
      * @param clientSecret
-     *        The Client Secret that you obtained from the Amazon App Distribution Portal.
+     *        Client secret as gotten from Amazon
      */
 
     public void setClientSecret(String clientSecret) {
@@ -79,9 +79,9 @@ public class ADMChannelRequest implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * The Client Secret that you obtained from the Amazon App Distribution Portal.
+     * Client secret as gotten from Amazon
      * 
-     * @return The Client Secret that you obtained from the Amazon App Distribution Portal.
+     * @return Client secret as gotten from Amazon
      */
 
     public String getClientSecret() {
@@ -89,10 +89,10 @@ public class ADMChannelRequest implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * The Client Secret that you obtained from the Amazon App Distribution Portal.
+     * Client secret as gotten from Amazon
      * 
      * @param clientSecret
-     *        The Client Secret that you obtained from the Amazon App Distribution Portal.
+     *        Client secret as gotten from Amazon
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -102,10 +102,10 @@ public class ADMChannelRequest implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * Indicates whether or not the channel is enabled for sending messages.
+     * If the channel is enabled for sending messages.
      * 
      * @param enabled
-     *        Indicates whether or not the channel is enabled for sending messages.
+     *        If the channel is enabled for sending messages.
      */
 
     public void setEnabled(Boolean enabled) {
@@ -113,9 +113,9 @@ public class ADMChannelRequest implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * Indicates whether or not the channel is enabled for sending messages.
+     * If the channel is enabled for sending messages.
      * 
-     * @return Indicates whether or not the channel is enabled for sending messages.
+     * @return If the channel is enabled for sending messages.
      */
 
     public Boolean getEnabled() {
@@ -123,10 +123,10 @@ public class ADMChannelRequest implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * Indicates whether or not the channel is enabled for sending messages.
+     * If the channel is enabled for sending messages.
      * 
      * @param enabled
-     *        Indicates whether or not the channel is enabled for sending messages.
+     *        If the channel is enabled for sending messages.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -136,9 +136,9 @@ public class ADMChannelRequest implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * Indicates whether or not the channel is enabled for sending messages.
+     * If the channel is enabled for sending messages.
      * 
-     * @return Indicates whether or not the channel is enabled for sending messages.
+     * @return If the channel is enabled for sending messages.
      */
 
     public Boolean isEnabled() {
@@ -146,8 +146,7 @@ public class ADMChannelRequest implements Serializable, Cloneable, StructuredPoj
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

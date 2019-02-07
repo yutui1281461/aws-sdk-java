@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2011-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -459,17 +459,11 @@ public class DynamoDBMapperConfig {
         UPDATE_SKIP_NULL_ATTRIBUTES,
 
         /**
-         * CLOBBER will clear and replace all attributes, including unmodeled
-         * ones, on save. Versioned field constraints will
-         * also be disregarded. If versioning is required use {@link #PUT}.
+         * CLOBBER will clear and replace all attributes, included unmodeled
+         * ones, (delete and recreate) on save. Versioned field constraints will
+         * also be disregarded.
          */
         CLOBBER,
-
-        /**
-         * PUT will clear and replace all attributes, including unmodeled
-         * ones, on save.
-         */
-        PUT,
 
         /**
          * APPEND_SET treats scalar attributes (String, Number, Binary) the same
@@ -614,7 +608,7 @@ public class DynamoDBMapperConfig {
     }
 
     /**
-     * Interface for a strategy used to determine the table name of an object based on its class.
+     * Interface for a strategy used to determine the table name of an object based on it's class.
      * This resolver is used when an object isn't available such as in
      * {@link DynamoDBMapper#query(Class, DynamoDBQueryExpression)}
      *
@@ -635,7 +629,7 @@ public class DynamoDBMapperConfig {
     }
 
     /**
-     * Interface for a strategy used to determine the table name of an object based on its class.
+     * Interface for a strategy used to determine the table name of an object based on it's class.
      * This resolver is used when an object is available such as in
      * {@link DynamoDBMapper#batchSave(Object...)}
      *

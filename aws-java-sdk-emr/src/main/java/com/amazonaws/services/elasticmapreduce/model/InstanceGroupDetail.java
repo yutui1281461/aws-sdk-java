@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -54,12 +54,7 @@ public class InstanceGroupDetail implements Serializable, Cloneable, StructuredP
     private String instanceRole;
     /**
      * <p>
-     * The maximum Spot price your are willing to pay for EC2 instances.
-     * </p>
-     * <p>
-     * An optional, nullable field that applies if the <code>MarketType</code> for the instance group is specified as
-     * <code>SPOT</code>. Specified in USD. If the value is NULL and <code>SPOT</code> is specified, the maximum Spot
-     * price is set equal to the On-Demand price.
+     * Bid price for EC2 Instances when launching nodes as Spot Instances, expressed in USD.
      * </p>
      */
     private String bidPrice;
@@ -407,20 +402,11 @@ public class InstanceGroupDetail implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * The maximum Spot price your are willing to pay for EC2 instances.
-     * </p>
-     * <p>
-     * An optional, nullable field that applies if the <code>MarketType</code> for the instance group is specified as
-     * <code>SPOT</code>. Specified in USD. If the value is NULL and <code>SPOT</code> is specified, the maximum Spot
-     * price is set equal to the On-Demand price.
+     * Bid price for EC2 Instances when launching nodes as Spot Instances, expressed in USD.
      * </p>
      * 
      * @param bidPrice
-     *        The maximum Spot price your are willing to pay for EC2 instances.</p>
-     *        <p>
-     *        An optional, nullable field that applies if the <code>MarketType</code> for the instance group is
-     *        specified as <code>SPOT</code>. Specified in USD. If the value is NULL and <code>SPOT</code> is specified,
-     *        the maximum Spot price is set equal to the On-Demand price.
+     *        Bid price for EC2 Instances when launching nodes as Spot Instances, expressed in USD.
      */
 
     public void setBidPrice(String bidPrice) {
@@ -429,19 +415,10 @@ public class InstanceGroupDetail implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * The maximum Spot price your are willing to pay for EC2 instances.
-     * </p>
-     * <p>
-     * An optional, nullable field that applies if the <code>MarketType</code> for the instance group is specified as
-     * <code>SPOT</code>. Specified in USD. If the value is NULL and <code>SPOT</code> is specified, the maximum Spot
-     * price is set equal to the On-Demand price.
+     * Bid price for EC2 Instances when launching nodes as Spot Instances, expressed in USD.
      * </p>
      * 
-     * @return The maximum Spot price your are willing to pay for EC2 instances.</p>
-     *         <p>
-     *         An optional, nullable field that applies if the <code>MarketType</code> for the instance group is
-     *         specified as <code>SPOT</code>. Specified in USD. If the value is NULL and <code>SPOT</code> is
-     *         specified, the maximum Spot price is set equal to the On-Demand price.
+     * @return Bid price for EC2 Instances when launching nodes as Spot Instances, expressed in USD.
      */
 
     public String getBidPrice() {
@@ -450,20 +427,11 @@ public class InstanceGroupDetail implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * The maximum Spot price your are willing to pay for EC2 instances.
-     * </p>
-     * <p>
-     * An optional, nullable field that applies if the <code>MarketType</code> for the instance group is specified as
-     * <code>SPOT</code>. Specified in USD. If the value is NULL and <code>SPOT</code> is specified, the maximum Spot
-     * price is set equal to the On-Demand price.
+     * Bid price for EC2 Instances when launching nodes as Spot Instances, expressed in USD.
      * </p>
      * 
      * @param bidPrice
-     *        The maximum Spot price your are willing to pay for EC2 instances.</p>
-     *        <p>
-     *        An optional, nullable field that applies if the <code>MarketType</code> for the instance group is
-     *        specified as <code>SPOT</code>. Specified in USD. If the value is NULL and <code>SPOT</code> is specified,
-     *        the maximum Spot price is set equal to the On-Demand price.
+     *        Bid price for EC2 Instances when launching nodes as Spot Instances, expressed in USD.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -866,8 +834,7 @@ public class InstanceGroupDetail implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

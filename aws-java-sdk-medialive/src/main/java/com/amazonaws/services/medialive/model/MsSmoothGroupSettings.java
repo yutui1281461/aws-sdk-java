@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -80,9 +80,19 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
      * segment, or exceeding filecacheDuration.
      */
     private Integer restartDelay;
-    /** useInputSegmentation has been deprecated. The configured segment size is always used. */
+    /**
+     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
+     * streams.
+     */
     private String segmentationMode;
-    /** Number of milliseconds to delay the output from the second pipeline. */
+    /**
+     * Outputs that are "output locked" can use this delay. Assign a delay to the output that is "secondary". Do not
+     * assign a delay to the "primary" output. The delay means that the primary output will always reach the downstream
+     * system before the secondary, which helps ensure that the downstream system always uses the primary output. (If
+     * there were no delay, the downstream system might flip-flop between whichever output happens to arrive first.) If
+     * the primary fails, the downstream system will switch to the secondary output. When the primary is restarted, the
+     * downstream system will switch back to the primary (because once again it is always arriving first)
+     */
     private Integer sendDelayMs;
     /** If set to scte35, use incoming SCTE-35 messages to generate a sparse track in this group of MS-Smooth outputs. */
     private String sparseTrackType;
@@ -712,10 +722,12 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * useInputSegmentation has been deprecated. The configured segment size is always used.
+     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
+     * streams.
      * 
      * @param segmentationMode
-     *        useInputSegmentation has been deprecated. The configured segment size is always used.
+     *        When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from
+     *        the input streams.
      * @see SmoothGroupSegmentationMode
      */
 
@@ -724,9 +736,11 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * useInputSegmentation has been deprecated. The configured segment size is always used.
+     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
+     * streams.
      * 
-     * @return useInputSegmentation has been deprecated. The configured segment size is always used.
+     * @return When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from
+     *         the input streams.
      * @see SmoothGroupSegmentationMode
      */
 
@@ -735,10 +749,12 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * useInputSegmentation has been deprecated. The configured segment size is always used.
+     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
+     * streams.
      * 
      * @param segmentationMode
-     *        useInputSegmentation has been deprecated. The configured segment size is always used.
+     *        When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from
+     *        the input streams.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see SmoothGroupSegmentationMode
      */
@@ -749,10 +765,12 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * useInputSegmentation has been deprecated. The configured segment size is always used.
+     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
+     * streams.
      * 
      * @param segmentationMode
-     *        useInputSegmentation has been deprecated. The configured segment size is always used.
+     *        When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from
+     *        the input streams.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see SmoothGroupSegmentationMode
      */
@@ -763,10 +781,21 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * Number of milliseconds to delay the output from the second pipeline.
+     * Outputs that are "output locked" can use this delay. Assign a delay to the output that is "secondary". Do not
+     * assign a delay to the "primary" output. The delay means that the primary output will always reach the downstream
+     * system before the secondary, which helps ensure that the downstream system always uses the primary output. (If
+     * there were no delay, the downstream system might flip-flop between whichever output happens to arrive first.) If
+     * the primary fails, the downstream system will switch to the secondary output. When the primary is restarted, the
+     * downstream system will switch back to the primary (because once again it is always arriving first)
      * 
      * @param sendDelayMs
-     *        Number of milliseconds to delay the output from the second pipeline.
+     *        Outputs that are "output locked" can use this delay. Assign a delay to the output that is "secondary". Do
+     *        not assign a delay to the "primary" output. The delay means that the primary output will always reach the
+     *        downstream system before the secondary, which helps ensure that the downstream system always uses the
+     *        primary output. (If there were no delay, the downstream system might flip-flop between whichever output
+     *        happens to arrive first.) If the primary fails, the downstream system will switch to the secondary output.
+     *        When the primary is restarted, the downstream system will switch back to the primary (because once again
+     *        it is always arriving first)
      */
 
     public void setSendDelayMs(Integer sendDelayMs) {
@@ -774,9 +803,20 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * Number of milliseconds to delay the output from the second pipeline.
+     * Outputs that are "output locked" can use this delay. Assign a delay to the output that is "secondary". Do not
+     * assign a delay to the "primary" output. The delay means that the primary output will always reach the downstream
+     * system before the secondary, which helps ensure that the downstream system always uses the primary output. (If
+     * there were no delay, the downstream system might flip-flop between whichever output happens to arrive first.) If
+     * the primary fails, the downstream system will switch to the secondary output. When the primary is restarted, the
+     * downstream system will switch back to the primary (because once again it is always arriving first)
      * 
-     * @return Number of milliseconds to delay the output from the second pipeline.
+     * @return Outputs that are "output locked" can use this delay. Assign a delay to the output that is "secondary". Do
+     *         not assign a delay to the "primary" output. The delay means that the primary output will always reach the
+     *         downstream system before the secondary, which helps ensure that the downstream system always uses the
+     *         primary output. (If there were no delay, the downstream system might flip-flop between whichever output
+     *         happens to arrive first.) If the primary fails, the downstream system will switch to the secondary
+     *         output. When the primary is restarted, the downstream system will switch back to the primary (because
+     *         once again it is always arriving first)
      */
 
     public Integer getSendDelayMs() {
@@ -784,10 +824,21 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * Number of milliseconds to delay the output from the second pipeline.
+     * Outputs that are "output locked" can use this delay. Assign a delay to the output that is "secondary". Do not
+     * assign a delay to the "primary" output. The delay means that the primary output will always reach the downstream
+     * system before the secondary, which helps ensure that the downstream system always uses the primary output. (If
+     * there were no delay, the downstream system might flip-flop between whichever output happens to arrive first.) If
+     * the primary fails, the downstream system will switch to the secondary output. When the primary is restarted, the
+     * downstream system will switch back to the primary (because once again it is always arriving first)
      * 
      * @param sendDelayMs
-     *        Number of milliseconds to delay the output from the second pipeline.
+     *        Outputs that are "output locked" can use this delay. Assign a delay to the output that is "secondary". Do
+     *        not assign a delay to the "primary" output. The delay means that the primary output will always reach the
+     *        downstream system before the secondary, which helps ensure that the downstream system always uses the
+     *        primary output. (If there were no delay, the downstream system might flip-flop between whichever output
+     *        happens to arrive first.) If the primary fails, the downstream system will switch to the secondary output.
+     *        When the primary is restarted, the downstream system will switch back to the primary (because once again
+     *        it is always arriving first)
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -996,8 +1047,7 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

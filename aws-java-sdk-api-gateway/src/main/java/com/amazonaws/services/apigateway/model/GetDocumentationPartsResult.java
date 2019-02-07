@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  * The collection of documentation parts of an API.
  * </p>
  * <div class="remarks"/> <div class="seeAlso"> <a
- * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an
+ * href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an
  * API</a>, <a>DocumentationPart</a> </div>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -131,8 +131,7 @@ public class GetDocumentationPartsResult extends com.amazonaws.AmazonWebServiceR
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

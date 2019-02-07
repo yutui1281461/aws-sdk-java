@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -109,45 +109,19 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
     private Integer maxRetries;
     /**
      * <p>
-     * This field is deprecated, use <code>MaxCapacity</code> instead.
-     * </p>
-     * <p>
      * The number of AWS Glue data processing units (DPUs) allocated to runs of this job. From 2 to 100 DPUs can be
      * allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute
      * capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
      * Glue pricing page</a>.
      * </p>
-     * <p/>
      */
-    @Deprecated
     private Integer allocatedCapacity;
     /**
      * <p>
-     * The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated
-     * and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
+     * The job timeout in minutes.
      * </p>
      */
     private Integer timeout;
-    /**
-     * <p>
-     * AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing as low
-     * as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any other way
-     * cannot have fractional DPU allocations.
-     * </p>
-     */
-    private Double maxCapacity;
-    /**
-     * <p>
-     * Specifies configuration properties of a job notification.
-     * </p>
-     */
-    private NotificationProperty notificationProperty;
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure to be used with this job.
-     * </p>
-     */
-    private String securityConfiguration;
 
     /**
      * <p>
@@ -693,81 +667,57 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * This field is deprecated, use <code>MaxCapacity</code> instead.
-     * </p>
-     * <p>
      * The number of AWS Glue data processing units (DPUs) allocated to runs of this job. From 2 to 100 DPUs can be
      * allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute
      * capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
      * Glue pricing page</a>.
      * </p>
-     * <p/>
      * 
      * @param allocatedCapacity
-     *        This field is deprecated, use <code>MaxCapacity</code> instead.
-     *        </p>
-     *        <p>
      *        The number of AWS Glue data processing units (DPUs) allocated to runs of this job. From 2 to 100 DPUs can
      *        be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs
      *        of compute capacity and 16 GB of memory. For more information, see the <a
      *        href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.
-     *        </p>
      */
-    @Deprecated
+
     public void setAllocatedCapacity(Integer allocatedCapacity) {
         this.allocatedCapacity = allocatedCapacity;
     }
 
     /**
      * <p>
-     * This field is deprecated, use <code>MaxCapacity</code> instead.
-     * </p>
-     * <p>
      * The number of AWS Glue data processing units (DPUs) allocated to runs of this job. From 2 to 100 DPUs can be
      * allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute
      * capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
      * Glue pricing page</a>.
      * </p>
-     * <p/>
      * 
-     * @return This field is deprecated, use <code>MaxCapacity</code> instead.
-     *         </p>
-     *         <p>
-     *         The number of AWS Glue data processing units (DPUs) allocated to runs of this job. From 2 to 100 DPUs can
+     * @return The number of AWS Glue data processing units (DPUs) allocated to runs of this job. From 2 to 100 DPUs can
      *         be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs
      *         of compute capacity and 16 GB of memory. For more information, see the <a
      *         href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.
-     *         </p>
      */
-    @Deprecated
+
     public Integer getAllocatedCapacity() {
         return this.allocatedCapacity;
     }
 
     /**
      * <p>
-     * This field is deprecated, use <code>MaxCapacity</code> instead.
-     * </p>
-     * <p>
      * The number of AWS Glue data processing units (DPUs) allocated to runs of this job. From 2 to 100 DPUs can be
      * allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute
      * capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
      * Glue pricing page</a>.
      * </p>
-     * <p/>
      * 
      * @param allocatedCapacity
-     *        This field is deprecated, use <code>MaxCapacity</code> instead.
-     *        </p>
-     *        <p>
      *        The number of AWS Glue data processing units (DPUs) allocated to runs of this job. From 2 to 100 DPUs can
      *        be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs
      *        of compute capacity and 16 GB of memory. For more information, see the <a
      *        href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.
-     *        </p>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
-    @Deprecated
+
     public Job withAllocatedCapacity(Integer allocatedCapacity) {
         setAllocatedCapacity(allocatedCapacity);
         return this;
@@ -775,13 +725,11 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated
-     * and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
+     * The job timeout in minutes.
      * </p>
      * 
      * @param timeout
-     *        The job timeout in minutes. This is the maximum time that a job run can consume resources before it is
-     *        terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
+     *        The job timeout in minutes.
      */
 
     public void setTimeout(Integer timeout) {
@@ -790,12 +738,10 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated
-     * and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
+     * The job timeout in minutes.
      * </p>
      * 
-     * @return The job timeout in minutes. This is the maximum time that a job run can consume resources before it is
-     *         terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
+     * @return The job timeout in minutes.
      */
 
     public Integer getTimeout() {
@@ -804,13 +750,11 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated
-     * and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
+     * The job timeout in minutes.
      * </p>
      * 
      * @param timeout
-     *        The job timeout in minutes. This is the maximum time that a job run can consume resources before it is
-     *        terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
+     *        The job timeout in minutes.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -820,140 +764,7 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing as low
-     * as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any other way
-     * cannot have fractional DPU allocations.
-     * </p>
-     * 
-     * @param maxCapacity
-     *        AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing
-     *        as low as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any
-     *        other way cannot have fractional DPU allocations.
-     */
-
-    public void setMaxCapacity(Double maxCapacity) {
-        this.maxCapacity = maxCapacity;
-    }
-
-    /**
-     * <p>
-     * AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing as low
-     * as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any other way
-     * cannot have fractional DPU allocations.
-     * </p>
-     * 
-     * @return AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing
-     *         as low as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any
-     *         other way cannot have fractional DPU allocations.
-     */
-
-    public Double getMaxCapacity() {
-        return this.maxCapacity;
-    }
-
-    /**
-     * <p>
-     * AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing as low
-     * as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any other way
-     * cannot have fractional DPU allocations.
-     * </p>
-     * 
-     * @param maxCapacity
-     *        AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with allocated processing
-     *        as low as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>. Glue ETL jobs running in any
-     *        other way cannot have fractional DPU allocations.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Job withMaxCapacity(Double maxCapacity) {
-        setMaxCapacity(maxCapacity);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Specifies configuration properties of a job notification.
-     * </p>
-     * 
-     * @param notificationProperty
-     *        Specifies configuration properties of a job notification.
-     */
-
-    public void setNotificationProperty(NotificationProperty notificationProperty) {
-        this.notificationProperty = notificationProperty;
-    }
-
-    /**
-     * <p>
-     * Specifies configuration properties of a job notification.
-     * </p>
-     * 
-     * @return Specifies configuration properties of a job notification.
-     */
-
-    public NotificationProperty getNotificationProperty() {
-        return this.notificationProperty;
-    }
-
-    /**
-     * <p>
-     * Specifies configuration properties of a job notification.
-     * </p>
-     * 
-     * @param notificationProperty
-     *        Specifies configuration properties of a job notification.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Job withNotificationProperty(NotificationProperty notificationProperty) {
-        setNotificationProperty(notificationProperty);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure to be used with this job.
-     * </p>
-     * 
-     * @param securityConfiguration
-     *        The name of the SecurityConfiguration structure to be used with this job.
-     */
-
-    public void setSecurityConfiguration(String securityConfiguration) {
-        this.securityConfiguration = securityConfiguration;
-    }
-
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure to be used with this job.
-     * </p>
-     * 
-     * @return The name of the SecurityConfiguration structure to be used with this job.
-     */
-
-    public String getSecurityConfiguration() {
-        return this.securityConfiguration;
-    }
-
-    /**
-     * <p>
-     * The name of the SecurityConfiguration structure to be used with this job.
-     * </p>
-     * 
-     * @param securityConfiguration
-     *        The name of the SecurityConfiguration structure to be used with this job.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Job withSecurityConfiguration(String securityConfiguration) {
-        setSecurityConfiguration(securityConfiguration);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -988,13 +799,7 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
         if (getAllocatedCapacity() != null)
             sb.append("AllocatedCapacity: ").append(getAllocatedCapacity()).append(",");
         if (getTimeout() != null)
-            sb.append("Timeout: ").append(getTimeout()).append(",");
-        if (getMaxCapacity() != null)
-            sb.append("MaxCapacity: ").append(getMaxCapacity()).append(",");
-        if (getNotificationProperty() != null)
-            sb.append("NotificationProperty: ").append(getNotificationProperty()).append(",");
-        if (getSecurityConfiguration() != null)
-            sb.append("SecurityConfiguration: ").append(getSecurityConfiguration());
+            sb.append("Timeout: ").append(getTimeout());
         sb.append("}");
         return sb.toString();
     }
@@ -1061,18 +866,6 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getTimeout() != null && other.getTimeout().equals(this.getTimeout()) == false)
             return false;
-        if (other.getMaxCapacity() == null ^ this.getMaxCapacity() == null)
-            return false;
-        if (other.getMaxCapacity() != null && other.getMaxCapacity().equals(this.getMaxCapacity()) == false)
-            return false;
-        if (other.getNotificationProperty() == null ^ this.getNotificationProperty() == null)
-            return false;
-        if (other.getNotificationProperty() != null && other.getNotificationProperty().equals(this.getNotificationProperty()) == false)
-            return false;
-        if (other.getSecurityConfiguration() == null ^ this.getSecurityConfiguration() == null)
-            return false;
-        if (other.getSecurityConfiguration() != null && other.getSecurityConfiguration().equals(this.getSecurityConfiguration()) == false)
-            return false;
         return true;
     }
 
@@ -1094,9 +887,6 @@ public class Job implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getMaxRetries() == null) ? 0 : getMaxRetries().hashCode());
         hashCode = prime * hashCode + ((getAllocatedCapacity() == null) ? 0 : getAllocatedCapacity().hashCode());
         hashCode = prime * hashCode + ((getTimeout() == null) ? 0 : getTimeout().hashCode());
-        hashCode = prime * hashCode + ((getMaxCapacity() == null) ? 0 : getMaxCapacity().hashCode());
-        hashCode = prime * hashCode + ((getNotificationProperty() == null) ? 0 : getNotificationProperty().hashCode());
-        hashCode = prime * hashCode + ((getSecurityConfiguration() == null) ? 0 : getSecurityConfiguration().hashCode());
         return hashCode;
     }
 

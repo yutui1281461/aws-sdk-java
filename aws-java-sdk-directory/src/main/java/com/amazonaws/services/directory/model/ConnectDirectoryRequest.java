@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,7 @@ public class ConnectDirectoryRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The fully qualified name of the on-premises directory, such as <code>corp.example.com</code>.
+     * The fully-qualified name of the on-premises directory, such as <code>corp.example.com</code>.
      * </p>
      */
     private String name;
@@ -67,11 +67,11 @@ public class ConnectDirectoryRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The fully qualified name of the on-premises directory, such as <code>corp.example.com</code>.
+     * The fully-qualified name of the on-premises directory, such as <code>corp.example.com</code>.
      * </p>
      * 
      * @param name
-     *        The fully qualified name of the on-premises directory, such as <code>corp.example.com</code>.
+     *        The fully-qualified name of the on-premises directory, such as <code>corp.example.com</code>.
      */
 
     public void setName(String name) {
@@ -80,10 +80,10 @@ public class ConnectDirectoryRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The fully qualified name of the on-premises directory, such as <code>corp.example.com</code>.
+     * The fully-qualified name of the on-premises directory, such as <code>corp.example.com</code>.
      * </p>
      * 
-     * @return The fully qualified name of the on-premises directory, such as <code>corp.example.com</code>.
+     * @return The fully-qualified name of the on-premises directory, such as <code>corp.example.com</code>.
      */
 
     public String getName() {
@@ -92,11 +92,11 @@ public class ConnectDirectoryRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The fully qualified name of the on-premises directory, such as <code>corp.example.com</code>.
+     * The fully-qualified name of the on-premises directory, such as <code>corp.example.com</code>.
      * </p>
      * 
      * @param name
-     *        The fully qualified name of the on-premises directory, such as <code>corp.example.com</code>.
+     *        The fully-qualified name of the on-premises directory, such as <code>corp.example.com</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -339,8 +339,7 @@ public class ConnectDirectoryRequest extends com.amazonaws.AmazonWebServiceReque
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -355,7 +354,7 @@ public class ConnectDirectoryRequest extends com.amazonaws.AmazonWebServiceReque
         if (getShortName() != null)
             sb.append("ShortName: ").append(getShortName()).append(",");
         if (getPassword() != null)
-            sb.append("Password: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("Password: ").append(getPassword()).append(",");
         if (getDescription() != null)
             sb.append("Description: ").append(getDescription()).append(",");
         if (getSize() != null)

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -17,7 +17,7 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * Describes an Elastic Graphics accelerator.
+ * Describes an Elastic GPU.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ElasticGpus" target="_top">AWS API
@@ -28,48 +28,48 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the Elastic Graphics accelerator.
+     * The ID of the Elastic GPU.
      * </p>
      */
     private String elasticGpuId;
     /**
      * <p>
-     * The Availability Zone in the which the Elastic Graphics accelerator resides.
+     * The Availability Zone in the which the Elastic GPU resides.
      * </p>
      */
     private String availabilityZone;
     /**
      * <p>
-     * The type of Elastic Graphics accelerator.
+     * The type of Elastic GPU.
      * </p>
      */
     private String elasticGpuType;
     /**
      * <p>
-     * The status of the Elastic Graphics accelerator.
+     * The status of the Elastic GPU.
      * </p>
      */
     private ElasticGpuHealth elasticGpuHealth;
     /**
      * <p>
-     * The state of the Elastic Graphics accelerator.
+     * The state of the Elastic GPU.
      * </p>
      */
     private String elasticGpuState;
     /**
      * <p>
-     * The ID of the instance to which the Elastic Graphics accelerator is attached.
+     * The ID of the instance to which the Elastic GPU is attached.
      * </p>
      */
     private String instanceId;
 
     /**
      * <p>
-     * The ID of the Elastic Graphics accelerator.
+     * The ID of the Elastic GPU.
      * </p>
      * 
      * @param elasticGpuId
-     *        The ID of the Elastic Graphics accelerator.
+     *        The ID of the Elastic GPU.
      */
 
     public void setElasticGpuId(String elasticGpuId) {
@@ -78,10 +78,10 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the Elastic Graphics accelerator.
+     * The ID of the Elastic GPU.
      * </p>
      * 
-     * @return The ID of the Elastic Graphics accelerator.
+     * @return The ID of the Elastic GPU.
      */
 
     public String getElasticGpuId() {
@@ -90,11 +90,11 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the Elastic Graphics accelerator.
+     * The ID of the Elastic GPU.
      * </p>
      * 
      * @param elasticGpuId
-     *        The ID of the Elastic Graphics accelerator.
+     *        The ID of the Elastic GPU.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -105,11 +105,11 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The Availability Zone in the which the Elastic Graphics accelerator resides.
+     * The Availability Zone in the which the Elastic GPU resides.
      * </p>
      * 
      * @param availabilityZone
-     *        The Availability Zone in the which the Elastic Graphics accelerator resides.
+     *        The Availability Zone in the which the Elastic GPU resides.
      */
 
     public void setAvailabilityZone(String availabilityZone) {
@@ -118,10 +118,10 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The Availability Zone in the which the Elastic Graphics accelerator resides.
+     * The Availability Zone in the which the Elastic GPU resides.
      * </p>
      * 
-     * @return The Availability Zone in the which the Elastic Graphics accelerator resides.
+     * @return The Availability Zone in the which the Elastic GPU resides.
      */
 
     public String getAvailabilityZone() {
@@ -130,11 +130,11 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The Availability Zone in the which the Elastic Graphics accelerator resides.
+     * The Availability Zone in the which the Elastic GPU resides.
      * </p>
      * 
      * @param availabilityZone
-     *        The Availability Zone in the which the Elastic Graphics accelerator resides.
+     *        The Availability Zone in the which the Elastic GPU resides.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -145,11 +145,11 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The type of Elastic Graphics accelerator.
+     * The type of Elastic GPU.
      * </p>
      * 
      * @param elasticGpuType
-     *        The type of Elastic Graphics accelerator.
+     *        The type of Elastic GPU.
      */
 
     public void setElasticGpuType(String elasticGpuType) {
@@ -158,10 +158,10 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The type of Elastic Graphics accelerator.
+     * The type of Elastic GPU.
      * </p>
      * 
-     * @return The type of Elastic Graphics accelerator.
+     * @return The type of Elastic GPU.
      */
 
     public String getElasticGpuType() {
@@ -170,11 +170,11 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The type of Elastic Graphics accelerator.
+     * The type of Elastic GPU.
      * </p>
      * 
      * @param elasticGpuType
-     *        The type of Elastic Graphics accelerator.
+     *        The type of Elastic GPU.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -185,11 +185,11 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The status of the Elastic Graphics accelerator.
+     * The status of the Elastic GPU.
      * </p>
      * 
      * @param elasticGpuHealth
-     *        The status of the Elastic Graphics accelerator.
+     *        The status of the Elastic GPU.
      */
 
     public void setElasticGpuHealth(ElasticGpuHealth elasticGpuHealth) {
@@ -198,10 +198,10 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The status of the Elastic Graphics accelerator.
+     * The status of the Elastic GPU.
      * </p>
      * 
-     * @return The status of the Elastic Graphics accelerator.
+     * @return The status of the Elastic GPU.
      */
 
     public ElasticGpuHealth getElasticGpuHealth() {
@@ -210,11 +210,11 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The status of the Elastic Graphics accelerator.
+     * The status of the Elastic GPU.
      * </p>
      * 
      * @param elasticGpuHealth
-     *        The status of the Elastic Graphics accelerator.
+     *        The status of the Elastic GPU.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -225,11 +225,11 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The state of the Elastic Graphics accelerator.
+     * The state of the Elastic GPU.
      * </p>
      * 
      * @param elasticGpuState
-     *        The state of the Elastic Graphics accelerator.
+     *        The state of the Elastic GPU.
      * @see ElasticGpuState
      */
 
@@ -239,10 +239,10 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The state of the Elastic Graphics accelerator.
+     * The state of the Elastic GPU.
      * </p>
      * 
-     * @return The state of the Elastic Graphics accelerator.
+     * @return The state of the Elastic GPU.
      * @see ElasticGpuState
      */
 
@@ -252,11 +252,11 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The state of the Elastic Graphics accelerator.
+     * The state of the Elastic GPU.
      * </p>
      * 
      * @param elasticGpuState
-     *        The state of the Elastic Graphics accelerator.
+     *        The state of the Elastic GPU.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ElasticGpuState
      */
@@ -268,11 +268,11 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The state of the Elastic Graphics accelerator.
+     * The state of the Elastic GPU.
      * </p>
      * 
      * @param elasticGpuState
-     *        The state of the Elastic Graphics accelerator.
+     *        The state of the Elastic GPU.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ElasticGpuState
      */
@@ -284,11 +284,11 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the instance to which the Elastic Graphics accelerator is attached.
+     * The ID of the instance to which the Elastic GPU is attached.
      * </p>
      * 
      * @param instanceId
-     *        The ID of the instance to which the Elastic Graphics accelerator is attached.
+     *        The ID of the instance to which the Elastic GPU is attached.
      */
 
     public void setInstanceId(String instanceId) {
@@ -297,10 +297,10 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the instance to which the Elastic Graphics accelerator is attached.
+     * The ID of the instance to which the Elastic GPU is attached.
      * </p>
      * 
-     * @return The ID of the instance to which the Elastic Graphics accelerator is attached.
+     * @return The ID of the instance to which the Elastic GPU is attached.
      */
 
     public String getInstanceId() {
@@ -309,11 +309,11 @@ public class ElasticGpus implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The ID of the instance to which the Elastic Graphics accelerator is attached.
+     * The ID of the instance to which the Elastic GPU is attached.
      * </p>
      * 
      * @param instanceId
-     *        The ID of the instance to which the Elastic Graphics accelerator is attached.
+     *        The ID of the instance to which the Elastic GPU is attached.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -323,8 +323,7 @@ public class ElasticGpus implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

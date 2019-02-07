@@ -24,12 +24,7 @@
             </#if>
 
                 if (context.testExpression("${listMemberPath}", targetDepth)) {
-                    <#if memberModel.listModel.listMemberModel.variable.simpleType == "Date">
-                    <#local timestampFormat = memberModel.listModel.listMemberModel.variable.timestampFormat />
-                        ${shapeVarName}.with${memberModel.name}(DateStaxUnmarshallerFactory.getInstance("${timestampFormat}").unmarshall(context));
-                    <#else>
-                         ${shapeVarName}.with${memberModel.name}(${memberModel.listModel.simpleType}StaxUnmarshaller.getInstance().unmarshall(context));
-                    </#if>
+                    ${shapeVarName}.with${memberModel.name}(${memberModel.listModel.simpleType}StaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
                 }
 
@@ -47,13 +42,8 @@
 
 <#else>
                 if (context.testExpression("${unmarshallerLocationName}", targetDepth)) {
-                <#if memberModel.variable.simpleType == "Date">
-                    <#local timestampFormat = memberModel.variable.timestampFormat />
-                    ${shapeVarName}.${memberModel.setterMethodName}(DateStaxUnmarshallerFactory.getInstance("${timestampFormat}").unmarshall(context));
-                <#else>
                     ${shapeVarName}.${memberModel.setterMethodName}(${memberModel.variable.simpleType}StaxUnmarshaller.getInstance().unmarshall(context));
-                </#if>
-                continue;
+                    continue;
                 }
 </#if>
 </#macro>

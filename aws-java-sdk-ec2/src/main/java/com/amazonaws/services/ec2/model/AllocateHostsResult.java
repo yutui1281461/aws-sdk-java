@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,17 +27,18 @@ public class AllocateHostsResult extends com.amazonaws.AmazonWebServiceResult<co
 
     /**
      * <p>
-     * The ID of the allocated Dedicated Host. This is used to launch an instance onto a specific host.
+     * The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific host.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> hostIds;
 
     /**
      * <p>
-     * The ID of the allocated Dedicated Host. This is used to launch an instance onto a specific host.
+     * The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific host.
      * </p>
      * 
-     * @return The ID of the allocated Dedicated Host. This is used to launch an instance onto a specific host.
+     * @return The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific
+     *         host.
      */
 
     public java.util.List<String> getHostIds() {
@@ -49,11 +50,12 @@ public class AllocateHostsResult extends com.amazonaws.AmazonWebServiceResult<co
 
     /**
      * <p>
-     * The ID of the allocated Dedicated Host. This is used to launch an instance onto a specific host.
+     * The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific host.
      * </p>
      * 
      * @param hostIds
-     *        The ID of the allocated Dedicated Host. This is used to launch an instance onto a specific host.
+     *        The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific
+     *        host.
      */
 
     public void setHostIds(java.util.Collection<String> hostIds) {
@@ -67,7 +69,7 @@ public class AllocateHostsResult extends com.amazonaws.AmazonWebServiceResult<co
 
     /**
      * <p>
-     * The ID of the allocated Dedicated Host. This is used to launch an instance onto a specific host.
+     * The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific host.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -76,7 +78,8 @@ public class AllocateHostsResult extends com.amazonaws.AmazonWebServiceResult<co
      * </p>
      * 
      * @param hostIds
-     *        The ID of the allocated Dedicated Host. This is used to launch an instance onto a specific host.
+     *        The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific
+     *        host.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -92,11 +95,12 @@ public class AllocateHostsResult extends com.amazonaws.AmazonWebServiceResult<co
 
     /**
      * <p>
-     * The ID of the allocated Dedicated Host. This is used to launch an instance onto a specific host.
+     * The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific host.
      * </p>
      * 
      * @param hostIds
-     *        The ID of the allocated Dedicated Host. This is used to launch an instance onto a specific host.
+     *        The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific
+     *        host.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -106,8 +110,7 @@ public class AllocateHostsResult extends com.amazonaws.AmazonWebServiceResult<co
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

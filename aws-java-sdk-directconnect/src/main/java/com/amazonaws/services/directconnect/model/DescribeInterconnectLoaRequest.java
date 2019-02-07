@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,6 +18,9 @@ import javax.annotation.Generated;
 import com.amazonaws.AmazonWebServiceRequest;
 
 /**
+ * <p>
+ * Container for the parameters to the DescribeInterconnectLoa operation.
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeInterconnectLoa"
  *      target="_top">AWS API Documentation</a>
@@ -25,33 +28,22 @@ import com.amazonaws.AmazonWebServiceRequest;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class DescribeInterconnectLoaRequest extends com.amazonaws.AmazonWebServiceRequest implements Serializable, Cloneable {
 
-    /**
-     * <p>
-     * The ID of the interconnect.
-     * </p>
-     */
     private String interconnectId;
     /**
      * <p>
      * The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the
      * LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
      * </p>
-     */
-    private String providerName;
-    /**
      * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     * Default: None
      * </p>
      */
+    private String providerName;
+
     private String loaContentType;
 
     /**
-     * <p>
-     * The ID of the interconnect.
-     * </p>
-     * 
      * @param interconnectId
-     *        The ID of the interconnect.
      */
 
     public void setInterconnectId(String interconnectId) {
@@ -59,11 +51,7 @@ public class DescribeInterconnectLoaRequest extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * <p>
-     * The ID of the interconnect.
-     * </p>
-     * 
-     * @return The ID of the interconnect.
+     * @return
      */
 
     public String getInterconnectId() {
@@ -71,12 +59,7 @@ public class DescribeInterconnectLoaRequest extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * <p>
-     * The ID of the interconnect.
-     * </p>
-     * 
      * @param interconnectId
-     *        The ID of the interconnect.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -90,11 +73,16 @@ public class DescribeInterconnectLoaRequest extends com.amazonaws.AmazonWebServi
      * The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the
      * LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
      * </p>
+     * <p>
+     * Default: None
+     * </p>
      * 
      * @param providerName
      *        The name of the service provider who establishes connectivity on your behalf. If you supply this
      *        parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross
-     *        connect.
+     *        connect.</p>
+     *        <p>
+     *        Default: None
      */
 
     public void setProviderName(String providerName) {
@@ -106,10 +94,15 @@ public class DescribeInterconnectLoaRequest extends com.amazonaws.AmazonWebServi
      * The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the
      * LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
      * </p>
+     * <p>
+     * Default: None
+     * </p>
      * 
      * @return The name of the service provider who establishes connectivity on your behalf. If you supply this
      *         parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross
-     *         connect.
+     *         connect.</p>
+     *         <p>
+     *         Default: None
      */
 
     public String getProviderName() {
@@ -121,11 +114,16 @@ public class DescribeInterconnectLoaRequest extends com.amazonaws.AmazonWebServi
      * The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the
      * LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
      * </p>
+     * <p>
+     * Default: None
+     * </p>
      * 
      * @param providerName
      *        The name of the service provider who establishes connectivity on your behalf. If you supply this
      *        parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross
-     *        connect.
+     *        connect.</p>
+     *        <p>
+     *        Default: None
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -135,12 +133,7 @@ public class DescribeInterconnectLoaRequest extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
-     * </p>
-     * 
      * @param loaContentType
-     *        The standard media type for the LOA-CFA document. The only supported value is application/pdf.
      * @see LoaContentType
      */
 
@@ -149,11 +142,7 @@ public class DescribeInterconnectLoaRequest extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
-     * </p>
-     * 
-     * @return The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+     * @return
      * @see LoaContentType
      */
 
@@ -162,12 +151,7 @@ public class DescribeInterconnectLoaRequest extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
-     * </p>
-     * 
      * @param loaContentType
-     *        The standard media type for the LOA-CFA document. The only supported value is application/pdf.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LoaContentType
      */
@@ -178,12 +162,7 @@ public class DescribeInterconnectLoaRequest extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
-     * </p>
-     * 
      * @param loaContentType
-     *        The standard media type for the LOA-CFA document. The only supported value is application/pdf.
      * @see LoaContentType
      */
 
@@ -192,12 +171,7 @@ public class DescribeInterconnectLoaRequest extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * <p>
-     * The standard media type for the LOA-CFA document. The only supported value is application/pdf.
-     * </p>
-     * 
      * @param loaContentType
-     *        The standard media type for the LOA-CFA document. The only supported value is application/pdf.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see LoaContentType
      */
@@ -208,8 +182,7 @@ public class DescribeInterconnectLoaRequest extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

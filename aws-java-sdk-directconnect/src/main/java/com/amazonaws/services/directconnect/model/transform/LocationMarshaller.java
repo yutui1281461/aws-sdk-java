@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,8 +31,6 @@ public class LocationMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("locationCode").build();
     private static final MarshallingInfo<String> LOCATIONNAME_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("locationName").build();
-    private static final MarshallingInfo<String> REGION_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
-            .marshallLocationName("region").build();
 
     private static final LocationMarshaller instance = new LocationMarshaller();
 
@@ -52,7 +50,6 @@ public class LocationMarshaller {
         try {
             protocolMarshaller.marshall(location.getLocationCode(), LOCATIONCODE_BINDING);
             protocolMarshaller.marshall(location.getLocationName(), LOCATIONNAME_BINDING);
-            protocolMarshaller.marshall(location.getRegion(), REGION_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

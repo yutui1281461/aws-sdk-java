@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * A group of reservations that share a set of attributes.
+ * A group of RIs that share a set of attributes.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ReservationUtilizationGroup" target="_top">AWS API
@@ -30,36 +30,36 @@ public class ReservationUtilizationGroup implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * The key for a specific reservation attribute.
+     * The key for a specific RI attribute.
      * </p>
      */
     private String key;
     /**
      * <p>
-     * The value of a specific reservation attribute.
+     * The value of a specific RI attribute.
      * </p>
      */
     private String value;
     /**
      * <p>
-     * The attributes for this group of reservations.
+     * The attributes for this group of RIs.
      * </p>
      */
     private java.util.Map<String, String> attributes;
     /**
      * <p>
-     * How much you used this group of reservations.
+     * How much you used this group of RIs.
      * </p>
      */
     private ReservationAggregates utilization;
 
     /**
      * <p>
-     * The key for a specific reservation attribute.
+     * The key for a specific RI attribute.
      * </p>
      * 
      * @param key
-     *        The key for a specific reservation attribute.
+     *        The key for a specific RI attribute.
      */
 
     public void setKey(String key) {
@@ -68,10 +68,10 @@ public class ReservationUtilizationGroup implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * The key for a specific reservation attribute.
+     * The key for a specific RI attribute.
      * </p>
      * 
-     * @return The key for a specific reservation attribute.
+     * @return The key for a specific RI attribute.
      */
 
     public String getKey() {
@@ -80,11 +80,11 @@ public class ReservationUtilizationGroup implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * The key for a specific reservation attribute.
+     * The key for a specific RI attribute.
      * </p>
      * 
      * @param key
-     *        The key for a specific reservation attribute.
+     *        The key for a specific RI attribute.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -95,11 +95,11 @@ public class ReservationUtilizationGroup implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * The value of a specific reservation attribute.
+     * The value of a specific RI attribute.
      * </p>
      * 
      * @param value
-     *        The value of a specific reservation attribute.
+     *        The value of a specific RI attribute.
      */
 
     public void setValue(String value) {
@@ -108,10 +108,10 @@ public class ReservationUtilizationGroup implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * The value of a specific reservation attribute.
+     * The value of a specific RI attribute.
      * </p>
      * 
-     * @return The value of a specific reservation attribute.
+     * @return The value of a specific RI attribute.
      */
 
     public String getValue() {
@@ -120,11 +120,11 @@ public class ReservationUtilizationGroup implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * The value of a specific reservation attribute.
+     * The value of a specific RI attribute.
      * </p>
      * 
      * @param value
-     *        The value of a specific reservation attribute.
+     *        The value of a specific RI attribute.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -135,10 +135,10 @@ public class ReservationUtilizationGroup implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * The attributes for this group of reservations.
+     * The attributes for this group of RIs.
      * </p>
      * 
-     * @return The attributes for this group of reservations.
+     * @return The attributes for this group of RIs.
      */
 
     public java.util.Map<String, String> getAttributes() {
@@ -147,11 +147,11 @@ public class ReservationUtilizationGroup implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * The attributes for this group of reservations.
+     * The attributes for this group of RIs.
      * </p>
      * 
      * @param attributes
-     *        The attributes for this group of reservations.
+     *        The attributes for this group of RIs.
      */
 
     public void setAttributes(java.util.Map<String, String> attributes) {
@@ -160,11 +160,11 @@ public class ReservationUtilizationGroup implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * The attributes for this group of reservations.
+     * The attributes for this group of RIs.
      * </p>
      * 
      * @param attributes
-     *        The attributes for this group of reservations.
+     *        The attributes for this group of RIs.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -196,11 +196,11 @@ public class ReservationUtilizationGroup implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * How much you used this group of reservations.
+     * How much you used this group of RIs.
      * </p>
      * 
      * @param utilization
-     *        How much you used this group of reservations.
+     *        How much you used this group of RIs.
      */
 
     public void setUtilization(ReservationAggregates utilization) {
@@ -209,10 +209,10 @@ public class ReservationUtilizationGroup implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * How much you used this group of reservations.
+     * How much you used this group of RIs.
      * </p>
      * 
-     * @return How much you used this group of reservations.
+     * @return How much you used this group of RIs.
      */
 
     public ReservationAggregates getUtilization() {
@@ -221,11 +221,11 @@ public class ReservationUtilizationGroup implements Serializable, Cloneable, Str
 
     /**
      * <p>
-     * How much you used this group of reservations.
+     * How much you used this group of RIs.
      * </p>
      * 
      * @param utilization
-     *        How much you used this group of reservations.
+     *        How much you used this group of RIs.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -235,8 +235,7 @@ public class ReservationUtilizationGroup implements Serializable, Cloneable, Str
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

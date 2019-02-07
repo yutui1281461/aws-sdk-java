@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -29,16 +29,15 @@ public class CreateStreamProcessorRequest extends com.amazonaws.AmazonWebService
     private StreamProcessorInput input;
     /**
      * <p>
-     * Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS
-     * CLI, the parameter name is <code>StreamProcessorOutput</code>.
+     * Kinesis data stream stream to which Rekognition Video puts the analysis results. If you are using the AWS CLI,
+     * the parameter name is <code>StreamProcessorOutput</code>.
      * </p>
      */
     private StreamProcessorOutput output;
     /**
      * <p>
      * An identifier you assign to the stream processor. You can use <code>Name</code> to manage the stream processor.
-     * For example, you can get the current status of the stream processor by calling <a>DescribeStreamProcessor</a>.
-     * <code>Name</code> is idempotent.
+     * For example, you can get the current status of the stream processor by calling . <code>Name</code> is idempotent.
      * </p>
      */
     private String name;
@@ -104,13 +103,13 @@ public class CreateStreamProcessorRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS
-     * CLI, the parameter name is <code>StreamProcessorOutput</code>.
+     * Kinesis data stream stream to which Rekognition Video puts the analysis results. If you are using the AWS CLI,
+     * the parameter name is <code>StreamProcessorOutput</code>.
      * </p>
      * 
      * @param output
-     *        Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using
-     *        the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>.
+     *        Kinesis data stream stream to which Rekognition Video puts the analysis results. If you are using the AWS
+     *        CLI, the parameter name is <code>StreamProcessorOutput</code>.
      */
 
     public void setOutput(StreamProcessorOutput output) {
@@ -119,12 +118,12 @@ public class CreateStreamProcessorRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS
-     * CLI, the parameter name is <code>StreamProcessorOutput</code>.
+     * Kinesis data stream stream to which Rekognition Video puts the analysis results. If you are using the AWS CLI,
+     * the parameter name is <code>StreamProcessorOutput</code>.
      * </p>
      * 
-     * @return Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using
-     *         the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>.
+     * @return Kinesis data stream stream to which Rekognition Video puts the analysis results. If you are using the AWS
+     *         CLI, the parameter name is <code>StreamProcessorOutput</code>.
      */
 
     public StreamProcessorOutput getOutput() {
@@ -133,13 +132,13 @@ public class CreateStreamProcessorRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS
-     * CLI, the parameter name is <code>StreamProcessorOutput</code>.
+     * Kinesis data stream stream to which Rekognition Video puts the analysis results. If you are using the AWS CLI,
+     * the parameter name is <code>StreamProcessorOutput</code>.
      * </p>
      * 
      * @param output
-     *        Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using
-     *        the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>.
+     *        Kinesis data stream stream to which Rekognition Video puts the analysis results. If you are using the AWS
+     *        CLI, the parameter name is <code>StreamProcessorOutput</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -151,14 +150,13 @@ public class CreateStreamProcessorRequest extends com.amazonaws.AmazonWebService
     /**
      * <p>
      * An identifier you assign to the stream processor. You can use <code>Name</code> to manage the stream processor.
-     * For example, you can get the current status of the stream processor by calling <a>DescribeStreamProcessor</a>.
-     * <code>Name</code> is idempotent.
+     * For example, you can get the current status of the stream processor by calling . <code>Name</code> is idempotent.
      * </p>
      * 
      * @param name
      *        An identifier you assign to the stream processor. You can use <code>Name</code> to manage the stream
-     *        processor. For example, you can get the current status of the stream processor by calling
-     *        <a>DescribeStreamProcessor</a>. <code>Name</code> is idempotent.
+     *        processor. For example, you can get the current status of the stream processor by calling .
+     *        <code>Name</code> is idempotent.
      */
 
     public void setName(String name) {
@@ -168,13 +166,12 @@ public class CreateStreamProcessorRequest extends com.amazonaws.AmazonWebService
     /**
      * <p>
      * An identifier you assign to the stream processor. You can use <code>Name</code> to manage the stream processor.
-     * For example, you can get the current status of the stream processor by calling <a>DescribeStreamProcessor</a>.
-     * <code>Name</code> is idempotent.
+     * For example, you can get the current status of the stream processor by calling . <code>Name</code> is idempotent.
      * </p>
      * 
      * @return An identifier you assign to the stream processor. You can use <code>Name</code> to manage the stream
-     *         processor. For example, you can get the current status of the stream processor by calling
-     *         <a>DescribeStreamProcessor</a>. <code>Name</code> is idempotent.
+     *         processor. For example, you can get the current status of the stream processor by calling .
+     *         <code>Name</code> is idempotent.
      */
 
     public String getName() {
@@ -184,14 +181,13 @@ public class CreateStreamProcessorRequest extends com.amazonaws.AmazonWebService
     /**
      * <p>
      * An identifier you assign to the stream processor. You can use <code>Name</code> to manage the stream processor.
-     * For example, you can get the current status of the stream processor by calling <a>DescribeStreamProcessor</a>.
-     * <code>Name</code> is idempotent.
+     * For example, you can get the current status of the stream processor by calling . <code>Name</code> is idempotent.
      * </p>
      * 
      * @param name
      *        An identifier you assign to the stream processor. You can use <code>Name</code> to manage the stream
-     *        processor. For example, you can get the current status of the stream processor by calling
-     *        <a>DescribeStreamProcessor</a>. <code>Name</code> is idempotent.
+     *        processor. For example, you can get the current status of the stream processor by calling .
+     *        <code>Name</code> is idempotent.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -287,8 +283,7 @@ public class CreateStreamProcessorRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

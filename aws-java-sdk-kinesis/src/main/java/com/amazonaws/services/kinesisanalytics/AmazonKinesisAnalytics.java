@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -46,10 +46,9 @@ public interface AmazonKinesisAnalytics {
      * default protocol from this client's {@link ClientConfiguration} will be used, which by default is HTTPS.
      * <p>
      * For more information on using AWS regions with the AWS SDK for Java, and a complete list of all available
-     * endpoints for all AWS services, see: <a href=
-     * "https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-choose-endpoint"
-     * > https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-
-     * choose-endpoint</a>
+     * endpoints for all AWS services, see: <a
+     * href="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912">
+     * http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912</a>
      * <p>
      * <b>This method is not threadsafe. An endpoint should be configured when the client is created and before any
      * service requests are made. Changing it afterwards creates inevitable race conditions for any service requests in
@@ -108,7 +107,6 @@ public interface AmazonKinesisAnalytics {
      * @throws ConcurrentModificationException
      *         Exception thrown as a result of concurrent modification to an application. For example, two individuals
      *         attempting to edit the same application at the same time.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.AddApplicationCloudWatchLoggingOption
      * @see <a
      *      href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationCloudWatchLoggingOption"
@@ -148,7 +146,6 @@ public interface AmazonKinesisAnalytics {
      *         attempting to edit the same application at the same time.
      * @throws CodeValidationException
      *         User-provided application code (query) is invalid. This can be a simple syntax error.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.AddApplicationInput
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationInput"
      *      target="_top">AWS API Documentation</a>
@@ -173,7 +170,6 @@ public interface AmazonKinesisAnalytics {
      * @throws ConcurrentModificationException
      *         Exception thrown as a result of concurrent modification to an application. For example, two individuals
      *         attempting to edit the same application at the same time.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.AddApplicationInputProcessingConfiguration
      * @see <a
      *      href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationInputProcessingConfiguration"
@@ -188,20 +184,21 @@ public interface AmazonKinesisAnalytics {
      * </p>
      * <p>
      * If you want Amazon Kinesis Analytics to deliver data from an in-application stream within your application to an
-     * external destination (such as an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream, or an AWS
+     * external destination (such as an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream, or an Amazon
      * Lambda function), you add the relevant configuration to your application using this operation. You can configure
      * one or more outputs for your application. Each output configuration maps an in-application stream and an external
      * destination.
      * </p>
      * <p>
      * You can use one of the output configurations to deliver data from your in-application error stream to an external
-     * destination so that you can analyze the errors. For more information, see <a
+     * destination so that you can analyze the errors. For conceptual information, see <a
      * href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Understanding Application
      * Output (Destination)</a>.
      * </p>
      * <p>
-     * Any configuration update, including adding a streaming source using this operation, results in a new version of
-     * the application. You can use the <a>DescribeApplication</a> operation to find the current application version.
+     * Note that any configuration update, including adding a streaming source using this operation, results in a new
+     * version of the application. You can use the <a>DescribeApplication</a> operation to find the current application
+     * version.
      * </p>
      * <p>
      * For the limits on the number of application inputs and outputs you can configure, see <a
@@ -222,7 +219,6 @@ public interface AmazonKinesisAnalytics {
      * @throws ConcurrentModificationException
      *         Exception thrown as a result of concurrent modification to an application. For example, two individuals
      *         attempting to edit the same application at the same time.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.AddApplicationOutput
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationOutput"
      *      target="_top">AWS API Documentation</a>
@@ -260,7 +256,6 @@ public interface AmazonKinesisAnalytics {
      * @throws ConcurrentModificationException
      *         Exception thrown as a result of concurrent modification to an application. For example, two individuals
      *         attempting to edit the same application at the same time.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.AddApplicationReferenceDataSource
      * @see <a
      *      href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationReferenceDataSource"
@@ -334,7 +329,6 @@ public interface AmazonKinesisAnalytics {
      *         Specified application can't be found.
      * @throws ResourceInUseException
      *         Application is not available for this operation.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.DeleteApplication
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplication"
      *      target="_top">AWS API Documentation</a>
@@ -360,7 +354,6 @@ public interface AmazonKinesisAnalytics {
      * @throws ConcurrentModificationException
      *         Exception thrown as a result of concurrent modification to an application. For example, two individuals
      *         attempting to edit the same application at the same time.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
      * @see <a
      *      href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationCloudWatchLoggingOption"
@@ -385,7 +378,6 @@ public interface AmazonKinesisAnalytics {
      * @throws ConcurrentModificationException
      *         Exception thrown as a result of concurrent modification to an application. For example, two individuals
      *         attempting to edit the same application at the same time.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.DeleteApplicationInputProcessingConfiguration
      * @see <a
      *      href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationInputProcessingConfiguration"
@@ -414,7 +406,6 @@ public interface AmazonKinesisAnalytics {
      * @throws ConcurrentModificationException
      *         Exception thrown as a result of concurrent modification to an application. For example, two individuals
      *         attempting to edit the same application at the same time.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.DeleteApplicationOutput
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationOutput"
      *      target="_top">AWS API Documentation</a>
@@ -445,7 +436,6 @@ public interface AmazonKinesisAnalytics {
      * @throws ConcurrentModificationException
      *         Exception thrown as a result of concurrent modification to an application. For example, two individuals
      *         attempting to edit the same application at the same time.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.DeleteApplicationReferenceDataSource
      * @see <a
      *      href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationReferenceDataSource"
@@ -471,7 +461,6 @@ public interface AmazonKinesisAnalytics {
      * @return Result of the DescribeApplication operation returned by the service.
      * @throws ResourceNotFoundException
      *         Specified application can't be found.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.DescribeApplication
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DescribeApplication"
      *      target="_top">AWS API Documentation</a>
@@ -500,7 +489,7 @@ public interface AmazonKinesisAnalytics {
      * @throws InvalidArgumentException
      *         Specified input parameter value is invalid.
      * @throws UnableToDetectSchemaException
-     *         Data format is not valid. Amazon Kinesis Analytics is not able to detect schema for the given streaming
+     *         Data format is not valid, Amazon Kinesis Analytics is not able to detect schema for the given streaming
      *         source.
      * @throws ResourceProvisionedThroughputExceededException
      *         Discovery failed to get a record from the streaming source because of the Amazon Kinesis Streams
@@ -508,7 +497,7 @@ public interface AmazonKinesisAnalytics {
      *         href="http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a> in the
      *         Amazon Kinesis Streams API Reference.
      * @throws ServiceUnavailableException
-     *         The service is unavailable. Back off and retry the operation.
+     *         The service is unavailable, back off and retry the operation.
      * @sample AmazonKinesisAnalytics.DiscoverInputSchema
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DiscoverInputSchema"
      *      target="_top">AWS API Documentation</a>
@@ -569,7 +558,6 @@ public interface AmazonKinesisAnalytics {
      *         Specified input parameter value is invalid.
      * @throws InvalidApplicationConfigurationException
      *         User-provided application configuration is not valid.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.StartApplication
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/StartApplication"
      *      target="_top">AWS API Documentation</a>
@@ -593,7 +581,6 @@ public interface AmazonKinesisAnalytics {
      *         Specified application can't be found.
      * @throws ResourceInUseException
      *         Application is not available for this operation.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.StopApplication
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/StopApplication"
      *      target="_top">AWS API Documentation</a>
@@ -626,7 +613,6 @@ public interface AmazonKinesisAnalytics {
      * @throws ConcurrentModificationException
      *         Exception thrown as a result of concurrent modification to an application. For example, two individuals
      *         attempting to edit the same application at the same time.
-     * @throws UnsupportedOperationException
      * @sample AmazonKinesisAnalytics.UpdateApplication
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/UpdateApplication"
      *      target="_top">AWS API Documentation</a>

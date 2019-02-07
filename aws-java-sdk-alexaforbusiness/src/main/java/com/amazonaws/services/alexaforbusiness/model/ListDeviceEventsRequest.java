@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,9 +33,7 @@ public class ListDeviceEventsRequest extends com.amazonaws.AmazonWebServiceReque
     private String deviceArn;
     /**
      * <p>
-     * The event type to filter device events. If EventType isn't specified, this returns a list of all device events in
-     * reverse chronological order. If EventType is specified, this returns a list of device events for that EventType
-     * in reverse chronological order.
+     * The event type to filter device events.
      * </p>
      */
     private String eventType;
@@ -43,14 +41,14 @@ public class ListDeviceEventsRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * An optional token returned from a prior request. Use this token for pagination of results from this action. If
      * this parameter is specified, the response only includes results beyond the token, up to the value specified by
-     * MaxResults. When the end of results is reached, the response has a value of null.
+     * MaxResults.
      * </p>
      */
     private String nextToken;
     /**
      * <p>
-     * The maximum number of results to include in the response. The default value is 50. If more results exist than the
-     * specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+     * The maximum number of results to include in the response. If more results exist than the specified MaxResults
+     * value, a token is included in the response so that the remaining results can be retrieved. Required.
      * </p>
      */
     private Integer maxResults;
@@ -97,15 +95,11 @@ public class ListDeviceEventsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The event type to filter device events. If EventType isn't specified, this returns a list of all device events in
-     * reverse chronological order. If EventType is specified, this returns a list of device events for that EventType
-     * in reverse chronological order.
+     * The event type to filter device events.
      * </p>
      * 
      * @param eventType
-     *        The event type to filter device events. If EventType isn't specified, this returns a list of all device
-     *        events in reverse chronological order. If EventType is specified, this returns a list of device events for
-     *        that EventType in reverse chronological order.
+     *        The event type to filter device events.
      * @see DeviceEventType
      */
 
@@ -115,14 +109,10 @@ public class ListDeviceEventsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The event type to filter device events. If EventType isn't specified, this returns a list of all device events in
-     * reverse chronological order. If EventType is specified, this returns a list of device events for that EventType
-     * in reverse chronological order.
+     * The event type to filter device events.
      * </p>
      * 
-     * @return The event type to filter device events. If EventType isn't specified, this returns a list of all device
-     *         events in reverse chronological order. If EventType is specified, this returns a list of device events
-     *         for that EventType in reverse chronological order.
+     * @return The event type to filter device events.
      * @see DeviceEventType
      */
 
@@ -132,15 +122,11 @@ public class ListDeviceEventsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The event type to filter device events. If EventType isn't specified, this returns a list of all device events in
-     * reverse chronological order. If EventType is specified, this returns a list of device events for that EventType
-     * in reverse chronological order.
+     * The event type to filter device events.
      * </p>
      * 
      * @param eventType
-     *        The event type to filter device events. If EventType isn't specified, this returns a list of all device
-     *        events in reverse chronological order. If EventType is specified, this returns a list of device events for
-     *        that EventType in reverse chronological order.
+     *        The event type to filter device events.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DeviceEventType
      */
@@ -152,15 +138,11 @@ public class ListDeviceEventsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The event type to filter device events. If EventType isn't specified, this returns a list of all device events in
-     * reverse chronological order. If EventType is specified, this returns a list of device events for that EventType
-     * in reverse chronological order.
+     * The event type to filter device events.
      * </p>
      * 
      * @param eventType
-     *        The event type to filter device events. If EventType isn't specified, this returns a list of all device
-     *        events in reverse chronological order. If EventType is specified, this returns a list of device events for
-     *        that EventType in reverse chronological order.
+     *        The event type to filter device events.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DeviceEventType
      */
@@ -174,13 +156,13 @@ public class ListDeviceEventsRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * An optional token returned from a prior request. Use this token for pagination of results from this action. If
      * this parameter is specified, the response only includes results beyond the token, up to the value specified by
-     * MaxResults. When the end of results is reached, the response has a value of null.
+     * MaxResults.
      * </p>
      * 
      * @param nextToken
      *        An optional token returned from a prior request. Use this token for pagination of results from this
      *        action. If this parameter is specified, the response only includes results beyond the token, up to the
-     *        value specified by MaxResults. When the end of results is reached, the response has a value of null.
+     *        value specified by MaxResults.
      */
 
     public void setNextToken(String nextToken) {
@@ -191,12 +173,12 @@ public class ListDeviceEventsRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * An optional token returned from a prior request. Use this token for pagination of results from this action. If
      * this parameter is specified, the response only includes results beyond the token, up to the value specified by
-     * MaxResults. When the end of results is reached, the response has a value of null.
+     * MaxResults.
      * </p>
      * 
      * @return An optional token returned from a prior request. Use this token for pagination of results from this
      *         action. If this parameter is specified, the response only includes results beyond the token, up to the
-     *         value specified by MaxResults. When the end of results is reached, the response has a value of null.
+     *         value specified by MaxResults.
      */
 
     public String getNextToken() {
@@ -207,13 +189,13 @@ public class ListDeviceEventsRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * An optional token returned from a prior request. Use this token for pagination of results from this action. If
      * this parameter is specified, the response only includes results beyond the token, up to the value specified by
-     * MaxResults. When the end of results is reached, the response has a value of null.
+     * MaxResults.
      * </p>
      * 
      * @param nextToken
      *        An optional token returned from a prior request. Use this token for pagination of results from this
      *        action. If this parameter is specified, the response only includes results beyond the token, up to the
-     *        value specified by MaxResults. When the end of results is reached, the response has a value of null.
+     *        value specified by MaxResults.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -224,14 +206,14 @@ public class ListDeviceEventsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The maximum number of results to include in the response. The default value is 50. If more results exist than the
-     * specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+     * The maximum number of results to include in the response. If more results exist than the specified MaxResults
+     * value, a token is included in the response so that the remaining results can be retrieved. Required.
      * </p>
      * 
      * @param maxResults
-     *        The maximum number of results to include in the response. The default value is 50. If more results exist
-     *        than the specified MaxResults value, a token is included in the response so that the remaining results can
-     *        be retrieved.
+     *        The maximum number of results to include in the response. If more results exist than the specified
+     *        MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+     *        Required.
      */
 
     public void setMaxResults(Integer maxResults) {
@@ -240,13 +222,13 @@ public class ListDeviceEventsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The maximum number of results to include in the response. The default value is 50. If more results exist than the
-     * specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+     * The maximum number of results to include in the response. If more results exist than the specified MaxResults
+     * value, a token is included in the response so that the remaining results can be retrieved. Required.
      * </p>
      * 
-     * @return The maximum number of results to include in the response. The default value is 50. If more results exist
-     *         than the specified MaxResults value, a token is included in the response so that the remaining results
-     *         can be retrieved.
+     * @return The maximum number of results to include in the response. If more results exist than the specified
+     *         MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+     *         Required.
      */
 
     public Integer getMaxResults() {
@@ -255,14 +237,14 @@ public class ListDeviceEventsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The maximum number of results to include in the response. The default value is 50. If more results exist than the
-     * specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+     * The maximum number of results to include in the response. If more results exist than the specified MaxResults
+     * value, a token is included in the response so that the remaining results can be retrieved. Required.
      * </p>
      * 
      * @param maxResults
-     *        The maximum number of results to include in the response. The default value is 50. If more results exist
-     *        than the specified MaxResults value, a token is included in the response so that the remaining results can
-     *        be retrieved.
+     *        The maximum number of results to include in the response. If more results exist than the specified
+     *        MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+     *        Required.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -272,8 +254,7 @@ public class ListDeviceEventsRequest extends com.amazonaws.AmazonWebServiceReque
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

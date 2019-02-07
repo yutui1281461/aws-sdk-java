@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,31 +30,25 @@ public class ResultConfiguration implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * The location in Amazon S3 where your query results are stored, such as <code>s3://path/to/query/bucket/</code>.
-     * For more information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/querying.html">Queries and Query
-     * Result Files. </a>
+     * The location in S3 where query results are stored.
      * </p>
      */
     private String outputLocation;
     /**
      * <p>
-     * If query results are encrypted in Amazon S3, indicates the encryption option used (for example,
-     * <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information.
+     * If query results are encrypted in S3, indicates the S3 encryption option used (for example, <code>SSE-KMS</code>
+     * or <code>CSE-KMS</code> and key information.
      * </p>
      */
     private EncryptionConfiguration encryptionConfiguration;
 
     /**
      * <p>
-     * The location in Amazon S3 where your query results are stored, such as <code>s3://path/to/query/bucket/</code>.
-     * For more information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/querying.html">Queries and Query
-     * Result Files. </a>
+     * The location in S3 where query results are stored.
      * </p>
      * 
      * @param outputLocation
-     *        The location in Amazon S3 where your query results are stored, such as
-     *        <code>s3://path/to/query/bucket/</code>. For more information, see <a
-     *        href="http://docs.aws.amazon.com/athena/latest/ug/querying.html">Queries and Query Result Files. </a>
+     *        The location in S3 where query results are stored.
      */
 
     public void setOutputLocation(String outputLocation) {
@@ -63,14 +57,10 @@ public class ResultConfiguration implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * The location in Amazon S3 where your query results are stored, such as <code>s3://path/to/query/bucket/</code>.
-     * For more information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/querying.html">Queries and Query
-     * Result Files. </a>
+     * The location in S3 where query results are stored.
      * </p>
      * 
-     * @return The location in Amazon S3 where your query results are stored, such as
-     *         <code>s3://path/to/query/bucket/</code>. For more information, see <a
-     *         href="http://docs.aws.amazon.com/athena/latest/ug/querying.html">Queries and Query Result Files. </a>
+     * @return The location in S3 where query results are stored.
      */
 
     public String getOutputLocation() {
@@ -79,15 +69,11 @@ public class ResultConfiguration implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * The location in Amazon S3 where your query results are stored, such as <code>s3://path/to/query/bucket/</code>.
-     * For more information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/querying.html">Queries and Query
-     * Result Files. </a>
+     * The location in S3 where query results are stored.
      * </p>
      * 
      * @param outputLocation
-     *        The location in Amazon S3 where your query results are stored, such as
-     *        <code>s3://path/to/query/bucket/</code>. For more information, see <a
-     *        href="http://docs.aws.amazon.com/athena/latest/ug/querying.html">Queries and Query Result Files. </a>
+     *        The location in S3 where query results are stored.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -98,13 +84,13 @@ public class ResultConfiguration implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * If query results are encrypted in Amazon S3, indicates the encryption option used (for example,
-     * <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information.
+     * If query results are encrypted in S3, indicates the S3 encryption option used (for example, <code>SSE-KMS</code>
+     * or <code>CSE-KMS</code> and key information.
      * </p>
      * 
      * @param encryptionConfiguration
-     *        If query results are encrypted in Amazon S3, indicates the encryption option used (for example,
-     *        <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information.
+     *        If query results are encrypted in S3, indicates the S3 encryption option used (for example,
+     *        <code>SSE-KMS</code> or <code>CSE-KMS</code> and key information.
      */
 
     public void setEncryptionConfiguration(EncryptionConfiguration encryptionConfiguration) {
@@ -113,12 +99,12 @@ public class ResultConfiguration implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * If query results are encrypted in Amazon S3, indicates the encryption option used (for example,
-     * <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information.
+     * If query results are encrypted in S3, indicates the S3 encryption option used (for example, <code>SSE-KMS</code>
+     * or <code>CSE-KMS</code> and key information.
      * </p>
      * 
-     * @return If query results are encrypted in Amazon S3, indicates the encryption option used (for example,
-     *         <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information.
+     * @return If query results are encrypted in S3, indicates the S3 encryption option used (for example,
+     *         <code>SSE-KMS</code> or <code>CSE-KMS</code> and key information.
      */
 
     public EncryptionConfiguration getEncryptionConfiguration() {
@@ -127,13 +113,13 @@ public class ResultConfiguration implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * If query results are encrypted in Amazon S3, indicates the encryption option used (for example,
-     * <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information.
+     * If query results are encrypted in S3, indicates the S3 encryption option used (for example, <code>SSE-KMS</code>
+     * or <code>CSE-KMS</code> and key information.
      * </p>
      * 
      * @param encryptionConfiguration
-     *        If query results are encrypted in Amazon S3, indicates the encryption option used (for example,
-     *        <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information.
+     *        If query results are encrypted in S3, indicates the S3 encryption option used (for example,
+     *        <code>SSE-KMS</code> or <code>CSE-KMS</code> and key information.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -143,8 +129,7 @@ public class ResultConfiguration implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

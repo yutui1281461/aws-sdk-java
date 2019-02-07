@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -61,8 +61,6 @@ public interface AWSGlue {
      *         A specified entity does not exist
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.BatchCreatePartition
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchCreatePartition" target="_top">AWS API
      *      Documentation</a>
@@ -111,18 +109,6 @@ public interface AWSGlue {
      * <p>
      * Deletes multiple tables at once.
      * </p>
-     * <note>
-     * <p>
-     * After completing this operation, you will no longer have access to the table versions and partitions that belong
-     * to the deleted table. AWS Glue deletes these "orphaned" resources asynchronously in a timely manner, at the
-     * discretion of the service.
-     * </p>
-     * <p>
-     * To ensure immediate deletion of all related resources, before calling <code>BatchDeleteTable</code>, use
-     * <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, and <code>DeletePartition</code> or
-     * <code>BatchDeletePartition</code>, to delete any resources that belong to the table.
-     * </p>
-     * </note>
      * 
      * @param batchDeleteTableRequest
      * @return Result of the BatchDeleteTable operation returned by the service.
@@ -176,8 +162,6 @@ public interface AWSGlue {
      *         The operation timed out.
      * @throws InternalServiceException
      *         An internal service error occurred.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.BatchGetPartition
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchGetPartition" target="_top">AWS API
      *      Documentation</a>
@@ -239,8 +223,6 @@ public interface AWSGlue {
      *         The operation timed out.
      * @throws ResourceNumberLimitExceededException
      *         A resource numerical limit was exceeded.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.CreateConnection
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateConnection" target="_top">AWS API
      *      Documentation</a>
@@ -250,8 +232,7 @@ public interface AWSGlue {
     /**
      * <p>
      * Creates a new crawler with specified targets, role, configuration, and optional schedule. At least one crawl
-     * target must be specified, in the <i>s3Targets</i> field, the <i>jdbcTargets</i> field, or the
-     * <i>DynamoDBTargets</i> field.
+     * target must be specified, in either the <i>s3Targets</i> or the <i>jdbcTargets</i> field.
      * </p>
      * 
      * @param createCrawlerRequest
@@ -287,8 +268,6 @@ public interface AWSGlue {
      *         An internal service error occurred.
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.CreateDatabase
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateDatabase" target="_top">AWS API
      *      Documentation</a>
@@ -370,8 +349,6 @@ public interface AWSGlue {
      *         A specified entity does not exist
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.CreatePartition
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreatePartition" target="_top">AWS API
      *      Documentation</a>
@@ -399,29 +376,6 @@ public interface AWSGlue {
 
     /**
      * <p>
-     * Creates a new security configuration.
-     * </p>
-     * 
-     * @param createSecurityConfigurationRequest
-     * @return Result of the CreateSecurityConfiguration operation returned by the service.
-     * @throws AlreadyExistsException
-     *         A resource to be created or added already exists.
-     * @throws InvalidInputException
-     *         The input provided was not valid.
-     * @throws InternalServiceException
-     *         An internal service error occurred.
-     * @throws OperationTimeoutException
-     *         The operation timed out.
-     * @throws ResourceNumberLimitExceededException
-     *         A resource numerical limit was exceeded.
-     * @sample AWSGlue.CreateSecurityConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateSecurityConfiguration"
-     *      target="_top">AWS API Documentation</a>
-     */
-    CreateSecurityConfigurationResult createSecurityConfiguration(CreateSecurityConfigurationRequest createSecurityConfigurationRequest);
-
-    /**
-     * <p>
      * Creates a new table definition in the Data Catalog.
      * </p>
      * 
@@ -439,8 +393,6 @@ public interface AWSGlue {
      *         An internal service error occurred.
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.CreateTable
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateTable" target="_top">AWS API
      *      Documentation</a>
@@ -493,8 +445,6 @@ public interface AWSGlue {
      *         The operation timed out.
      * @throws ResourceNumberLimitExceededException
      *         A resource numerical limit was exceeded.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.CreateUserDefinedFunction
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateUserDefinedFunction" target="_top">AWS
      *      API Documentation</a>
@@ -560,19 +510,6 @@ public interface AWSGlue {
      * <p>
      * Removes a specified Database from a Data Catalog.
      * </p>
-     * <note>
-     * <p>
-     * After completing this operation, you will no longer have access to the tables (and all table versions and
-     * partitions that might belong to the tables) and the user-defined functions in the deleted database. AWS Glue
-     * deletes these "orphaned" resources asynchronously in a timely manner, at the discretion of the service.
-     * </p>
-     * <p>
-     * To ensure immediate deletion of all related resources, before calling <code>DeleteDatabase</code>, use
-     * <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, <code>DeletePartition</code> or
-     * <code>BatchDeletePartition</code>, <code>DeleteUserDefinedFunction</code>, and <code>DeleteTable</code> or
-     * <code>BatchDeleteTable</code>, to delete any resources that belong to the database.
-     * </p>
-     * </note>
      * 
      * @param deleteDatabaseRequest
      * @return Result of the DeleteDatabase operation returned by the service.
@@ -653,64 +590,8 @@ public interface AWSGlue {
 
     /**
      * <p>
-     * Deletes a specified policy.
-     * </p>
-     * 
-     * @param deleteResourcePolicyRequest
-     * @return Result of the DeleteResourcePolicy operation returned by the service.
-     * @throws EntityNotFoundException
-     *         A specified entity does not exist
-     * @throws InternalServiceException
-     *         An internal service error occurred.
-     * @throws OperationTimeoutException
-     *         The operation timed out.
-     * @throws InvalidInputException
-     *         The input provided was not valid.
-     * @throws ConditionCheckFailureException
-     *         A specified condition was not satisfied.
-     * @sample AWSGlue.DeleteResourcePolicy
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteResourcePolicy" target="_top">AWS API
-     *      Documentation</a>
-     */
-    DeleteResourcePolicyResult deleteResourcePolicy(DeleteResourcePolicyRequest deleteResourcePolicyRequest);
-
-    /**
-     * <p>
-     * Deletes a specified security configuration.
-     * </p>
-     * 
-     * @param deleteSecurityConfigurationRequest
-     * @return Result of the DeleteSecurityConfiguration operation returned by the service.
-     * @throws EntityNotFoundException
-     *         A specified entity does not exist
-     * @throws InvalidInputException
-     *         The input provided was not valid.
-     * @throws InternalServiceException
-     *         An internal service error occurred.
-     * @throws OperationTimeoutException
-     *         The operation timed out.
-     * @sample AWSGlue.DeleteSecurityConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteSecurityConfiguration"
-     *      target="_top">AWS API Documentation</a>
-     */
-    DeleteSecurityConfigurationResult deleteSecurityConfiguration(DeleteSecurityConfigurationRequest deleteSecurityConfigurationRequest);
-
-    /**
-     * <p>
      * Removes a table definition from the Data Catalog.
      * </p>
-     * <note>
-     * <p>
-     * After completing this operation, you will no longer have access to the table versions and partitions that belong
-     * to the deleted table. AWS Glue deletes these "orphaned" resources asynchronously in a timely manner, at the
-     * discretion of the service.
-     * </p>
-     * <p>
-     * To ensure immediate deletion of all related resources, before calling <code>DeleteTable</code>, use
-     * <code>DeleteTableVersion</code> or <code>BatchDeleteTableVersion</code>, and <code>DeletePartition</code> or
-     * <code>BatchDeletePartition</code>, to delete any resources that belong to the table.
-     * </p>
-     * </note>
      * 
      * @param deleteTableRequest
      * @return Result of the DeleteTable operation returned by the service.
@@ -851,10 +732,6 @@ public interface AWSGlue {
      *         A specified entity does not exist
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws InvalidInputException
-     *         The input provided was not valid.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.GetConnection
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetConnection" target="_top">AWS API
      *      Documentation</a>
@@ -872,10 +749,6 @@ public interface AWSGlue {
      *         A specified entity does not exist
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws InvalidInputException
-     *         The input provided was not valid.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.GetConnections
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetConnections" target="_top">AWS API
      *      Documentation</a>
@@ -931,25 +804,6 @@ public interface AWSGlue {
 
     /**
      * <p>
-     * Retrieves the security configuration for a specified catalog.
-     * </p>
-     * 
-     * @param getDataCatalogEncryptionSettingsRequest
-     * @return Result of the GetDataCatalogEncryptionSettings operation returned by the service.
-     * @throws InternalServiceException
-     *         An internal service error occurred.
-     * @throws InvalidInputException
-     *         The input provided was not valid.
-     * @throws OperationTimeoutException
-     *         The operation timed out.
-     * @sample AWSGlue.GetDataCatalogEncryptionSettings
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDataCatalogEncryptionSettings"
-     *      target="_top">AWS API Documentation</a>
-     */
-    GetDataCatalogEncryptionSettingsResult getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsRequest getDataCatalogEncryptionSettingsRequest);
-
-    /**
-     * <p>
      * Retrieves the definition of a specified database.
      * </p>
      * 
@@ -963,8 +817,6 @@ public interface AWSGlue {
      *         An internal service error occurred.
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.GetDatabase
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDatabase" target="_top">AWS API
      *      Documentation</a>
@@ -984,8 +836,6 @@ public interface AWSGlue {
      *         An internal service error occurred.
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.GetDatabases
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDatabases" target="_top">AWS API
      *      Documentation</a>
@@ -1015,13 +865,6 @@ public interface AWSGlue {
      * <p>
      * Retrieves information about a specified DevEndpoint.
      * </p>
-     * <note>
-     * <p>
-     * When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only a private IP
-     * address, and the public IP address field is not populated. When you create a non-VPC development endpoint, AWS
-     * Glue returns only a public IP address.
-     * </p>
-     * </note>
      * 
      * @param getDevEndpointRequest
      * @return Result of the GetDevEndpoint operation returned by the service.
@@ -1043,13 +886,6 @@ public interface AWSGlue {
      * <p>
      * Retrieves all the DevEndpoints in this AWS account.
      * </p>
-     * <note>
-     * <p>
-     * When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only a private IP
-     * address and the public IP address field is not populated. When you create a non-VPC development endpoint, AWS
-     * Glue returns only a public IP address.
-     * </p>
-     * </note>
      * 
      * @param getDevEndpointsRequest
      * @return Result of the GetDevEndpoints operation returned by the service.
@@ -1187,8 +1023,6 @@ public interface AWSGlue {
      *         An internal service error occurred.
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.GetPartition
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetPartition" target="_top">AWS API
      *      Documentation</a>
@@ -1210,8 +1044,6 @@ public interface AWSGlue {
      *         The operation timed out.
      * @throws InternalServiceException
      *         An internal service error occurred.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.GetPartitions
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetPartitions" target="_top">AWS API
      *      Documentation</a>
@@ -1239,69 +1071,6 @@ public interface AWSGlue {
 
     /**
      * <p>
-     * Retrieves a specified resource policy.
-     * </p>
-     * 
-     * @param getResourcePolicyRequest
-     * @return Result of the GetResourcePolicy operation returned by the service.
-     * @throws EntityNotFoundException
-     *         A specified entity does not exist
-     * @throws InternalServiceException
-     *         An internal service error occurred.
-     * @throws OperationTimeoutException
-     *         The operation timed out.
-     * @throws InvalidInputException
-     *         The input provided was not valid.
-     * @sample AWSGlue.GetResourcePolicy
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetResourcePolicy" target="_top">AWS API
-     *      Documentation</a>
-     */
-    GetResourcePolicyResult getResourcePolicy(GetResourcePolicyRequest getResourcePolicyRequest);
-
-    /**
-     * <p>
-     * Retrieves a specified security configuration.
-     * </p>
-     * 
-     * @param getSecurityConfigurationRequest
-     * @return Result of the GetSecurityConfiguration operation returned by the service.
-     * @throws EntityNotFoundException
-     *         A specified entity does not exist
-     * @throws InvalidInputException
-     *         The input provided was not valid.
-     * @throws InternalServiceException
-     *         An internal service error occurred.
-     * @throws OperationTimeoutException
-     *         The operation timed out.
-     * @sample AWSGlue.GetSecurityConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetSecurityConfiguration" target="_top">AWS
-     *      API Documentation</a>
-     */
-    GetSecurityConfigurationResult getSecurityConfiguration(GetSecurityConfigurationRequest getSecurityConfigurationRequest);
-
-    /**
-     * <p>
-     * Retrieves a list of all security configurations.
-     * </p>
-     * 
-     * @param getSecurityConfigurationsRequest
-     * @return Result of the GetSecurityConfigurations operation returned by the service.
-     * @throws EntityNotFoundException
-     *         A specified entity does not exist
-     * @throws InvalidInputException
-     *         The input provided was not valid.
-     * @throws InternalServiceException
-     *         An internal service error occurred.
-     * @throws OperationTimeoutException
-     *         The operation timed out.
-     * @sample AWSGlue.GetSecurityConfigurations
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetSecurityConfigurations" target="_top">AWS
-     *      API Documentation</a>
-     */
-    GetSecurityConfigurationsResult getSecurityConfigurations(GetSecurityConfigurationsRequest getSecurityConfigurationsRequest);
-
-    /**
-     * <p>
      * Retrieves the <code>Table</code> definition in a Data Catalog for a specified table.
      * </p>
      * 
@@ -1315,8 +1084,6 @@ public interface AWSGlue {
      *         An internal service error occurred.
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.GetTable
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetTable" target="_top">AWS API
      *      Documentation</a>
@@ -1338,8 +1105,6 @@ public interface AWSGlue {
      *         An internal service error occurred.
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.GetTableVersion
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetTableVersion" target="_top">AWS API
      *      Documentation</a>
@@ -1361,8 +1126,6 @@ public interface AWSGlue {
      *         An internal service error occurred.
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.GetTableVersions
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetTableVersions" target="_top">AWS API
      *      Documentation</a>
@@ -1384,8 +1147,6 @@ public interface AWSGlue {
      *         The operation timed out.
      * @throws InternalServiceException
      *         An internal service error occurred.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.GetTables
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetTables" target="_top">AWS API
      *      Documentation</a>
@@ -1449,8 +1210,6 @@ public interface AWSGlue {
      *         An internal service error occurred.
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.GetUserDefinedFunction
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetUserDefinedFunction" target="_top">AWS
      *      API Documentation</a>
@@ -1472,8 +1231,6 @@ public interface AWSGlue {
      *         The operation timed out.
      * @throws InternalServiceException
      *         An internal service error occurred.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.GetUserDefinedFunctions
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetUserDefinedFunctions" target="_top">AWS
      *      API Documentation</a>
@@ -1499,49 +1256,6 @@ public interface AWSGlue {
 
     /**
      * <p>
-     * Sets the security configuration for a specified catalog. Once the configuration has been set, the specified
-     * encryption is applied to every catalog write thereafter.
-     * </p>
-     * 
-     * @param putDataCatalogEncryptionSettingsRequest
-     * @return Result of the PutDataCatalogEncryptionSettings operation returned by the service.
-     * @throws InternalServiceException
-     *         An internal service error occurred.
-     * @throws InvalidInputException
-     *         The input provided was not valid.
-     * @throws OperationTimeoutException
-     *         The operation timed out.
-     * @sample AWSGlue.PutDataCatalogEncryptionSettings
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/PutDataCatalogEncryptionSettings"
-     *      target="_top">AWS API Documentation</a>
-     */
-    PutDataCatalogEncryptionSettingsResult putDataCatalogEncryptionSettings(PutDataCatalogEncryptionSettingsRequest putDataCatalogEncryptionSettingsRequest);
-
-    /**
-     * <p>
-     * Sets the Data Catalog resource policy for access control.
-     * </p>
-     * 
-     * @param putResourcePolicyRequest
-     * @return Result of the PutResourcePolicy operation returned by the service.
-     * @throws EntityNotFoundException
-     *         A specified entity does not exist
-     * @throws InternalServiceException
-     *         An internal service error occurred.
-     * @throws OperationTimeoutException
-     *         The operation timed out.
-     * @throws InvalidInputException
-     *         The input provided was not valid.
-     * @throws ConditionCheckFailureException
-     *         A specified condition was not satisfied.
-     * @sample AWSGlue.PutResourcePolicy
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/PutResourcePolicy" target="_top">AWS API
-     *      Documentation</a>
-     */
-    PutResourcePolicyResult putResourcePolicy(PutResourcePolicyRequest putResourcePolicyRequest);
-
-    /**
-     * <p>
      * Resets a bookmark entry.
      * </p>
      * 
@@ -1564,9 +1278,7 @@ public interface AWSGlue {
     /**
      * <p>
      * Starts a crawl using the specified crawler, regardless of what is scheduled. If the crawler is already running,
-     * returns a <a href=
-     * "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException"
-     * >CrawlerRunningException</a>.
+     * does nothing.
      * </p>
      * 
      * @param startCrawlerRequest
@@ -1759,10 +1471,6 @@ public interface AWSGlue {
      *         A specified entity does not exist
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws InvalidInputException
-     *         The input provided was not valid.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.UpdateConnection
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateConnection" target="_top">AWS API
      *      Documentation</a>
@@ -1830,8 +1538,6 @@ public interface AWSGlue {
      *         An internal service error occurred.
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.UpdateDatabase
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateDatabase" target="_top">AWS API
      *      Documentation</a>
@@ -1899,8 +1605,6 @@ public interface AWSGlue {
      *         An internal service error occurred.
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.UpdatePartition
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdatePartition" target="_top">AWS API
      *      Documentation</a>
@@ -1926,8 +1630,6 @@ public interface AWSGlue {
      *         Two processes are trying to modify a resource simultaneously.
      * @throws ResourceNumberLimitExceededException
      *         A resource numerical limit was exceeded.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.UpdateTable
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateTable" target="_top">AWS API
      *      Documentation</a>
@@ -1972,8 +1674,6 @@ public interface AWSGlue {
      *         An internal service error occurred.
      * @throws OperationTimeoutException
      *         The operation timed out.
-     * @throws GlueEncryptionException
-     *         An encryption operation failed.
      * @sample AWSGlue.UpdateUserDefinedFunction
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateUserDefinedFunction" target="_top">AWS
      *      API Documentation</a>

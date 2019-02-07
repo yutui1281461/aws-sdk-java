@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -84,8 +84,6 @@ public class Tape implements Serializable, Cloneable, StructuredPojo {
      * </note>
      */
     private Long tapeUsedInBytes;
-
-    private String kMSKey;
 
     /**
      * <p>
@@ -450,34 +448,7 @@ public class Tape implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @param kMSKey
-     */
-
-    public void setKMSKey(String kMSKey) {
-        this.kMSKey = kMSKey;
-    }
-
-    /**
-     * @return
-     */
-
-    public String getKMSKey() {
-        return this.kMSKey;
-    }
-
-    /**
-     * @param kMSKey
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Tape withKMSKey(String kMSKey) {
-        setKMSKey(kMSKey);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -502,9 +473,7 @@ public class Tape implements Serializable, Cloneable, StructuredPojo {
         if (getProgress() != null)
             sb.append("Progress: ").append(getProgress()).append(",");
         if (getTapeUsedInBytes() != null)
-            sb.append("TapeUsedInBytes: ").append(getTapeUsedInBytes()).append(",");
-        if (getKMSKey() != null)
-            sb.append("KMSKey: ").append(getKMSKey());
+            sb.append("TapeUsedInBytes: ").append(getTapeUsedInBytes());
         sb.append("}");
         return sb.toString();
     }
@@ -551,10 +520,6 @@ public class Tape implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getTapeUsedInBytes() != null && other.getTapeUsedInBytes().equals(this.getTapeUsedInBytes()) == false)
             return false;
-        if (other.getKMSKey() == null ^ this.getKMSKey() == null)
-            return false;
-        if (other.getKMSKey() != null && other.getKMSKey().equals(this.getKMSKey()) == false)
-            return false;
         return true;
     }
 
@@ -571,7 +536,6 @@ public class Tape implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getVTLDevice() == null) ? 0 : getVTLDevice().hashCode());
         hashCode = prime * hashCode + ((getProgress() == null) ? 0 : getProgress().hashCode());
         hashCode = prime * hashCode + ((getTapeUsedInBytes() == null) ? 0 : getTapeUsedInBytes().hashCode());
-        hashCode = prime * hashCode + ((getKMSKey() == null) ? 0 : getKMSKey().hashCode());
         return hashCode;
     }
 

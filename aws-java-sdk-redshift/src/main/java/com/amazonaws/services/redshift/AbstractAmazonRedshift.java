@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -39,32 +39,12 @@ public class AbstractAmazonRedshift implements AmazonRedshift {
     }
 
     @Override
-    public ReservedNode acceptReservedNodeExchange(AcceptReservedNodeExchangeRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public ClusterSecurityGroup authorizeClusterSecurityGroupIngress(AuthorizeClusterSecurityGroupIngressRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
     @Override
     public Snapshot authorizeSnapshotAccess(AuthorizeSnapshotAccessRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public BatchDeleteClusterSnapshotsResult batchDeleteClusterSnapshots(BatchDeleteClusterSnapshotsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public BatchModifyClusterSnapshotsResult batchModifyClusterSnapshots(BatchModifyClusterSnapshotsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public CancelResizeResult cancelResize(CancelResizeRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -119,11 +99,6 @@ public class AbstractAmazonRedshift implements AmazonRedshift {
     }
 
     @Override
-    public CreateSnapshotScheduleResult createSnapshotSchedule(CreateSnapshotScheduleRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public CreateTagsResult createTags(CreateTagsRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -174,22 +149,7 @@ public class AbstractAmazonRedshift implements AmazonRedshift {
     }
 
     @Override
-    public DeleteSnapshotScheduleResult deleteSnapshotSchedule(DeleteSnapshotScheduleRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public DeleteTagsResult deleteTags(DeleteTagsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DescribeAccountAttributesResult describeAccountAttributes(DescribeAccountAttributesRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DescribeClusterDbRevisionsResult describeClusterDbRevisions(DescribeClusterDbRevisionsRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -236,11 +196,6 @@ public class AbstractAmazonRedshift implements AmazonRedshift {
     @Override
     public DescribeClusterSubnetGroupsResult describeClusterSubnetGroups() {
         return describeClusterSubnetGroups(new DescribeClusterSubnetGroupsRequest());
-    }
-
-    @Override
-    public DescribeClusterTracksResult describeClusterTracks(DescribeClusterTracksRequest request) {
-        throw new java.lang.UnsupportedOperationException();
     }
 
     @Override
@@ -369,16 +324,6 @@ public class AbstractAmazonRedshift implements AmazonRedshift {
     }
 
     @Override
-    public DescribeSnapshotSchedulesResult describeSnapshotSchedules(DescribeSnapshotSchedulesRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public DescribeStorageResult describeStorage(DescribeStorageRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public DescribeTableRestoreStatusResult describeTableRestoreStatus(DescribeTableRestoreStatusRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -424,17 +369,7 @@ public class AbstractAmazonRedshift implements AmazonRedshift {
     }
 
     @Override
-    public GetReservedNodeExchangeOfferingsResult getReservedNodeExchangeOfferings(GetReservedNodeExchangeOfferingsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public Cluster modifyCluster(ModifyClusterRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public Cluster modifyClusterDbRevision(ModifyClusterDbRevisionRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -444,22 +379,7 @@ public class AbstractAmazonRedshift implements AmazonRedshift {
     }
 
     @Override
-    public Cluster modifyClusterMaintenance(ModifyClusterMaintenanceRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public ModifyClusterParameterGroupResult modifyClusterParameterGroup(ModifyClusterParameterGroupRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public Snapshot modifyClusterSnapshot(ModifyClusterSnapshotRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public ModifyClusterSnapshotScheduleResult modifyClusterSnapshotSchedule(ModifyClusterSnapshotScheduleRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -479,11 +399,6 @@ public class AbstractAmazonRedshift implements AmazonRedshift {
     }
 
     @Override
-    public ModifySnapshotScheduleResult modifySnapshotSchedule(ModifySnapshotScheduleRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public ReservedNode purchaseReservedNodeOffering(PurchaseReservedNodeOfferingRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -495,11 +410,6 @@ public class AbstractAmazonRedshift implements AmazonRedshift {
 
     @Override
     public ResetClusterParameterGroupResult resetClusterParameterGroup(ResetClusterParameterGroupRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public Cluster resizeCluster(ResizeClusterRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 

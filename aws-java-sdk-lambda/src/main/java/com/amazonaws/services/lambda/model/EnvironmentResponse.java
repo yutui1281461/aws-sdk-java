@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,8 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * The results of a configuration update that applied environment variables.
+ * The parent object returned that contains your environment's configuration settings or any error information
+ * associated with your configuration settings.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/EnvironmentResponse" target="_top">AWS API
@@ -30,23 +31,20 @@ public class EnvironmentResponse implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * Environment variable key-value pairs.
+     * The key-value pairs returned that represent your environment's configuration settings or error information.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalMap<String, String> variables;
-    /**
-     * <p>
-     * Error messages for environment variables that could not be applied.
-     * </p>
-     */
+
     private EnvironmentError error;
 
     /**
      * <p>
-     * Environment variable key-value pairs.
+     * The key-value pairs returned that represent your environment's configuration settings or error information.
      * </p>
      * 
-     * @return Environment variable key-value pairs.
+     * @return The key-value pairs returned that represent your environment's configuration settings or error
+     *         information.
      */
 
     public java.util.Map<String, String> getVariables() {
@@ -58,11 +56,12 @@ public class EnvironmentResponse implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * Environment variable key-value pairs.
+     * The key-value pairs returned that represent your environment's configuration settings or error information.
      * </p>
      * 
      * @param variables
-     *        Environment variable key-value pairs.
+     *        The key-value pairs returned that represent your environment's configuration settings or error
+     *        information.
      */
 
     public void setVariables(java.util.Map<String, String> variables) {
@@ -71,11 +70,12 @@ public class EnvironmentResponse implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * Environment variable key-value pairs.
+     * The key-value pairs returned that represent your environment's configuration settings or error information.
      * </p>
      * 
      * @param variables
-     *        Environment variable key-value pairs.
+     *        The key-value pairs returned that represent your environment's configuration settings or error
+     *        information.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -106,12 +106,7 @@ public class EnvironmentResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * <p>
-     * Error messages for environment variables that could not be applied.
-     * </p>
-     * 
      * @param error
-     *        Error messages for environment variables that could not be applied.
      */
 
     public void setError(EnvironmentError error) {
@@ -119,11 +114,7 @@ public class EnvironmentResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * <p>
-     * Error messages for environment variables that could not be applied.
-     * </p>
-     * 
-     * @return Error messages for environment variables that could not be applied.
+     * @return
      */
 
     public EnvironmentError getError() {
@@ -131,12 +122,7 @@ public class EnvironmentResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * <p>
-     * Error messages for environment variables that could not be applied.
-     * </p>
-     * 
      * @param error
-     *        Error messages for environment variables that could not be applied.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -146,8 +132,7 @@ public class EnvironmentResponse implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -158,7 +143,7 @@ public class EnvironmentResponse implements Serializable, Cloneable, StructuredP
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         if (getVariables() != null)
-            sb.append("Variables: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("Variables: ").append(getVariables()).append(",");
         if (getError() != null)
             sb.append("Error: ").append(getError());
         sb.append("}");

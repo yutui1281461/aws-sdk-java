@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,29 +27,24 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 public class RecencyDimension implements Serializable, Cloneable, StructuredPojo {
 
     /**
-     * The length of time during which users have been active or inactive with your app.
-     * 
-     * Valid values: HR_24, DAY_7, DAY_14, DAY_30
+     * The length of time during which users have been active or inactive with your app. Valid values: HR_24, DAY_7,
+     * DAY_14, DAY_30
      */
     private String duration;
     /**
-     * The recency dimension type:
-     * 
-     * ACTIVE - Users who have used your app within the specified duration are included in the segment.
-     * 
-     * INACTIVE - Users who have not used your app within the specified duration are included in the segment.
+     * The recency dimension type: ACTIVE - Users who have used your app within the specified duration are included in
+     * the segment. INACTIVE - Users who have not used your app within the specified duration are included in the
+     * segment.
      */
     private String recencyType;
 
     /**
-     * The length of time during which users have been active or inactive with your app.
-     * 
-     * Valid values: HR_24, DAY_7, DAY_14, DAY_30
+     * The length of time during which users have been active or inactive with your app. Valid values: HR_24, DAY_7,
+     * DAY_14, DAY_30
      * 
      * @param duration
-     *        The length of time during which users have been active or inactive with your app.
-     * 
-     *        Valid values: HR_24, DAY_7, DAY_14, DAY_30
+     *        The length of time during which users have been active or inactive with your app. Valid values: HR_24,
+     *        DAY_7, DAY_14, DAY_30
      * @see Duration
      */
 
@@ -58,13 +53,11 @@ public class RecencyDimension implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The length of time during which users have been active or inactive with your app.
+     * The length of time during which users have been active or inactive with your app. Valid values: HR_24, DAY_7,
+     * DAY_14, DAY_30
      * 
-     * Valid values: HR_24, DAY_7, DAY_14, DAY_30
-     * 
-     * @return The length of time during which users have been active or inactive with your app.
-     * 
-     *         Valid values: HR_24, DAY_7, DAY_14, DAY_30
+     * @return The length of time during which users have been active or inactive with your app. Valid values: HR_24,
+     *         DAY_7, DAY_14, DAY_30
      * @see Duration
      */
 
@@ -73,14 +66,12 @@ public class RecencyDimension implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The length of time during which users have been active or inactive with your app.
-     * 
-     * Valid values: HR_24, DAY_7, DAY_14, DAY_30
+     * The length of time during which users have been active or inactive with your app. Valid values: HR_24, DAY_7,
+     * DAY_14, DAY_30
      * 
      * @param duration
-     *        The length of time during which users have been active or inactive with your app.
-     * 
-     *        Valid values: HR_24, DAY_7, DAY_14, DAY_30
+     *        The length of time during which users have been active or inactive with your app. Valid values: HR_24,
+     *        DAY_7, DAY_14, DAY_30
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see Duration
      */
@@ -91,14 +82,12 @@ public class RecencyDimension implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The length of time during which users have been active or inactive with your app.
-     * 
-     * Valid values: HR_24, DAY_7, DAY_14, DAY_30
+     * The length of time during which users have been active or inactive with your app. Valid values: HR_24, DAY_7,
+     * DAY_14, DAY_30
      * 
      * @param duration
-     *        The length of time during which users have been active or inactive with your app.
-     * 
-     *        Valid values: HR_24, DAY_7, DAY_14, DAY_30
+     *        The length of time during which users have been active or inactive with your app. Valid values: HR_24,
+     *        DAY_7, DAY_14, DAY_30
      * @see Duration
      */
 
@@ -107,14 +96,12 @@ public class RecencyDimension implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The length of time during which users have been active or inactive with your app.
-     * 
-     * Valid values: HR_24, DAY_7, DAY_14, DAY_30
+     * The length of time during which users have been active or inactive with your app. Valid values: HR_24, DAY_7,
+     * DAY_14, DAY_30
      * 
      * @param duration
-     *        The length of time during which users have been active or inactive with your app.
-     * 
-     *        Valid values: HR_24, DAY_7, DAY_14, DAY_30
+     *        The length of time during which users have been active or inactive with your app. Valid values: HR_24,
+     *        DAY_7, DAY_14, DAY_30
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see Duration
      */
@@ -125,18 +112,14 @@ public class RecencyDimension implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The recency dimension type:
-     * 
-     * ACTIVE - Users who have used your app within the specified duration are included in the segment.
-     * 
-     * INACTIVE - Users who have not used your app within the specified duration are included in the segment.
+     * The recency dimension type: ACTIVE - Users who have used your app within the specified duration are included in
+     * the segment. INACTIVE - Users who have not used your app within the specified duration are included in the
+     * segment.
      * 
      * @param recencyType
-     *        The recency dimension type:
-     * 
-     *        ACTIVE - Users who have used your app within the specified duration are included in the segment.
-     * 
-     *        INACTIVE - Users who have not used your app within the specified duration are included in the segment.
+     *        The recency dimension type: ACTIVE - Users who have used your app within the specified duration are
+     *        included in the segment. INACTIVE - Users who have not used your app within the specified duration are
+     *        included in the segment.
      * @see RecencyType
      */
 
@@ -145,17 +128,13 @@ public class RecencyDimension implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The recency dimension type:
+     * The recency dimension type: ACTIVE - Users who have used your app within the specified duration are included in
+     * the segment. INACTIVE - Users who have not used your app within the specified duration are included in the
+     * segment.
      * 
-     * ACTIVE - Users who have used your app within the specified duration are included in the segment.
-     * 
-     * INACTIVE - Users who have not used your app within the specified duration are included in the segment.
-     * 
-     * @return The recency dimension type:
-     * 
-     *         ACTIVE - Users who have used your app within the specified duration are included in the segment.
-     * 
-     *         INACTIVE - Users who have not used your app within the specified duration are included in the segment.
+     * @return The recency dimension type: ACTIVE - Users who have used your app within the specified duration are
+     *         included in the segment. INACTIVE - Users who have not used your app within the specified duration are
+     *         included in the segment.
      * @see RecencyType
      */
 
@@ -164,18 +143,14 @@ public class RecencyDimension implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The recency dimension type:
-     * 
-     * ACTIVE - Users who have used your app within the specified duration are included in the segment.
-     * 
-     * INACTIVE - Users who have not used your app within the specified duration are included in the segment.
+     * The recency dimension type: ACTIVE - Users who have used your app within the specified duration are included in
+     * the segment. INACTIVE - Users who have not used your app within the specified duration are included in the
+     * segment.
      * 
      * @param recencyType
-     *        The recency dimension type:
-     * 
-     *        ACTIVE - Users who have used your app within the specified duration are included in the segment.
-     * 
-     *        INACTIVE - Users who have not used your app within the specified duration are included in the segment.
+     *        The recency dimension type: ACTIVE - Users who have used your app within the specified duration are
+     *        included in the segment. INACTIVE - Users who have not used your app within the specified duration are
+     *        included in the segment.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see RecencyType
      */
@@ -186,18 +161,14 @@ public class RecencyDimension implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The recency dimension type:
-     * 
-     * ACTIVE - Users who have used your app within the specified duration are included in the segment.
-     * 
-     * INACTIVE - Users who have not used your app within the specified duration are included in the segment.
+     * The recency dimension type: ACTIVE - Users who have used your app within the specified duration are included in
+     * the segment. INACTIVE - Users who have not used your app within the specified duration are included in the
+     * segment.
      * 
      * @param recencyType
-     *        The recency dimension type:
-     * 
-     *        ACTIVE - Users who have used your app within the specified duration are included in the segment.
-     * 
-     *        INACTIVE - Users who have not used your app within the specified duration are included in the segment.
+     *        The recency dimension type: ACTIVE - Users who have used your app within the specified duration are
+     *        included in the segment. INACTIVE - Users who have not used your app within the specified duration are
+     *        included in the segment.
      * @see RecencyType
      */
 
@@ -206,18 +177,14 @@ public class RecencyDimension implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * The recency dimension type:
-     * 
-     * ACTIVE - Users who have used your app within the specified duration are included in the segment.
-     * 
-     * INACTIVE - Users who have not used your app within the specified duration are included in the segment.
+     * The recency dimension type: ACTIVE - Users who have used your app within the specified duration are included in
+     * the segment. INACTIVE - Users who have not used your app within the specified duration are included in the
+     * segment.
      * 
      * @param recencyType
-     *        The recency dimension type:
-     * 
-     *        ACTIVE - Users who have used your app within the specified duration are included in the segment.
-     * 
-     *        INACTIVE - Users who have not used your app within the specified duration are included in the segment.
+     *        The recency dimension type: ACTIVE - Users who have used your app within the specified duration are
+     *        included in the segment. INACTIVE - Users who have not used your app within the specified duration are
+     *        included in the segment.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see RecencyType
      */
@@ -228,8 +195,7 @@ public class RecencyDimension implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

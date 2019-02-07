@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -146,10 +146,10 @@ public class CreateReplicationInstanceRequest extends com.amazonaws.AmazonWebSer
     private java.util.List<Tag> tags;
     /**
      * <p>
-     * The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify
-     * a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key. AWS KMS creates
+     * The KMS key identifier that will be used to encrypt the content on the replication instance. If you do not
+     * specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates
      * the default encryption key for your AWS account. Your AWS account has a different default encryption key for each
-     * AWS Region.
+     * AWS region.
      * </p>
      */
     private String kmsKeyId;
@@ -161,12 +161,6 @@ public class CreateReplicationInstanceRequest extends com.amazonaws.AmazonWebSer
      * </p>
      */
     private Boolean publiclyAccessible;
-    /**
-     * <p>
-     * A list of DNS name servers supported for the replication instance.
-     * </p>
-     */
-    private String dnsNameServers;
 
     /**
      * <p>
@@ -1005,17 +999,17 @@ public class CreateReplicationInstanceRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify
-     * a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key. AWS KMS creates
+     * The KMS key identifier that will be used to encrypt the content on the replication instance. If you do not
+     * specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates
      * the default encryption key for your AWS account. Your AWS account has a different default encryption key for each
-     * AWS Region.
+     * AWS region.
      * </p>
      * 
      * @param kmsKeyId
-     *        The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't
-     *        specify a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key.
-     *        AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default
-     *        encryption key for each AWS Region.
+     *        The KMS key identifier that will be used to encrypt the content on the replication instance. If you do not
+     *        specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS
+     *        creates the default encryption key for your AWS account. Your AWS account has a different default
+     *        encryption key for each AWS region.
      */
 
     public void setKmsKeyId(String kmsKeyId) {
@@ -1024,16 +1018,16 @@ public class CreateReplicationInstanceRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify
-     * a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key. AWS KMS creates
+     * The KMS key identifier that will be used to encrypt the content on the replication instance. If you do not
+     * specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates
      * the default encryption key for your AWS account. Your AWS account has a different default encryption key for each
-     * AWS Region.
+     * AWS region.
      * </p>
      * 
-     * @return The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't
-     *         specify a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key.
-     *         AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default
-     *         encryption key for each AWS Region.
+     * @return The KMS key identifier that will be used to encrypt the content on the replication instance. If you do
+     *         not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS
+     *         KMS creates the default encryption key for your AWS account. Your AWS account has a different default
+     *         encryption key for each AWS region.
      */
 
     public String getKmsKeyId() {
@@ -1042,17 +1036,17 @@ public class CreateReplicationInstanceRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify
-     * a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key. AWS KMS creates
+     * The KMS key identifier that will be used to encrypt the content on the replication instance. If you do not
+     * specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates
      * the default encryption key for your AWS account. Your AWS account has a different default encryption key for each
-     * AWS Region.
+     * AWS region.
      * </p>
      * 
      * @param kmsKeyId
-     *        The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't
-     *        specify a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key.
-     *        AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default
-     *        encryption key for each AWS Region.
+     *        The KMS key identifier that will be used to encrypt the content on the replication instance. If you do not
+     *        specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS
+     *        creates the default encryption key for your AWS account. Your AWS account has a different default
+     *        encryption key for each AWS region.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1130,48 +1124,7 @@ public class CreateReplicationInstanceRequest extends com.amazonaws.AmazonWebSer
     }
 
     /**
-     * <p>
-     * A list of DNS name servers supported for the replication instance.
-     * </p>
-     * 
-     * @param dnsNameServers
-     *        A list of DNS name servers supported for the replication instance.
-     */
-
-    public void setDnsNameServers(String dnsNameServers) {
-        this.dnsNameServers = dnsNameServers;
-    }
-
-    /**
-     * <p>
-     * A list of DNS name servers supported for the replication instance.
-     * </p>
-     * 
-     * @return A list of DNS name servers supported for the replication instance.
-     */
-
-    public String getDnsNameServers() {
-        return this.dnsNameServers;
-    }
-
-    /**
-     * <p>
-     * A list of DNS name servers supported for the replication instance.
-     * </p>
-     * 
-     * @param dnsNameServers
-     *        A list of DNS name servers supported for the replication instance.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateReplicationInstanceRequest withDnsNameServers(String dnsNameServers) {
-        setDnsNameServers(dnsNameServers);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1206,9 +1159,7 @@ public class CreateReplicationInstanceRequest extends com.amazonaws.AmazonWebSer
         if (getKmsKeyId() != null)
             sb.append("KmsKeyId: ").append(getKmsKeyId()).append(",");
         if (getPubliclyAccessible() != null)
-            sb.append("PubliclyAccessible: ").append(getPubliclyAccessible()).append(",");
-        if (getDnsNameServers() != null)
-            sb.append("DnsNameServers: ").append(getDnsNameServers());
+            sb.append("PubliclyAccessible: ").append(getPubliclyAccessible());
         sb.append("}");
         return sb.toString();
     }
@@ -1277,10 +1228,6 @@ public class CreateReplicationInstanceRequest extends com.amazonaws.AmazonWebSer
             return false;
         if (other.getPubliclyAccessible() != null && other.getPubliclyAccessible().equals(this.getPubliclyAccessible()) == false)
             return false;
-        if (other.getDnsNameServers() == null ^ this.getDnsNameServers() == null)
-            return false;
-        if (other.getDnsNameServers() != null && other.getDnsNameServers().equals(this.getDnsNameServers()) == false)
-            return false;
         return true;
     }
 
@@ -1302,7 +1249,6 @@ public class CreateReplicationInstanceRequest extends com.amazonaws.AmazonWebSer
         hashCode = prime * hashCode + ((getTags() == null) ? 0 : getTags().hashCode());
         hashCode = prime * hashCode + ((getKmsKeyId() == null) ? 0 : getKmsKeyId().hashCode());
         hashCode = prime * hashCode + ((getPubliclyAccessible() == null) ? 0 : getPubliclyAccessible().hashCode());
-        hashCode = prime * hashCode + ((getDnsNameServers() == null) ? 0 : getDnsNameServers().hashCode());
         return hashCode;
     }
 

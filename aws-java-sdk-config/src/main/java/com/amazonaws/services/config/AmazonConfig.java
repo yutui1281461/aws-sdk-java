@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -68,10 +68,9 @@ public interface AmazonConfig {
      * from this client's {@link ClientConfiguration} will be used, which by default is HTTPS.
      * <p>
      * For more information on using AWS regions with the AWS SDK for Java, and a complete list of all available
-     * endpoints for all AWS services, see: <a href=
-     * "https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-choose-endpoint"
-     * > https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-
-     * choose-endpoint</a>
+     * endpoints for all AWS services, see: <a
+     * href="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912">
+     * http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912</a>
      * <p>
      * <b>This method is not threadsafe. An endpoint should be configured when the client is created and before any
      * service requests are made. Changing it afterwards creates inevitable race conditions for any service requests in
@@ -109,39 +108,6 @@ public interface AmazonConfig {
      */
     @Deprecated
     void setRegion(Region region);
-
-    /**
-     * <p>
-     * Returns the current configuration items for resources that are present in your AWS Config aggregator. The
-     * operation also returns a list of resources that are not processed in the current request. If there are no
-     * unprocessed resources, the operation returns an empty <code>unprocessedResourceIdentifiers</code> list.
-     * </p>
-     * <note>
-     * <ul>
-     * <li>
-     * <p>
-     * The API does not return results for deleted resources.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * The API does not return tags and relationships.
-     * </p>
-     * </li>
-     * </ul>
-     * </note>
-     * 
-     * @param batchGetAggregateResourceConfigRequest
-     * @return Result of the BatchGetAggregateResourceConfig operation returned by the service.
-     * @throws ValidationException
-     *         The requested action is not valid.
-     * @throws NoSuchConfigurationAggregatorException
-     *         You have specified a configuration aggregator that does not exist.
-     * @sample AmazonConfig.BatchGetAggregateResourceConfig
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/BatchGetAggregateResourceConfig"
-     *      target="_top">AWS API Documentation</a>
-     */
-    BatchGetAggregateResourceConfigResult batchGetAggregateResourceConfig(BatchGetAggregateResourceConfigRequest batchGetAggregateResourceConfigRequest);
 
     /**
      * <p>
@@ -319,23 +285,6 @@ public interface AmazonConfig {
      *      target="_top">AWS API Documentation</a>
      */
     DeletePendingAggregationRequestResult deletePendingAggregationRequest(DeletePendingAggregationRequestRequest deletePendingAggregationRequestRequest);
-
-    /**
-     * <p>
-     * Deletes the retention configuration.
-     * </p>
-     * 
-     * @param deleteRetentionConfigurationRequest
-     * @return Result of the DeleteRetentionConfiguration operation returned by the service.
-     * @throws InvalidParameterValueException
-     *         One or more of the specified parameters are invalid. Verify that your parameters are valid and try again.
-     * @throws NoSuchRetentionConfigurationException
-     *         You have specified a retention configuration that does not exist.
-     * @sample AmazonConfig.DeleteRetentionConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DeleteRetentionConfiguration"
-     *      target="_top">AWS API Documentation</a>
-     */
-    DeleteRetentionConfigurationResult deleteRetentionConfiguration(DeleteRetentionConfigurationRequest deleteRetentionConfigurationRequest);
 
     /**
      * <p>
@@ -790,32 +739,6 @@ public interface AmazonConfig {
 
     /**
      * <p>
-     * Returns the details of one or more retention configurations. If the retention configuration name is not
-     * specified, this action returns the details for all the retention configurations for that account.
-     * </p>
-     * <note>
-     * <p>
-     * Currently, AWS Config supports only one retention configuration per region in your account.
-     * </p>
-     * </note>
-     * 
-     * @param describeRetentionConfigurationsRequest
-     * @return Result of the DescribeRetentionConfigurations operation returned by the service.
-     * @throws InvalidParameterValueException
-     *         One or more of the specified parameters are invalid. Verify that your parameters are valid and try again.
-     * @throws NoSuchRetentionConfigurationException
-     *         You have specified a retention configuration that does not exist.
-     * @throws InvalidNextTokenException
-     *         The specified next token is invalid. Specify the <code>nextToken</code> string that was returned in the
-     *         previous response to get the next page of results.
-     * @sample AmazonConfig.DescribeRetentionConfigurations
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DescribeRetentionConfigurations"
-     *      target="_top">AWS API Documentation</a>
-     */
-    DescribeRetentionConfigurationsResult describeRetentionConfigurations(DescribeRetentionConfigurationsRequest describeRetentionConfigurationsRequest);
-
-    /**
-     * <p>
      * Returns the evaluation results for the specified AWS Config rule for a specific resource in a rule. The results
      * indicate which AWS resources were evaluated by the rule, when each resource was last evaluated, and whether each
      * resource complies with the rule.
@@ -873,56 +796,6 @@ public interface AmazonConfig {
      */
     GetAggregateConfigRuleComplianceSummaryResult getAggregateConfigRuleComplianceSummary(
             GetAggregateConfigRuleComplianceSummaryRequest getAggregateConfigRuleComplianceSummaryRequest);
-
-    /**
-     * <p>
-     * Returns the resource counts across accounts and regions that are present in your AWS Config aggregator. You can
-     * request the resource counts by providing filters and GroupByKey.
-     * </p>
-     * <p>
-     * For example, if the input contains accountID 12345678910 and region us-east-1 in filters, the API returns the
-     * count of resources in account ID 12345678910 and region us-east-1. If the input contains ACCOUNT_ID as a
-     * GroupByKey, the API returns resource counts for all source accounts that are present in your aggregator.
-     * </p>
-     * 
-     * @param getAggregateDiscoveredResourceCountsRequest
-     * @return Result of the GetAggregateDiscoveredResourceCounts operation returned by the service.
-     * @throws ValidationException
-     *         The requested action is not valid.
-     * @throws InvalidLimitException
-     *         The specified limit is outside the allowable range.
-     * @throws InvalidNextTokenException
-     *         The specified next token is invalid. Specify the <code>nextToken</code> string that was returned in the
-     *         previous response to get the next page of results.
-     * @throws NoSuchConfigurationAggregatorException
-     *         You have specified a configuration aggregator that does not exist.
-     * @sample AmazonConfig.GetAggregateDiscoveredResourceCounts
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/GetAggregateDiscoveredResourceCounts"
-     *      target="_top">AWS API Documentation</a>
-     */
-    GetAggregateDiscoveredResourceCountsResult getAggregateDiscoveredResourceCounts(
-            GetAggregateDiscoveredResourceCountsRequest getAggregateDiscoveredResourceCountsRequest);
-
-    /**
-     * <p>
-     * Returns configuration item that is aggregated for your specific resource in a specific source account and region.
-     * </p>
-     * 
-     * @param getAggregateResourceConfigRequest
-     * @return Result of the GetAggregateResourceConfig operation returned by the service.
-     * @throws ValidationException
-     *         The requested action is not valid.
-     * @throws NoSuchConfigurationAggregatorException
-     *         You have specified a configuration aggregator that does not exist.
-     * @throws OversizedConfigurationItemException
-     *         The configuration item size is outside the allowable range.
-     * @throws ResourceNotDiscoveredException
-     *         You have specified a resource that is either unknown or has not been discovered.
-     * @sample AmazonConfig.GetAggregateResourceConfig
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/GetAggregateResourceConfig"
-     *      target="_top">AWS API Documentation</a>
-     */
-    GetAggregateResourceConfigResult getAggregateResourceConfig(GetAggregateResourceConfigRequest getAggregateResourceConfigRequest);
 
     /**
      * <p>
@@ -1097,9 +970,7 @@ public interface AmazonConfig {
     /**
      * <p>
      * Returns a list of configuration items for the specified resource. The list contains details about each state of
-     * the resource during the specified time interval. If you specified a retention period to retain your
-     * <code>ConfigurationItems</code> between a minimum of 30 days and a maximum of 7 years (2557 days), AWS Config
-     * returns the <code>ConfigurationItems</code> for the specified retention period.
+     * the resource during the specified time interval.
      * </p>
      * <p>
      * The response is paginated. By default, AWS Config returns a limit of 10 configuration items per page. You can
@@ -1137,36 +1008,6 @@ public interface AmazonConfig {
      *      target="_top">AWS API Documentation</a>
      */
     GetResourceConfigHistoryResult getResourceConfigHistory(GetResourceConfigHistoryRequest getResourceConfigHistoryRequest);
-
-    /**
-     * <p>
-     * Accepts a resource type and returns a list of resource identifiers that are aggregated for a specific resource
-     * type across accounts and regions. A resource identifier includes the resource type, ID, (if available) the custom
-     * resource name, source account, and source region. You can narrow the results to include only resources that have
-     * specific resource IDs, or a resource name, or source account ID, or source region.
-     * </p>
-     * <p>
-     * For example, if the input consists of accountID 12345678910 and the region is us-east-1 for resource type
-     * <code>AWS::EC2::Instance</code> then the API returns all the EC2 instance identifiers of accountID 12345678910
-     * and region us-east-1.
-     * </p>
-     * 
-     * @param listAggregateDiscoveredResourcesRequest
-     * @return Result of the ListAggregateDiscoveredResources operation returned by the service.
-     * @throws ValidationException
-     *         The requested action is not valid.
-     * @throws InvalidLimitException
-     *         The specified limit is outside the allowable range.
-     * @throws InvalidNextTokenException
-     *         The specified next token is invalid. Specify the <code>nextToken</code> string that was returned in the
-     *         previous response to get the next page of results.
-     * @throws NoSuchConfigurationAggregatorException
-     *         You have specified a configuration aggregator that does not exist.
-     * @sample AmazonConfig.ListAggregateDiscoveredResources
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/ListAggregateDiscoveredResources"
-     *      target="_top">AWS API Documentation</a>
-     */
-    ListAggregateDiscoveredResourcesResult listAggregateDiscoveredResources(ListAggregateDiscoveredResourcesRequest listAggregateDiscoveredResourcesRequest);
 
     /**
      * <p>
@@ -1320,11 +1161,8 @@ public interface AmazonConfig {
      * @throws InvalidParameterValueException
      *         One or more of the specified parameters are invalid. Verify that your parameters are valid and try again.
      * @throws LimitExceededException
-     *         For <code>StartConfigRulesEvaluation</code> API, this exception is thrown if an evaluation is in progress
-     *         or if you call the <a>StartConfigRulesEvaluation</a> API more than once per minute.</p>
-     *         <p>
-     *         For <code>PutConfigurationAggregator</code> API, this exception is thrown if the number of accounts and
-     *         aggregators exceeds the limit.
+     *         This exception is thrown if an evaluation is in progress or if you call the
+     *         <a>StartConfigRulesEvaluation</a> API more than once per minute.
      * @throws InvalidRoleException
      *         You have provided a null or empty role ARN.
      * @throws OrganizationAccessDeniedException
@@ -1442,32 +1280,6 @@ public interface AmazonConfig {
 
     /**
      * <p>
-     * Creates and updates the retention configuration with details about retention period (number of days) that AWS
-     * Config stores your historical information. The API creates the <code>RetentionConfiguration</code> object and
-     * names the object as <b>default</b>. When you have a <code>RetentionConfiguration</code> object named
-     * <b>default</b>, calling the API modifies the default object.
-     * </p>
-     * <note>
-     * <p>
-     * Currently, AWS Config supports only one retention configuration per region in your account.
-     * </p>
-     * </note>
-     * 
-     * @param putRetentionConfigurationRequest
-     * @return Result of the PutRetentionConfiguration operation returned by the service.
-     * @throws InvalidParameterValueException
-     *         One or more of the specified parameters are invalid. Verify that your parameters are valid and try again.
-     * @throws MaxNumberOfRetentionConfigurationsExceededException
-     *         Failed to add the retention configuration because a retention configuration with that name already
-     *         exists.
-     * @sample AmazonConfig.PutRetentionConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/PutRetentionConfiguration"
-     *      target="_top">AWS API Documentation</a>
-     */
-    PutRetentionConfigurationResult putRetentionConfiguration(PutRetentionConfigurationRequest putRetentionConfigurationRequest);
-
-    /**
-     * <p>
      * Runs an on-demand evaluation for the specified AWS Config rules against the last known configuration state of the
      * resources. Use <code>StartConfigRulesEvaluation</code> when you want to test that a rule you updated is working
      * as expected. <code>StartConfigRulesEvaluation</code> does not re-record the latest configuration state for your
@@ -1525,11 +1337,8 @@ public interface AmazonConfig {
      *         One or more AWS Config rules in the request are invalid. Verify that the rule names are correct and try
      *         again.
      * @throws LimitExceededException
-     *         For <code>StartConfigRulesEvaluation</code> API, this exception is thrown if an evaluation is in progress
-     *         or if you call the <a>StartConfigRulesEvaluation</a> API more than once per minute.</p>
-     *         <p>
-     *         For <code>PutConfigurationAggregator</code> API, this exception is thrown if the number of accounts and
-     *         aggregators exceeds the limit.
+     *         This exception is thrown if an evaluation is in progress or if you call the
+     *         <a>StartConfigRulesEvaluation</a> API more than once per minute.
      * @throws ResourceInUseException
      *         The rule is currently being deleted or the rule is deleting your evaluation results. Try your request
      *         again later.

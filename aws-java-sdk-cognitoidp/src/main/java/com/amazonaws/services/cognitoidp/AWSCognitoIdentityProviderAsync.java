@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -1996,7 +1996,7 @@ public interface AWSCognitoIdentityProviderAsync extends AWSCognitoIdentityProvi
 
     /**
      * <p>
-     * Client method for returning the configuration information and metadata of the specified user pool app client.
+     * Client method for returning the configuration information and metadata of the specified user pool client.
      * </p>
      * 
      * @param describeUserPoolClientRequest
@@ -2010,7 +2010,7 @@ public interface AWSCognitoIdentityProviderAsync extends AWSCognitoIdentityProvi
 
     /**
      * <p>
-     * Client method for returning the configuration information and metadata of the specified user pool app client.
+     * Client method for returning the configuration information and metadata of the specified user pool client.
      * </p>
      * 
      * @param describeUserPoolClientRequest
@@ -3374,8 +3374,7 @@ public interface AWSCognitoIdentityProviderAsync extends AWSCognitoIdentityProvi
 
     /**
      * <p>
-     * Updates the specified user pool with the specified attributes. If you don't provide a value for an attribute, it
-     * will be set to the default value. You can get a list of the current user pool settings with .
+     * Updates the specified user pool with the specified attributes.
      * </p>
      * 
      * @param updateUserPoolRequest
@@ -3389,8 +3388,7 @@ public interface AWSCognitoIdentityProviderAsync extends AWSCognitoIdentityProvi
 
     /**
      * <p>
-     * Updates the specified user pool with the specified attributes. If you don't provide a value for an attribute, it
-     * will be set to the default value. You can get a list of the current user pool settings with .
+     * Updates the specified user pool with the specified attributes.
      * </p>
      * 
      * @param updateUserPoolRequest
@@ -3409,9 +3407,7 @@ public interface AWSCognitoIdentityProviderAsync extends AWSCognitoIdentityProvi
 
     /**
      * <p>
-     * Updates the specified user pool app client with the specified attributes. If you don't provide a value for an
-     * attribute, it will be set to the default value. You can get a list of the current user pool app client settings
-     * with .
+     * Allows the developer to update the specified user pool client and password policy.
      * </p>
      * 
      * @param updateUserPoolClientRequest
@@ -3425,9 +3421,7 @@ public interface AWSCognitoIdentityProviderAsync extends AWSCognitoIdentityProvi
 
     /**
      * <p>
-     * Updates the specified user pool app client with the specified attributes. If you don't provide a value for an
-     * attribute, it will be set to the default value. You can get a list of the current user pool app client settings
-     * with .
+     * Allows the developer to update the specified user pool client and password policy.
      * </p>
      * 
      * @param updateUserPoolClientRequest
@@ -3443,101 +3437,6 @@ public interface AWSCognitoIdentityProviderAsync extends AWSCognitoIdentityProvi
      */
     java.util.concurrent.Future<UpdateUserPoolClientResult> updateUserPoolClientAsync(UpdateUserPoolClientRequest updateUserPoolClientRequest,
             com.amazonaws.handlers.AsyncHandler<UpdateUserPoolClientRequest, UpdateUserPoolClientResult> asyncHandler);
-
-    /**
-     * <p>
-     * Updates the Secure Sockets Layer (SSL) certificate for the custom domain for your user pool.
-     * </p>
-     * <p>
-     * You can use this operation to provide the Amazon Resource Name (ARN) of a new certificate to Amazon Cognito. You
-     * cannot use it to change the domain for a user pool.
-     * </p>
-     * <p>
-     * A custom domain is used to host the Amazon Cognito hosted UI, which provides sign-up and sign-in pages for your
-     * application. When you set up a custom domain, you provide a certificate that you manage with AWS Certificate
-     * Manager (ACM). When necessary, you can use this operation to change the certificate that you applied to your
-     * custom domain.
-     * </p>
-     * <p>
-     * Usually, this is unnecessary following routine certificate renewal with ACM. When you renew your existing
-     * certificate in ACM, the ARN for your certificate remains the same, and your custom domain uses the new
-     * certificate automatically.
-     * </p>
-     * <p>
-     * However, if you replace your existing certificate with a new one, ACM gives the new certificate a new ARN. To
-     * apply the new certificate to your custom domain, you must provide this ARN to Amazon Cognito.
-     * </p>
-     * <p>
-     * When you add your new certificate in ACM, you must choose US East (N. Virginia) as the AWS Region.
-     * </p>
-     * <p>
-     * After you submit your request, Amazon Cognito requires up to 1 hour to distribute your new certificate to your
-     * custom domain.
-     * </p>
-     * <p>
-     * For more information about adding a custom domain to your user pool, see <a
-     * href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using
-     * Your Own Domain for the Hosted UI</a>.
-     * </p>
-     * 
-     * @param updateUserPoolDomainRequest
-     *        The UpdateUserPoolDomain request input.
-     * @return A Java Future containing the result of the UpdateUserPoolDomain operation returned by the service.
-     * @sample AWSCognitoIdentityProviderAsync.UpdateUserPoolDomain
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/UpdateUserPoolDomain"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<UpdateUserPoolDomainResult> updateUserPoolDomainAsync(UpdateUserPoolDomainRequest updateUserPoolDomainRequest);
-
-    /**
-     * <p>
-     * Updates the Secure Sockets Layer (SSL) certificate for the custom domain for your user pool.
-     * </p>
-     * <p>
-     * You can use this operation to provide the Amazon Resource Name (ARN) of a new certificate to Amazon Cognito. You
-     * cannot use it to change the domain for a user pool.
-     * </p>
-     * <p>
-     * A custom domain is used to host the Amazon Cognito hosted UI, which provides sign-up and sign-in pages for your
-     * application. When you set up a custom domain, you provide a certificate that you manage with AWS Certificate
-     * Manager (ACM). When necessary, you can use this operation to change the certificate that you applied to your
-     * custom domain.
-     * </p>
-     * <p>
-     * Usually, this is unnecessary following routine certificate renewal with ACM. When you renew your existing
-     * certificate in ACM, the ARN for your certificate remains the same, and your custom domain uses the new
-     * certificate automatically.
-     * </p>
-     * <p>
-     * However, if you replace your existing certificate with a new one, ACM gives the new certificate a new ARN. To
-     * apply the new certificate to your custom domain, you must provide this ARN to Amazon Cognito.
-     * </p>
-     * <p>
-     * When you add your new certificate in ACM, you must choose US East (N. Virginia) as the AWS Region.
-     * </p>
-     * <p>
-     * After you submit your request, Amazon Cognito requires up to 1 hour to distribute your new certificate to your
-     * custom domain.
-     * </p>
-     * <p>
-     * For more information about adding a custom domain to your user pool, see <a
-     * href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using
-     * Your Own Domain for the Hosted UI</a>.
-     * </p>
-     * 
-     * @param updateUserPoolDomainRequest
-     *        The UpdateUserPoolDomain request input.
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the UpdateUserPoolDomain operation returned by the service.
-     * @sample AWSCognitoIdentityProviderAsyncHandler.UpdateUserPoolDomain
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/UpdateUserPoolDomain"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<UpdateUserPoolDomainResult> updateUserPoolDomainAsync(UpdateUserPoolDomainRequest updateUserPoolDomainRequest,
-            com.amazonaws.handlers.AsyncHandler<UpdateUserPoolDomainRequest, UpdateUserPoolDomainResult> asyncHandler);
 
     /**
      * <p>

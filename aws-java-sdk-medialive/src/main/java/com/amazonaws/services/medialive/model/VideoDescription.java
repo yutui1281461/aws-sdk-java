@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -29,9 +29,8 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     /** Video codec settings. */
     private VideoCodecSettings codecSettings;
     /**
-     * Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank
-     * in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not
-     * recommended. For the Frame Capture codec, height and width are required.
+     * Output video height (in pixels). Leave blank to use source video height. If left blank, width must also be
+     * unspecified.
      */
     private Integer height;
     /**
@@ -40,28 +39,23 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
      */
     private String name;
     /**
-     * Indicates how to respond to the AFD values in the input stream. RESPOND causes input video to be clipped,
-     * depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for
-     * FRAMECAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAMECAPTURE codec) ignores
-     * the AFD values and includes the values in the output, so input video is not clipped. NONE ignores the AFD values
-     * and does not include the values through to the output, so input video is not clipped.
+     * Indicates how to respond to the AFD values in the input stream. Setting to "respond" causes input video to be
+     * clipped, depending on AFD value, input display aspect ratio and output display aspect ratio.
      */
     private String respondToAfd;
     /**
-     * STRETCHTOOUTPUT configures the output position to stretch the video to the specified output resolution (height
-     * and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter
-     * boxes) around the video to provide the specified output resolution.
+     * When set to "stretchToOutput", automatically configures the output position to stretch the video to the specified
+     * output resolution. This option will override any position value.
      */
     private String scalingBehavior;
     /**
-     * Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A
-     * setting of 50 is recommended for most content.
+     * Changes the width of the anti-alias filter kernel used for scaling. Only applies if scaling is being performed
+     * and antiAlias is set to true. 0 is the softest setting, 100 the sharpest, and 50 recommended for most content.
      */
     private Integer sharpness;
     /**
-     * Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank
-     * in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not
-     * recommended. For the Frame Capture codec, height and width are required.
+     * Output video width (in pixels). Leave out to use source video width. If left out, height must also be left out.
+     * Display aspect ratio is always preserved by letterboxing or pillarboxing when necessary.
      */
     private Integer width;
 
@@ -100,14 +94,12 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank
-     * in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not
-     * recommended. For the Frame Capture codec, height and width are required.
+     * Output video height (in pixels). Leave blank to use source video height. If left blank, width must also be
+     * unspecified.
      * 
      * @param height
-     *        Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and
-     *        width blank in order to use the height and width (resolution) from the source. Note, however, that leaving
-     *        blank is not recommended. For the Frame Capture codec, height and width are required.
+     *        Output video height (in pixels). Leave blank to use source video height. If left blank, width must also be
+     *        unspecified.
      */
 
     public void setHeight(Integer height) {
@@ -115,13 +107,11 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank
-     * in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not
-     * recommended. For the Frame Capture codec, height and width are required.
+     * Output video height (in pixels). Leave blank to use source video height. If left blank, width must also be
+     * unspecified.
      * 
-     * @return Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and
-     *         width blank in order to use the height and width (resolution) from the source. Note, however, that
-     *         leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+     * @return Output video height (in pixels). Leave blank to use source video height. If left blank, width must also
+     *         be unspecified.
      */
 
     public Integer getHeight() {
@@ -129,14 +119,12 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank
-     * in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not
-     * recommended. For the Frame Capture codec, height and width are required.
+     * Output video height (in pixels). Leave blank to use source video height. If left blank, width must also be
+     * unspecified.
      * 
      * @param height
-     *        Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and
-     *        width blank in order to use the height and width (resolution) from the source. Note, however, that leaving
-     *        blank is not recommended. For the Frame Capture codec, height and width are required.
+     *        Output video height (in pixels). Leave blank to use source video height. If left blank, width must also be
+     *        unspecified.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -186,18 +174,12 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Indicates how to respond to the AFD values in the input stream. RESPOND causes input video to be clipped,
-     * depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for
-     * FRAMECAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAMECAPTURE codec) ignores
-     * the AFD values and includes the values in the output, so input video is not clipped. NONE ignores the AFD values
-     * and does not include the values through to the output, so input video is not clipped.
+     * Indicates how to respond to the AFD values in the input stream. Setting to "respond" causes input video to be
+     * clipped, depending on AFD value, input display aspect ratio and output display aspect ratio.
      * 
      * @param respondToAfd
-     *        Indicates how to respond to the AFD values in the input stream. RESPOND causes input video to be clipped,
-     *        depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for
-     *        FRAMECAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAMECAPTURE codec)
-     *        ignores the AFD values and includes the values in the output, so input video is not clipped. NONE ignores
-     *        the AFD values and does not include the values through to the output, so input video is not clipped.
+     *        Indicates how to respond to the AFD values in the input stream. Setting to "respond" causes input video to
+     *        be clipped, depending on AFD value, input display aspect ratio and output display aspect ratio.
      * @see VideoDescriptionRespondToAfd
      */
 
@@ -206,17 +188,11 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Indicates how to respond to the AFD values in the input stream. RESPOND causes input video to be clipped,
-     * depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for
-     * FRAMECAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAMECAPTURE codec) ignores
-     * the AFD values and includes the values in the output, so input video is not clipped. NONE ignores the AFD values
-     * and does not include the values through to the output, so input video is not clipped.
+     * Indicates how to respond to the AFD values in the input stream. Setting to "respond" causes input video to be
+     * clipped, depending on AFD value, input display aspect ratio and output display aspect ratio.
      * 
-     * @return Indicates how to respond to the AFD values in the input stream. RESPOND causes input video to be clipped,
-     *         depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for
-     *         FRAMECAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAMECAPTURE codec)
-     *         ignores the AFD values and includes the values in the output, so input video is not clipped. NONE ignores
-     *         the AFD values and does not include the values through to the output, so input video is not clipped.
+     * @return Indicates how to respond to the AFD values in the input stream. Setting to "respond" causes input video
+     *         to be clipped, depending on AFD value, input display aspect ratio and output display aspect ratio.
      * @see VideoDescriptionRespondToAfd
      */
 
@@ -225,18 +201,12 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Indicates how to respond to the AFD values in the input stream. RESPOND causes input video to be clipped,
-     * depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for
-     * FRAMECAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAMECAPTURE codec) ignores
-     * the AFD values and includes the values in the output, so input video is not clipped. NONE ignores the AFD values
-     * and does not include the values through to the output, so input video is not clipped.
+     * Indicates how to respond to the AFD values in the input stream. Setting to "respond" causes input video to be
+     * clipped, depending on AFD value, input display aspect ratio and output display aspect ratio.
      * 
      * @param respondToAfd
-     *        Indicates how to respond to the AFD values in the input stream. RESPOND causes input video to be clipped,
-     *        depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for
-     *        FRAMECAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAMECAPTURE codec)
-     *        ignores the AFD values and includes the values in the output, so input video is not clipped. NONE ignores
-     *        the AFD values and does not include the values through to the output, so input video is not clipped.
+     *        Indicates how to respond to the AFD values in the input stream. Setting to "respond" causes input video to
+     *        be clipped, depending on AFD value, input display aspect ratio and output display aspect ratio.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see VideoDescriptionRespondToAfd
      */
@@ -247,18 +217,12 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Indicates how to respond to the AFD values in the input stream. RESPOND causes input video to be clipped,
-     * depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for
-     * FRAMECAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAMECAPTURE codec) ignores
-     * the AFD values and includes the values in the output, so input video is not clipped. NONE ignores the AFD values
-     * and does not include the values through to the output, so input video is not clipped.
+     * Indicates how to respond to the AFD values in the input stream. Setting to "respond" causes input video to be
+     * clipped, depending on AFD value, input display aspect ratio and output display aspect ratio.
      * 
      * @param respondToAfd
-     *        Indicates how to respond to the AFD values in the input stream. RESPOND causes input video to be clipped,
-     *        depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for
-     *        FRAMECAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAMECAPTURE codec)
-     *        ignores the AFD values and includes the values in the output, so input video is not clipped. NONE ignores
-     *        the AFD values and does not include the values through to the output, so input video is not clipped.
+     *        Indicates how to respond to the AFD values in the input stream. Setting to "respond" causes input video to
+     *        be clipped, depending on AFD value, input display aspect ratio and output display aspect ratio.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see VideoDescriptionRespondToAfd
      */
@@ -269,14 +233,12 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * STRETCHTOOUTPUT configures the output position to stretch the video to the specified output resolution (height
-     * and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter
-     * boxes) around the video to provide the specified output resolution.
+     * When set to "stretchToOutput", automatically configures the output position to stretch the video to the specified
+     * output resolution. This option will override any position value.
      * 
      * @param scalingBehavior
-     *        STRETCHTOOUTPUT configures the output position to stretch the video to the specified output resolution
-     *        (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar
-     *        boxes or letter boxes) around the video to provide the specified output resolution.
+     *        When set to "stretchToOutput", automatically configures the output position to stretch the video to the
+     *        specified output resolution. This option will override any position value.
      * @see VideoDescriptionScalingBehavior
      */
 
@@ -285,13 +247,11 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * STRETCHTOOUTPUT configures the output position to stretch the video to the specified output resolution (height
-     * and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter
-     * boxes) around the video to provide the specified output resolution.
+     * When set to "stretchToOutput", automatically configures the output position to stretch the video to the specified
+     * output resolution. This option will override any position value.
      * 
-     * @return STRETCHTOOUTPUT configures the output position to stretch the video to the specified output resolution
-     *         (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar
-     *         boxes or letter boxes) around the video to provide the specified output resolution.
+     * @return When set to "stretchToOutput", automatically configures the output position to stretch the video to the
+     *         specified output resolution. This option will override any position value.
      * @see VideoDescriptionScalingBehavior
      */
 
@@ -300,14 +260,12 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * STRETCHTOOUTPUT configures the output position to stretch the video to the specified output resolution (height
-     * and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter
-     * boxes) around the video to provide the specified output resolution.
+     * When set to "stretchToOutput", automatically configures the output position to stretch the video to the specified
+     * output resolution. This option will override any position value.
      * 
      * @param scalingBehavior
-     *        STRETCHTOOUTPUT configures the output position to stretch the video to the specified output resolution
-     *        (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar
-     *        boxes or letter boxes) around the video to provide the specified output resolution.
+     *        When set to "stretchToOutput", automatically configures the output position to stretch the video to the
+     *        specified output resolution. This option will override any position value.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see VideoDescriptionScalingBehavior
      */
@@ -318,14 +276,12 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * STRETCHTOOUTPUT configures the output position to stretch the video to the specified output resolution (height
-     * and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter
-     * boxes) around the video to provide the specified output resolution.
+     * When set to "stretchToOutput", automatically configures the output position to stretch the video to the specified
+     * output resolution. This option will override any position value.
      * 
      * @param scalingBehavior
-     *        STRETCHTOOUTPUT configures the output position to stretch the video to the specified output resolution
-     *        (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar
-     *        boxes or letter boxes) around the video to provide the specified output resolution.
+     *        When set to "stretchToOutput", automatically configures the output position to stretch the video to the
+     *        specified output resolution. This option will override any position value.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see VideoDescriptionScalingBehavior
      */
@@ -336,12 +292,13 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A
-     * setting of 50 is recommended for most content.
+     * Changes the width of the anti-alias filter kernel used for scaling. Only applies if scaling is being performed
+     * and antiAlias is set to true. 0 is the softest setting, 100 the sharpest, and 50 recommended for most content.
      * 
      * @param sharpness
-     *        Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the
-     *        sharpest. A setting of 50 is recommended for most content.
+     *        Changes the width of the anti-alias filter kernel used for scaling. Only applies if scaling is being
+     *        performed and antiAlias is set to true. 0 is the softest setting, 100 the sharpest, and 50 recommended for
+     *        most content.
      */
 
     public void setSharpness(Integer sharpness) {
@@ -349,11 +306,12 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A
-     * setting of 50 is recommended for most content.
+     * Changes the width of the anti-alias filter kernel used for scaling. Only applies if scaling is being performed
+     * and antiAlias is set to true. 0 is the softest setting, 100 the sharpest, and 50 recommended for most content.
      * 
-     * @return Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the
-     *         sharpest. A setting of 50 is recommended for most content.
+     * @return Changes the width of the anti-alias filter kernel used for scaling. Only applies if scaling is being
+     *         performed and antiAlias is set to true. 0 is the softest setting, 100 the sharpest, and 50 recommended
+     *         for most content.
      */
 
     public Integer getSharpness() {
@@ -361,12 +319,13 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A
-     * setting of 50 is recommended for most content.
+     * Changes the width of the anti-alias filter kernel used for scaling. Only applies if scaling is being performed
+     * and antiAlias is set to true. 0 is the softest setting, 100 the sharpest, and 50 recommended for most content.
      * 
      * @param sharpness
-     *        Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the
-     *        sharpest. A setting of 50 is recommended for most content.
+     *        Changes the width of the anti-alias filter kernel used for scaling. Only applies if scaling is being
+     *        performed and antiAlias is set to true. 0 is the softest setting, 100 the sharpest, and 50 recommended for
+     *        most content.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -376,14 +335,12 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank
-     * in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not
-     * recommended. For the Frame Capture codec, height and width are required.
+     * Output video width (in pixels). Leave out to use source video width. If left out, height must also be left out.
+     * Display aspect ratio is always preserved by letterboxing or pillarboxing when necessary.
      * 
      * @param width
-     *        Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and
-     *        height blank in order to use the height and width (resolution) from the source. Note, however, that
-     *        leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+     *        Output video width (in pixels). Leave out to use source video width. If left out, height must also be left
+     *        out. Display aspect ratio is always preserved by letterboxing or pillarboxing when necessary.
      */
 
     public void setWidth(Integer width) {
@@ -391,13 +348,11 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank
-     * in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not
-     * recommended. For the Frame Capture codec, height and width are required.
+     * Output video width (in pixels). Leave out to use source video width. If left out, height must also be left out.
+     * Display aspect ratio is always preserved by letterboxing or pillarboxing when necessary.
      * 
-     * @return Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and
-     *         height blank in order to use the height and width (resolution) from the source. Note, however, that
-     *         leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+     * @return Output video width (in pixels). Leave out to use source video width. If left out, height must also be
+     *         left out. Display aspect ratio is always preserved by letterboxing or pillarboxing when necessary.
      */
 
     public Integer getWidth() {
@@ -405,14 +360,12 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank
-     * in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not
-     * recommended. For the Frame Capture codec, height and width are required.
+     * Output video width (in pixels). Leave out to use source video width. If left out, height must also be left out.
+     * Display aspect ratio is always preserved by letterboxing or pillarboxing when necessary.
      * 
      * @param width
-     *        Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and
-     *        height blank in order to use the height and width (resolution) from the source. Note, however, that
-     *        leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+     *        Output video width (in pixels). Leave out to use source video width. If left out, height must also be left
+     *        out. Display aspect ratio is always preserved by letterboxing or pillarboxing when necessary.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -422,8 +375,7 @@ public class VideoDescription implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,6 +18,7 @@ import javax.annotation.Generated;
 import com.amazonaws.AmazonWebServiceRequest;
 
 /**
+ * <p/>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/InvokeAsync" target="_top">AWS API
  *      Documentation</a>
@@ -27,31 +28,8 @@ public class InvokeAsyncRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the Lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>my-function</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * The Lambda function name. Note that the length constraint applies only to the ARN. If you specify only the
+     * function name, it is limited to 64 characters in length.
      * </p>
      */
     private String functionName;
@@ -64,58 +42,13 @@ public class InvokeAsyncRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the Lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>my-function</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * The Lambda function name. Note that the length constraint applies only to the ARN. If you specify only the
+     * function name, it is limited to 64 characters in length.
      * </p>
      * 
      * @param functionName
-     *        The name of the Lambda function.</p>
-     *        <p class="title">
-     *        <b>Name formats</b>
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Function name</b> - <code>my-function</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        The length constraint applies only to the full ARN. If you specify only the function name, it is limited
-     *        to 64 characters in length.
+     *        The Lambda function name. Note that the length constraint applies only to the ARN. If you specify only the
+     *        function name, it is limited to 64 characters in length.
      */
 
     public void setFunctionName(String functionName) {
@@ -124,57 +57,12 @@ public class InvokeAsyncRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the Lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>my-function</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * The Lambda function name. Note that the length constraint applies only to the ARN. If you specify only the
+     * function name, it is limited to 64 characters in length.
      * </p>
      * 
-     * @return The name of the Lambda function.</p>
-     *         <p class="title">
-     *         <b>Name formats</b>
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         <b>Function name</b> - <code>my-function</code>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.
-     *         </p>
-     *         </li>
-     *         </ul>
-     *         <p>
-     *         The length constraint applies only to the full ARN. If you specify only the function name, it is limited
-     *         to 64 characters in length.
+     * @return The Lambda function name. Note that the length constraint applies only to the ARN. If you specify only
+     *         the function name, it is limited to 64 characters in length.
      */
 
     public String getFunctionName() {
@@ -183,58 +71,13 @@ public class InvokeAsyncRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the Lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>my-function</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * The Lambda function name. Note that the length constraint applies only to the ARN. If you specify only the
+     * function name, it is limited to 64 characters in length.
      * </p>
      * 
      * @param functionName
-     *        The name of the Lambda function.</p>
-     *        <p class="title">
-     *        <b>Name formats</b>
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Function name</b> - <code>my-function</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        The length constraint applies only to the full ARN. If you specify only the function name, it is limited
-     *        to 64 characters in length.
+     *        The Lambda function name. Note that the length constraint applies only to the ARN. If you specify only the
+     *        function name, it is limited to 64 characters in length.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -310,8 +153,7 @@ public class InvokeAsyncRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

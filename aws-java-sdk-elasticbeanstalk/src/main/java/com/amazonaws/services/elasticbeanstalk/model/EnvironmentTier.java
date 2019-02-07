@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,55 +30,18 @@ public class EnvironmentTier implements Serializable, Cloneable {
      * <p>
      * The name of this environment tier.
      * </p>
-     * <p>
-     * Valid values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * For <i>Web server tier</i> – <code>WebServer</code>
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * For <i>Worker tier</i> – <code>Worker</code>
-     * </p>
-     * </li>
-     * </ul>
      */
     private String name;
     /**
      * <p>
      * The type of this environment tier.
      * </p>
-     * <p>
-     * Valid values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * For <i>Web server tier</i> – <code>Standard</code>
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * For <i>Worker tier</i> – <code>SQS/HTTP</code>
-     * </p>
-     * </li>
-     * </ul>
      */
     private String type;
     /**
      * <p>
-     * The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest
-     * compatible worker tier version.
+     * The version of this environment tier.
      * </p>
-     * <note>
-     * <p>
-     * This member is deprecated. Any specific version that you set may become out of date. We recommend leaving it
-     * unspecified.
-     * </p>
-     * </note>
      */
     private String version;
 
@@ -86,38 +49,9 @@ public class EnvironmentTier implements Serializable, Cloneable {
      * <p>
      * The name of this environment tier.
      * </p>
-     * <p>
-     * Valid values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * For <i>Web server tier</i> – <code>WebServer</code>
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * For <i>Worker tier</i> – <code>Worker</code>
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param name
-     *        The name of this environment tier.</p>
-     *        <p>
-     *        Valid values:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        For <i>Web server tier</i> – <code>WebServer</code>
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        For <i>Worker tier</i> – <code>Worker</code>
-     *        </p>
-     *        </li>
+     *        The name of this environment tier.
      */
 
     public void setName(String name) {
@@ -128,37 +62,8 @@ public class EnvironmentTier implements Serializable, Cloneable {
      * <p>
      * The name of this environment tier.
      * </p>
-     * <p>
-     * Valid values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * For <i>Web server tier</i> – <code>WebServer</code>
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * For <i>Worker tier</i> – <code>Worker</code>
-     * </p>
-     * </li>
-     * </ul>
      * 
-     * @return The name of this environment tier.</p>
-     *         <p>
-     *         Valid values:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         For <i>Web server tier</i> – <code>WebServer</code>
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         For <i>Worker tier</i> – <code>Worker</code>
-     *         </p>
-     *         </li>
+     * @return The name of this environment tier.
      */
 
     public String getName() {
@@ -169,38 +74,9 @@ public class EnvironmentTier implements Serializable, Cloneable {
      * <p>
      * The name of this environment tier.
      * </p>
-     * <p>
-     * Valid values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * For <i>Web server tier</i> – <code>WebServer</code>
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * For <i>Worker tier</i> – <code>Worker</code>
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param name
-     *        The name of this environment tier.</p>
-     *        <p>
-     *        Valid values:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        For <i>Web server tier</i> – <code>WebServer</code>
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        For <i>Worker tier</i> – <code>Worker</code>
-     *        </p>
-     *        </li>
+     *        The name of this environment tier.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -213,38 +89,9 @@ public class EnvironmentTier implements Serializable, Cloneable {
      * <p>
      * The type of this environment tier.
      * </p>
-     * <p>
-     * Valid values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * For <i>Web server tier</i> – <code>Standard</code>
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * For <i>Worker tier</i> – <code>SQS/HTTP</code>
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param type
-     *        The type of this environment tier.</p>
-     *        <p>
-     *        Valid values:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        For <i>Web server tier</i> – <code>Standard</code>
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        For <i>Worker tier</i> – <code>SQS/HTTP</code>
-     *        </p>
-     *        </li>
+     *        The type of this environment tier.
      */
 
     public void setType(String type) {
@@ -255,37 +102,8 @@ public class EnvironmentTier implements Serializable, Cloneable {
      * <p>
      * The type of this environment tier.
      * </p>
-     * <p>
-     * Valid values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * For <i>Web server tier</i> – <code>Standard</code>
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * For <i>Worker tier</i> – <code>SQS/HTTP</code>
-     * </p>
-     * </li>
-     * </ul>
      * 
-     * @return The type of this environment tier.</p>
-     *         <p>
-     *         Valid values:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         For <i>Web server tier</i> – <code>Standard</code>
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         For <i>Worker tier</i> – <code>SQS/HTTP</code>
-     *         </p>
-     *         </li>
+     * @return The type of this environment tier.
      */
 
     public String getType() {
@@ -296,38 +114,9 @@ public class EnvironmentTier implements Serializable, Cloneable {
      * <p>
      * The type of this environment tier.
      * </p>
-     * <p>
-     * Valid values:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * For <i>Web server tier</i> – <code>Standard</code>
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * For <i>Worker tier</i> – <code>SQS/HTTP</code>
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param type
-     *        The type of this environment tier.</p>
-     *        <p>
-     *        Valid values:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        For <i>Web server tier</i> – <code>Standard</code>
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        For <i>Worker tier</i> – <code>SQS/HTTP</code>
-     *        </p>
-     *        </li>
+     *        The type of this environment tier.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -338,23 +127,11 @@ public class EnvironmentTier implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest
-     * compatible worker tier version.
+     * The version of this environment tier.
      * </p>
-     * <note>
-     * <p>
-     * This member is deprecated. Any specific version that you set may become out of date. We recommend leaving it
-     * unspecified.
-     * </p>
-     * </note>
      * 
      * @param version
-     *        The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest
-     *        compatible worker tier version.</p> <note>
-     *        <p>
-     *        This member is deprecated. Any specific version that you set may become out of date. We recommend leaving
-     *        it unspecified.
-     *        </p>
+     *        The version of this environment tier.
      */
 
     public void setVersion(String version) {
@@ -363,22 +140,10 @@ public class EnvironmentTier implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest
-     * compatible worker tier version.
+     * The version of this environment tier.
      * </p>
-     * <note>
-     * <p>
-     * This member is deprecated. Any specific version that you set may become out of date. We recommend leaving it
-     * unspecified.
-     * </p>
-     * </note>
      * 
-     * @return The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest
-     *         compatible worker tier version.</p> <note>
-     *         <p>
-     *         This member is deprecated. Any specific version that you set may become out of date. We recommend leaving
-     *         it unspecified.
-     *         </p>
+     * @return The version of this environment tier.
      */
 
     public String getVersion() {
@@ -387,23 +152,11 @@ public class EnvironmentTier implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest
-     * compatible worker tier version.
+     * The version of this environment tier.
      * </p>
-     * <note>
-     * <p>
-     * This member is deprecated. Any specific version that you set may become out of date. We recommend leaving it
-     * unspecified.
-     * </p>
-     * </note>
      * 
      * @param version
-     *        The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest
-     *        compatible worker tier version.</p> <note>
-     *        <p>
-     *        This member is deprecated. Any specific version that you set may become out of date. We recommend leaving
-     *        it unspecified.
-     *        </p>
+     *        The version of this environment tier.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -413,8 +166,7 @@ public class EnvironmentTier implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -16,6 +16,7 @@ import java.io.Serializable;
 import javax.annotation.Generated;
 
 /**
+ * <p/>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListVersionsByFunction" target="_top">AWS API
  *      Documentation</a>
@@ -25,7 +26,7 @@ public class ListVersionsByFunctionResult extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * Pagination token included if more results are available.
+     * A string, present if there are more function versions.
      * </p>
      */
     private String nextMarker;
@@ -38,11 +39,11 @@ public class ListVersionsByFunctionResult extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * Pagination token included if more results are available.
+     * A string, present if there are more function versions.
      * </p>
      * 
      * @param nextMarker
-     *        Pagination token included if more results are available.
+     *        A string, present if there are more function versions.
      */
 
     public void setNextMarker(String nextMarker) {
@@ -51,10 +52,10 @@ public class ListVersionsByFunctionResult extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * Pagination token included if more results are available.
+     * A string, present if there are more function versions.
      * </p>
      * 
-     * @return Pagination token included if more results are available.
+     * @return A string, present if there are more function versions.
      */
 
     public String getNextMarker() {
@@ -63,11 +64,11 @@ public class ListVersionsByFunctionResult extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * Pagination token included if more results are available.
+     * A string, present if there are more function versions.
      * </p>
      * 
      * @param nextMarker
-     *        Pagination token included if more results are available.
+     *        A string, present if there are more function versions.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -150,8 +151,7 @@ public class ListVersionsByFunctionResult extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

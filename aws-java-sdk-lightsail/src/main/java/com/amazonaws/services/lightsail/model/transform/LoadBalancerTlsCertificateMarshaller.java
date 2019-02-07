@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -35,13 +35,11 @@ public class LoadBalancerTlsCertificateMarshaller {
     private static final MarshallingInfo<String> SUPPORTCODE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("supportCode").build();
     private static final MarshallingInfo<java.util.Date> CREATEDAT_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("createdAt").timestampFormat("unixTimestamp").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("createdAt").build();
     private static final MarshallingInfo<StructuredPojo> LOCATION_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("location").build();
     private static final MarshallingInfo<String> RESOURCETYPE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("resourceType").build();
-    private static final MarshallingInfo<List> TAGS_BINDING = MarshallingInfo.builder(MarshallingType.LIST).marshallLocation(MarshallLocation.PAYLOAD)
-            .marshallLocationName("tags").build();
     private static final MarshallingInfo<String> LOADBALANCERNAME_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("loadBalancerName").build();
     private static final MarshallingInfo<Boolean> ISATTACHED_BINDING = MarshallingInfo.builder(MarshallingType.BOOLEAN)
@@ -55,21 +53,21 @@ public class LoadBalancerTlsCertificateMarshaller {
     private static final MarshallingInfo<String> FAILUREREASON_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("failureReason").build();
     private static final MarshallingInfo<java.util.Date> ISSUEDAT_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("issuedAt").timestampFormat("unixTimestamp").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("issuedAt").build();
     private static final MarshallingInfo<String> ISSUER_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("issuer").build();
     private static final MarshallingInfo<String> KEYALGORITHM_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("keyAlgorithm").build();
     private static final MarshallingInfo<java.util.Date> NOTAFTER_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("notAfter").timestampFormat("unixTimestamp").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("notAfter").build();
     private static final MarshallingInfo<java.util.Date> NOTBEFORE_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("notBefore").timestampFormat("unixTimestamp").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("notBefore").build();
     private static final MarshallingInfo<StructuredPojo> RENEWALSUMMARY_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("renewalSummary").build();
     private static final MarshallingInfo<String> REVOCATIONREASON_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("revocationReason").build();
     private static final MarshallingInfo<java.util.Date> REVOKEDAT_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("revokedAt").timestampFormat("unixTimestamp").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("revokedAt").build();
     private static final MarshallingInfo<String> SERIAL_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("serial").build();
     private static final MarshallingInfo<String> SIGNATUREALGORITHM_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
@@ -101,7 +99,6 @@ public class LoadBalancerTlsCertificateMarshaller {
             protocolMarshaller.marshall(loadBalancerTlsCertificate.getCreatedAt(), CREATEDAT_BINDING);
             protocolMarshaller.marshall(loadBalancerTlsCertificate.getLocation(), LOCATION_BINDING);
             protocolMarshaller.marshall(loadBalancerTlsCertificate.getResourceType(), RESOURCETYPE_BINDING);
-            protocolMarshaller.marshall(loadBalancerTlsCertificate.getTags(), TAGS_BINDING);
             protocolMarshaller.marshall(loadBalancerTlsCertificate.getLoadBalancerName(), LOADBALANCERNAME_BINDING);
             protocolMarshaller.marshall(loadBalancerTlsCertificate.getIsAttached(), ISATTACHED_BINDING);
             protocolMarshaller.marshall(loadBalancerTlsCertificate.getStatus(), STATUS_BINDING);

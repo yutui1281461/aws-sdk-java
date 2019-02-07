@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,12 +40,6 @@ public class DocumentDefaultVersionDescription implements Serializable, Cloneabl
      * </p>
      */
     private String defaultVersion;
-    /**
-     * <p>
-     * The default version of the artifact associated with the document.
-     * </p>
-     */
-    private String defaultVersionName;
 
     /**
      * <p>
@@ -128,48 +122,7 @@ public class DocumentDefaultVersionDescription implements Serializable, Cloneabl
     }
 
     /**
-     * <p>
-     * The default version of the artifact associated with the document.
-     * </p>
-     * 
-     * @param defaultVersionName
-     *        The default version of the artifact associated with the document.
-     */
-
-    public void setDefaultVersionName(String defaultVersionName) {
-        this.defaultVersionName = defaultVersionName;
-    }
-
-    /**
-     * <p>
-     * The default version of the artifact associated with the document.
-     * </p>
-     * 
-     * @return The default version of the artifact associated with the document.
-     */
-
-    public String getDefaultVersionName() {
-        return this.defaultVersionName;
-    }
-
-    /**
-     * <p>
-     * The default version of the artifact associated with the document.
-     * </p>
-     * 
-     * @param defaultVersionName
-     *        The default version of the artifact associated with the document.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DocumentDefaultVersionDescription withDefaultVersionName(String defaultVersionName) {
-        setDefaultVersionName(defaultVersionName);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -182,9 +135,7 @@ public class DocumentDefaultVersionDescription implements Serializable, Cloneabl
         if (getName() != null)
             sb.append("Name: ").append(getName()).append(",");
         if (getDefaultVersion() != null)
-            sb.append("DefaultVersion: ").append(getDefaultVersion()).append(",");
-        if (getDefaultVersionName() != null)
-            sb.append("DefaultVersionName: ").append(getDefaultVersionName());
+            sb.append("DefaultVersion: ").append(getDefaultVersion());
         sb.append("}");
         return sb.toString();
     }
@@ -207,10 +158,6 @@ public class DocumentDefaultVersionDescription implements Serializable, Cloneabl
             return false;
         if (other.getDefaultVersion() != null && other.getDefaultVersion().equals(this.getDefaultVersion()) == false)
             return false;
-        if (other.getDefaultVersionName() == null ^ this.getDefaultVersionName() == null)
-            return false;
-        if (other.getDefaultVersionName() != null && other.getDefaultVersionName().equals(this.getDefaultVersionName()) == false)
-            return false;
         return true;
     }
 
@@ -221,7 +168,6 @@ public class DocumentDefaultVersionDescription implements Serializable, Cloneabl
 
         hashCode = prime * hashCode + ((getName() == null) ? 0 : getName().hashCode());
         hashCode = prime * hashCode + ((getDefaultVersion() == null) ? 0 : getDefaultVersion().hashCode());
-        hashCode = prime * hashCode + ((getDefaultVersionName() == null) ? 0 : getDefaultVersionName().hashCode());
         return hashCode;
     }
 

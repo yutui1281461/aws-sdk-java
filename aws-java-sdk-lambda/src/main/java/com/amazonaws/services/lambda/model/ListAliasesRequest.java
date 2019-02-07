@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,107 +27,42 @@ public class ListAliasesRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * Lambda function name for which the alias is created. Note that the length constraint applies only to the ARN. If
+     * you specify only the function name, it is limited to 64 characters in length.
      * </p>
      */
     private String functionName;
     /**
      * <p>
-     * Specify a function version to only list aliases that invoke that version.
+     * If you specify this optional parameter, the API returns only the aliases that are pointing to the specific Lambda
+     * function version, otherwise the API returns all of the aliases created for the Lambda function.
      * </p>
      */
     private String functionVersion;
     /**
      * <p>
-     * Specify the pagination token returned by a previous request to retrieve the next page of results.
+     * Optional string. An opaque pagination token returned from a previous <code>ListAliases</code> operation. If
+     * present, indicates where to continue the listing.
      * </p>
      */
     private String marker;
     /**
      * <p>
-     * Limit the number of aliases returned.
+     * Optional integer. Specifies the maximum number of aliases to return in response. This parameter value must be
+     * greater than 0.
      * </p>
      */
     private Integer maxItems;
 
     /**
      * <p>
-     * The name of the lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * Lambda function name for which the alias is created. Note that the length constraint applies only to the ARN. If
+     * you specify only the function name, it is limited to 64 characters in length.
      * </p>
      * 
      * @param functionName
-     *        The name of the lambda function.</p>
-     *        <p class="title">
-     *        <b>Name formats</b>
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Function name</b> - <code>MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        The length constraint applies only to the full ARN. If you specify only the function name, it is limited
-     *        to 64 characters in length.
+     *        Lambda function name for which the alias is created. Note that the length constraint applies only to the
+     *        ARN. If you specify only the function name, it is limited to 64 characters in length.
      */
 
     public void setFunctionName(String functionName) {
@@ -136,57 +71,12 @@ public class ListAliasesRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * Lambda function name for which the alias is created. Note that the length constraint applies only to the ARN. If
+     * you specify only the function name, it is limited to 64 characters in length.
      * </p>
      * 
-     * @return The name of the lambda function.</p>
-     *         <p class="title">
-     *         <b>Name formats</b>
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         <b>Function name</b> - <code>MyFunction</code>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *         </p>
-     *         </li>
-     *         </ul>
-     *         <p>
-     *         The length constraint applies only to the full ARN. If you specify only the function name, it is limited
-     *         to 64 characters in length.
+     * @return Lambda function name for which the alias is created. Note that the length constraint applies only to the
+     *         ARN. If you specify only the function name, it is limited to 64 characters in length.
      */
 
     public String getFunctionName() {
@@ -195,58 +85,13 @@ public class ListAliasesRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The name of the lambda function.
-     * </p>
-     * <p class="title">
-     * <b>Name formats</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Function name</b> - <code>MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
-     * characters in length.
+     * Lambda function name for which the alias is created. Note that the length constraint applies only to the ARN. If
+     * you specify only the function name, it is limited to 64 characters in length.
      * </p>
      * 
      * @param functionName
-     *        The name of the lambda function.</p>
-     *        <p class="title">
-     *        <b>Name formats</b>
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        <b>Function name</b> - <code>MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        The length constraint applies only to the full ARN. If you specify only the function name, it is limited
-     *        to 64 characters in length.
+     *        Lambda function name for which the alias is created. Note that the length constraint applies only to the
+     *        ARN. If you specify only the function name, it is limited to 64 characters in length.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -257,11 +102,13 @@ public class ListAliasesRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * Specify a function version to only list aliases that invoke that version.
+     * If you specify this optional parameter, the API returns only the aliases that are pointing to the specific Lambda
+     * function version, otherwise the API returns all of the aliases created for the Lambda function.
      * </p>
      * 
      * @param functionVersion
-     *        Specify a function version to only list aliases that invoke that version.
+     *        If you specify this optional parameter, the API returns only the aliases that are pointing to the specific
+     *        Lambda function version, otherwise the API returns all of the aliases created for the Lambda function.
      */
 
     public void setFunctionVersion(String functionVersion) {
@@ -270,10 +117,13 @@ public class ListAliasesRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * Specify a function version to only list aliases that invoke that version.
+     * If you specify this optional parameter, the API returns only the aliases that are pointing to the specific Lambda
+     * function version, otherwise the API returns all of the aliases created for the Lambda function.
      * </p>
      * 
-     * @return Specify a function version to only list aliases that invoke that version.
+     * @return If you specify this optional parameter, the API returns only the aliases that are pointing to the
+     *         specific Lambda function version, otherwise the API returns all of the aliases created for the Lambda
+     *         function.
      */
 
     public String getFunctionVersion() {
@@ -282,11 +132,13 @@ public class ListAliasesRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * Specify a function version to only list aliases that invoke that version.
+     * If you specify this optional parameter, the API returns only the aliases that are pointing to the specific Lambda
+     * function version, otherwise the API returns all of the aliases created for the Lambda function.
      * </p>
      * 
      * @param functionVersion
-     *        Specify a function version to only list aliases that invoke that version.
+     *        If you specify this optional parameter, the API returns only the aliases that are pointing to the specific
+     *        Lambda function version, otherwise the API returns all of the aliases created for the Lambda function.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -297,11 +149,13 @@ public class ListAliasesRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * Specify the pagination token returned by a previous request to retrieve the next page of results.
+     * Optional string. An opaque pagination token returned from a previous <code>ListAliases</code> operation. If
+     * present, indicates where to continue the listing.
      * </p>
      * 
      * @param marker
-     *        Specify the pagination token returned by a previous request to retrieve the next page of results.
+     *        Optional string. An opaque pagination token returned from a previous <code>ListAliases</code> operation.
+     *        If present, indicates where to continue the listing.
      */
 
     public void setMarker(String marker) {
@@ -310,10 +164,12 @@ public class ListAliasesRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * Specify the pagination token returned by a previous request to retrieve the next page of results.
+     * Optional string. An opaque pagination token returned from a previous <code>ListAliases</code> operation. If
+     * present, indicates where to continue the listing.
      * </p>
      * 
-     * @return Specify the pagination token returned by a previous request to retrieve the next page of results.
+     * @return Optional string. An opaque pagination token returned from a previous <code>ListAliases</code> operation.
+     *         If present, indicates where to continue the listing.
      */
 
     public String getMarker() {
@@ -322,11 +178,13 @@ public class ListAliasesRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * Specify the pagination token returned by a previous request to retrieve the next page of results.
+     * Optional string. An opaque pagination token returned from a previous <code>ListAliases</code> operation. If
+     * present, indicates where to continue the listing.
      * </p>
      * 
      * @param marker
-     *        Specify the pagination token returned by a previous request to retrieve the next page of results.
+     *        Optional string. An opaque pagination token returned from a previous <code>ListAliases</code> operation.
+     *        If present, indicates where to continue the listing.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -337,11 +195,13 @@ public class ListAliasesRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * Limit the number of aliases returned.
+     * Optional integer. Specifies the maximum number of aliases to return in response. This parameter value must be
+     * greater than 0.
      * </p>
      * 
      * @param maxItems
-     *        Limit the number of aliases returned.
+     *        Optional integer. Specifies the maximum number of aliases to return in response. This parameter value must
+     *        be greater than 0.
      */
 
     public void setMaxItems(Integer maxItems) {
@@ -350,10 +210,12 @@ public class ListAliasesRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * Limit the number of aliases returned.
+     * Optional integer. Specifies the maximum number of aliases to return in response. This parameter value must be
+     * greater than 0.
      * </p>
      * 
-     * @return Limit the number of aliases returned.
+     * @return Optional integer. Specifies the maximum number of aliases to return in response. This parameter value
+     *         must be greater than 0.
      */
 
     public Integer getMaxItems() {
@@ -362,11 +224,13 @@ public class ListAliasesRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * Limit the number of aliases returned.
+     * Optional integer. Specifies the maximum number of aliases to return in response. This parameter value must be
+     * greater than 0.
      * </p>
      * 
      * @param maxItems
-     *        Limit the number of aliases returned.
+     *        Optional integer. Specifies the maximum number of aliases to return in response. This parameter value must
+     *        be greater than 0.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -376,8 +240,7 @@ public class ListAliasesRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -239,10 +239,10 @@ public interface AWSWAFAsync extends AWSWAF {
 
     /**
      * <p>
-     * Creates an <a>IPSet</a>, which you use to specify which web requests that you want to allow or block based on the
-     * IP addresses that the requests originate from. For example, if you're receiving a lot of requests from one or
-     * more individual IP addresses or one or more ranges of IP addresses and you want to block the requests, you can
-     * create an <code>IPSet</code> that contains those IP addresses and then configure AWS WAF to block the requests.
+     * Creates an <a>IPSet</a>, which you use to specify which web requests you want to allow or block based on the IP
+     * addresses that the requests originate from. For example, if you're receiving a lot of requests from one or more
+     * individual IP addresses or one or more ranges of IP addresses and you want to block the requests, you can create
+     * an <code>IPSet</code> that contains those IP addresses and then configure AWS WAF to block the requests.
      * </p>
      * <p>
      * To create and configure an <code>IPSet</code>, perform the following steps:
@@ -286,10 +286,10 @@ public interface AWSWAFAsync extends AWSWAF {
 
     /**
      * <p>
-     * Creates an <a>IPSet</a>, which you use to specify which web requests that you want to allow or block based on the
-     * IP addresses that the requests originate from. For example, if you're receiving a lot of requests from one or
-     * more individual IP addresses or one or more ranges of IP addresses and you want to block the requests, you can
-     * create an <code>IPSet</code> that contains those IP addresses and then configure AWS WAF to block the requests.
+     * Creates an <a>IPSet</a>, which you use to specify which web requests you want to allow or block based on the IP
+     * addresses that the requests originate from. For example, if you're receiving a lot of requests from one or more
+     * individual IP addresses or one or more ranges of IP addresses and you want to block the requests, you can create
+     * an <code>IPSet</code> that contains those IP addresses and then configure AWS WAF to block the requests.
      * </p>
      * <p>
      * To create and configure an <code>IPSet</code>, perform the following steps:
@@ -782,7 +782,7 @@ public interface AWSWAFAsync extends AWSWAF {
      * Creates a <code>Rule</code>, which contains the <code>IPSet</code> objects, <code>ByteMatchSet</code> objects,
      * and other predicates that identify the requests that you want to block. If you add more than one predicate to a
      * <code>Rule</code>, a request must match all of the specifications to be allowed or blocked. For example, suppose
-     * that you add the following to a <code>Rule</code>:
+     * you add the following to a <code>Rule</code>:
      * </p>
      * <ul>
      * <li>
@@ -859,7 +859,7 @@ public interface AWSWAFAsync extends AWSWAF {
      * Creates a <code>Rule</code>, which contains the <code>IPSet</code> objects, <code>ByteMatchSet</code> objects,
      * and other predicates that identify the requests that you want to block. If you add more than one predicate to a
      * <code>Rule</code>, a request must match all of the specifications to be allowed or blocked. For example, suppose
-     * that you add the following to a <code>Rule</code>:
+     * you add the following to a <code>Rule</code>:
      * </p>
      * <ul>
      * <li>
@@ -1705,39 +1705,6 @@ public interface AWSWAFAsync extends AWSWAF {
      */
     java.util.concurrent.Future<DeleteIPSetResult> deleteIPSetAsync(DeleteIPSetRequest deleteIPSetRequest,
             com.amazonaws.handlers.AsyncHandler<DeleteIPSetRequest, DeleteIPSetResult> asyncHandler);
-
-    /**
-     * <p>
-     * Permanently deletes the <a>LoggingConfiguration</a> from the specified web ACL.
-     * </p>
-     * 
-     * @param deleteLoggingConfigurationRequest
-     * @return A Java Future containing the result of the DeleteLoggingConfiguration operation returned by the service.
-     * @sample AWSWAFAsync.DeleteLoggingConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/DeleteLoggingConfiguration" target="_top">AWS
-     *      API Documentation</a>
-     */
-    java.util.concurrent.Future<DeleteLoggingConfigurationResult> deleteLoggingConfigurationAsync(
-            DeleteLoggingConfigurationRequest deleteLoggingConfigurationRequest);
-
-    /**
-     * <p>
-     * Permanently deletes the <a>LoggingConfiguration</a> from the specified web ACL.
-     * </p>
-     * 
-     * @param deleteLoggingConfigurationRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the DeleteLoggingConfiguration operation returned by the service.
-     * @sample AWSWAFAsyncHandler.DeleteLoggingConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/DeleteLoggingConfiguration" target="_top">AWS
-     *      API Documentation</a>
-     */
-    java.util.concurrent.Future<DeleteLoggingConfigurationResult> deleteLoggingConfigurationAsync(
-            DeleteLoggingConfigurationRequest deleteLoggingConfigurationRequest,
-            com.amazonaws.handlers.AsyncHandler<DeleteLoggingConfigurationRequest, DeleteLoggingConfigurationResult> asyncHandler);
 
     /**
      * <p>
@@ -2690,37 +2657,6 @@ public interface AWSWAFAsync extends AWSWAF {
 
     /**
      * <p>
-     * Returns the <a>LoggingConfiguration</a> for the specified web ACL.
-     * </p>
-     * 
-     * @param getLoggingConfigurationRequest
-     * @return A Java Future containing the result of the GetLoggingConfiguration operation returned by the service.
-     * @sample AWSWAFAsync.GetLoggingConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/GetLoggingConfiguration" target="_top">AWS
-     *      API Documentation</a>
-     */
-    java.util.concurrent.Future<GetLoggingConfigurationResult> getLoggingConfigurationAsync(GetLoggingConfigurationRequest getLoggingConfigurationRequest);
-
-    /**
-     * <p>
-     * Returns the <a>LoggingConfiguration</a> for the specified web ACL.
-     * </p>
-     * 
-     * @param getLoggingConfigurationRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the GetLoggingConfiguration operation returned by the service.
-     * @sample AWSWAFAsyncHandler.GetLoggingConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/GetLoggingConfiguration" target="_top">AWS
-     *      API Documentation</a>
-     */
-    java.util.concurrent.Future<GetLoggingConfigurationResult> getLoggingConfigurationAsync(GetLoggingConfigurationRequest getLoggingConfigurationRequest,
-            com.amazonaws.handlers.AsyncHandler<GetLoggingConfigurationRequest, GetLoggingConfigurationResult> asyncHandler);
-
-    /**
-     * <p>
      * Returns the IAM policy attached to the RuleGroup.
      * </p>
      * 
@@ -3259,39 +3195,6 @@ public interface AWSWAFAsync extends AWSWAF {
 
     /**
      * <p>
-     * Returns an array of <a>LoggingConfiguration</a> objects.
-     * </p>
-     * 
-     * @param listLoggingConfigurationsRequest
-     * @return A Java Future containing the result of the ListLoggingConfigurations operation returned by the service.
-     * @sample AWSWAFAsync.ListLoggingConfigurations
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/ListLoggingConfigurations" target="_top">AWS
-     *      API Documentation</a>
-     */
-    java.util.concurrent.Future<ListLoggingConfigurationsResult> listLoggingConfigurationsAsync(
-            ListLoggingConfigurationsRequest listLoggingConfigurationsRequest);
-
-    /**
-     * <p>
-     * Returns an array of <a>LoggingConfiguration</a> objects.
-     * </p>
-     * 
-     * @param listLoggingConfigurationsRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the ListLoggingConfigurations operation returned by the service.
-     * @sample AWSWAFAsyncHandler.ListLoggingConfigurations
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/ListLoggingConfigurations" target="_top">AWS
-     *      API Documentation</a>
-     */
-    java.util.concurrent.Future<ListLoggingConfigurationsResult> listLoggingConfigurationsAsync(
-            ListLoggingConfigurationsRequest listLoggingConfigurationsRequest,
-            com.amazonaws.handlers.AsyncHandler<ListLoggingConfigurationsRequest, ListLoggingConfigurationsResult> asyncHandler);
-
-    /**
-     * <p>
      * Returns an array of <a>RuleSummary</a> objects.
      * </p>
      * 
@@ -3608,79 +3511,6 @@ public interface AWSWAFAsync extends AWSWAF {
 
     /**
      * <p>
-     * Associates a <a>LoggingConfiguration</a> with a specified web ACL.
-     * </p>
-     * <p>
-     * You can access information about all traffic that AWS WAF inspects using the following steps:
-     * </p>
-     * <ol>
-     * <li>
-     * <p>
-     * Create an Amazon Kinesis Data Firehose .
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Associate that firehose to your web ACL using a <code>PutLoggingConfiguration</code> request.
-     * </p>
-     * </li>
-     * </ol>
-     * <p>
-     * When you successfully enable logging using a <code>PutLoggingConfiguration</code> request, AWS WAF will create a
-     * service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose. For more
-     * information, see <a href="http://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging Web ACL
-     * Traffic Information</a> in the <i>AWS WAF Developer Guide</i>.
-     * </p>
-     * 
-     * @param putLoggingConfigurationRequest
-     * @return A Java Future containing the result of the PutLoggingConfiguration operation returned by the service.
-     * @sample AWSWAFAsync.PutLoggingConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/PutLoggingConfiguration" target="_top">AWS
-     *      API Documentation</a>
-     */
-    java.util.concurrent.Future<PutLoggingConfigurationResult> putLoggingConfigurationAsync(PutLoggingConfigurationRequest putLoggingConfigurationRequest);
-
-    /**
-     * <p>
-     * Associates a <a>LoggingConfiguration</a> with a specified web ACL.
-     * </p>
-     * <p>
-     * You can access information about all traffic that AWS WAF inspects using the following steps:
-     * </p>
-     * <ol>
-     * <li>
-     * <p>
-     * Create an Amazon Kinesis Data Firehose .
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Associate that firehose to your web ACL using a <code>PutLoggingConfiguration</code> request.
-     * </p>
-     * </li>
-     * </ol>
-     * <p>
-     * When you successfully enable logging using a <code>PutLoggingConfiguration</code> request, AWS WAF will create a
-     * service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose. For more
-     * information, see <a href="http://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging Web ACL
-     * Traffic Information</a> in the <i>AWS WAF Developer Guide</i>.
-     * </p>
-     * 
-     * @param putLoggingConfigurationRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the PutLoggingConfiguration operation returned by the service.
-     * @sample AWSWAFAsyncHandler.PutLoggingConfiguration
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/PutLoggingConfiguration" target="_top">AWS
-     *      API Documentation</a>
-     */
-    java.util.concurrent.Future<PutLoggingConfigurationResult> putLoggingConfigurationAsync(PutLoggingConfigurationRequest putLoggingConfigurationRequest,
-            com.amazonaws.handlers.AsyncHandler<PutLoggingConfigurationRequest, PutLoggingConfigurationResult> asyncHandler);
-
-    /**
-     * <p>
      * Attaches a IAM policy to the specified resource. The only supported use for this action is to share a RuleGroup
      * across accounts.
      * </p>
@@ -3705,9 +3535,8 @@ public interface AWSWAFAsync extends AWSWAF {
      * </li>
      * <li>
      * <p>
-     * The <code>Action</code> in the policy must be <code>waf:UpdateWebACL</code>,
-     * <code>waf-regional:UpdateWebACL</code>, <code>waf:GetRuleGroup</code> and <code>waf-regional:GetRuleGroup</code>
-     * . Any extra or wildcard actions in the policy will be rejected.
+     * The <code>Action</code> in the policy must be <code>waf:UpdateWebACL</code> and
+     * <code>waf-regional:UpdateWebACL</code>. Any extra or wildcard actions in the policy will be rejected.
      * </p>
      * </li>
      * <li>
@@ -3773,9 +3602,8 @@ public interface AWSWAFAsync extends AWSWAF {
      * </li>
      * <li>
      * <p>
-     * The <code>Action</code> in the policy must be <code>waf:UpdateWebACL</code>,
-     * <code>waf-regional:UpdateWebACL</code>, <code>waf:GetRuleGroup</code> and <code>waf-regional:GetRuleGroup</code>
-     * . Any extra or wildcard actions in the policy will be rejected.
+     * The <code>Action</code> in the policy must be <code>waf:UpdateWebACL</code> and
+     * <code>waf-regional:UpdateWebACL</code>. Any extra or wildcard actions in the policy will be rejected.
      * </p>
      * </li>
      * <li>
@@ -4134,9 +3962,9 @@ public interface AWSWAFAsync extends AWSWAF {
      * </li>
      * </ul>
      * <p>
-     * AWS WAF supports IPv4 address ranges: /8 and any range between /16 through /32. AWS WAF supports IPv6 address
-     * ranges: /16, /24, /32, /48, /56, /64, and /128. For more information about CIDR notation, see the Wikipedia entry
-     * <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>.
+     * AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32, /48, /56, /64 and /128 for IPv6.
+     * For more information about CIDR notation, see the Wikipedia entry <a
+     * href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>.
      * </p>
      * <p>
      * IPv6 addresses can be represented using any of the following formats:
@@ -4194,9 +4022,6 @@ public interface AWSWAFAsync extends AWSWAF {
      * When you update an <code>IPSet</code>, you specify the IP addresses that you want to add and/or the IP addresses
      * that you want to delete. If you want to change an IP address, you delete the existing IP address and add the new
      * one.
-     * </p>
-     * <p>
-     * You can insert a maximum of 1000 addresses in a single request.
      * </p>
      * <p>
      * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a
@@ -4237,9 +4062,9 @@ public interface AWSWAFAsync extends AWSWAF {
      * </li>
      * </ul>
      * <p>
-     * AWS WAF supports IPv4 address ranges: /8 and any range between /16 through /32. AWS WAF supports IPv6 address
-     * ranges: /16, /24, /32, /48, /56, /64, and /128. For more information about CIDR notation, see the Wikipedia entry
-     * <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>.
+     * AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32, /48, /56, /64 and /128 for IPv6.
+     * For more information about CIDR notation, see the Wikipedia entry <a
+     * href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>.
      * </p>
      * <p>
      * IPv6 addresses can be represented using any of the following formats:
@@ -4297,9 +4122,6 @@ public interface AWSWAFAsync extends AWSWAF {
      * When you update an <code>IPSet</code>, you specify the IP addresses that you want to add and/or the IP addresses
      * that you want to delete. If you want to change an IP address, you delete the existing IP address and add the new
      * one.
-     * </p>
-     * <p>
-     * You can insert a maximum of 1000 addresses in a single request.
      * </p>
      * <p>
      * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a
@@ -4787,7 +4609,7 @@ public interface AWSWAFAsync extends AWSWAF {
      * Inserts or deletes <a>Predicate</a> objects in a <code>Rule</code>. Each <code>Predicate</code> object identifies
      * a predicate, such as a <a>ByteMatchSet</a> or an <a>IPSet</a>, that specifies the web requests that you want to
      * allow, block, or count. If you add more than one predicate to a <code>Rule</code>, a request must match all of
-     * the specifications to be allowed, blocked, or counted. For example, suppose that you add the following to a
+     * the specifications to be allowed, blocked, or counted. For example, suppose you add the following to a
      * <code>Rule</code>:
      * </p>
      * <ul>
@@ -4860,7 +4682,7 @@ public interface AWSWAFAsync extends AWSWAF {
      * Inserts or deletes <a>Predicate</a> objects in a <code>Rule</code>. Each <code>Predicate</code> object identifies
      * a predicate, such as a <a>ByteMatchSet</a> or an <a>IPSet</a>, that specifies the web requests that you want to
      * allow, block, or count. If you add more than one predicate to a <code>Rule</code>, a request must match all of
-     * the specifications to be allowed, blocked, or counted. For example, suppose that you add the following to a
+     * the specifications to be allowed, blocked, or counted. For example, suppose you add the following to a
      * <code>Rule</code>:
      * </p>
      * <ul>
@@ -5068,9 +4890,6 @@ public interface AWSWAFAsync extends AWSWAF {
      * length. Note that transformations of the request body are not supported because the AWS resource forwards only
      * the first <code>8192</code> bytes of your request to AWS WAF.
      * </p>
-     * <p>
-     * You can only specify a single type of TextTransformation.
-     * </p>
      * </li>
      * <li>
      * <p>
@@ -5149,9 +4968,6 @@ public interface AWSWAFAsync extends AWSWAF {
      * length. Note that transformations of the request body are not supported because the AWS resource forwards only
      * the first <code>8192</code> bytes of your request to AWS WAF.
      * </p>
-     * <p>
-     * You can only specify a single type of TextTransformation.
-     * </p>
      * </li>
      * <li>
      * <p>
@@ -5226,7 +5042,7 @@ public interface AWSWAFAsync extends AWSWAF {
      * <li>
      * <p>
      * <code>FieldToMatch</code>: The part of web requests that you want AWS WAF to inspect and, if you want AWS WAF to
-     * inspect a header or custom query parameter, the name of the header or parameter.
+     * inspect a header, the name of the header.
      * </p>
      * </li>
      * <li>
@@ -5234,16 +5050,13 @@ public interface AWSWAFAsync extends AWSWAF {
      * <code>TextTransformation</code>: Which text transformation, if any, to perform on the web request before
      * inspecting the request for snippets of malicious SQL code.
      * </p>
-     * <p>
-     * You can only specify a single type of TextTransformation.
-     * </p>
      * </li>
      * </ul>
      * <p>
-     * You use <code>SqlInjectionMatchSet</code> objects to specify which CloudFront requests that you want to allow,
-     * block, or count. For example, if you're receiving requests that contain snippets of SQL code in the query string
-     * and you want to block the requests, you can create a <code>SqlInjectionMatchSet</code> with the applicable
-     * settings, and then configure AWS WAF to block the requests.
+     * You use <code>SqlInjectionMatchSet</code> objects to specify which CloudFront requests you want to allow, block,
+     * or count. For example, if you're receiving requests that contain snippets of SQL code in the query string and you
+     * want to block the requests, you can create a <code>SqlInjectionMatchSet</code> with the applicable settings, and
+     * then configure AWS WAF to block the requests.
      * </p>
      * <p>
      * To create and configure a <code>SqlInjectionMatchSet</code>, perform the following steps:
@@ -5297,7 +5110,7 @@ public interface AWSWAFAsync extends AWSWAF {
      * <li>
      * <p>
      * <code>FieldToMatch</code>: The part of web requests that you want AWS WAF to inspect and, if you want AWS WAF to
-     * inspect a header or custom query parameter, the name of the header or parameter.
+     * inspect a header, the name of the header.
      * </p>
      * </li>
      * <li>
@@ -5305,16 +5118,13 @@ public interface AWSWAFAsync extends AWSWAF {
      * <code>TextTransformation</code>: Which text transformation, if any, to perform on the web request before
      * inspecting the request for snippets of malicious SQL code.
      * </p>
-     * <p>
-     * You can only specify a single type of TextTransformation.
-     * </p>
      * </li>
      * </ul>
      * <p>
-     * You use <code>SqlInjectionMatchSet</code> objects to specify which CloudFront requests that you want to allow,
-     * block, or count. For example, if you're receiving requests that contain snippets of SQL code in the query string
-     * and you want to block the requests, you can create a <code>SqlInjectionMatchSet</code> with the applicable
-     * settings, and then configure AWS WAF to block the requests.
+     * You use <code>SqlInjectionMatchSet</code> objects to specify which CloudFront requests you want to allow, block,
+     * or count. For example, if you're receiving requests that contain snippets of SQL code in the query string and you
+     * want to block the requests, you can create a <code>SqlInjectionMatchSet</code> with the applicable settings, and
+     * then configure AWS WAF to block the requests.
      * </p>
      * <p>
      * To create and configure a <code>SqlInjectionMatchSet</code>, perform the following steps:
@@ -5374,8 +5184,8 @@ public interface AWSWAFAsync extends AWSWAF {
      * </li>
      * <li>
      * <p>
-     * The <code>Rules</code> that you want to add or delete. If you want to replace one <code>Rule</code> with another,
-     * you delete the existing <code>Rule</code> and add the new one.
+     * The <code>Rules</code> that you want to add and/or delete. If you want to replace one <code>Rule</code> with
+     * another, you delete the existing <code>Rule</code> and add the new one.
      * </p>
      * </li>
      * <li>
@@ -5389,10 +5199,10 @@ public interface AWSWAFAsync extends AWSWAF {
      * The order in which you want AWS WAF to evaluate the <code>Rules</code> in a <code>WebACL</code>. If you add more
      * than one <code>Rule</code> to a <code>WebACL</code>, AWS WAF evaluates each request against the
      * <code>Rules</code> in order based on the value of <code>Priority</code>. (The <code>Rule</code> that has the
-     * lowest value for <code>Priority</code> is evaluated first.) When a web request matches all the predicates (such
-     * as <code>ByteMatchSets</code> and <code>IPSets</code>) in a <code>Rule</code>, AWS WAF immediately takes the
-     * corresponding action, allow or block, and doesn't evaluate the request against the remaining <code>Rules</code>
-     * in the <code>WebACL</code>, if any.
+     * lowest value for <code>Priority</code> is evaluated first.) When a web request matches all of the predicates
+     * (such as <code>ByteMatchSets</code> and <code>IPSets</code>) in a <code>Rule</code>, AWS WAF immediately takes
+     * the corresponding action, allow or block, and doesn't evaluate the request against the remaining
+     * <code>Rules</code> in the <code>WebACL</code>, if any.
      * </p>
      * </li>
      * </ul>
@@ -5429,15 +5239,6 @@ public interface AWSWAFAsync extends AWSWAF {
      * Submit an <code>UpdateWebACL</code> request to specify the <code>Rules</code> that you want to include in the
      * <code>WebACL</code>, to specify the default action, and to associate the <code>WebACL</code> with a CloudFront
      * distribution.
-     * </p>
-     * <p>
-     * The <code>ActivatedRule</code> can be a rule group. If you specify a rule group as your
-     * <code>ActivatedRule</code>, you can exclude specific rules from that rule group.
-     * </p>
-     * <p>
-     * If you already have a rule group associated with a web ACL and want to submit an <code>UpdateWebACL</code>
-     * request to exclude certain rules from that rule group, you must first remove the rule group from the web ACL, the
-     * re-insert it again, specifying the excluded rules. For details, see <a>ActivatedRule$ExcludedRules</a>.
      * </p>
      * </li>
      * </ol>
@@ -5475,8 +5276,8 @@ public interface AWSWAFAsync extends AWSWAF {
      * </li>
      * <li>
      * <p>
-     * The <code>Rules</code> that you want to add or delete. If you want to replace one <code>Rule</code> with another,
-     * you delete the existing <code>Rule</code> and add the new one.
+     * The <code>Rules</code> that you want to add and/or delete. If you want to replace one <code>Rule</code> with
+     * another, you delete the existing <code>Rule</code> and add the new one.
      * </p>
      * </li>
      * <li>
@@ -5490,10 +5291,10 @@ public interface AWSWAFAsync extends AWSWAF {
      * The order in which you want AWS WAF to evaluate the <code>Rules</code> in a <code>WebACL</code>. If you add more
      * than one <code>Rule</code> to a <code>WebACL</code>, AWS WAF evaluates each request against the
      * <code>Rules</code> in order based on the value of <code>Priority</code>. (The <code>Rule</code> that has the
-     * lowest value for <code>Priority</code> is evaluated first.) When a web request matches all the predicates (such
-     * as <code>ByteMatchSets</code> and <code>IPSets</code>) in a <code>Rule</code>, AWS WAF immediately takes the
-     * corresponding action, allow or block, and doesn't evaluate the request against the remaining <code>Rules</code>
-     * in the <code>WebACL</code>, if any.
+     * lowest value for <code>Priority</code> is evaluated first.) When a web request matches all of the predicates
+     * (such as <code>ByteMatchSets</code> and <code>IPSets</code>) in a <code>Rule</code>, AWS WAF immediately takes
+     * the corresponding action, allow or block, and doesn't evaluate the request against the remaining
+     * <code>Rules</code> in the <code>WebACL</code>, if any.
      * </p>
      * </li>
      * </ul>
@@ -5531,15 +5332,6 @@ public interface AWSWAFAsync extends AWSWAF {
      * <code>WebACL</code>, to specify the default action, and to associate the <code>WebACL</code> with a CloudFront
      * distribution.
      * </p>
-     * <p>
-     * The <code>ActivatedRule</code> can be a rule group. If you specify a rule group as your
-     * <code>ActivatedRule</code>, you can exclude specific rules from that rule group.
-     * </p>
-     * <p>
-     * If you already have a rule group associated with a web ACL and want to submit an <code>UpdateWebACL</code>
-     * request to exclude certain rules from that rule group, you must first remove the rule group from the web ACL, the
-     * re-insert it again, specifying the excluded rules. For details, see <a>ActivatedRule$ExcludedRules</a>.
-     * </p>
      * </li>
      * </ol>
      * <p>
@@ -5573,14 +5365,14 @@ public interface AWSWAFAsync extends AWSWAF {
      * <ul>
      * <li>
      * <p>
-     * <code>Action</code>: Whether to insert the object into or delete the object from the array. To change an
+     * <code>Action</code>: Whether to insert the object into or delete the object from the array. To change a
      * <code>XssMatchTuple</code>, you delete the existing object and add a new one.
      * </p>
      * </li>
      * <li>
      * <p>
      * <code>FieldToMatch</code>: The part of web requests that you want AWS WAF to inspect and, if you want AWS WAF to
-     * inspect a header or custom query parameter, the name of the header or parameter.
+     * inspect a header, the name of the header.
      * </p>
      * </li>
      * <li>
@@ -5588,16 +5380,13 @@ public interface AWSWAFAsync extends AWSWAF {
      * <code>TextTransformation</code>: Which text transformation, if any, to perform on the web request before
      * inspecting the request for cross-site scripting attacks.
      * </p>
-     * <p>
-     * You can only specify a single type of TextTransformation.
-     * </p>
      * </li>
      * </ul>
      * <p>
-     * You use <code>XssMatchSet</code> objects to specify which CloudFront requests that you want to allow, block, or
-     * count. For example, if you're receiving requests that contain cross-site scripting attacks in the request body
-     * and you want to block the requests, you can create an <code>XssMatchSet</code> with the applicable settings, and
-     * then configure AWS WAF to block the requests.
+     * You use <code>XssMatchSet</code> objects to specify which CloudFront requests you want to allow, block, or count.
+     * For example, if you're receiving requests that contain cross-site scripting attacks in the request body and you
+     * want to block the requests, you can create an <code>XssMatchSet</code> with the applicable settings, and then
+     * configure AWS WAF to block the requests.
      * </p>
      * <p>
      * To create and configure an <code>XssMatchSet</code>, perform the following steps:
@@ -5643,14 +5432,14 @@ public interface AWSWAFAsync extends AWSWAF {
      * <ul>
      * <li>
      * <p>
-     * <code>Action</code>: Whether to insert the object into or delete the object from the array. To change an
+     * <code>Action</code>: Whether to insert the object into or delete the object from the array. To change a
      * <code>XssMatchTuple</code>, you delete the existing object and add a new one.
      * </p>
      * </li>
      * <li>
      * <p>
      * <code>FieldToMatch</code>: The part of web requests that you want AWS WAF to inspect and, if you want AWS WAF to
-     * inspect a header or custom query parameter, the name of the header or parameter.
+     * inspect a header, the name of the header.
      * </p>
      * </li>
      * <li>
@@ -5658,16 +5447,13 @@ public interface AWSWAFAsync extends AWSWAF {
      * <code>TextTransformation</code>: Which text transformation, if any, to perform on the web request before
      * inspecting the request for cross-site scripting attacks.
      * </p>
-     * <p>
-     * You can only specify a single type of TextTransformation.
-     * </p>
      * </li>
      * </ul>
      * <p>
-     * You use <code>XssMatchSet</code> objects to specify which CloudFront requests that you want to allow, block, or
-     * count. For example, if you're receiving requests that contain cross-site scripting attacks in the request body
-     * and you want to block the requests, you can create an <code>XssMatchSet</code> with the applicable settings, and
-     * then configure AWS WAF to block the requests.
+     * You use <code>XssMatchSet</code> objects to specify which CloudFront requests you want to allow, block, or count.
+     * For example, if you're receiving requests that contain cross-site scripting attacks in the request body and you
+     * want to block the requests, you can create an <code>XssMatchSet</code> with the applicable settings, and then
+     * configure AWS WAF to block the requests.
      * </p>
      * <p>
      * To create and configure an <code>XssMatchSet</code>, perform the following steps:

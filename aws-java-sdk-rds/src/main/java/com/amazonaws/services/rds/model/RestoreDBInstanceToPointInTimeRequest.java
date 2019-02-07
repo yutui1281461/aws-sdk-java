@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -62,7 +62,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens
+     * Cannot end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -86,7 +86,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * </li>
      * <li>
      * <p>
-     * Can't be specified if UseLatestRestorableTime parameter is true
+     * Cannot be specified if UseLatestRestorableTime parameter is true
      * </p>
      * </li>
      * </ul>
@@ -104,7 +104,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * Default: <code>false</code>
      * </p>
      * <p>
-     * Constraints: Can't be specified if RestoreTime parameter is provided.
+     * Constraints: Cannot be specified if RestoreTime parameter is provided.
      * </p>
      */
     private Boolean useLatestRestorableTime;
@@ -114,7 +114,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance
      * classes, and availability for your engine, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a>
-     * in the <i>Amazon RDS User Guide.</i>
+     * in the Amazon RDS User Guide.
      * </p>
      * <p>
      * Default: The same DBInstanceClass as the original DB instance.
@@ -174,8 +174,28 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * <p>
      * Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance
      * with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an
-     * internal instance with a DNS name that resolves to a private IP address. For more information, see
-     * <a>CreateDBInstance</a>.
+     * internal instance with a DNS name that resolves to a private IP address.
+     * </p>
+     * <p>
+     * Default: The default behavior varies depending on whether a VPC has been requested or not. The following list
+     * shows the default behavior in each case.
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <b>Default VPC:</b>true
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <b>VPC:</b>false
+     * </p>
+     * </li>
+     * </ul>
+     * <p>
+     * If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been
+     * set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as part of the
+     * request and the PubliclyAccessible value has not been set, the DB instance is private.
      * </p>
      */
     private Boolean publiclyAccessible;
@@ -345,15 +365,6 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
     private String tdeCredentialPassword;
     /**
      * <p>
-     * A list of EC2 VPC security groups to associate with this DB instance.
-     * </p>
-     * <p>
-     * Default: The default EC2 VPC security group for the DB subnet group's VPC.
-     * </p>
-     */
-    private com.amazonaws.internal.SdkInternalList<String> vpcSecurityGroupIds;
-    /**
-     * <p>
      * Specify the Active Directory Domain to restore the instance in.
      * </p>
      */
@@ -391,72 +402,10 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
     private Boolean enableIAMDatabaseAuthentication;
     /**
      * <p>
-     * The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     * The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> enableCloudwatchLogsExports;
-    /**
-     * <p>
-     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * </p>
-     */
-    private com.amazonaws.internal.SdkInternalList<ProcessorFeature> processorFeatures;
-    /**
-     * <p>
-     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     * </p>
-     */
-    private Boolean useDefaultProcessorFeatures;
-    /**
-     * <p>
-     * The name of the DB parameter group to associate with this DB instance. If this argument is omitted, the default
-     * DBParameterGroup for the specified engine is used.
-     * </p>
-     * <p>
-     * Constraints:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * If supplied, must match the name of an existing DBParameterGroup.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Must be 1 to 255 letters, numbers, or hyphens.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * First character must be a letter.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
-     * </p>
-     * </li>
-     * </ul>
-     */
-    private String dBParameterGroupName;
-    /**
-     * <p>
-     * Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     * Instance</a>.
-     * </p>
-     */
-    private Boolean deletionProtection;
-    /**
-     * <p>
-     * The resource ID of the source DB instance from which to restore.
-     * </p>
-     */
-    private String sourceDbiResourceId;
 
     /**
      * Default constructor for RestoreDBInstanceToPointInTimeRequest object. Callers should use the setter or fluent
@@ -498,7 +447,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *        </li>
      *        <li>
      *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens
+     *        Cannot end with a hyphen or contain two consecutive hyphens
      *        </p>
      *        </li>
      */
@@ -624,7 +573,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens
+     * Cannot end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -647,7 +596,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *        </li>
      *        <li>
      *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens
+     *        Cannot end with a hyphen or contain two consecutive hyphens
      *        </p>
      *        </li>
      */
@@ -676,7 +625,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens
+     * Cannot end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -698,7 +647,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *         </li>
      *         <li>
      *         <p>
-     *         Can't end with a hyphen or contain two consecutive hyphens
+     *         Cannot end with a hyphen or contain two consecutive hyphens
      *         </p>
      *         </li>
      */
@@ -727,7 +676,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * </li>
      * <li>
      * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens
+     * Cannot end with a hyphen or contain two consecutive hyphens
      * </p>
      * </li>
      * </ul>
@@ -750,7 +699,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *        </li>
      *        <li>
      *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens
+     *        Cannot end with a hyphen or contain two consecutive hyphens
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -779,7 +728,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * </li>
      * <li>
      * <p>
-     * Can't be specified if UseLatestRestorableTime parameter is true
+     * Cannot be specified if UseLatestRestorableTime parameter is true
      * </p>
      * </li>
      * </ul>
@@ -803,7 +752,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *        </li>
      *        <li>
      *        <p>
-     *        Can't be specified if UseLatestRestorableTime parameter is true
+     *        Cannot be specified if UseLatestRestorableTime parameter is true
      *        </p>
      *        </li>
      *        </ul>
@@ -833,7 +782,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * </li>
      * <li>
      * <p>
-     * Can't be specified if UseLatestRestorableTime parameter is true
+     * Cannot be specified if UseLatestRestorableTime parameter is true
      * </p>
      * </li>
      * </ul>
@@ -856,7 +805,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *         </li>
      *         <li>
      *         <p>
-     *         Can't be specified if UseLatestRestorableTime parameter is true
+     *         Cannot be specified if UseLatestRestorableTime parameter is true
      *         </p>
      *         </li>
      *         </ul>
@@ -886,7 +835,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * </li>
      * <li>
      * <p>
-     * Can't be specified if UseLatestRestorableTime parameter is true
+     * Cannot be specified if UseLatestRestorableTime parameter is true
      * </p>
      * </li>
      * </ul>
@@ -910,7 +859,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *        </li>
      *        <li>
      *        <p>
-     *        Can't be specified if UseLatestRestorableTime parameter is true
+     *        Cannot be specified if UseLatestRestorableTime parameter is true
      *        </p>
      *        </li>
      *        </ul>
@@ -933,7 +882,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * Default: <code>false</code>
      * </p>
      * <p>
-     * Constraints: Can't be specified if RestoreTime parameter is provided.
+     * Constraints: Cannot be specified if RestoreTime parameter is provided.
      * </p>
      * 
      * @param useLatestRestorableTime
@@ -943,7 +892,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *        Default: <code>false</code>
      *        </p>
      *        <p>
-     *        Constraints: Can't be specified if RestoreTime parameter is provided.
+     *        Constraints: Cannot be specified if RestoreTime parameter is provided.
      */
 
     public void setUseLatestRestorableTime(Boolean useLatestRestorableTime) {
@@ -959,7 +908,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * Default: <code>false</code>
      * </p>
      * <p>
-     * Constraints: Can't be specified if RestoreTime parameter is provided.
+     * Constraints: Cannot be specified if RestoreTime parameter is provided.
      * </p>
      * 
      * @return Specifies whether (<code>true</code>) or not (<code>false</code>) the DB instance is restored from the
@@ -968,7 +917,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *         Default: <code>false</code>
      *         </p>
      *         <p>
-     *         Constraints: Can't be specified if RestoreTime parameter is provided.
+     *         Constraints: Cannot be specified if RestoreTime parameter is provided.
      */
 
     public Boolean getUseLatestRestorableTime() {
@@ -984,7 +933,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * Default: <code>false</code>
      * </p>
      * <p>
-     * Constraints: Can't be specified if RestoreTime parameter is provided.
+     * Constraints: Cannot be specified if RestoreTime parameter is provided.
      * </p>
      * 
      * @param useLatestRestorableTime
@@ -994,7 +943,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *        Default: <code>false</code>
      *        </p>
      *        <p>
-     *        Constraints: Can't be specified if RestoreTime parameter is provided.
+     *        Constraints: Cannot be specified if RestoreTime parameter is provided.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1012,7 +961,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * Default: <code>false</code>
      * </p>
      * <p>
-     * Constraints: Can't be specified if RestoreTime parameter is provided.
+     * Constraints: Cannot be specified if RestoreTime parameter is provided.
      * </p>
      * 
      * @return Specifies whether (<code>true</code>) or not (<code>false</code>) the DB instance is restored from the
@@ -1021,7 +970,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *         Default: <code>false</code>
      *         </p>
      *         <p>
-     *         Constraints: Can't be specified if RestoreTime parameter is provided.
+     *         Constraints: Cannot be specified if RestoreTime parameter is provided.
      */
 
     public Boolean isUseLatestRestorableTime() {
@@ -1034,7 +983,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance
      * classes, and availability for your engine, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a>
-     * in the <i>Amazon RDS User Guide.</i>
+     * in the Amazon RDS User Guide.
      * </p>
      * <p>
      * Default: The same DBInstanceClass as the original DB instance.
@@ -1045,7 +994,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *        all DB instance classes are available in all AWS Regions, or for all database engines. For the full list
      *        of DB instance classes, and availability for your engine, see <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance
-     *        Class</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *        Class</a> in the Amazon RDS User Guide. </p>
      *        <p>
      *        Default: The same DBInstanceClass as the original DB instance.
      */
@@ -1060,7 +1009,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance
      * classes, and availability for your engine, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a>
-     * in the <i>Amazon RDS User Guide.</i>
+     * in the Amazon RDS User Guide.
      * </p>
      * <p>
      * Default: The same DBInstanceClass as the original DB instance.
@@ -1070,7 +1019,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *         all DB instance classes are available in all AWS Regions, or for all database engines. For the full list
      *         of DB instance classes, and availability for your engine, see <a
      *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance
-     *         Class</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *         Class</a> in the Amazon RDS User Guide. </p>
      *         <p>
      *         Default: The same DBInstanceClass as the original DB instance.
      */
@@ -1085,7 +1034,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance
      * classes, and availability for your engine, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a>
-     * in the <i>Amazon RDS User Guide.</i>
+     * in the Amazon RDS User Guide.
      * </p>
      * <p>
      * Default: The same DBInstanceClass as the original DB instance.
@@ -1096,7 +1045,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      *        all DB instance classes are available in all AWS Regions, or for all database engines. For the full list
      *        of DB instance classes, and availability for your engine, see <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance
-     *        Class</a> in the <i>Amazon RDS User Guide.</i> </p>
+     *        Class</a> in the Amazon RDS User Guide. </p>
      *        <p>
      *        Default: The same DBInstanceClass as the original DB instance.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -1428,15 +1377,54 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * <p>
      * Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance
      * with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an
-     * internal instance with a DNS name that resolves to a private IP address. For more information, see
-     * <a>CreateDBInstance</a>.
+     * internal instance with a DNS name that resolves to a private IP address.
+     * </p>
+     * <p>
+     * Default: The default behavior varies depending on whether a VPC has been requested or not. The following list
+     * shows the default behavior in each case.
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <b>Default VPC:</b>true
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <b>VPC:</b>false
+     * </p>
+     * </li>
+     * </ul>
+     * <p>
+     * If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been
+     * set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as part of the
+     * request and the PubliclyAccessible value has not been set, the DB instance is private.
      * </p>
      * 
      * @param publiclyAccessible
      *        Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing
      *        instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false
-     *        specifies an internal instance with a DNS name that resolves to a private IP address. For more
-     *        information, see <a>CreateDBInstance</a>.
+     *        specifies an internal instance with a DNS name that resolves to a private IP address.</p>
+     *        <p>
+     *        Default: The default behavior varies depending on whether a VPC has been requested or not. The following
+     *        list shows the default behavior in each case.
+     *        </p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <b>Default VPC:</b>true
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <b>VPC:</b>false
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        <p>
+     *        If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not
+     *        been set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as part
+     *        of the request and the PubliclyAccessible value has not been set, the DB instance is private.
      */
 
     public void setPubliclyAccessible(Boolean publiclyAccessible) {
@@ -1447,14 +1435,53 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * <p>
      * Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance
      * with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an
-     * internal instance with a DNS name that resolves to a private IP address. For more information, see
-     * <a>CreateDBInstance</a>.
+     * internal instance with a DNS name that resolves to a private IP address.
+     * </p>
+     * <p>
+     * Default: The default behavior varies depending on whether a VPC has been requested or not. The following list
+     * shows the default behavior in each case.
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <b>Default VPC:</b>true
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <b>VPC:</b>false
+     * </p>
+     * </li>
+     * </ul>
+     * <p>
+     * If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been
+     * set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as part of the
+     * request and the PubliclyAccessible value has not been set, the DB instance is private.
      * </p>
      * 
      * @return Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing
      *         instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false
-     *         specifies an internal instance with a DNS name that resolves to a private IP address. For more
-     *         information, see <a>CreateDBInstance</a>.
+     *         specifies an internal instance with a DNS name that resolves to a private IP address.</p>
+     *         <p>
+     *         Default: The default behavior varies depending on whether a VPC has been requested or not. The following
+     *         list shows the default behavior in each case.
+     *         </p>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         <b>Default VPC:</b>true
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <b>VPC:</b>false
+     *         </p>
+     *         </li>
+     *         </ul>
+     *         <p>
+     *         If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not
+     *         been set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as
+     *         part of the request and the PubliclyAccessible value has not been set, the DB instance is private.
      */
 
     public Boolean getPubliclyAccessible() {
@@ -1465,15 +1492,54 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * <p>
      * Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance
      * with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an
-     * internal instance with a DNS name that resolves to a private IP address. For more information, see
-     * <a>CreateDBInstance</a>.
+     * internal instance with a DNS name that resolves to a private IP address.
+     * </p>
+     * <p>
+     * Default: The default behavior varies depending on whether a VPC has been requested or not. The following list
+     * shows the default behavior in each case.
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <b>Default VPC:</b>true
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <b>VPC:</b>false
+     * </p>
+     * </li>
+     * </ul>
+     * <p>
+     * If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been
+     * set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as part of the
+     * request and the PubliclyAccessible value has not been set, the DB instance is private.
      * </p>
      * 
      * @param publiclyAccessible
      *        Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing
      *        instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false
-     *        specifies an internal instance with a DNS name that resolves to a private IP address. For more
-     *        information, see <a>CreateDBInstance</a>.
+     *        specifies an internal instance with a DNS name that resolves to a private IP address.</p>
+     *        <p>
+     *        Default: The default behavior varies depending on whether a VPC has been requested or not. The following
+     *        list shows the default behavior in each case.
+     *        </p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <b>Default VPC:</b>true
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <b>VPC:</b>false
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        <p>
+     *        If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not
+     *        been set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as part
+     *        of the request and the PubliclyAccessible value has not been set, the DB instance is private.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1486,14 +1552,53 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * <p>
      * Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance
      * with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an
-     * internal instance with a DNS name that resolves to a private IP address. For more information, see
-     * <a>CreateDBInstance</a>.
+     * internal instance with a DNS name that resolves to a private IP address.
+     * </p>
+     * <p>
+     * Default: The default behavior varies depending on whether a VPC has been requested or not. The following list
+     * shows the default behavior in each case.
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <b>Default VPC:</b>true
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <b>VPC:</b>false
+     * </p>
+     * </li>
+     * </ul>
+     * <p>
+     * If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been
+     * set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as part of the
+     * request and the PubliclyAccessible value has not been set, the DB instance is private.
      * </p>
      * 
      * @return Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing
      *         instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false
-     *         specifies an internal instance with a DNS name that resolves to a private IP address. For more
-     *         information, see <a>CreateDBInstance</a>.
+     *         specifies an internal instance with a DNS name that resolves to a private IP address.</p>
+     *         <p>
+     *         Default: The default behavior varies depending on whether a VPC has been requested or not. The following
+     *         list shows the default behavior in each case.
+     *         </p>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         <b>Default VPC:</b>true
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <b>VPC:</b>false
+     *         </p>
+     *         </li>
+     *         </ul>
+     *         <p>
+     *         If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not
+     *         been set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as
+     *         part of the request and the PubliclyAccessible value has not been set, the DB instance is private.
      */
 
     public Boolean isPubliclyAccessible() {
@@ -2582,99 +2687,6 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
 
     /**
      * <p>
-     * A list of EC2 VPC security groups to associate with this DB instance.
-     * </p>
-     * <p>
-     * Default: The default EC2 VPC security group for the DB subnet group's VPC.
-     * </p>
-     * 
-     * @return A list of EC2 VPC security groups to associate with this DB instance. </p>
-     *         <p>
-     *         Default: The default EC2 VPC security group for the DB subnet group's VPC.
-     */
-
-    public java.util.List<String> getVpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) {
-            vpcSecurityGroupIds = new com.amazonaws.internal.SdkInternalList<String>();
-        }
-        return vpcSecurityGroupIds;
-    }
-
-    /**
-     * <p>
-     * A list of EC2 VPC security groups to associate with this DB instance.
-     * </p>
-     * <p>
-     * Default: The default EC2 VPC security group for the DB subnet group's VPC.
-     * </p>
-     * 
-     * @param vpcSecurityGroupIds
-     *        A list of EC2 VPC security groups to associate with this DB instance. </p>
-     *        <p>
-     *        Default: The default EC2 VPC security group for the DB subnet group's VPC.
-     */
-
-    public void setVpcSecurityGroupIds(java.util.Collection<String> vpcSecurityGroupIds) {
-        if (vpcSecurityGroupIds == null) {
-            this.vpcSecurityGroupIds = null;
-            return;
-        }
-
-        this.vpcSecurityGroupIds = new com.amazonaws.internal.SdkInternalList<String>(vpcSecurityGroupIds);
-    }
-
-    /**
-     * <p>
-     * A list of EC2 VPC security groups to associate with this DB instance.
-     * </p>
-     * <p>
-     * Default: The default EC2 VPC security group for the DB subnet group's VPC.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setVpcSecurityGroupIds(java.util.Collection)} or {@link #withVpcSecurityGroupIds(java.util.Collection)}
-     * if you want to override the existing values.
-     * </p>
-     * 
-     * @param vpcSecurityGroupIds
-     *        A list of EC2 VPC security groups to associate with this DB instance. </p>
-     *        <p>
-     *        Default: The default EC2 VPC security group for the DB subnet group's VPC.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBInstanceToPointInTimeRequest withVpcSecurityGroupIds(String... vpcSecurityGroupIds) {
-        if (this.vpcSecurityGroupIds == null) {
-            setVpcSecurityGroupIds(new com.amazonaws.internal.SdkInternalList<String>(vpcSecurityGroupIds.length));
-        }
-        for (String ele : vpcSecurityGroupIds) {
-            this.vpcSecurityGroupIds.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * A list of EC2 VPC security groups to associate with this DB instance.
-     * </p>
-     * <p>
-     * Default: The default EC2 VPC security group for the DB subnet group's VPC.
-     * </p>
-     * 
-     * @param vpcSecurityGroupIds
-     *        A list of EC2 VPC security groups to associate with this DB instance. </p>
-     *        <p>
-     *        Default: The default EC2 VPC security group for the DB subnet group's VPC.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBInstanceToPointInTimeRequest withVpcSecurityGroupIds(java.util.Collection<String> vpcSecurityGroupIds) {
-        setVpcSecurityGroupIds(vpcSecurityGroupIds);
-        return this;
-    }
-
-    /**
-     * <p>
      * Specify the Active Directory Domain to restore the instance in.
      * </p>
      * 
@@ -2955,16 +2967,10 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
 
     /**
      * <p>
-     * The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     * The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * </p>
      * 
-     * @return The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list
-     *         depend on the DB engine being used. For more information, see <a href=
-     *         "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     *         >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     * @return The list of logs that the restored DB instance is to export to CloudWatch Logs.
      */
 
     public java.util.List<String> getEnableCloudwatchLogsExports() {
@@ -2976,17 +2982,11 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
 
     /**
      * <p>
-     * The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     * The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * </p>
      * 
      * @param enableCloudwatchLogsExports
-     *        The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list
-     *        depend on the DB engine being used. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     *        >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     *        The list of logs that the restored DB instance is to export to CloudWatch Logs.
      */
 
     public void setEnableCloudwatchLogsExports(java.util.Collection<String> enableCloudwatchLogsExports) {
@@ -3000,10 +3000,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
 
     /**
      * <p>
-     * The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     * The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -3012,10 +3009,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
      * </p>
      * 
      * @param enableCloudwatchLogsExports
-     *        The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list
-     *        depend on the DB engine being used. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     *        >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     *        The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -3031,17 +3025,11 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
 
     /**
      * <p>
-     * The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on
-     * the DB engine being used. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     * >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     * The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * </p>
      * 
      * @param enableCloudwatchLogsExports
-     *        The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list
-     *        depend on the DB engine being used. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch"
-     *        >Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+     *        The list of logs that the restored DB instance is to export to CloudWatch Logs.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -3051,442 +3039,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
     }
 
     /**
-     * <p>
-     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * </p>
-     * 
-     * @return The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     */
-
-    public java.util.List<ProcessorFeature> getProcessorFeatures() {
-        if (processorFeatures == null) {
-            processorFeatures = new com.amazonaws.internal.SdkInternalList<ProcessorFeature>();
-        }
-        return processorFeatures;
-    }
-
-    /**
-     * <p>
-     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * </p>
-     * 
-     * @param processorFeatures
-     *        The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     */
-
-    public void setProcessorFeatures(java.util.Collection<ProcessorFeature> processorFeatures) {
-        if (processorFeatures == null) {
-            this.processorFeatures = null;
-            return;
-        }
-
-        this.processorFeatures = new com.amazonaws.internal.SdkInternalList<ProcessorFeature>(processorFeatures);
-    }
-
-    /**
-     * <p>
-     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setProcessorFeatures(java.util.Collection)} or {@link #withProcessorFeatures(java.util.Collection)} if
-     * you want to override the existing values.
-     * </p>
-     * 
-     * @param processorFeatures
-     *        The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBInstanceToPointInTimeRequest withProcessorFeatures(ProcessorFeature... processorFeatures) {
-        if (this.processorFeatures == null) {
-            setProcessorFeatures(new com.amazonaws.internal.SdkInternalList<ProcessorFeature>(processorFeatures.length));
-        }
-        for (ProcessorFeature ele : processorFeatures) {
-            this.processorFeatures.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * </p>
-     * 
-     * @param processorFeatures
-     *        The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBInstanceToPointInTimeRequest withProcessorFeatures(java.util.Collection<ProcessorFeature> processorFeatures) {
-        setProcessorFeatures(processorFeatures);
-        return this;
-    }
-
-    /**
-     * <p>
-     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     * </p>
-     * 
-     * @param useDefaultProcessorFeatures
-     *        A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     */
-
-    public void setUseDefaultProcessorFeatures(Boolean useDefaultProcessorFeatures) {
-        this.useDefaultProcessorFeatures = useDefaultProcessorFeatures;
-    }
-
-    /**
-     * <p>
-     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     * </p>
-     * 
-     * @return A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     */
-
-    public Boolean getUseDefaultProcessorFeatures() {
-        return this.useDefaultProcessorFeatures;
-    }
-
-    /**
-     * <p>
-     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     * </p>
-     * 
-     * @param useDefaultProcessorFeatures
-     *        A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBInstanceToPointInTimeRequest withUseDefaultProcessorFeatures(Boolean useDefaultProcessorFeatures) {
-        setUseDefaultProcessorFeatures(useDefaultProcessorFeatures);
-        return this;
-    }
-
-    /**
-     * <p>
-     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     * </p>
-     * 
-     * @return A value that specifies that the DB instance class of the DB instance uses its default processor features.
-     */
-
-    public Boolean isUseDefaultProcessorFeatures() {
-        return this.useDefaultProcessorFeatures;
-    }
-
-    /**
-     * <p>
-     * The name of the DB parameter group to associate with this DB instance. If this argument is omitted, the default
-     * DBParameterGroup for the specified engine is used.
-     * </p>
-     * <p>
-     * Constraints:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * If supplied, must match the name of an existing DBParameterGroup.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Must be 1 to 255 letters, numbers, or hyphens.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * First character must be a letter.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @param dBParameterGroupName
-     *        The name of the DB parameter group to associate with this DB instance. If this argument is omitted, the
-     *        default DBParameterGroup for the specified engine is used.</p>
-     *        <p>
-     *        Constraints:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        If supplied, must match the name of an existing DBParameterGroup.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        Must be 1 to 255 letters, numbers, or hyphens.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        First character must be a letter.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens.
-     *        </p>
-     *        </li>
-     */
-
-    public void setDBParameterGroupName(String dBParameterGroupName) {
-        this.dBParameterGroupName = dBParameterGroupName;
-    }
-
-    /**
-     * <p>
-     * The name of the DB parameter group to associate with this DB instance. If this argument is omitted, the default
-     * DBParameterGroup for the specified engine is used.
-     * </p>
-     * <p>
-     * Constraints:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * If supplied, must match the name of an existing DBParameterGroup.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Must be 1 to 255 letters, numbers, or hyphens.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * First character must be a letter.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @return The name of the DB parameter group to associate with this DB instance. If this argument is omitted, the
-     *         default DBParameterGroup for the specified engine is used.</p>
-     *         <p>
-     *         Constraints:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         If supplied, must match the name of an existing DBParameterGroup.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         Must be 1 to 255 letters, numbers, or hyphens.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         First character must be a letter.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         Can't end with a hyphen or contain two consecutive hyphens.
-     *         </p>
-     *         </li>
-     */
-
-    public String getDBParameterGroupName() {
-        return this.dBParameterGroupName;
-    }
-
-    /**
-     * <p>
-     * The name of the DB parameter group to associate with this DB instance. If this argument is omitted, the default
-     * DBParameterGroup for the specified engine is used.
-     * </p>
-     * <p>
-     * Constraints:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * If supplied, must match the name of an existing DBParameterGroup.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Must be 1 to 255 letters, numbers, or hyphens.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * First character must be a letter.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * Can't end with a hyphen or contain two consecutive hyphens.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @param dBParameterGroupName
-     *        The name of the DB parameter group to associate with this DB instance. If this argument is omitted, the
-     *        default DBParameterGroup for the specified engine is used.</p>
-     *        <p>
-     *        Constraints:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        If supplied, must match the name of an existing DBParameterGroup.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        Must be 1 to 255 letters, numbers, or hyphens.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        First character must be a letter.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        Can't end with a hyphen or contain two consecutive hyphens.
-     *        </p>
-     *        </li>
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBInstanceToPointInTimeRequest withDBParameterGroupName(String dBParameterGroupName) {
-        setDBParameterGroupName(dBParameterGroupName);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     * Instance</a>.
-     * </p>
-     * 
-     * @param deletionProtection
-     *        Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when
-     *        this value is set to true. The default is false. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     *        Instance</a>.
-     */
-
-    public void setDeletionProtection(Boolean deletionProtection) {
-        this.deletionProtection = deletionProtection;
-    }
-
-    /**
-     * <p>
-     * Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     * Instance</a>.
-     * </p>
-     * 
-     * @return Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when
-     *         this value is set to true. The default is false. For more information, see <a
-     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     *         Instance</a>.
-     */
-
-    public Boolean getDeletionProtection() {
-        return this.deletionProtection;
-    }
-
-    /**
-     * <p>
-     * Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     * Instance</a>.
-     * </p>
-     * 
-     * @param deletionProtection
-     *        Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when
-     *        this value is set to true. The default is false. For more information, see <a
-     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     *        Instance</a>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBInstanceToPointInTimeRequest withDeletionProtection(Boolean deletionProtection) {
-        setDeletionProtection(deletionProtection);
-        return this;
-    }
-
-    /**
-     * <p>
-     * Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when this
-     * value is set to true. The default is false. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     * Instance</a>.
-     * </p>
-     * 
-     * @return Indicates if the DB instance should have deletion protection enabled. The database can't be deleted when
-     *         this value is set to true. The default is false. For more information, see <a
-     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
-     *         Instance</a>.
-     */
-
-    public Boolean isDeletionProtection() {
-        return this.deletionProtection;
-    }
-
-    /**
-     * <p>
-     * The resource ID of the source DB instance from which to restore.
-     * </p>
-     * 
-     * @param sourceDbiResourceId
-     *        The resource ID of the source DB instance from which to restore.
-     */
-
-    public void setSourceDbiResourceId(String sourceDbiResourceId) {
-        this.sourceDbiResourceId = sourceDbiResourceId;
-    }
-
-    /**
-     * <p>
-     * The resource ID of the source DB instance from which to restore.
-     * </p>
-     * 
-     * @return The resource ID of the source DB instance from which to restore.
-     */
-
-    public String getSourceDbiResourceId() {
-        return this.sourceDbiResourceId;
-    }
-
-    /**
-     * <p>
-     * The resource ID of the source DB instance from which to restore.
-     * </p>
-     * 
-     * @param sourceDbiResourceId
-     *        The resource ID of the source DB instance from which to restore.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBInstanceToPointInTimeRequest withSourceDbiResourceId(String sourceDbiResourceId) {
-        setSourceDbiResourceId(sourceDbiResourceId);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -3538,8 +3091,6 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
             sb.append("TdeCredentialArn: ").append(getTdeCredentialArn()).append(",");
         if (getTdeCredentialPassword() != null)
             sb.append("TdeCredentialPassword: ").append(getTdeCredentialPassword()).append(",");
-        if (getVpcSecurityGroupIds() != null)
-            sb.append("VpcSecurityGroupIds: ").append(getVpcSecurityGroupIds()).append(",");
         if (getDomain() != null)
             sb.append("Domain: ").append(getDomain()).append(",");
         if (getDomainIAMRoleName() != null)
@@ -3547,17 +3098,7 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
         if (getEnableIAMDatabaseAuthentication() != null)
             sb.append("EnableIAMDatabaseAuthentication: ").append(getEnableIAMDatabaseAuthentication()).append(",");
         if (getEnableCloudwatchLogsExports() != null)
-            sb.append("EnableCloudwatchLogsExports: ").append(getEnableCloudwatchLogsExports()).append(",");
-        if (getProcessorFeatures() != null)
-            sb.append("ProcessorFeatures: ").append(getProcessorFeatures()).append(",");
-        if (getUseDefaultProcessorFeatures() != null)
-            sb.append("UseDefaultProcessorFeatures: ").append(getUseDefaultProcessorFeatures()).append(",");
-        if (getDBParameterGroupName() != null)
-            sb.append("DBParameterGroupName: ").append(getDBParameterGroupName()).append(",");
-        if (getDeletionProtection() != null)
-            sb.append("DeletionProtection: ").append(getDeletionProtection()).append(",");
-        if (getSourceDbiResourceId() != null)
-            sb.append("SourceDbiResourceId: ").append(getSourceDbiResourceId());
+            sb.append("EnableCloudwatchLogsExports: ").append(getEnableCloudwatchLogsExports());
         sb.append("}");
         return sb.toString();
     }
@@ -3656,10 +3197,6 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
             return false;
         if (other.getTdeCredentialPassword() != null && other.getTdeCredentialPassword().equals(this.getTdeCredentialPassword()) == false)
             return false;
-        if (other.getVpcSecurityGroupIds() == null ^ this.getVpcSecurityGroupIds() == null)
-            return false;
-        if (other.getVpcSecurityGroupIds() != null && other.getVpcSecurityGroupIds().equals(this.getVpcSecurityGroupIds()) == false)
-            return false;
         if (other.getDomain() == null ^ this.getDomain() == null)
             return false;
         if (other.getDomain() != null && other.getDomain().equals(this.getDomain()) == false)
@@ -3676,26 +3213,6 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
         if (other.getEnableCloudwatchLogsExports() == null ^ this.getEnableCloudwatchLogsExports() == null)
             return false;
         if (other.getEnableCloudwatchLogsExports() != null && other.getEnableCloudwatchLogsExports().equals(this.getEnableCloudwatchLogsExports()) == false)
-            return false;
-        if (other.getProcessorFeatures() == null ^ this.getProcessorFeatures() == null)
-            return false;
-        if (other.getProcessorFeatures() != null && other.getProcessorFeatures().equals(this.getProcessorFeatures()) == false)
-            return false;
-        if (other.getUseDefaultProcessorFeatures() == null ^ this.getUseDefaultProcessorFeatures() == null)
-            return false;
-        if (other.getUseDefaultProcessorFeatures() != null && other.getUseDefaultProcessorFeatures().equals(this.getUseDefaultProcessorFeatures()) == false)
-            return false;
-        if (other.getDBParameterGroupName() == null ^ this.getDBParameterGroupName() == null)
-            return false;
-        if (other.getDBParameterGroupName() != null && other.getDBParameterGroupName().equals(this.getDBParameterGroupName()) == false)
-            return false;
-        if (other.getDeletionProtection() == null ^ this.getDeletionProtection() == null)
-            return false;
-        if (other.getDeletionProtection() != null && other.getDeletionProtection().equals(this.getDeletionProtection()) == false)
-            return false;
-        if (other.getSourceDbiResourceId() == null ^ this.getSourceDbiResourceId() == null)
-            return false;
-        if (other.getSourceDbiResourceId() != null && other.getSourceDbiResourceId().equals(this.getSourceDbiResourceId()) == false)
             return false;
         return true;
     }
@@ -3726,16 +3243,10 @@ public class RestoreDBInstanceToPointInTimeRequest extends com.amazonaws.AmazonW
         hashCode = prime * hashCode + ((getStorageType() == null) ? 0 : getStorageType().hashCode());
         hashCode = prime * hashCode + ((getTdeCredentialArn() == null) ? 0 : getTdeCredentialArn().hashCode());
         hashCode = prime * hashCode + ((getTdeCredentialPassword() == null) ? 0 : getTdeCredentialPassword().hashCode());
-        hashCode = prime * hashCode + ((getVpcSecurityGroupIds() == null) ? 0 : getVpcSecurityGroupIds().hashCode());
         hashCode = prime * hashCode + ((getDomain() == null) ? 0 : getDomain().hashCode());
         hashCode = prime * hashCode + ((getDomainIAMRoleName() == null) ? 0 : getDomainIAMRoleName().hashCode());
         hashCode = prime * hashCode + ((getEnableIAMDatabaseAuthentication() == null) ? 0 : getEnableIAMDatabaseAuthentication().hashCode());
         hashCode = prime * hashCode + ((getEnableCloudwatchLogsExports() == null) ? 0 : getEnableCloudwatchLogsExports().hashCode());
-        hashCode = prime * hashCode + ((getProcessorFeatures() == null) ? 0 : getProcessorFeatures().hashCode());
-        hashCode = prime * hashCode + ((getUseDefaultProcessorFeatures() == null) ? 0 : getUseDefaultProcessorFeatures().hashCode());
-        hashCode = prime * hashCode + ((getDBParameterGroupName() == null) ? 0 : getDBParameterGroupName().hashCode());
-        hashCode = prime * hashCode + ((getDeletionProtection() == null) ? 0 : getDeletionProtection().hashCode());
-        hashCode = prime * hashCode + ((getSourceDbiResourceId() == null) ? 0 : getSourceDbiResourceId().hashCode());
         return hashCode;
     }
 

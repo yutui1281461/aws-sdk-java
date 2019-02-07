@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -34,14 +34,10 @@ public class CreateInputRequestMarshaller {
             .marshallLocationName("destinations").build();
     private static final MarshallingInfo<List> INPUTSECURITYGROUPS_BINDING = MarshallingInfo.builder(MarshallingType.LIST)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("inputSecurityGroups").build();
-    private static final MarshallingInfo<List> MEDIACONNECTFLOWS_BINDING = MarshallingInfo.builder(MarshallingType.LIST)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("mediaConnectFlows").build();
     private static final MarshallingInfo<String> NAME_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("name").build();
     private static final MarshallingInfo<String> REQUESTID_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("requestId").defaultValueSupplier(com.amazonaws.util.IdempotentUtils.getGenerator()).build();
-    private static final MarshallingInfo<String> ROLEARN_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
-            .marshallLocationName("roleArn").build();
     private static final MarshallingInfo<List> SOURCES_BINDING = MarshallingInfo.builder(MarshallingType.LIST).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("sources").build();
     private static final MarshallingInfo<String> TYPE_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
@@ -65,10 +61,8 @@ public class CreateInputRequestMarshaller {
         try {
             protocolMarshaller.marshall(createInputRequest.getDestinations(), DESTINATIONS_BINDING);
             protocolMarshaller.marshall(createInputRequest.getInputSecurityGroups(), INPUTSECURITYGROUPS_BINDING);
-            protocolMarshaller.marshall(createInputRequest.getMediaConnectFlows(), MEDIACONNECTFLOWS_BINDING);
             protocolMarshaller.marshall(createInputRequest.getName(), NAME_BINDING);
             protocolMarshaller.marshall(createInputRequest.getRequestId(), REQUESTID_BINDING);
-            protocolMarshaller.marshall(createInputRequest.getRoleArn(), ROLEARN_BINDING);
             protocolMarshaller.marshall(createInputRequest.getSources(), SOURCES_BINDING);
             protocolMarshaller.marshall(createInputRequest.getType(), TYPE_BINDING);
         } catch (Exception e) {

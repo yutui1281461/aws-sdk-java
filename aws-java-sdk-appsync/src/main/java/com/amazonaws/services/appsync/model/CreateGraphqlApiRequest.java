@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,25 +33,25 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
     private String name;
     /**
      * <p>
-     * The Amazon CloudWatch Logs configuration.
+     * The Amazon CloudWatch logs configuration.
      * </p>
      */
     private LogConfig logConfig;
     /**
      * <p>
-     * The authentication type: API key, AWS IAM, or Amazon Cognito user pools.
+     * The authentication type: API key, IAM, or Amazon Cognito User Pools.
      * </p>
      */
     private String authenticationType;
     /**
      * <p>
-     * The Amazon Cognito user pool configuration.
+     * The Amazon Cognito User Pool configuration.
      * </p>
      */
     private UserPoolConfig userPoolConfig;
     /**
      * <p>
-     * The OpenID Connect configuration.
+     * The Open Id Connect configuration configuration.
      * </p>
      */
     private OpenIDConnectConfig openIDConnectConfig;
@@ -98,11 +98,11 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The Amazon CloudWatch Logs configuration.
+     * The Amazon CloudWatch logs configuration.
      * </p>
      * 
      * @param logConfig
-     *        The Amazon CloudWatch Logs configuration.
+     *        The Amazon CloudWatch logs configuration.
      */
 
     public void setLogConfig(LogConfig logConfig) {
@@ -111,10 +111,10 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The Amazon CloudWatch Logs configuration.
+     * The Amazon CloudWatch logs configuration.
      * </p>
      * 
-     * @return The Amazon CloudWatch Logs configuration.
+     * @return The Amazon CloudWatch logs configuration.
      */
 
     public LogConfig getLogConfig() {
@@ -123,11 +123,11 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The Amazon CloudWatch Logs configuration.
+     * The Amazon CloudWatch logs configuration.
      * </p>
      * 
      * @param logConfig
-     *        The Amazon CloudWatch Logs configuration.
+     *        The Amazon CloudWatch logs configuration.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -138,11 +138,11 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The authentication type: API key, AWS IAM, or Amazon Cognito user pools.
+     * The authentication type: API key, IAM, or Amazon Cognito User Pools.
      * </p>
      * 
      * @param authenticationType
-     *        The authentication type: API key, AWS IAM, or Amazon Cognito user pools.
+     *        The authentication type: API key, IAM, or Amazon Cognito User Pools.
      * @see AuthenticationType
      */
 
@@ -152,10 +152,10 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The authentication type: API key, AWS IAM, or Amazon Cognito user pools.
+     * The authentication type: API key, IAM, or Amazon Cognito User Pools.
      * </p>
      * 
-     * @return The authentication type: API key, AWS IAM, or Amazon Cognito user pools.
+     * @return The authentication type: API key, IAM, or Amazon Cognito User Pools.
      * @see AuthenticationType
      */
 
@@ -165,11 +165,11 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The authentication type: API key, AWS IAM, or Amazon Cognito user pools.
+     * The authentication type: API key, IAM, or Amazon Cognito User Pools.
      * </p>
      * 
      * @param authenticationType
-     *        The authentication type: API key, AWS IAM, or Amazon Cognito user pools.
+     *        The authentication type: API key, IAM, or Amazon Cognito User Pools.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see AuthenticationType
      */
@@ -181,11 +181,11 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The authentication type: API key, AWS IAM, or Amazon Cognito user pools.
+     * The authentication type: API key, IAM, or Amazon Cognito User Pools.
      * </p>
      * 
      * @param authenticationType
-     *        The authentication type: API key, AWS IAM, or Amazon Cognito user pools.
+     *        The authentication type: API key, IAM, or Amazon Cognito User Pools.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see AuthenticationType
      */
@@ -197,11 +197,11 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The Amazon Cognito user pool configuration.
+     * The Amazon Cognito User Pool configuration.
      * </p>
      * 
      * @param userPoolConfig
-     *        The Amazon Cognito user pool configuration.
+     *        The Amazon Cognito User Pool configuration.
      */
 
     public void setUserPoolConfig(UserPoolConfig userPoolConfig) {
@@ -210,10 +210,10 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The Amazon Cognito user pool configuration.
+     * The Amazon Cognito User Pool configuration.
      * </p>
      * 
-     * @return The Amazon Cognito user pool configuration.
+     * @return The Amazon Cognito User Pool configuration.
      */
 
     public UserPoolConfig getUserPoolConfig() {
@@ -222,11 +222,11 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The Amazon Cognito user pool configuration.
+     * The Amazon Cognito User Pool configuration.
      * </p>
      * 
      * @param userPoolConfig
-     *        The Amazon Cognito user pool configuration.
+     *        The Amazon Cognito User Pool configuration.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -237,11 +237,11 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The OpenID Connect configuration.
+     * The Open Id Connect configuration configuration.
      * </p>
      * 
      * @param openIDConnectConfig
-     *        The OpenID Connect configuration.
+     *        The Open Id Connect configuration configuration.
      */
 
     public void setOpenIDConnectConfig(OpenIDConnectConfig openIDConnectConfig) {
@@ -250,10 +250,10 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The OpenID Connect configuration.
+     * The Open Id Connect configuration configuration.
      * </p>
      * 
-     * @return The OpenID Connect configuration.
+     * @return The Open Id Connect configuration configuration.
      */
 
     public OpenIDConnectConfig getOpenIDConnectConfig() {
@@ -262,11 +262,11 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * The OpenID Connect configuration.
+     * The Open Id Connect configuration configuration.
      * </p>
      * 
      * @param openIDConnectConfig
-     *        The OpenID Connect configuration.
+     *        The Open Id Connect configuration configuration.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -276,8 +276,7 @@ public class CreateGraphqlApiRequest extends com.amazonaws.AmazonWebServiceReque
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,13 +27,13 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The stack name to display.
+     * The stack name for display.
      * </p>
      */
     private String displayName;
     /**
      * <p>
-     * The description to display.
+     * The description for display.
      * </p>
      */
     private String description;
@@ -64,7 +64,7 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
     private String redirectURL;
     /**
      * <p>
-     * The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send
+     * The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send
      * Feedback link is displayed.
      * </p>
      */
@@ -75,29 +75,14 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
      * </p>
      */
     private java.util.List<String> attributesToDelete;
-    /**
-     * <p>
-     * The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are
-     * enabled.
-     * </p>
-     */
-    private java.util.List<UserSetting> userSettings;
-    /**
-     * <p>
-     * The persistent application settings for users of a stack. When these settings are enabled, changes that users
-     * make to applications and Windows settings are automatically saved after each session and applied to the next
-     * session.
-     * </p>
-     */
-    private ApplicationSettings applicationSettings;
 
     /**
      * <p>
-     * The stack name to display.
+     * The stack name for display.
      * </p>
      * 
      * @param displayName
-     *        The stack name to display.
+     *        The stack name for display.
      */
 
     public void setDisplayName(String displayName) {
@@ -106,10 +91,10 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The stack name to display.
+     * The stack name for display.
      * </p>
      * 
-     * @return The stack name to display.
+     * @return The stack name for display.
      */
 
     public String getDisplayName() {
@@ -118,11 +103,11 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The stack name to display.
+     * The stack name for display.
      * </p>
      * 
      * @param displayName
-     *        The stack name to display.
+     *        The stack name for display.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -133,11 +118,11 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The description to display.
+     * The description for display.
      * </p>
      * 
      * @param description
-     *        The description to display.
+     *        The description for display.
      */
 
     public void setDescription(String description) {
@@ -146,10 +131,10 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The description to display.
+     * The description for display.
      * </p>
      * 
-     * @return The description to display.
+     * @return The description for display.
      */
 
     public String getDescription() {
@@ -158,11 +143,11 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The description to display.
+     * The description for display.
      * </p>
      * 
      * @param description
-     *        The description to display.
+     *        The description for display.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -375,12 +360,12 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send
+     * The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send
      * Feedback link is displayed.
      * </p>
      * 
      * @param feedbackURL
-     *        The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no
+     *        The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no
      *        Send Feedback link is displayed.
      */
 
@@ -390,11 +375,11 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send
+     * The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send
      * Feedback link is displayed.
      * </p>
      * 
-     * @return The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no
+     * @return The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no
      *         Send Feedback link is displayed.
      */
 
@@ -404,12 +389,12 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send
+     * The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send
      * Feedback link is displayed.
      * </p>
      * 
      * @param feedbackURL
-     *        The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no
+     *        The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no
      *        Send Feedback link is displayed.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -518,138 +503,7 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
     }
 
     /**
-     * <p>
-     * The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are
-     * enabled.
-     * </p>
-     * 
-     * @return The actions that are enabled or disabled for users during their streaming sessions. By default, these
-     *         actions are enabled.
-     */
-
-    public java.util.List<UserSetting> getUserSettings() {
-        return userSettings;
-    }
-
-    /**
-     * <p>
-     * The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are
-     * enabled.
-     * </p>
-     * 
-     * @param userSettings
-     *        The actions that are enabled or disabled for users during their streaming sessions. By default, these
-     *        actions are enabled.
-     */
-
-    public void setUserSettings(java.util.Collection<UserSetting> userSettings) {
-        if (userSettings == null) {
-            this.userSettings = null;
-            return;
-        }
-
-        this.userSettings = new java.util.ArrayList<UserSetting>(userSettings);
-    }
-
-    /**
-     * <p>
-     * The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are
-     * enabled.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setUserSettings(java.util.Collection)} or {@link #withUserSettings(java.util.Collection)} if you want to
-     * override the existing values.
-     * </p>
-     * 
-     * @param userSettings
-     *        The actions that are enabled or disabled for users during their streaming sessions. By default, these
-     *        actions are enabled.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public UpdateStackRequest withUserSettings(UserSetting... userSettings) {
-        if (this.userSettings == null) {
-            setUserSettings(new java.util.ArrayList<UserSetting>(userSettings.length));
-        }
-        for (UserSetting ele : userSettings) {
-            this.userSettings.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are
-     * enabled.
-     * </p>
-     * 
-     * @param userSettings
-     *        The actions that are enabled or disabled for users during their streaming sessions. By default, these
-     *        actions are enabled.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public UpdateStackRequest withUserSettings(java.util.Collection<UserSetting> userSettings) {
-        setUserSettings(userSettings);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The persistent application settings for users of a stack. When these settings are enabled, changes that users
-     * make to applications and Windows settings are automatically saved after each session and applied to the next
-     * session.
-     * </p>
-     * 
-     * @param applicationSettings
-     *        The persistent application settings for users of a stack. When these settings are enabled, changes that
-     *        users make to applications and Windows settings are automatically saved after each session and applied to
-     *        the next session.
-     */
-
-    public void setApplicationSettings(ApplicationSettings applicationSettings) {
-        this.applicationSettings = applicationSettings;
-    }
-
-    /**
-     * <p>
-     * The persistent application settings for users of a stack. When these settings are enabled, changes that users
-     * make to applications and Windows settings are automatically saved after each session and applied to the next
-     * session.
-     * </p>
-     * 
-     * @return The persistent application settings for users of a stack. When these settings are enabled, changes that
-     *         users make to applications and Windows settings are automatically saved after each session and applied to
-     *         the next session.
-     */
-
-    public ApplicationSettings getApplicationSettings() {
-        return this.applicationSettings;
-    }
-
-    /**
-     * <p>
-     * The persistent application settings for users of a stack. When these settings are enabled, changes that users
-     * make to applications and Windows settings are automatically saved after each session and applied to the next
-     * session.
-     * </p>
-     * 
-     * @param applicationSettings
-     *        The persistent application settings for users of a stack. When these settings are enabled, changes that
-     *        users make to applications and Windows settings are automatically saved after each session and applied to
-     *        the next session.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public UpdateStackRequest withApplicationSettings(ApplicationSettings applicationSettings) {
-        setApplicationSettings(applicationSettings);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -674,11 +528,7 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
         if (getFeedbackURL() != null)
             sb.append("FeedbackURL: ").append(getFeedbackURL()).append(",");
         if (getAttributesToDelete() != null)
-            sb.append("AttributesToDelete: ").append(getAttributesToDelete()).append(",");
-        if (getUserSettings() != null)
-            sb.append("UserSettings: ").append(getUserSettings()).append(",");
-        if (getApplicationSettings() != null)
-            sb.append("ApplicationSettings: ").append(getApplicationSettings());
+            sb.append("AttributesToDelete: ").append(getAttributesToDelete());
         sb.append("}");
         return sb.toString();
     }
@@ -725,14 +575,6 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
             return false;
         if (other.getAttributesToDelete() != null && other.getAttributesToDelete().equals(this.getAttributesToDelete()) == false)
             return false;
-        if (other.getUserSettings() == null ^ this.getUserSettings() == null)
-            return false;
-        if (other.getUserSettings() != null && other.getUserSettings().equals(this.getUserSettings()) == false)
-            return false;
-        if (other.getApplicationSettings() == null ^ this.getApplicationSettings() == null)
-            return false;
-        if (other.getApplicationSettings() != null && other.getApplicationSettings().equals(this.getApplicationSettings()) == false)
-            return false;
         return true;
     }
 
@@ -749,8 +591,6 @@ public class UpdateStackRequest extends com.amazonaws.AmazonWebServiceRequest im
         hashCode = prime * hashCode + ((getRedirectURL() == null) ? 0 : getRedirectURL().hashCode());
         hashCode = prime * hashCode + ((getFeedbackURL() == null) ? 0 : getFeedbackURL().hashCode());
         hashCode = prime * hashCode + ((getAttributesToDelete() == null) ? 0 : getAttributesToDelete().hashCode());
-        hashCode = prime * hashCode + ((getUserSettings() == null) ? 0 : getUserSettings().hashCode());
-        hashCode = prime * hashCode + ((getApplicationSettings() == null) ? 0 : getApplicationSettings().hashCode());
         return hashCode;
     }
 

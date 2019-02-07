@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -97,12 +97,6 @@ public class CertificateDescription implements Serializable, Cloneable, Structur
      * </p>
      */
     private String generationId;
-    /**
-     * <p>
-     * When the certificate is valid.
-     * </p>
-     */
-    private CertificateValidity validity;
 
     /**
      * <p>
@@ -618,48 +612,7 @@ public class CertificateDescription implements Serializable, Cloneable, Structur
     }
 
     /**
-     * <p>
-     * When the certificate is valid.
-     * </p>
-     * 
-     * @param validity
-     *        When the certificate is valid.
-     */
-
-    public void setValidity(CertificateValidity validity) {
-        this.validity = validity;
-    }
-
-    /**
-     * <p>
-     * When the certificate is valid.
-     * </p>
-     * 
-     * @return When the certificate is valid.
-     */
-
-    public CertificateValidity getValidity() {
-        return this.validity;
-    }
-
-    /**
-     * <p>
-     * When the certificate is valid.
-     * </p>
-     * 
-     * @param validity
-     *        When the certificate is valid.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CertificateDescription withValidity(CertificateValidity validity) {
-        setValidity(validity);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -692,9 +645,7 @@ public class CertificateDescription implements Serializable, Cloneable, Structur
         if (getTransferData() != null)
             sb.append("TransferData: ").append(getTransferData()).append(",");
         if (getGenerationId() != null)
-            sb.append("GenerationId: ").append(getGenerationId()).append(",");
-        if (getValidity() != null)
-            sb.append("Validity: ").append(getValidity());
+            sb.append("GenerationId: ").append(getGenerationId());
         sb.append("}");
         return sb.toString();
     }
@@ -757,10 +708,6 @@ public class CertificateDescription implements Serializable, Cloneable, Structur
             return false;
         if (other.getGenerationId() != null && other.getGenerationId().equals(this.getGenerationId()) == false)
             return false;
-        if (other.getValidity() == null ^ this.getValidity() == null)
-            return false;
-        if (other.getValidity() != null && other.getValidity().equals(this.getValidity()) == false)
-            return false;
         return true;
     }
 
@@ -781,7 +728,6 @@ public class CertificateDescription implements Serializable, Cloneable, Structur
         hashCode = prime * hashCode + ((getCustomerVersion() == null) ? 0 : getCustomerVersion().hashCode());
         hashCode = prime * hashCode + ((getTransferData() == null) ? 0 : getTransferData().hashCode());
         hashCode = prime * hashCode + ((getGenerationId() == null) ? 0 : getGenerationId().hashCode());
-        hashCode = prime * hashCode + ((getValidity() == null) ? 0 : getValidity().hashCode());
         return hashCode;
     }
 

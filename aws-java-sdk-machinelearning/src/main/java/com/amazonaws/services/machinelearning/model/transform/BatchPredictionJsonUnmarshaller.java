@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -70,11 +70,11 @@ public class BatchPredictionJsonUnmarshaller implements Unmarshaller<BatchPredic
                 }
                 if (context.testExpression("CreatedAt", targetDepth)) {
                     context.nextToken();
-                    batchPrediction.setCreatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    batchPrediction.setCreatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("LastUpdatedAt", targetDepth)) {
                     context.nextToken();
-                    batchPrediction.setLastUpdatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    batchPrediction.setLastUpdatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("Name", targetDepth)) {
                     context.nextToken();
@@ -98,11 +98,11 @@ public class BatchPredictionJsonUnmarshaller implements Unmarshaller<BatchPredic
                 }
                 if (context.testExpression("FinishedAt", targetDepth)) {
                     context.nextToken();
-                    batchPrediction.setFinishedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    batchPrediction.setFinishedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("StartedAt", targetDepth)) {
                     context.nextToken();
-                    batchPrediction.setStartedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    batchPrediction.setStartedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("TotalRecordCount", targetDepth)) {
                     context.nextToken();

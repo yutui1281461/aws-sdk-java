@@ -54,8 +54,6 @@ public class MemberModel extends DocumentationModel {
 
     private boolean deprecated;
 
-    private boolean sensitive;
-
     private ListModel listModel;
 
     private MapModel mapModel;
@@ -215,14 +213,6 @@ public class MemberModel extends DocumentationModel {
 
     public void setDeprecated(boolean deprecated) {
         this.deprecated = deprecated;
-    }
-
-    public boolean isSensitive() {
-        return sensitive;
-    }
-
-    public void setSensitive(boolean sensitive) {
-        this.sensitive = sensitive;
     }
 
     public ListModel getListModel() {

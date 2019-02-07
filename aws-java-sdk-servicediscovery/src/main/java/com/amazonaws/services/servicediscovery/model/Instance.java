@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * A complex type that contains information about an instance that AWS Cloud Map creates when you submit a
+ * A complex type that contains information about an instance that Amazon Route 53 creates when you submit a
  * <code>RegisterInstance</code> request.
  * </p>
  * 
@@ -54,9 +54,8 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing
-     * DNS records. If there's also an existing health check, AWS Cloud Map deletes the old health check and creates a
-     * new one.
+     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the existing
+     * records. If there's also an existing health check, Route 53 deletes the old health check and creates a new one.
      * </p>
      * <note>
      * <p>
@@ -103,10 +102,11 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      * <b/>
      * </p>
      * <p>
-     * If you want AWS Cloud Map to create a Route 53 alias record that routes traffic to an Elastic Load Balancing load
-     * balancer, specify the DNS name that is associated with the load balancer. For information about how to get the
-     * DNS name, see "DNSName" in the topic <a
-     * href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a>.
+     * If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer,
+     * specify the DNS name that is associated with the load balancer. For information about how to get the DNS name,
+     * see "DNSName" in the topic <a
+     * href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     * >AliasTarget</a>.
      * </p>
      * <p>
      * Note the following:
@@ -126,8 +126,8 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings, AWS
-     * Cloud Map will create the health check, but it won't associate the health check with the alias record.
+     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings,
+     * Route 53 will create the health check, but it won't associate the health check with the alias record.
      * </p>
      * </li>
      * <li>
@@ -218,9 +218,8 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing
-     * DNS records. If there's also an existing health check, AWS Cloud Map deletes the old health check and creates a
-     * new one.
+     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the existing
+     * records. If there's also an existing health check, Route 53 deletes the old health check and creates a new one.
      * </p>
      * <note>
      * <p>
@@ -253,9 +252,9 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the
-     *        existing DNS records. If there's also an existing health check, AWS Cloud Map deletes the old health check
-     *        and creates a new one.
+     *        If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the
+     *        existing records. If there's also an existing health check, Route 53 deletes the old health check and
+     *        creates a new one.
      *        </p>
      *        <note>
      *        <p>
@@ -294,9 +293,8 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing
-     * DNS records. If there's also an existing health check, AWS Cloud Map deletes the old health check and creates a
-     * new one.
+     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the existing
+     * records. If there's also an existing health check, Route 53 deletes the old health check and creates a new one.
      * </p>
      * <note>
      * <p>
@@ -328,9 +326,9 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      *         </li>
      *         <li>
      *         <p>
-     *         If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the
-     *         existing DNS records. If there's also an existing health check, AWS Cloud Map deletes the old health
-     *         check and creates a new one.
+     *         If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the
+     *         existing records. If there's also an existing health check, Route 53 deletes the old health check and
+     *         creates a new one.
      *         </p>
      *         <note>
      *         <p>
@@ -369,9 +367,8 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the existing
-     * DNS records. If there's also an existing health check, AWS Cloud Map deletes the old health check and creates a
-     * new one.
+     * If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the existing
+     * records. If there's also an existing health check, Route 53 deletes the old health check and creates a new one.
      * </p>
      * <note>
      * <p>
@@ -404,9 +401,9 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      *        </li>
      *        <li>
      *        <p>
-     *        If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS Cloud Map updates the
-     *        existing DNS records. If there's also an existing health check, AWS Cloud Map deletes the old health check
-     *        and creates a new one.
+     *        If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route 53 updates the
+     *        existing records. If there's also an existing health check, Route 53 deletes the old health check and
+     *        creates a new one.
      *        </p>
      *        <note>
      *        <p>
@@ -512,10 +509,11 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      * <b/>
      * </p>
      * <p>
-     * If you want AWS Cloud Map to create a Route 53 alias record that routes traffic to an Elastic Load Balancing load
-     * balancer, specify the DNS name that is associated with the load balancer. For information about how to get the
-     * DNS name, see "DNSName" in the topic <a
-     * href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a>.
+     * If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer,
+     * specify the DNS name that is associated with the load balancer. For information about how to get the DNS name,
+     * see "DNSName" in the topic <a
+     * href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     * >AliasTarget</a>.
      * </p>
      * <p>
      * Note the following:
@@ -535,8 +533,8 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings, AWS
-     * Cloud Map will create the health check, but it won't associate the health check with the alias record.
+     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings,
+     * Route 53 will create the health check, but it won't associate the health check with the alias record.
      * </p>
      * </li>
      * <li>
@@ -624,10 +622,11 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      *         <b/>
      *         </p>
      *         <p>
-     *         If you want AWS Cloud Map to create a Route 53 alias record that routes traffic to an Elastic Load
-     *         Balancing load balancer, specify the DNS name that is associated with the load balancer. For information
-     *         about how to get the DNS name, see "DNSName" in the topic <a
-     *         href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a>.
+     *         If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load
+     *         balancer, specify the DNS name that is associated with the load balancer. For information about how to
+     *         get the DNS name, see "DNSName" in the topic <a href=
+     *         "http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     *         >AliasTarget</a>.
      *         </p>
      *         <p>
      *         Note the following:
@@ -648,8 +647,8 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      *         <li>
      *         <p>
      *         If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code>
-     *         settings, AWS Cloud Map will create the health check, but it won't associate the health check with the
-     *         alias record.
+     *         settings, Route 53 will create the health check, but it won't associate the health check with the alias
+     *         record.
      *         </p>
      *         </li>
      *         <li>
@@ -744,10 +743,11 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      * <b/>
      * </p>
      * <p>
-     * If you want AWS Cloud Map to create a Route 53 alias record that routes traffic to an Elastic Load Balancing load
-     * balancer, specify the DNS name that is associated with the load balancer. For information about how to get the
-     * DNS name, see "DNSName" in the topic <a
-     * href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a>.
+     * If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer,
+     * specify the DNS name that is associated with the load balancer. For information about how to get the DNS name,
+     * see "DNSName" in the topic <a
+     * href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     * >AliasTarget</a>.
      * </p>
      * <p>
      * Note the following:
@@ -767,8 +767,8 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings, AWS
-     * Cloud Map will create the health check, but it won't associate the health check with the alias record.
+     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings,
+     * Route 53 will create the health check, but it won't associate the health check with the alias record.
      * </p>
      * </li>
      * <li>
@@ -857,10 +857,11 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      *        <b/>
      *        </p>
      *        <p>
-     *        If you want AWS Cloud Map to create a Route 53 alias record that routes traffic to an Elastic Load
-     *        Balancing load balancer, specify the DNS name that is associated with the load balancer. For information
-     *        about how to get the DNS name, see "DNSName" in the topic <a
-     *        href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a>.
+     *        If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load
+     *        balancer, specify the DNS name that is associated with the load balancer. For information about how to get
+     *        the DNS name, see "DNSName" in the topic <a href=
+     *        "http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     *        >AliasTarget</a>.
      *        </p>
      *        <p>
      *        Note the following:
@@ -881,8 +882,8 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      *        <li>
      *        <p>
      *        If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code>
-     *        settings, AWS Cloud Map will create the health check, but it won't associate the health check with the
-     *        alias record.
+     *        settings, Route 53 will create the health check, but it won't associate the health check with the alias
+     *        record.
      *        </p>
      *        </li>
      *        <li>
@@ -977,10 +978,11 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      * <b/>
      * </p>
      * <p>
-     * If you want AWS Cloud Map to create a Route 53 alias record that routes traffic to an Elastic Load Balancing load
-     * balancer, specify the DNS name that is associated with the load balancer. For information about how to get the
-     * DNS name, see "DNSName" in the topic <a
-     * href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a>.
+     * If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer,
+     * specify the DNS name that is associated with the load balancer. For information about how to get the DNS name,
+     * see "DNSName" in the topic <a
+     * href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     * >AliasTarget</a>.
      * </p>
      * <p>
      * Note the following:
@@ -1000,8 +1002,8 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      * </li>
      * <li>
      * <p>
-     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings, AWS
-     * Cloud Map will create the health check, but it won't associate the health check with the alias record.
+     * If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings,
+     * Route 53 will create the health check, but it won't associate the health check with the alias record.
      * </p>
      * </li>
      * <li>
@@ -1090,10 +1092,11 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      *        <b/>
      *        </p>
      *        <p>
-     *        If you want AWS Cloud Map to create a Route 53 alias record that routes traffic to an Elastic Load
-     *        Balancing load balancer, specify the DNS name that is associated with the load balancer. For information
-     *        about how to get the DNS name, see "DNSName" in the topic <a
-     *        href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a>.
+     *        If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load
+     *        balancer, specify the DNS name that is associated with the load balancer. For information about how to get
+     *        the DNS name, see "DNSName" in the topic <a href=
+     *        "http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html"
+     *        >AliasTarget</a>.
      *        </p>
      *        <p>
      *        Note the following:
@@ -1114,8 +1117,8 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
      *        <li>
      *        <p>
      *        If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code>
-     *        settings, AWS Cloud Map will create the health check, but it won't associate the health check with the
-     *        alias record.
+     *        settings, Route 53 will create the health check, but it won't associate the health check with the alias
+     *        record.
      *        </p>
      *        </li>
      *        <li>
@@ -1208,8 +1211,7 @@ public class Instance implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

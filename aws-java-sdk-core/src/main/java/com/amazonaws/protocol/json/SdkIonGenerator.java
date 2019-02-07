@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2016-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
  */
 package com.amazonaws.protocol.json;
 
-import com.amazonaws.util.TimestampFormat;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -177,7 +176,7 @@ abstract class SdkIonGenerator implements StructuredJsonGenerator {
     }
 
     @Override
-    public StructuredJsonGenerator writeValue(Date date, TimestampFormat timestampFormat) {
+    public StructuredJsonGenerator writeValue(Date date) {
         try {
             writer.writeTimestamp(Timestamp.forDateZ(date));
         } catch (IOException e) {

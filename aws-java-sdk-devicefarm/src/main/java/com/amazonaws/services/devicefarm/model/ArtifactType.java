@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -46,8 +46,7 @@ public enum ArtifactType {
     XCTEST_LOG("XCTEST_LOG"),
     VIDEO("VIDEO"),
     CUSTOMER_ARTIFACT("CUSTOMER_ARTIFACT"),
-    CUSTOMER_ARTIFACT_LOG("CUSTOMER_ARTIFACT_LOG"),
-    TESTSPEC_OUTPUT("TESTSPEC_OUTPUT");
+    CUSTOMER_ARTIFACT_LOG("CUSTOMER_ARTIFACT_LOG");
 
     private String value;
 

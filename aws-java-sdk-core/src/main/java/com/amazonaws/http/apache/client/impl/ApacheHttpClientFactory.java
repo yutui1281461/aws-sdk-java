@@ -91,7 +91,7 @@ public class ApacheHttpClientFactory implements HttpClientFactory<ConnectionMana
                     "Proxy Port: " + settings.getProxyPort());
 
             builder.setRoutePlanner(new SdkProxyRoutePlanner(
-                    settings.getProxyHost(), settings.getProxyPort(), settings.getProxyProtocol(), settings.getNonProxyHosts()));
+                    settings.getProxyHost(), settings.getProxyPort(), settings.getNonProxyHosts()));
 
             if (settings.isAuthenticatedProxy()) {
                 builder.setDefaultCredentialsProvider(ApacheUtils.newProxyCredentialsProvider(settings));

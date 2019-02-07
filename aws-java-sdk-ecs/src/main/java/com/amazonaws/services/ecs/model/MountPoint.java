@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,8 +30,7 @@ public class MountPoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The name of the volume to mount. Must be a volume name referenced in the <code>name</code> parameter of task
-     * definition <code>volume</code>.
+     * The name of the volume to mount.
      * </p>
      */
     private String sourceVolume;
@@ -51,13 +50,11 @@ public class MountPoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The name of the volume to mount. Must be a volume name referenced in the <code>name</code> parameter of task
-     * definition <code>volume</code>.
+     * The name of the volume to mount.
      * </p>
      * 
      * @param sourceVolume
-     *        The name of the volume to mount. Must be a volume name referenced in the <code>name</code> parameter of
-     *        task definition <code>volume</code>.
+     *        The name of the volume to mount.
      */
 
     public void setSourceVolume(String sourceVolume) {
@@ -66,12 +63,10 @@ public class MountPoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The name of the volume to mount. Must be a volume name referenced in the <code>name</code> parameter of task
-     * definition <code>volume</code>.
+     * The name of the volume to mount.
      * </p>
      * 
-     * @return The name of the volume to mount. Must be a volume name referenced in the <code>name</code> parameter of
-     *         task definition <code>volume</code>.
+     * @return The name of the volume to mount.
      */
 
     public String getSourceVolume() {
@@ -80,13 +75,11 @@ public class MountPoint implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The name of the volume to mount. Must be a volume name referenced in the <code>name</code> parameter of task
-     * definition <code>volume</code>.
+     * The name of the volume to mount.
      * </p>
      * 
      * @param sourceVolume
-     *        The name of the volume to mount. Must be a volume name referenced in the <code>name</code> parameter of
-     *        task definition <code>volume</code>.
+     *        The name of the volume to mount.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -196,8 +189,7 @@ public class MountPoint implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

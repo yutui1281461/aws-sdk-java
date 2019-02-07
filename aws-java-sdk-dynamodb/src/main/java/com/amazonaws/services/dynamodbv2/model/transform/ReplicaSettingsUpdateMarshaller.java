@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -32,9 +32,6 @@ public class ReplicaSettingsUpdateMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("RegionName").build();
     private static final MarshallingInfo<Long> REPLICAPROVISIONEDREADCAPACITYUNITS_BINDING = MarshallingInfo.builder(MarshallingType.LONG)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ReplicaProvisionedReadCapacityUnits").build();
-    private static final MarshallingInfo<StructuredPojo> REPLICAPROVISIONEDREADCAPACITYAUTOSCALINGSETTINGSUPDATE_BINDING = MarshallingInfo
-            .builder(MarshallingType.STRUCTURED).marshallLocation(MarshallLocation.PAYLOAD)
-            .marshallLocationName("ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate").build();
     private static final MarshallingInfo<List> REPLICAGLOBALSECONDARYINDEXSETTINGSUPDATE_BINDING = MarshallingInfo.builder(MarshallingType.LIST)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ReplicaGlobalSecondaryIndexSettingsUpdate").build();
 
@@ -56,8 +53,6 @@ public class ReplicaSettingsUpdateMarshaller {
         try {
             protocolMarshaller.marshall(replicaSettingsUpdate.getRegionName(), REGIONNAME_BINDING);
             protocolMarshaller.marshall(replicaSettingsUpdate.getReplicaProvisionedReadCapacityUnits(), REPLICAPROVISIONEDREADCAPACITYUNITS_BINDING);
-            protocolMarshaller.marshall(replicaSettingsUpdate.getReplicaProvisionedReadCapacityAutoScalingSettingsUpdate(),
-                    REPLICAPROVISIONEDREADCAPACITYAUTOSCALINGSETTINGSUPDATE_BINDING);
             protocolMarshaller
                     .marshall(replicaSettingsUpdate.getReplicaGlobalSecondaryIndexSettingsUpdate(), REPLICAGLOBALSECONDARYINDEXSETTINGSUPDATE_BINDING);
         } catch (Exception e) {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,8 +33,6 @@ public class WavSettings implements Serializable, Cloneable, StructuredPojo {
      * In the console, these values are Mono, Stereo, 4-Channel, and 8-Channel, respectively.
      */
     private Integer channels;
-
-    private String format;
     /** Sample rate in Hz. */
     private Integer sampleRate;
 
@@ -113,46 +111,6 @@ public class WavSettings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @param format
-     * @see WavFormat
-     */
-
-    public void setFormat(String format) {
-        this.format = format;
-    }
-
-    /**
-     * @return
-     * @see WavFormat
-     */
-
-    public String getFormat() {
-        return this.format;
-    }
-
-    /**
-     * @param format
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see WavFormat
-     */
-
-    public WavSettings withFormat(String format) {
-        setFormat(format);
-        return this;
-    }
-
-    /**
-     * @param format
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see WavFormat
-     */
-
-    public WavSettings withFormat(WavFormat format) {
-        this.format = format.toString();
-        return this;
-    }
-
-    /**
      * Sample rate in Hz.
      * 
      * @param sampleRate
@@ -187,8 +145,7 @@ public class WavSettings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -202,8 +159,6 @@ public class WavSettings implements Serializable, Cloneable, StructuredPojo {
             sb.append("BitDepth: ").append(getBitDepth()).append(",");
         if (getChannels() != null)
             sb.append("Channels: ").append(getChannels()).append(",");
-        if (getFormat() != null)
-            sb.append("Format: ").append(getFormat()).append(",");
         if (getSampleRate() != null)
             sb.append("SampleRate: ").append(getSampleRate());
         sb.append("}");
@@ -228,10 +183,6 @@ public class WavSettings implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getChannels() != null && other.getChannels().equals(this.getChannels()) == false)
             return false;
-        if (other.getFormat() == null ^ this.getFormat() == null)
-            return false;
-        if (other.getFormat() != null && other.getFormat().equals(this.getFormat()) == false)
-            return false;
         if (other.getSampleRate() == null ^ this.getSampleRate() == null)
             return false;
         if (other.getSampleRate() != null && other.getSampleRate().equals(this.getSampleRate()) == false)
@@ -246,7 +197,6 @@ public class WavSettings implements Serializable, Cloneable, StructuredPojo {
 
         hashCode = prime * hashCode + ((getBitDepth() == null) ? 0 : getBitDepth().hashCode());
         hashCode = prime * hashCode + ((getChannels() == null) ? 0 : getChannels().hashCode());
-        hashCode = prime * hashCode + ((getFormat() == null) ? 0 : getFormat().hashCode());
         hashCode = prime * hashCode + ((getSampleRate() == null) ? 0 : getSampleRate().hashCode());
         return hashCode;
     }

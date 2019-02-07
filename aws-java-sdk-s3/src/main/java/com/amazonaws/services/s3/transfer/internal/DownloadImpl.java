@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2012-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,6 +14,9 @@
  */
 package com.amazonaws.services.s3.transfer.internal;
 
+import java.io.File;
+import java.io.IOException;
+
 import com.amazonaws.annotation.SdkInternalApi;
 import com.amazonaws.event.ProgressEventType;
 import com.amazonaws.event.ProgressListenerChain;
@@ -24,8 +27,6 @@ import com.amazonaws.services.s3.transfer.Download;
 import com.amazonaws.services.s3.transfer.PersistableDownload;
 import com.amazonaws.services.s3.transfer.TransferProgress;
 import com.amazonaws.services.s3.transfer.exception.PauseException;
-import java.io.File;
-import java.io.IOException;
 
 public class DownloadImpl extends AbstractTransfer implements Download {
     private S3Object s3Object;
@@ -39,11 +40,6 @@ public class DownloadImpl extends AbstractTransfer implements Download {
      * The last part that has been successfully written into the downloaded file.
      */
     private Integer lastFullyDownloadedPartNumber;
-
-    /**
-     * The file position of the last part that has been successfully written into the downloaded file
-     */
-    private Long lastFullyDownloadedFilePosition;
 
     private final GetObjectRequest getObjectRequest;
     private final File file;
@@ -109,20 +105,9 @@ public class DownloadImpl extends AbstractTransfer implements Download {
      * Then notify the listeners that new persistableTransfer is available.
      */
     @SdkInternalApi
-    void updatePersistableTransfer(Integer lastFullyDownloadedPartNumber) {
+    public void updatePersistableTransfer(Integer lastFullyDownloadedPartNumber) {
         synchronized (this) {
             this.lastFullyDownloadedPartNumber = lastFullyDownloadedPartNumber;
-        }
-
-        persistableDownload = captureDownloadState(getObjectRequest, file);
-        S3ProgressPublisher.publishTransferPersistable(progressListenerChain, persistableDownload);
-    }
-
-    @SdkInternalApi
-    void updatePersistableTransfer(Integer lastFullyDownloadedPartNumber, Long lastFullyDownloadedFilePosition) {
-        synchronized (this) {
-            this.lastFullyDownloadedPartNumber = lastFullyDownloadedPartNumber;
-            this.lastFullyDownloadedFilePosition = lastFullyDownloadedFilePosition;
         }
 
         persistableDownload = captureDownloadState(getObjectRequest, file);
@@ -136,10 +121,6 @@ public class DownloadImpl extends AbstractTransfer implements Download {
      */
     public synchronized Integer getLastFullyDownloadedPartNumber() {
         return lastFullyDownloadedPartNumber;
-    }
-
-    public synchronized Long getLastFullyDownloadedFilePosition() {
-        return lastFullyDownloadedFilePosition;
     }
 
     /**
@@ -209,8 +190,7 @@ public class DownloadImpl extends AbstractTransfer implements Download {
                     getObjectRequest.getVersionId(), getObjectRequest.getRange(),
                     getObjectRequest.getResponseHeaders(), getObjectRequest.isRequesterPays(),
                     file.getAbsolutePath(), getLastFullyDownloadedPartNumber(),
-                    getObjectMetadata().getLastModified().getTime(),
-                    getLastFullyDownloadedFilePosition());
+                    getObjectMetadata().getLastModified().getTime());
         }
         return null;
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -67,7 +67,7 @@ public class TableDescriptionJsonUnmarshaller implements Unmarshaller<TableDescr
                 }
                 if (context.testExpression("CreationDateTime", targetDepth)) {
                     context.nextToken();
-                    tableDescription.setCreationDateTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    tableDescription.setCreationDateTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("ProvisionedThroughput", targetDepth)) {
                     context.nextToken();
@@ -88,10 +88,6 @@ public class TableDescriptionJsonUnmarshaller implements Unmarshaller<TableDescr
                 if (context.testExpression("TableId", targetDepth)) {
                     context.nextToken();
                     tableDescription.setTableId(context.getUnmarshaller(String.class).unmarshall(context));
-                }
-                if (context.testExpression("BillingModeSummary", targetDepth)) {
-                    context.nextToken();
-                    tableDescription.setBillingModeSummary(BillingModeSummaryJsonUnmarshaller.getInstance().unmarshall(context));
                 }
                 if (context.testExpression("LocalSecondaryIndexes", targetDepth)) {
                     context.nextToken();

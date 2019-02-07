@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -41,7 +41,7 @@ public class GetPolicyVersionRequest extends com.amazonaws.AmazonWebServiceReque
      * Identifies the policy version to retrieve.
      * </p>
      * <p>
-     * This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     * This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
      * characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a
      * period '.' and a string of letters and digits.
      * </p>
@@ -120,7 +120,7 @@ public class GetPolicyVersionRequest extends com.amazonaws.AmazonWebServiceReque
      * Identifies the policy version to retrieve.
      * </p>
      * <p>
-     * This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     * This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
      * characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a
      * period '.' and a string of letters and digits.
      * </p>
@@ -128,8 +128,8 @@ public class GetPolicyVersionRequest extends com.amazonaws.AmazonWebServiceReque
      * @param versionId
      *        Identifies the policy version to retrieve.</p>
      *        <p>
-     *        This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string
-     *        of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally
+     *        This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     *        characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally
      *        followed by a period '.' and a string of letters and digits.
      */
 
@@ -142,15 +142,15 @@ public class GetPolicyVersionRequest extends com.amazonaws.AmazonWebServiceReque
      * Identifies the policy version to retrieve.
      * </p>
      * <p>
-     * This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     * This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
      * characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a
      * period '.' and a string of letters and digits.
      * </p>
      * 
      * @return Identifies the policy version to retrieve.</p>
      *         <p>
-     *         This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string
-     *         of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally
+     *         This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     *         characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally
      *         followed by a period '.' and a string of letters and digits.
      */
 
@@ -163,7 +163,7 @@ public class GetPolicyVersionRequest extends com.amazonaws.AmazonWebServiceReque
      * Identifies the policy version to retrieve.
      * </p>
      * <p>
-     * This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     * This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
      * characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a
      * period '.' and a string of letters and digits.
      * </p>
@@ -171,8 +171,8 @@ public class GetPolicyVersionRequest extends com.amazonaws.AmazonWebServiceReque
      * @param versionId
      *        Identifies the policy version to retrieve.</p>
      *        <p>
-     *        This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string
-     *        of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally
+     *        This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     *        characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally
      *        followed by a period '.' and a string of letters and digits.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -183,8 +183,7 @@ public class GetPolicyVersionRequest extends com.amazonaws.AmazonWebServiceReque
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

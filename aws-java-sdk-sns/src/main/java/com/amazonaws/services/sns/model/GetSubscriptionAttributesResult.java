@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,51 +33,33 @@ public class GetSubscriptionAttributesResult extends com.amazonaws.AmazonWebServ
      * <ul>
      * <li>
      * <p>
-     * <code>ConfirmationWasAuthenticated</code> – <code>true</code> if the subscription confirmation request was
-     * authenticated.
+     * <code>SubscriptionArn</code> -- the subscription's ARN
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>DeliveryPolicy</code> – The JSON serialization of the subscription's delivery policy.
+     * <code>TopicArn</code> -- the topic ARN that the subscription is associated with
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy that takes into
-     * account the topic delivery policy and account system defaults.
+     * <code>Owner</code> -- the AWS account ID of the subscription's owner
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>FilterPolicy</code> – The filter policy JSON that is assigned to the subscription.
+     * <code>ConfirmationWasAuthenticated</code> -- true if the subscription confirmation request was authenticated
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>Owner</code> – The AWS account ID of the subscription's owner.
+     * <code>DeliveryPolicy</code> -- the JSON serialization of the subscription's delivery policy
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>PendingConfirmation</code> – <code>true</code> if the subscription hasn't been confirmed. To confirm a
-     * pending subscription, call the <code>ConfirmSubscription</code> action with a confirmation token.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>RawMessageDelivery</code> – <code>true</code> if raw message delivery is enabled for the subscription. Raw
-     * messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS endpoints.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>SubscriptionArn</code> – The subscription's ARN.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>TopicArn</code> – The topic ARN that the subscription is associated with.
+     * <code>EffectiveDeliveryPolicy</code> -- the JSON serialization of the effective delivery policy that takes into
+     * account the topic delivery policy and account system defaults
      * </p>
      * </li>
      * </ul>
@@ -91,51 +73,33 @@ public class GetSubscriptionAttributesResult extends com.amazonaws.AmazonWebServ
      * <ul>
      * <li>
      * <p>
-     * <code>ConfirmationWasAuthenticated</code> – <code>true</code> if the subscription confirmation request was
-     * authenticated.
+     * <code>SubscriptionArn</code> -- the subscription's ARN
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>DeliveryPolicy</code> – The JSON serialization of the subscription's delivery policy.
+     * <code>TopicArn</code> -- the topic ARN that the subscription is associated with
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy that takes into
-     * account the topic delivery policy and account system defaults.
+     * <code>Owner</code> -- the AWS account ID of the subscription's owner
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>FilterPolicy</code> – The filter policy JSON that is assigned to the subscription.
+     * <code>ConfirmationWasAuthenticated</code> -- true if the subscription confirmation request was authenticated
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>Owner</code> – The AWS account ID of the subscription's owner.
+     * <code>DeliveryPolicy</code> -- the JSON serialization of the subscription's delivery policy
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>PendingConfirmation</code> – <code>true</code> if the subscription hasn't been confirmed. To confirm a
-     * pending subscription, call the <code>ConfirmSubscription</code> action with a confirmation token.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>RawMessageDelivery</code> – <code>true</code> if raw message delivery is enabled for the subscription. Raw
-     * messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS endpoints.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>SubscriptionArn</code> – The subscription's ARN.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>TopicArn</code> – The topic ARN that the subscription is associated with.
+     * <code>EffectiveDeliveryPolicy</code> -- the JSON serialization of the effective delivery policy that takes into
+     * account the topic delivery policy and account system defaults
      * </p>
      * </li>
      * </ul>
@@ -144,53 +108,34 @@ public class GetSubscriptionAttributesResult extends com.amazonaws.AmazonWebServ
      *         <ul>
      *         <li>
      *         <p>
-     *         <code>ConfirmationWasAuthenticated</code> – <code>true</code> if the subscription confirmation request
-     *         was authenticated.
+     *         <code>SubscriptionArn</code> -- the subscription's ARN
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         <code>DeliveryPolicy</code> – The JSON serialization of the subscription's delivery policy.
+     *         <code>TopicArn</code> -- the topic ARN that the subscription is associated with
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy that takes
-     *         into account the topic delivery policy and account system defaults.
+     *         <code>Owner</code> -- the AWS account ID of the subscription's owner
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         <code>FilterPolicy</code> – The filter policy JSON that is assigned to the subscription.
+     *         <code>ConfirmationWasAuthenticated</code> -- true if the subscription confirmation request was
+     *         authenticated
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         <code>Owner</code> – The AWS account ID of the subscription's owner.
+     *         <code>DeliveryPolicy</code> -- the JSON serialization of the subscription's delivery policy
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         <code>PendingConfirmation</code> – <code>true</code> if the subscription hasn't been confirmed. To
-     *         confirm a pending subscription, call the <code>ConfirmSubscription</code> action with a confirmation
-     *         token.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>RawMessageDelivery</code> – <code>true</code> if raw message delivery is enabled for the
-     *         subscription. Raw messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS
-     *         endpoints.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>SubscriptionArn</code> – The subscription's ARN.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>TopicArn</code> – The topic ARN that the subscription is associated with.
+     *         <code>EffectiveDeliveryPolicy</code> -- the JSON serialization of the effective delivery policy that
+     *         takes into account the topic delivery policy and account system defaults
      *         </p>
      *         </li>
      */
@@ -209,51 +154,33 @@ public class GetSubscriptionAttributesResult extends com.amazonaws.AmazonWebServ
      * <ul>
      * <li>
      * <p>
-     * <code>ConfirmationWasAuthenticated</code> – <code>true</code> if the subscription confirmation request was
-     * authenticated.
+     * <code>SubscriptionArn</code> -- the subscription's ARN
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>DeliveryPolicy</code> – The JSON serialization of the subscription's delivery policy.
+     * <code>TopicArn</code> -- the topic ARN that the subscription is associated with
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy that takes into
-     * account the topic delivery policy and account system defaults.
+     * <code>Owner</code> -- the AWS account ID of the subscription's owner
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>FilterPolicy</code> – The filter policy JSON that is assigned to the subscription.
+     * <code>ConfirmationWasAuthenticated</code> -- true if the subscription confirmation request was authenticated
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>Owner</code> – The AWS account ID of the subscription's owner.
+     * <code>DeliveryPolicy</code> -- the JSON serialization of the subscription's delivery policy
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>PendingConfirmation</code> – <code>true</code> if the subscription hasn't been confirmed. To confirm a
-     * pending subscription, call the <code>ConfirmSubscription</code> action with a confirmation token.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>RawMessageDelivery</code> – <code>true</code> if raw message delivery is enabled for the subscription. Raw
-     * messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS endpoints.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>SubscriptionArn</code> – The subscription's ARN.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>TopicArn</code> – The topic ARN that the subscription is associated with.
+     * <code>EffectiveDeliveryPolicy</code> -- the JSON serialization of the effective delivery policy that takes into
+     * account the topic delivery policy and account system defaults
      * </p>
      * </li>
      * </ul>
@@ -263,51 +190,34 @@ public class GetSubscriptionAttributesResult extends com.amazonaws.AmazonWebServ
      *        <ul>
      *        <li>
      *        <p>
-     *        <code>ConfirmationWasAuthenticated</code> – <code>true</code> if the subscription confirmation request was
-     *        authenticated.
+     *        <code>SubscriptionArn</code> -- the subscription's ARN
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>DeliveryPolicy</code> – The JSON serialization of the subscription's delivery policy.
+     *        <code>TopicArn</code> -- the topic ARN that the subscription is associated with
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy that takes
-     *        into account the topic delivery policy and account system defaults.
+     *        <code>Owner</code> -- the AWS account ID of the subscription's owner
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>FilterPolicy</code> – The filter policy JSON that is assigned to the subscription.
+     *        <code>ConfirmationWasAuthenticated</code> -- true if the subscription confirmation request was
+     *        authenticated
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>Owner</code> – The AWS account ID of the subscription's owner.
+     *        <code>DeliveryPolicy</code> -- the JSON serialization of the subscription's delivery policy
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>PendingConfirmation</code> – <code>true</code> if the subscription hasn't been confirmed. To confirm
-     *        a pending subscription, call the <code>ConfirmSubscription</code> action with a confirmation token.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>RawMessageDelivery</code> – <code>true</code> if raw message delivery is enabled for the
-     *        subscription. Raw messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS endpoints.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>SubscriptionArn</code> – The subscription's ARN.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>TopicArn</code> – The topic ARN that the subscription is associated with.
+     *        <code>EffectiveDeliveryPolicy</code> -- the JSON serialization of the effective delivery policy that takes
+     *        into account the topic delivery policy and account system defaults
      *        </p>
      *        </li>
      */
@@ -323,51 +233,33 @@ public class GetSubscriptionAttributesResult extends com.amazonaws.AmazonWebServ
      * <ul>
      * <li>
      * <p>
-     * <code>ConfirmationWasAuthenticated</code> – <code>true</code> if the subscription confirmation request was
-     * authenticated.
+     * <code>SubscriptionArn</code> -- the subscription's ARN
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>DeliveryPolicy</code> – The JSON serialization of the subscription's delivery policy.
+     * <code>TopicArn</code> -- the topic ARN that the subscription is associated with
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy that takes into
-     * account the topic delivery policy and account system defaults.
+     * <code>Owner</code> -- the AWS account ID of the subscription's owner
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>FilterPolicy</code> – The filter policy JSON that is assigned to the subscription.
+     * <code>ConfirmationWasAuthenticated</code> -- true if the subscription confirmation request was authenticated
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>Owner</code> – The AWS account ID of the subscription's owner.
+     * <code>DeliveryPolicy</code> -- the JSON serialization of the subscription's delivery policy
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>PendingConfirmation</code> – <code>true</code> if the subscription hasn't been confirmed. To confirm a
-     * pending subscription, call the <code>ConfirmSubscription</code> action with a confirmation token.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>RawMessageDelivery</code> – <code>true</code> if raw message delivery is enabled for the subscription. Raw
-     * messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS endpoints.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>SubscriptionArn</code> – The subscription's ARN.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>TopicArn</code> – The topic ARN that the subscription is associated with.
+     * <code>EffectiveDeliveryPolicy</code> -- the JSON serialization of the effective delivery policy that takes into
+     * account the topic delivery policy and account system defaults
      * </p>
      * </li>
      * </ul>
@@ -377,51 +269,34 @@ public class GetSubscriptionAttributesResult extends com.amazonaws.AmazonWebServ
      *        <ul>
      *        <li>
      *        <p>
-     *        <code>ConfirmationWasAuthenticated</code> – <code>true</code> if the subscription confirmation request was
-     *        authenticated.
+     *        <code>SubscriptionArn</code> -- the subscription's ARN
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>DeliveryPolicy</code> – The JSON serialization of the subscription's delivery policy.
+     *        <code>TopicArn</code> -- the topic ARN that the subscription is associated with
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy that takes
-     *        into account the topic delivery policy and account system defaults.
+     *        <code>Owner</code> -- the AWS account ID of the subscription's owner
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>FilterPolicy</code> – The filter policy JSON that is assigned to the subscription.
+     *        <code>ConfirmationWasAuthenticated</code> -- true if the subscription confirmation request was
+     *        authenticated
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>Owner</code> – The AWS account ID of the subscription's owner.
+     *        <code>DeliveryPolicy</code> -- the JSON serialization of the subscription's delivery policy
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>PendingConfirmation</code> – <code>true</code> if the subscription hasn't been confirmed. To confirm
-     *        a pending subscription, call the <code>ConfirmSubscription</code> action with a confirmation token.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>RawMessageDelivery</code> – <code>true</code> if raw message delivery is enabled for the
-     *        subscription. Raw messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS endpoints.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>SubscriptionArn</code> – The subscription's ARN.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>TopicArn</code> – The topic ARN that the subscription is associated with.
+     *        <code>EffectiveDeliveryPolicy</code> -- the JSON serialization of the effective delivery policy that takes
+     *        into account the topic delivery policy and account system defaults
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -454,8 +329,7 @@ public class GetSubscriptionAttributesResult extends com.amazonaws.AmazonWebServ
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

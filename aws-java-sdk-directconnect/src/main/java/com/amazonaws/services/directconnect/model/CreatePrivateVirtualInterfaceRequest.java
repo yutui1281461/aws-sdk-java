@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -18,6 +18,9 @@ import javax.annotation.Generated;
 import com.amazonaws.AmazonWebServiceRequest;
 
 /**
+ * <p>
+ * Container for the parameters to the CreatePrivateVirtualInterface operation.
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreatePrivateVirtualInterface"
  *      target="_top">AWS API Documentation</a>
@@ -25,26 +28,19 @@ import com.amazonaws.AmazonWebServiceRequest;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class CreatePrivateVirtualInterfaceRequest extends com.amazonaws.AmazonWebServiceRequest implements Serializable, Cloneable {
 
-    /**
-     * <p>
-     * The ID of the connection.
-     * </p>
-     */
     private String connectionId;
     /**
      * <p>
-     * Information about the private virtual interface.
+     * Detailed information for the private virtual interface to be created.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      */
     private NewPrivateVirtualInterface newPrivateVirtualInterface;
 
     /**
-     * <p>
-     * The ID of the connection.
-     * </p>
-     * 
      * @param connectionId
-     *        The ID of the connection.
      */
 
     public void setConnectionId(String connectionId) {
@@ -52,11 +48,7 @@ public class CreatePrivateVirtualInterfaceRequest extends com.amazonaws.AmazonWe
     }
 
     /**
-     * <p>
-     * The ID of the connection.
-     * </p>
-     * 
-     * @return The ID of the connection.
+     * @return
      */
 
     public String getConnectionId() {
@@ -64,12 +56,7 @@ public class CreatePrivateVirtualInterfaceRequest extends com.amazonaws.AmazonWe
     }
 
     /**
-     * <p>
-     * The ID of the connection.
-     * </p>
-     * 
      * @param connectionId
-     *        The ID of the connection.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -80,11 +67,16 @@ public class CreatePrivateVirtualInterfaceRequest extends com.amazonaws.AmazonWe
 
     /**
      * <p>
-     * Information about the private virtual interface.
+     * Detailed information for the private virtual interface to be created.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param newPrivateVirtualInterface
-     *        Information about the private virtual interface.
+     *        Detailed information for the private virtual interface to be created.</p>
+     *        <p>
+     *        Default: None
      */
 
     public void setNewPrivateVirtualInterface(NewPrivateVirtualInterface newPrivateVirtualInterface) {
@@ -93,10 +85,15 @@ public class CreatePrivateVirtualInterfaceRequest extends com.amazonaws.AmazonWe
 
     /**
      * <p>
-     * Information about the private virtual interface.
+     * Detailed information for the private virtual interface to be created.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
-     * @return Information about the private virtual interface.
+     * @return Detailed information for the private virtual interface to be created.</p>
+     *         <p>
+     *         Default: None
      */
 
     public NewPrivateVirtualInterface getNewPrivateVirtualInterface() {
@@ -105,11 +102,16 @@ public class CreatePrivateVirtualInterfaceRequest extends com.amazonaws.AmazonWe
 
     /**
      * <p>
-     * Information about the private virtual interface.
+     * Detailed information for the private virtual interface to be created.
+     * </p>
+     * <p>
+     * Default: None
      * </p>
      * 
      * @param newPrivateVirtualInterface
-     *        Information about the private virtual interface.
+     *        Detailed information for the private virtual interface to be created.</p>
+     *        <p>
+     *        Default: None
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -119,8 +121,7 @@ public class CreatePrivateVirtualInterfaceRequest extends com.amazonaws.AmazonWe
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -47,10 +47,6 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
      * identifier (ID).
      * </p>
      * <p>
-     * Use the <code>sourceBackupIds</code> filter to return only the backups created from a source backup. The
-     * <code>sourceBackupID</code> of a source backup is returned by the <a>CopyBackupToRegion</a> operation.
-     * </p>
-     * <p>
      * Use the <code>clusterIds</code> filter to return only the backups for the specified clusters. Specify clusters by
      * their cluster identifier (ID).
      * </p>
@@ -59,8 +55,6 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
      * </p>
      */
     private java.util.Map<String, java.util.List<String>> filters;
-
-    private Boolean sortAscending;
 
     /**
      * <p>
@@ -160,10 +154,6 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
      * identifier (ID).
      * </p>
      * <p>
-     * Use the <code>sourceBackupIds</code> filter to return only the backups created from a source backup. The
-     * <code>sourceBackupID</code> of a source backup is returned by the <a>CopyBackupToRegion</a> operation.
-     * </p>
-     * <p>
      * Use the <code>clusterIds</code> filter to return only the backups for the specified clusters. Specify clusters by
      * their cluster identifier (ID).
      * </p>
@@ -175,10 +165,6 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
      *         <p>
      *         Use the <code>backupIds</code> filter to return only the specified backups. Specify backups by their
      *         backup identifier (ID).
-     *         </p>
-     *         <p>
-     *         Use the <code>sourceBackupIds</code> filter to return only the backups created from a source backup. The
-     *         <code>sourceBackupID</code> of a source backup is returned by the <a>CopyBackupToRegion</a> operation.
      *         </p>
      *         <p>
      *         Use the <code>clusterIds</code> filter to return only the backups for the specified clusters. Specify
@@ -201,10 +187,6 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
      * identifier (ID).
      * </p>
      * <p>
-     * Use the <code>sourceBackupIds</code> filter to return only the backups created from a source backup. The
-     * <code>sourceBackupID</code> of a source backup is returned by the <a>CopyBackupToRegion</a> operation.
-     * </p>
-     * <p>
      * Use the <code>clusterIds</code> filter to return only the backups for the specified clusters. Specify clusters by
      * their cluster identifier (ID).
      * </p>
@@ -217,10 +199,6 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
      *        <p>
      *        Use the <code>backupIds</code> filter to return only the specified backups. Specify backups by their
      *        backup identifier (ID).
-     *        </p>
-     *        <p>
-     *        Use the <code>sourceBackupIds</code> filter to return only the backups created from a source backup. The
-     *        <code>sourceBackupID</code> of a source backup is returned by the <a>CopyBackupToRegion</a> operation.
      *        </p>
      *        <p>
      *        Use the <code>clusterIds</code> filter to return only the backups for the specified clusters. Specify
@@ -243,10 +221,6 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
      * identifier (ID).
      * </p>
      * <p>
-     * Use the <code>sourceBackupIds</code> filter to return only the backups created from a source backup. The
-     * <code>sourceBackupID</code> of a source backup is returned by the <a>CopyBackupToRegion</a> operation.
-     * </p>
-     * <p>
      * Use the <code>clusterIds</code> filter to return only the backups for the specified clusters. Specify clusters by
      * their cluster identifier (ID).
      * </p>
@@ -259,10 +233,6 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
      *        <p>
      *        Use the <code>backupIds</code> filter to return only the specified backups. Specify backups by their
      *        backup identifier (ID).
-     *        </p>
-     *        <p>
-     *        Use the <code>sourceBackupIds</code> filter to return only the backups created from a source backup. The
-     *        <code>sourceBackupID</code> of a source backup is returned by the <a>CopyBackupToRegion</a> operation.
      *        </p>
      *        <p>
      *        Use the <code>clusterIds</code> filter to return only the backups for the specified clusters. Specify
@@ -300,42 +270,7 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
     }
 
     /**
-     * @param sortAscending
-     */
-
-    public void setSortAscending(Boolean sortAscending) {
-        this.sortAscending = sortAscending;
-    }
-
-    /**
-     * @return
-     */
-
-    public Boolean getSortAscending() {
-        return this.sortAscending;
-    }
-
-    /**
-     * @param sortAscending
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public DescribeBackupsRequest withSortAscending(Boolean sortAscending) {
-        setSortAscending(sortAscending);
-        return this;
-    }
-
-    /**
-     * @return
-     */
-
-    public Boolean isSortAscending() {
-        return this.sortAscending;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -350,9 +285,7 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
         if (getMaxResults() != null)
             sb.append("MaxResults: ").append(getMaxResults()).append(",");
         if (getFilters() != null)
-            sb.append("Filters: ").append(getFilters()).append(",");
-        if (getSortAscending() != null)
-            sb.append("SortAscending: ").append(getSortAscending());
+            sb.append("Filters: ").append(getFilters());
         sb.append("}");
         return sb.toString();
     }
@@ -379,10 +312,6 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
             return false;
         if (other.getFilters() != null && other.getFilters().equals(this.getFilters()) == false)
             return false;
-        if (other.getSortAscending() == null ^ this.getSortAscending() == null)
-            return false;
-        if (other.getSortAscending() != null && other.getSortAscending().equals(this.getSortAscending()) == false)
-            return false;
         return true;
     }
 
@@ -394,7 +323,6 @@ public class DescribeBackupsRequest extends com.amazonaws.AmazonWebServiceReques
         hashCode = prime * hashCode + ((getNextToken() == null) ? 0 : getNextToken().hashCode());
         hashCode = prime * hashCode + ((getMaxResults() == null) ? 0 : getMaxResults().hashCode());
         hashCode = prime * hashCode + ((getFilters() == null) ? 0 : getFilters().hashCode());
-        hashCode = prime * hashCode + ((getSortAscending() == null) ? 0 : getSortAscending().hashCode());
         return hashCode;
     }
 

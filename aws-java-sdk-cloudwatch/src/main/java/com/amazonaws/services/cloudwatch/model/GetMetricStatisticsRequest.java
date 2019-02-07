@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -144,8 +144,7 @@ public class GetMetricStatisticsRequest extends com.amazonaws.AmazonWebServiceRe
     /**
      * <p>
      * The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>,
-     * you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both. Percentile
-     * statistics are not available for metrics when any of the metric values are negative numbers.
+     * you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> extendedStatistics;
@@ -996,14 +995,12 @@ public class GetMetricStatisticsRequest extends com.amazonaws.AmazonWebServiceRe
     /**
      * <p>
      * The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>,
-     * you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both. Percentile
-     * statistics are not available for metrics when any of the metric values are negative numbers.
+     * you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both.
      * </p>
      * 
      * @return The percentile statistics. Specify values between p0.0 and p100. When calling
      *         <code>GetMetricStatistics</code>, you must specify either <code>Statistics</code> or
-     *         <code>ExtendedStatistics</code>, but not both. Percentile statistics are not available for metrics when
-     *         any of the metric values are negative numbers.
+     *         <code>ExtendedStatistics</code>, but not both.
      */
 
     public java.util.List<String> getExtendedStatistics() {
@@ -1016,15 +1013,13 @@ public class GetMetricStatisticsRequest extends com.amazonaws.AmazonWebServiceRe
     /**
      * <p>
      * The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>,
-     * you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both. Percentile
-     * statistics are not available for metrics when any of the metric values are negative numbers.
+     * you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both.
      * </p>
      * 
      * @param extendedStatistics
      *        The percentile statistics. Specify values between p0.0 and p100. When calling
      *        <code>GetMetricStatistics</code>, you must specify either <code>Statistics</code> or
-     *        <code>ExtendedStatistics</code>, but not both. Percentile statistics are not available for metrics when
-     *        any of the metric values are negative numbers.
+     *        <code>ExtendedStatistics</code>, but not both.
      */
 
     public void setExtendedStatistics(java.util.Collection<String> extendedStatistics) {
@@ -1039,8 +1034,7 @@ public class GetMetricStatisticsRequest extends com.amazonaws.AmazonWebServiceRe
     /**
      * <p>
      * The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>,
-     * you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both. Percentile
-     * statistics are not available for metrics when any of the metric values are negative numbers.
+     * you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -1051,8 +1045,7 @@ public class GetMetricStatisticsRequest extends com.amazonaws.AmazonWebServiceRe
      * @param extendedStatistics
      *        The percentile statistics. Specify values between p0.0 and p100. When calling
      *        <code>GetMetricStatistics</code>, you must specify either <code>Statistics</code> or
-     *        <code>ExtendedStatistics</code>, but not both. Percentile statistics are not available for metrics when
-     *        any of the metric values are negative numbers.
+     *        <code>ExtendedStatistics</code>, but not both.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1069,15 +1062,13 @@ public class GetMetricStatisticsRequest extends com.amazonaws.AmazonWebServiceRe
     /**
      * <p>
      * The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>,
-     * you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both. Percentile
-     * statistics are not available for metrics when any of the metric values are negative numbers.
+     * you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both.
      * </p>
      * 
      * @param extendedStatistics
      *        The percentile statistics. Specify values between p0.0 and p100. When calling
      *        <code>GetMetricStatistics</code>, you must specify either <code>Statistics</code> or
-     *        <code>ExtendedStatistics</code>, but not both. Percentile statistics are not available for metrics when
-     *        any of the metric values are negative numbers.
+     *        <code>ExtendedStatistics</code>, but not both.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1175,8 +1166,7 @@ public class GetMetricStatisticsRequest extends com.amazonaws.AmazonWebServiceRe
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

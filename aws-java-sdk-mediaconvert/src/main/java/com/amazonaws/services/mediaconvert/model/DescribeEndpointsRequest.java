@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -28,8 +28,6 @@ public class DescribeEndpointsRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /** Optional. Max number of endpoints, up to twenty, that will be returned at one time. */
     private Integer maxResults;
-
-    private String mode;
     /** Use this string, provided with the response to a previous request, to request the next batch of endpoints. */
     private String nextToken;
 
@@ -64,46 +62,6 @@ public class DescribeEndpointsRequest extends com.amazonaws.AmazonWebServiceRequ
 
     public DescribeEndpointsRequest withMaxResults(Integer maxResults) {
         setMaxResults(maxResults);
-        return this;
-    }
-
-    /**
-     * @param mode
-     * @see DescribeEndpointsMode
-     */
-
-    public void setMode(String mode) {
-        this.mode = mode;
-    }
-
-    /**
-     * @return
-     * @see DescribeEndpointsMode
-     */
-
-    public String getMode() {
-        return this.mode;
-    }
-
-    /**
-     * @param mode
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see DescribeEndpointsMode
-     */
-
-    public DescribeEndpointsRequest withMode(String mode) {
-        setMode(mode);
-        return this;
-    }
-
-    /**
-     * @param mode
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see DescribeEndpointsMode
-     */
-
-    public DescribeEndpointsRequest withMode(DescribeEndpointsMode mode) {
-        this.mode = mode.toString();
         return this;
     }
 
@@ -143,8 +101,7 @@ public class DescribeEndpointsRequest extends com.amazonaws.AmazonWebServiceRequ
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -156,8 +113,6 @@ public class DescribeEndpointsRequest extends com.amazonaws.AmazonWebServiceRequ
         sb.append("{");
         if (getMaxResults() != null)
             sb.append("MaxResults: ").append(getMaxResults()).append(",");
-        if (getMode() != null)
-            sb.append("Mode: ").append(getMode()).append(",");
         if (getNextToken() != null)
             sb.append("NextToken: ").append(getNextToken());
         sb.append("}");
@@ -178,10 +133,6 @@ public class DescribeEndpointsRequest extends com.amazonaws.AmazonWebServiceRequ
             return false;
         if (other.getMaxResults() != null && other.getMaxResults().equals(this.getMaxResults()) == false)
             return false;
-        if (other.getMode() == null ^ this.getMode() == null)
-            return false;
-        if (other.getMode() != null && other.getMode().equals(this.getMode()) == false)
-            return false;
         if (other.getNextToken() == null ^ this.getNextToken() == null)
             return false;
         if (other.getNextToken() != null && other.getNextToken().equals(this.getNextToken()) == false)
@@ -195,7 +146,6 @@ public class DescribeEndpointsRequest extends com.amazonaws.AmazonWebServiceRequ
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getMaxResults() == null) ? 0 : getMaxResults().hashCode());
-        hashCode = prime * hashCode + ((getMode() == null) ? 0 : getMode().hashCode());
         hashCode = prime * hashCode + ((getNextToken() == null) ? 0 : getNextToken().hashCode());
         return hashCode;
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -146,14 +146,14 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * this limit cannot be increased. You can remove the existing role and then add a different role to an instance
      * profile. You must then wait for the change to appear across all of AWS because of <a
      * href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual consistency</a>. To force the change, you must
-     * <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html">
+     * <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html">
      * disassociate the instance profile</a> and then <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html">associate the
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html">associate the
      * instance profile</a>, or you can stop your instance and then restart it.
      * </p>
      * <note>
      * <p>
-     * The caller of this API must be granted the <code>PassRole</code> permission on the IAM role by a permissions
+     * The caller of this API must be granted the <code>PassRole</code> permission on the IAM role by a permission
      * policy.
      * </p>
      * </note>
@@ -178,14 +178,14 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * this limit cannot be increased. You can remove the existing role and then add a different role to an instance
      * profile. You must then wait for the change to appear across all of AWS because of <a
      * href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual consistency</a>. To force the change, you must
-     * <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html">
+     * <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html">
      * disassociate the instance profile</a> and then <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html">associate the
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html">associate the
      * instance profile</a>, or you can stop your instance and then restart it.
      * </p>
      * <note>
      * <p>
-     * The caller of this API must be granted the <code>PassRole</code> permission on the IAM role by a permissions
+     * The caller of this API must be granted the <code>PassRole</code> permission on the IAM role by a permission
      * policy.
      * </p>
      * </note>
@@ -445,8 +445,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing
-     * the request. This operation works for access keys under the AWS account. Consequently, you can use this operation
-     * to manage AWS account root user credentials. This is true even if the AWS account has no associated users.
+     * the request. Because this operation works for access keys under the AWS account, you can use this operation to
+     * manage AWS account root user credentials. This is true even if the AWS account has no associated users.
      * </p>
      * <p>
      * For information about limits on the number of keys you can create, see <a
@@ -476,8 +476,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing
-     * the request. This operation works for access keys under the AWS account. Consequently, you can use this operation
-     * to manage AWS account root user credentials. This is true even if the AWS account has no associated users.
+     * the request. Because this operation works for access keys under the AWS account, you can use this operation to
+     * manage AWS account root user credentials. This is true even if the AWS account has no associated users.
      * </p>
      * <p>
      * For information about limits on the number of keys you can create, see <a
@@ -1010,9 +1010,12 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * Creates an IAM role that is linked to a specific AWS service. The service controls the attached policies and when
      * the role can be deleted. This helps ensure that the service is not broken by an unexpectedly changed or deleted
      * role, which could put your AWS resources into an unknown state. Allowing the service to control the role helps
-     * improve service stability and proper cleanup when a service and its role are no longer needed. For more
-     * information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">Using
-     * Service-Linked Roles</a> in the <i>IAM User Guide</i>.
+     * improve service stability and proper cleanup when a service and its role are no longer needed.
+     * </p>
+     * <p>
+     * The name of the role is generated by combining the string that you specify for the <code>AWSServiceName</code>
+     * parameter with the string that you specify for the <code>CustomSuffix</code> parameter. The resulting name must
+     * be unique in your account or the request fails.
      * </p>
      * <p>
      * To attach a policy to this service-linked role, you must make the request using the AWS service that depends on
@@ -1032,9 +1035,12 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * Creates an IAM role that is linked to a specific AWS service. The service controls the attached policies and when
      * the role can be deleted. This helps ensure that the service is not broken by an unexpectedly changed or deleted
      * role, which could put your AWS resources into an unknown state. Allowing the service to control the role helps
-     * improve service stability and proper cleanup when a service and its role are no longer needed. For more
-     * information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">Using
-     * Service-Linked Roles</a> in the <i>IAM User Guide</i>.
+     * improve service stability and proper cleanup when a service and its role are no longer needed.
+     * </p>
+     * <p>
+     * The name of the role is generated by combining the string that you specify for the <code>AWSServiceName</code>
+     * parameter with the string that you specify for the <code>CustomSuffix</code> parameter. The resulting name must
+     * be unique in your account or the request fails.
      * </p>
      * <p>
      * To attach a policy to this service-linked role, you must make the request using the AWS service that depends on
@@ -1228,8 +1234,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * For more information about creating and working with virtual MFA devices, go to <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Enabling a Virtual Multi-factor
-     * Authentication (MFA) Device</a> in the <i>IAM User Guide</i>.
+     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a Virtual MFA Device</a> in
+     * the <i>IAM User Guide</i>.
      * </p>
      * 
      * @param deactivateMFADeviceRequest
@@ -1247,8 +1253,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * For more information about creating and working with virtual MFA devices, go to <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Enabling a Virtual Multi-factor
-     * Authentication (MFA) Device</a> in the <i>IAM User Guide</i>.
+     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a Virtual MFA Device</a> in
+     * the <i>IAM User Guide</i>.
      * </p>
      * 
      * @param deactivateMFADeviceRequest
@@ -1270,8 +1276,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing
-     * the request. This operation works for access keys under the AWS account. Consequently, you can use this operation
-     * to manage AWS account root user credentials even if the AWS account has no associated users.
+     * the request. Because this operation works for access keys under the AWS account, you can use this operation to
+     * manage AWS account root user credentials even if the AWS account has no associated users.
      * </p>
      * 
      * @param deleteAccessKeyRequest
@@ -1288,8 +1294,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing
-     * the request. This operation works for access keys under the AWS account. Consequently, you can use this operation
-     * to manage AWS account root user credentials even if the AWS account has no associated users.
+     * the request. Because this operation works for access keys under the AWS account, you can use this operation to
+     * manage AWS account root user credentials even if the AWS account has no associated users.
      * </p>
      * 
      * @param deleteAccessKeyRequest
@@ -1523,7 +1529,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * <important>
      * <p>
      * Deleting a user's password does not prevent a user from accessing AWS through the command line interface or the
-     * API. To prevent all user access, you must also either make any access keys inactive or delete them. For more
+     * API. To prevent all user access you must also either make any access keys inactive or delete them. For more
      * information about making keys inactive or deleting them, see <a>UpdateAccessKey</a> and <a>DeleteAccessKey</a>.
      * </p>
      * </important>
@@ -1544,7 +1550,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * <important>
      * <p>
      * Deleting a user's password does not prevent a user from accessing AWS through the command line interface or the
-     * API. To prevent all user access, you must also either make any access keys inactive or delete them. For more
+     * API. To prevent all user access you must also either make any access keys inactive or delete them. For more
      * information about making keys inactive or deleting them, see <a>UpdateAccessKey</a> and <a>DeleteAccessKey</a>.
      * </p>
      * </important>
@@ -1617,7 +1623,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * Before you can delete a managed policy, you must first detach the policy from all users, groups, and roles that
-     * it is attached to. In addition, you must delete all the policy's versions. The following steps describe the
+     * it is attached to. In addition you must delete all the policy's versions. The following steps describe the
      * process for deleting a managed policy:
      * </p>
      * <ul>
@@ -1661,7 +1667,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * Before you can delete a managed policy, you must first detach the policy from all users, groups, and roles that
-     * it is attached to. In addition, you must delete all the policy's versions. The following steps describe the
+     * it is attached to. In addition you must delete all the policy's versions. The following steps describe the
      * process for deleting a managed policy:
      * </p>
      * <ul>
@@ -1801,53 +1807,6 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      */
     java.util.concurrent.Future<DeleteRoleResult> deleteRoleAsync(DeleteRoleRequest deleteRoleRequest,
             com.amazonaws.handlers.AsyncHandler<DeleteRoleRequest, DeleteRoleResult> asyncHandler);
-
-    /**
-     * <p>
-     * Deletes the permissions boundary for the specified IAM role.
-     * </p>
-     * <important>
-     * <p>
-     * Deleting the permissions boundary for a role might increase its permissions by allowing anyone who assumes the
-     * role to perform all the actions granted in its permissions policies.
-     * </p>
-     * </important>
-     * 
-     * @param deleteRolePermissionsBoundaryRequest
-     * @return A Java Future containing the result of the DeleteRolePermissionsBoundary operation returned by the
-     *         service.
-     * @sample AmazonIdentityManagementAsync.DeleteRolePermissionsBoundary
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRolePermissionsBoundary"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DeleteRolePermissionsBoundaryResult> deleteRolePermissionsBoundaryAsync(
-            DeleteRolePermissionsBoundaryRequest deleteRolePermissionsBoundaryRequest);
-
-    /**
-     * <p>
-     * Deletes the permissions boundary for the specified IAM role.
-     * </p>
-     * <important>
-     * <p>
-     * Deleting the permissions boundary for a role might increase its permissions by allowing anyone who assumes the
-     * role to perform all the actions granted in its permissions policies.
-     * </p>
-     * </important>
-     * 
-     * @param deleteRolePermissionsBoundaryRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the DeleteRolePermissionsBoundary operation returned by the
-     *         service.
-     * @sample AmazonIdentityManagementAsyncHandler.DeleteRolePermissionsBoundary
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRolePermissionsBoundary"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DeleteRolePermissionsBoundaryResult> deleteRolePermissionsBoundaryAsync(
-            DeleteRolePermissionsBoundaryRequest deleteRolePermissionsBoundaryRequest,
-            com.amazonaws.handlers.AsyncHandler<DeleteRolePermissionsBoundaryRequest, DeleteRolePermissionsBoundaryResult> asyncHandler);
 
     /**
      * <p>
@@ -2159,8 +2118,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing
-     * the request. This operation works for access keys under the AWS account. Consequently, you can use this operation
-     * to manage AWS account root user credentials even if the AWS account has no associated IAM users.
+     * the request. Because this operation works for access keys under the AWS account, you can use this operation to
+     * manage AWS account root user credentials even if the AWS account has no associated IAM users.
      * </p>
      * 
      * @param deleteSigningCertificateRequest
@@ -2177,8 +2136,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing
-     * the request. This operation works for access keys under the AWS account. Consequently, you can use this operation
-     * to manage AWS account root user credentials even if the AWS account has no associated IAM users.
+     * the request. Because this operation works for access keys under the AWS account, you can use this operation to
+     * manage AWS account root user credentials even if the AWS account has no associated IAM users.
      * </p>
      * 
      * @param deleteSigningCertificateRequest
@@ -2197,7 +2156,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
     /**
      * <p>
      * Deletes the specified IAM user. The user must not belong to any groups or have any access keys, signing
-     * certificates, MFA devices enabled for AWS, or attached policies.
+     * certificates, or attached policies.
      * </p>
      * 
      * @param deleteUserRequest
@@ -2211,7 +2170,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
     /**
      * <p>
      * Deletes the specified IAM user. The user must not belong to any groups or have any access keys, signing
-     * certificates, MFA devices enabled for AWS, or attached policies.
+     * certificates, or attached policies.
      * </p>
      * 
      * @param deleteUserRequest
@@ -2226,53 +2185,6 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      */
     java.util.concurrent.Future<DeleteUserResult> deleteUserAsync(DeleteUserRequest deleteUserRequest,
             com.amazonaws.handlers.AsyncHandler<DeleteUserRequest, DeleteUserResult> asyncHandler);
-
-    /**
-     * <p>
-     * Deletes the permissions boundary for the specified IAM user.
-     * </p>
-     * <important>
-     * <p>
-     * Deleting the permissions boundary for a user might increase its permissions by allowing the user to perform all
-     * the actions granted in its permissions policies.
-     * </p>
-     * </important>
-     * 
-     * @param deleteUserPermissionsBoundaryRequest
-     * @return A Java Future containing the result of the DeleteUserPermissionsBoundary operation returned by the
-     *         service.
-     * @sample AmazonIdentityManagementAsync.DeleteUserPermissionsBoundary
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteUserPermissionsBoundary"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DeleteUserPermissionsBoundaryResult> deleteUserPermissionsBoundaryAsync(
-            DeleteUserPermissionsBoundaryRequest deleteUserPermissionsBoundaryRequest);
-
-    /**
-     * <p>
-     * Deletes the permissions boundary for the specified IAM user.
-     * </p>
-     * <important>
-     * <p>
-     * Deleting the permissions boundary for a user might increase its permissions by allowing the user to perform all
-     * the actions granted in its permissions policies.
-     * </p>
-     * </important>
-     * 
-     * @param deleteUserPermissionsBoundaryRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the DeleteUserPermissionsBoundary operation returned by the
-     *         service.
-     * @sample AmazonIdentityManagementAsyncHandler.DeleteUserPermissionsBoundary
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteUserPermissionsBoundary"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<DeleteUserPermissionsBoundaryResult> deleteUserPermissionsBoundaryAsync(
-            DeleteUserPermissionsBoundaryRequest deleteUserPermissionsBoundaryRequest,
-            com.amazonaws.handlers.AsyncHandler<DeleteUserPermissionsBoundaryRequest, DeleteUserPermissionsBoundaryResult> asyncHandler);
 
     /**
      * <p>
@@ -2571,159 +2483,6 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      */
     java.util.concurrent.Future<GenerateCredentialReportResult> generateCredentialReportAsync(
             com.amazonaws.handlers.AsyncHandler<GenerateCredentialReportRequest, GenerateCredentialReportResult> asyncHandler);
-
-    /**
-     * <p>
-     * Generates a request for a report that includes details about when an IAM resource (user, group, role, or policy)
-     * was last used in an attempt to access AWS services. Recent activity usually appears within four hours. IAM
-     * reports activity for the last 365 days, or less if your region began supporting this feature within the last
-     * year. For more information, see <a href=
-     * "http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period"
-     * >Regions Where Data Is Tracked</a>.
-     * </p>
-     * <important>
-     * <p>
-     * The service last accessed data includes all attempts to access an AWS API, not just the successful ones. This
-     * includes all attempts that were made using the AWS Management Console, the AWS API through any of the SDKs, or
-     * any of the command line tools. An unexpected entry in the service last accessed data does not mean that your
-     * account has been compromised, because the request might have been denied. Refer to your CloudTrail logs as the
-     * authoritative source for information about all API calls and whether they were successful or denied access. For
-     * more information, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">Logging IAM Events with
-     * CloudTrail</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * </important>
-     * <p>
-     * The <code>GenerateServiceLastAccessedDetails</code> operation returns a <code>JobId</code>. Use this parameter in
-     * the following operations to retrieve the following details from your report:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <a>GetServiceLastAccessedDetails</a> – Use this operation for users, groups, roles, or policies to list every AWS
-     * service that the resource could access using permissions policies. For each service, the response includes
-     * information about the most recent access attempt.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <a>GetServiceLastAccessedDetailsWithEntities</a> – Use this operation for groups and policies to list information
-     * about the associated entities (users or roles) that attempted to access a specific AWS service.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * To check the status of the <code>GenerateServiceLastAccessedDetails</code> request, use the <code>JobId</code>
-     * parameter in the same operations and test the <code>JobStatus</code> response parameter.
-     * </p>
-     * <p>
-     * For additional information about the permissions policies that allow an identity (user, group, or role) to access
-     * specific services, use the <a>ListPoliciesGrantingServiceAccess</a> operation.
-     * </p>
-     * <note>
-     * <p>
-     * Service last accessed data does not use other policy types when determining whether a resource could access a
-     * service. These other policy types include resource-based policies, access control lists, AWS Organizations
-     * policies, IAM permissions boundaries, and AWS STS assume role policies. It only applies permissions policy logic.
-     * For more about the evaluation of policy types, see <a href=
-     * "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics"
-     * >Evaluating Policies</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * </note>
-     * <p>
-     * For more information about service last accessed data, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing Policy Scope
-     * by Viewing User Activity</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * 
-     * @param generateServiceLastAccessedDetailsRequest
-     * @return A Java Future containing the result of the GenerateServiceLastAccessedDetails operation returned by the
-     *         service.
-     * @sample AmazonIdentityManagementAsync.GenerateServiceLastAccessedDetails
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GenerateServiceLastAccessedDetails"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<GenerateServiceLastAccessedDetailsResult> generateServiceLastAccessedDetailsAsync(
-            GenerateServiceLastAccessedDetailsRequest generateServiceLastAccessedDetailsRequest);
-
-    /**
-     * <p>
-     * Generates a request for a report that includes details about when an IAM resource (user, group, role, or policy)
-     * was last used in an attempt to access AWS services. Recent activity usually appears within four hours. IAM
-     * reports activity for the last 365 days, or less if your region began supporting this feature within the last
-     * year. For more information, see <a href=
-     * "http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period"
-     * >Regions Where Data Is Tracked</a>.
-     * </p>
-     * <important>
-     * <p>
-     * The service last accessed data includes all attempts to access an AWS API, not just the successful ones. This
-     * includes all attempts that were made using the AWS Management Console, the AWS API through any of the SDKs, or
-     * any of the command line tools. An unexpected entry in the service last accessed data does not mean that your
-     * account has been compromised, because the request might have been denied. Refer to your CloudTrail logs as the
-     * authoritative source for information about all API calls and whether they were successful or denied access. For
-     * more information, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">Logging IAM Events with
-     * CloudTrail</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * </important>
-     * <p>
-     * The <code>GenerateServiceLastAccessedDetails</code> operation returns a <code>JobId</code>. Use this parameter in
-     * the following operations to retrieve the following details from your report:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <a>GetServiceLastAccessedDetails</a> – Use this operation for users, groups, roles, or policies to list every AWS
-     * service that the resource could access using permissions policies. For each service, the response includes
-     * information about the most recent access attempt.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <a>GetServiceLastAccessedDetailsWithEntities</a> – Use this operation for groups and policies to list information
-     * about the associated entities (users or roles) that attempted to access a specific AWS service.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * To check the status of the <code>GenerateServiceLastAccessedDetails</code> request, use the <code>JobId</code>
-     * parameter in the same operations and test the <code>JobStatus</code> response parameter.
-     * </p>
-     * <p>
-     * For additional information about the permissions policies that allow an identity (user, group, or role) to access
-     * specific services, use the <a>ListPoliciesGrantingServiceAccess</a> operation.
-     * </p>
-     * <note>
-     * <p>
-     * Service last accessed data does not use other policy types when determining whether a resource could access a
-     * service. These other policy types include resource-based policies, access control lists, AWS Organizations
-     * policies, IAM permissions boundaries, and AWS STS assume role policies. It only applies permissions policy logic.
-     * For more about the evaluation of policy types, see <a href=
-     * "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics"
-     * >Evaluating Policies</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * </note>
-     * <p>
-     * For more information about service last accessed data, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing Policy Scope
-     * by Viewing User Activity</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * 
-     * @param generateServiceLastAccessedDetailsRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the GenerateServiceLastAccessedDetails operation returned by the
-     *         service.
-     * @sample AmazonIdentityManagementAsyncHandler.GenerateServiceLastAccessedDetails
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GenerateServiceLastAccessedDetails"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<GenerateServiceLastAccessedDetailsResult> generateServiceLastAccessedDetailsAsync(
-            GenerateServiceLastAccessedDetailsRequest generateServiceLastAccessedDetailsRequest,
-            com.amazonaws.handlers.AsyncHandler<GenerateServiceLastAccessedDetailsRequest, GenerateServiceLastAccessedDetailsResult> asyncHandler);
 
     /**
      * <p>
@@ -3721,228 +3480,6 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * After you generate a user, group, role, or policy report using the
-     * <code>GenerateServiceLastAccessedDetails</code> operation, you can use the <code>JobId</code> parameter in
-     * <code>GetServiceLastAccessedDetails</code>. This operation retrieves the status of your report job and a list of
-     * AWS services that the resource (user, group, role, or managed policy) can access.
-     * </p>
-     * <note>
-     * <p>
-     * Service last accessed data does not use other policy types when determining whether a resource could access a
-     * service. These other policy types include resource-based policies, access control lists, AWS Organizations
-     * policies, IAM permissions boundaries, and AWS STS assume role policies. It only applies permissions policy logic.
-     * For more about the evaluation of policy types, see <a href=
-     * "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics"
-     * >Evaluating Policies</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * </note>
-     * <p>
-     * For each service that the resource could access using permissions policies, the operation returns details about
-     * the most recent access attempt. If there was no attempt, the service is listed without details about the most
-     * recent attempt to access the service. If the operation fails, the <code>GetServiceLastAccessedDetails</code>
-     * operation returns the reason that it failed.
-     * </p>
-     * <p>
-     * The <code>GetServiceLastAccessedDetails</code> operation returns a list of services that includes the number of
-     * entities that have attempted to access the service and the date and time of the last attempt. It also returns the
-     * ARN of the following entity, depending on the resource ARN that you used to generate the report:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>User</b> – Returns the user ARN that you used to generate the report
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Group</b> – Returns the ARN of the group member (user) that last attempted to access the service
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Role</b> – Returns the role ARN that you used to generate the report
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Policy</b> – Returns the ARN of the user or role that last used the policy to attempt to access the service
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * By default, the list is sorted by service namespace.
-     * </p>
-     * 
-     * @param getServiceLastAccessedDetailsRequest
-     * @return A Java Future containing the result of the GetServiceLastAccessedDetails operation returned by the
-     *         service.
-     * @sample AmazonIdentityManagementAsync.GetServiceLastAccessedDetails
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetServiceLastAccessedDetails"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<GetServiceLastAccessedDetailsResult> getServiceLastAccessedDetailsAsync(
-            GetServiceLastAccessedDetailsRequest getServiceLastAccessedDetailsRequest);
-
-    /**
-     * <p>
-     * After you generate a user, group, role, or policy report using the
-     * <code>GenerateServiceLastAccessedDetails</code> operation, you can use the <code>JobId</code> parameter in
-     * <code>GetServiceLastAccessedDetails</code>. This operation retrieves the status of your report job and a list of
-     * AWS services that the resource (user, group, role, or managed policy) can access.
-     * </p>
-     * <note>
-     * <p>
-     * Service last accessed data does not use other policy types when determining whether a resource could access a
-     * service. These other policy types include resource-based policies, access control lists, AWS Organizations
-     * policies, IAM permissions boundaries, and AWS STS assume role policies. It only applies permissions policy logic.
-     * For more about the evaluation of policy types, see <a href=
-     * "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics"
-     * >Evaluating Policies</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * </note>
-     * <p>
-     * For each service that the resource could access using permissions policies, the operation returns details about
-     * the most recent access attempt. If there was no attempt, the service is listed without details about the most
-     * recent attempt to access the service. If the operation fails, the <code>GetServiceLastAccessedDetails</code>
-     * operation returns the reason that it failed.
-     * </p>
-     * <p>
-     * The <code>GetServiceLastAccessedDetails</code> operation returns a list of services that includes the number of
-     * entities that have attempted to access the service and the date and time of the last attempt. It also returns the
-     * ARN of the following entity, depending on the resource ARN that you used to generate the report:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>User</b> – Returns the user ARN that you used to generate the report
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Group</b> – Returns the ARN of the group member (user) that last attempted to access the service
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Role</b> – Returns the role ARN that you used to generate the report
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Policy</b> – Returns the ARN of the user or role that last used the policy to attempt to access the service
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * By default, the list is sorted by service namespace.
-     * </p>
-     * 
-     * @param getServiceLastAccessedDetailsRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the GetServiceLastAccessedDetails operation returned by the
-     *         service.
-     * @sample AmazonIdentityManagementAsyncHandler.GetServiceLastAccessedDetails
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetServiceLastAccessedDetails"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<GetServiceLastAccessedDetailsResult> getServiceLastAccessedDetailsAsync(
-            GetServiceLastAccessedDetailsRequest getServiceLastAccessedDetailsRequest,
-            com.amazonaws.handlers.AsyncHandler<GetServiceLastAccessedDetailsRequest, GetServiceLastAccessedDetailsResult> asyncHandler);
-
-    /**
-     * <p>
-     * After you generate a group or policy report using the <code>GenerateServiceLastAccessedDetails</code> operation,
-     * you can use the <code>JobId</code> parameter in <code>GetServiceLastAccessedDetailsWithEntities</code>. This
-     * operation retrieves the status of your report job and a list of entities that could have used group or policy
-     * permissions to access the specified service.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Group</b> – For a group report, this operation returns a list of users in the group that could have used the
-     * group’s policies in an attempt to access the service.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Policy</b> – For a policy report, this operation returns a list of entities (users or roles) that could have
-     * used the policy in an attempt to access the service.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * You can also use this operation for user or role reports to retrieve details about those entities.
-     * </p>
-     * <p>
-     * If the operation fails, the <code>GetServiceLastAccessedDetailsWithEntities</code> operation returns the reason
-     * that it failed.
-     * </p>
-     * <p>
-     * By default, the list of associated entities is sorted by date, with the most recent access listed first.
-     * </p>
-     * 
-     * @param getServiceLastAccessedDetailsWithEntitiesRequest
-     * @return A Java Future containing the result of the GetServiceLastAccessedDetailsWithEntities operation returned
-     *         by the service.
-     * @sample AmazonIdentityManagementAsync.GetServiceLastAccessedDetailsWithEntities
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetServiceLastAccessedDetailsWithEntities"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<GetServiceLastAccessedDetailsWithEntitiesResult> getServiceLastAccessedDetailsWithEntitiesAsync(
-            GetServiceLastAccessedDetailsWithEntitiesRequest getServiceLastAccessedDetailsWithEntitiesRequest);
-
-    /**
-     * <p>
-     * After you generate a group or policy report using the <code>GenerateServiceLastAccessedDetails</code> operation,
-     * you can use the <code>JobId</code> parameter in <code>GetServiceLastAccessedDetailsWithEntities</code>. This
-     * operation retrieves the status of your report job and a list of entities that could have used group or policy
-     * permissions to access the specified service.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Group</b> – For a group report, this operation returns a list of users in the group that could have used the
-     * group’s policies in an attempt to access the service.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Policy</b> – For a policy report, this operation returns a list of entities (users or roles) that could have
-     * used the policy in an attempt to access the service.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * You can also use this operation for user or role reports to retrieve details about those entities.
-     * </p>
-     * <p>
-     * If the operation fails, the <code>GetServiceLastAccessedDetailsWithEntities</code> operation returns the reason
-     * that it failed.
-     * </p>
-     * <p>
-     * By default, the list of associated entities is sorted by date, with the most recent access listed first.
-     * </p>
-     * 
-     * @param getServiceLastAccessedDetailsWithEntitiesRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the GetServiceLastAccessedDetailsWithEntities operation returned
-     *         by the service.
-     * @sample AmazonIdentityManagementAsyncHandler.GetServiceLastAccessedDetailsWithEntities
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetServiceLastAccessedDetailsWithEntities"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<GetServiceLastAccessedDetailsWithEntitiesResult> getServiceLastAccessedDetailsWithEntitiesAsync(
-            GetServiceLastAccessedDetailsWithEntitiesRequest getServiceLastAccessedDetailsWithEntitiesRequest,
-            com.amazonaws.handlers.AsyncHandler<GetServiceLastAccessedDetailsWithEntitiesRequest, GetServiceLastAccessedDetailsWithEntitiesResult> asyncHandler);
-
-    /**
-     * <p>
      * Retrieves the status of your service-linked role deletion. After you use the <a>DeleteServiceLinkedRole</a> API
      * operation to submit a service-linked role for deletion, you can use the <code>DeletionTaskId</code> parameter in
      * <code>GetServiceLinkedRoleDeletionStatus</code> to check the status of the deletion. If the deletion fails, this
@@ -4104,7 +3641,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * Returns information about the access key IDs associated with the specified IAM user. If there is none, the
+     * Returns information about the access key IDs associated with the specified IAM user. If there are none, the
      * operation returns an empty list.
      * </p>
      * <p>
@@ -4113,8 +3650,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If the <code>UserName</code> field is not specified, the user name is determined implicitly based on the AWS
-     * access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently,
-     * you can use this operation to manage AWS account root user credentials even if the AWS account has no associated
+     * access key ID used to sign the request. Because this operation works for access keys under the AWS account, you
+     * can use this operation to manage AWS account root user credentials even if the AWS account has no associated
      * users.
      * </p>
      * <note>
@@ -4134,7 +3671,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * Returns information about the access key IDs associated with the specified IAM user. If there is none, the
+     * Returns information about the access key IDs associated with the specified IAM user. If there are none, the
      * operation returns an empty list.
      * </p>
      * <p>
@@ -4143,8 +3680,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If the <code>UserName</code> field is not specified, the user name is determined implicitly based on the AWS
-     * access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently,
-     * you can use this operation to manage AWS account root user credentials even if the AWS account has no associated
+     * access key ID used to sign the request. Because this operation works for access keys under the AWS account, you
+     * can use this operation to manage AWS account root user credentials even if the AWS account has no associated
      * users.
      * </p>
      * <note>
@@ -4865,133 +4402,6 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * Retrieves a list of policies that the IAM identity (user, group, or role) can use to access each specified
-     * service.
-     * </p>
-     * <note>
-     * <p>
-     * This operation does not use other policy types when determining whether a resource could access a service. These
-     * other policy types include resource-based policies, access control lists, AWS Organizations policies, IAM
-     * permissions boundaries, and AWS STS assume role policies. It only applies permissions policy logic. For more
-     * about the evaluation of policy types, see <a href=
-     * "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics"
-     * >Evaluating Policies</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * </note>
-     * <p>
-     * The list of policies returned by the operation depends on the ARN of the identity that you provide.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>User</b> – The list of policies includes the managed and inline policies that are attached to the user
-     * directly. The list also includes any additional managed and inline policies that are attached to the group to
-     * which the user belongs.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Group</b> – The list of policies includes only the managed and inline policies that are attached to the group
-     * directly. Policies that are attached to the group’s user are not included.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Role</b> – The list of policies includes only the managed and inline policies that are attached to the role.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * For each managed policy, this operation returns the ARN and policy name. For each inline policy, it returns the
-     * policy name and the entity to which it is attached. Inline policies do not have an ARN. For more information
-     * about these policy types, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed Policies
-     * and Inline Policies</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * <p>
-     * Policies that are attached to users and roles as permissions boundaries are not returned. To view which managed
-     * policy is currently used to set the permissions boundary for a user or role, use the <a>GetUser</a> or
-     * <a>GetRole</a> operations.
-     * </p>
-     * 
-     * @param listPoliciesGrantingServiceAccessRequest
-     * @return A Java Future containing the result of the ListPoliciesGrantingServiceAccess operation returned by the
-     *         service.
-     * @sample AmazonIdentityManagementAsync.ListPoliciesGrantingServiceAccess
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListPoliciesGrantingServiceAccess"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<ListPoliciesGrantingServiceAccessResult> listPoliciesGrantingServiceAccessAsync(
-            ListPoliciesGrantingServiceAccessRequest listPoliciesGrantingServiceAccessRequest);
-
-    /**
-     * <p>
-     * Retrieves a list of policies that the IAM identity (user, group, or role) can use to access each specified
-     * service.
-     * </p>
-     * <note>
-     * <p>
-     * This operation does not use other policy types when determining whether a resource could access a service. These
-     * other policy types include resource-based policies, access control lists, AWS Organizations policies, IAM
-     * permissions boundaries, and AWS STS assume role policies. It only applies permissions policy logic. For more
-     * about the evaluation of policy types, see <a href=
-     * "http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics"
-     * >Evaluating Policies</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * </note>
-     * <p>
-     * The list of policies returned by the operation depends on the ARN of the identity that you provide.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>User</b> – The list of policies includes the managed and inline policies that are attached to the user
-     * directly. The list also includes any additional managed and inline policies that are attached to the group to
-     * which the user belongs.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Group</b> – The list of policies includes only the managed and inline policies that are attached to the group
-     * directly. Policies that are attached to the group’s user are not included.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Role</b> – The list of policies includes only the managed and inline policies that are attached to the role.
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * For each managed policy, this operation returns the ARN and policy name. For each inline policy, it returns the
-     * policy name and the entity to which it is attached. Inline policies do not have an ARN. For more information
-     * about these policy types, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed Policies
-     * and Inline Policies</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * <p>
-     * Policies that are attached to users and roles as permissions boundaries are not returned. To view which managed
-     * policy is currently used to set the permissions boundary for a user or role, use the <a>GetUser</a> or
-     * <a>GetRole</a> operations.
-     * </p>
-     * 
-     * @param listPoliciesGrantingServiceAccessRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the ListPoliciesGrantingServiceAccess operation returned by the
-     *         service.
-     * @sample AmazonIdentityManagementAsyncHandler.ListPoliciesGrantingServiceAccess
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListPoliciesGrantingServiceAccess"
-     *      target="_top">AWS API Documentation</a>
-     */
-    java.util.concurrent.Future<ListPoliciesGrantingServiceAccessResult> listPoliciesGrantingServiceAccessAsync(
-            ListPoliciesGrantingServiceAccessRequest listPoliciesGrantingServiceAccessRequest,
-            com.amazonaws.handlers.AsyncHandler<ListPoliciesGrantingServiceAccessRequest, ListPoliciesGrantingServiceAccessResult> asyncHandler);
-
-    /**
-     * <p>
      * Lists information about the versions of the specified managed policy, including the version that is currently set
      * as the policy's default version.
      * </p>
@@ -5083,41 +4493,6 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      */
     java.util.concurrent.Future<ListRolePoliciesResult> listRolePoliciesAsync(ListRolePoliciesRequest listRolePoliciesRequest,
             com.amazonaws.handlers.AsyncHandler<ListRolePoliciesRequest, ListRolePoliciesResult> asyncHandler);
-
-    /**
-     * <p>
-     * Lists the tags that are attached to the specified role. The returned list of tags is sorted by tag key. For more
-     * information about tagging, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
-     * Identities</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * 
-     * @param listRoleTagsRequest
-     * @return A Java Future containing the result of the ListRoleTags operation returned by the service.
-     * @sample AmazonIdentityManagementAsync.ListRoleTags
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListRoleTags" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<ListRoleTagsResult> listRoleTagsAsync(ListRoleTagsRequest listRoleTagsRequest);
-
-    /**
-     * <p>
-     * Lists the tags that are attached to the specified role. The returned list of tags is sorted by tag key. For more
-     * information about tagging, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
-     * Identities</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * 
-     * @param listRoleTagsRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the ListRoleTags operation returned by the service.
-     * @sample AmazonIdentityManagementAsyncHandler.ListRoleTags
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListRoleTags" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<ListRoleTagsResult> listRoleTagsAsync(ListRoleTagsRequest listRoleTagsRequest,
-            com.amazonaws.handlers.AsyncHandler<ListRoleTagsRequest, ListRoleTagsResult> asyncHandler);
 
     /**
      * <p>
@@ -5234,7 +4609,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * Returns information about the SSH public keys associated with the specified IAM user. If there none exists, the
+     * Returns information about the SSH public keys associated with the specified IAM user. If there are none, the
      * operation returns an empty list.
      * </p>
      * <p>
@@ -5258,7 +4633,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * Returns information about the SSH public keys associated with the specified IAM user. If there none exists, the
+     * Returns information about the SSH public keys associated with the specified IAM user. If there are none, the
      * operation returns an empty list.
      * </p>
      * <p>
@@ -5368,8 +4743,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * Returns information about the service-specific credentials associated with the specified IAM user. If none
-     * exists, the operation returns an empty list. The service-specific credentials returned by this operation are used
+     * Returns information about the service-specific credentials associated with the specified IAM user. If there are
+     * none, the operation returns an empty list. The service-specific credentials returned by this operation are used
      * only for authenticating the IAM user to a specific service. For more information about using service-specific
      * credentials to authenticate to an AWS service, see <a
      * href="http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html">Set Up service-specific
@@ -5388,8 +4763,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * Returns information about the service-specific credentials associated with the specified IAM user. If none
-     * exists, the operation returns an empty list. The service-specific credentials returned by this operation are used
+     * Returns information about the service-specific credentials associated with the specified IAM user. If there are
+     * none, the operation returns an empty list. The service-specific credentials returned by this operation are used
      * only for authenticating the IAM user to a specific service. For more information about using service-specific
      * credentials to authenticate to an AWS service, see <a
      * href="http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html">Set Up service-specific
@@ -5413,8 +4788,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * Returns information about the signing certificates associated with the specified IAM user. If there none exists,
-     * the operation returns an empty list.
+     * Returns information about the signing certificates associated with the specified IAM user. If there are none, the
+     * operation returns an empty list.
      * </p>
      * <p>
      * Although each user is limited to a small number of signing certificates, you can still paginate the results using
@@ -5422,9 +4797,9 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If the <code>UserName</code> field is not specified, the user name is determined implicitly based on the AWS
-     * access key ID used to sign the request for this API. This operation works for access keys under the AWS account.
-     * Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has
-     * no associated users.
+     * access key ID used to sign the request for this API. Because this operation works for access keys under the AWS
+     * account, you can use this operation to manage AWS account root user credentials even if the AWS account has no
+     * associated users.
      * </p>
      * 
      * @param listSigningCertificatesRequest
@@ -5437,8 +4812,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * Returns information about the signing certificates associated with the specified IAM user. If there none exists,
-     * the operation returns an empty list.
+     * Returns information about the signing certificates associated with the specified IAM user. If there are none, the
+     * operation returns an empty list.
      * </p>
      * <p>
      * Although each user is limited to a small number of signing certificates, you can still paginate the results using
@@ -5446,9 +4821,9 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If the <code>UserName</code> field is not specified, the user name is determined implicitly based on the AWS
-     * access key ID used to sign the request for this API. This operation works for access keys under the AWS account.
-     * Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has
-     * no associated users.
+     * access key ID used to sign the request for this API. Because this operation works for access keys under the AWS
+     * account, you can use this operation to manage AWS account root user credentials even if the AWS account has no
+     * associated users.
      * </p>
      * 
      * @param listSigningCertificatesRequest
@@ -5529,41 +4904,6 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      */
     java.util.concurrent.Future<ListUserPoliciesResult> listUserPoliciesAsync(ListUserPoliciesRequest listUserPoliciesRequest,
             com.amazonaws.handlers.AsyncHandler<ListUserPoliciesRequest, ListUserPoliciesResult> asyncHandler);
-
-    /**
-     * <p>
-     * Lists the tags that are attached to the specified user. The returned list of tags is sorted by tag key. For more
-     * information about tagging, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
-     * Identities</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * 
-     * @param listUserTagsRequest
-     * @return A Java Future containing the result of the ListUserTags operation returned by the service.
-     * @sample AmazonIdentityManagementAsync.ListUserTags
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListUserTags" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<ListUserTagsResult> listUserTagsAsync(ListUserTagsRequest listUserTagsRequest);
-
-    /**
-     * <p>
-     * Lists the tags that are attached to the specified user. The returned list of tags is sorted by tag key. For more
-     * information about tagging, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
-     * Identities</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * 
-     * @param listUserTagsRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the ListUserTags operation returned by the service.
-     * @sample AmazonIdentityManagementAsyncHandler.ListUserTags
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListUserTags" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<ListUserTagsResult> listUserTagsAsync(ListUserTagsRequest listUserTagsRequest,
-            com.amazonaws.handlers.AsyncHandler<ListUserTagsRequest, ListUserTagsResult> asyncHandler);
 
     /**
      * <p>
@@ -5745,67 +5085,6 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * Adds or updates the policy that is specified as the IAM role's permissions boundary. You can use an AWS managed
-     * policy or a customer managed policy to set the boundary for a role. Use the boundary to control the maximum
-     * permissions that the role can have. Setting a permissions boundary is an advanced feature that can affect the
-     * permissions for the role.
-     * </p>
-     * <p>
-     * You cannot set the boundary for a service-linked role.
-     * </p>
-     * <important>
-     * <p>
-     * Policies used as permissions boundaries do not provide permissions. You must also attach a permissions policy to
-     * the role. To learn how the effective permissions for a role are evaluated, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON Policy
-     * Evaluation Logic</a> in the IAM User Guide.
-     * </p>
-     * </important>
-     * 
-     * @param putRolePermissionsBoundaryRequest
-     * @return A Java Future containing the result of the PutRolePermissionsBoundary operation returned by the service.
-     * @sample AmazonIdentityManagementAsync.PutRolePermissionsBoundary
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutRolePermissionsBoundary" target="_top">AWS
-     *      API Documentation</a>
-     */
-    java.util.concurrent.Future<PutRolePermissionsBoundaryResult> putRolePermissionsBoundaryAsync(
-            PutRolePermissionsBoundaryRequest putRolePermissionsBoundaryRequest);
-
-    /**
-     * <p>
-     * Adds or updates the policy that is specified as the IAM role's permissions boundary. You can use an AWS managed
-     * policy or a customer managed policy to set the boundary for a role. Use the boundary to control the maximum
-     * permissions that the role can have. Setting a permissions boundary is an advanced feature that can affect the
-     * permissions for the role.
-     * </p>
-     * <p>
-     * You cannot set the boundary for a service-linked role.
-     * </p>
-     * <important>
-     * <p>
-     * Policies used as permissions boundaries do not provide permissions. You must also attach a permissions policy to
-     * the role. To learn how the effective permissions for a role are evaluated, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON Policy
-     * Evaluation Logic</a> in the IAM User Guide.
-     * </p>
-     * </important>
-     * 
-     * @param putRolePermissionsBoundaryRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the PutRolePermissionsBoundary operation returned by the service.
-     * @sample AmazonIdentityManagementAsyncHandler.PutRolePermissionsBoundary
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutRolePermissionsBoundary" target="_top">AWS
-     *      API Documentation</a>
-     */
-    java.util.concurrent.Future<PutRolePermissionsBoundaryResult> putRolePermissionsBoundaryAsync(
-            PutRolePermissionsBoundaryRequest putRolePermissionsBoundaryRequest,
-            com.amazonaws.handlers.AsyncHandler<PutRolePermissionsBoundaryRequest, PutRolePermissionsBoundaryResult> asyncHandler);
-
-    /**
-     * <p>
      * Adds or updates an inline policy document that is embedded in the specified IAM role.
      * </p>
      * <p>
@@ -5886,61 +5165,6 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      */
     java.util.concurrent.Future<PutRolePolicyResult> putRolePolicyAsync(PutRolePolicyRequest putRolePolicyRequest,
             com.amazonaws.handlers.AsyncHandler<PutRolePolicyRequest, PutRolePolicyResult> asyncHandler);
-
-    /**
-     * <p>
-     * Adds or updates the policy that is specified as the IAM user's permissions boundary. You can use an AWS managed
-     * policy or a customer managed policy to set the boundary for a user. Use the boundary to control the maximum
-     * permissions that the user can have. Setting a permissions boundary is an advanced feature that can affect the
-     * permissions for the user.
-     * </p>
-     * <important>
-     * <p>
-     * Policies that are used as permissions boundaries do not provide permissions. You must also attach a permissions
-     * policy to the user. To learn how the effective permissions for a user are evaluated, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON Policy
-     * Evaluation Logic</a> in the IAM User Guide.
-     * </p>
-     * </important>
-     * 
-     * @param putUserPermissionsBoundaryRequest
-     * @return A Java Future containing the result of the PutUserPermissionsBoundary operation returned by the service.
-     * @sample AmazonIdentityManagementAsync.PutUserPermissionsBoundary
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutUserPermissionsBoundary" target="_top">AWS
-     *      API Documentation</a>
-     */
-    java.util.concurrent.Future<PutUserPermissionsBoundaryResult> putUserPermissionsBoundaryAsync(
-            PutUserPermissionsBoundaryRequest putUserPermissionsBoundaryRequest);
-
-    /**
-     * <p>
-     * Adds or updates the policy that is specified as the IAM user's permissions boundary. You can use an AWS managed
-     * policy or a customer managed policy to set the boundary for a user. Use the boundary to control the maximum
-     * permissions that the user can have. Setting a permissions boundary is an advanced feature that can affect the
-     * permissions for the user.
-     * </p>
-     * <important>
-     * <p>
-     * Policies that are used as permissions boundaries do not provide permissions. You must also attach a permissions
-     * policy to the user. To learn how the effective permissions for a user are evaluated, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON Policy
-     * Evaluation Logic</a> in the IAM User Guide.
-     * </p>
-     * </important>
-     * 
-     * @param putUserPermissionsBoundaryRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the PutUserPermissionsBoundary operation returned by the service.
-     * @sample AmazonIdentityManagementAsyncHandler.PutUserPermissionsBoundary
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutUserPermissionsBoundary" target="_top">AWS
-     *      API Documentation</a>
-     */
-    java.util.concurrent.Future<PutUserPermissionsBoundaryResult> putUserPermissionsBoundaryAsync(
-            PutUserPermissionsBoundaryRequest putUserPermissionsBoundaryRequest,
-            com.amazonaws.handlers.AsyncHandler<PutUserPermissionsBoundaryRequest, PutUserPermissionsBoundaryResult> asyncHandler);
 
     /**
      * <p>
@@ -6437,347 +5661,13 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * Adds one or more tags to an IAM role. The role can be a regular role or a service-linked role. If a tag with the
-     * same key name already exists, then that tag is overwritten with the new value.
-     * </p>
-     * <p>
-     * A tag consists of a key name and an associated value. By assigning tags to your resources, you can do the
-     * following:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Administrative grouping and discovery</b> - Attach tags to resources to aid in organization and search. For
-     * example, you could search for all resources with the key name <i>Project</i> and the value
-     * <i>MyImportantProject</i>. Or search for all resources with the key name <i>Cost Center</i> and the value
-     * <i>41200</i>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Access control</b> - Reference tags in IAM user-based and resource-based policies. You can use tags to
-     * restrict access to only an IAM user or role that has a specified tag attached. You can also restrict access to
-     * only those resources that have a certain tag attached. For examples of policies that show how to use tags to
-     * control access, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control Access
-     * Using IAM Tags</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Cost allocation</b> - Use tags to help track which individuals and teams are using which AWS resources.
-     * </p>
-     * </li>
-     * </ul>
-     * <note>
-     * <ul>
-     * <li>
-     * <p>
-     * Make sure that you have no invalid tags and that you do not exceed the allowed number of tags per role. In either
-     * case, the entire request fails and <i>no</i> tags are added to the role.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * AWS always interprets the tag <code>Value</code> as a single string. If you need to store an array, you can store
-     * comma-separated values in the string. However, you must interpret the value in your code.
-     * </p>
-     * </li>
-     * </ul>
-     * </note>
-     * <p>
-     * For more information about tagging, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the <i>IAM User
-     * Guide</i>.
-     * </p>
-     * 
-     * @param tagRoleRequest
-     * @return A Java Future containing the result of the TagRole operation returned by the service.
-     * @sample AmazonIdentityManagementAsync.TagRole
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/TagRole" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<TagRoleResult> tagRoleAsync(TagRoleRequest tagRoleRequest);
-
-    /**
-     * <p>
-     * Adds one or more tags to an IAM role. The role can be a regular role or a service-linked role. If a tag with the
-     * same key name already exists, then that tag is overwritten with the new value.
-     * </p>
-     * <p>
-     * A tag consists of a key name and an associated value. By assigning tags to your resources, you can do the
-     * following:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Administrative grouping and discovery</b> - Attach tags to resources to aid in organization and search. For
-     * example, you could search for all resources with the key name <i>Project</i> and the value
-     * <i>MyImportantProject</i>. Or search for all resources with the key name <i>Cost Center</i> and the value
-     * <i>41200</i>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Access control</b> - Reference tags in IAM user-based and resource-based policies. You can use tags to
-     * restrict access to only an IAM user or role that has a specified tag attached. You can also restrict access to
-     * only those resources that have a certain tag attached. For examples of policies that show how to use tags to
-     * control access, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control Access
-     * Using IAM Tags</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Cost allocation</b> - Use tags to help track which individuals and teams are using which AWS resources.
-     * </p>
-     * </li>
-     * </ul>
-     * <note>
-     * <ul>
-     * <li>
-     * <p>
-     * Make sure that you have no invalid tags and that you do not exceed the allowed number of tags per role. In either
-     * case, the entire request fails and <i>no</i> tags are added to the role.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * AWS always interprets the tag <code>Value</code> as a single string. If you need to store an array, you can store
-     * comma-separated values in the string. However, you must interpret the value in your code.
-     * </p>
-     * </li>
-     * </ul>
-     * </note>
-     * <p>
-     * For more information about tagging, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the <i>IAM User
-     * Guide</i>.
-     * </p>
-     * 
-     * @param tagRoleRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the TagRole operation returned by the service.
-     * @sample AmazonIdentityManagementAsyncHandler.TagRole
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/TagRole" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<TagRoleResult> tagRoleAsync(TagRoleRequest tagRoleRequest,
-            com.amazonaws.handlers.AsyncHandler<TagRoleRequest, TagRoleResult> asyncHandler);
-
-    /**
-     * <p>
-     * Adds one or more tags to an IAM user. If a tag with the same key name already exists, then that tag is
-     * overwritten with the new value.
-     * </p>
-     * <p>
-     * A tag consists of a key name and an associated value. By assigning tags to your resources, you can do the
-     * following:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Administrative grouping and discovery</b> - Attach tags to resources to aid in organization and search. For
-     * example, you could search for all resources with the key name <i>Project</i> and the value
-     * <i>MyImportantProject</i>. Or search for all resources with the key name <i>Cost Center</i> and the value
-     * <i>41200</i>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Access control</b> - Reference tags in IAM user-based and resource-based policies. You can use tags to
-     * restrict access to only an IAM requesting user or to a role that has a specified tag attached. You can also
-     * restrict access to only those resources that have a certain tag attached. For examples of policies that show how
-     * to use tags to control access, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control Access Using IAM Tags</a> in the
-     * <i>IAM User Guide</i>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Cost allocation</b> - Use tags to help track which individuals and teams are using which AWS resources.
-     * </p>
-     * </li>
-     * </ul>
-     * <note>
-     * <ul>
-     * <li>
-     * <p>
-     * Make sure that you have no invalid tags and that you do not exceed the allowed number of tags per role. In either
-     * case, the entire request fails and <i>no</i> tags are added to the role.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * AWS always interprets the tag <code>Value</code> as a single string. If you need to store an array, you can store
-     * comma-separated values in the string. However, you must interpret the value in your code.
-     * </p>
-     * </li>
-     * </ul>
-     * </note>
-     * <p>
-     * For more information about tagging, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the <i>IAM User
-     * Guide</i>.
-     * </p>
-     * 
-     * @param tagUserRequest
-     * @return A Java Future containing the result of the TagUser operation returned by the service.
-     * @sample AmazonIdentityManagementAsync.TagUser
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/TagUser" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<TagUserResult> tagUserAsync(TagUserRequest tagUserRequest);
-
-    /**
-     * <p>
-     * Adds one or more tags to an IAM user. If a tag with the same key name already exists, then that tag is
-     * overwritten with the new value.
-     * </p>
-     * <p>
-     * A tag consists of a key name and an associated value. By assigning tags to your resources, you can do the
-     * following:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * <b>Administrative grouping and discovery</b> - Attach tags to resources to aid in organization and search. For
-     * example, you could search for all resources with the key name <i>Project</i> and the value
-     * <i>MyImportantProject</i>. Or search for all resources with the key name <i>Cost Center</i> and the value
-     * <i>41200</i>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Access control</b> - Reference tags in IAM user-based and resource-based policies. You can use tags to
-     * restrict access to only an IAM requesting user or to a role that has a specified tag attached. You can also
-     * restrict access to only those resources that have a certain tag attached. For examples of policies that show how
-     * to use tags to control access, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control Access Using IAM Tags</a> in the
-     * <i>IAM User Guide</i>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <b>Cost allocation</b> - Use tags to help track which individuals and teams are using which AWS resources.
-     * </p>
-     * </li>
-     * </ul>
-     * <note>
-     * <ul>
-     * <li>
-     * <p>
-     * Make sure that you have no invalid tags and that you do not exceed the allowed number of tags per role. In either
-     * case, the entire request fails and <i>no</i> tags are added to the role.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * AWS always interprets the tag <code>Value</code> as a single string. If you need to store an array, you can store
-     * comma-separated values in the string. However, you must interpret the value in your code.
-     * </p>
-     * </li>
-     * </ul>
-     * </note>
-     * <p>
-     * For more information about tagging, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the <i>IAM User
-     * Guide</i>.
-     * </p>
-     * 
-     * @param tagUserRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the TagUser operation returned by the service.
-     * @sample AmazonIdentityManagementAsyncHandler.TagUser
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/TagUser" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<TagUserResult> tagUserAsync(TagUserRequest tagUserRequest,
-            com.amazonaws.handlers.AsyncHandler<TagUserRequest, TagUserResult> asyncHandler);
-
-    /**
-     * <p>
-     * Removes the specified tags from the role. For more information about tagging, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the <i>IAM User
-     * Guide</i>.
-     * </p>
-     * 
-     * @param untagRoleRequest
-     * @return A Java Future containing the result of the UntagRole operation returned by the service.
-     * @sample AmazonIdentityManagementAsync.UntagRole
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UntagRole" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<UntagRoleResult> untagRoleAsync(UntagRoleRequest untagRoleRequest);
-
-    /**
-     * <p>
-     * Removes the specified tags from the role. For more information about tagging, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the <i>IAM User
-     * Guide</i>.
-     * </p>
-     * 
-     * @param untagRoleRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the UntagRole operation returned by the service.
-     * @sample AmazonIdentityManagementAsyncHandler.UntagRole
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UntagRole" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<UntagRoleResult> untagRoleAsync(UntagRoleRequest untagRoleRequest,
-            com.amazonaws.handlers.AsyncHandler<UntagRoleRequest, UntagRoleResult> asyncHandler);
-
-    /**
-     * <p>
-     * Removes the specified tags from the user. For more information about tagging, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the <i>IAM User
-     * Guide</i>.
-     * </p>
-     * 
-     * @param untagUserRequest
-     * @return A Java Future containing the result of the UntagUser operation returned by the service.
-     * @sample AmazonIdentityManagementAsync.UntagUser
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UntagUser" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<UntagUserResult> untagUserAsync(UntagUserRequest untagUserRequest);
-
-    /**
-     * <p>
-     * Removes the specified tags from the user. For more information about tagging, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the <i>IAM User
-     * Guide</i>.
-     * </p>
-     * 
-     * @param untagUserRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the UntagUser operation returned by the service.
-     * @sample AmazonIdentityManagementAsyncHandler.UntagUser
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UntagUser" target="_top">AWS API
-     *      Documentation</a>
-     */
-    java.util.concurrent.Future<UntagUserResult> untagUserAsync(UntagUserRequest untagUserRequest,
-            com.amazonaws.handlers.AsyncHandler<UntagUserRequest, UntagUserResult> asyncHandler);
-
-    /**
-     * <p>
      * Changes the status of the specified access key from Active to Inactive, or vice versa. This operation can be used
      * to disable a user's key as part of a key rotation workflow.
      * </p>
      * <p>
      * If the <code>UserName</code> field is not specified, the user name is determined implicitly based on the AWS
-     * access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently,
-     * you can use this operation to manage AWS account root user credentials even if the AWS account has no associated
+     * access key ID used to sign the request. Because this operation works for access keys under the AWS account, you
+     * can use this operation to manage AWS account root user credentials even if the AWS account has no associated
      * users.
      * </p>
      * <p>
@@ -6801,8 +5691,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If the <code>UserName</code> field is not specified, the user name is determined implicitly based on the AWS
-     * access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently,
-     * you can use this operation to manage AWS account root user credentials even if the AWS account has no associated
+     * access key ID used to sign the request. Because this operation works for access keys under the AWS account, you
+     * can use this operation to manage AWS account root user credentials even if the AWS account has no associated
      * users.
      * </p>
      * <p>
@@ -7050,8 +5940,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <note>
      * <p>
-     * Trust for the OIDC provider is derived from the provider's certificate and is validated by the thumbprint.
-     * Therefore, it is best to limit access to the <code>UpdateOpenIDConnectProviderThumbprint</code> operation to
+     * Because trust for the OIDC provider is derived from the provider's certificate and is validated by the
+     * thumbprint, it is best to limit access to the <code>UpdateOpenIDConnectProviderThumbprint</code> operation to
      * highly privileged users.
      * </p>
      * </note>
@@ -7082,8 +5972,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <note>
      * <p>
-     * Trust for the OIDC provider is derived from the provider's certificate and is validated by the thumbprint.
-     * Therefore, it is best to limit access to the <code>UpdateOpenIDConnectProviderThumbprint</code> operation to
+     * Because trust for the OIDC provider is derived from the provider's certificate and is validated by the
+     * thumbprint, it is best to limit access to the <code>UpdateOpenIDConnectProviderThumbprint</code> operation to
      * highly privileged users.
      * </p>
      * </note>
@@ -7136,7 +6026,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * Use <a>UpdateRole</a> instead.
+     * Use instead.
      * </p>
      * <p>
      * Modifies only the description of a role. This operation performs the same function as the
@@ -7153,7 +6043,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
 
     /**
      * <p>
-     * Use <a>UpdateRole</a> instead.
+     * Use instead.
      * </p>
      * <p>
      * Modifies only the description of a role. This operation performs the same function as the
@@ -7346,7 +6236,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * <p>
      * Sets the status of a service-specific credential to <code>Active</code> or <code>Inactive</code>.
      * Service-specific credentials that are inactive cannot be used for authentication to the service. This operation
-     * can be used to disable a user's service-specific credential as part of a credential rotation work flow.
+     * can be used to disable a user’s service-specific credential as part of a credential rotation work flow.
      * </p>
      * 
      * @param updateServiceSpecificCredentialRequest
@@ -7363,7 +6253,7 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * <p>
      * Sets the status of a service-specific credential to <code>Active</code> or <code>Inactive</code>.
      * Service-specific credentials that are inactive cannot be used for authentication to the service. This operation
-     * can be used to disable a user's service-specific credential as part of a credential rotation work flow.
+     * can be used to disable a user’s service-specific credential as part of a credential rotation work flow.
      * </p>
      * 
      * @param updateServiceSpecificCredentialRequest
@@ -7388,8 +6278,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If the <code>UserName</code> field is not specified, the user name is determined implicitly based on the AWS
-     * access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently,
-     * you can use this operation to manage AWS account root user credentials even if the AWS account has no associated
+     * access key ID used to sign the request. Because this operation works for access keys under the AWS account, you
+     * can use this operation to manage AWS account root user credentials even if the AWS account has no associated
      * users.
      * </p>
      * 
@@ -7408,8 +6298,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If the <code>UserName</code> field is not specified, the user name is determined implicitly based on the AWS
-     * access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently,
-     * you can use this operation to manage AWS account root user credentials even if the AWS account has no associated
+     * access key ID used to sign the request. Because this operation works for access keys under the AWS account, you
+     * can use this operation to manage AWS account root user credentials even if the AWS account has no associated
      * users.
      * </p>
      * 
@@ -7538,9 +6428,9 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * certificate, a private key, and an optional certificate chain, which should all be PEM-encoded.
      * </p>
      * <p>
-     * We recommend that you use <a href="http://docs.aws.amazon.com/certificate-manager/">AWS Certificate Manager</a>
-     * to provision, manage, and deploy your server certificates. With ACM you can request a certificate, deploy it to
-     * AWS resources, and let ACM handle certificate renewals for you. Certificates provided by ACM are free. For more
+     * We recommend that you use <a href="https://aws.amazon.com/certificate-manager/">AWS Certificate Manager</a> to
+     * provision, manage, and deploy your server certificates. With ACM you can request a certificate, deploy it to AWS
+     * resources, and let ACM handle certificate renewals for you. Certificates provided by ACM are free. For more
      * information about using ACM, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate
      * Manager User Guide</a>.
      * </p>
@@ -7581,9 +6471,9 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * certificate, a private key, and an optional certificate chain, which should all be PEM-encoded.
      * </p>
      * <p>
-     * We recommend that you use <a href="http://docs.aws.amazon.com/certificate-manager/">AWS Certificate Manager</a>
-     * to provision, manage, and deploy your server certificates. With ACM you can request a certificate, deploy it to
-     * AWS resources, and let ACM handle certificate renewals for you. Certificates provided by ACM are free. For more
+     * We recommend that you use <a href="https://aws.amazon.com/certificate-manager/">AWS Certificate Manager</a> to
+     * provision, manage, and deploy your server certificates. With ACM you can request a certificate, deploy it to AWS
+     * resources, and let ACM handle certificate renewals for you. Certificates provided by ACM are free. For more
      * information about using ACM, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate
      * Manager User Guide</a>.
      * </p>
@@ -7631,8 +6521,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If the <code>UserName</code> field is not specified, the IAM user name is determined implicitly based on the AWS
-     * access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently,
-     * you can use this operation to manage AWS account root user credentials even if the AWS account has no associated
+     * access key ID used to sign the request. Because this operation works for access keys under the AWS account, you
+     * can use this operation to manage AWS account root user credentials even if the AWS account has no associated
      * users.
      * </p>
      * <note>
@@ -7662,8 +6552,8 @@ public interface AmazonIdentityManagementAsync extends AmazonIdentityManagement 
      * </p>
      * <p>
      * If the <code>UserName</code> field is not specified, the IAM user name is determined implicitly based on the AWS
-     * access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently,
-     * you can use this operation to manage AWS account root user credentials even if the AWS account has no associated
+     * access key ID used to sign the request. Because this operation works for access keys under the AWS account, you
+     * can use this operation to manage AWS account root user credentials even if the AWS account has no associated
      * users.
      * </p>
      * <note>

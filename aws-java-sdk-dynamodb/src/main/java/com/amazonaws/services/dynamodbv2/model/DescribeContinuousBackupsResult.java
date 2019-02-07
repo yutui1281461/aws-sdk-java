@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -25,18 +25,18 @@ public class DescribeContinuousBackupsResult extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * Represents the continuous backups and point in time recovery settings on the table.
+     * <code>ContinuousBackupsDescription</code> can be one of the following : ENABLED, DISABLED.
      * </p>
      */
     private ContinuousBackupsDescription continuousBackupsDescription;
 
     /**
      * <p>
-     * Represents the continuous backups and point in time recovery settings on the table.
+     * <code>ContinuousBackupsDescription</code> can be one of the following : ENABLED, DISABLED.
      * </p>
      * 
      * @param continuousBackupsDescription
-     *        Represents the continuous backups and point in time recovery settings on the table.
+     *        <code>ContinuousBackupsDescription</code> can be one of the following : ENABLED, DISABLED.
      */
 
     public void setContinuousBackupsDescription(ContinuousBackupsDescription continuousBackupsDescription) {
@@ -45,10 +45,10 @@ public class DescribeContinuousBackupsResult extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * Represents the continuous backups and point in time recovery settings on the table.
+     * <code>ContinuousBackupsDescription</code> can be one of the following : ENABLED, DISABLED.
      * </p>
      * 
-     * @return Represents the continuous backups and point in time recovery settings on the table.
+     * @return <code>ContinuousBackupsDescription</code> can be one of the following : ENABLED, DISABLED.
      */
 
     public ContinuousBackupsDescription getContinuousBackupsDescription() {
@@ -57,11 +57,11 @@ public class DescribeContinuousBackupsResult extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * Represents the continuous backups and point in time recovery settings on the table.
+     * <code>ContinuousBackupsDescription</code> can be one of the following : ENABLED, DISABLED.
      * </p>
      * 
      * @param continuousBackupsDescription
-     *        Represents the continuous backups and point in time recovery settings on the table.
+     *        <code>ContinuousBackupsDescription</code> can be one of the following : ENABLED, DISABLED.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -71,8 +71,7 @@ public class DescribeContinuousBackupsResult extends com.amazonaws.AmazonWebServ
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

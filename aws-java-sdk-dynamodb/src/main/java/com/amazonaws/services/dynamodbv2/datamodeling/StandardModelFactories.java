@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2016-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,9 +26,9 @@ import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.joda.time.DateTime;
 
 import java.nio.ByteBuffer;
-import java.time.ZonedDateTime;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
@@ -297,7 +297,7 @@ final class StandardModelFactories {
             }
             @Override
             public boolean isAssignableFrom(ConvertibleType<?> type) {
-                return (type.is(Date.class) || type.is(Calendar.class) || type.is(ZonedDateTime.class))
+                return (type.is(Date.class) || type.is(Calendar.class) || type.is(DateTime.class))
                        && super.isAssignableFrom(type) && (type.attributeType() != null || type.is(N));
             }
             @Override

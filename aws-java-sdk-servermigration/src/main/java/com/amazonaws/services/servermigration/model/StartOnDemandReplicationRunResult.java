@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -23,20 +23,10 @@ import javax.annotation.Generated;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class StartOnDemandReplicationRunResult extends com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata> implements Serializable, Cloneable {
 
-    /**
-     * <p>
-     * The identifier of the replication run.
-     * </p>
-     */
     private String replicationRunId;
 
     /**
-     * <p>
-     * The identifier of the replication run.
-     * </p>
-     * 
      * @param replicationRunId
-     *        The identifier of the replication run.
      */
 
     public void setReplicationRunId(String replicationRunId) {
@@ -44,11 +34,7 @@ public class StartOnDemandReplicationRunResult extends com.amazonaws.AmazonWebSe
     }
 
     /**
-     * <p>
-     * The identifier of the replication run.
-     * </p>
-     * 
-     * @return The identifier of the replication run.
+     * @return
      */
 
     public String getReplicationRunId() {
@@ -56,12 +42,7 @@ public class StartOnDemandReplicationRunResult extends com.amazonaws.AmazonWebSe
     }
 
     /**
-     * <p>
-     * The identifier of the replication run.
-     * </p>
-     * 
      * @param replicationRunId
-     *        The identifier of the replication run.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -71,8 +52,7 @@ public class StartOnDemandReplicationRunResult extends com.amazonaws.AmazonWebSe
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,8 +37,6 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
-import com.amazonaws.client.builder.AdvancedConfig;
-
 import com.amazonaws.services.secretsmanager.AWSSecretsManagerClientBuilder;
 
 import com.amazonaws.AmazonServiceException;
@@ -125,7 +123,6 @@ import com.amazonaws.services.secretsmanager.model.transform.*;
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class AWSSecretsManagerClient extends AmazonWebServiceClient implements AWSSecretsManager {
-
     /** Provider for AWS credentials. */
     private final AWSCredentialsProvider awsCredentialsProvider;
 
@@ -136,8 +133,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
-
-    private final AdvancedConfig advancedConfig;
 
     private static final com.amazonaws.protocol.json.SdkJsonProtocolFactory protocolFactory = new com.amazonaws.protocol.json.SdkJsonProtocolFactory(
             new JsonClientMetadata()
@@ -157,14 +152,14 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                             new JsonErrorShapeMetadata().withErrorCode("DecryptionFailure").withModeledClass(
                                     com.amazonaws.services.secretsmanager.model.DecryptionFailureException.class))
                     .addErrorMetadata(
+                            new JsonErrorShapeMetadata().withErrorCode("InternalServiceError").withModeledClass(
+                                    com.amazonaws.services.secretsmanager.model.InternalServiceErrorException.class))
+                    .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("InvalidRequestException").withModeledClass(
                                     com.amazonaws.services.secretsmanager.model.InvalidRequestException.class))
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("ResourceNotFoundException").withModeledClass(
                                     com.amazonaws.services.secretsmanager.model.ResourceNotFoundException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("InternalServiceError").withModeledClass(
-                                    com.amazonaws.services.secretsmanager.model.InternalServiceErrorException.class))
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("ResourceExistsException").withModeledClass(
                                     com.amazonaws.services.secretsmanager.model.ResourceExistsException.class))
@@ -174,9 +169,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                     .addErrorMetadata(
                             new JsonErrorShapeMetadata().withErrorCode("LimitExceededException").withModeledClass(
                                     com.amazonaws.services.secretsmanager.model.LimitExceededException.class))
-                    .addErrorMetadata(
-                            new JsonErrorShapeMetadata().withErrorCode("PreconditionNotMetException").withModeledClass(
-                                    com.amazonaws.services.secretsmanager.model.PreconditionNotMetException.class))
                     .withBaseServiceExceptionClass(com.amazonaws.services.secretsmanager.model.AWSSecretsManagerException.class));
 
     public static AWSSecretsManagerClientBuilder builder() {
@@ -194,23 +186,8 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      *        Object providing client parameters.
      */
     AWSSecretsManagerClient(AwsSyncClientParams clientParams) {
-        this(clientParams, false);
-    }
-
-    /**
-     * Constructs a new client to invoke service methods on AWS Secrets Manager using the specified parameters.
-     *
-     * <p>
-     * All service calls made using this new client object are blocking, and will not return until the service call
-     * completes.
-     *
-     * @param clientParams
-     *        Object providing client parameters.
-     */
-    AWSSecretsManagerClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -237,9 +214,9 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * <p>
      * If you cancel a rotation that is in progress, it can leave the <code>VersionStage</code> labels in an unexpected
      * state. Depending on what step of the rotation was in progress, you might need to remove the staging label
-     * <code>AWSPENDING</code> from the partially created version, specified by the <code>VersionId</code> response
-     * value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can
-     * do by removing all staging labels from the new version's <code>VersionStage</code> field.
+     * <code>AWSPENDING</code> from the partially created version, specified by the <code>SecretVersionId</code>
+     * response value. You should also evaluate the partially rotated new version to see if it should be deleted, which
+     * you can do by removing all staging labels from the new version's <code>VersionStage</code> field.
      * </p>
      * </note>
      * <p>
@@ -310,22 +287,9 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * @throws InternalServiceErrorException
      *         An error occurred on the server side.
      * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
+     *         You provided a parameter value that is not valid for the current state of the resource. For example, if
+     *         you try to enable rotation on a secret, you must already have a Lambda function ARN configured or
+     *         included as a parameter in this call.
      * @sample AWSSecretsManager.CancelRotateSecret
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/secretsmanager-2017-10-17/CancelRotateSecret"
      *      target="_top">AWS API Documentation</a>
@@ -352,9 +316,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CancelRotateSecret");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -396,22 +357,22 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * <p>
      * If you call an operation that needs to encrypt or decrypt the <code>SecretString</code> or
      * <code>SecretBinary</code> for a secret in the same account as the calling user and that secret doesn't specify a
-     * AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the
+     * KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the
      * alias <code>aws/secretsmanager</code>. If this key doesn't already exist in your account then Secrets Manager
-     * creates it for you automatically. All users and roles in the same AWS account automatically have access to use
-     * the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account's
-     * AWS-managed CMK, it can result in a one-time significant delay in returning the result.
+     * creates it for you automatically. All users in the same AWS account automatically have access to use the default
+     * CMK. Note that if an Secrets Manager API call results in AWS having to create the account's AWS-managed CMK, it
+     * can result in a one-time significant delay in returning the result.
      * </p>
      * </li>
      * <li>
      * <p>
      * If the secret is in a different AWS account from the credentials calling an API that requires encryption or
-     * decryption of the secret value then you must create and use a custom AWS KMS CMK because you can't access the
-     * default CMK for the account using credentials from a different AWS account. Store the ARN of the CMK in the
-     * secret when you create the secret or when you update it by including it in the <code>KMSKeyId</code>. If you call
-     * an API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code> using credentials from
-     * a different account then the AWS KMS key policy must grant cross-account access to that other account's user or
-     * role for both the kms:GenerateDataKey and kms:Decrypt operations.
+     * decryption of the secret value then you must create and use a custom KMS CMK because you can't access the default
+     * CMK for the account using credentials from a different AWS account. Store the ARN of the CMK in the secret when
+     * you create the secret or when you update it by including it in the <code>KMSKeyId</code>. If you call an API that
+     * must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code> using credentials from a different
+     * account then the KMS key policy must grant cross-account access to that other account's user or role for both the
+     * kms:GenerateDataKey and kms:Decrypt operations.
      * </p>
      * </li>
      * </ul>
@@ -432,19 +393,14 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * </li>
      * <li>
      * <p>
-     * kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt the secret. You do not
-     * need this permission to use the account's default AWS managed CMK for Secrets Manager.
+     * kms:GenerateDataKey - needed only if you use a customer-created KMS key to encrypt the secret. You do not need
+     * this permission to use the account's default AWS managed CMK for Secrets Manager.
      * </p>
      * </li>
      * <li>
      * <p>
-     * kms:Decrypt - needed only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this
+     * kms:Decrypt - needed only if you use a customer-created KMS key to encrypt the secret. You do not need this
      * permission to use the account's default AWS managed CMK for Secrets Manager.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * secretsmanager:TagResource - needed only if you include the <code>Tags</code> parameter.
      * </p>
      * </li>
      * </ul>
@@ -491,22 +447,9 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * @throws InvalidParameterException
      *         You provided an invalid value for a parameter.
      * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
+     *         You provided a parameter value that is not valid for the current state of the resource. For example, if
+     *         you try to enable rotation on a secret, you must already have a Lambda function ARN configured or
+     *         included as a parameter in this call.
      * @throws LimitExceededException
      *         The request failed because it would exceed one of the Secrets Manager internal limits.
      * @throws EncryptionFailureException
@@ -522,8 +465,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      *         The policy document that you provided isn't valid.
      * @throws InternalServiceErrorException
      *         An error occurred on the server side.
-     * @throws PreconditionNotMetException
-     *         The request failed because you did not complete all the prerequisite steps.
      * @sample AWSSecretsManager.CreateSecret
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/secretsmanager-2017-10-17/CreateSecret" target="_top">AWS
      *      API Documentation</a>
@@ -550,121 +491,12 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateSecret");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
 
             HttpResponseHandler<AmazonWebServiceResponse<CreateSecretResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new CreateSecretResultJsonUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
-     * Deletes the resource-based permission policy that's attached to the secret.
-     * </p>
-     * <p>
-     * <b>Minimum permissions</b>
-     * </p>
-     * <p>
-     * To run this command, you must have the following permissions:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * secretsmanager:DeleteResourcePolicy
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * <b>Related operations</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * To attach a resource policy to a secret, use <a>PutResourcePolicy</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * To retrieve the current resource-based policy that's attached to a secret, use <a>GetResourcePolicy</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * To list all of the currently available secrets, use <a>ListSecrets</a>.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @param deleteResourcePolicyRequest
-     * @return Result of the DeleteResourcePolicy operation returned by the service.
-     * @throws ResourceNotFoundException
-     *         We can't find the resource that you asked for.
-     * @throws InternalServiceErrorException
-     *         An error occurred on the server side.
-     * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
-     * @sample AWSSecretsManager.DeleteResourcePolicy
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/secretsmanager-2017-10-17/DeleteResourcePolicy"
-     *      target="_top">AWS API Documentation</a>
-     */
-    @Override
-    public DeleteResourcePolicyResult deleteResourcePolicy(DeleteResourcePolicyRequest request) {
-        request = beforeClientExecution(request);
-        return executeDeleteResourcePolicy(request);
-    }
-
-    @SdkInternalApi
-    final DeleteResourcePolicyResult executeDeleteResourcePolicy(DeleteResourcePolicyRequest deleteResourcePolicyRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(deleteResourcePolicyRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<DeleteResourcePolicyRequest> request = null;
-        Response<DeleteResourcePolicyResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new DeleteResourcePolicyRequestProtocolMarshaller(protocolFactory).marshall(super.beforeMarshalling(deleteResourcePolicyRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteResourcePolicy");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            HttpResponseHandler<AmazonWebServiceResponse<DeleteResourcePolicyResult>> responseHandler = protocolFactory.createResponseHandler(
-                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new DeleteResourcePolicyResultJsonUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
 
             return response.getAwsResponse();
@@ -746,22 +578,9 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * @throws InvalidParameterException
      *         You provided an invalid value for a parameter.
      * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
+     *         You provided a parameter value that is not valid for the current state of the resource. For example, if
+     *         you try to enable rotation on a secret, you must already have a Lambda function ARN configured or
+     *         included as a parameter in this call.
      * @throws InternalServiceErrorException
      *         An error occurred on the server side.
      * @sample AWSSecretsManager.DeleteSecret
@@ -790,9 +609,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteSecret");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -885,9 +701,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeSecret");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -929,22 +742,9 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * @throws InvalidParameterException
      *         You provided an invalid value for a parameter.
      * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
+     *         You provided a parameter value that is not valid for the current state of the resource. For example, if
+     *         you try to enable rotation on a secret, you must already have a Lambda function ARN configured or
+     *         included as a parameter in this call.
      * @throws InternalServiceErrorException
      *         An error occurred on the server side.
      * @sample AWSSecretsManager.GetRandomPassword
@@ -973,123 +773,12 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetRandomPassword");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
 
             HttpResponseHandler<AmazonWebServiceResponse<GetRandomPasswordResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new GetRandomPasswordResultJsonUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
-     * Retrieves the JSON text of the resource-based policy document that's attached to the specified secret. The JSON
-     * request string input and response output are shown formatted with white space and line breaks for better
-     * readability. Submit your input as a single line JSON string.
-     * </p>
-     * <p>
-     * <b>Minimum permissions</b>
-     * </p>
-     * <p>
-     * To run this command, you must have the following permissions:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * secretsmanager:GetResourcePolicy
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * <b>Related operations</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * To attach a resource policy to a secret, use <a>PutResourcePolicy</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * To delete the resource-based policy that's attached to a secret, use <a>DeleteResourcePolicy</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * To list all of the currently available secrets, use <a>ListSecrets</a>.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @param getResourcePolicyRequest
-     * @return Result of the GetResourcePolicy operation returned by the service.
-     * @throws ResourceNotFoundException
-     *         We can't find the resource that you asked for.
-     * @throws InternalServiceErrorException
-     *         An error occurred on the server side.
-     * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
-     * @sample AWSSecretsManager.GetResourcePolicy
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/secretsmanager-2017-10-17/GetResourcePolicy"
-     *      target="_top">AWS API Documentation</a>
-     */
-    @Override
-    public GetResourcePolicyResult getResourcePolicy(GetResourcePolicyRequest request) {
-        request = beforeClientExecution(request);
-        return executeGetResourcePolicy(request);
-    }
-
-    @SdkInternalApi
-    final GetResourcePolicyResult executeGetResourcePolicy(GetResourcePolicyRequest getResourcePolicyRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(getResourcePolicyRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<GetResourcePolicyRequest> request = null;
-        Response<GetResourcePolicyResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new GetResourcePolicyRequestProtocolMarshaller(protocolFactory).marshall(super.beforeMarshalling(getResourcePolicyRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetResourcePolicy");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            HttpResponseHandler<AmazonWebServiceResponse<GetResourcePolicyResult>> responseHandler = protocolFactory.createResponseHandler(
-                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new GetResourcePolicyResultJsonUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
 
             return response.getAwsResponse();
@@ -1119,7 +808,7 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * </li>
      * <li>
      * <p>
-     * kms:Decrypt - required only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this
+     * kms:Decrypt - required only if you use a customer-created KMS key to encrypt the secret. You do not need this
      * permission to use the account's default AWS managed CMK for Secrets Manager.
      * </p>
      * </li>
@@ -1147,22 +836,9 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * @throws InvalidParameterException
      *         You provided an invalid value for a parameter.
      * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
+     *         You provided a parameter value that is not valid for the current state of the resource. For example, if
+     *         you try to enable rotation on a secret, you must already have a Lambda function ARN configured or
+     *         included as a parameter in this call.
      * @throws DecryptionFailureException
      *         Secrets Manager can't decrypt the protected secret text using the provided KMS key.
      * @throws InternalServiceErrorException
@@ -1193,9 +869,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetSecretValue");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1284,9 +957,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListSecretVersionIds");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1376,133 +1046,12 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListSecrets");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
 
             HttpResponseHandler<AmazonWebServiceResponse<ListSecretsResult>> responseHandler = protocolFactory.createResponseHandler(
                     new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new ListSecretsResultJsonUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
-     * Attaches the contents of the specified resource-based permission policy to a secret. A resource-based policy is
-     * optional. Alternatively, you can use IAM identity-based policies that specify the secret's Amazon Resource Name
-     * (ARN) in the policy statement's <code>Resources</code> element. You can also use a combination of both
-     * identity-based and resource-based policies. The affected users and roles receive the permissions that are
-     * permitted by all of the relevant policies. For more information, see <a
-     * href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html"
-     * >Using Resource-Based Policies for AWS Secrets Manager</a>. For the complete description of the AWS policy syntax
-     * and grammar, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON
-     * Policy Reference</a> in the <i>IAM User Guide</i>.
-     * </p>
-     * <p>
-     * <b>Minimum permissions</b>
-     * </p>
-     * <p>
-     * To run this command, you must have the following permissions:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * secretsmanager:PutResourcePolicy
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * <b>Related operations</b>
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * To retrieve the resource policy that's attached to a secret, use <a>GetResourcePolicy</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * To delete the resource-based policy that's attached to a secret, use <a>DeleteResourcePolicy</a>.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * To list all of the currently available secrets, use <a>ListSecrets</a>.
-     * </p>
-     * </li>
-     * </ul>
-     * 
-     * @param putResourcePolicyRequest
-     * @return Result of the PutResourcePolicy operation returned by the service.
-     * @throws MalformedPolicyDocumentException
-     *         The policy document that you provided isn't valid.
-     * @throws ResourceNotFoundException
-     *         We can't find the resource that you asked for.
-     * @throws InvalidParameterException
-     *         You provided an invalid value for a parameter.
-     * @throws InternalServiceErrorException
-     *         An error occurred on the server side.
-     * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
-     * @sample AWSSecretsManager.PutResourcePolicy
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/secretsmanager-2017-10-17/PutResourcePolicy"
-     *      target="_top">AWS API Documentation</a>
-     */
-    @Override
-    public PutResourcePolicyResult putResourcePolicy(PutResourcePolicyRequest request) {
-        request = beforeClientExecution(request);
-        return executePutResourcePolicy(request);
-    }
-
-    @SdkInternalApi
-    final PutResourcePolicyResult executePutResourcePolicy(PutResourcePolicyRequest putResourcePolicyRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(putResourcePolicyRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<PutResourcePolicyRequest> request = null;
-        Response<PutResourcePolicyResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new PutResourcePolicyRequestProtocolMarshaller(protocolFactory).marshall(super.beforeMarshalling(putResourcePolicyRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutResourcePolicy");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            HttpResponseHandler<AmazonWebServiceResponse<PutResourcePolicyResult>> responseHandler = protocolFactory.createResponseHandler(
-                    new JsonOperationMetadata().withPayloadJson(true).withHasStreamingSuccessResponse(false), new PutResourcePolicyResultJsonUnmarshaller());
             response = invoke(request, responseHandler, executionContext);
 
             return response.getAwsResponse();
@@ -1548,7 +1097,7 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * </li>
      * <li>
      * <p>
-     * This operation is idempotent. If a version with a <code>VersionId</code> with the same value as the
+     * This operation is idempotent. If a version with a <code>SecretVersionId</code> with the same value as the
      * <code>ClientRequestToken</code> parameter already exists and you specify the same secret data, the operation
      * succeeds but does nothing. However, if the secret data is different, then the operation fails because you cannot
      * modify an existing version; you can only create new ones.
@@ -1561,22 +1110,22 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * <p>
      * If you call an operation that needs to encrypt or decrypt the <code>SecretString</code> or
      * <code>SecretBinary</code> for a secret in the same account as the calling user and that secret doesn't specify a
-     * AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the
+     * KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the
      * alias <code>aws/secretsmanager</code>. If this key doesn't already exist in your account then Secrets Manager
-     * creates it for you automatically. All users and roles in the same AWS account automatically have access to use
-     * the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account's
-     * AWS-managed CMK, it can result in a one-time significant delay in returning the result.
+     * creates it for you automatically. All users in the same AWS account automatically have access to use the default
+     * CMK. Note that if an Secrets Manager API call results in AWS having to create the account's AWS-managed CMK, it
+     * can result in a one-time significant delay in returning the result.
      * </p>
      * </li>
      * <li>
      * <p>
      * If the secret is in a different AWS account from the credentials calling an API that requires encryption or
-     * decryption of the secret value then you must create and use a custom AWS KMS CMK because you can't access the
-     * default CMK for the account using credentials from a different AWS account. Store the ARN of the CMK in the
-     * secret when you create the secret or when you update it by including it in the <code>KMSKeyId</code>. If you call
-     * an API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code> using credentials from
-     * a different account then the AWS KMS key policy must grant cross-account access to that other account's user or
-     * role for both the kms:GenerateDataKey and kms:Decrypt operations.
+     * decryption of the secret value then you must create and use a custom KMS CMK because you can't access the default
+     * CMK for the account using credentials from a different AWS account. Store the ARN of the CMK in the secret when
+     * you create the secret or when you update it by including it in the <code>KMSKeyId</code>. If you call an API that
+     * must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code> using credentials from a different
+     * account then the KMS key policy must grant cross-account access to that other account's user or role for both the
+     * kms:GenerateDataKey and kms:Decrypt operations.
      * </p>
      * </li>
      * </ul>
@@ -1595,8 +1144,14 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * </li>
      * <li>
      * <p>
-     * kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt the secret. You do not
-     * need this permission to use the account's default AWS managed CMK for Secrets Manager.
+     * kms:GenerateDataKey - needed only if you use a customer-created KMS key to encrypt the secret. You do not need
+     * this permission to use the account's AWS managed CMK for Secrets Manager.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * kms:Encrypt - needed only if you use a customer-created KMS key to encrypt the secret. You do not need this
+     * permission to use the account's AWS managed CMK for Secrets Manager.
      * </p>
      * </li>
      * </ul>
@@ -1631,22 +1186,9 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * @throws InvalidParameterException
      *         You provided an invalid value for a parameter.
      * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
+     *         You provided a parameter value that is not valid for the current state of the resource. For example, if
+     *         you try to enable rotation on a secret, you must already have a Lambda function ARN configured or
+     *         included as a parameter in this call.
      * @throws LimitExceededException
      *         The request failed because it would exceed one of the Secrets Manager internal limits.
      * @throws EncryptionFailureException
@@ -1686,9 +1228,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutSecretValue");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1741,22 +1280,9 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * @throws InvalidParameterException
      *         You provided an invalid value for a parameter.
      * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
+     *         You provided a parameter value that is not valid for the current state of the resource. For example, if
+     *         you try to enable rotation on a secret, you must already have a Lambda function ARN configured or
+     *         included as a parameter in this call.
      * @throws InternalServiceErrorException
      *         An error occurred on the server side.
      * @sample AWSSecretsManager.RestoreSecret
@@ -1785,9 +1311,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RestoreSecret");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1821,12 +1344,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * for your protected service, see <a
      * href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating Secrets in AWS
      * Secrets Manager</a> in the <i>AWS Secrets Manager User Guide</i>.
-     * </p>
-     * <p>
-     * Secrets Manager schedules the next rotation when the previous one is complete. Secrets Manager schedules the date
-     * by adding the rotation interval (number of days) to the actual date of the last rotation. The service chooses the
-     * hour within that 24-hour date window randomly. The minute is also chosen somewhat randomly, but weighted towards
-     * the top of the hour and influenced by a variety of factors that help distribute load.
      * </p>
      * <p>
      * The rotation function must end with the versions of the secret in one of two states:
@@ -1903,22 +1420,9 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * @throws InternalServiceErrorException
      *         An error occurred on the server side.
      * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
+     *         You provided a parameter value that is not valid for the current state of the resource. For example, if
+     *         you try to enable rotation on a secret, you must already have a Lambda function ARN configured or
+     *         included as a parameter in this call.
      * @sample AWSSecretsManager.RotateSecret
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/secretsmanager-2017-10-17/RotateSecret" target="_top">AWS
      *      API Documentation</a>
@@ -1945,9 +1449,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RotateSecret");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2049,23 +1550,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * @return Result of the TagResource operation returned by the service.
      * @throws ResourceNotFoundException
      *         We can't find the resource that you asked for.
-     * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
      * @throws InvalidParameterException
      *         You provided an invalid value for a parameter.
      * @throws InternalServiceErrorException
@@ -2096,9 +1580,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "TagResource");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2163,23 +1644,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * @return Result of the UntagResource operation returned by the service.
      * @throws ResourceNotFoundException
      *         We can't find the resource that you asked for.
-     * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
      * @throws InvalidParameterException
      *         You provided an invalid value for a parameter.
      * @throws InternalServiceErrorException
@@ -2210,9 +1674,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UntagResource");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2231,9 +1692,8 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
 
     /**
      * <p>
-     * Modifies many of the details of the specified secret. If you include a <code>ClientRequestToken</code> and
-     * <i>either</i> <code>SecretString</code> or <code>SecretBinary</code> then it also creates a new version attached
-     * to the secret.
+     * Modifies many of the details of a secret. If you include a <code>ClientRequestToken</code> and either
+     * <code>SecretString</code> or <code>SecretBinary</code> then it also creates a new version attached to the secret.
      * </p>
      * <p>
      * To modify the rotation configuration of a secret, use <a>RotateSecret</a> instead.
@@ -2248,9 +1708,9 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * <ul>
      * <li>
      * <p>
-     * If a version with a <code>VersionId</code> with the same value as the <code>ClientRequestToken</code> parameter
-     * already exists, the operation results in an error. You cannot modify an existing version, you can only create a
-     * new version.
+     * If a version with a <code>SecretVersionId</code> with the same value as the <code>ClientRequestToken</code>
+     * parameter already exists, the operation generates an error. You cannot modify an existing version, you can only
+     * create new ones.
      * </p>
      * </li>
      * <li>
@@ -2266,22 +1726,22 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * <p>
      * If you call an operation that needs to encrypt or decrypt the <code>SecretString</code> or
      * <code>SecretBinary</code> for a secret in the same account as the calling user and that secret doesn't specify a
-     * AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the
+     * KMS encryption key, Secrets Manager uses the account's default AWS managed customer master key (CMK) with the
      * alias <code>aws/secretsmanager</code>. If this key doesn't already exist in your account then Secrets Manager
-     * creates it for you automatically. All users and roles in the same AWS account automatically have access to use
-     * the default CMK. Note that if an Secrets Manager API call results in AWS having to create the account's
-     * AWS-managed CMK, it can result in a one-time significant delay in returning the result.
+     * creates it for you automatically. All users in the same AWS account automatically have access to use the default
+     * CMK. Note that if an Secrets Manager API call results in AWS having to create the account's AWS-managed CMK, it
+     * can result in a one-time significant delay in returning the result.
      * </p>
      * </li>
      * <li>
      * <p>
      * If the secret is in a different AWS account from the credentials calling an API that requires encryption or
-     * decryption of the secret value then you must create and use a custom AWS KMS CMK because you can't access the
-     * default CMK for the account using credentials from a different AWS account. Store the ARN of the CMK in the
-     * secret when you create the secret or when you update it by including it in the <code>KMSKeyId</code>. If you call
-     * an API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code> using credentials from
-     * a different account then the AWS KMS key policy must grant cross-account access to that other account's user or
-     * role for both the kms:GenerateDataKey and kms:Decrypt operations.
+     * decryption of the secret value then you must create and use a custom KMS CMK because you can't access the default
+     * CMK for the account using credentials from a different AWS account. Store the ARN of the CMK in the secret when
+     * you create the secret or when you update it by including it in the <code>KMSKeyId</code>. If you call an API that
+     * must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code> using credentials from a different
+     * account then the KMS key policy must grant cross-account access to that other account's user or role for both the
+     * kms:GenerateDataKey and kms:Decrypt operations.
      * </p>
      * </li>
      * </ul>
@@ -2300,14 +1760,14 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * </li>
      * <li>
      * <p>
-     * kms:GenerateDataKey - needed only if you use a custom AWS KMS key to encrypt the secret. You do not need this
+     * kms:GenerateDataKey - needed only if you use a custom KMS key to encrypt the secret. You do not need this
      * permission to use the account's AWS managed CMK for Secrets Manager.
      * </p>
      * </li>
      * <li>
      * <p>
-     * kms:Decrypt - needed only if you use a custom AWS KMS key to encrypt the secret. You do not need this permission
-     * to use the account's AWS managed CMK for Secrets Manager.
+     * kms:Decrypt - needed only if you use a custom KMS key to encrypt the secret. You do not need this permission to
+     * use the account's AWS managed CMK for Secrets Manager.
      * </p>
      * </li>
      * </ul>
@@ -2342,22 +1802,9 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * @throws InvalidParameterException
      *         You provided an invalid value for a parameter.
      * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
+     *         You provided a parameter value that is not valid for the current state of the resource. For example, if
+     *         you try to enable rotation on a secret, you must already have a Lambda function ARN configured or
+     *         included as a parameter in this call.
      * @throws LimitExceededException
      *         The request failed because it would exceed one of the Secrets Manager internal limits.
      * @throws EncryptionFailureException
@@ -2373,8 +1820,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      *         The policy document that you provided isn't valid.
      * @throws InternalServiceErrorException
      *         An error occurred on the server side.
-     * @throws PreconditionNotMetException
-     *         The request failed because you did not complete all the prerequisite steps.
      * @sample AWSSecretsManager.UpdateSecret
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/secretsmanager-2017-10-17/UpdateSecret" target="_top">AWS
      *      API Documentation</a>
@@ -2401,9 +1846,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateSecret");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2478,22 +1920,9 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * @throws InvalidParameterException
      *         You provided an invalid value for a parameter.
      * @throws InvalidRequestException
-     *         You provided a parameter value that is not valid for the current state of the resource.</p>
-     *         <p>
-     *         Possible causes:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         You tried to perform the operation on a secret that's currently marked deleted.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and
-     *         you didn't include such an ARN as a parameter in this call.
-     *         </p>
-     *         </li>
+     *         You provided a parameter value that is not valid for the current state of the resource. For example, if
+     *         you try to enable rotation on a secret, you must already have a Lambda function ARN configured or
+     *         included as a parameter in this call.
      * @throws LimitExceededException
      *         The request failed because it would exceed one of the Secrets Manager internal limits.
      * @throws InternalServiceErrorException
@@ -2525,9 +1954,6 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Secrets Manager");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateSecretVersionStage");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2569,18 +1995,9 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null, null);
-    }
-
-    /**
-     * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
-     **/
-    private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
-
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -2590,7 +2007,7 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null, null);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -2598,17 +2015,8 @@ public class AWSSecretsManagerClient extends AmazonWebServiceClient implements A
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
-
-        if (discoveredEndpoint != null) {
-            request.setEndpoint(discoveredEndpoint);
-            request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
-        } else if (uriFromEndpointTrait != null) {
-            request.setEndpoint(uriFromEndpointTrait);
-        } else {
-            request.setEndpoint(endpoint);
-        }
-
+            ExecutionContext executionContext) {
+        request.setEndpoint(endpoint);
         request.setTimeOffset(timeOffset);
 
         HttpResponseHandler<AmazonServiceException> errorResponseHandler = protocolFactory.createErrorResponseHandler(new JsonErrorResponseMetadata());

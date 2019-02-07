@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2011-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -29,11 +29,10 @@ import com.amazonaws.internal.auth.SignerProvider;
 import com.amazonaws.regions.Region;
 import com.amazonaws.util.ImmutableMapParameter;
 
+import org.joda.time.DateTime;
+
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.Collections;
 import java.util.Date;
 
@@ -105,9 +104,7 @@ public class RdsIamAuthTokenGenerator {
     }
 
     private Date getExpirationDate() {
-        Instant instant = Instant.ofEpochMilli(clock.currentTimeMillis());
-        ZonedDateTime dateTime = ZonedDateTime.ofInstant(instant, ZoneId.systemDefault()).plusMinutes(DEFAULT_EXPIRATION_IN_MINUTES);
-        return Date.from(dateTime.toInstant());
+        return new DateTime(clock.currentTimeMillis()).plusMinutes(DEFAULT_EXPIRATION_IN_MINUTES).toDate();
     }
 
     public static Builder builder() {

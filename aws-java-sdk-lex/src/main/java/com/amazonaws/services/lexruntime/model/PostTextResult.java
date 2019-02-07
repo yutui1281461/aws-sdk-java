@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -1566,8 +1566,7 @@ public class PostTextResult extends com.amazonaws.AmazonWebServiceResult<com.ama
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1580,11 +1579,11 @@ public class PostTextResult extends com.amazonaws.AmazonWebServiceResult<com.ama
         if (getIntentName() != null)
             sb.append("IntentName: ").append(getIntentName()).append(",");
         if (getSlots() != null)
-            sb.append("Slots: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("Slots: ").append(getSlots()).append(",");
         if (getSessionAttributes() != null)
-            sb.append("SessionAttributes: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("SessionAttributes: ").append(getSessionAttributes()).append(",");
         if (getMessage() != null)
-            sb.append("Message: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("Message: ").append(getMessage()).append(",");
         if (getMessageFormat() != null)
             sb.append("MessageFormat: ").append(getMessageFormat()).append(",");
         if (getDialogState() != null)

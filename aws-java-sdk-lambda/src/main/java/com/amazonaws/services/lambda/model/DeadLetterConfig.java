@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,8 +19,8 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * The <a href="http://docs.aws.amazon.com/lambda/latest/dg/dlq.html">dead letter queue</a> for failed asynchronous
- * invocations.
+ * The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue
+ * (DLQ). For more information, see <a>dlq</a>.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeadLetterConfig" target="_top">AWS API
@@ -31,18 +31,21 @@ public class DeadLetterConfig implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+     * The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue
+     * (DLQ). <a>dlq</a>. For more information, see <a>dlq</a>.
      * </p>
      */
     private String targetArn;
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+     * The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue
+     * (DLQ). <a>dlq</a>. For more information, see <a>dlq</a>.
      * </p>
      * 
      * @param targetArn
-     *        The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+     *        The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter
+     *        Queue (DLQ). <a>dlq</a>. For more information, see <a>dlq</a>.
      */
 
     public void setTargetArn(String targetArn) {
@@ -51,10 +54,12 @@ public class DeadLetterConfig implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+     * The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue
+     * (DLQ). <a>dlq</a>. For more information, see <a>dlq</a>.
      * </p>
      * 
-     * @return The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+     * @return The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter
+     *         Queue (DLQ). <a>dlq</a>. For more information, see <a>dlq</a>.
      */
 
     public String getTargetArn() {
@@ -63,11 +68,13 @@ public class DeadLetterConfig implements Serializable, Cloneable, StructuredPojo
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+     * The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue
+     * (DLQ). <a>dlq</a>. For more information, see <a>dlq</a>.
      * </p>
      * 
      * @param targetArn
-     *        The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+     *        The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter
+     *        Queue (DLQ). <a>dlq</a>. For more information, see <a>dlq</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -77,8 +84,7 @@ public class DeadLetterConfig implements Serializable, Cloneable, StructuredPojo
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

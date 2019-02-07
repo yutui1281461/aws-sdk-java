@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,8 +37,6 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
-import com.amazonaws.client.builder.AdvancedConfig;
-
 import com.amazonaws.services.autoscaling.AmazonAutoScalingClientBuilder;
 import com.amazonaws.services.autoscaling.waiters.AmazonAutoScalingWaiters;
 
@@ -54,19 +52,13 @@ import com.amazonaws.services.autoscaling.model.transform.*;
  * <fullname>Amazon EC2 Auto Scaling</fullname>
  * <p>
  * Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined
- * policies, schedules, and health checks. Use this service with AWS Auto Scaling, Amazon CloudWatch, and Elastic Load
- * Balancing.
- * </p>
- * <p>
- * For more information, see the <a
- * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon EC2 Auto
- * Scaling User Guide</a>.
+ * policies, schedules, and health checks. Use this service in conjunction with the AWS Auto Scaling, Amazon CloudWatch,
+ * and Elastic Load Balancing services.
  * </p>
  */
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class AmazonAutoScalingClient extends AmazonWebServiceClient implements AmazonAutoScaling {
-
     /** Provider for AWS credentials. */
     private final AWSCredentialsProvider awsCredentialsProvider;
 
@@ -79,8 +71,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
-
-    private final AdvancedConfig advancedConfig;
 
     /**
      * List of exception unmarshallers for all modeled exceptions
@@ -170,7 +160,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
     public AmazonAutoScalingClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -236,7 +225,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -255,23 +243,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      *        Object providing client parameters.
      */
     AmazonAutoScalingClient(AwsSyncClientParams clientParams) {
-        this(clientParams, false);
-    }
-
-    /**
-     * Constructs a new client to invoke service methods on Auto Scaling using the specified parameters.
-     *
-     * <p>
-     * All service calls made using this new client object are blocking, and will not return until the service call
-     * completes.
-     *
-     * @param clientParams
-     *        Object providing client parameters.
-     */
-    AmazonAutoScalingClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -300,9 +273,9 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * Attaches one or more EC2 instances to the specified Auto Scaling group.
      * </p>
      * <p>
-     * When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the number of
-     * instances being attached. If the number of instances being attached plus the desired capacity of the group
-     * exceeds the maximum size of the group, the operation fails.
+     * When you attach instances, Auto Scaling increases the desired capacity of the group by the number of instances
+     * being attached. If the number of instances being attached plus the desired capacity of the group exceeds the
+     * maximum size of the group, the operation fails.
      * </p>
      * <p>
      * If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with
@@ -311,8 +284,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html">Attach EC2 Instances to Your
-     * Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-instance-asg.html">Attach EC2 Instances to
+     * Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param attachInstancesRequest
@@ -348,9 +321,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AttachInstances");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -377,8 +347,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html">Attach a Load Balancer
-     * to Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-load-balancer-asg.html">Attach a Load
+     * Balancer to Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param attachLoadBalancerTargetGroupsRequest
@@ -414,9 +384,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AttachLoadBalancerTargetGroups");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -446,8 +413,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html">Attach a Load Balancer
-     * to Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-load-balancer-asg.html">Attach a Load
+     * Balancer to Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param attachLoadBalancersRequest
@@ -483,9 +450,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AttachLoadBalancers");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -509,124 +473,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
 
     /**
      * <p>
-     * Deletes one or more scheduled actions for the specified Auto Scaling group.
-     * </p>
-     * 
-     * @param batchDeleteScheduledActionRequest
-     * @return Result of the BatchDeleteScheduledAction operation returned by the service.
-     * @throws ResourceContentionException
-     *         You already have a pending update to an Auto Scaling resource (for example, a group, instance, or load
-     *         balancer).
-     * @sample AmazonAutoScaling.BatchDeleteScheduledAction
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/BatchDeleteScheduledAction"
-     *      target="_top">AWS API Documentation</a>
-     */
-    @Override
-    public BatchDeleteScheduledActionResult batchDeleteScheduledAction(BatchDeleteScheduledActionRequest request) {
-        request = beforeClientExecution(request);
-        return executeBatchDeleteScheduledAction(request);
-    }
-
-    @SdkInternalApi
-    final BatchDeleteScheduledActionResult executeBatchDeleteScheduledAction(BatchDeleteScheduledActionRequest batchDeleteScheduledActionRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(batchDeleteScheduledActionRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<BatchDeleteScheduledActionRequest> request = null;
-        Response<BatchDeleteScheduledActionResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new BatchDeleteScheduledActionRequestMarshaller().marshall(super.beforeMarshalling(batchDeleteScheduledActionRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "BatchDeleteScheduledAction");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            StaxResponseHandler<BatchDeleteScheduledActionResult> responseHandler = new StaxResponseHandler<BatchDeleteScheduledActionResult>(
-                    new BatchDeleteScheduledActionResultStaxUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
-     * Creates or updates one or more scheduled scaling actions for an Auto Scaling group. If you leave a parameter
-     * unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.
-     * </p>
-     * 
-     * @param batchPutScheduledUpdateGroupActionRequest
-     * @return Result of the BatchPutScheduledUpdateGroupAction operation returned by the service.
-     * @throws AlreadyExistsException
-     *         You already have an Auto Scaling group or launch configuration with this name.
-     * @throws LimitExceededException
-     *         You have already reached a limit for your Auto Scaling resources (for example, groups, launch
-     *         configurations, or lifecycle hooks). For more information, see <a>DescribeAccountLimits</a>.
-     * @throws ResourceContentionException
-     *         You already have a pending update to an Auto Scaling resource (for example, a group, instance, or load
-     *         balancer).
-     * @sample AmazonAutoScaling.BatchPutScheduledUpdateGroupAction
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/BatchPutScheduledUpdateGroupAction"
-     *      target="_top">AWS API Documentation</a>
-     */
-    @Override
-    public BatchPutScheduledUpdateGroupActionResult batchPutScheduledUpdateGroupAction(BatchPutScheduledUpdateGroupActionRequest request) {
-        request = beforeClientExecution(request);
-        return executeBatchPutScheduledUpdateGroupAction(request);
-    }
-
-    @SdkInternalApi
-    final BatchPutScheduledUpdateGroupActionResult executeBatchPutScheduledUpdateGroupAction(
-            BatchPutScheduledUpdateGroupActionRequest batchPutScheduledUpdateGroupActionRequest) {
-
-        ExecutionContext executionContext = createExecutionContext(batchPutScheduledUpdateGroupActionRequest);
-        AWSRequestMetrics awsRequestMetrics = executionContext.getAwsRequestMetrics();
-        awsRequestMetrics.startEvent(Field.ClientExecuteTime);
-        Request<BatchPutScheduledUpdateGroupActionRequest> request = null;
-        Response<BatchPutScheduledUpdateGroupActionResult> response = null;
-
-        try {
-            awsRequestMetrics.startEvent(Field.RequestMarshallTime);
-            try {
-                request = new BatchPutScheduledUpdateGroupActionRequestMarshaller()
-                        .marshall(super.beforeMarshalling(batchPutScheduledUpdateGroupActionRequest));
-                // Binds the request metrics to the current request.
-                request.setAWSRequestMetrics(awsRequestMetrics);
-                request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "BatchPutScheduledUpdateGroupAction");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
-            } finally {
-                awsRequestMetrics.endEvent(Field.RequestMarshallTime);
-            }
-
-            StaxResponseHandler<BatchPutScheduledUpdateGroupActionResult> responseHandler = new StaxResponseHandler<BatchPutScheduledUpdateGroupActionResult>(
-                    new BatchPutScheduledUpdateGroupActionResultStaxUnmarshaller());
-            response = invoke(request, responseHandler, executionContext);
-
-            return response.getAwsResponse();
-
-        } finally {
-
-            endClientExecution(awsRequestMetrics, request, response);
-        }
-    }
-
-    /**
-     * <p>
      * Completes the lifecycle action for the specified token or instance with the specified result.
      * </p>
      * <p>
@@ -636,13 +482,13 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * <li>
      * <p>
      * (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when
-     * Amazon EC2 Auto Scaling launches or terminates instances.
+     * Auto Scaling launches or terminates instances.
      * </p>
      * </li>
      * <li>
      * <p>
      * (Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an
-     * Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.
+     * Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.
      * </p>
      * </li>
      * <li>
@@ -663,8 +509,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </ol>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     * Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
+     * Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param completeLifecycleActionRequest
@@ -698,9 +544,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CompleteLifecycleAction");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -724,13 +567,13 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * <p>
      * If you exceed your maximum limit of Auto Scaling groups, the call fails. For information about viewing this
      * limit, see <a>DescribeAccountLimits</a>. For information about updating this limit, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Auto Scaling Limits</a> in the
-     * <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-account-limits.html">Auto Scaling Limits</a> in
+     * the <i>Auto Scaling User Guide</i>.
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto Scaling Groups</a> in the
-     * <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroup.html">Auto Scaling Groups</a> in
+     * the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param createAutoScalingGroupRequest
@@ -771,9 +614,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateAutoScalingGroup");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -797,13 +637,13 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * <p>
      * If you exceed your maximum limit of launch configurations, the call fails. For information about viewing this
      * limit, see <a>DescribeAccountLimits</a>. For information about updating this limit, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Auto Scaling Limits</a> in the
-     * <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-account-limits.html">Auto Scaling Limits</a> in
+     * the <i>Auto Scaling User Guide</i>.
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch Configurations</a> in
-     * the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/LaunchConfiguration.html">Launch Configurations</a>
+     * in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param createLaunchConfigurationRequest
@@ -842,9 +682,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateLaunchConfiguration");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -871,8 +708,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling Groups
-     * and Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/autoscaling-tagging.html">Tagging Auto Scaling
+     * Groups and Instances</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param createOrUpdateTagsRequest
@@ -913,9 +750,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "CreateOrUpdateTags");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -946,8 +780,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </p>
      * <p>
      * To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a> with the list of
-     * instances and the option to decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not
-     * launch replacement instances.
+     * instances and the option to decrement the desired capacity so that Auto Scaling does not launch replacement
+     * instances.
      * </p>
      * <p>
      * To terminate all instances before deleting the Auto Scaling group, call <a>UpdateAutoScalingGroup</a> and set the
@@ -989,9 +823,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteAutoScalingGroup");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1050,9 +881,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteLaunchConfiguration");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1109,9 +937,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteLifecycleHook");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1165,9 +990,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteNotificationConfiguration");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1226,9 +1048,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeletePolicy");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1280,9 +1099,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteScheduledAction");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1337,9 +1153,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteTags");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1361,8 +1174,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </p>
      * <p>
      * For information about requesting an increase in these limits, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Auto Scaling Limits</a> in the
-     * <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-account-limits.html">Auto Scaling Limits</a> in
+     * the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param describeAccountLimitsRequest
@@ -1396,9 +1209,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeAccountLimits");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1456,9 +1266,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeAdjustmentTypes");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1518,9 +1325,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeAutoScalingGroups");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1580,9 +1384,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeAutoScalingInstances");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1606,7 +1407,7 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
 
     /**
      * <p>
-     * Describes the notification types that are supported by Amazon EC2 Auto Scaling.
+     * Describes the notification types that are supported by Auto Scaling.
      * </p>
      * 
      * @param describeAutoScalingNotificationTypesRequest
@@ -1642,9 +1443,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeAutoScalingNotificationTypes");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1704,9 +1502,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeLaunchConfigurations");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1732,21 +1527,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * <p>
      * Describes the available types of lifecycle hooks.
      * </p>
-     * <p>
-     * The following hook types are supported:
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * autoscaling:EC2_INSTANCE_LAUNCHING
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * autoscaling:EC2_INSTANCE_TERMINATING
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param describeLifecycleHookTypesRequest
      * @return Result of the DescribeLifecycleHookTypes operation returned by the service.
@@ -1779,9 +1559,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeLifecycleHookTypes");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1839,9 +1616,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeLifecycleHooks");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1895,9 +1669,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeLoadBalancerTargetGroups");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1919,7 +1690,7 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * Describes the load balancers for the specified Auto Scaling group.
      * </p>
      * <p>
-     * This operation describes only Classic Load Balancers. If you have Application Load Balancers, use
+     * Note that this operation describes only Classic Load Balancers. If you have Application Load Balancers, use
      * <a>DescribeLoadBalancerTargetGroups</a> instead.
      * </p>
      * 
@@ -1954,9 +1725,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeLoadBalancers");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1975,11 +1743,11 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
 
     /**
      * <p>
-     * Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.
+     * Describes the available CloudWatch metrics for Auto Scaling.
      * </p>
      * <p>
-     * The <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request this metric
-     * when calling <a>EnableMetricsCollection</a>.
+     * Note that the <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request
+     * this metric when calling <a>EnableMetricsCollection</a>.
      * </p>
      * 
      * @param describeMetricCollectionTypesRequest
@@ -2013,9 +1781,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeMetricCollectionTypes");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2077,9 +1842,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeNotificationConfigurations");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2141,9 +1903,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribePolicies");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2203,9 +1962,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeScalingActivities");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2263,9 +2019,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeScalingProcessTypes");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2326,9 +2079,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeScheduledActions");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2397,9 +2147,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeTags");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2422,12 +2169,7 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
 
     /**
      * <p>
-     * Describes the termination policies supported by Amazon EC2 Auto Scaling.
-     * </p>
-     * <p>
-     * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which Auto
-     * Scaling Instances Terminate During Scale In</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * Describes the termination policies supported by Auto Scaling.
      * </p>
      * 
      * @param describeTerminationPolicyTypesRequest
@@ -2461,9 +2203,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeTerminationPolicyTypes");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2493,8 +2232,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * After the instances are detached, you can manage them independent of the Auto Scaling group.
      * </p>
      * <p>
-     * If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to
-     * replace the ones that are detached.
+     * If you do not specify the option to decrement the desired capacity, Auto Scaling launches instances to replace
+     * the ones that are detached.
      * </p>
      * <p>
      * If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the
@@ -2503,8 +2242,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html">Detach EC2 Instances from
-     * Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/detach-instance-asg.html">Detach EC2 Instances from
+     * Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param detachInstancesRequest
@@ -2538,9 +2277,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DetachInstances");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2593,9 +2329,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DetachLoadBalancerTargetGroups");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2617,13 +2350,13 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * Detaches one or more Classic Load Balancers from the specified Auto Scaling group.
      * </p>
      * <p>
-     * This operation detaches only Classic Load Balancers. If you have Application Load Balancers, use
+     * Note that this operation detaches only Classic Load Balancers. If you have Application Load Balancers, use
      * <a>DetachLoadBalancerTargetGroups</a> instead.
      * </p>
      * <p>
      * When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in
      * the group. When all instances are deregistered, then you can no longer describe the load balancer using
-     * <a>DescribeLoadBalancers</a>. The instances remain running.
+     * <a>DescribeLoadBalancers</a>. Note that the instances remain running.
      * </p>
      * 
      * @param detachLoadBalancersRequest
@@ -2657,9 +2390,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DetachLoadBalancers");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2717,9 +2447,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DisableMetricsCollection");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2739,8 +2466,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
     /**
      * <p>
      * Enables group metrics for the specified Auto Scaling group. For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html">Monitoring Your Auto
-     * Scaling Groups and Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html">Monitoring Your Auto
+     * Scaling Groups and Instances</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param enableMetricsCollectionRequest
@@ -2774,9 +2501,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "EnableMetricsCollection");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2799,8 +2523,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily Removing
-     * Instances from Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-enter-exit-standby.html">Temporarily Removing
+     * Instances from Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param enterStandbyRequest
@@ -2834,9 +2558,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "EnterStandby");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2890,9 +2611,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ExecutePolicy");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2914,8 +2632,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily Removing
-     * Instances from Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-enter-exit-standby.html">Temporarily Removing
+     * Instances from Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param exitStandbyRequest
@@ -2949,9 +2667,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ExitStandby");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -2969,10 +2684,10 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
 
     /**
      * <p>
-     * Creates or updates a lifecycle hook for the specified Auto Scaling group.
+     * Creates or updates a lifecycle hook for the specified Auto Scaling Group.
      * </p>
      * <p>
-     * A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an instance that is not actively in
+     * A lifecycle hook tells Auto Scaling that you want to perform an action on an instance that is not actively in
      * service; for example, either when the instance launches or before the instance terminates.
      * </p>
      * <p>
@@ -2982,13 +2697,13 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * <li>
      * <p>
      * (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when
-     * Amazon EC2 Auto Scaling launches or terminates instances.
+     * Auto Scaling launches or terminates instances.
      * </p>
      * </li>
      * <li>
      * <p>
      * (Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an
-     * Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.
+     * Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.
      * </p>
      * </li>
      * <li>
@@ -3009,8 +2724,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </ol>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Auto Scaling Lifecycle Hooks</a>
-     * in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html">Auto Scaling Lifecycle
+     * Hooks</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * <p>
      * If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto Scaling group, the call
@@ -3053,9 +2768,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutLifecycleHook");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3081,9 +2793,9 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * This configuration overwrites any existing configuration.
      * </p>
      * <p>
-     * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting SNS Notifications
-     * When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User Guide</i>.
+     * For more information see <a
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/ASGettingNotifications.html">Getting SNS
+     * Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param putNotificationConfigurationRequest
@@ -3122,9 +2834,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutNotificationConfiguration");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3144,8 +2853,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
     /**
      * <p>
      * Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name
-     * and set the parameters to change. Any existing parameter not changed in an update to an existing policy is not
-     * changed in this update request.
+     * and set the parameters you want to change. Any existing parameter not changed in an update to an existing policy
+     * is not changed in this update request.
      * </p>
      * <p>
      * If you exceed your maximum limit of step adjustments, which by default is 20 per region, the call fails. For
@@ -3190,9 +2899,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutScalingPolicy");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3211,13 +2917,13 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
 
     /**
      * <p>
-     * Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave a parameter unspecified
-     * when updating a scheduled scaling action, the corresponding value remains unchanged.
+     * Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling
+     * action, if you leave a parameter unspecified, the corresponding value remains unchanged.
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled Scaling</a> in the
-     * <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/schedule_time.html">Scheduled Scaling</a> in the
+     * <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param putScheduledUpdateGroupActionRequest
@@ -3256,9 +2962,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "PutScheduledUpdateGroupAction");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3287,13 +2990,13 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * <li>
      * <p>
      * (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when
-     * Amazon EC2 Auto Scaling launches or terminates instances.
+     * Auto Scaling launches or terminates instances.
      * </p>
      * </li>
      * <li>
      * <p>
      * (Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an
-     * Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.
+     * Amazon SNS topic. The role allows Auto Scaling to publish lifecycle notifications to the target.
      * </p>
      * </li>
      * <li>
@@ -3314,8 +3017,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </ol>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     * Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
+     * Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param recordLifecycleActionHeartbeatRequest
@@ -3349,9 +3052,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RecordLifecycleActionHeartbeat");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3370,13 +3070,13 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
 
     /**
      * <p>
-     * Resumes the specified suspended automatic scaling processes, or all suspended process, for the specified Auto
-     * Scaling group.
+     * Resumes the specified suspended Auto Scaling processes, or all suspended process, for the specified Auto Scaling
+     * group.
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and
-     * Resuming Scaling Processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html">Suspending and
+     * Resuming Auto Scaling Processes</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param resumeProcessesRequest
@@ -3412,9 +3112,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ResumeProcesses");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3437,8 +3134,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </p>
      * <p>
      * For more information about desired capacity, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/WhatIsAutoScaling.html">What Is Amazon EC2 Auto
-     * Scaling?</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/WhatIsAutoScaling.html">What Is Auto Scaling?</a>
+     * in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param setDesiredCapacityRequest
@@ -3474,9 +3171,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetDesiredCapacity");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3498,8 +3192,9 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * Sets the health status of the specified instance.
      * </p>
      * <p>
-     * For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-     * Checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * For more information, see <a
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health Checks</a> in the <i>Auto
+     * Scaling User Guide</i>.
      * </p>
      * 
      * @param setInstanceHealthRequest
@@ -3533,9 +3228,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetInstanceHealth");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3558,8 +3250,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection"
-     * >Instance Protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html#instance-protection"
+     * >Instance Protection</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param setInstanceProtectionRequest
@@ -3596,9 +3288,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SetInstanceProtection");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3617,19 +3306,19 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
 
     /**
      * <p>
-     * Suspends the specified automatic scaling processes, or all processes, for the specified Auto Scaling group.
+     * Suspends the specified Auto Scaling processes, or all processes, for the specified Auto Scaling group.
      * </p>
      * <p>
-     * If you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other
-     * process types from functioning properly.
+     * Note that if you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent
+     * other process types from functioning properly.
      * </p>
      * <p>
      * To resume processes that have been suspended, use <a>ResumeProcesses</a>.
      * </p>
      * <p>
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and
-     * Resuming Scaling Processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html">Suspending and
+     * Resuming Auto Scaling Processes</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param suspendProcessesRequest
@@ -3665,9 +3354,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "SuspendProcesses");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3727,9 +3413,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "TerminateInstanceInAutoScalingGroup");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3756,8 +3439,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * </p>
      * <p>
      * To update an Auto Scaling group with a launch configuration with <code>InstanceMonitoring</code> set to
-     * <code>false</code>, you must first disable the collection of group metrics. Otherwise, you get an error. If you
-     * have previously enabled the collection of group metrics, you can disable it using
+     * <code>false</code>, you must first disable the collection of group metrics. Otherwise, you will get an error. If
+     * you have previously enabled the collection of group metrics, you can disable it using
      * <a>DisableMetricsCollection</a>.
      * </p>
      * <p>
@@ -3820,9 +3503,6 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "Auto Scaling");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateAutoScalingGroup");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -3863,18 +3543,9 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null, null);
-    }
-
-    /**
-     * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
-     **/
-    private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
-
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -3884,7 +3555,7 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null, null);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -3892,17 +3563,8 @@ public class AmazonAutoScalingClient extends AmazonWebServiceClient implements A
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
-
-        if (discoveredEndpoint != null) {
-            request.setEndpoint(discoveredEndpoint);
-            request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
-        } else if (uriFromEndpointTrait != null) {
-            request.setEndpoint(uriFromEndpointTrait);
-        } else {
-            request.setEndpoint(endpoint);
-        }
-
+            ExecutionContext executionContext) {
+        request.setEndpoint(endpoint);
         request.setTimeOffset(timeOffset);
 
         DefaultErrorResponseHandler errorResponseHandler = new DefaultErrorResponseHandler(exceptionUnmarshallers);

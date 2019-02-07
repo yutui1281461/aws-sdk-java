@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,7 +37,7 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     private MsSmoothEncryptionSettings encryption;
     /**
      * Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be
-     * compatible with GOP size and frame rate.
+     * compatible with GOP size and framerate.
      */
     private Integer fragmentLength;
 
@@ -160,11 +160,11 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
 
     /**
      * Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be
-     * compatible with GOP size and frame rate.
+     * compatible with GOP size and framerate.
      * 
      * @param fragmentLength
      *        Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be
-     *        compatible with GOP size and frame rate.
+     *        compatible with GOP size and framerate.
      */
 
     public void setFragmentLength(Integer fragmentLength) {
@@ -173,10 +173,10 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
 
     /**
      * Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be
-     * compatible with GOP size and frame rate.
+     * compatible with GOP size and framerate.
      * 
      * @return Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must
-     *         be compatible with GOP size and frame rate.
+     *         be compatible with GOP size and framerate.
      */
 
     public Integer getFragmentLength() {
@@ -185,11 +185,11 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
 
     /**
      * Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be
-     * compatible with GOP size and frame rate.
+     * compatible with GOP size and framerate.
      * 
      * @param fragmentLength
      *        Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be
-     *        compatible with GOP size and frame rate.
+     *        compatible with GOP size and framerate.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -239,8 +239,7 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

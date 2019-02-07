@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -26,8 +26,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class JobTemplate implements Serializable, Cloneable, StructuredPojo {
 
-    /** Acceleration settings for job execution. */
-    private AccelerationSettings accelerationSettings;
     /** An identifier for this resource that is unique within all of AWS. */
     private String arn;
     /** An optional category you create to organize your job templates. */
@@ -52,40 +50,6 @@ public class JobTemplate implements Serializable, Cloneable, StructuredPojo {
      * deleted by the user.
      */
     private String type;
-
-    /**
-     * Acceleration settings for job execution.
-     * 
-     * @param accelerationSettings
-     *        Acceleration settings for job execution.
-     */
-
-    public void setAccelerationSettings(AccelerationSettings accelerationSettings) {
-        this.accelerationSettings = accelerationSettings;
-    }
-
-    /**
-     * Acceleration settings for job execution.
-     * 
-     * @return Acceleration settings for job execution.
-     */
-
-    public AccelerationSettings getAccelerationSettings() {
-        return this.accelerationSettings;
-    }
-
-    /**
-     * Acceleration settings for job execution.
-     * 
-     * @param accelerationSettings
-     *        Acceleration settings for job execution.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public JobTemplate withAccelerationSettings(AccelerationSettings accelerationSettings) {
-        setAccelerationSettings(accelerationSettings);
-        return this;
-    }
 
     /**
      * An identifier for this resource that is unique within all of AWS.
@@ -417,8 +381,7 @@ public class JobTemplate implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -428,8 +391,6 @@ public class JobTemplate implements Serializable, Cloneable, StructuredPojo {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
-        if (getAccelerationSettings() != null)
-            sb.append("AccelerationSettings: ").append(getAccelerationSettings()).append(",");
         if (getArn() != null)
             sb.append("Arn: ").append(getArn()).append(",");
         if (getCategory() != null)
@@ -462,10 +423,6 @@ public class JobTemplate implements Serializable, Cloneable, StructuredPojo {
         if (obj instanceof JobTemplate == false)
             return false;
         JobTemplate other = (JobTemplate) obj;
-        if (other.getAccelerationSettings() == null ^ this.getAccelerationSettings() == null)
-            return false;
-        if (other.getAccelerationSettings() != null && other.getAccelerationSettings().equals(this.getAccelerationSettings()) == false)
-            return false;
         if (other.getArn() == null ^ this.getArn() == null)
             return false;
         if (other.getArn() != null && other.getArn().equals(this.getArn()) == false)
@@ -510,7 +467,6 @@ public class JobTemplate implements Serializable, Cloneable, StructuredPojo {
         final int prime = 31;
         int hashCode = 1;
 
-        hashCode = prime * hashCode + ((getAccelerationSettings() == null) ? 0 : getAccelerationSettings().hashCode());
         hashCode = prime * hashCode + ((getArn() == null) ? 0 : getArn().hashCode());
         hashCode = prime * hashCode + ((getCategory() == null) ? 0 : getCategory().hashCode());
         hashCode = prime * hashCode + ((getCreatedAt() == null) ? 0 : getCreatedAt().hashCode());

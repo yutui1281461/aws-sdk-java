@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -25,10 +25,6 @@ import com.amazonaws.AmazonWebServiceRequest;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest implements Serializable, Cloneable {
 
-    /** This is a beta feature. If you are interested in using this feature, please contact AWS customer support. */
-    private AccelerationSettings accelerationSettings;
-
-    private String billingTagsSource;
     /** Idempotency token for CreateJob operation. */
     private String clientRequestToken;
     /** When you create a job, you can either specify a job template or specify the transcoding settings individually */
@@ -51,80 +47,6 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
      * pairs.
      */
     private java.util.Map<String, String> userMetadata;
-
-    /**
-     * This is a beta feature. If you are interested in using this feature, please contact AWS customer support.
-     * 
-     * @param accelerationSettings
-     *        This is a beta feature. If you are interested in using this feature, please contact AWS customer support.
-     */
-
-    public void setAccelerationSettings(AccelerationSettings accelerationSettings) {
-        this.accelerationSettings = accelerationSettings;
-    }
-
-    /**
-     * This is a beta feature. If you are interested in using this feature, please contact AWS customer support.
-     * 
-     * @return This is a beta feature. If you are interested in using this feature, please contact AWS customer support.
-     */
-
-    public AccelerationSettings getAccelerationSettings() {
-        return this.accelerationSettings;
-    }
-
-    /**
-     * This is a beta feature. If you are interested in using this feature, please contact AWS customer support.
-     * 
-     * @param accelerationSettings
-     *        This is a beta feature. If you are interested in using this feature, please contact AWS customer support.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public CreateJobRequest withAccelerationSettings(AccelerationSettings accelerationSettings) {
-        setAccelerationSettings(accelerationSettings);
-        return this;
-    }
-
-    /**
-     * @param billingTagsSource
-     * @see BillingTagsSource
-     */
-
-    public void setBillingTagsSource(String billingTagsSource) {
-        this.billingTagsSource = billingTagsSource;
-    }
-
-    /**
-     * @return
-     * @see BillingTagsSource
-     */
-
-    public String getBillingTagsSource() {
-        return this.billingTagsSource;
-    }
-
-    /**
-     * @param billingTagsSource
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see BillingTagsSource
-     */
-
-    public CreateJobRequest withBillingTagsSource(String billingTagsSource) {
-        setBillingTagsSource(billingTagsSource);
-        return this;
-    }
-
-    /**
-     * @param billingTagsSource
-     * @return Returns a reference to this object so that method calls can be chained together.
-     * @see BillingTagsSource
-     */
-
-    public CreateJobRequest withBillingTagsSource(BillingTagsSource billingTagsSource) {
-        this.billingTagsSource = billingTagsSource.toString();
-        return this;
-    }
 
     /**
      * Idempotency token for CreateJob operation.
@@ -371,8 +293,7 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -382,10 +303,6 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
-        if (getAccelerationSettings() != null)
-            sb.append("AccelerationSettings: ").append(getAccelerationSettings()).append(",");
-        if (getBillingTagsSource() != null)
-            sb.append("BillingTagsSource: ").append(getBillingTagsSource()).append(",");
         if (getClientRequestToken() != null)
             sb.append("ClientRequestToken: ").append(getClientRequestToken()).append(",");
         if (getJobTemplate() != null)
@@ -412,14 +329,6 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
         if (obj instanceof CreateJobRequest == false)
             return false;
         CreateJobRequest other = (CreateJobRequest) obj;
-        if (other.getAccelerationSettings() == null ^ this.getAccelerationSettings() == null)
-            return false;
-        if (other.getAccelerationSettings() != null && other.getAccelerationSettings().equals(this.getAccelerationSettings()) == false)
-            return false;
-        if (other.getBillingTagsSource() == null ^ this.getBillingTagsSource() == null)
-            return false;
-        if (other.getBillingTagsSource() != null && other.getBillingTagsSource().equals(this.getBillingTagsSource()) == false)
-            return false;
         if (other.getClientRequestToken() == null ^ this.getClientRequestToken() == null)
             return false;
         if (other.getClientRequestToken() != null && other.getClientRequestToken().equals(this.getClientRequestToken()) == false)
@@ -452,8 +361,6 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
         final int prime = 31;
         int hashCode = 1;
 
-        hashCode = prime * hashCode + ((getAccelerationSettings() == null) ? 0 : getAccelerationSettings().hashCode());
-        hashCode = prime * hashCode + ((getBillingTagsSource() == null) ? 0 : getBillingTagsSource().hashCode());
         hashCode = prime * hashCode + ((getClientRequestToken() == null) ? 0 : getClientRequestToken().hashCode());
         hashCode = prime * hashCode + ((getJobTemplate() == null) ? 0 : getJobTemplate().hashCode());
         hashCode = prime * hashCode + ((getQueue() == null) ? 0 : getQueue().hashCode());

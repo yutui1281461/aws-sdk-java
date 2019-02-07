@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2011-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -43,8 +43,7 @@ import static com.amazonaws.services.stepfunctions.builder.StepFunctionBuilder.t
 import static com.amazonaws.services.stepfunctions.builder.StepFunctionBuilder.waitState;
 
 import java.util.Date;
-
-import com.amazonaws.util.DateUtils;
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 public class StepFunctionBuilderTest {
@@ -75,8 +74,7 @@ public class StepFunctionBuilderTest {
                         .resource("resource-arn")
                         .inputPath("$.input")
                         .resultPath("$.result")
-                        .outputPath("$.output")
-                        .parameters(new SimplePojo("value")))
+                        .outputPath("$.output"))
                 .state("NextState", succeedState())
                 .build();
 
@@ -149,7 +147,6 @@ public class StepFunctionBuilderTest {
                         .inputPath("$.input")
                         .outputPath("$.output")
                         .resultPath("$.result")
-                        .parameters("true")
                         .transition(next("NextState"))
                         .result("{\"Foo\": \"Bar\"}"))
                 .state("NextState", succeedState())
@@ -200,11 +197,10 @@ public class StepFunctionBuilderTest {
 
     @Test
     public void singleWaitState_WaitUntilTimestamp() {
-        final Date date = DateUtils.parseISO8601Date("2016-03-14T01:59:00Z");
         final StateMachine stateMachine = stateMachine()
                 .startAt("InitialState")
                 .state("InitialState", waitState()
-                        .waitFor(timestamp(date))
+                        .waitFor(timestamp(DateTime.parse("2016-03-14T01:59:00Z").toDate()))
                         .transition(end()))
                 .build();
 
@@ -213,11 +209,10 @@ public class StepFunctionBuilderTest {
 
     @Test
     public void singleWaitState_WaitUntilTimestampWithMillisecond() {
-        final Date date = DateUtils.parseISO8601Date("2016-03-14T01:59:00.123Z");
         final StateMachine stateMachine = stateMachine()
                 .startAt("InitialState")
                 .state("InitialState", waitState()
-                        .waitFor(timestamp(date))
+                        .waitFor(timestamp(DateTime.parse("2016-03-14T01:59:00.123Z").toDate()))
                         .transition(end()))
                 .build();
 
@@ -226,11 +221,10 @@ public class StepFunctionBuilderTest {
 
     @Test
     public void singleWaitState_WaitUntilTimestampWithTimezone() {
-        final Date date = DateUtils.parseISO8601Date("2016-03-14T01:59:00.123-08:00");
         final StateMachine stateMachine = stateMachine()
                 .startAt("InitialState")
                 .state("InitialState", waitState()
-                        .waitFor(timestamp(date))
+                        .waitFor(timestamp(DateTime.parse("2016-03-14T01:59:00.123-08:00").toDate()))
                         .transition(end()))
                 .build();
 
@@ -374,7 +368,7 @@ public class StepFunctionBuilderTest {
 
     @Test
     public void choiceStateWithAllPrimitiveConditions() {
-        final Date date = DateUtils.parseISO8601Date("2016-03-14T01:59:00.000Z");
+        final Date date = DateTime.parse("2016-03-14T01:59:00.000Z").toDate();
         final StateMachine stateMachine = stateMachine()
                 .startAt("InitialState")
                 .state("InitialState", choiceState()
@@ -420,7 +414,6 @@ public class StepFunctionBuilderTest {
                         .inputPath("$.input")
                         .outputPath("$.output")
                         .resultPath("$.result")
-                        .parameters("{\"foo.$\": \"$.val\"}")
                         .transition(next("NextState"))
                         .branches(
                                 branch()

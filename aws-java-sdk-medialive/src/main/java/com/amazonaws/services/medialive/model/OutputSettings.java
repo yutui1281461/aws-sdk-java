@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,8 +27,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 public class OutputSettings implements Serializable, Cloneable, StructuredPojo {
 
     private ArchiveOutputSettings archiveOutputSettings;
-
-    private FrameCaptureOutputSettings frameCaptureOutputSettings;
 
     private HlsOutputSettings hlsOutputSettings;
 
@@ -61,32 +59,6 @@ public class OutputSettings implements Serializable, Cloneable, StructuredPojo {
 
     public OutputSettings withArchiveOutputSettings(ArchiveOutputSettings archiveOutputSettings) {
         setArchiveOutputSettings(archiveOutputSettings);
-        return this;
-    }
-
-    /**
-     * @param frameCaptureOutputSettings
-     */
-
-    public void setFrameCaptureOutputSettings(FrameCaptureOutputSettings frameCaptureOutputSettings) {
-        this.frameCaptureOutputSettings = frameCaptureOutputSettings;
-    }
-
-    /**
-     * @return
-     */
-
-    public FrameCaptureOutputSettings getFrameCaptureOutputSettings() {
-        return this.frameCaptureOutputSettings;
-    }
-
-    /**
-     * @param frameCaptureOutputSettings
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public OutputSettings withFrameCaptureOutputSettings(FrameCaptureOutputSettings frameCaptureOutputSettings) {
-        setFrameCaptureOutputSettings(frameCaptureOutputSettings);
         return this;
     }
 
@@ -195,8 +167,7 @@ public class OutputSettings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -208,8 +179,6 @@ public class OutputSettings implements Serializable, Cloneable, StructuredPojo {
         sb.append("{");
         if (getArchiveOutputSettings() != null)
             sb.append("ArchiveOutputSettings: ").append(getArchiveOutputSettings()).append(",");
-        if (getFrameCaptureOutputSettings() != null)
-            sb.append("FrameCaptureOutputSettings: ").append(getFrameCaptureOutputSettings()).append(",");
         if (getHlsOutputSettings() != null)
             sb.append("HlsOutputSettings: ").append(getHlsOutputSettings()).append(",");
         if (getMsSmoothOutputSettings() != null)
@@ -236,10 +205,6 @@ public class OutputSettings implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getArchiveOutputSettings() != null && other.getArchiveOutputSettings().equals(this.getArchiveOutputSettings()) == false)
             return false;
-        if (other.getFrameCaptureOutputSettings() == null ^ this.getFrameCaptureOutputSettings() == null)
-            return false;
-        if (other.getFrameCaptureOutputSettings() != null && other.getFrameCaptureOutputSettings().equals(this.getFrameCaptureOutputSettings()) == false)
-            return false;
         if (other.getHlsOutputSettings() == null ^ this.getHlsOutputSettings() == null)
             return false;
         if (other.getHlsOutputSettings() != null && other.getHlsOutputSettings().equals(this.getHlsOutputSettings()) == false)
@@ -265,7 +230,6 @@ public class OutputSettings implements Serializable, Cloneable, StructuredPojo {
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getArchiveOutputSettings() == null) ? 0 : getArchiveOutputSettings().hashCode());
-        hashCode = prime * hashCode + ((getFrameCaptureOutputSettings() == null) ? 0 : getFrameCaptureOutputSettings().hashCode());
         hashCode = prime * hashCode + ((getHlsOutputSettings() == null) ? 0 : getHlsOutputSettings().hashCode());
         hashCode = prime * hashCode + ((getMsSmoothOutputSettings() == null) ? 0 : getMsSmoothOutputSettings().hashCode());
         hashCode = prime * hashCode + ((getRtmpOutputSettings() == null) ? 0 : getRtmpOutputSettings().hashCode());

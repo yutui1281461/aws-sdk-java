@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -47,16 +47,15 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
     /**
      * <p>
      * The lifecycle state for the instance. For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     * Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
+     * Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      */
     private String lifecycleState;
     /**
      * <p>
      * The last reported health status of this instance. "Healthy" means that the instance is healthy and should remain
-     * in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and
-     * replace it.
+     * in service. "Unhealthy" means that the instance is unhealthy and Auto Scaling should terminate and replace it.
      * </p>
      */
     private String healthStatus;
@@ -75,7 +74,7 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
     private LaunchTemplateSpecification launchTemplate;
     /**
      * <p>
-     * Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+     * Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
      * </p>
      */
     private Boolean protectedFromScaleIn;
@@ -203,14 +202,14 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
     /**
      * <p>
      * The lifecycle state for the instance. For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     * Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
+     * Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param lifecycleState
      *        The lifecycle state for the instance. For more information, see <a
-     *        href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     *        Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *        href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
+     *        Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
      */
 
     public void setLifecycleState(String lifecycleState) {
@@ -220,13 +219,13 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
     /**
      * <p>
      * The lifecycle state for the instance. For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     * Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
+     * Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @return The lifecycle state for the instance. For more information, see <a
-     *         href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     *         Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *         href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html">Auto
+     *         Scaling Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
      */
 
     public String getLifecycleState() {
@@ -236,14 +235,14 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
     /**
      * <p>
      * The lifecycle state for the instance. For more information, see <a
-     * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     * Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
+     * Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
      * </p>
      * 
      * @param lifecycleState
      *        The lifecycle state for the instance. For more information, see <a
-     *        href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-     *        Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+     *        href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
+     *        Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -255,14 +254,13 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
     /**
      * <p>
      * The last reported health status of this instance. "Healthy" means that the instance is healthy and should remain
-     * in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and
-     * replace it.
+     * in service. "Unhealthy" means that the instance is unhealthy and Auto Scaling should terminate and replace it.
      * </p>
      * 
      * @param healthStatus
      *        The last reported health status of this instance. "Healthy" means that the instance is healthy and should
-     *        remain in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should
-     *        terminate and replace it.
+     *        remain in service. "Unhealthy" means that the instance is unhealthy and Auto Scaling should terminate and
+     *        replace it.
      */
 
     public void setHealthStatus(String healthStatus) {
@@ -272,13 +270,12 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
     /**
      * <p>
      * The last reported health status of this instance. "Healthy" means that the instance is healthy and should remain
-     * in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and
-     * replace it.
+     * in service. "Unhealthy" means that the instance is unhealthy and Auto Scaling should terminate and replace it.
      * </p>
      * 
      * @return The last reported health status of this instance. "Healthy" means that the instance is healthy and should
-     *         remain in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should
-     *         terminate and replace it.
+     *         remain in service. "Unhealthy" means that the instance is unhealthy and Auto Scaling should terminate and
+     *         replace it.
      */
 
     public String getHealthStatus() {
@@ -288,14 +285,13 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
     /**
      * <p>
      * The last reported health status of this instance. "Healthy" means that the instance is healthy and should remain
-     * in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and
-     * replace it.
+     * in service. "Unhealthy" means that the instance is unhealthy and Auto Scaling should terminate and replace it.
      * </p>
      * 
      * @param healthStatus
      *        The last reported health status of this instance. "Healthy" means that the instance is healthy and should
-     *        remain in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should
-     *        terminate and replace it.
+     *        remain in service. "Unhealthy" means that the instance is unhealthy and Auto Scaling should terminate and
+     *        replace it.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -392,11 +388,11 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+     * Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
      * </p>
      * 
      * @param protectedFromScaleIn
-     *        Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+     *        Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
      */
 
     public void setProtectedFromScaleIn(Boolean protectedFromScaleIn) {
@@ -405,10 +401,10 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+     * Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
      * </p>
      * 
-     * @return Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+     * @return Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
      */
 
     public Boolean getProtectedFromScaleIn() {
@@ -417,11 +413,11 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+     * Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
      * </p>
      * 
      * @param protectedFromScaleIn
-     *        Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+     *        Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -432,10 +428,10 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+     * Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
      * </p>
      * 
-     * @return Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+     * @return Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
      */
 
     public Boolean isProtectedFromScaleIn() {
@@ -443,8 +439,7 @@ public class AutoScalingInstanceDetails implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

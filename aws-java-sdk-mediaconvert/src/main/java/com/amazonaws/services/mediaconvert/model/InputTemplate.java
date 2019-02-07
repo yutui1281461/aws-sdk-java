@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -52,11 +52,6 @@ public class InputTemplate implements Serializable, Cloneable, StructuredPojo {
      * range is -5 to 5. Default is 0.
      */
     private Integer filterStrength;
-    /**
-     * Enable the image inserter feature to include a graphic overlay on your video. Enable or disable this feature for
-     * each input individually. This setting is disabled by default.
-     */
-    private ImageInserter imageInserter;
     /**
      * (InputClippings) contains sets of start and end times that together specify a portion of the input to be used in
      * the outputs. If you provide only a start time, the clip will be the entire input from that point to the end. If
@@ -422,46 +417,6 @@ public class InputTemplate implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Enable the image inserter feature to include a graphic overlay on your video. Enable or disable this feature for
-     * each input individually. This setting is disabled by default.
-     * 
-     * @param imageInserter
-     *        Enable the image inserter feature to include a graphic overlay on your video. Enable or disable this
-     *        feature for each input individually. This setting is disabled by default.
-     */
-
-    public void setImageInserter(ImageInserter imageInserter) {
-        this.imageInserter = imageInserter;
-    }
-
-    /**
-     * Enable the image inserter feature to include a graphic overlay on your video. Enable or disable this feature for
-     * each input individually. This setting is disabled by default.
-     * 
-     * @return Enable the image inserter feature to include a graphic overlay on your video. Enable or disable this
-     *         feature for each input individually. This setting is disabled by default.
-     */
-
-    public ImageInserter getImageInserter() {
-        return this.imageInserter;
-    }
-
-    /**
-     * Enable the image inserter feature to include a graphic overlay on your video. Enable or disable this feature for
-     * each input individually. This setting is disabled by default.
-     * 
-     * @param imageInserter
-     *        Enable the image inserter feature to include a graphic overlay on your video. Enable or disable this
-     *        feature for each input individually. This setting is disabled by default.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public InputTemplate withImageInserter(ImageInserter imageInserter) {
-        setImageInserter(imageInserter);
-        return this;
-    }
-
-    /**
      * (InputClippings) contains sets of start and end times that together specify a portion of the input to be used in
      * the outputs. If you provide only a start time, the clip will be the entire input from that point to the end. If
      * you provide only an end time, it will be the entire input up to that point. When you specify more than one input
@@ -708,8 +663,7 @@ public class InputTemplate implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -733,8 +687,6 @@ public class InputTemplate implements Serializable, Cloneable, StructuredPojo {
             sb.append("FilterEnable: ").append(getFilterEnable()).append(",");
         if (getFilterStrength() != null)
             sb.append("FilterStrength: ").append(getFilterStrength()).append(",");
-        if (getImageInserter() != null)
-            sb.append("ImageInserter: ").append(getImageInserter()).append(",");
         if (getInputClippings() != null)
             sb.append("InputClippings: ").append(getInputClippings()).append(",");
         if (getProgramNumber() != null)
@@ -787,10 +739,6 @@ public class InputTemplate implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getFilterStrength() != null && other.getFilterStrength().equals(this.getFilterStrength()) == false)
             return false;
-        if (other.getImageInserter() == null ^ this.getImageInserter() == null)
-            return false;
-        if (other.getImageInserter() != null && other.getImageInserter().equals(this.getImageInserter()) == false)
-            return false;
         if (other.getInputClippings() == null ^ this.getInputClippings() == null)
             return false;
         if (other.getInputClippings() != null && other.getInputClippings().equals(this.getInputClippings()) == false)
@@ -826,7 +774,6 @@ public class InputTemplate implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getDenoiseFilter() == null) ? 0 : getDenoiseFilter().hashCode());
         hashCode = prime * hashCode + ((getFilterEnable() == null) ? 0 : getFilterEnable().hashCode());
         hashCode = prime * hashCode + ((getFilterStrength() == null) ? 0 : getFilterStrength().hashCode());
-        hashCode = prime * hashCode + ((getImageInserter() == null) ? 0 : getImageInserter().hashCode());
         hashCode = prime * hashCode + ((getInputClippings() == null) ? 0 : getInputClippings().hashCode());
         hashCode = prime * hashCode + ((getProgramNumber() == null) ? 0 : getProgramNumber().hashCode());
         hashCode = prime * hashCode + ((getPsiControl() == null) ? 0 : getPsiControl().hashCode());

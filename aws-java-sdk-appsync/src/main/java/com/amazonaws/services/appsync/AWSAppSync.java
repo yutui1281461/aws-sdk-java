@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -50,9 +50,9 @@ public interface AWSAppSync {
      * @return Result of the CreateApiKey operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws LimitExceededException
      *         The request exceeded a limit. Try your request again.
      * @throws UnauthorizedException
@@ -81,11 +81,11 @@ public interface AWSAppSync {
      * @return Result of the CreateDataSource operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -98,30 +98,6 @@ public interface AWSAppSync {
 
     /**
      * <p>
-     * Creates a <code>Function</code> object.
-     * </p>
-     * <p>
-     * A function is a reusable entity. Multiple functions can be used to compose the resolver logic.
-     * </p>
-     * 
-     * @param createFunctionRequest
-     * @return Result of the CreateFunction operation returned by the service.
-     * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
-     * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
-     * @throws UnauthorizedException
-     *         You are not authorized to perform this operation.
-     * @throws InternalFailureException
-     *         An internal AWS AppSync error occurred. Try your request again.
-     * @sample AWSAppSync.CreateFunction
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appsync-2017-07-25/CreateFunction" target="_top">AWS API
-     *      Documentation</a>
-     */
-    CreateFunctionResult createFunction(CreateFunctionRequest createFunctionRequest);
-
-    /**
-     * <p>
      * Creates a <code>GraphqlApi</code> object.
      * </p>
      * 
@@ -129,11 +105,11 @@ public interface AWSAppSync {
      * @return Result of the CreateGraphqlApi operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws LimitExceededException
      *         The request exceeded a limit. Try your request again.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -158,9 +134,9 @@ public interface AWSAppSync {
      * @param createResolverRequest
      * @return Result of the CreateResolver operation returned by the service.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -180,11 +156,11 @@ public interface AWSAppSync {
      * @return Result of the CreateType operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -204,9 +180,9 @@ public interface AWSAppSync {
      * @return Result of the DeleteApiKey operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -226,11 +202,11 @@ public interface AWSAppSync {
      * @return Result of the DeleteDataSource operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -243,27 +219,6 @@ public interface AWSAppSync {
 
     /**
      * <p>
-     * Deletes a <code>Function</code>.
-     * </p>
-     * 
-     * @param deleteFunctionRequest
-     * @return Result of the DeleteFunction operation returned by the service.
-     * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
-     * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
-     * @throws UnauthorizedException
-     *         You are not authorized to perform this operation.
-     * @throws InternalFailureException
-     *         An internal AWS AppSync error occurred. Try your request again.
-     * @sample AWSAppSync.DeleteFunction
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appsync-2017-07-25/DeleteFunction" target="_top">AWS API
-     *      Documentation</a>
-     */
-    DeleteFunctionResult deleteFunction(DeleteFunctionRequest deleteFunctionRequest);
-
-    /**
-     * <p>
      * Deletes a <code>GraphqlApi</code> object.
      * </p>
      * 
@@ -271,11 +226,11 @@ public interface AWSAppSync {
      * @return Result of the DeleteGraphqlApi operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -294,9 +249,9 @@ public interface AWSAppSync {
      * @param deleteResolverRequest
      * @return Result of the DeleteResolver operation returned by the service.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -316,11 +271,11 @@ public interface AWSAppSync {
      * @return Result of the DeleteType operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -340,11 +295,11 @@ public interface AWSAppSync {
      * @return Result of the GetDataSource operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -357,25 +312,6 @@ public interface AWSAppSync {
 
     /**
      * <p>
-     * Get a <code>Function</code>.
-     * </p>
-     * 
-     * @param getFunctionRequest
-     * @return Result of the GetFunction operation returned by the service.
-     * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
-     * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
-     * @throws UnauthorizedException
-     *         You are not authorized to perform this operation.
-     * @sample AWSAppSync.GetFunction
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appsync-2017-07-25/GetFunction" target="_top">AWS API
-     *      Documentation</a>
-     */
-    GetFunctionResult getFunction(GetFunctionRequest getFunctionRequest);
-
-    /**
-     * <p>
      * Retrieves a <code>GraphqlApi</code> object.
      * </p>
      * 
@@ -383,9 +319,9 @@ public interface AWSAppSync {
      * @return Result of the GetGraphqlApi operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -406,7 +342,7 @@ public interface AWSAppSync {
      * @throws GraphQLSchemaException
      *         The GraphQL schema is not valid.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -425,9 +361,9 @@ public interface AWSAppSync {
      * @param getResolverRequest
      * @return Result of the GetResolver operation returned by the service.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @sample AWSAppSync.GetResolver
@@ -445,9 +381,9 @@ public interface AWSAppSync {
      * @return Result of the GetSchemaCreationStatus operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -467,11 +403,11 @@ public interface AWSAppSync {
      * @return Result of the GetType operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -498,9 +434,9 @@ public interface AWSAppSync {
      * @return Result of the ListApiKeys operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -520,9 +456,9 @@ public interface AWSAppSync {
      * @return Result of the ListDataSources operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -535,28 +471,6 @@ public interface AWSAppSync {
 
     /**
      * <p>
-     * List multiple functions.
-     * </p>
-     * 
-     * @param listFunctionsRequest
-     * @return Result of the ListFunctions operation returned by the service.
-     * @throws BadRequestException
-     *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
-     * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
-     * @throws UnauthorizedException
-     *         You are not authorized to perform this operation.
-     * @throws InternalFailureException
-     *         An internal AWS AppSync error occurred. Try your request again.
-     * @sample AWSAppSync.ListFunctions
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appsync-2017-07-25/ListFunctions" target="_top">AWS API
-     *      Documentation</a>
-     */
-    ListFunctionsResult listFunctions(ListFunctionsRequest listFunctionsRequest);
-
-    /**
-     * <p>
      * Lists your GraphQL APIs.
      * </p>
      * 
@@ -564,7 +478,7 @@ public interface AWSAppSync {
      * @return Result of the ListGraphqlApis operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -584,9 +498,9 @@ public interface AWSAppSync {
      * @return Result of the ListResolvers operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -599,28 +513,6 @@ public interface AWSAppSync {
 
     /**
      * <p>
-     * List the resolvers that are associated with a specific function.
-     * </p>
-     * 
-     * @param listResolversByFunctionRequest
-     * @return Result of the ListResolversByFunction operation returned by the service.
-     * @throws BadRequestException
-     *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
-     * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
-     * @throws UnauthorizedException
-     *         You are not authorized to perform this operation.
-     * @throws InternalFailureException
-     *         An internal AWS AppSync error occurred. Try your request again.
-     * @sample AWSAppSync.ListResolversByFunction
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appsync-2017-07-25/ListResolversByFunction"
-     *      target="_top">AWS API Documentation</a>
-     */
-    ListResolversByFunctionResult listResolversByFunction(ListResolversByFunctionRequest listResolversByFunctionRequest);
-
-    /**
-     * <p>
      * Lists the types for a given API.
      * </p>
      * 
@@ -628,11 +520,11 @@ public interface AWSAppSync {
      * @return Result of the ListTypes operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -655,11 +547,11 @@ public interface AWSAppSync {
      * @return Result of the StartSchemaCreation operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -679,9 +571,9 @@ public interface AWSAppSync {
      * @return Result of the UpdateApiKey operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws LimitExceededException
@@ -706,11 +598,11 @@ public interface AWSAppSync {
      * @return Result of the UpdateDataSource operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -723,27 +615,6 @@ public interface AWSAppSync {
 
     /**
      * <p>
-     * Updates a <code>Function</code> object.
-     * </p>
-     * 
-     * @param updateFunctionRequest
-     * @return Result of the UpdateFunction operation returned by the service.
-     * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
-     * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
-     * @throws UnauthorizedException
-     *         You are not authorized to perform this operation.
-     * @throws InternalFailureException
-     *         An internal AWS AppSync error occurred. Try your request again.
-     * @sample AWSAppSync.UpdateFunction
-     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appsync-2017-07-25/UpdateFunction" target="_top">AWS API
-     *      Documentation</a>
-     */
-    UpdateFunctionResult updateFunction(UpdateFunctionRequest updateFunctionRequest);
-
-    /**
-     * <p>
      * Updates a <code>GraphqlApi</code> object.
      * </p>
      * 
@@ -751,11 +622,11 @@ public interface AWSAppSync {
      * @return Result of the UpdateGraphqlApi operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -774,9 +645,9 @@ public interface AWSAppSync {
      * @param updateResolverRequest
      * @return Result of the UpdateResolver operation returned by the service.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException
@@ -796,11 +667,11 @@ public interface AWSAppSync {
      * @return Result of the UpdateType operation returned by the service.
      * @throws BadRequestException
      *         The request is not well formed. For example, a value is invalid or a required field is missing. Check the
-     *         field values, and then try again.
+     *         field values, and try again.
      * @throws ConcurrentModificationException
-     *         Another modification is in progress at this time and it must complete before you can make your change.
+     *         Another modification is being made. That modification must complete before you can make your change.
      * @throws NotFoundException
-     *         The resource specified in the request was not found. Check the resource, and then try again.
+     *         The resource specified in the request was not found. Check the resource and try again.
      * @throws UnauthorizedException
      *         You are not authorized to perform this operation.
      * @throws InternalFailureException

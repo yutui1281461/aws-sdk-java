@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -60,11 +60,6 @@ public class DeliveryStreamDescriptionJsonUnmarshaller implements Unmarshaller<D
                     context.nextToken();
                     deliveryStreamDescription.setDeliveryStreamStatus(context.getUnmarshaller(String.class).unmarshall(context));
                 }
-                if (context.testExpression("DeliveryStreamEncryptionConfiguration", targetDepth)) {
-                    context.nextToken();
-                    deliveryStreamDescription.setDeliveryStreamEncryptionConfiguration(DeliveryStreamEncryptionConfigurationJsonUnmarshaller.getInstance()
-                            .unmarshall(context));
-                }
                 if (context.testExpression("DeliveryStreamType", targetDepth)) {
                     context.nextToken();
                     deliveryStreamDescription.setDeliveryStreamType(context.getUnmarshaller(String.class).unmarshall(context));
@@ -75,11 +70,11 @@ public class DeliveryStreamDescriptionJsonUnmarshaller implements Unmarshaller<D
                 }
                 if (context.testExpression("CreateTimestamp", targetDepth)) {
                     context.nextToken();
-                    deliveryStreamDescription.setCreateTimestamp(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    deliveryStreamDescription.setCreateTimestamp(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("LastUpdateTimestamp", targetDepth)) {
                     context.nextToken();
-                    deliveryStreamDescription.setLastUpdateTimestamp(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    deliveryStreamDescription.setLastUpdateTimestamp(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("Source", targetDepth)) {
                     context.nextToken();

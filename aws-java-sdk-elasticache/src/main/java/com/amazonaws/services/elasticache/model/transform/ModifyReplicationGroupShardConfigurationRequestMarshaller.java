@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -64,11 +64,6 @@ public class ModifyReplicationGroupShardConfigurationRequestMarshaller implement
 
             for (ReshardingConfiguration reshardingConfigurationListValue : reshardingConfigurationList) {
 
-                if (reshardingConfigurationListValue.getNodeGroupId() != null) {
-                    request.addParameter("ReshardingConfiguration.ReshardingConfiguration." + reshardingConfigurationListIndex + ".NodeGroupId",
-                            StringUtils.fromString(reshardingConfigurationListValue.getNodeGroupId()));
-                }
-
                 if (!reshardingConfigurationListValue.getPreferredAvailabilityZones().isEmpty()
                         || !((com.amazonaws.internal.SdkInternalList<String>) reshardingConfigurationListValue.getPreferredAvailabilityZones())
                                 .isAutoConstruct()) {
@@ -102,22 +97,6 @@ public class ModifyReplicationGroupShardConfigurationRequestMarshaller implement
                             StringUtils.fromString(nodeGroupsToRemoveListValue));
                 }
                 nodeGroupsToRemoveListIndex++;
-            }
-        }
-
-        if (!modifyReplicationGroupShardConfigurationRequest.getNodeGroupsToRetain().isEmpty()
-                || !((com.amazonaws.internal.SdkInternalList<String>) modifyReplicationGroupShardConfigurationRequest.getNodeGroupsToRetain())
-                        .isAutoConstruct()) {
-            com.amazonaws.internal.SdkInternalList<String> nodeGroupsToRetainList = (com.amazonaws.internal.SdkInternalList<String>) modifyReplicationGroupShardConfigurationRequest
-                    .getNodeGroupsToRetain();
-            int nodeGroupsToRetainListIndex = 1;
-
-            for (String nodeGroupsToRetainListValue : nodeGroupsToRetainList) {
-                if (nodeGroupsToRetainListValue != null) {
-                    request.addParameter("NodeGroupsToRetain.NodeGroupToRetain." + nodeGroupsToRetainListIndex,
-                            StringUtils.fromString(nodeGroupsToRetainListValue));
-                }
-                nodeGroupsToRetainListIndex++;
             }
         }
 

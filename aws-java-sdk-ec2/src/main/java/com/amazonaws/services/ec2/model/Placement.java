@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -41,17 +41,10 @@ public class Placement implements Serializable, Cloneable {
     private String affinity;
     /**
      * <p>
-     * The name of the placement group the instance is in.
+     * The name of the placement group the instance is in (for cluster compute instances).
      * </p>
      */
     private String groupName;
-    /**
-     * <p>
-     * The number of the partition the instance is in. Valid only if the placement group strategy is set to
-     * <code>partition</code>.
-     * </p>
-     */
-    private Integer partitionNumber;
     /**
      * <p>
      * The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the
@@ -180,11 +173,11 @@ public class Placement implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The name of the placement group the instance is in.
+     * The name of the placement group the instance is in (for cluster compute instances).
      * </p>
      * 
      * @param groupName
-     *        The name of the placement group the instance is in.
+     *        The name of the placement group the instance is in (for cluster compute instances).
      */
 
     public void setGroupName(String groupName) {
@@ -193,10 +186,10 @@ public class Placement implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The name of the placement group the instance is in.
+     * The name of the placement group the instance is in (for cluster compute instances).
      * </p>
      * 
-     * @return The name of the placement group the instance is in.
+     * @return The name of the placement group the instance is in (for cluster compute instances).
      */
 
     public String getGroupName() {
@@ -205,62 +198,16 @@ public class Placement implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The name of the placement group the instance is in.
+     * The name of the placement group the instance is in (for cluster compute instances).
      * </p>
      * 
      * @param groupName
-     *        The name of the placement group the instance is in.
+     *        The name of the placement group the instance is in (for cluster compute instances).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
     public Placement withGroupName(String groupName) {
         setGroupName(groupName);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The number of the partition the instance is in. Valid only if the placement group strategy is set to
-     * <code>partition</code>.
-     * </p>
-     * 
-     * @param partitionNumber
-     *        The number of the partition the instance is in. Valid only if the placement group strategy is set to
-     *        <code>partition</code>.
-     */
-
-    public void setPartitionNumber(Integer partitionNumber) {
-        this.partitionNumber = partitionNumber;
-    }
-
-    /**
-     * <p>
-     * The number of the partition the instance is in. Valid only if the placement group strategy is set to
-     * <code>partition</code>.
-     * </p>
-     * 
-     * @return The number of the partition the instance is in. Valid only if the placement group strategy is set to
-     *         <code>partition</code>.
-     */
-
-    public Integer getPartitionNumber() {
-        return this.partitionNumber;
-    }
-
-    /**
-     * <p>
-     * The number of the partition the instance is in. Valid only if the placement group strategy is set to
-     * <code>partition</code>.
-     * </p>
-     * 
-     * @param partitionNumber
-     *        The number of the partition the instance is in. Valid only if the placement group strategy is set to
-     *        <code>partition</code>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Placement withPartitionNumber(Integer partitionNumber) {
-        setPartitionNumber(partitionNumber);
         return this;
     }
 
@@ -444,8 +391,7 @@ public class Placement implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -461,8 +407,6 @@ public class Placement implements Serializable, Cloneable {
             sb.append("Affinity: ").append(getAffinity()).append(",");
         if (getGroupName() != null)
             sb.append("GroupName: ").append(getGroupName()).append(",");
-        if (getPartitionNumber() != null)
-            sb.append("PartitionNumber: ").append(getPartitionNumber()).append(",");
         if (getHostId() != null)
             sb.append("HostId: ").append(getHostId()).append(",");
         if (getTenancy() != null)
@@ -495,10 +439,6 @@ public class Placement implements Serializable, Cloneable {
             return false;
         if (other.getGroupName() != null && other.getGroupName().equals(this.getGroupName()) == false)
             return false;
-        if (other.getPartitionNumber() == null ^ this.getPartitionNumber() == null)
-            return false;
-        if (other.getPartitionNumber() != null && other.getPartitionNumber().equals(this.getPartitionNumber()) == false)
-            return false;
         if (other.getHostId() == null ^ this.getHostId() == null)
             return false;
         if (other.getHostId() != null && other.getHostId().equals(this.getHostId()) == false)
@@ -522,7 +462,6 @@ public class Placement implements Serializable, Cloneable {
         hashCode = prime * hashCode + ((getAvailabilityZone() == null) ? 0 : getAvailabilityZone().hashCode());
         hashCode = prime * hashCode + ((getAffinity() == null) ? 0 : getAffinity().hashCode());
         hashCode = prime * hashCode + ((getGroupName() == null) ? 0 : getGroupName().hashCode());
-        hashCode = prime * hashCode + ((getPartitionNumber() == null) ? 0 : getPartitionNumber().hashCode());
         hashCode = prime * hashCode + ((getHostId() == null) ? 0 : getHostId().hashCode());
         hashCode = prime * hashCode + ((getTenancy() == null) ? 0 : getTenancy().hashCode());
         hashCode = prime * hashCode + ((getSpreadDomain() == null) ? 0 : getSpreadDomain().hashCode());

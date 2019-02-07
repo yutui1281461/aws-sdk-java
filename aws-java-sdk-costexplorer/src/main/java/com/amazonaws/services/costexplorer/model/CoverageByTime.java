@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,13 +30,13 @@ public class CoverageByTime implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The period that this coverage was used over.
+     * The period over which this coverage was used.
      * </p>
      */
     private DateInterval timePeriod;
     /**
      * <p>
-     * The groups of instances that the reservation covered.
+     * The groups of instances that are covered by a reservation.
      * </p>
      */
     private java.util.List<ReservationCoverageGroup> groups;
@@ -49,11 +49,11 @@ public class CoverageByTime implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The period that this coverage was used over.
+     * The period over which this coverage was used.
      * </p>
      * 
      * @param timePeriod
-     *        The period that this coverage was used over.
+     *        The period over which this coverage was used.
      */
 
     public void setTimePeriod(DateInterval timePeriod) {
@@ -62,10 +62,10 @@ public class CoverageByTime implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The period that this coverage was used over.
+     * The period over which this coverage was used.
      * </p>
      * 
-     * @return The period that this coverage was used over.
+     * @return The period over which this coverage was used.
      */
 
     public DateInterval getTimePeriod() {
@@ -74,11 +74,11 @@ public class CoverageByTime implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The period that this coverage was used over.
+     * The period over which this coverage was used.
      * </p>
      * 
      * @param timePeriod
-     *        The period that this coverage was used over.
+     *        The period over which this coverage was used.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -89,10 +89,10 @@ public class CoverageByTime implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The groups of instances that the reservation covered.
+     * The groups of instances that are covered by a reservation.
      * </p>
      * 
-     * @return The groups of instances that the reservation covered.
+     * @return The groups of instances that are covered by a reservation.
      */
 
     public java.util.List<ReservationCoverageGroup> getGroups() {
@@ -101,11 +101,11 @@ public class CoverageByTime implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The groups of instances that the reservation covered.
+     * The groups of instances that are covered by a reservation.
      * </p>
      * 
      * @param groups
-     *        The groups of instances that the reservation covered.
+     *        The groups of instances that are covered by a reservation.
      */
 
     public void setGroups(java.util.Collection<ReservationCoverageGroup> groups) {
@@ -119,7 +119,7 @@ public class CoverageByTime implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The groups of instances that the reservation covered.
+     * The groups of instances that are covered by a reservation.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -128,7 +128,7 @@ public class CoverageByTime implements Serializable, Cloneable, StructuredPojo {
      * </p>
      * 
      * @param groups
-     *        The groups of instances that the reservation covered.
+     *        The groups of instances that are covered by a reservation.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -144,11 +144,11 @@ public class CoverageByTime implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The groups of instances that the reservation covered.
+     * The groups of instances that are covered by a reservation.
      * </p>
      * 
      * @param groups
-     *        The groups of instances that the reservation covered.
+     *        The groups of instances that are covered by a reservation.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -198,8 +198,7 @@ public class CoverageByTime implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

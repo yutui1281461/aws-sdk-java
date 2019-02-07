@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,7 +27,7 @@ public class UpdateElasticIpRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * The IP address for which you want to update the name.
+     * The address.
      * </p>
      */
     private String elasticIp;
@@ -40,11 +40,11 @@ public class UpdateElasticIpRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * The IP address for which you want to update the name.
+     * The address.
      * </p>
      * 
      * @param elasticIp
-     *        The IP address for which you want to update the name.
+     *        The address.
      */
 
     public void setElasticIp(String elasticIp) {
@@ -53,10 +53,10 @@ public class UpdateElasticIpRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * The IP address for which you want to update the name.
+     * The address.
      * </p>
      * 
-     * @return The IP address for which you want to update the name.
+     * @return The address.
      */
 
     public String getElasticIp() {
@@ -65,11 +65,11 @@ public class UpdateElasticIpRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * The IP address for which you want to update the name.
+     * The address.
      * </p>
      * 
      * @param elasticIp
-     *        The IP address for which you want to update the name.
+     *        The address.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -119,8 +119,7 @@ public class UpdateElasticIpRequest extends com.amazonaws.AmazonWebServiceReques
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

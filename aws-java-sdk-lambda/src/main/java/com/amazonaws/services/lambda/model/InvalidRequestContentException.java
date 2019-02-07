@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -23,11 +23,7 @@ import javax.annotation.Generated;
 public class InvalidRequestContentException extends com.amazonaws.services.lambda.model.AWSLambdaException {
     private static final long serialVersionUID = 1L;
 
-    /**
-     * <p>
-     * The exception type.
-     * </p>
-     */
+    /** <p/> */
     private String type;
 
     /**
@@ -41,12 +37,9 @@ public class InvalidRequestContentException extends com.amazonaws.services.lambd
     }
 
     /**
-     * <p>
-     * The exception type.
-     * </p>
+     * <p/>
      * 
      * @param type
-     *        The exception type.
      */
 
     @com.fasterxml.jackson.annotation.JsonProperty("Type")
@@ -55,11 +48,9 @@ public class InvalidRequestContentException extends com.amazonaws.services.lambd
     }
 
     /**
-     * <p>
-     * The exception type.
-     * </p>
+     * <p/>
      * 
-     * @return The exception type.
+     * @return
      */
 
     @com.fasterxml.jackson.annotation.JsonProperty("Type")
@@ -68,12 +59,9 @@ public class InvalidRequestContentException extends com.amazonaws.services.lambd
     }
 
     /**
-     * <p>
-     * The exception type.
-     * </p>
+     * <p/>
      * 
      * @param type
-     *        The exception type.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

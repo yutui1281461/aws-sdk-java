@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,8 +27,8 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * Sets the start and end dates for retrieving RI utilization. The start date is inclusive, but the end date is
-     * exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
+     * Sets the start and end dates for retrieving Reserved Instance (RI) utilization. The start date is inclusive, but
+     * the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
      * <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and
      * including <code>2017-04-30</code> but not including <code>2017-05-01</code>.
      * </p>
@@ -46,10 +46,6 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
      * response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>. If
      * both <code>GroupBy</code> and <code>Granularity</code> aren't set, <code>GetReservationUtilization</code>
      * defaults to <code>DAILY</code>.
-     * </p>
-     * <p>
-     * The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
-     * granularities.
      * </p>
      */
     private String granularity;
@@ -120,8 +116,8 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
      * </li>
      * </ul>
      * <p>
-     * <code>GetReservationUtilization</code> uses the same <a
-     * href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+     * <code>GetReservationUtilization</code> uses the same
+     * <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
      * object as the other operations, but only <code>AND</code> is supported among each dimension, and nesting is
      * supported up to only one level deep. If there are multiple values for a dimension, they are OR'd together.
      * </p>
@@ -137,17 +133,18 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * Sets the start and end dates for retrieving RI utilization. The start date is inclusive, but the end date is
-     * exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
+     * Sets the start and end dates for retrieving Reserved Instance (RI) utilization. The start date is inclusive, but
+     * the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
      * <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and
      * including <code>2017-04-30</code> but not including <code>2017-05-01</code>.
      * </p>
      * 
      * @param timePeriod
-     *        Sets the start and end dates for retrieving RI utilization. The start date is inclusive, but the end date
-     *        is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
-     *        <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and
-     *        including <code>2017-04-30</code> but not including <code>2017-05-01</code>.
+     *        Sets the start and end dates for retrieving Reserved Instance (RI) utilization. The start date is
+     *        inclusive, but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code>
+     *        and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved from
+     *        <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including
+     *        <code>2017-05-01</code>.
      */
 
     public void setTimePeriod(DateInterval timePeriod) {
@@ -156,16 +153,17 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * Sets the start and end dates for retrieving RI utilization. The start date is inclusive, but the end date is
-     * exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
+     * Sets the start and end dates for retrieving Reserved Instance (RI) utilization. The start date is inclusive, but
+     * the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
      * <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and
      * including <code>2017-04-30</code> but not including <code>2017-05-01</code>.
      * </p>
      * 
-     * @return Sets the start and end dates for retrieving RI utilization. The start date is inclusive, but the end date
-     *         is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
-     *         <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and
-     *         including <code>2017-04-30</code> but not including <code>2017-05-01</code>.
+     * @return Sets the start and end dates for retrieving Reserved Instance (RI) utilization. The start date is
+     *         inclusive, but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code>
+     *         and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved from
+     *         <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including
+     *         <code>2017-05-01</code>.
      */
 
     public DateInterval getTimePeriod() {
@@ -174,17 +172,18 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
 
     /**
      * <p>
-     * Sets the start and end dates for retrieving RI utilization. The start date is inclusive, but the end date is
-     * exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
+     * Sets the start and end dates for retrieving Reserved Instance (RI) utilization. The start date is inclusive, but
+     * the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
      * <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and
      * including <code>2017-04-30</code> but not including <code>2017-05-01</code>.
      * </p>
      * 
      * @param timePeriod
-     *        Sets the start and end dates for retrieving RI utilization. The start date is inclusive, but the end date
-     *        is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
-     *        <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and
-     *        including <code>2017-04-30</code> but not including <code>2017-05-01</code>.
+     *        Sets the start and end dates for retrieving Reserved Instance (RI) utilization. The start date is
+     *        inclusive, but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code>
+     *        and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved from
+     *        <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including
+     *        <code>2017-05-01</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -270,19 +269,12 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
      * both <code>GroupBy</code> and <code>Granularity</code> aren't set, <code>GetReservationUtilization</code>
      * defaults to <code>DAILY</code>.
      * </p>
-     * <p>
-     * The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
-     * granularities.
-     * </p>
      * 
      * @param granularity
      *        If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't
      *        set, the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or
      *        <code>DAILY</code>. If both <code>GroupBy</code> and <code>Granularity</code> aren't set,
-     *        <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.</p>
-     *        <p>
-     *        The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and
-     *        <code>MONTHLY</code> granularities.
+     *        <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.
      * @see Granularity
      */
 
@@ -297,18 +289,11 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
      * both <code>GroupBy</code> and <code>Granularity</code> aren't set, <code>GetReservationUtilization</code>
      * defaults to <code>DAILY</code>.
      * </p>
-     * <p>
-     * The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
-     * granularities.
-     * </p>
      * 
      * @return If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't
      *         set, the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or
      *         <code>DAILY</code>. If both <code>GroupBy</code> and <code>Granularity</code> aren't set,
-     *         <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.</p>
-     *         <p>
-     *         The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and
-     *         <code>MONTHLY</code> granularities.
+     *         <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.
      * @see Granularity
      */
 
@@ -323,19 +308,12 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
      * both <code>GroupBy</code> and <code>Granularity</code> aren't set, <code>GetReservationUtilization</code>
      * defaults to <code>DAILY</code>.
      * </p>
-     * <p>
-     * The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
-     * granularities.
-     * </p>
      * 
      * @param granularity
      *        If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't
      *        set, the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or
      *        <code>DAILY</code>. If both <code>GroupBy</code> and <code>Granularity</code> aren't set,
-     *        <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.</p>
-     *        <p>
-     *        The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and
-     *        <code>MONTHLY</code> granularities.
+     *        <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see Granularity
      */
@@ -352,19 +330,12 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
      * both <code>GroupBy</code> and <code>Granularity</code> aren't set, <code>GetReservationUtilization</code>
      * defaults to <code>DAILY</code>.
      * </p>
-     * <p>
-     * The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code>
-     * granularities.
-     * </p>
      * 
      * @param granularity
      *        If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't
      *        set, the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or
      *        <code>DAILY</code>. If both <code>GroupBy</code> and <code>Granularity</code> aren't set,
-     *        <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.</p>
-     *        <p>
-     *        The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and
-     *        <code>MONTHLY</code> granularities.
+     *        <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see Granularity
      */
@@ -441,8 +412,8 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
      * </li>
      * </ul>
      * <p>
-     * <code>GetReservationUtilization</code> uses the same <a
-     * href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+     * <code>GetReservationUtilization</code> uses the same
+     * <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
      * object as the other operations, but only <code>AND</code> is supported among each dimension, and nesting is
      * supported up to only one level deep. If there are multiple values for a dimension, they are OR'd together.
      * </p>
@@ -512,11 +483,11 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
      *        </li>
      *        </ul>
      *        <p>
-     *        <code>GetReservationUtilization</code> uses the same <a
-     *        href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html"
-     *        >Expression</a> object as the other operations, but only <code>AND</code> is supported among each
-     *        dimension, and nesting is supported up to only one level deep. If there are multiple values for a
-     *        dimension, they are OR'd together.
+     *        <code>GetReservationUtilization</code> uses the same
+     *        <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
+     *        object as the other operations, but only <code>AND</code> is supported among each dimension, and nesting
+     *        is supported up to only one level deep. If there are multiple values for a dimension, they are OR'd
+     *        together.
      */
 
     public void setFilter(Expression filter) {
@@ -590,8 +561,8 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
      * </li>
      * </ul>
      * <p>
-     * <code>GetReservationUtilization</code> uses the same <a
-     * href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+     * <code>GetReservationUtilization</code> uses the same
+     * <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
      * object as the other operations, but only <code>AND</code> is supported among each dimension, and nesting is
      * supported up to only one level deep. If there are multiple values for a dimension, they are OR'd together.
      * </p>
@@ -660,11 +631,11 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
      *         </li>
      *         </ul>
      *         <p>
-     *         <code>GetReservationUtilization</code> uses the same <a
-     *         href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html"
-     *         >Expression</a> object as the other operations, but only <code>AND</code> is supported among each
-     *         dimension, and nesting is supported up to only one level deep. If there are multiple values for a
-     *         dimension, they are OR'd together.
+     *         <code>GetReservationUtilization</code> uses the same
+     *         <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
+     *         object as the other operations, but only <code>AND</code> is supported among each dimension, and nesting
+     *         is supported up to only one level deep. If there are multiple values for a dimension, they are OR'd
+     *         together.
      */
 
     public Expression getFilter() {
@@ -738,8 +709,8 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
      * </li>
      * </ul>
      * <p>
-     * <code>GetReservationUtilization</code> uses the same <a
-     * href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+     * <code>GetReservationUtilization</code> uses the same
+     * <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
      * object as the other operations, but only <code>AND</code> is supported among each dimension, and nesting is
      * supported up to only one level deep. If there are multiple values for a dimension, they are OR'd together.
      * </p>
@@ -809,11 +780,11 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
      *        </li>
      *        </ul>
      *        <p>
-     *        <code>GetReservationUtilization</code> uses the same <a
-     *        href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html"
-     *        >Expression</a> object as the other operations, but only <code>AND</code> is supported among each
-     *        dimension, and nesting is supported up to only one level deep. If there are multiple values for a
-     *        dimension, they are OR'd together.
+     *        <code>GetReservationUtilization</code> uses the same
+     *        <code> <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> </code>
+     *        object as the other operations, but only <code>AND</code> is supported among each dimension, and nesting
+     *        is supported up to only one level deep. If there are multiple values for a dimension, they are OR'd
+     *        together.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -869,8 +840,7 @@ public class GetReservationUtilizationRequest extends com.amazonaws.AmazonWebSer
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

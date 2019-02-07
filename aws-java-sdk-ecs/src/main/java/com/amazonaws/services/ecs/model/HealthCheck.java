@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -23,31 +23,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * override any Docker health checks that exist in the container image (such as those specified in a parent image or
  * from the image's Dockerfile).
  * </p>
- * <p>
- * The following are notes about container health check support:
- * </p>
- * <ul>
- * <li>
- * <p>
- * Container health checks require version 1.17.0 or greater of the Amazon ECS container agent. For more information,
- * see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the Amazon
- * ECS Container Agent</a>.
- * </p>
- * </li>
- * <li>
- * <p>
- * Container health checks are supported for Fargate tasks if you are using platform version 1.1.0 or greater. For more
- * information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
- * Fargate Platform Versions</a>.
- * </p>
- * </li>
- * <li>
- * <p>
- * Container health checks are not supported for tasks that are part of a service that is configured to use a Classic
- * Load Balancer.
- * </p>
- * </li>
- * </ul>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/HealthCheck" target="_top">AWS API
  *      Documentation</a>
@@ -67,8 +42,9 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see
      * <code>HealthCheck</code> in the <a
-     * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
-     * <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.
+     * href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/#create-a-container">Create a
+     * container</a> section of the <a
+     * href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/">Docker Remote API</a>.
      * </p>
      */
     private com.amazonaws.internal.SdkInternalList<String> command;
@@ -82,14 +58,14 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * The time period in seconds to wait for a health check to succeed before it is considered a failure. You may
-     * specify between 2 and 60 seconds. The default value is 5.
+     * specify between 2 and 60 seconds. The default value is 5 seconds.
      * </p>
      */
     private Integer timeout;
     /**
      * <p>
      * The number of times to retry a failed health check before the container is considered unhealthy. You may specify
-     * between 1 and 10 retries. The default value is 3.
+     * between 1 and 10 retries. The default value is 3 retries.
      * </p>
      */
     private Integer retries;
@@ -120,8 +96,9 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see
      * <code>HealthCheck</code> in the <a
-     * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
-     * <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.
+     * href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/#create-a-container">Create a
+     * container</a> section of the <a
+     * href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/">Docker Remote API</a>.
      * </p>
      * 
      * @return A string array representing the command that the container runs to determine if it is healthy. The string
@@ -133,8 +110,9 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
      *         <p>
      *         An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see
      *         <code>HealthCheck</code> in the <a
-     *         href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section
-     *         of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.
+     *         href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/#create-a-container">Create a
+     *         container</a> section of the <a
+     *         href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/">Docker Remote API</a>.
      */
 
     public java.util.List<String> getCommand() {
@@ -156,8 +134,9 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see
      * <code>HealthCheck</code> in the <a
-     * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
-     * <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.
+     * href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/#create-a-container">Create a
+     * container</a> section of the <a
+     * href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/">Docker Remote API</a>.
      * </p>
      * 
      * @param command
@@ -170,8 +149,9 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
      *        <p>
      *        An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see
      *        <code>HealthCheck</code> in the <a
-     *        href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section
-     *        of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.
+     *        href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/#create-a-container">Create a
+     *        container</a> section of the <a
+     *        href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/">Docker Remote API</a>.
      */
 
     public void setCommand(java.util.Collection<String> command) {
@@ -195,8 +175,9 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see
      * <code>HealthCheck</code> in the <a
-     * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
-     * <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.
+     * href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/#create-a-container">Create a
+     * container</a> section of the <a
+     * href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/">Docker Remote API</a>.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -214,8 +195,9 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
      *        <p>
      *        An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see
      *        <code>HealthCheck</code> in the <a
-     *        href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section
-     *        of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.
+     *        href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/#create-a-container">Create a
+     *        container</a> section of the <a
+     *        href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/">Docker Remote API</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -241,8 +223,9 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
      * <p>
      * An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see
      * <code>HealthCheck</code> in the <a
-     * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
-     * <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.
+     * href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/#create-a-container">Create a
+     * container</a> section of the <a
+     * href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/">Docker Remote API</a>.
      * </p>
      * 
      * @param command
@@ -255,8 +238,9 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
      *        <p>
      *        An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see
      *        <code>HealthCheck</code> in the <a
-     *        href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section
-     *        of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.
+     *        href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/#create-a-container">Create a
+     *        container</a> section of the <a
+     *        href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.27/">Docker Remote API</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -314,12 +298,12 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * The time period in seconds to wait for a health check to succeed before it is considered a failure. You may
-     * specify between 2 and 60 seconds. The default value is 5.
+     * specify between 2 and 60 seconds. The default value is 5 seconds.
      * </p>
      * 
      * @param timeout
      *        The time period in seconds to wait for a health check to succeed before it is considered a failure. You
-     *        may specify between 2 and 60 seconds. The default value is 5.
+     *        may specify between 2 and 60 seconds. The default value is 5 seconds.
      */
 
     public void setTimeout(Integer timeout) {
@@ -329,11 +313,11 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * The time period in seconds to wait for a health check to succeed before it is considered a failure. You may
-     * specify between 2 and 60 seconds. The default value is 5.
+     * specify between 2 and 60 seconds. The default value is 5 seconds.
      * </p>
      * 
      * @return The time period in seconds to wait for a health check to succeed before it is considered a failure. You
-     *         may specify between 2 and 60 seconds. The default value is 5.
+     *         may specify between 2 and 60 seconds. The default value is 5 seconds.
      */
 
     public Integer getTimeout() {
@@ -343,12 +327,12 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * The time period in seconds to wait for a health check to succeed before it is considered a failure. You may
-     * specify between 2 and 60 seconds. The default value is 5.
+     * specify between 2 and 60 seconds. The default value is 5 seconds.
      * </p>
      * 
      * @param timeout
      *        The time period in seconds to wait for a health check to succeed before it is considered a failure. You
-     *        may specify between 2 and 60 seconds. The default value is 5.
+     *        may specify between 2 and 60 seconds. The default value is 5 seconds.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -360,12 +344,12 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * The number of times to retry a failed health check before the container is considered unhealthy. You may specify
-     * between 1 and 10 retries. The default value is 3.
+     * between 1 and 10 retries. The default value is 3 retries.
      * </p>
      * 
      * @param retries
      *        The number of times to retry a failed health check before the container is considered unhealthy. You may
-     *        specify between 1 and 10 retries. The default value is 3.
+     *        specify between 1 and 10 retries. The default value is 3 retries.
      */
 
     public void setRetries(Integer retries) {
@@ -375,11 +359,11 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * The number of times to retry a failed health check before the container is considered unhealthy. You may specify
-     * between 1 and 10 retries. The default value is 3.
+     * between 1 and 10 retries. The default value is 3 retries.
      * </p>
      * 
      * @return The number of times to retry a failed health check before the container is considered unhealthy. You may
-     *         specify between 1 and 10 retries. The default value is 3.
+     *         specify between 1 and 10 retries. The default value is 3 retries.
      */
 
     public Integer getRetries() {
@@ -389,12 +373,12 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * The number of times to retry a failed health check before the container is considered unhealthy. You may specify
-     * between 1 and 10 retries. The default value is 3.
+     * between 1 and 10 retries. The default value is 3 retries.
      * </p>
      * 
      * @param retries
      *        The number of times to retry a failed health check before the container is considered unhealthy. You may
-     *        specify between 1 and 10 retries. The default value is 3.
+     *        specify between 1 and 10 retries. The default value is 3 retries.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -486,8 +470,7 @@ public class HealthCheck implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

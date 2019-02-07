@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -54,11 +54,11 @@ public class ProjectSummaryJsonUnmarshaller implements Unmarshaller<ProjectSumma
                 }
                 if (context.testExpression("createdDate", targetDepth)) {
                     context.nextToken();
-                    projectSummary.setCreatedDate(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    projectSummary.setCreatedDate(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
                 if (context.testExpression("updatedDate", targetDepth)) {
                     context.nextToken();
-                    projectSummary.setUpdatedDate(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                    projectSummary.setUpdatedDate(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

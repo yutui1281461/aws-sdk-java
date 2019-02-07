@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -38,25 +38,25 @@ public class CreateHealthCheckRequest extends com.amazonaws.AmazonWebServiceRequ
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> and settings as a
      * previous request, and if the health check doesn't exist, Amazon Route 53 creates the health check. If the health
-     * check does exist, Route 53 returns the settings for the existing health check.
+     * check does exist, Amazon Route 53 returns the settings for the existing health check.
      * </p>
      * </li>
      * <li>
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as a deleted
-     * health check, regardless of the settings, Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
+     * health check, regardless of the settings, Amazon Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
      * </p>
      * </li>
      * <li>
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as an existing
-     * health check but with different settings, Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
+     * health check but with different settings, Amazon Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
      * </p>
      * </li>
      * <li>
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with a unique <code>CallerReference</code> but settings
-     * identical to an existing health check, Route 53 creates the health check.
+     * identical to an existing health check, Amazon Route 53 creates the health check.
      * </p>
      * </li>
      * </ul>
@@ -64,7 +64,7 @@ public class CreateHealthCheckRequest extends com.amazonaws.AmazonWebServiceRequ
     private String callerReference;
     /**
      * <p>
-     * A complex type that contains settings for a new health check.
+     * A complex type that contains the response to a <code>CreateHealthCheck</code> request.
      * </p>
      */
     private HealthCheckConfig healthCheckConfig;
@@ -79,25 +79,25 @@ public class CreateHealthCheckRequest extends com.amazonaws.AmazonWebServiceRequ
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> and settings as a
      * previous request, and if the health check doesn't exist, Amazon Route 53 creates the health check. If the health
-     * check does exist, Route 53 returns the settings for the existing health check.
+     * check does exist, Amazon Route 53 returns the settings for the existing health check.
      * </p>
      * </li>
      * <li>
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as a deleted
-     * health check, regardless of the settings, Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
+     * health check, regardless of the settings, Amazon Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
      * </p>
      * </li>
      * <li>
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as an existing
-     * health check but with different settings, Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
+     * health check but with different settings, Amazon Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
      * </p>
      * </li>
      * <li>
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with a unique <code>CallerReference</code> but settings
-     * identical to an existing health check, Route 53 creates the health check.
+     * identical to an existing health check, Amazon Route 53 creates the health check.
      * </p>
      * </li>
      * </ul>
@@ -110,27 +110,27 @@ public class CreateHealthCheckRequest extends com.amazonaws.AmazonWebServiceRequ
      *        <p>
      *        If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> and
      *        settings as a previous request, and if the health check doesn't exist, Amazon Route 53 creates the health
-     *        check. If the health check does exist, Route 53 returns the settings for the existing health check.
+     *        check. If the health check does exist, Amazon Route 53 returns the settings for the existing health check.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
      *        If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as a
-     *        deleted health check, regardless of the settings, Route 53 returns a <code>HealthCheckAlreadyExists</code>
-     *        error.
+     *        deleted health check, regardless of the settings, Amazon Route 53 returns a
+     *        <code>HealthCheckAlreadyExists</code> error.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
      *        If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as an
-     *        existing health check but with different settings, Route 53 returns a
+     *        existing health check but with different settings, Amazon Route 53 returns a
      *        <code>HealthCheckAlreadyExists</code> error.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
      *        If you send a <code>CreateHealthCheck</code> request with a unique <code>CallerReference</code> but
-     *        settings identical to an existing health check, Route 53 creates the health check.
+     *        settings identical to an existing health check, Amazon Route 53 creates the health check.
      *        </p>
      *        </li>
      */
@@ -149,25 +149,25 @@ public class CreateHealthCheckRequest extends com.amazonaws.AmazonWebServiceRequ
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> and settings as a
      * previous request, and if the health check doesn't exist, Amazon Route 53 creates the health check. If the health
-     * check does exist, Route 53 returns the settings for the existing health check.
+     * check does exist, Amazon Route 53 returns the settings for the existing health check.
      * </p>
      * </li>
      * <li>
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as a deleted
-     * health check, regardless of the settings, Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
+     * health check, regardless of the settings, Amazon Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
      * </p>
      * </li>
      * <li>
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as an existing
-     * health check but with different settings, Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
+     * health check but with different settings, Amazon Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
      * </p>
      * </li>
      * <li>
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with a unique <code>CallerReference</code> but settings
-     * identical to an existing health check, Route 53 creates the health check.
+     * identical to an existing health check, Amazon Route 53 creates the health check.
      * </p>
      * </li>
      * </ul>
@@ -179,27 +179,28 @@ public class CreateHealthCheckRequest extends com.amazonaws.AmazonWebServiceRequ
      *         <p>
      *         If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> and
      *         settings as a previous request, and if the health check doesn't exist, Amazon Route 53 creates the health
-     *         check. If the health check does exist, Route 53 returns the settings for the existing health check.
+     *         check. If the health check does exist, Amazon Route 53 returns the settings for the existing health
+     *         check.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
      *         If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as a
-     *         deleted health check, regardless of the settings, Route 53 returns a
+     *         deleted health check, regardless of the settings, Amazon Route 53 returns a
      *         <code>HealthCheckAlreadyExists</code> error.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
      *         If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as an
-     *         existing health check but with different settings, Route 53 returns a
+     *         existing health check but with different settings, Amazon Route 53 returns a
      *         <code>HealthCheckAlreadyExists</code> error.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
      *         If you send a <code>CreateHealthCheck</code> request with a unique <code>CallerReference</code> but
-     *         settings identical to an existing health check, Route 53 creates the health check.
+     *         settings identical to an existing health check, Amazon Route 53 creates the health check.
      *         </p>
      *         </li>
      */
@@ -218,25 +219,25 @@ public class CreateHealthCheckRequest extends com.amazonaws.AmazonWebServiceRequ
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> and settings as a
      * previous request, and if the health check doesn't exist, Amazon Route 53 creates the health check. If the health
-     * check does exist, Route 53 returns the settings for the existing health check.
+     * check does exist, Amazon Route 53 returns the settings for the existing health check.
      * </p>
      * </li>
      * <li>
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as a deleted
-     * health check, regardless of the settings, Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
+     * health check, regardless of the settings, Amazon Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
      * </p>
      * </li>
      * <li>
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as an existing
-     * health check but with different settings, Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
+     * health check but with different settings, Amazon Route 53 returns a <code>HealthCheckAlreadyExists</code> error.
      * </p>
      * </li>
      * <li>
      * <p>
      * If you send a <code>CreateHealthCheck</code> request with a unique <code>CallerReference</code> but settings
-     * identical to an existing health check, Route 53 creates the health check.
+     * identical to an existing health check, Amazon Route 53 creates the health check.
      * </p>
      * </li>
      * </ul>
@@ -249,27 +250,27 @@ public class CreateHealthCheckRequest extends com.amazonaws.AmazonWebServiceRequ
      *        <p>
      *        If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> and
      *        settings as a previous request, and if the health check doesn't exist, Amazon Route 53 creates the health
-     *        check. If the health check does exist, Route 53 returns the settings for the existing health check.
+     *        check. If the health check does exist, Amazon Route 53 returns the settings for the existing health check.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
      *        If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as a
-     *        deleted health check, regardless of the settings, Route 53 returns a <code>HealthCheckAlreadyExists</code>
-     *        error.
+     *        deleted health check, regardless of the settings, Amazon Route 53 returns a
+     *        <code>HealthCheckAlreadyExists</code> error.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
      *        If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code> as an
-     *        existing health check but with different settings, Route 53 returns a
+     *        existing health check but with different settings, Amazon Route 53 returns a
      *        <code>HealthCheckAlreadyExists</code> error.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
      *        If you send a <code>CreateHealthCheck</code> request with a unique <code>CallerReference</code> but
-     *        settings identical to an existing health check, Route 53 creates the health check.
+     *        settings identical to an existing health check, Amazon Route 53 creates the health check.
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -282,11 +283,11 @@ public class CreateHealthCheckRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A complex type that contains settings for a new health check.
+     * A complex type that contains the response to a <code>CreateHealthCheck</code> request.
      * </p>
      * 
      * @param healthCheckConfig
-     *        A complex type that contains settings for a new health check.
+     *        A complex type that contains the response to a <code>CreateHealthCheck</code> request.
      */
 
     public void setHealthCheckConfig(HealthCheckConfig healthCheckConfig) {
@@ -295,10 +296,10 @@ public class CreateHealthCheckRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A complex type that contains settings for a new health check.
+     * A complex type that contains the response to a <code>CreateHealthCheck</code> request.
      * </p>
      * 
-     * @return A complex type that contains settings for a new health check.
+     * @return A complex type that contains the response to a <code>CreateHealthCheck</code> request.
      */
 
     public HealthCheckConfig getHealthCheckConfig() {
@@ -307,11 +308,11 @@ public class CreateHealthCheckRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * A complex type that contains settings for a new health check.
+     * A complex type that contains the response to a <code>CreateHealthCheck</code> request.
      * </p>
      * 
      * @param healthCheckConfig
-     *        A complex type that contains settings for a new health check.
+     *        A complex type that contains the response to a <code>CreateHealthCheck</code> request.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -321,8 +322,7 @@ public class CreateHealthCheckRequest extends com.amazonaws.AmazonWebServiceRequ
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

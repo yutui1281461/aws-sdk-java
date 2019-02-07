@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -37,10 +37,7 @@ import com.amazonaws.protocol.json.*;
 import com.amazonaws.util.AWSRequestMetrics.Field;
 import com.amazonaws.annotation.ThreadSafe;
 import com.amazonaws.client.AwsSyncClientParams;
-import com.amazonaws.client.builder.AdvancedConfig;
-
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;
-import com.amazonaws.services.certificatemanager.waiters.AWSCertificateManagerWaiters;
 
 import com.amazonaws.AmazonServiceException;
 
@@ -64,7 +61,6 @@ import com.amazonaws.services.certificatemanager.model.transform.*;
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class AWSCertificateManagerClient extends AmazonWebServiceClient implements AWSCertificateManager {
-
     /** Provider for AWS credentials. */
     private final AWSCredentialsProvider awsCredentialsProvider;
 
@@ -73,12 +69,8 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
     /** Default signing name for the service. */
     private static final String DEFAULT_SIGNING_NAME = "acm";
 
-    private volatile AWSCertificateManagerWaiters waiters;
-
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
-
-    private final AdvancedConfig advancedConfig;
 
     private static final com.amazonaws.protocol.json.SdkJsonProtocolFactory protocolFactory = new com.amazonaws.protocol.json.SdkJsonProtocolFactory(
             new JsonClientMetadata()
@@ -197,7 +189,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
     public AWSCertificateManagerClient(AWSCredentials awsCredentials, ClientConfiguration clientConfiguration) {
         super(clientConfiguration);
         this.awsCredentialsProvider = new StaticCredentialsProvider(awsCredentials);
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -262,7 +253,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
             RequestMetricCollector requestMetricCollector) {
         super(clientConfiguration, requestMetricCollector);
         this.awsCredentialsProvider = awsCredentialsProvider;
-        this.advancedConfig = AdvancedConfig.EMPTY;
         init();
     }
 
@@ -281,23 +271,8 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
      *        Object providing client parameters.
      */
     AWSCertificateManagerClient(AwsSyncClientParams clientParams) {
-        this(clientParams, false);
-    }
-
-    /**
-     * Constructs a new client to invoke service methods on ACM using the specified parameters.
-     *
-     * <p>
-     * All service calls made using this new client object are blocking, and will not return until the service call
-     * completes.
-     *
-     * @param clientParams
-     *        Object providing client parameters.
-     */
-    AWSCertificateManagerClient(AwsSyncClientParams clientParams, boolean endpointDiscoveryEnabled) {
         super(clientParams);
         this.awsCredentialsProvider = clientParams.getCredentialsProvider();
-        this.advancedConfig = clientParams.getAdvancedConfig();
         init();
     }
 
@@ -370,9 +345,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "AddTagsToCertificate");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -438,9 +410,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DeleteCertificate");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -495,9 +464,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "DescribeCertificate");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -561,9 +527,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ExportCertificate");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -623,9 +586,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "GetCertificate");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -763,9 +723,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ImportCertificate");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -816,9 +773,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListCertificates");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -875,9 +829,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ListTagsForCertificate");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -943,9 +894,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RemoveTagsFromCertificate");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1012,9 +960,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "RequestCertificate");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1080,9 +1025,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "ResendValidationEmail");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1146,9 +1088,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
                 // Binds the request metrics to the current request.
                 request.setAWSRequestMetrics(awsRequestMetrics);
                 request.addHandlerContext(HandlerContextKey.SIGNING_REGION, getSigningRegion());
-                request.addHandlerContext(HandlerContextKey.SERVICE_ID, "ACM");
-                request.addHandlerContext(HandlerContextKey.OPERATION_NAME, "UpdateCertificateOptions");
-                request.addHandlerContext(HandlerContextKey.ADVANCED_CONFIG, advancedConfig);
             } finally {
                 awsRequestMetrics.endEvent(Field.RequestMarshallTime);
             }
@@ -1190,18 +1129,9 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
     private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
             ExecutionContext executionContext) {
 
-        return invoke(request, responseHandler, executionContext, null, null);
-    }
-
-    /**
-     * Normal invoke with authentication. Credentials are required and may be overriden at the request level.
-     **/
-    private <X, Y extends AmazonWebServiceRequest> Response<X> invoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI cachedEndpoint, URI uriFromEndpointTrait) {
-
         executionContext.setCredentialsProvider(CredentialUtils.getCredentialsProvider(request.getOriginalRequest(), awsCredentialsProvider));
 
-        return doInvoke(request, responseHandler, executionContext, cachedEndpoint, uriFromEndpointTrait);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -1211,7 +1141,7 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
     private <X, Y extends AmazonWebServiceRequest> Response<X> anonymousInvoke(Request<Y> request,
             HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler, ExecutionContext executionContext) {
 
-        return doInvoke(request, responseHandler, executionContext, null, null);
+        return doInvoke(request, responseHandler, executionContext);
     }
 
     /**
@@ -1219,17 +1149,8 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
      * ExecutionContext beforehand.
      **/
     private <X, Y extends AmazonWebServiceRequest> Response<X> doInvoke(Request<Y> request, HttpResponseHandler<AmazonWebServiceResponse<X>> responseHandler,
-            ExecutionContext executionContext, URI discoveredEndpoint, URI uriFromEndpointTrait) {
-
-        if (discoveredEndpoint != null) {
-            request.setEndpoint(discoveredEndpoint);
-            request.getOriginalRequest().getRequestClientOptions().appendUserAgent("endpoint-discovery");
-        } else if (uriFromEndpointTrait != null) {
-            request.setEndpoint(uriFromEndpointTrait);
-        } else {
-            request.setEndpoint(endpoint);
-        }
-
+            ExecutionContext executionContext) {
+        request.setEndpoint(endpoint);
         request.setTimeOffset(timeOffset);
 
         HttpResponseHandler<AmazonServiceException> errorResponseHandler = protocolFactory.createErrorResponseHandler(new JsonErrorResponseMetadata());
@@ -1240,26 +1161,6 @@ public class AWSCertificateManagerClient extends AmazonWebServiceClient implemen
     @com.amazonaws.annotation.SdkInternalApi
     static com.amazonaws.protocol.json.SdkJsonProtocolFactory getProtocolFactory() {
         return protocolFactory;
-    }
-
-    @Override
-    public AWSCertificateManagerWaiters waiters() {
-        if (waiters == null) {
-            synchronized (this) {
-                if (waiters == null) {
-                    waiters = new AWSCertificateManagerWaiters(this);
-                }
-            }
-        }
-        return waiters;
-    }
-
-    @Override
-    public void shutdown() {
-        super.shutdown();
-        if (waiters != null) {
-            waiters.shutdown();
-        }
     }
 
 }

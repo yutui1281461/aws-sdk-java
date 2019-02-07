@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -123,10 +123,9 @@ public class MongoDbSettings implements Serializable, Cloneable, StructuredPojo 
     private String authSource;
     /**
      * <p>
-     * The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify
-     * a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key. AWS KMS creates
-     * the default encryption key for your AWS account. Your AWS account has a different default encryption key for each
-     * AWS Region.
+     * The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for
+     * the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption
+     * key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * </p>
      */
     private String kmsKeyId;
@@ -898,17 +897,16 @@ public class MongoDbSettings implements Serializable, Cloneable, StructuredPojo 
 
     /**
      * <p>
-     * The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify
-     * a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key. AWS KMS creates
-     * the default encryption key for your AWS account. Your AWS account has a different default encryption key for each
-     * AWS Region.
+     * The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for
+     * the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption
+     * key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * </p>
      * 
      * @param kmsKeyId
-     *        The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't
-     *        specify a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key.
-     *        AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default
-     *        encryption key for each AWS Region.
+     *        The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a
+     *        value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the
+     *        default encryption key for your AWS account. Your AWS account has a different default encryption key for
+     *        each AWS region.
      */
 
     public void setKmsKeyId(String kmsKeyId) {
@@ -917,16 +915,15 @@ public class MongoDbSettings implements Serializable, Cloneable, StructuredPojo 
 
     /**
      * <p>
-     * The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify
-     * a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key. AWS KMS creates
-     * the default encryption key for your AWS account. Your AWS account has a different default encryption key for each
-     * AWS Region.
+     * The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for
+     * the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption
+     * key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * </p>
      * 
-     * @return The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't
-     *         specify a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key.
-     *         AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default
-     *         encryption key for each AWS Region.
+     * @return The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a
+     *         value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the
+     *         default encryption key for your AWS account. Your AWS account has a different default encryption key for
+     *         each AWS region.
      */
 
     public String getKmsKeyId() {
@@ -935,17 +932,16 @@ public class MongoDbSettings implements Serializable, Cloneable, StructuredPojo 
 
     /**
      * <p>
-     * The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify
-     * a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key. AWS KMS creates
-     * the default encryption key for your AWS account. Your AWS account has a different default encryption key for each
-     * AWS Region.
+     * The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for
+     * the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption
+     * key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * </p>
      * 
      * @param kmsKeyId
-     *        The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't
-     *        specify a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default encryption key.
-     *        AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default
-     *        encryption key for each AWS Region.
+     *        The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a
+     *        value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the
+     *        default encryption key for your AWS account. Your AWS account has a different default encryption key for
+     *        each AWS region.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -955,8 +951,7 @@ public class MongoDbSettings implements Serializable, Cloneable, StructuredPojo 
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -969,7 +964,7 @@ public class MongoDbSettings implements Serializable, Cloneable, StructuredPojo 
         if (getUsername() != null)
             sb.append("Username: ").append(getUsername()).append(",");
         if (getPassword() != null)
-            sb.append("Password: ").append("***Sensitive Data Redacted***").append(",");
+            sb.append("Password: ").append(getPassword()).append(",");
         if (getServerName() != null)
             sb.append("ServerName: ").append(getServerName()).append(",");
         if (getPort() != null)

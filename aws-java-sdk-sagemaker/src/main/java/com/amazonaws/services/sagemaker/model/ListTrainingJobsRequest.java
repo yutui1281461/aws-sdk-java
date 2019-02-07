@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,7 +40,7 @@ public class ListTrainingJobsRequest extends com.amazonaws.AmazonWebServiceReque
     private Integer maxResults;
     /**
      * <p>
-     * A filter that returns only training jobs created after the specified time (timestamp).
+     * A filter that only training jobs created after the specified time (timestamp).
      * </p>
      */
     private java.util.Date creationTimeAfter;
@@ -64,8 +64,7 @@ public class ListTrainingJobsRequest extends com.amazonaws.AmazonWebServiceReque
     private java.util.Date lastModifiedTimeBefore;
     /**
      * <p>
-     * A string in the training job name. This filter returns only training jobs whose name contains the specified
-     * string.
+     * A string in the training job name. This filter returns only models whose name contains the specified string.
      * </p>
      */
     private String nameContains;
@@ -176,11 +175,11 @@ public class ListTrainingJobsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A filter that returns only training jobs created after the specified time (timestamp).
+     * A filter that only training jobs created after the specified time (timestamp).
      * </p>
      * 
      * @param creationTimeAfter
-     *        A filter that returns only training jobs created after the specified time (timestamp).
+     *        A filter that only training jobs created after the specified time (timestamp).
      */
 
     public void setCreationTimeAfter(java.util.Date creationTimeAfter) {
@@ -189,10 +188,10 @@ public class ListTrainingJobsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A filter that returns only training jobs created after the specified time (timestamp).
+     * A filter that only training jobs created after the specified time (timestamp).
      * </p>
      * 
-     * @return A filter that returns only training jobs created after the specified time (timestamp).
+     * @return A filter that only training jobs created after the specified time (timestamp).
      */
 
     public java.util.Date getCreationTimeAfter() {
@@ -201,11 +200,11 @@ public class ListTrainingJobsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A filter that returns only training jobs created after the specified time (timestamp).
+     * A filter that only training jobs created after the specified time (timestamp).
      * </p>
      * 
      * @param creationTimeAfter
-     *        A filter that returns only training jobs created after the specified time (timestamp).
+     *        A filter that only training jobs created after the specified time (timestamp).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -336,13 +335,12 @@ public class ListTrainingJobsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A string in the training job name. This filter returns only training jobs whose name contains the specified
-     * string.
+     * A string in the training job name. This filter returns only models whose name contains the specified string.
      * </p>
      * 
      * @param nameContains
-     *        A string in the training job name. This filter returns only training jobs whose name contains the
-     *        specified string.
+     *        A string in the training job name. This filter returns only models whose name contains the specified
+     *        string.
      */
 
     public void setNameContains(String nameContains) {
@@ -351,12 +349,11 @@ public class ListTrainingJobsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A string in the training job name. This filter returns only training jobs whose name contains the specified
-     * string.
+     * A string in the training job name. This filter returns only models whose name contains the specified string.
      * </p>
      * 
-     * @return A string in the training job name. This filter returns only training jobs whose name contains the
-     *         specified string.
+     * @return A string in the training job name. This filter returns only models whose name contains the specified
+     *         string.
      */
 
     public String getNameContains() {
@@ -365,13 +362,12 @@ public class ListTrainingJobsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A string in the training job name. This filter returns only training jobs whose name contains the specified
-     * string.
+     * A string in the training job name. This filter returns only models whose name contains the specified string.
      * </p>
      * 
      * @param nameContains
-     *        A string in the training job name. This filter returns only training jobs whose name contains the
-     *        specified string.
+     *        A string in the training job name. This filter returns only models whose name contains the specified
+     *        string.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -558,8 +554,7 @@ public class ListTrainingJobsRequest extends com.amazonaws.AmazonWebServiceReque
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,13 +30,13 @@ public class CoverageHours implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The number of instance running hours that On-Demand Instances covered.
+     * The number of instance running hours that are covered by On-Demand Instances.
      * </p>
      */
     private String onDemandHours;
     /**
      * <p>
-     * The number of instance running hours that reservations covered.
+     * The number of instance running hours that are covered by reservations.
      * </p>
      */
     private String reservedHours;
@@ -48,18 +48,18 @@ public class CoverageHours implements Serializable, Cloneable, StructuredPojo {
     private String totalRunningHours;
     /**
      * <p>
-     * The percentage of instance hours that a reservation covered.
+     * The percentage of instance hours that are covered by a reservation.
      * </p>
      */
     private String coverageHoursPercentage;
 
     /**
      * <p>
-     * The number of instance running hours that On-Demand Instances covered.
+     * The number of instance running hours that are covered by On-Demand Instances.
      * </p>
      * 
      * @param onDemandHours
-     *        The number of instance running hours that On-Demand Instances covered.
+     *        The number of instance running hours that are covered by On-Demand Instances.
      */
 
     public void setOnDemandHours(String onDemandHours) {
@@ -68,10 +68,10 @@ public class CoverageHours implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The number of instance running hours that On-Demand Instances covered.
+     * The number of instance running hours that are covered by On-Demand Instances.
      * </p>
      * 
-     * @return The number of instance running hours that On-Demand Instances covered.
+     * @return The number of instance running hours that are covered by On-Demand Instances.
      */
 
     public String getOnDemandHours() {
@@ -80,11 +80,11 @@ public class CoverageHours implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The number of instance running hours that On-Demand Instances covered.
+     * The number of instance running hours that are covered by On-Demand Instances.
      * </p>
      * 
      * @param onDemandHours
-     *        The number of instance running hours that On-Demand Instances covered.
+     *        The number of instance running hours that are covered by On-Demand Instances.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -95,11 +95,11 @@ public class CoverageHours implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The number of instance running hours that reservations covered.
+     * The number of instance running hours that are covered by reservations.
      * </p>
      * 
      * @param reservedHours
-     *        The number of instance running hours that reservations covered.
+     *        The number of instance running hours that are covered by reservations.
      */
 
     public void setReservedHours(String reservedHours) {
@@ -108,10 +108,10 @@ public class CoverageHours implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The number of instance running hours that reservations covered.
+     * The number of instance running hours that are covered by reservations.
      * </p>
      * 
-     * @return The number of instance running hours that reservations covered.
+     * @return The number of instance running hours that are covered by reservations.
      */
 
     public String getReservedHours() {
@@ -120,11 +120,11 @@ public class CoverageHours implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The number of instance running hours that reservations covered.
+     * The number of instance running hours that are covered by reservations.
      * </p>
      * 
      * @param reservedHours
-     *        The number of instance running hours that reservations covered.
+     *        The number of instance running hours that are covered by reservations.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -175,11 +175,11 @@ public class CoverageHours implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The percentage of instance hours that a reservation covered.
+     * The percentage of instance hours that are covered by a reservation.
      * </p>
      * 
      * @param coverageHoursPercentage
-     *        The percentage of instance hours that a reservation covered.
+     *        The percentage of instance hours that are covered by a reservation.
      */
 
     public void setCoverageHoursPercentage(String coverageHoursPercentage) {
@@ -188,10 +188,10 @@ public class CoverageHours implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The percentage of instance hours that a reservation covered.
+     * The percentage of instance hours that are covered by a reservation.
      * </p>
      * 
-     * @return The percentage of instance hours that a reservation covered.
+     * @return The percentage of instance hours that are covered by a reservation.
      */
 
     public String getCoverageHoursPercentage() {
@@ -200,11 +200,11 @@ public class CoverageHours implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The percentage of instance hours that a reservation covered.
+     * The percentage of instance hours that are covered by a reservation.
      * </p>
      * 
      * @param coverageHoursPercentage
-     *        The percentage of instance hours that a reservation covered.
+     *        The percentage of instance hours that are covered by a reservation.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -214,8 +214,7 @@ public class CoverageHours implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

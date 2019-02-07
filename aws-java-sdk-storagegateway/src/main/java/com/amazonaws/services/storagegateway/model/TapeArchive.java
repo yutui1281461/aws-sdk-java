@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,11 +40,7 @@ public class TapeArchive implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private String tapeBarcode;
-    /**
-     * <p>
-     * The date the virtual tape was created.
-     * </p>
-     */
+
     private java.util.Date tapeCreatedDate;
     /**
      * <p>
@@ -57,7 +53,7 @@ public class TapeArchive implements Serializable, Cloneable, StructuredPojo {
      * The time that the archiving of the virtual tape was completed.
      * </p>
      * <p>
-     * The default time stamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+     * The string format of the completion time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
      * </p>
      */
     private java.util.Date completionTime;
@@ -87,8 +83,6 @@ public class TapeArchive implements Serializable, Cloneable, StructuredPojo {
      * </note>
      */
     private Long tapeUsedInBytes;
-
-    private String kMSKey;
 
     /**
      * <p>
@@ -171,12 +165,7 @@ public class TapeArchive implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The date the virtual tape was created.
-     * </p>
-     * 
      * @param tapeCreatedDate
-     *        The date the virtual tape was created.
      */
 
     public void setTapeCreatedDate(java.util.Date tapeCreatedDate) {
@@ -184,11 +173,7 @@ public class TapeArchive implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The date the virtual tape was created.
-     * </p>
-     * 
-     * @return The date the virtual tape was created.
+     * @return
      */
 
     public java.util.Date getTapeCreatedDate() {
@@ -196,12 +181,7 @@ public class TapeArchive implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The date the virtual tape was created.
-     * </p>
-     * 
      * @param tapeCreatedDate
-     *        The date the virtual tape was created.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -255,13 +235,13 @@ public class TapeArchive implements Serializable, Cloneable, StructuredPojo {
      * The time that the archiving of the virtual tape was completed.
      * </p>
      * <p>
-     * The default time stamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+     * The string format of the completion time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
      * </p>
      * 
      * @param completionTime
      *        The time that the archiving of the virtual tape was completed.</p>
      *        <p>
-     *        The default time stamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+     *        The string format of the completion time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
      */
 
     public void setCompletionTime(java.util.Date completionTime) {
@@ -273,12 +253,12 @@ public class TapeArchive implements Serializable, Cloneable, StructuredPojo {
      * The time that the archiving of the virtual tape was completed.
      * </p>
      * <p>
-     * The default time stamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+     * The string format of the completion time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
      * </p>
      * 
      * @return The time that the archiving of the virtual tape was completed.</p>
      *         <p>
-     *         The default time stamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+     *         The string format of the completion time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
      */
 
     public java.util.Date getCompletionTime() {
@@ -290,13 +270,13 @@ public class TapeArchive implements Serializable, Cloneable, StructuredPojo {
      * The time that the archiving of the virtual tape was completed.
      * </p>
      * <p>
-     * The default time stamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+     * The string format of the completion time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
      * </p>
      * 
      * @param completionTime
      *        The time that the archiving of the virtual tape was completed.</p>
      *        <p>
-     *        The default time stamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+     *        The string format of the completion time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -465,34 +445,7 @@ public class TapeArchive implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * @param kMSKey
-     */
-
-    public void setKMSKey(String kMSKey) {
-        this.kMSKey = kMSKey;
-    }
-
-    /**
-     * @return
-     */
-
-    public String getKMSKey() {
-        return this.kMSKey;
-    }
-
-    /**
-     * @param kMSKey
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public TapeArchive withKMSKey(String kMSKey) {
-        setKMSKey(kMSKey);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -517,9 +470,7 @@ public class TapeArchive implements Serializable, Cloneable, StructuredPojo {
         if (getTapeStatus() != null)
             sb.append("TapeStatus: ").append(getTapeStatus()).append(",");
         if (getTapeUsedInBytes() != null)
-            sb.append("TapeUsedInBytes: ").append(getTapeUsedInBytes()).append(",");
-        if (getKMSKey() != null)
-            sb.append("KMSKey: ").append(getKMSKey());
+            sb.append("TapeUsedInBytes: ").append(getTapeUsedInBytes());
         sb.append("}");
         return sb.toString();
     }
@@ -566,10 +517,6 @@ public class TapeArchive implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getTapeUsedInBytes() != null && other.getTapeUsedInBytes().equals(this.getTapeUsedInBytes()) == false)
             return false;
-        if (other.getKMSKey() == null ^ this.getKMSKey() == null)
-            return false;
-        if (other.getKMSKey() != null && other.getKMSKey().equals(this.getKMSKey()) == false)
-            return false;
         return true;
     }
 
@@ -586,7 +533,6 @@ public class TapeArchive implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getRetrievedTo() == null) ? 0 : getRetrievedTo().hashCode());
         hashCode = prime * hashCode + ((getTapeStatus() == null) ? 0 : getTapeStatus().hashCode());
         hashCode = prime * hashCode + ((getTapeUsedInBytes() == null) ? 0 : getTapeUsedInBytes().hashCode());
-        hashCode = prime * hashCode + ((getKMSKey() == null) ? 0 : getKMSKey().hashCode());
         return hashCode;
     }
 

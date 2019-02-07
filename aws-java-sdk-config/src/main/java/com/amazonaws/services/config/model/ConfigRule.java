@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -134,18 +134,6 @@ public class ConfigRule implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private String configRuleState;
-    /**
-     * <p>
-     * Service principal name of the service that created the rule.
-     * </p>
-     * <note>
-     * <p>
-     * The field is populated only if the service linked rule is created by a service. The field is empty if you create
-     * your own rule.
-     * </p>
-     * </note>
-     */
-    private String createdBy;
 
     /**
      * <p>
@@ -933,78 +921,7 @@ public class ConfigRule implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * Service principal name of the service that created the rule.
-     * </p>
-     * <note>
-     * <p>
-     * The field is populated only if the service linked rule is created by a service. The field is empty if you create
-     * your own rule.
-     * </p>
-     * </note>
-     * 
-     * @param createdBy
-     *        Service principal name of the service that created the rule.</p> <note>
-     *        <p>
-     *        The field is populated only if the service linked rule is created by a service. The field is empty if you
-     *        create your own rule.
-     *        </p>
-     */
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    /**
-     * <p>
-     * Service principal name of the service that created the rule.
-     * </p>
-     * <note>
-     * <p>
-     * The field is populated only if the service linked rule is created by a service. The field is empty if you create
-     * your own rule.
-     * </p>
-     * </note>
-     * 
-     * @return Service principal name of the service that created the rule.</p> <note>
-     *         <p>
-     *         The field is populated only if the service linked rule is created by a service. The field is empty if you
-     *         create your own rule.
-     *         </p>
-     */
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    /**
-     * <p>
-     * Service principal name of the service that created the rule.
-     * </p>
-     * <note>
-     * <p>
-     * The field is populated only if the service linked rule is created by a service. The field is empty if you create
-     * your own rule.
-     * </p>
-     * </note>
-     * 
-     * @param createdBy
-     *        Service principal name of the service that created the rule.</p> <note>
-     *        <p>
-     *        The field is populated only if the service linked rule is created by a service. The field is empty if you
-     *        create your own rule.
-     *        </p>
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public ConfigRule withCreatedBy(String createdBy) {
-        setCreatedBy(createdBy);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -1031,9 +948,7 @@ public class ConfigRule implements Serializable, Cloneable, StructuredPojo {
         if (getMaximumExecutionFrequency() != null)
             sb.append("MaximumExecutionFrequency: ").append(getMaximumExecutionFrequency()).append(",");
         if (getConfigRuleState() != null)
-            sb.append("ConfigRuleState: ").append(getConfigRuleState()).append(",");
-        if (getCreatedBy() != null)
-            sb.append("CreatedBy: ").append(getCreatedBy());
+            sb.append("ConfigRuleState: ").append(getConfigRuleState());
         sb.append("}");
         return sb.toString();
     }
@@ -1084,10 +999,6 @@ public class ConfigRule implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getConfigRuleState() != null && other.getConfigRuleState().equals(this.getConfigRuleState()) == false)
             return false;
-        if (other.getCreatedBy() == null ^ this.getCreatedBy() == null)
-            return false;
-        if (other.getCreatedBy() != null && other.getCreatedBy().equals(this.getCreatedBy()) == false)
-            return false;
         return true;
     }
 
@@ -1105,7 +1016,6 @@ public class ConfigRule implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getInputParameters() == null) ? 0 : getInputParameters().hashCode());
         hashCode = prime * hashCode + ((getMaximumExecutionFrequency() == null) ? 0 : getMaximumExecutionFrequency().hashCode());
         hashCode = prime * hashCode + ((getConfigRuleState() == null) ? 0 : getConfigRuleState().hashCode());
-        hashCode = prime * hashCode + ((getCreatedBy() == null) ? 0 : getCreatedBy().hashCode());
         return hashCode;
     }
 

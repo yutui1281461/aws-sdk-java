@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -97,7 +97,7 @@ public class CreateVpcEndpointRequest extends AmazonWebServiceRequest implements
      * attributes.
      * </p>
      * <p>
-     * Default: <code>false</code>
+     * Default: <code>true</code>
      * </p>
      */
     private Boolean privateDnsEnabled;
@@ -611,7 +611,7 @@ public class CreateVpcEndpointRequest extends AmazonWebServiceRequest implements
      * attributes.
      * </p>
      * <p>
-     * Default: <code>false</code>
+     * Default: <code>true</code>
      * </p>
      * 
      * @param privateDnsEnabled
@@ -627,7 +627,7 @@ public class CreateVpcEndpointRequest extends AmazonWebServiceRequest implements
      *        the VPC attributes.
      *        </p>
      *        <p>
-     *        Default: <code>false</code>
+     *        Default: <code>true</code>
      */
 
     public void setPrivateDnsEnabled(Boolean privateDnsEnabled) {
@@ -648,7 +648,7 @@ public class CreateVpcEndpointRequest extends AmazonWebServiceRequest implements
      * attributes.
      * </p>
      * <p>
-     * Default: <code>false</code>
+     * Default: <code>true</code>
      * </p>
      * 
      * @return (Interface endpoint) Indicate whether to associate a private hosted zone with the specified VPC. The
@@ -663,7 +663,7 @@ public class CreateVpcEndpointRequest extends AmazonWebServiceRequest implements
      *         the VPC attributes.
      *         </p>
      *         <p>
-     *         Default: <code>false</code>
+     *         Default: <code>true</code>
      */
 
     public Boolean getPrivateDnsEnabled() {
@@ -684,7 +684,7 @@ public class CreateVpcEndpointRequest extends AmazonWebServiceRequest implements
      * attributes.
      * </p>
      * <p>
-     * Default: <code>false</code>
+     * Default: <code>true</code>
      * </p>
      * 
      * @param privateDnsEnabled
@@ -700,7 +700,7 @@ public class CreateVpcEndpointRequest extends AmazonWebServiceRequest implements
      *        the VPC attributes.
      *        </p>
      *        <p>
-     *        Default: <code>false</code>
+     *        Default: <code>true</code>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -723,7 +723,7 @@ public class CreateVpcEndpointRequest extends AmazonWebServiceRequest implements
      * attributes.
      * </p>
      * <p>
-     * Default: <code>false</code>
+     * Default: <code>true</code>
      * </p>
      * 
      * @return (Interface endpoint) Indicate whether to associate a private hosted zone with the specified VPC. The
@@ -738,7 +738,7 @@ public class CreateVpcEndpointRequest extends AmazonWebServiceRequest implements
      *         the VPC attributes.
      *         </p>
      *         <p>
-     *         Default: <code>false</code>
+     *         Default: <code>true</code>
      */
 
     public Boolean isPrivateDnsEnabled() {
@@ -757,8 +757,7 @@ public class CreateVpcEndpointRequest extends AmazonWebServiceRequest implements
     }
 
     /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *

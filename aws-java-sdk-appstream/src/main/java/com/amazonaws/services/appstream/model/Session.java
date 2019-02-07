@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,7 @@ public class Session implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The identifier of the streaming session.
+     * The ID of the streaming session.
      * </p>
      */
     private String id;
@@ -65,20 +65,14 @@ public class Session implements Serializable, Cloneable, StructuredPojo {
      * </p>
      */
     private String authenticationType;
-    /**
-     * <p>
-     * The network details for the streaming session.
-     * </p>
-     */
-    private NetworkAccessConfiguration networkAccessConfiguration;
 
     /**
      * <p>
-     * The identifier of the streaming session.
+     * The ID of the streaming session.
      * </p>
      * 
      * @param id
-     *        The identifier of the streaming session.
+     *        The ID of the streaming session.
      */
 
     public void setId(String id) {
@@ -87,10 +81,10 @@ public class Session implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The identifier of the streaming session.
+     * The ID of the streaming session.
      * </p>
      * 
-     * @return The identifier of the streaming session.
+     * @return The ID of the streaming session.
      */
 
     public String getId() {
@@ -99,11 +93,11 @@ public class Session implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The identifier of the streaming session.
+     * The ID of the streaming session.
      * </p>
      * 
      * @param id
-     *        The identifier of the streaming session.
+     *        The ID of the streaming session.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -389,48 +383,7 @@ public class Session implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * <p>
-     * The network details for the streaming session.
-     * </p>
-     * 
-     * @param networkAccessConfiguration
-     *        The network details for the streaming session.
-     */
-
-    public void setNetworkAccessConfiguration(NetworkAccessConfiguration networkAccessConfiguration) {
-        this.networkAccessConfiguration = networkAccessConfiguration;
-    }
-
-    /**
-     * <p>
-     * The network details for the streaming session.
-     * </p>
-     * 
-     * @return The network details for the streaming session.
-     */
-
-    public NetworkAccessConfiguration getNetworkAccessConfiguration() {
-        return this.networkAccessConfiguration;
-    }
-
-    /**
-     * <p>
-     * The network details for the streaming session.
-     * </p>
-     * 
-     * @param networkAccessConfiguration
-     *        The network details for the streaming session.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Session withNetworkAccessConfiguration(NetworkAccessConfiguration networkAccessConfiguration) {
-        setNetworkAccessConfiguration(networkAccessConfiguration);
-        return this;
-    }
-
-    /**
-     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
-     * redacted from this string using a placeholder value.
+     * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
      *
@@ -451,9 +404,7 @@ public class Session implements Serializable, Cloneable, StructuredPojo {
         if (getState() != null)
             sb.append("State: ").append(getState()).append(",");
         if (getAuthenticationType() != null)
-            sb.append("AuthenticationType: ").append(getAuthenticationType()).append(",");
-        if (getNetworkAccessConfiguration() != null)
-            sb.append("NetworkAccessConfiguration: ").append(getNetworkAccessConfiguration());
+            sb.append("AuthenticationType: ").append(getAuthenticationType());
         sb.append("}");
         return sb.toString();
     }
@@ -492,10 +443,6 @@ public class Session implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getAuthenticationType() != null && other.getAuthenticationType().equals(this.getAuthenticationType()) == false)
             return false;
-        if (other.getNetworkAccessConfiguration() == null ^ this.getNetworkAccessConfiguration() == null)
-            return false;
-        if (other.getNetworkAccessConfiguration() != null && other.getNetworkAccessConfiguration().equals(this.getNetworkAccessConfiguration()) == false)
-            return false;
         return true;
     }
 
@@ -510,7 +457,6 @@ public class Session implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getFleetName() == null) ? 0 : getFleetName().hashCode());
         hashCode = prime * hashCode + ((getState() == null) ? 0 : getState().hashCode());
         hashCode = prime * hashCode + ((getAuthenticationType() == null) ? 0 : getAuthenticationType().hashCode());
-        hashCode = prime * hashCode + ((getNetworkAccessConfiguration() == null) ? 0 : getNetworkAccessConfiguration().hashCode());
         return hashCode;
     }
 
