@@ -15,8 +15,7 @@ package com.amazonaws.services.mediaconvert.model;
 import javax.annotation.Generated;
 
 /**
- * Applies only to HLS outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the
- * input in this output.
+ * If PASSTHROUGH, inserts ID3 timed metadata from the timed_metadata REST command into this output.
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public enum TimedMetadata {

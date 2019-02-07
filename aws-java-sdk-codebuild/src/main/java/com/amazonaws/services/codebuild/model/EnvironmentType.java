@@ -20,7 +20,6 @@ import javax.annotation.Generated;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public enum EnvironmentType {
 
-    WINDOWS_CONTAINER("WINDOWS_CONTAINER"),
     LINUX_CONTAINER("LINUX_CONTAINER");
 
     private String value;

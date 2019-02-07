@@ -807,9 +807,8 @@ public interface AWSMigrationHubAsync extends AWSMigrationHub {
      * </li>
      * <li>
      * <p>
-     * Note the instructions regarding the special use case of the <a href=
-     * "https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#migrationhub-PutResourceAttributes-request-ResourceAttributeList"
-     * > <code>ResourceAttributeList</code> </a> parameter when specifying any "VM" related value.
+     * Note the instructions regarding the special use case of the <code>ResourceAttributeList</code> parameter when
+     * specifying any "VM" related value.
      * </p>
      * </li>
      * </ul>
@@ -845,9 +844,8 @@ public interface AWSMigrationHubAsync extends AWSMigrationHub {
      * </li>
      * <li>
      * <p>
-     * Note the instructions regarding the special use case of the <a href=
-     * "https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#migrationhub-PutResourceAttributes-request-ResourceAttributeList"
-     * > <code>ResourceAttributeList</code> </a> parameter when specifying any "VM" related value.
+     * Note the instructions regarding the special use case of the <code>ResourceAttributeList</code> parameter when
+     * specifying any "VM" related value.
      * </p>
      * </li>
      * </ul>

@@ -339,33 +339,6 @@ public interface AWSIotAsync extends AWSIot {
 
     /**
      * <p>
-     * Cancels the execution of a job for a given thing.
-     * </p>
-     * 
-     * @param cancelJobExecutionRequest
-     * @return A Java Future containing the result of the CancelJobExecution operation returned by the service.
-     * @sample AWSIotAsync.CancelJobExecution
-     */
-    java.util.concurrent.Future<CancelJobExecutionResult> cancelJobExecutionAsync(CancelJobExecutionRequest cancelJobExecutionRequest);
-
-    /**
-     * <p>
-     * Cancels the execution of a job for a given thing.
-     * </p>
-     * 
-     * @param cancelJobExecutionRequest
-     * @param asyncHandler
-     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
-     *        implementation of the callback methods in this interface to receive notification of successful or
-     *        unsuccessful completion of the operation.
-     * @return A Java Future containing the result of the CancelJobExecution operation returned by the service.
-     * @sample AWSIotAsyncHandler.CancelJobExecution
-     */
-    java.util.concurrent.Future<CancelJobExecutionResult> cancelJobExecutionAsync(CancelJobExecutionRequest cancelJobExecutionRequest,
-            com.amazonaws.handlers.AsyncHandler<CancelJobExecutionRequest, CancelJobExecutionResult> asyncHandler);
-
-    /**
-     * <p>
      * Clears the default authorizer.
      * </p>
      * 
@@ -2001,8 +1974,7 @@ public interface AWSIotAsync extends AWSIot {
 
     /**
      * <p>
-     * Gets a list of the policies that have an effect on the authorization behavior of the specified device when it
-     * connects to the AWS IoT device gateway.
+     * Gets effective policies.
      * </p>
      * 
      * @param getEffectivePoliciesRequest
@@ -2013,8 +1985,7 @@ public interface AWSIotAsync extends AWSIot {
 
     /**
      * <p>
-     * Gets a list of the policies that have an effect on the authorization behavior of the specified device when it
-     * connects to the AWS IoT device gateway.
+     * Gets effective policies.
      * </p>
      * 
      * @param getEffectivePoliciesRequest
@@ -3574,8 +3545,7 @@ public interface AWSIotAsync extends AWSIot {
 
     /**
      * <p>
-     * Tests if a specified principal is authorized to perform an AWS IoT action on a specified resource. Use this to
-     * test and debug the authorization behavior of devices that connect to the AWS IoT device gateway.
+     * Test custom authorization.
      * </p>
      * 
      * @param testAuthorizationRequest
@@ -3586,8 +3556,7 @@ public interface AWSIotAsync extends AWSIot {
 
     /**
      * <p>
-     * Tests if a specified principal is authorized to perform an AWS IoT action on a specified resource. Use this to
-     * test and debug the authorization behavior of devices that connect to the AWS IoT device gateway.
+     * Test custom authorization.
      * </p>
      * 
      * @param testAuthorizationRequest
@@ -3603,8 +3572,7 @@ public interface AWSIotAsync extends AWSIot {
 
     /**
      * <p>
-     * Tests a custom authorization behavior by invoking a specified custom authorizer. Use this to test and debug the
-     * custom authorization behavior of devices that connect to the AWS IoT device gateway.
+     * Invoke the specified custom authorizer for testing purposes.
      * </p>
      * 
      * @param testInvokeAuthorizerRequest
@@ -3615,8 +3583,7 @@ public interface AWSIotAsync extends AWSIot {
 
     /**
      * <p>
-     * Tests a custom authorization behavior by invoking a specified custom authorizer. Use this to test and debug the
-     * custom authorization behavior of devices that connect to the AWS IoT device gateway.
+     * Invoke the specified custom authorizer for testing purposes.
      * </p>
      * 
      * @param testInvokeAuthorizerRequest

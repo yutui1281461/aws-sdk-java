@@ -44,11 +44,6 @@ public class AbstractAmazonSageMaker implements AmazonSageMaker {
     }
 
     @Override
-    public CreateHyperParameterTuningJobResult createHyperParameterTuningJob(CreateHyperParameterTuningJobRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public CreateModelResult createModel(CreateModelRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -114,11 +109,6 @@ public class AbstractAmazonSageMaker implements AmazonSageMaker {
     }
 
     @Override
-    public DescribeHyperParameterTuningJobResult describeHyperParameterTuningJob(DescribeHyperParameterTuningJobRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public DescribeModelResult describeModel(DescribeModelRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -149,11 +139,6 @@ public class AbstractAmazonSageMaker implements AmazonSageMaker {
     }
 
     @Override
-    public ListHyperParameterTuningJobsResult listHyperParameterTuningJobs(ListHyperParameterTuningJobsRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public ListModelsResult listModels(ListModelsRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -179,17 +164,7 @@ public class AbstractAmazonSageMaker implements AmazonSageMaker {
     }
 
     @Override
-    public ListTrainingJobsForHyperParameterTuningJobResult listTrainingJobsForHyperParameterTuningJob(ListTrainingJobsForHyperParameterTuningJobRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
     public StartNotebookInstanceResult startNotebookInstance(StartNotebookInstanceRequest request) {
-        throw new java.lang.UnsupportedOperationException();
-    }
-
-    @Override
-    public StopHyperParameterTuningJobResult stopHyperParameterTuningJob(StopHyperParameterTuningJobRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 

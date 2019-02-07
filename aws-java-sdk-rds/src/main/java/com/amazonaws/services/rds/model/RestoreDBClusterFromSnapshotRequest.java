@@ -206,12 +206,6 @@ public class RestoreDBClusterFromSnapshotRequest extends com.amazonaws.AmazonWeb
      * </ul>
      */
     private Long backtrackWindow;
-    /**
-     * <p>
-     * The list of logs that the restored DB cluster is to export to CloudWatch Logs.
-     * </p>
-     */
-    private com.amazonaws.internal.SdkInternalList<String> enableCloudwatchLogsExports;
 
     /**
      * <p>
@@ -1447,79 +1441,6 @@ public class RestoreDBClusterFromSnapshotRequest extends com.amazonaws.AmazonWeb
     }
 
     /**
-     * <p>
-     * The list of logs that the restored DB cluster is to export to CloudWatch Logs.
-     * </p>
-     * 
-     * @return The list of logs that the restored DB cluster is to export to CloudWatch Logs.
-     */
-
-    public java.util.List<String> getEnableCloudwatchLogsExports() {
-        if (enableCloudwatchLogsExports == null) {
-            enableCloudwatchLogsExports = new com.amazonaws.internal.SdkInternalList<String>();
-        }
-        return enableCloudwatchLogsExports;
-    }
-
-    /**
-     * <p>
-     * The list of logs that the restored DB cluster is to export to CloudWatch Logs.
-     * </p>
-     * 
-     * @param enableCloudwatchLogsExports
-     *        The list of logs that the restored DB cluster is to export to CloudWatch Logs.
-     */
-
-    public void setEnableCloudwatchLogsExports(java.util.Collection<String> enableCloudwatchLogsExports) {
-        if (enableCloudwatchLogsExports == null) {
-            this.enableCloudwatchLogsExports = null;
-            return;
-        }
-
-        this.enableCloudwatchLogsExports = new com.amazonaws.internal.SdkInternalList<String>(enableCloudwatchLogsExports);
-    }
-
-    /**
-     * <p>
-     * The list of logs that the restored DB cluster is to export to CloudWatch Logs.
-     * </p>
-     * <p>
-     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
-     * {@link #setEnableCloudwatchLogsExports(java.util.Collection)} or
-     * {@link #withEnableCloudwatchLogsExports(java.util.Collection)} if you want to override the existing values.
-     * </p>
-     * 
-     * @param enableCloudwatchLogsExports
-     *        The list of logs that the restored DB cluster is to export to CloudWatch Logs.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBClusterFromSnapshotRequest withEnableCloudwatchLogsExports(String... enableCloudwatchLogsExports) {
-        if (this.enableCloudwatchLogsExports == null) {
-            setEnableCloudwatchLogsExports(new com.amazonaws.internal.SdkInternalList<String>(enableCloudwatchLogsExports.length));
-        }
-        for (String ele : enableCloudwatchLogsExports) {
-            this.enableCloudwatchLogsExports.add(ele);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * The list of logs that the restored DB cluster is to export to CloudWatch Logs.
-     * </p>
-     * 
-     * @param enableCloudwatchLogsExports
-     *        The list of logs that the restored DB cluster is to export to CloudWatch Logs.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public RestoreDBClusterFromSnapshotRequest withEnableCloudwatchLogsExports(java.util.Collection<String> enableCloudwatchLogsExports) {
-        setEnableCloudwatchLogsExports(enableCloudwatchLogsExports);
-        return this;
-    }
-
-    /**
      * Returns a string representation of this object; useful for testing and debugging.
      *
      * @return A string representation of this object.
@@ -1557,9 +1478,7 @@ public class RestoreDBClusterFromSnapshotRequest extends com.amazonaws.AmazonWeb
         if (getEnableIAMDatabaseAuthentication() != null)
             sb.append("EnableIAMDatabaseAuthentication: ").append(getEnableIAMDatabaseAuthentication()).append(",");
         if (getBacktrackWindow() != null)
-            sb.append("BacktrackWindow: ").append(getBacktrackWindow()).append(",");
-        if (getEnableCloudwatchLogsExports() != null)
-            sb.append("EnableCloudwatchLogsExports: ").append(getEnableCloudwatchLogsExports());
+            sb.append("BacktrackWindow: ").append(getBacktrackWindow());
         sb.append("}");
         return sb.toString();
     }
@@ -1631,10 +1550,6 @@ public class RestoreDBClusterFromSnapshotRequest extends com.amazonaws.AmazonWeb
             return false;
         if (other.getBacktrackWindow() != null && other.getBacktrackWindow().equals(this.getBacktrackWindow()) == false)
             return false;
-        if (other.getEnableCloudwatchLogsExports() == null ^ this.getEnableCloudwatchLogsExports() == null)
-            return false;
-        if (other.getEnableCloudwatchLogsExports() != null && other.getEnableCloudwatchLogsExports().equals(this.getEnableCloudwatchLogsExports()) == false)
-            return false;
         return true;
     }
 
@@ -1657,7 +1572,6 @@ public class RestoreDBClusterFromSnapshotRequest extends com.amazonaws.AmazonWeb
         hashCode = prime * hashCode + ((getKmsKeyId() == null) ? 0 : getKmsKeyId().hashCode());
         hashCode = prime * hashCode + ((getEnableIAMDatabaseAuthentication() == null) ? 0 : getEnableIAMDatabaseAuthentication().hashCode());
         hashCode = prime * hashCode + ((getBacktrackWindow() == null) ? 0 : getBacktrackWindow().hashCode());
-        hashCode = prime * hashCode + ((getEnableCloudwatchLogsExports() == null) ? 0 : getEnableCloudwatchLogsExports().hashCode());
         return hashCode;
     }
 

@@ -14,8 +14,6 @@
  */
 package com.amazonaws.services.s3;
 
-import com.amazonaws.SdkClientException;
-
 /**
  * S3 client configuration options such as the request access style.
  */
@@ -64,12 +62,6 @@ public class S3ClientOptions {
         private Builder() {}
 
         public S3ClientOptions build() {
-            if (pathStyleAccess && accelerateModeEnabled) {
-                throw new SdkClientException("Both accelerate mode and path style access are being enabled either through "
-                                             + "S3ClientOptions or AmazonS3ClientBuilder. These options are mutually exclusive "
-                                             + "and cannot be enabled together. Please disable one of them");
-            }
-
             return new S3ClientOptions(pathStyleAccess, chunkedEncodingDisabled, accelerateModeEnabled,
                                        payloadSigningEnabled, dualstackEnabled, forceGlobalBucketAccessEnabled);
         }

@@ -48,10 +48,6 @@ public class OutputGroupSettingsJsonUnmarshaller implements Unmarshaller<OutputG
                 break;
 
             if (token == FIELD_NAME || token == START_OBJECT) {
-                if (context.testExpression("cmafGroupSettings", targetDepth)) {
-                    context.nextToken();
-                    outputGroupSettings.setCmafGroupSettings(CmafGroupSettingsJsonUnmarshaller.getInstance().unmarshall(context));
-                }
                 if (context.testExpression("dashIsoGroupSettings", targetDepth)) {
                     context.nextToken();
                     outputGroupSettings.setDashIsoGroupSettings(DashIsoGroupSettingsJsonUnmarshaller.getInstance().unmarshall(context));

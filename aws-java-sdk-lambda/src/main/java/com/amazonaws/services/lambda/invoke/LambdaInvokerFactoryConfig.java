@@ -17,8 +17,6 @@ package com.amazonaws.services.lambda.invoke;
 
 import com.amazonaws.annotation.SdkProtectedApi;
 import com.amazonaws.util.ValidationUtils;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Configuration for {@link LambdaInvokerFactory} to override default behavior.
@@ -29,7 +27,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class LambdaInvokerFactoryConfig {
 
     private LambdaFunctionNameResolver lambdaFunctionNameResolver;
-    private final ObjectMapper objectMapper;
     private final String functionAlias;
     private final String functionVersion;
 
@@ -38,26 +35,20 @@ public class LambdaInvokerFactoryConfig {
      */
     @Deprecated
     public LambdaInvokerFactoryConfig() {
-        this(new DefaultLambdaFunctionNameResolver(), LambdaInvokerFactory.DEFAULT_MAPPER, null, null);
+        this(new DefaultLambdaFunctionNameResolver(), null, null);
     }
 
     @SdkProtectedApi
     LambdaInvokerFactoryConfig(LambdaFunctionNameResolver lambdaFunctionNameResolver,
-                               ObjectMapper objectMapper,
                                String functionAlias,
                                String functionVersion) {
         this.lambdaFunctionNameResolver = lambdaFunctionNameResolver;
-        this.objectMapper = objectMapper;
         this.functionAlias = functionAlias;
         this.functionVersion = functionVersion;
     }
 
     public LambdaFunctionNameResolver getLambdaFunctionNameResolver() {
         return lambdaFunctionNameResolver;
-    }
-
-    public ObjectMapper getObjectMapper() {
-        return objectMapper;
     }
 
     public String getFunctionAlias() {

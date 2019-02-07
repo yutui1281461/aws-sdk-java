@@ -39,16 +39,8 @@ public class UpdateNotebookInstanceRequest extends com.amazonaws.AmazonWebServic
     private String instanceType;
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the notebook instance.
-     * For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
-     * SageMaker Roles</a>.
+     * Amazon Resource Name (ARN) of the IAM role to associate with the instance.
      * </p>
-     * <note>
-     * <p>
-     * To be able to pass this role to Amazon SageMaker, the caller of this API must have the <code>iam:PassRole</code>
-     * permission.
-     * </p>
-     * </note>
      */
     private String roleArn;
 
@@ -153,26 +145,11 @@ public class UpdateNotebookInstanceRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the notebook instance.
-     * For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
-     * SageMaker Roles</a>.
+     * Amazon Resource Name (ARN) of the IAM role to associate with the instance.
      * </p>
-     * <note>
-     * <p>
-     * To be able to pass this role to Amazon SageMaker, the caller of this API must have the <code>iam:PassRole</code>
-     * permission.
-     * </p>
-     * </note>
      * 
      * @param roleArn
-     *        The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the notebook
-     *        instance. For more information, see <a
-     *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker Roles</a>.
-     *        </p> <note>
-     *        <p>
-     *        To be able to pass this role to Amazon SageMaker, the caller of this API must have the
-     *        <code>iam:PassRole</code> permission.
-     *        </p>
+     *        Amazon Resource Name (ARN) of the IAM role to associate with the instance.
      */
 
     public void setRoleArn(String roleArn) {
@@ -181,25 +158,10 @@ public class UpdateNotebookInstanceRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the notebook instance.
-     * For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
-     * SageMaker Roles</a>.
+     * Amazon Resource Name (ARN) of the IAM role to associate with the instance.
      * </p>
-     * <note>
-     * <p>
-     * To be able to pass this role to Amazon SageMaker, the caller of this API must have the <code>iam:PassRole</code>
-     * permission.
-     * </p>
-     * </note>
      * 
-     * @return The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the notebook
-     *         instance. For more information, see <a
-     *         href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker Roles</a>.
-     *         </p> <note>
-     *         <p>
-     *         To be able to pass this role to Amazon SageMaker, the caller of this API must have the
-     *         <code>iam:PassRole</code> permission.
-     *         </p>
+     * @return Amazon Resource Name (ARN) of the IAM role to associate with the instance.
      */
 
     public String getRoleArn() {
@@ -208,26 +170,11 @@ public class UpdateNotebookInstanceRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the notebook instance.
-     * For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
-     * SageMaker Roles</a>.
+     * Amazon Resource Name (ARN) of the IAM role to associate with the instance.
      * </p>
-     * <note>
-     * <p>
-     * To be able to pass this role to Amazon SageMaker, the caller of this API must have the <code>iam:PassRole</code>
-     * permission.
-     * </p>
-     * </note>
      * 
      * @param roleArn
-     *        The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the notebook
-     *        instance. For more information, see <a
-     *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker Roles</a>.
-     *        </p> <note>
-     *        <p>
-     *        To be able to pass this role to Amazon SageMaker, the caller of this API must have the
-     *        <code>iam:PassRole</code> permission.
-     *        </p>
+     *        Amazon Resource Name (ARN) of the IAM role to associate with the instance.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

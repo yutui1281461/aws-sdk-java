@@ -36,26 +36,20 @@ public class AudioSelector implements Serializable, Cloneable, StructuredPojo {
     /** Selects a specific PID from within an audio source (e.g. 257 selects PID 0x101). */
     private java.util.List<Integer> pids;
     /**
-     * Use this setting for input streams that contain Dolby E, to have the service extract specific program data from
-     * the track. To select multiple programs, create multiple selectors with the same Track and different Program
-     * numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number
-     * from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio
-     * metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to
-     * have the service ignore the program IDs and include all the programs in the track.
+     * Applies only when input streams contain Dolby E. Enter the program ID (according to the metadata in the audio) of
+     * the Dolby E program to extract from the specified track. One program extracted per audio selector. To select
+     * multiple programs, create multiple selectors with the same Track and different Program numbers. "All channels"
+     * means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be
+     * incorrect.
      */
     private Integer programSelection;
-    /**
-     * Use these settings to reorder the audio channels of one input to match those of another input. This allows you to
-     * combine the two files into a single output, one after the other.
-     */
+    /** Advanced audio remixing settings. */
     private RemixSettings remixSettings;
 
     private String selectorType;
     /**
-     * Identify a track from the input audio to include in this selector by entering the track index number. To include
-     * several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a
-     * comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job
-     * file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+     * Identify the channel to include in this selector by entering the 1-based track index. To combine several tracks,
+     * enter a comma-separated list, e.g. "1,2,3" for tracks 1-3.
      */
     private java.util.List<Integer> tracks;
 
@@ -281,20 +275,18 @@ public class AudioSelector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Use this setting for input streams that contain Dolby E, to have the service extract specific program data from
-     * the track. To select multiple programs, create multiple selectors with the same Track and different Program
-     * numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number
-     * from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio
-     * metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to
-     * have the service ignore the program IDs and include all the programs in the track.
+     * Applies only when input streams contain Dolby E. Enter the program ID (according to the metadata in the audio) of
+     * the Dolby E program to extract from the specified track. One program extracted per audio selector. To select
+     * multiple programs, create multiple selectors with the same Track and different Program numbers. "All channels"
+     * means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be
+     * incorrect.
      * 
      * @param programSelection
-     *        Use this setting for input streams that contain Dolby E, to have the service extract specific program data
-     *        from the track. To select multiple programs, create multiple selectors with the same Track and different
-     *        Program numbers. In the console, this setting is visible when you set Selector type to Track. Choose the
-     *        program number from the dropdown list. If you are sending a JSON file, provide the program ID, which is
-     *        part of the audio metadata. If your input file has incorrect metadata, you can choose All channels instead
-     *        of a program number to have the service ignore the program IDs and include all the programs in the track.
+     *        Applies only when input streams contain Dolby E. Enter the program ID (according to the metadata in the
+     *        audio) of the Dolby E program to extract from the specified track. One program extracted per audio
+     *        selector. To select multiple programs, create multiple selectors with the same Track and different Program
+     *        numbers. "All channels" means to ignore the program IDs and include all the channels in this selector;
+     *        useful if metadata is known to be incorrect.
      */
 
     public void setProgramSelection(Integer programSelection) {
@@ -302,20 +294,17 @@ public class AudioSelector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Use this setting for input streams that contain Dolby E, to have the service extract specific program data from
-     * the track. To select multiple programs, create multiple selectors with the same Track and different Program
-     * numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number
-     * from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio
-     * metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to
-     * have the service ignore the program IDs and include all the programs in the track.
+     * Applies only when input streams contain Dolby E. Enter the program ID (according to the metadata in the audio) of
+     * the Dolby E program to extract from the specified track. One program extracted per audio selector. To select
+     * multiple programs, create multiple selectors with the same Track and different Program numbers. "All channels"
+     * means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be
+     * incorrect.
      * 
-     * @return Use this setting for input streams that contain Dolby E, to have the service extract specific program
-     *         data from the track. To select multiple programs, create multiple selectors with the same Track and
-     *         different Program numbers. In the console, this setting is visible when you set Selector type to Track.
-     *         Choose the program number from the dropdown list. If you are sending a JSON file, provide the program ID,
-     *         which is part of the audio metadata. If your input file has incorrect metadata, you can choose All
-     *         channels instead of a program number to have the service ignore the program IDs and include all the
-     *         programs in the track.
+     * @return Applies only when input streams contain Dolby E. Enter the program ID (according to the metadata in the
+     *         audio) of the Dolby E program to extract from the specified track. One program extracted per audio
+     *         selector. To select multiple programs, create multiple selectors with the same Track and different
+     *         Program numbers. "All channels" means to ignore the program IDs and include all the channels in this
+     *         selector; useful if metadata is known to be incorrect.
      */
 
     public Integer getProgramSelection() {
@@ -323,20 +312,18 @@ public class AudioSelector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Use this setting for input streams that contain Dolby E, to have the service extract specific program data from
-     * the track. To select multiple programs, create multiple selectors with the same Track and different Program
-     * numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number
-     * from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio
-     * metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to
-     * have the service ignore the program IDs and include all the programs in the track.
+     * Applies only when input streams contain Dolby E. Enter the program ID (according to the metadata in the audio) of
+     * the Dolby E program to extract from the specified track. One program extracted per audio selector. To select
+     * multiple programs, create multiple selectors with the same Track and different Program numbers. "All channels"
+     * means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be
+     * incorrect.
      * 
      * @param programSelection
-     *        Use this setting for input streams that contain Dolby E, to have the service extract specific program data
-     *        from the track. To select multiple programs, create multiple selectors with the same Track and different
-     *        Program numbers. In the console, this setting is visible when you set Selector type to Track. Choose the
-     *        program number from the dropdown list. If you are sending a JSON file, provide the program ID, which is
-     *        part of the audio metadata. If your input file has incorrect metadata, you can choose All channels instead
-     *        of a program number to have the service ignore the program IDs and include all the programs in the track.
+     *        Applies only when input streams contain Dolby E. Enter the program ID (according to the metadata in the
+     *        audio) of the Dolby E program to extract from the specified track. One program extracted per audio
+     *        selector. To select multiple programs, create multiple selectors with the same Track and different Program
+     *        numbers. "All channels" means to ignore the program IDs and include all the channels in this selector;
+     *        useful if metadata is known to be incorrect.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -346,12 +333,10 @@ public class AudioSelector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Use these settings to reorder the audio channels of one input to match those of another input. This allows you to
-     * combine the two files into a single output, one after the other.
+     * Advanced audio remixing settings.
      * 
      * @param remixSettings
-     *        Use these settings to reorder the audio channels of one input to match those of another input. This allows
-     *        you to combine the two files into a single output, one after the other.
+     *        Advanced audio remixing settings.
      */
 
     public void setRemixSettings(RemixSettings remixSettings) {
@@ -359,11 +344,9 @@ public class AudioSelector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Use these settings to reorder the audio channels of one input to match those of another input. This allows you to
-     * combine the two files into a single output, one after the other.
+     * Advanced audio remixing settings.
      * 
-     * @return Use these settings to reorder the audio channels of one input to match those of another input. This
-     *         allows you to combine the two files into a single output, one after the other.
+     * @return Advanced audio remixing settings.
      */
 
     public RemixSettings getRemixSettings() {
@@ -371,12 +354,10 @@ public class AudioSelector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Use these settings to reorder the audio channels of one input to match those of another input. This allows you to
-     * combine the two files into a single output, one after the other.
+     * Advanced audio remixing settings.
      * 
      * @param remixSettings
-     *        Use these settings to reorder the audio channels of one input to match those of another input. This allows
-     *        you to combine the two files into a single output, one after the other.
+     *        Advanced audio remixing settings.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -426,15 +407,11 @@ public class AudioSelector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Identify a track from the input audio to include in this selector by entering the track index number. To include
-     * several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a
-     * comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job
-     * file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+     * Identify the channel to include in this selector by entering the 1-based track index. To combine several tracks,
+     * enter a comma-separated list, e.g. "1,2,3" for tracks 1-3.
      * 
-     * @return Identify a track from the input audio to include in this selector by entering the track index number. To
-     *         include several tracks in a single audio selector, specify multiple tracks as follows. Using the console,
-     *         enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly
-     *         in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+     * @return Identify the channel to include in this selector by entering the 1-based track index. To combine several
+     *         tracks, enter a comma-separated list, e.g. "1,2,3" for tracks 1-3.
      */
 
     public java.util.List<Integer> getTracks() {
@@ -442,16 +419,12 @@ public class AudioSelector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Identify a track from the input audio to include in this selector by entering the track index number. To include
-     * several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a
-     * comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job
-     * file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+     * Identify the channel to include in this selector by entering the 1-based track index. To combine several tracks,
+     * enter a comma-separated list, e.g. "1,2,3" for tracks 1-3.
      * 
      * @param tracks
-     *        Identify a track from the input audio to include in this selector by entering the track index number. To
-     *        include several tracks in a single audio selector, specify multiple tracks as follows. Using the console,
-     *        enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly
-     *        in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+     *        Identify the channel to include in this selector by entering the 1-based track index. To combine several
+     *        tracks, enter a comma-separated list, e.g. "1,2,3" for tracks 1-3.
      */
 
     public void setTracks(java.util.Collection<Integer> tracks) {
@@ -464,10 +437,8 @@ public class AudioSelector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Identify a track from the input audio to include in this selector by entering the track index number. To include
-     * several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a
-     * comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job
-     * file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+     * Identify the channel to include in this selector by entering the 1-based track index. To combine several tracks,
+     * enter a comma-separated list, e.g. "1,2,3" for tracks 1-3.
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
      * {@link #setTracks(java.util.Collection)} or {@link #withTracks(java.util.Collection)} if you want to override the
@@ -475,10 +446,8 @@ public class AudioSelector implements Serializable, Cloneable, StructuredPojo {
      * </p>
      * 
      * @param tracks
-     *        Identify a track from the input audio to include in this selector by entering the track index number. To
-     *        include several tracks in a single audio selector, specify multiple tracks as follows. Using the console,
-     *        enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly
-     *        in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+     *        Identify the channel to include in this selector by entering the 1-based track index. To combine several
+     *        tracks, enter a comma-separated list, e.g. "1,2,3" for tracks 1-3.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -493,16 +462,12 @@ public class AudioSelector implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Identify a track from the input audio to include in this selector by entering the track index number. To include
-     * several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a
-     * comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job
-     * file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+     * Identify the channel to include in this selector by entering the 1-based track index. To combine several tracks,
+     * enter a comma-separated list, e.g. "1,2,3" for tracks 1-3.
      * 
      * @param tracks
-     *        Identify a track from the input audio to include in this selector by entering the track index number. To
-     *        include several tracks in a single audio selector, specify multiple tracks as follows. Using the console,
-     *        enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly
-     *        in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+     *        Identify the channel to include in this selector by entering the 1-based track index. To combine several
+     *        tracks, enter a comma-separated list, e.g. "1,2,3" for tracks 1-3.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

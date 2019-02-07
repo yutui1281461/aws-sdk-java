@@ -17,6 +17,7 @@ package com.amazonaws.regions;
 import com.amazonaws.AmazonClientException;
 import org.apache.commons.logging.LogFactory;
 
+import com.amazonaws.SdkClientException;
 import com.amazonaws.util.EC2MetadataUtils;
 
 /**
@@ -50,11 +51,11 @@ public enum Regions {
     public static final Regions DEFAULT_REGION = US_WEST_2;
 
     private final String name;
-    private final String description;
+    private final String readableName;
 
-    private Regions(String name, String description) {
+    private Regions(String name, String readableName) {
         this.name = name;
-        this.description = description;
+        this.readableName = readableName;
     }
 
     /**
@@ -63,12 +64,12 @@ public enum Regions {
     public String getName() {
         return name;
     }
-
+    
     /**
      * Descriptive readable name for this region.
      */
-    public String getDescription() {
-        return description;
+    public Strin getReadableName() {
+        return readableName;
     }
 
     /**

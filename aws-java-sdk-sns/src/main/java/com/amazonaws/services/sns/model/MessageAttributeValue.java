@@ -36,8 +36,7 @@ public class MessageAttributeValue implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more
-     * information, see <a
+     * Amazon SNS supports the following logical data types: String, Number, and Binary. For more information, see <a
      * href="http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message
      * Attribute Data Types</a>.
      * </p>
@@ -60,15 +59,14 @@ public class MessageAttributeValue implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more
-     * information, see <a
+     * Amazon SNS supports the following logical data types: String, Number, and Binary. For more information, see <a
      * href="http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message
      * Attribute Data Types</a>.
      * </p>
      * 
      * @param dataType
-     *        Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more
-     *        information, see <a
+     *        Amazon SNS supports the following logical data types: String, Number, and Binary. For more information,
+     *        see <a
      *        href="http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes"
      *        >Message Attribute Data Types</a>.
      */
@@ -79,14 +77,13 @@ public class MessageAttributeValue implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more
-     * information, see <a
+     * Amazon SNS supports the following logical data types: String, Number, and Binary. For more information, see <a
      * href="http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message
      * Attribute Data Types</a>.
      * </p>
      * 
-     * @return Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more
-     *         information, see <a href=
+     * @return Amazon SNS supports the following logical data types: String, Number, and Binary. For more information,
+     *         see <a href=
      *         "http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes"
      *         >Message Attribute Data Types</a>.
      */
@@ -97,15 +94,14 @@ public class MessageAttributeValue implements Serializable, Cloneable {
 
     /**
      * <p>
-     * Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more
-     * information, see <a
+     * Amazon SNS supports the following logical data types: String, Number, and Binary. For more information, see <a
      * href="http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message
      * Attribute Data Types</a>.
      * </p>
      * 
      * @param dataType
-     *        Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more
-     *        information, see <a
+     *        Amazon SNS supports the following logical data types: String, Number, and Binary. For more information,
+     *        see <a
      *        href="http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes"
      *        >Message Attribute Data Types</a>.
      * @return Returns a reference to this object so that method calls can be chained together.

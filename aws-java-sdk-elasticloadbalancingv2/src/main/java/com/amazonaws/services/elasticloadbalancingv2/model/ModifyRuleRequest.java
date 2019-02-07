@@ -33,83 +33,13 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
     private String ruleArn;
     /**
      * <p>
-     * The conditions. Each condition specifies a field name and a single value.
+     * The conditions.
      * </p>
-     * <p>
-     * If the field name is <code>host-header</code>, you can specify a single host name (for example, my.example.com).
-     * A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following
-     * characters. Note that you can include up to three wildcard characters.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * A-Z, a-z, 0-9
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * - .
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * * (matches 0 or more characters)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * ? (matches exactly 1 character)
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * If the field name is <code>path-pattern</code>, you can specify a single path pattern. A path pattern is case
-     * sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you
-     * can include up to three wildcard characters.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * A-Z, a-z, 0-9
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * _ - . $ / ~ " ' @ : +
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * &amp; (using &amp;amp;)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * * (matches 0 or more characters)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * ? (matches exactly 1 character)
-     * </p>
-     * </li>
-     * </ul>
      */
     private java.util.List<RuleCondition> conditions;
     /**
      * <p>
-     * The actions.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * The actions. The target group must use the HTTP or HTTPS protocol.
      * </p>
      */
     private java.util.List<Action> actions;
@@ -156,127 +86,10 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The conditions. Each condition specifies a field name and a single value.
+     * The conditions.
      * </p>
-     * <p>
-     * If the field name is <code>host-header</code>, you can specify a single host name (for example, my.example.com).
-     * A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following
-     * characters. Note that you can include up to three wildcard characters.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * A-Z, a-z, 0-9
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * - .
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * * (matches 0 or more characters)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * ? (matches exactly 1 character)
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * If the field name is <code>path-pattern</code>, you can specify a single path pattern. A path pattern is case
-     * sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you
-     * can include up to three wildcard characters.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * A-Z, a-z, 0-9
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * _ - . $ / ~ " ' @ : +
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * &amp; (using &amp;amp;)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * * (matches 0 or more characters)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * ? (matches exactly 1 character)
-     * </p>
-     * </li>
-     * </ul>
      * 
-     * @return The conditions. Each condition specifies a field name and a single value.</p>
-     *         <p>
-     *         If the field name is <code>host-header</code>, you can specify a single host name (for example,
-     *         my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain
-     *         any of the following characters. Note that you can include up to three wildcard characters.
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         A-Z, a-z, 0-9
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         - .
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         (matches 0 or more characters)
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         ? (matches exactly 1 character)
-     *         </p>
-     *         </li>
-     *         </ul>
-     *         <p>
-     *         If the field name is <code>path-pattern</code>, you can specify a single path pattern. A path pattern is
-     *         case sensitive, can be up to 128 characters in length, and can contain any of the following characters.
-     *         Note that you can include up to three wildcard characters.
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         A-Z, a-z, 0-9
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         _ - . $ / ~ " ' @ : +
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         &amp; (using &amp;amp;)
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         (matches 0 or more characters)
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         ? (matches exactly 1 character)
-     *         </p>
-     *         </li>
+     * @return The conditions.
      */
 
     public java.util.List<RuleCondition> getConditions() {
@@ -285,128 +98,11 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The conditions. Each condition specifies a field name and a single value.
+     * The conditions.
      * </p>
-     * <p>
-     * If the field name is <code>host-header</code>, you can specify a single host name (for example, my.example.com).
-     * A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following
-     * characters. Note that you can include up to three wildcard characters.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * A-Z, a-z, 0-9
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * - .
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * * (matches 0 or more characters)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * ? (matches exactly 1 character)
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * If the field name is <code>path-pattern</code>, you can specify a single path pattern. A path pattern is case
-     * sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you
-     * can include up to three wildcard characters.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * A-Z, a-z, 0-9
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * _ - . $ / ~ " ' @ : +
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * &amp; (using &amp;amp;)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * * (matches 0 or more characters)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * ? (matches exactly 1 character)
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param conditions
-     *        The conditions. Each condition specifies a field name and a single value.</p>
-     *        <p>
-     *        If the field name is <code>host-header</code>, you can specify a single host name (for example,
-     *        my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain
-     *        any of the following characters. Note that you can include up to three wildcard characters.
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        A-Z, a-z, 0-9
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        - .
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        (matches 0 or more characters)
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        ? (matches exactly 1 character)
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        If the field name is <code>path-pattern</code>, you can specify a single path pattern. A path pattern is
-     *        case sensitive, can be up to 128 characters in length, and can contain any of the following characters.
-     *        Note that you can include up to three wildcard characters.
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        A-Z, a-z, 0-9
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        _ - . $ / ~ " ' @ : +
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        &amp; (using &amp;amp;)
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        (matches 0 or more characters)
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        ? (matches exactly 1 character)
-     *        </p>
-     *        </li>
+     *        The conditions.
      */
 
     public void setConditions(java.util.Collection<RuleCondition> conditions) {
@@ -420,67 +116,8 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The conditions. Each condition specifies a field name and a single value.
+     * The conditions.
      * </p>
-     * <p>
-     * If the field name is <code>host-header</code>, you can specify a single host name (for example, my.example.com).
-     * A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following
-     * characters. Note that you can include up to three wildcard characters.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * A-Z, a-z, 0-9
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * - .
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * * (matches 0 or more characters)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * ? (matches exactly 1 character)
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * If the field name is <code>path-pattern</code>, you can specify a single path pattern. A path pattern is case
-     * sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you
-     * can include up to three wildcard characters.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * A-Z, a-z, 0-9
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * _ - . $ / ~ " ' @ : +
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * &amp; (using &amp;amp;)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * * (matches 0 or more characters)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * ? (matches exactly 1 character)
-     * </p>
-     * </li>
-     * </ul>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
      * {@link #setConditions(java.util.Collection)} or {@link #withConditions(java.util.Collection)} if you want to
@@ -488,65 +125,7 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * </p>
      * 
      * @param conditions
-     *        The conditions. Each condition specifies a field name and a single value.</p>
-     *        <p>
-     *        If the field name is <code>host-header</code>, you can specify a single host name (for example,
-     *        my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain
-     *        any of the following characters. Note that you can include up to three wildcard characters.
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        A-Z, a-z, 0-9
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        - .
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        (matches 0 or more characters)
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        ? (matches exactly 1 character)
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        If the field name is <code>path-pattern</code>, you can specify a single path pattern. A path pattern is
-     *        case sensitive, can be up to 128 characters in length, and can contain any of the following characters.
-     *        Note that you can include up to three wildcard characters.
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        A-Z, a-z, 0-9
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        _ - . $ / ~ " ' @ : +
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        &amp; (using &amp;amp;)
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        (matches 0 or more characters)
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        ? (matches exactly 1 character)
-     *        </p>
-     *        </li>
+     *        The conditions.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -562,128 +141,11 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The conditions. Each condition specifies a field name and a single value.
+     * The conditions.
      * </p>
-     * <p>
-     * If the field name is <code>host-header</code>, you can specify a single host name (for example, my.example.com).
-     * A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following
-     * characters. Note that you can include up to three wildcard characters.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * A-Z, a-z, 0-9
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * - .
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * * (matches 0 or more characters)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * ? (matches exactly 1 character)
-     * </p>
-     * </li>
-     * </ul>
-     * <p>
-     * If the field name is <code>path-pattern</code>, you can specify a single path pattern. A path pattern is case
-     * sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you
-     * can include up to three wildcard characters.
-     * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * A-Z, a-z, 0-9
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * _ - . $ / ~ " ' @ : +
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * &amp; (using &amp;amp;)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * * (matches 0 or more characters)
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * ? (matches exactly 1 character)
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param conditions
-     *        The conditions. Each condition specifies a field name and a single value.</p>
-     *        <p>
-     *        If the field name is <code>host-header</code>, you can specify a single host name (for example,
-     *        my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain
-     *        any of the following characters. Note that you can include up to three wildcard characters.
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        A-Z, a-z, 0-9
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        - .
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        (matches 0 or more characters)
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        ? (matches exactly 1 character)
-     *        </p>
-     *        </li>
-     *        </ul>
-     *        <p>
-     *        If the field name is <code>path-pattern</code>, you can specify a single path pattern. A path pattern is
-     *        case sensitive, can be up to 128 characters in length, and can contain any of the following characters.
-     *        Note that you can include up to three wildcard characters.
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        A-Z, a-z, 0-9
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        _ - . $ / ~ " ' @ : +
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        &amp; (using &amp;amp;)
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        (matches 0 or more characters)
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        ? (matches exactly 1 character)
-     *        </p>
-     *        </li>
+     *        The conditions.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -694,31 +156,10 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The actions.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * The actions. The target group must use the HTTP or HTTPS protocol.
      * </p>
      * 
-     * @return The actions.</p>
-     *         <p>
-     *         If the action type is <code>forward</code>, you can specify a single target group.
-     *         </p>
-     *         <p>
-     *         If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *         Connect (OIDC) compliant to authenticate users as they access your application.
-     *         </p>
-     *         <p>
-     *         If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *         as they access your application.
+     * @return The actions. The target group must use the HTTP or HTTPS protocol.
      */
 
     public java.util.List<Action> getActions() {
@@ -727,32 +168,11 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The actions.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * The actions. The target group must use the HTTP or HTTPS protocol.
      * </p>
      * 
      * @param actions
-     *        The actions.</p>
-     *        <p>
-     *        If the action type is <code>forward</code>, you can specify a single target group.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *        Connect (OIDC) compliant to authenticate users as they access your application.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *        as they access your application.
+     *        The actions. The target group must use the HTTP or HTTPS protocol.
      */
 
     public void setActions(java.util.Collection<Action> actions) {
@@ -766,18 +186,7 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The actions.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * The actions. The target group must use the HTTP or HTTPS protocol.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -786,17 +195,7 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * </p>
      * 
      * @param actions
-     *        The actions.</p>
-     *        <p>
-     *        If the action type is <code>forward</code>, you can specify a single target group.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *        Connect (OIDC) compliant to authenticate users as they access your application.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *        as they access your application.
+     *        The actions. The target group must use the HTTP or HTTPS protocol.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -812,32 +211,11 @@ public class ModifyRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The actions.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * The actions. The target group must use the HTTP or HTTPS protocol.
      * </p>
      * 
      * @param actions
-     *        The actions.</p>
-     *        <p>
-     *        If the action type is <code>forward</code>, you can specify a single target group.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *        Connect (OIDC) compliant to authenticate users as they access your application.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *        as they access your application.
+     *        The actions. The target group must use the HTTP or HTTPS protocol.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

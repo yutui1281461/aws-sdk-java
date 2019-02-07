@@ -12,7 +12,6 @@
  */
 package com.amazonaws.services.appstream.model.transform;
 
-import java.util.List;
 import javax.annotation.Generated;
 
 import com.amazonaws.SdkClientException;
@@ -32,8 +31,6 @@ public class StorageConnectorMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ConnectorType").build();
     private static final MarshallingInfo<String> RESOURCEIDENTIFIER_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("ResourceIdentifier").build();
-    private static final MarshallingInfo<List> DOMAINS_BINDING = MarshallingInfo.builder(MarshallingType.LIST).marshallLocation(MarshallLocation.PAYLOAD)
-            .marshallLocationName("Domains").build();
 
     private static final StorageConnectorMarshaller instance = new StorageConnectorMarshaller();
 
@@ -53,7 +50,6 @@ public class StorageConnectorMarshaller {
         try {
             protocolMarshaller.marshall(storageConnector.getConnectorType(), CONNECTORTYPE_BINDING);
             protocolMarshaller.marshall(storageConnector.getResourceIdentifier(), RESOURCEIDENTIFIER_BINDING);
-            protocolMarshaller.marshall(storageConnector.getDomains(), DOMAINS_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

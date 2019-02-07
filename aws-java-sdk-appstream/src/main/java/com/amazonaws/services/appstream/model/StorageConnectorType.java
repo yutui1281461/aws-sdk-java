@@ -22,8 +22,7 @@ import javax.annotation.Generated;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public enum StorageConnectorType {
 
-    HOMEFOLDERS("HOMEFOLDERS"),
-    GOOGLE_DRIVE("GOOGLE_DRIVE");
+    HOMEFOLDERS("HOMEFOLDERS");
 
     private String value;
 

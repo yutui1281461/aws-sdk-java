@@ -20,9 +20,7 @@ import javax.annotation.Generated;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public enum ActionTypeEnum {
 
-    Forward("forward"),
-    AuthenticateOidc("authenticate-oidc"),
-    AuthenticateCognito("authenticate-cognito");
+    Forward("forward");
 
     private String value;
 

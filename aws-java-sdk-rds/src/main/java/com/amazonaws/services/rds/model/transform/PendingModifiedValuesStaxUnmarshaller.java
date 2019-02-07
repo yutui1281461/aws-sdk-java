@@ -12,8 +12,6 @@
  */
 package com.amazonaws.services.rds.model.transform;
 
-import java.util.ArrayList;
-
 import javax.xml.stream.events.XMLEvent;
 import javax.annotation.Generated;
 
@@ -114,17 +112,6 @@ public class PendingModifiedValuesStaxUnmarshaller implements Unmarshaller<Pendi
                     pendingModifiedValues.setPendingCloudwatchLogsExports(PendingCloudwatchLogsExportsStaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
                 }
-
-                if (context.testExpression("ProcessorFeatures", targetDepth)) {
-                    pendingModifiedValues.withProcessorFeatures(new ArrayList<ProcessorFeature>());
-                    continue;
-                }
-
-                if (context.testExpression("ProcessorFeatures/ProcessorFeature", targetDepth)) {
-                    pendingModifiedValues.withProcessorFeatures(ProcessorFeatureStaxUnmarshaller.getInstance().unmarshall(context));
-                    continue;
-                }
-
             } else if (xmlEvent.isEndElement()) {
                 if (context.getCurrentDepth() < originalDepth) {
                     return pendingModifiedValues;

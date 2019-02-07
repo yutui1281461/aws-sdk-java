@@ -1636,11 +1636,6 @@ public class AmazonRDSClient extends AmazonWebServiceClient implements AmazonRDS
      * <p>
      * Creates a new DB security group. DB security groups control access to a DB instance.
      * </p>
-     * <note>
-     * <p>
-     * A DB security group controls access to EC2-Classic DB instances that are not in a VPC.
-     * </p>
-     * </note>
      * 
      * @param createDBSecurityGroupRequest
      * @return Result of the CreateDBSecurityGroup operation returned by the service.
@@ -6142,8 +6137,8 @@ public class AmazonRDSClient extends AmazonWebServiceClient implements AmazonRDS
      * the BackupRetentionPeriod property.
      * </p>
      * <p>
-     * The target database is created with most of the original configuration, but in a system-selected Availability
-     * Zone, with the default security group, the default subnet group, and the default DB parameter group. By default,
+     * The target database is created with most of the original configuration, but in a system-selected availability
+     * zone, with the default security group, the default subnet group, and the default DB parameter group. By default,
      * the new DB instance is created as a single-AZ deployment except when the instance is a SQL Server instance that
      * has an option group that is associated with mirroring; in this case, the instance becomes a mirrored deployment
      * and not a single-AZ deployment.

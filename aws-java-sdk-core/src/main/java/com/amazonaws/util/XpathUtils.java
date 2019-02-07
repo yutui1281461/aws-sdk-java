@@ -84,16 +84,6 @@ public class XpathUtils {
     };
 
     /**
-     * Shared factory for creating XML Factory
-     */
-    private static final ThreadLocal<XPathFactory> X_PATH_FACTORY = new ThreadLocal<XPathFactory>() {
-        @Override
-        protected XPathFactory initialValue() {
-            return XPathFactory.newInstance();
-        }
-    };
-
-    /**
      * Used to optimize performance by avoiding expensive file access every time
      * a DTMManager is constructed as a result of constructing a Xalan xpath
      * context!
@@ -154,7 +144,7 @@ public class XpathUtils {
      * reentrant.
      */
     public static XPath xpath() {
-        return X_PATH_FACTORY.get().newXPath();
+        return XPathFactory.newInstance().newXPath();
     }
 
     /**

@@ -41,13 +41,12 @@ public class JobSettings implements Serializable, Cloneable, StructuredPojo {
 
     private NielsenConfiguration nielsenConfiguration;
     /**
-     * (OutputGroups) contains one group of settings for each set of outputs that share a common package type. All
+     * **!!**(OutputGroups) contains one group of settings for each set of outputs that share a common package type. All
      * unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as
      * well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object
      * depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs
      * are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings *
-     * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings *
-     * CMAF_GROUP_SETTINGS, CmafGroupSettings
+     * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings
      */
     private java.util.List<OutputGroup> outputGroups;
     /** Contains settings used to acquire and adjust timecode information from inputs. */
@@ -225,45 +224,43 @@ public class JobSettings implements Serializable, Cloneable, StructuredPojo {
         return this;
     }
 
-    /**
-     * (OutputGroups) contains one group of settings for each set of outputs that share a common package type. All
+    /****
+     * !!**(OutputGroups) contains one group of settings for each set of outputs that share a common package type. All
      * unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as
      * well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object
      * depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs
      * are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings *
-     * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings *
-     * CMAF_GROUP_SETTINGS, CmafGroupSettings
+     * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings
      * 
-     * @return (OutputGroups) contains one group of settings for each set of outputs that share a common package type.
-     *         All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output
-     *         group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This
-     *         required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type,
-     *         settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS,
-     *         HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS,
-     *         MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings
+     * @return !!**(OutputGroups) contains one group of settings for each set of outputs that share a common package
+     *         type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single
+     *         output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group.
+     *         This required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings).
+     *         Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings *
+     *         HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings *
+     *         MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings
      */
 
     public java.util.List<OutputGroup> getOutputGroups() {
         return outputGroups;
     }
 
-    /**
-     * (OutputGroups) contains one group of settings for each set of outputs that share a common package type. All
+    /****
+     * !!**(OutputGroups) contains one group of settings for each set of outputs that share a common package type. All
      * unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as
      * well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object
      * depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs
      * are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings *
-     * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings *
-     * CMAF_GROUP_SETTINGS, CmafGroupSettings
+     * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings
      * 
-     * @param outputGroups
-     *        (OutputGroups) contains one group of settings for each set of outputs that share a common package type.
-     *        All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output
-     *        group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This
-     *        required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type,
-     *        settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS,
+     * @param outputGroups **
+     *        !!**(OutputGroups) contains one group of settings for each set of outputs that share a common package
+     *        type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single
+     *        output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group.
+     *        This required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings).
+     *        Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS,
      *        HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS,
-     *        MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings
+     *        MsSmoothGroupSettings
      */
 
     public void setOutputGroups(java.util.Collection<OutputGroup> outputGroups) {
@@ -275,28 +272,27 @@ public class JobSettings implements Serializable, Cloneable, StructuredPojo {
         this.outputGroups = new java.util.ArrayList<OutputGroup>(outputGroups);
     }
 
-    /**
-     * (OutputGroups) contains one group of settings for each set of outputs that share a common package type. All
+    /****
+     * !!**(OutputGroups) contains one group of settings for each set of outputs that share a common package type. All
      * unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as
      * well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object
      * depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs
      * are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings *
-     * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings *
-     * CMAF_GROUP_SETTINGS, CmafGroupSettings
+     * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
      * {@link #setOutputGroups(java.util.Collection)} or {@link #withOutputGroups(java.util.Collection)} if you want to
      * override the existing values.
      * </p>
      * 
-     * @param outputGroups
-     *        (OutputGroups) contains one group of settings for each set of outputs that share a common package type.
-     *        All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output
-     *        group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This
-     *        required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type,
-     *        settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS,
+     * @param outputGroups **
+     *        !!**(OutputGroups) contains one group of settings for each set of outputs that share a common package
+     *        type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single
+     *        output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group.
+     *        This required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings).
+     *        Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS,
      *        HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS,
-     *        MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings
+     *        MsSmoothGroupSettings
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -310,23 +306,22 @@ public class JobSettings implements Serializable, Cloneable, StructuredPojo {
         return this;
     }
 
-    /**
-     * (OutputGroups) contains one group of settings for each set of outputs that share a common package type. All
+    /****
+     * !!**(OutputGroups) contains one group of settings for each set of outputs that share a common package type. All
      * unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as
      * well. Required in (OutputGroups) is a group of settings that apply to the whole group. This required object
      * depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type, settings object pairs
      * are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings *
-     * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings *
-     * CMAF_GROUP_SETTINGS, CmafGroupSettings
+     * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings
      * 
-     * @param outputGroups
-     *        (OutputGroups) contains one group of settings for each set of outputs that share a common package type.
-     *        All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output
-     *        group as well. Required in (OutputGroups) is a group of settings that apply to the whole group. This
-     *        required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings). Type,
-     *        settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS,
+     * @param outputGroups **
+     *        !!**(OutputGroups) contains one group of settings for each set of outputs that share a common package
+     *        type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single
+     *        output group as well. Required in (OutputGroups) is a group of settings that apply to the whole group.
+     *        This required object depends on the value you set for (Type) under (OutputGroups)>(OutputGroupSettings).
+     *        Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS,
      *        HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS,
-     *        MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings
+     *        MsSmoothGroupSettings
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

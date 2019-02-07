@@ -53,26 +53,14 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
     private String sslPolicy;
     /**
      * <p>
-     * [HTTPS listeners] The default SSL server certificate. You must provide exactly one certificate. To create a
-     * certificate list, use <a>AddListenerCertificates</a>.
+     * [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * </p>
      */
     private java.util.List<Certificate> certificates;
     /**
      * <p>
-     * The actions for the default rule. The rule must include one forward action.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group. The protocol of the target
-     * group must be HTTP or HTTPS for an Application Load Balancer or TCP for a Network Load Balancer.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * The default action for the listener. For Application Load Balancers, the protocol of the specified target group
+     * must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
      * </p>
      */
     private java.util.List<Action> defaultActions;
@@ -288,12 +276,10 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * [HTTPS listeners] The default SSL server certificate. You must provide exactly one certificate. To create a
-     * certificate list, use <a>AddListenerCertificates</a>.
+     * [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * </p>
      * 
-     * @return [HTTPS listeners] The default SSL server certificate. You must provide exactly one certificate. To create
-     *         a certificate list, use <a>AddListenerCertificates</a>.
+     * @return [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      */
 
     public java.util.List<Certificate> getCertificates() {
@@ -302,13 +288,11 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * [HTTPS listeners] The default SSL server certificate. You must provide exactly one certificate. To create a
-     * certificate list, use <a>AddListenerCertificates</a>.
+     * [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * </p>
      * 
      * @param certificates
-     *        [HTTPS listeners] The default SSL server certificate. You must provide exactly one certificate. To create
-     *        a certificate list, use <a>AddListenerCertificates</a>.
+     *        [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      */
 
     public void setCertificates(java.util.Collection<Certificate> certificates) {
@@ -322,8 +306,7 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * [HTTPS listeners] The default SSL server certificate. You must provide exactly one certificate. To create a
-     * certificate list, use <a>AddListenerCertificates</a>.
+     * [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -332,8 +315,7 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
      * </p>
      * 
      * @param certificates
-     *        [HTTPS listeners] The default SSL server certificate. You must provide exactly one certificate. To create
-     *        a certificate list, use <a>AddListenerCertificates</a>.
+     *        [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -349,13 +331,11 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * [HTTPS listeners] The default SSL server certificate. You must provide exactly one certificate. To create a
-     * certificate list, use <a>AddListenerCertificates</a>.
+     * [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * </p>
      * 
      * @param certificates
-     *        [HTTPS listeners] The default SSL server certificate. You must provide exactly one certificate. To create
-     *        a certificate list, use <a>AddListenerCertificates</a>.
+     *        [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -366,33 +346,13 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The actions for the default rule. The rule must include one forward action.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group. The protocol of the target
-     * group must be HTTP or HTTPS for an Application Load Balancer or TCP for a Network Load Balancer.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * The default action for the listener. For Application Load Balancers, the protocol of the specified target group
+     * must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
      * </p>
      * 
-     * @return The actions for the default rule. The rule must include one forward action.</p>
-     *         <p>
-     *         If the action type is <code>forward</code>, you can specify a single target group. The protocol of the
-     *         target group must be HTTP or HTTPS for an Application Load Balancer or TCP for a Network Load Balancer.
-     *         </p>
-     *         <p>
-     *         If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *         Connect (OIDC) compliant to authenticate users as they access your application.
-     *         </p>
-     *         <p>
-     *         If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *         as they access your application.
+     * @return The default action for the listener. For Application Load Balancers, the protocol of the specified target
+     *         group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must
+     *         be TCP.
      */
 
     public java.util.List<Action> getDefaultActions() {
@@ -401,34 +361,14 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The actions for the default rule. The rule must include one forward action.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group. The protocol of the target
-     * group must be HTTP or HTTPS for an Application Load Balancer or TCP for a Network Load Balancer.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * The default action for the listener. For Application Load Balancers, the protocol of the specified target group
+     * must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
      * </p>
      * 
      * @param defaultActions
-     *        The actions for the default rule. The rule must include one forward action.</p>
-     *        <p>
-     *        If the action type is <code>forward</code>, you can specify a single target group. The protocol of the
-     *        target group must be HTTP or HTTPS for an Application Load Balancer or TCP for a Network Load Balancer.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *        Connect (OIDC) compliant to authenticate users as they access your application.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *        as they access your application.
+     *        The default action for the listener. For Application Load Balancers, the protocol of the specified target
+     *        group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must
+     *        be TCP.
      */
 
     public void setDefaultActions(java.util.Collection<Action> defaultActions) {
@@ -442,19 +382,8 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The actions for the default rule. The rule must include one forward action.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group. The protocol of the target
-     * group must be HTTP or HTTPS for an Application Load Balancer or TCP for a Network Load Balancer.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * The default action for the listener. For Application Load Balancers, the protocol of the specified target group
+     * must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -463,18 +392,9 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
      * </p>
      * 
      * @param defaultActions
-     *        The actions for the default rule. The rule must include one forward action.</p>
-     *        <p>
-     *        If the action type is <code>forward</code>, you can specify a single target group. The protocol of the
-     *        target group must be HTTP or HTTPS for an Application Load Balancer or TCP for a Network Load Balancer.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *        Connect (OIDC) compliant to authenticate users as they access your application.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *        as they access your application.
+     *        The default action for the listener. For Application Load Balancers, the protocol of the specified target
+     *        group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must
+     *        be TCP.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -490,34 +410,14 @@ public class CreateListenerRequest extends com.amazonaws.AmazonWebServiceRequest
 
     /**
      * <p>
-     * The actions for the default rule. The rule must include one forward action.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group. The protocol of the target
-     * group must be HTTP or HTTPS for an Application Load Balancer or TCP for a Network Load Balancer.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * The default action for the listener. For Application Load Balancers, the protocol of the specified target group
+     * must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
      * </p>
      * 
      * @param defaultActions
-     *        The actions for the default rule. The rule must include one forward action.</p>
-     *        <p>
-     *        If the action type is <code>forward</code>, you can specify a single target group. The protocol of the
-     *        target group must be HTTP or HTTPS for an Application Load Balancer or TCP for a Network Load Balancer.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *        Connect (OIDC) compliant to authenticate users as they access your application.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *        as they access your application.
+     *        The default action for the listener. For Application Load Balancers, the protocol of the specified target
+     *        group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must
+     *        be TCP.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

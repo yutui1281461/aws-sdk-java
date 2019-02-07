@@ -38,18 +38,18 @@ public class AvailabilityZone implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The name of the Availability Zone.
+     * The name of the availability zone.
      * </p>
      */
     private String name;
 
     /**
      * <p>
-     * The name of the Availability Zone.
+     * The name of the availability zone.
      * </p>
      * 
      * @param name
-     *        The name of the Availability Zone.
+     *        The name of the availability zone.
      */
 
     public void setName(String name) {
@@ -58,10 +58,10 @@ public class AvailabilityZone implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The name of the Availability Zone.
+     * The name of the availability zone.
      * </p>
      * 
-     * @return The name of the Availability Zone.
+     * @return The name of the availability zone.
      */
 
     public String getName() {
@@ -70,11 +70,11 @@ public class AvailabilityZone implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The name of the Availability Zone.
+     * The name of the availability zone.
      * </p>
      * 
      * @param name
-     *        The name of the Availability Zone.
+     *        The name of the availability zone.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

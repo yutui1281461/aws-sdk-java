@@ -25,17 +25,17 @@ public class ModifyListenerResult extends com.amazonaws.AmazonWebServiceResult<c
 
     /**
      * <p>
-     * Information about the modified listener.
+     * Information about the modified listeners.
      * </p>
      */
     private java.util.List<Listener> listeners;
 
     /**
      * <p>
-     * Information about the modified listener.
+     * Information about the modified listeners.
      * </p>
      * 
-     * @return Information about the modified listener.
+     * @return Information about the modified listeners.
      */
 
     public java.util.List<Listener> getListeners() {
@@ -44,11 +44,11 @@ public class ModifyListenerResult extends com.amazonaws.AmazonWebServiceResult<c
 
     /**
      * <p>
-     * Information about the modified listener.
+     * Information about the modified listeners.
      * </p>
      * 
      * @param listeners
-     *        Information about the modified listener.
+     *        Information about the modified listeners.
      */
 
     public void setListeners(java.util.Collection<Listener> listeners) {
@@ -62,7 +62,7 @@ public class ModifyListenerResult extends com.amazonaws.AmazonWebServiceResult<c
 
     /**
      * <p>
-     * Information about the modified listener.
+     * Information about the modified listeners.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -71,7 +71,7 @@ public class ModifyListenerResult extends com.amazonaws.AmazonWebServiceResult<c
      * </p>
      * 
      * @param listeners
-     *        Information about the modified listener.
+     *        Information about the modified listeners.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -87,11 +87,11 @@ public class ModifyListenerResult extends com.amazonaws.AmazonWebServiceResult<c
 
     /**
      * <p>
-     * Information about the modified listener.
+     * Information about the modified listeners.
      * </p>
      * 
      * @param listeners
-     *        Information about the modified listener.
+     *        Information about the modified listeners.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

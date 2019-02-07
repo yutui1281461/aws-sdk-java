@@ -98,24 +98,13 @@ public class CreateRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
     private java.util.List<RuleCondition> conditions;
     /**
      * <p>
-     * The rule priority. A listener can't have multiple rules with the same priority.
+     * The priority for the rule. A listener can't have multiple rules with the same priority.
      * </p>
      */
     private Integer priority;
     /**
      * <p>
-     * The actions. Each rule must include one forward action.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * An action. Each action has the type <code>forward</code> and specifies a target group.
      * </p>
      */
     private java.util.List<Action> actions;
@@ -700,11 +689,11 @@ public class CreateRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The rule priority. A listener can't have multiple rules with the same priority.
+     * The priority for the rule. A listener can't have multiple rules with the same priority.
      * </p>
      * 
      * @param priority
-     *        The rule priority. A listener can't have multiple rules with the same priority.
+     *        The priority for the rule. A listener can't have multiple rules with the same priority.
      */
 
     public void setPriority(Integer priority) {
@@ -713,10 +702,10 @@ public class CreateRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The rule priority. A listener can't have multiple rules with the same priority.
+     * The priority for the rule. A listener can't have multiple rules with the same priority.
      * </p>
      * 
-     * @return The rule priority. A listener can't have multiple rules with the same priority.
+     * @return The priority for the rule. A listener can't have multiple rules with the same priority.
      */
 
     public Integer getPriority() {
@@ -725,11 +714,11 @@ public class CreateRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The rule priority. A listener can't have multiple rules with the same priority.
+     * The priority for the rule. A listener can't have multiple rules with the same priority.
      * </p>
      * 
      * @param priority
-     *        The rule priority. A listener can't have multiple rules with the same priority.
+     *        The priority for the rule. A listener can't have multiple rules with the same priority.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -740,31 +729,10 @@ public class CreateRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The actions. Each rule must include one forward action.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * An action. Each action has the type <code>forward</code> and specifies a target group.
      * </p>
      * 
-     * @return The actions. Each rule must include one forward action.</p>
-     *         <p>
-     *         If the action type is <code>forward</code>, you can specify a single target group.
-     *         </p>
-     *         <p>
-     *         If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *         Connect (OIDC) compliant to authenticate users as they access your application.
-     *         </p>
-     *         <p>
-     *         If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *         as they access your application.
+     * @return An action. Each action has the type <code>forward</code> and specifies a target group.
      */
 
     public java.util.List<Action> getActions() {
@@ -773,32 +741,11 @@ public class CreateRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The actions. Each rule must include one forward action.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * An action. Each action has the type <code>forward</code> and specifies a target group.
      * </p>
      * 
      * @param actions
-     *        The actions. Each rule must include one forward action.</p>
-     *        <p>
-     *        If the action type is <code>forward</code>, you can specify a single target group.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *        Connect (OIDC) compliant to authenticate users as they access your application.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *        as they access your application.
+     *        An action. Each action has the type <code>forward</code> and specifies a target group.
      */
 
     public void setActions(java.util.Collection<Action> actions) {
@@ -812,18 +759,7 @@ public class CreateRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The actions. Each rule must include one forward action.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * An action. Each action has the type <code>forward</code> and specifies a target group.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -832,17 +768,7 @@ public class CreateRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
      * </p>
      * 
      * @param actions
-     *        The actions. Each rule must include one forward action.</p>
-     *        <p>
-     *        If the action type is <code>forward</code>, you can specify a single target group.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *        Connect (OIDC) compliant to authenticate users as they access your application.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *        as they access your application.
+     *        An action. Each action has the type <code>forward</code> and specifies a target group.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -858,32 +784,11 @@ public class CreateRuleRequest extends com.amazonaws.AmazonWebServiceRequest imp
 
     /**
      * <p>
-     * The actions. Each rule must include one forward action.
-     * </p>
-     * <p>
-     * If the action type is <code>forward</code>, you can specify a single target group.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID Connect
-     * (OIDC) compliant to authenticate users as they access your application.
-     * </p>
-     * <p>
-     * If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users as they
-     * access your application.
+     * An action. Each action has the type <code>forward</code> and specifies a target group.
      * </p>
      * 
      * @param actions
-     *        The actions. Each rule must include one forward action.</p>
-     *        <p>
-     *        If the action type is <code>forward</code>, you can specify a single target group.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-oidc</code>, you can use an identity provider that is OpenID
-     *        Connect (OIDC) compliant to authenticate users as they access your application.
-     *        </p>
-     *        <p>
-     *        If the action type is <code>authenticate-cognito</code>, you can use Amazon Cognito to authenticate users
-     *        as they access your application.
+     *        An action. Each action has the type <code>forward</code> and specifies a target group.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

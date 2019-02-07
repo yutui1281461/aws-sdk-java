@@ -46,7 +46,6 @@ public enum VoiceId {
     Penelope("Penelope"),
     Chantal("Chantal"),
     Celine("Celine"),
-    Lea("Lea"),
     Mathieu("Mathieu"),
     Dora("Dora"),
     Karl("Karl"),

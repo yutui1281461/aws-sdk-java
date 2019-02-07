@@ -64,8 +64,7 @@ public class ListTrainingJobsRequest extends com.amazonaws.AmazonWebServiceReque
     private java.util.Date lastModifiedTimeBefore;
     /**
      * <p>
-     * A string in the training job name. This filter returns only training jobs whose name contains the specified
-     * string.
+     * A string in the training job name. This filter returns only models whose name contains the specified string.
      * </p>
      */
     private String nameContains;
@@ -336,13 +335,12 @@ public class ListTrainingJobsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A string in the training job name. This filter returns only training jobs whose name contains the specified
-     * string.
+     * A string in the training job name. This filter returns only models whose name contains the specified string.
      * </p>
      * 
      * @param nameContains
-     *        A string in the training job name. This filter returns only training jobs whose name contains the
-     *        specified string.
+     *        A string in the training job name. This filter returns only models whose name contains the specified
+     *        string.
      */
 
     public void setNameContains(String nameContains) {
@@ -351,12 +349,11 @@ public class ListTrainingJobsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A string in the training job name. This filter returns only training jobs whose name contains the specified
-     * string.
+     * A string in the training job name. This filter returns only models whose name contains the specified string.
      * </p>
      * 
-     * @return A string in the training job name. This filter returns only training jobs whose name contains the
-     *         specified string.
+     * @return A string in the training job name. This filter returns only models whose name contains the specified
+     *         string.
      */
 
     public String getNameContains() {
@@ -365,13 +362,12 @@ public class ListTrainingJobsRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A string in the training job name. This filter returns only training jobs whose name contains the specified
-     * string.
+     * A string in the training job name. This filter returns only models whose name contains the specified string.
      * </p>
      * 
      * @param nameContains
-     *        A string in the training job name. This filter returns only training jobs whose name contains the
-     *        specified string.
+     *        A string in the training job name. This filter returns only models whose name contains the specified
+     *        string.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

@@ -17,13 +17,10 @@ package com.amazonaws.codegen.model.intermediate;
 
 import com.amazonaws.codegen.internal.DocumentationUtils;
 import com.amazonaws.codegen.internal.Utils;
-import com.amazonaws.util.StringUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.amazonaws.codegen.internal.Constants.LINE_SEPARATOR;
 import static com.amazonaws.codegen.internal.DocumentationUtils.createLinkToServiceDocumentation;
@@ -66,13 +63,11 @@ public class OperationModel extends DocumentationModel {
 
     public String getMethodName() {
 
-        String sanitizedOperationName = Utils.unCapitialize(Utils.sanitize(operationName).collect(Collectors.joining()));
-
         if (!isJavaKeyword(operationName)) {
-            return sanitizedOperationName;
+            return Utils.unCapitialize(operationName);
         }
 
-        return sanitizedOperationName + "Operation";
+        return Utils.unCapitialize(operationName) + "Operation";
     }
 
     public boolean isDeprecated() {

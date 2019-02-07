@@ -77,7 +77,7 @@ public class JsonPolicyReader {
 
         JsonNode policyNode;
         JsonNode idNode;
-        JsonNode statementsNode;
+        JsonNode statementNodes;
         Policy policy = new Policy();
         List<Statement> statements = new LinkedList<Statement>();
 
@@ -89,14 +89,10 @@ public class JsonPolicyReader {
                 policy.setId(idNode.asText());
             }
 
-            statementsNode = policyNode.get(JsonDocumentFields.STATEMENT);
-            if (isNotNull(statementsNode)) {
-                if (statementsNode.isObject()) {
-                    statements.add(statementOf(statementsNode));
-                } else if (statementsNode.isArray()) {
-                    for (JsonNode statementNode : statementsNode) {
-                        statements.add(statementOf(statementNode));
-                    }
+            statementNodes = policyNode.get(JsonDocumentFields.STATEMENT);
+            if (isNotNull(statementNodes)) {
+                for (JsonNode node : statementNodes) {
+                    statements.add(statementOf(node));
                 }
             }
 

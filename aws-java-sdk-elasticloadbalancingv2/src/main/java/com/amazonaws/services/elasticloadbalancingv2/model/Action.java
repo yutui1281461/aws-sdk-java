@@ -28,49 +28,24 @@ public class Action implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The type of action. Each rule must include one forward action.
+     * The type of action.
      * </p>
      */
     private String type;
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the target group. Specify only when <code>Type</code> is <code>forward</code>.
-     * </p>
-     * <p>
-     * For a default rule, the protocol of the target group must be HTTP or HTTPS for an Application Load Balancer or
-     * TCP for a Network Load Balancer.
+     * The Amazon Resource Name (ARN) of the target group.
      * </p>
      */
     private String targetGroupArn;
-    /**
-     * <p>
-     * [HTTPS listener] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify
-     * only when <code>Type</code> is <code>authenticate-oidc</code>.
-     * </p>
-     */
-    private AuthenticateOidcActionConfig authenticateOidcConfig;
-    /**
-     * <p>
-     * [HTTPS listener] Information for using Amazon Cognito to authenticate users. Specify only when <code>Type</code>
-     * is <code>authenticate-cognito</code>.
-     * </p>
-     */
-    private AuthenticateCognitoActionConfig authenticateCognitoConfig;
-    /**
-     * <p>
-     * The order for the action. This value is required for rules with multiple actions. The action with the lowest
-     * value for order is performed first. The forward action must be performed last.
-     * </p>
-     */
-    private Integer order;
 
     /**
      * <p>
-     * The type of action. Each rule must include one forward action.
+     * The type of action.
      * </p>
      * 
      * @param type
-     *        The type of action. Each rule must include one forward action.
+     *        The type of action.
      * @see ActionTypeEnum
      */
 
@@ -80,10 +55,10 @@ public class Action implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The type of action. Each rule must include one forward action.
+     * The type of action.
      * </p>
      * 
-     * @return The type of action. Each rule must include one forward action.
+     * @return The type of action.
      * @see ActionTypeEnum
      */
 
@@ -93,11 +68,11 @@ public class Action implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The type of action. Each rule must include one forward action.
+     * The type of action.
      * </p>
      * 
      * @param type
-     *        The type of action. Each rule must include one forward action.
+     *        The type of action.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ActionTypeEnum
      */
@@ -109,11 +84,11 @@ public class Action implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The type of action. Each rule must include one forward action.
+     * The type of action.
      * </p>
      * 
      * @param type
-     *        The type of action. Each rule must include one forward action.
+     *        The type of action.
      * @see ActionTypeEnum
      */
 
@@ -123,11 +98,11 @@ public class Action implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The type of action. Each rule must include one forward action.
+     * The type of action.
      * </p>
      * 
      * @param type
-     *        The type of action. Each rule must include one forward action.
+     *        The type of action.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ActionTypeEnum
      */
@@ -139,19 +114,11 @@ public class Action implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the target group. Specify only when <code>Type</code> is <code>forward</code>.
-     * </p>
-     * <p>
-     * For a default rule, the protocol of the target group must be HTTP or HTTPS for an Application Load Balancer or
-     * TCP for a Network Load Balancer.
+     * The Amazon Resource Name (ARN) of the target group.
      * </p>
      * 
      * @param targetGroupArn
-     *        The Amazon Resource Name (ARN) of the target group. Specify only when <code>Type</code> is
-     *        <code>forward</code>.</p>
-     *        <p>
-     *        For a default rule, the protocol of the target group must be HTTP or HTTPS for an Application Load
-     *        Balancer or TCP for a Network Load Balancer.
+     *        The Amazon Resource Name (ARN) of the target group.
      */
 
     public void setTargetGroupArn(String targetGroupArn) {
@@ -160,18 +127,10 @@ public class Action implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the target group. Specify only when <code>Type</code> is <code>forward</code>.
-     * </p>
-     * <p>
-     * For a default rule, the protocol of the target group must be HTTP or HTTPS for an Application Load Balancer or
-     * TCP for a Network Load Balancer.
+     * The Amazon Resource Name (ARN) of the target group.
      * </p>
      * 
-     * @return The Amazon Resource Name (ARN) of the target group. Specify only when <code>Type</code> is
-     *         <code>forward</code>.</p>
-     *         <p>
-     *         For a default rule, the protocol of the target group must be HTTP or HTTPS for an Application Load
-     *         Balancer or TCP for a Network Load Balancer.
+     * @return The Amazon Resource Name (ARN) of the target group.
      */
 
     public String getTargetGroupArn() {
@@ -180,162 +139,16 @@ public class Action implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the target group. Specify only when <code>Type</code> is <code>forward</code>.
-     * </p>
-     * <p>
-     * For a default rule, the protocol of the target group must be HTTP or HTTPS for an Application Load Balancer or
-     * TCP for a Network Load Balancer.
+     * The Amazon Resource Name (ARN) of the target group.
      * </p>
      * 
      * @param targetGroupArn
-     *        The Amazon Resource Name (ARN) of the target group. Specify only when <code>Type</code> is
-     *        <code>forward</code>.</p>
-     *        <p>
-     *        For a default rule, the protocol of the target group must be HTTP or HTTPS for an Application Load
-     *        Balancer or TCP for a Network Load Balancer.
+     *        The Amazon Resource Name (ARN) of the target group.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
     public Action withTargetGroupArn(String targetGroupArn) {
         setTargetGroupArn(targetGroupArn);
-        return this;
-    }
-
-    /**
-     * <p>
-     * [HTTPS listener] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify
-     * only when <code>Type</code> is <code>authenticate-oidc</code>.
-     * </p>
-     * 
-     * @param authenticateOidcConfig
-     *        [HTTPS listener] Information about an identity provider that is compliant with OpenID Connect (OIDC).
-     *        Specify only when <code>Type</code> is <code>authenticate-oidc</code>.
-     */
-
-    public void setAuthenticateOidcConfig(AuthenticateOidcActionConfig authenticateOidcConfig) {
-        this.authenticateOidcConfig = authenticateOidcConfig;
-    }
-
-    /**
-     * <p>
-     * [HTTPS listener] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify
-     * only when <code>Type</code> is <code>authenticate-oidc</code>.
-     * </p>
-     * 
-     * @return [HTTPS listener] Information about an identity provider that is compliant with OpenID Connect (OIDC).
-     *         Specify only when <code>Type</code> is <code>authenticate-oidc</code>.
-     */
-
-    public AuthenticateOidcActionConfig getAuthenticateOidcConfig() {
-        return this.authenticateOidcConfig;
-    }
-
-    /**
-     * <p>
-     * [HTTPS listener] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify
-     * only when <code>Type</code> is <code>authenticate-oidc</code>.
-     * </p>
-     * 
-     * @param authenticateOidcConfig
-     *        [HTTPS listener] Information about an identity provider that is compliant with OpenID Connect (OIDC).
-     *        Specify only when <code>Type</code> is <code>authenticate-oidc</code>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Action withAuthenticateOidcConfig(AuthenticateOidcActionConfig authenticateOidcConfig) {
-        setAuthenticateOidcConfig(authenticateOidcConfig);
-        return this;
-    }
-
-    /**
-     * <p>
-     * [HTTPS listener] Information for using Amazon Cognito to authenticate users. Specify only when <code>Type</code>
-     * is <code>authenticate-cognito</code>.
-     * </p>
-     * 
-     * @param authenticateCognitoConfig
-     *        [HTTPS listener] Information for using Amazon Cognito to authenticate users. Specify only when
-     *        <code>Type</code> is <code>authenticate-cognito</code>.
-     */
-
-    public void setAuthenticateCognitoConfig(AuthenticateCognitoActionConfig authenticateCognitoConfig) {
-        this.authenticateCognitoConfig = authenticateCognitoConfig;
-    }
-
-    /**
-     * <p>
-     * [HTTPS listener] Information for using Amazon Cognito to authenticate users. Specify only when <code>Type</code>
-     * is <code>authenticate-cognito</code>.
-     * </p>
-     * 
-     * @return [HTTPS listener] Information for using Amazon Cognito to authenticate users. Specify only when
-     *         <code>Type</code> is <code>authenticate-cognito</code>.
-     */
-
-    public AuthenticateCognitoActionConfig getAuthenticateCognitoConfig() {
-        return this.authenticateCognitoConfig;
-    }
-
-    /**
-     * <p>
-     * [HTTPS listener] Information for using Amazon Cognito to authenticate users. Specify only when <code>Type</code>
-     * is <code>authenticate-cognito</code>.
-     * </p>
-     * 
-     * @param authenticateCognitoConfig
-     *        [HTTPS listener] Information for using Amazon Cognito to authenticate users. Specify only when
-     *        <code>Type</code> is <code>authenticate-cognito</code>.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Action withAuthenticateCognitoConfig(AuthenticateCognitoActionConfig authenticateCognitoConfig) {
-        setAuthenticateCognitoConfig(authenticateCognitoConfig);
-        return this;
-    }
-
-    /**
-     * <p>
-     * The order for the action. This value is required for rules with multiple actions. The action with the lowest
-     * value for order is performed first. The forward action must be performed last.
-     * </p>
-     * 
-     * @param order
-     *        The order for the action. This value is required for rules with multiple actions. The action with the
-     *        lowest value for order is performed first. The forward action must be performed last.
-     */
-
-    public void setOrder(Integer order) {
-        this.order = order;
-    }
-
-    /**
-     * <p>
-     * The order for the action. This value is required for rules with multiple actions. The action with the lowest
-     * value for order is performed first. The forward action must be performed last.
-     * </p>
-     * 
-     * @return The order for the action. This value is required for rules with multiple actions. The action with the
-     *         lowest value for order is performed first. The forward action must be performed last.
-     */
-
-    public Integer getOrder() {
-        return this.order;
-    }
-
-    /**
-     * <p>
-     * The order for the action. This value is required for rules with multiple actions. The action with the lowest
-     * value for order is performed first. The forward action must be performed last.
-     * </p>
-     * 
-     * @param order
-     *        The order for the action. This value is required for rules with multiple actions. The action with the
-     *        lowest value for order is performed first. The forward action must be performed last.
-     * @return Returns a reference to this object so that method calls can be chained together.
-     */
-
-    public Action withOrder(Integer order) {
-        setOrder(order);
         return this;
     }
 
@@ -353,13 +166,7 @@ public class Action implements Serializable, Cloneable {
         if (getType() != null)
             sb.append("Type: ").append(getType()).append(",");
         if (getTargetGroupArn() != null)
-            sb.append("TargetGroupArn: ").append(getTargetGroupArn()).append(",");
-        if (getAuthenticateOidcConfig() != null)
-            sb.append("AuthenticateOidcConfig: ").append(getAuthenticateOidcConfig()).append(",");
-        if (getAuthenticateCognitoConfig() != null)
-            sb.append("AuthenticateCognitoConfig: ").append(getAuthenticateCognitoConfig()).append(",");
-        if (getOrder() != null)
-            sb.append("Order: ").append(getOrder());
+            sb.append("TargetGroupArn: ").append(getTargetGroupArn());
         sb.append("}");
         return sb.toString();
     }
@@ -382,18 +189,6 @@ public class Action implements Serializable, Cloneable {
             return false;
         if (other.getTargetGroupArn() != null && other.getTargetGroupArn().equals(this.getTargetGroupArn()) == false)
             return false;
-        if (other.getAuthenticateOidcConfig() == null ^ this.getAuthenticateOidcConfig() == null)
-            return false;
-        if (other.getAuthenticateOidcConfig() != null && other.getAuthenticateOidcConfig().equals(this.getAuthenticateOidcConfig()) == false)
-            return false;
-        if (other.getAuthenticateCognitoConfig() == null ^ this.getAuthenticateCognitoConfig() == null)
-            return false;
-        if (other.getAuthenticateCognitoConfig() != null && other.getAuthenticateCognitoConfig().equals(this.getAuthenticateCognitoConfig()) == false)
-            return false;
-        if (other.getOrder() == null ^ this.getOrder() == null)
-            return false;
-        if (other.getOrder() != null && other.getOrder().equals(this.getOrder()) == false)
-            return false;
         return true;
     }
 
@@ -404,9 +199,6 @@ public class Action implements Serializable, Cloneable {
 
         hashCode = prime * hashCode + ((getType() == null) ? 0 : getType().hashCode());
         hashCode = prime * hashCode + ((getTargetGroupArn() == null) ? 0 : getTargetGroupArn().hashCode());
-        hashCode = prime * hashCode + ((getAuthenticateOidcConfig() == null) ? 0 : getAuthenticateOidcConfig().hashCode());
-        hashCode = prime * hashCode + ((getAuthenticateCognitoConfig() == null) ? 0 : getAuthenticateCognitoConfig().hashCode());
-        hashCode = prime * hashCode + ((getOrder() == null) ? 0 : getOrder().hashCode());
         return hashCode;
     }
 
