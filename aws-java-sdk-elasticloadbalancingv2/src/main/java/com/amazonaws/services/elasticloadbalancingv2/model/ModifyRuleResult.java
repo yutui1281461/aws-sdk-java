@@ -25,17 +25,17 @@ public class ModifyRuleResult extends com.amazonaws.AmazonWebServiceResult<com.a
 
     /**
      * <p>
-     * Information about the rule.
+     * Information about the modified rule.
      * </p>
      */
     private java.util.List<Rule> rules;
 
     /**
      * <p>
-     * Information about the rule.
+     * Information about the modified rule.
      * </p>
      * 
-     * @return Information about the rule.
+     * @return Information about the modified rule.
      */
 
     public java.util.List<Rule> getRules() {
@@ -44,11 +44,11 @@ public class ModifyRuleResult extends com.amazonaws.AmazonWebServiceResult<com.a
 
     /**
      * <p>
-     * Information about the rule.
+     * Information about the modified rule.
      * </p>
      * 
      * @param rules
-     *        Information about the rule.
+     *        Information about the modified rule.
      */
 
     public void setRules(java.util.Collection<Rule> rules) {
@@ -62,7 +62,7 @@ public class ModifyRuleResult extends com.amazonaws.AmazonWebServiceResult<com.a
 
     /**
      * <p>
-     * Information about the rule.
+     * Information about the modified rule.
      * </p>
      * <p>
      * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
@@ -71,7 +71,7 @@ public class ModifyRuleResult extends com.amazonaws.AmazonWebServiceResult<com.a
      * </p>
      * 
      * @param rules
-     *        Information about the rule.
+     *        Information about the modified rule.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -87,11 +87,11 @@ public class ModifyRuleResult extends com.amazonaws.AmazonWebServiceResult<com.a
 
     /**
      * <p>
-     * Information about the rule.
+     * Information about the modified rule.
      * </p>
      * 
      * @param rules
-     *        Information about the rule.
+     *        Information about the modified rule.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -101,7 +101,8 @@ public class ModifyRuleResult extends com.amazonaws.AmazonWebServiceResult<com.a
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

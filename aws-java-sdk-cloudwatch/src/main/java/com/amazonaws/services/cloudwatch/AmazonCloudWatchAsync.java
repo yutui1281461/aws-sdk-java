@@ -362,6 +362,39 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * <code>GetMetricStatistics</code>. For more information about pricing, see <a
      * href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.
      * </p>
+     * <p>
+     * Amazon CloudWatch retains metric data as follows:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * Data points with a period of less than 60 seconds are available for 3 hours. These data points are
+     * high-resolution metrics and are available only for custom metrics that have been defined with a
+     * <code>StorageResolution</code> of 1.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Data points with a period of 60 seconds (1-minute) are available for 15 days.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Data points with a period of 300 seconds (5-minute) are available for 63 days.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Data points with a period of 3600 seconds (1 hour) are available for 455 days (15 months).
+     * </p>
+     * </li>
+     * </ul>
+     * <p>
+     * Data points that are initially published with a shorter period are aggregated together for long-term storage. For
+     * example, if you collect data using a period of 1 minute, the data remains available for 15 days with 1-minute
+     * resolution. After 15 days, this data is still available, but is aggregated and retrievable only with a resolution
+     * of 5 minutes. After 63 days, the data is further aggregated and is available with a resolution of 1 hour.
+     * </p>
      * 
      * @param getMetricDataRequest
      * @return A Java Future containing the result of the GetMetricData operation returned by the service.
@@ -385,6 +418,39 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * Calls to the <code>GetMetricData</code> API have a different pricing structure than calls to
      * <code>GetMetricStatistics</code>. For more information about pricing, see <a
      * href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.
+     * </p>
+     * <p>
+     * Amazon CloudWatch retains metric data as follows:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * Data points with a period of less than 60 seconds are available for 3 hours. These data points are
+     * high-resolution metrics and are available only for custom metrics that have been defined with a
+     * <code>StorageResolution</code> of 1.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Data points with a period of 60 seconds (1-minute) are available for 15 days.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Data points with a period of 300 seconds (5-minute) are available for 63 days.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Data points with a period of 3600 seconds (1 hour) are available for 455 days (15 months).
+     * </p>
+     * </li>
+     * </ul>
+     * <p>
+     * Data points that are initially published with a shorter period are aggregated together for long-term storage. For
+     * example, if you collect data using a period of 1 minute, the data remains available for 15 days with 1-minute
+     * resolution. After 15 days, this data is still available, but is aggregated and retrievable only with a resolution
+     * of 5 minutes. After 63 days, the data is further aggregated and is available with a resolution of 1 hour.
      * </p>
      * 
      * @param getMetricDataRequest
@@ -432,6 +498,9 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * </p>
      * </li>
      * </ul>
+     * <p>
+     * Percentile statistics are not available for metrics when any of the metric values are negative numbers.
+     * </p>
      * <p>
      * Amazon CloudWatch retains metric data as follows:
      * </p>
@@ -515,6 +584,9 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * </li>
      * </ul>
      * <p>
+     * Percentile statistics are not available for metrics when any of the metric values are negative numbers.
+     * </p>
+     * <p>
      * Amazon CloudWatch retains metric data as follows:
      * </p>
      * <ul>
@@ -571,8 +643,90 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
 
     /**
      * <p>
+     * You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of one or more Amazon
+     * CloudWatch metrics as a bitmap image. You can then embed this image into your services and products, such as wiki
+     * pages, reports, and documents. You could also retrieve images regularly, such as every minute, and create your
+     * own custom live dashboard.
+     * </p>
+     * <p>
+     * The graph you retrieve can include all CloudWatch metric graph features, including metric math and horizontal and
+     * vertical annotations.
+     * </p>
+     * <p>
+     * There is a limit of 20 transactions per second for this API. Each <code>GetMetricWidgetImage</code> action has
+     * the following limits:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * As many as 100 metrics in the graph.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Up to 100 KB uncompressed payload.
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @param getMetricWidgetImageRequest
+     * @return A Java Future containing the result of the GetMetricWidgetImage operation returned by the service.
+     * @sample AmazonCloudWatchAsync.GetMetricWidgetImage
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/GetMetricWidgetImage"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<GetMetricWidgetImageResult> getMetricWidgetImageAsync(GetMetricWidgetImageRequest getMetricWidgetImageRequest);
+
+    /**
+     * <p>
+     * You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of one or more Amazon
+     * CloudWatch metrics as a bitmap image. You can then embed this image into your services and products, such as wiki
+     * pages, reports, and documents. You could also retrieve images regularly, such as every minute, and create your
+     * own custom live dashboard.
+     * </p>
+     * <p>
+     * The graph you retrieve can include all CloudWatch metric graph features, including metric math and horizontal and
+     * vertical annotations.
+     * </p>
+     * <p>
+     * There is a limit of 20 transactions per second for this API. Each <code>GetMetricWidgetImage</code> action has
+     * the following limits:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * As many as 100 metrics in the graph.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * Up to 100 KB uncompressed payload.
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @param getMetricWidgetImageRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the GetMetricWidgetImage operation returned by the service.
+     * @sample AmazonCloudWatchAsyncHandler.GetMetricWidgetImage
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/GetMetricWidgetImage"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<GetMetricWidgetImageResult> getMetricWidgetImageAsync(GetMetricWidgetImageRequest getMetricWidgetImageRequest,
+            com.amazonaws.handlers.AsyncHandler<GetMetricWidgetImageRequest, GetMetricWidgetImageResult> asyncHandler);
+
+    /**
+     * <p>
      * Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only those
      * dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are listed.
+     * </p>
+     * <p>
+     * <code>ListDashboards</code> returns up to 1000 results on one page. If there are more than 1000 dashboards, you
+     * can call <code>ListDashboards</code> again and include the value you received for <code>NextToken</code> in the
+     * first call, to receive the next 1000 results.
      * </p>
      * 
      * @param listDashboardsRequest
@@ -587,6 +741,11 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * <p>
      * Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only those
      * dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are listed.
+     * </p>
+     * <p>
+     * <code>ListDashboards</code> returns up to 1000 results on one page. If there are more than 1000 dashboards, you
+     * can call <code>ListDashboards</code> again and include the value you received for <code>NextToken</code> in the
+     * first call, to receive the next 1000 results.
      * </p>
      * 
      * @param listDashboardsRequest
@@ -604,8 +763,8 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
 
     /**
      * <p>
-     * List the specified metrics. You can use the returned metrics with <a>GetMetricStatistics</a> to obtain
-     * statistical data.
+     * List the specified metrics. You can use the returned metrics with <a>GetMetricData</a> or
+     * <a>GetMetricStatistics</a> to obtain statistical data.
      * </p>
      * <p>
      * Up to 500 results are returned for any one call. To retrieve additional results, use the returned token with
@@ -613,7 +772,7 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * </p>
      * <p>
      * After you create a metric, allow up to fifteen minutes before the metric appears. Statistics about the metric,
-     * however, are available sooner using <a>GetMetricStatistics</a>.
+     * however, are available sooner using <a>GetMetricData</a> or <a>GetMetricStatistics</a>.
      * </p>
      * 
      * @param listMetricsRequest
@@ -626,8 +785,8 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
 
     /**
      * <p>
-     * List the specified metrics. You can use the returned metrics with <a>GetMetricStatistics</a> to obtain
-     * statistical data.
+     * List the specified metrics. You can use the returned metrics with <a>GetMetricData</a> or
+     * <a>GetMetricStatistics</a> to obtain statistical data.
      * </p>
      * <p>
      * Up to 500 results are returned for any one call. To retrieve additional results, use the returned token with
@@ -635,7 +794,7 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * </p>
      * <p>
      * After you create a metric, allow up to fifteen minutes before the metric appears. Statistics about the metric,
-     * however, are available sooner using <a>GetMetricStatistics</a>.
+     * however, are available sooner using <a>GetMetricData</a> or <a>GetMetricStatistics</a>.
      * </p>
      * 
      * @param listMetricsRequest
@@ -671,7 +830,8 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * the entire contents are replaced with what you specify here.
      * </p>
      * <p>
-     * You can have up to 500 dashboards per account. All dashboards in your account are global, not region-specific.
+     * There is no limit to the number of dashboards in your account. All dashboards in your account are global, not
+     * region-specific.
      * </p>
      * <p>
      * A simple way to create a dashboard using <code>PutDashboard</code> is to copy an existing dashboard. To copy an
@@ -701,7 +861,8 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * the entire contents are replaced with what you specify here.
      * </p>
      * <p>
-     * You can have up to 500 dashboards per account. All dashboards in your account are global, not region-specific.
+     * There is no limit to the number of dashboards in your account. All dashboards in your account are global, not
+     * region-specific.
      * </p>
      * <p>
      * A simple way to create a dashboard using <code>PutDashboard</code> is to copy an existing dashboard. To copy an
@@ -732,19 +893,19 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
 
     /**
      * <p>
-     * Creates or updates an alarm and associates it with the specified metric. Optionally, this operation can associate
-     * one or more Amazon SNS resources with the alarm.
+     * Creates or updates an alarm and associates it with the specified metric or metric math expression.
      * </p>
      * <p>
      * When this operation creates an alarm, the alarm state is immediately set to <code>INSUFFICIENT_DATA</code>. The
-     * alarm is evaluated and its state is set appropriately. Any actions associated with the state are then executed.
+     * alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then
+     * executed.
      * </p>
      * <p>
      * When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous
      * configuration of the alarm.
      * </p>
      * <p>
-     * If you are an IAM user, you must have Amazon EC2 permissions for some operations:
+     * If you are an IAM user, you must have Amazon EC2 permissions for some alarm operations:
      * </p>
      * <ul>
      * <li>
@@ -790,9 +951,11 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * instance using alarm actions.
      * </p>
      * <p>
-     * You must create at least one stop, terminate, or reboot alarm using either the Amazon EC2 or CloudWatch consoles
-     * to create the <b>EC2ActionsAccess</b> IAM role. After this IAM role is created, you can create stop, terminate,
-     * or reboot alarms using a command-line interface or API.
+     * The first time you create an alarm in the AWS Management Console, the CLI, or by using the PutMetricAlarm API,
+     * CloudWatch creates the necessary service-linked role for you. The service-linked role is called
+     * <code>AWSServiceRoleForCloudWatchEvents</code>. For more information, see <a href=
+     * "http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role"
+     * >AWS service-linked role</a>.
      * </p>
      * 
      * @param putMetricAlarmRequest
@@ -805,19 +968,19 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
 
     /**
      * <p>
-     * Creates or updates an alarm and associates it with the specified metric. Optionally, this operation can associate
-     * one or more Amazon SNS resources with the alarm.
+     * Creates or updates an alarm and associates it with the specified metric or metric math expression.
      * </p>
      * <p>
      * When this operation creates an alarm, the alarm state is immediately set to <code>INSUFFICIENT_DATA</code>. The
-     * alarm is evaluated and its state is set appropriately. Any actions associated with the state are then executed.
+     * alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then
+     * executed.
      * </p>
      * <p>
      * When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous
      * configuration of the alarm.
      * </p>
      * <p>
-     * If you are an IAM user, you must have Amazon EC2 permissions for some operations:
+     * If you are an IAM user, you must have Amazon EC2 permissions for some alarm operations:
      * </p>
      * <ul>
      * <li>
@@ -863,9 +1026,11 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * instance using alarm actions.
      * </p>
      * <p>
-     * You must create at least one stop, terminate, or reboot alarm using either the Amazon EC2 or CloudWatch consoles
-     * to create the <b>EC2ActionsAccess</b> IAM role. After this IAM role is created, you can create stop, terminate,
-     * or reboot alarms using a command-line interface or API.
+     * The first time you create an alarm in the AWS Management Console, the CLI, or by using the PutMetricAlarm API,
+     * CloudWatch creates the necessary service-linked role for you. The service-linked role is called
+     * <code>AWSServiceRoleForCloudWatchEvents</code>. For more information, see <a href=
+     * "http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role"
+     * >AWS service-linked role</a>.
      * </p>
      * 
      * @param putMetricAlarmRequest
@@ -888,7 +1053,15 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * it can take up to fifteen minutes for the metric to appear in calls to <a>ListMetrics</a>.
      * </p>
      * <p>
-     * Each <code>PutMetricData</code> request is limited to 40 KB in size for HTTP POST requests.
+     * You can publish either individual data points in the <code>Value</code> field, or arrays of values and the number
+     * of times each value occurred during the period by using the <code>Values</code> and <code>Counts</code> fields in
+     * the <code>MetricDatum</code> structure. Using the <code>Values</code> and <code>Counts</code> method enables you
+     * to publish up to 150 values per metric with one <code>PutMetricData</code> request, and supports retrieving
+     * percentile statistics on this data.
+     * </p>
+     * <p>
+     * Each <code>PutMetricData</code> request is limited to 40 KB in size for HTTP POST requests. You can send a
+     * payload compressed by gzip. Each request is also limited to no more than 20 different metrics.
      * </p>
      * <p>
      * Although the <code>Value</code> parameter accepts numbers of type <code>Double</code>, CloudWatch rejects values
@@ -904,7 +1077,7 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * </p>
      * <p>
      * Data points with time stamps from 24 hours ago or longer can take at least 48 hours to become available for
-     * <a>GetMetricStatistics</a> from the time they are submitted.
+     * <a>GetMetricData</a> or <a>GetMetricStatistics</a> from the time they are submitted.
      * </p>
      * <p>
      * CloudWatch needs raw data points to calculate percentile statistics. If you publish data using a statistic set
@@ -913,12 +1086,14 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * <ul>
      * <li>
      * <p>
-     * The SampleCount value of the statistic set is 1
+     * The <code>SampleCount</code> value of the statistic set is 1 and <code>Min</code>, <code>Max</code>, and
+     * <code>Sum</code> are all equal.
      * </p>
      * </li>
      * <li>
      * <p>
-     * The Min and the Max values of the statistic set are equal
+     * The <code>Min</code> and <code>Max</code> are equal, and <code>Sum</code> is equal to <code>Min</code> multiplied
+     * by <code>SampleCount</code>.
      * </p>
      * </li>
      * </ul>
@@ -938,7 +1113,15 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * it can take up to fifteen minutes for the metric to appear in calls to <a>ListMetrics</a>.
      * </p>
      * <p>
-     * Each <code>PutMetricData</code> request is limited to 40 KB in size for HTTP POST requests.
+     * You can publish either individual data points in the <code>Value</code> field, or arrays of values and the number
+     * of times each value occurred during the period by using the <code>Values</code> and <code>Counts</code> fields in
+     * the <code>MetricDatum</code> structure. Using the <code>Values</code> and <code>Counts</code> method enables you
+     * to publish up to 150 values per metric with one <code>PutMetricData</code> request, and supports retrieving
+     * percentile statistics on this data.
+     * </p>
+     * <p>
+     * Each <code>PutMetricData</code> request is limited to 40 KB in size for HTTP POST requests. You can send a
+     * payload compressed by gzip. Each request is also limited to no more than 20 different metrics.
      * </p>
      * <p>
      * Although the <code>Value</code> parameter accepts numbers of type <code>Double</code>, CloudWatch rejects values
@@ -954,7 +1137,7 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * </p>
      * <p>
      * Data points with time stamps from 24 hours ago or longer can take at least 48 hours to become available for
-     * <a>GetMetricStatistics</a> from the time they are submitted.
+     * <a>GetMetricData</a> or <a>GetMetricStatistics</a> from the time they are submitted.
      * </p>
      * <p>
      * CloudWatch needs raw data points to calculate percentile statistics. If you publish data using a statistic set
@@ -963,12 +1146,14 @@ public interface AmazonCloudWatchAsync extends AmazonCloudWatch {
      * <ul>
      * <li>
      * <p>
-     * The SampleCount value of the statistic set is 1
+     * The <code>SampleCount</code> value of the statistic set is 1 and <code>Min</code>, <code>Max</code>, and
+     * <code>Sum</code> are all equal.
      * </p>
      * </li>
      * <li>
      * <p>
-     * The Min and the Max values of the statistic set are equal
+     * The <code>Min</code> and <code>Max</code> are equal, and <code>Sum</code> is equal to <code>Min</code> multiplied
+     * by <code>SampleCount</code>.
      * </p>
      * </li>
      * </ul>

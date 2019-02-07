@@ -30,6 +30,8 @@ import com.amazonaws.services.opsworkscm.waiters.AWSOpsWorksCMWaiters;
  * <fullname>AWS OpsWorks CM</fullname>
  * <p>
  * AWS OpsWorks for configuration management (CM) is a service that runs and manages configuration management servers.
+ * You can use AWS OpsWorks CM to create and manage AWS OpsWorks for Chef Automate and AWS OpsWorks for Puppet
+ * Enterprise servers, and add or remove nodes for the servers to manage.
  * </p>
  * <p>
  * <b>Glossary of terms</b>
@@ -86,7 +88,37 @@ import com.amazonaws.services.opsworkscm.waiters.AWSOpsWorksCMWaiters;
  * </li>
  * <li>
  * <p>
+ * opsworks-cm.us-east-2.amazonaws.com
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * opsworks-cm.us-west-1.amazonaws.com
+ * </p>
+ * </li>
+ * <li>
+ * <p>
  * opsworks-cm.us-west-2.amazonaws.com
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * opsworks-cm.ap-northeast-1.amazonaws.com
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * opsworks-cm.ap-southeast-1.amazonaws.com
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * opsworks-cm.ap-southeast-2.amazonaws.com
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * opsworks-cm.eu-central-1.amazonaws.com
  * </p>
  * </li>
  * <li>
@@ -122,9 +154,10 @@ public interface AWSOpsWorksCM {
      * from this client's {@link ClientConfiguration} will be used, which by default is HTTPS.
      * <p>
      * For more information on using AWS regions with the AWS SDK for Java, and a complete list of all available
-     * endpoints for all AWS services, see: <a
-     * href="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912">
-     * http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912</a>
+     * endpoints for all AWS services, see: <a href=
+     * "https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-choose-endpoint"
+     * > https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-
+     * choose-endpoint</a>
      * <p>
      * <b>This method is not threadsafe. An endpoint should be configured when the client is created and before any
      * service requests are made. Changing it afterwards creates inevitable race conditions for any service requests in
@@ -489,6 +522,35 @@ public interface AWSOpsWorksCM {
      *      API Documentation</a>
      */
     DisassociateNodeResult disassociateNode(DisassociateNodeRequest disassociateNodeRequest);
+
+    /**
+     * <p>
+     * Exports a specified server engine attribute as a base64-encoded string. For example, you can export user data
+     * that you can use in EC2 to associate nodes with a server.
+     * </p>
+     * <p>
+     * This operation is synchronous.
+     * </p>
+     * <p>
+     * A <code>ValidationException</code> is raised when parameters of the request are not valid. A
+     * <code>ResourceNotFoundException</code> is thrown when the server does not exist. An
+     * <code>InvalidStateException</code> is thrown when the server is in any of the following states: CREATING,
+     * TERMINATED, FAILED or DELETING.
+     * </p>
+     * 
+     * @param exportServerEngineAttributeRequest
+     * @return Result of the ExportServerEngineAttribute operation returned by the service.
+     * @throws ValidationException
+     *         One or more of the provided request parameters are not valid.
+     * @throws ResourceNotFoundException
+     *         The requested resource does not exist, or access was denied.
+     * @throws InvalidStateException
+     *         The resource is in a state that does not allow you to perform a specified action.
+     * @sample AWSOpsWorksCM.ExportServerEngineAttribute
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/opsworkscm-2016-11-01/ExportServerEngineAttribute"
+     *      target="_top">AWS API Documentation</a>
+     */
+    ExportServerEngineAttributeResult exportServerEngineAttribute(ExportServerEngineAttributeRequest exportServerEngineAttributeRequest);
 
     /**
      * <p>

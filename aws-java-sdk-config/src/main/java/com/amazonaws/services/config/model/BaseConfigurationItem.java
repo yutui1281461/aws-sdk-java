@@ -36,7 +36,7 @@ public class BaseConfigurationItem implements Serializable, Cloneable, Structure
     private String version;
     /**
      * <p>
-     * The 12 digit AWS account ID associated with the resource.
+     * The 12-digit AWS account ID associated with the resource.
      * </p>
      */
     private String accountId;
@@ -156,11 +156,11 @@ public class BaseConfigurationItem implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * The 12 digit AWS account ID associated with the resource.
+     * The 12-digit AWS account ID associated with the resource.
      * </p>
      * 
      * @param accountId
-     *        The 12 digit AWS account ID associated with the resource.
+     *        The 12-digit AWS account ID associated with the resource.
      */
 
     public void setAccountId(String accountId) {
@@ -169,10 +169,10 @@ public class BaseConfigurationItem implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * The 12 digit AWS account ID associated with the resource.
+     * The 12-digit AWS account ID associated with the resource.
      * </p>
      * 
-     * @return The 12 digit AWS account ID associated with the resource.
+     * @return The 12-digit AWS account ID associated with the resource.
      */
 
     public String getAccountId() {
@@ -181,11 +181,11 @@ public class BaseConfigurationItem implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * The 12 digit AWS account ID associated with the resource.
+     * The 12-digit AWS account ID associated with the resource.
      * </p>
      * 
      * @param accountId
-     *        The 12 digit AWS account ID associated with the resource.
+     *        The 12-digit AWS account ID associated with the resource.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -740,7 +740,8 @@ public class BaseConfigurationItem implements Serializable, Cloneable, Structure
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

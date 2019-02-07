@@ -25,6 +25,7 @@ import com.amazonaws.AmazonWebServiceRequest;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest implements Serializable, Cloneable {
 
+    private String billingTagsSource;
     /** Idempotency token for CreateJob operation. */
     private String clientRequestToken;
     /** When you create a job, you can either specify a job template or specify the transcoding settings individually */
@@ -47,6 +48,46 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
      * pairs.
      */
     private java.util.Map<String, String> userMetadata;
+
+    /**
+     * @param billingTagsSource
+     * @see BillingTagsSource
+     */
+
+    public void setBillingTagsSource(String billingTagsSource) {
+        this.billingTagsSource = billingTagsSource;
+    }
+
+    /**
+     * @return
+     * @see BillingTagsSource
+     */
+
+    public String getBillingTagsSource() {
+        return this.billingTagsSource;
+    }
+
+    /**
+     * @param billingTagsSource
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see BillingTagsSource
+     */
+
+    public CreateJobRequest withBillingTagsSource(String billingTagsSource) {
+        setBillingTagsSource(billingTagsSource);
+        return this;
+    }
+
+    /**
+     * @param billingTagsSource
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see BillingTagsSource
+     */
+
+    public CreateJobRequest withBillingTagsSource(BillingTagsSource billingTagsSource) {
+        this.billingTagsSource = billingTagsSource.toString();
+        return this;
+    }
 
     /**
      * Idempotency token for CreateJob operation.
@@ -293,7 +334,8 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -303,6 +345,8 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
+        if (getBillingTagsSource() != null)
+            sb.append("BillingTagsSource: ").append(getBillingTagsSource()).append(",");
         if (getClientRequestToken() != null)
             sb.append("ClientRequestToken: ").append(getClientRequestToken()).append(",");
         if (getJobTemplate() != null)
@@ -329,6 +373,10 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
         if (obj instanceof CreateJobRequest == false)
             return false;
         CreateJobRequest other = (CreateJobRequest) obj;
+        if (other.getBillingTagsSource() == null ^ this.getBillingTagsSource() == null)
+            return false;
+        if (other.getBillingTagsSource() != null && other.getBillingTagsSource().equals(this.getBillingTagsSource()) == false)
+            return false;
         if (other.getClientRequestToken() == null ^ this.getClientRequestToken() == null)
             return false;
         if (other.getClientRequestToken() != null && other.getClientRequestToken().equals(this.getClientRequestToken()) == false)
@@ -361,6 +409,7 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
         final int prime = 31;
         int hashCode = 1;
 
+        hashCode = prime * hashCode + ((getBillingTagsSource() == null) ? 0 : getBillingTagsSource().hashCode());
         hashCode = prime * hashCode + ((getClientRequestToken() == null) ? 0 : getClientRequestToken().hashCode());
         hashCode = prime * hashCode + ((getJobTemplate() == null) ? 0 : getJobTemplate().hashCode());
         hashCode = prime * hashCode + ((getQueue() == null) ? 0 : getQueue().hashCode());

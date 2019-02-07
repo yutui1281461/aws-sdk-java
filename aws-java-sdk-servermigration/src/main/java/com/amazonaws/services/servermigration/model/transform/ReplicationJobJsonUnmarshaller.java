@@ -66,15 +66,19 @@ public class ReplicationJobJsonUnmarshaller implements Unmarshaller<ReplicationJ
                 }
                 if (context.testExpression("seedReplicationTime", targetDepth)) {
                     context.nextToken();
-                    replicationJob.setSeedReplicationTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    replicationJob.setSeedReplicationTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("frequency", targetDepth)) {
                     context.nextToken();
                     replicationJob.setFrequency(context.getUnmarshaller(Integer.class).unmarshall(context));
                 }
+                if (context.testExpression("runOnce", targetDepth)) {
+                    context.nextToken();
+                    replicationJob.setRunOnce(context.getUnmarshaller(Boolean.class).unmarshall(context));
+                }
                 if (context.testExpression("nextReplicationRunStartTime", targetDepth)) {
                     context.nextToken();
-                    replicationJob.setNextReplicationRunStartTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    replicationJob.setNextReplicationRunStartTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("licenseType", targetDepth)) {
                     context.nextToken();
@@ -99,6 +103,18 @@ public class ReplicationJobJsonUnmarshaller implements Unmarshaller<ReplicationJ
                 if (context.testExpression("description", targetDepth)) {
                     context.nextToken();
                     replicationJob.setDescription(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("numberOfRecentAmisToKeep", targetDepth)) {
+                    context.nextToken();
+                    replicationJob.setNumberOfRecentAmisToKeep(context.getUnmarshaller(Integer.class).unmarshall(context));
+                }
+                if (context.testExpression("encrypted", targetDepth)) {
+                    context.nextToken();
+                    replicationJob.setEncrypted(context.getUnmarshaller(Boolean.class).unmarshall(context));
+                }
+                if (context.testExpression("kmsKeyId", targetDepth)) {
+                    context.nextToken();
+                    replicationJob.setKmsKeyId(context.getUnmarshaller(String.class).unmarshall(context));
                 }
                 if (context.testExpression("replicationRunList", targetDepth)) {
                     context.nextToken();

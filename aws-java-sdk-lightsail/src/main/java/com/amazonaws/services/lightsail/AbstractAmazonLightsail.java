@@ -68,6 +68,16 @@ public class AbstractAmazonLightsail implements AmazonLightsail {
     }
 
     @Override
+    public CopySnapshotResult copySnapshot(CopySnapshotRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public CreateCloudFormationStackResult createCloudFormationStack(CreateCloudFormationStackRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public CreateDiskResult createDisk(CreateDiskRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -123,6 +133,21 @@ public class AbstractAmazonLightsail implements AmazonLightsail {
     }
 
     @Override
+    public CreateRelationalDatabaseResult createRelationalDatabase(CreateRelationalDatabaseRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public CreateRelationalDatabaseFromSnapshotResult createRelationalDatabaseFromSnapshot(CreateRelationalDatabaseFromSnapshotRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public CreateRelationalDatabaseSnapshotResult createRelationalDatabaseSnapshot(CreateRelationalDatabaseSnapshotRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public DeleteDiskResult deleteDisk(DeleteDiskRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -168,6 +193,16 @@ public class AbstractAmazonLightsail implements AmazonLightsail {
     }
 
     @Override
+    public DeleteRelationalDatabaseResult deleteRelationalDatabase(DeleteRelationalDatabaseRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public DeleteRelationalDatabaseSnapshotResult deleteRelationalDatabaseSnapshot(DeleteRelationalDatabaseSnapshotRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public DetachDiskResult detachDisk(DetachDiskRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -188,6 +223,11 @@ public class AbstractAmazonLightsail implements AmazonLightsail {
     }
 
     @Override
+    public ExportSnapshotResult exportSnapshot(ExportSnapshotRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public GetActiveNamesResult getActiveNames(GetActiveNamesRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -199,6 +239,11 @@ public class AbstractAmazonLightsail implements AmazonLightsail {
 
     @Override
     public GetBundlesResult getBundles(GetBundlesRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public GetCloudFormationStackRecordsResult getCloudFormationStackRecords(GetCloudFormationStackRecordsRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -229,6 +274,11 @@ public class AbstractAmazonLightsail implements AmazonLightsail {
 
     @Override
     public GetDomainsResult getDomains(GetDomainsRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public GetExportSnapshotRecordsResult getExportSnapshotRecords(GetExportSnapshotRecordsRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -323,6 +373,66 @@ public class AbstractAmazonLightsail implements AmazonLightsail {
     }
 
     @Override
+    public GetRelationalDatabaseResult getRelationalDatabase(GetRelationalDatabaseRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public GetRelationalDatabaseBlueprintsResult getRelationalDatabaseBlueprints(GetRelationalDatabaseBlueprintsRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public GetRelationalDatabaseBundlesResult getRelationalDatabaseBundles(GetRelationalDatabaseBundlesRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public GetRelationalDatabaseEventsResult getRelationalDatabaseEvents(GetRelationalDatabaseEventsRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public GetRelationalDatabaseLogEventsResult getRelationalDatabaseLogEvents(GetRelationalDatabaseLogEventsRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public GetRelationalDatabaseLogStreamsResult getRelationalDatabaseLogStreams(GetRelationalDatabaseLogStreamsRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public GetRelationalDatabaseMasterUserPasswordResult getRelationalDatabaseMasterUserPassword(GetRelationalDatabaseMasterUserPasswordRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public GetRelationalDatabaseMetricDataResult getRelationalDatabaseMetricData(GetRelationalDatabaseMetricDataRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public GetRelationalDatabaseParametersResult getRelationalDatabaseParameters(GetRelationalDatabaseParametersRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public GetRelationalDatabaseSnapshotResult getRelationalDatabaseSnapshot(GetRelationalDatabaseSnapshotRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public GetRelationalDatabaseSnapshotsResult getRelationalDatabaseSnapshots(GetRelationalDatabaseSnapshotsRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public GetRelationalDatabasesResult getRelationalDatabases(GetRelationalDatabasesRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public GetStaticIpResult getStaticIp(GetStaticIpRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -363,6 +473,11 @@ public class AbstractAmazonLightsail implements AmazonLightsail {
     }
 
     @Override
+    public RebootRelationalDatabaseResult rebootRelationalDatabase(RebootRelationalDatabaseRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public ReleaseStaticIpResult releaseStaticIp(ReleaseStaticIpRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -373,12 +488,32 @@ public class AbstractAmazonLightsail implements AmazonLightsail {
     }
 
     @Override
+    public StartRelationalDatabaseResult startRelationalDatabase(StartRelationalDatabaseRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public StopInstanceResult stopInstance(StopInstanceRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
     @Override
+    public StopRelationalDatabaseResult stopRelationalDatabase(StopRelationalDatabaseRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public TagResourceResult tagResource(TagResourceRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public UnpeerVpcResult unpeerVpc(UnpeerVpcRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public UntagResourceResult untagResource(UntagResourceRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -389,6 +524,16 @@ public class AbstractAmazonLightsail implements AmazonLightsail {
 
     @Override
     public UpdateLoadBalancerAttributeResult updateLoadBalancerAttribute(UpdateLoadBalancerAttributeRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public UpdateRelationalDatabaseResult updateRelationalDatabase(UpdateRelationalDatabaseRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public UpdateRelationalDatabaseParametersResult updateRelationalDatabaseParameters(UpdateRelationalDatabaseParametersRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 

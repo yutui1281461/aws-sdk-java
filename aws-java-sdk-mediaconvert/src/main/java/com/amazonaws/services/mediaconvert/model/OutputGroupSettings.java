@@ -26,6 +26,8 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class OutputGroupSettings implements Serializable, Cloneable, StructuredPojo {
 
+    private CmafGroupSettings cmafGroupSettings;
+
     private DashIsoGroupSettings dashIsoGroupSettings;
 
     private FileGroupSettings fileGroupSettings;
@@ -35,6 +37,32 @@ public class OutputGroupSettings implements Serializable, Cloneable, StructuredP
     private MsSmoothGroupSettings msSmoothGroupSettings;
 
     private String type;
+
+    /**
+     * @param cmafGroupSettings
+     */
+
+    public void setCmafGroupSettings(CmafGroupSettings cmafGroupSettings) {
+        this.cmafGroupSettings = cmafGroupSettings;
+    }
+
+    /**
+     * @return
+     */
+
+    public CmafGroupSettings getCmafGroupSettings() {
+        return this.cmafGroupSettings;
+    }
+
+    /**
+     * @param cmafGroupSettings
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public OutputGroupSettings withCmafGroupSettings(CmafGroupSettings cmafGroupSettings) {
+        setCmafGroupSettings(cmafGroupSettings);
+        return this;
+    }
 
     /**
      * @param dashIsoGroupSettings
@@ -181,7 +209,8 @@ public class OutputGroupSettings implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -191,6 +220,8 @@ public class OutputGroupSettings implements Serializable, Cloneable, StructuredP
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
+        if (getCmafGroupSettings() != null)
+            sb.append("CmafGroupSettings: ").append(getCmafGroupSettings()).append(",");
         if (getDashIsoGroupSettings() != null)
             sb.append("DashIsoGroupSettings: ").append(getDashIsoGroupSettings()).append(",");
         if (getFileGroupSettings() != null)
@@ -215,6 +246,10 @@ public class OutputGroupSettings implements Serializable, Cloneable, StructuredP
         if (obj instanceof OutputGroupSettings == false)
             return false;
         OutputGroupSettings other = (OutputGroupSettings) obj;
+        if (other.getCmafGroupSettings() == null ^ this.getCmafGroupSettings() == null)
+            return false;
+        if (other.getCmafGroupSettings() != null && other.getCmafGroupSettings().equals(this.getCmafGroupSettings()) == false)
+            return false;
         if (other.getDashIsoGroupSettings() == null ^ this.getDashIsoGroupSettings() == null)
             return false;
         if (other.getDashIsoGroupSettings() != null && other.getDashIsoGroupSettings().equals(this.getDashIsoGroupSettings()) == false)
@@ -243,6 +278,7 @@ public class OutputGroupSettings implements Serializable, Cloneable, StructuredP
         final int prime = 31;
         int hashCode = 1;
 
+        hashCode = prime * hashCode + ((getCmafGroupSettings() == null) ? 0 : getCmafGroupSettings().hashCode());
         hashCode = prime * hashCode + ((getDashIsoGroupSettings() == null) ? 0 : getDashIsoGroupSettings().hashCode());
         hashCode = prime * hashCode + ((getFileGroupSettings() == null) ? 0 : getFileGroupSettings().hashCode());
         hashCode = prime * hashCode + ((getHlsGroupSettings() == null) ? 0 : getHlsGroupSettings().hashCode());

@@ -62,7 +62,7 @@ public class DomainJsonUnmarshaller implements Unmarshaller<Domain, JsonUnmarsha
                 }
                 if (context.testExpression("createdAt", targetDepth)) {
                     context.nextToken();
-                    domain.setCreatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    domain.setCreatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("location", targetDepth)) {
                     context.nextToken();
@@ -71,6 +71,10 @@ public class DomainJsonUnmarshaller implements Unmarshaller<Domain, JsonUnmarsha
                 if (context.testExpression("resourceType", targetDepth)) {
                     context.nextToken();
                     domain.setResourceType(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("tags", targetDepth)) {
+                    context.nextToken();
+                    domain.setTags(new ListUnmarshaller<Tag>(TagJsonUnmarshaller.getInstance()).unmarshall(context));
                 }
                 if (context.testExpression("domainEntries", targetDepth)) {
                     context.nextToken();

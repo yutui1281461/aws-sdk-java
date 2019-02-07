@@ -30,7 +30,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * an index for the word within a line of words.
  * </p>
  * <p>
- * For more information, see <a>text-detection</a>.
+ * For more information, see Detecting Text in the Amazon Rekognition Developer Guide.
  * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -357,7 +357,8 @@ public class TextDetection implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

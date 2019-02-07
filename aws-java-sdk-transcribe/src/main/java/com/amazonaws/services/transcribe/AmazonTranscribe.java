@@ -44,14 +44,15 @@ public interface AmazonTranscribe {
     /**
      * <p>
      * Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an
-     * audio file.
+     * audio file. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available.
+     * In the console, the vocabulary section will be greyed-out and SDK will return error message.
      * </p>
      * 
      * @param createVocabularyRequest
      * @return Result of the CreateVocabulary operation returned by the service.
      * @throws BadRequestException
-     *         Your request didn't pass one or more validation tests. For example, a name already exists when createing
-     *         a resource or a name may not exist when getting a transcription job or custom vocabulary. See the
+     *         Your request didn't pass one or more validation tests. For example, if the transcription you're trying to
+     *         delete doesn't exist or if it is in a non-terminal state (for example, it's "in progress"). See the
      *         exception <code>Message</code> field for more information.
      * @throws LimitExceededException
      *         Either you have sent too many requests or your input file is too long. Wait before you resend your
@@ -59,13 +60,39 @@ public interface AmazonTranscribe {
      * @throws InternalFailureException
      *         There was an internal error. Check the error message and try your request again.
      * @throws ConflictException
-     *         The <code>JobName</code> field is a duplicate of a previously entered job name. Resend your request with
-     *         a different name.
+     *         When you are using the <code>StartTranscriptionJob</code> operation, the <code>JobName</code> field is a
+     *         duplicate of a previously entered job name. Resend your request with a different name.</p>
+     *         <p>
+     *         When you are using the <code>UpdateVocabulary</code> operation, there are two jobs running at the same
+     *         time. Resend the second request later.
      * @sample AmazonTranscribe.CreateVocabulary
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/CreateVocabulary" target="_top">AWS
      *      API Documentation</a>
      */
     CreateVocabularyResult createVocabulary(CreateVocabularyRequest createVocabularyRequest);
+
+    /**
+     * <p>
+     * Deletes a previously submitted transcription job along with any other generated results such as the
+     * transcription, models, and so on.
+     * </p>
+     * 
+     * @param deleteTranscriptionJobRequest
+     * @return Result of the DeleteTranscriptionJob operation returned by the service.
+     * @throws LimitExceededException
+     *         Either you have sent too many requests or your input file is too long. Wait before you resend your
+     *         request, or use a smaller file and resend the request.
+     * @throws BadRequestException
+     *         Your request didn't pass one or more validation tests. For example, if the transcription you're trying to
+     *         delete doesn't exist or if it is in a non-terminal state (for example, it's "in progress"). See the
+     *         exception <code>Message</code> field for more information.
+     * @throws InternalFailureException
+     *         There was an internal error. Check the error message and try your request again.
+     * @sample AmazonTranscribe.DeleteTranscriptionJob
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/DeleteTranscriptionJob"
+     *      target="_top">AWS API Documentation</a>
+     */
+    DeleteTranscriptionJobResult deleteTranscriptionJob(DeleteTranscriptionJobRequest deleteTranscriptionJobRequest);
 
     /**
      * <p>
@@ -75,11 +102,14 @@ public interface AmazonTranscribe {
      * @param deleteVocabularyRequest
      * @return Result of the DeleteVocabulary operation returned by the service.
      * @throws NotFoundException
-     *         We can't find the requested transcription job or custom vocabulary. Check the name and try your request
-     *         again.
+     *         We can't find the requested resource. Check the name and try your request again.
      * @throws LimitExceededException
      *         Either you have sent too many requests or your input file is too long. Wait before you resend your
      *         request, or use a smaller file and resend the request.
+     * @throws BadRequestException
+     *         Your request didn't pass one or more validation tests. For example, if the transcription you're trying to
+     *         delete doesn't exist or if it is in a non-terminal state (for example, it's "in progress"). See the
+     *         exception <code>Message</code> field for more information.
      * @throws InternalFailureException
      *         There was an internal error. Check the error message and try your request again.
      * @sample AmazonTranscribe.DeleteVocabulary
@@ -98,8 +128,8 @@ public interface AmazonTranscribe {
      * @param getTranscriptionJobRequest
      * @return Result of the GetTranscriptionJob operation returned by the service.
      * @throws BadRequestException
-     *         Your request didn't pass one or more validation tests. For example, a name already exists when createing
-     *         a resource or a name may not exist when getting a transcription job or custom vocabulary. See the
+     *         Your request didn't pass one or more validation tests. For example, if the transcription you're trying to
+     *         delete doesn't exist or if it is in a non-terminal state (for example, it's "in progress"). See the
      *         exception <code>Message</code> field for more information.
      * @throws LimitExceededException
      *         Either you have sent too many requests or your input file is too long. Wait before you resend your
@@ -107,8 +137,7 @@ public interface AmazonTranscribe {
      * @throws InternalFailureException
      *         There was an internal error. Check the error message and try your request again.
      * @throws NotFoundException
-     *         We can't find the requested transcription job or custom vocabulary. Check the name and try your request
-     *         again.
+     *         We can't find the requested resource. Check the name and try your request again.
      * @sample AmazonTranscribe.GetTranscriptionJob
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/GetTranscriptionJob" target="_top">AWS
      *      API Documentation</a>
@@ -117,22 +146,23 @@ public interface AmazonTranscribe {
 
     /**
      * <p>
-     * Gets information about a vocabulary.
+     * Gets information about a vocabulary. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in
+     * preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error
+     * message.
      * </p>
      * 
      * @param getVocabularyRequest
      * @return Result of the GetVocabulary operation returned by the service.
      * @throws NotFoundException
-     *         We can't find the requested transcription job or custom vocabulary. Check the name and try your request
-     *         again.
+     *         We can't find the requested resource. Check the name and try your request again.
      * @throws LimitExceededException
      *         Either you have sent too many requests or your input file is too long. Wait before you resend your
      *         request, or use a smaller file and resend the request.
      * @throws InternalFailureException
      *         There was an internal error. Check the error message and try your request again.
      * @throws BadRequestException
-     *         Your request didn't pass one or more validation tests. For example, a name already exists when createing
-     *         a resource or a name may not exist when getting a transcription job or custom vocabulary. See the
+     *         Your request didn't pass one or more validation tests. For example, if the transcription you're trying to
+     *         delete doesn't exist or if it is in a non-terminal state (for example, it's "in progress"). See the
      *         exception <code>Message</code> field for more information.
      * @sample AmazonTranscribe.GetVocabulary
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/GetVocabulary" target="_top">AWS API
@@ -148,8 +178,8 @@ public interface AmazonTranscribe {
      * @param listTranscriptionJobsRequest
      * @return Result of the ListTranscriptionJobs operation returned by the service.
      * @throws BadRequestException
-     *         Your request didn't pass one or more validation tests. For example, a name already exists when createing
-     *         a resource or a name may not exist when getting a transcription job or custom vocabulary. See the
+     *         Your request didn't pass one or more validation tests. For example, if the transcription you're trying to
+     *         delete doesn't exist or if it is in a non-terminal state (for example, it's "in progress"). See the
      *         exception <code>Message</code> field for more information.
      * @throws LimitExceededException
      *         Either you have sent too many requests or your input file is too long. Wait before you resend your
@@ -171,8 +201,8 @@ public interface AmazonTranscribe {
      * @param listVocabulariesRequest
      * @return Result of the ListVocabularies operation returned by the service.
      * @throws BadRequestException
-     *         Your request didn't pass one or more validation tests. For example, a name already exists when createing
-     *         a resource or a name may not exist when getting a transcription job or custom vocabulary. See the
+     *         Your request didn't pass one or more validation tests. For example, if the transcription you're trying to
+     *         delete doesn't exist or if it is in a non-terminal state (for example, it's "in progress"). See the
      *         exception <code>Message</code> field for more information.
      * @throws LimitExceededException
      *         Either you have sent too many requests or your input file is too long. Wait before you resend your
@@ -187,14 +217,15 @@ public interface AmazonTranscribe {
 
     /**
      * <p>
-     * Starts an asynchronous job to transcribe speech to text.
+     * Starts an asynchronous job to transcribe speech to text. Note that en-AU, en-UK, and fr-CA languages are in
+     * preview and are only available to whitelisted customers.
      * </p>
      * 
      * @param startTranscriptionJobRequest
      * @return Result of the StartTranscriptionJob operation returned by the service.
      * @throws BadRequestException
-     *         Your request didn't pass one or more validation tests. For example, a name already exists when createing
-     *         a resource or a name may not exist when getting a transcription job or custom vocabulary. See the
+     *         Your request didn't pass one or more validation tests. For example, if the transcription you're trying to
+     *         delete doesn't exist or if it is in a non-terminal state (for example, it's "in progress"). See the
      *         exception <code>Message</code> field for more information.
      * @throws LimitExceededException
      *         Either you have sent too many requests or your input file is too long. Wait before you resend your
@@ -202,8 +233,11 @@ public interface AmazonTranscribe {
      * @throws InternalFailureException
      *         There was an internal error. Check the error message and try your request again.
      * @throws ConflictException
-     *         The <code>JobName</code> field is a duplicate of a previously entered job name. Resend your request with
-     *         a different name.
+     *         When you are using the <code>StartTranscriptionJob</code> operation, the <code>JobName</code> field is a
+     *         duplicate of a previously entered job name. Resend your request with a different name.</p>
+     *         <p>
+     *         When you are using the <code>UpdateVocabulary</code> operation, there are two jobs running at the same
+     *         time. Resend the second request later.
      * @sample AmazonTranscribe.StartTranscriptionJob
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/StartTranscriptionJob"
      *      target="_top">AWS API Documentation</a>
@@ -212,14 +246,17 @@ public interface AmazonTranscribe {
 
     /**
      * <p>
-     * Updates an existing vocabulary with new values.
+     * Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the
+     * existing information with the values that you provide in the request. Note that vocabularies for en-AU, en-UK,
+     * and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be
+     * greyed-out and SDK will return error message.
      * </p>
      * 
      * @param updateVocabularyRequest
      * @return Result of the UpdateVocabulary operation returned by the service.
      * @throws BadRequestException
-     *         Your request didn't pass one or more validation tests. For example, a name already exists when createing
-     *         a resource or a name may not exist when getting a transcription job or custom vocabulary. See the
+     *         Your request didn't pass one or more validation tests. For example, if the transcription you're trying to
+     *         delete doesn't exist or if it is in a non-terminal state (for example, it's "in progress"). See the
      *         exception <code>Message</code> field for more information.
      * @throws LimitExceededException
      *         Either you have sent too many requests or your input file is too long. Wait before you resend your
@@ -227,8 +264,13 @@ public interface AmazonTranscribe {
      * @throws InternalFailureException
      *         There was an internal error. Check the error message and try your request again.
      * @throws NotFoundException
-     *         We can't find the requested transcription job or custom vocabulary. Check the name and try your request
-     *         again.
+     *         We can't find the requested resource. Check the name and try your request again.
+     * @throws ConflictException
+     *         When you are using the <code>StartTranscriptionJob</code> operation, the <code>JobName</code> field is a
+     *         duplicate of a previously entered job name. Resend your request with a different name.</p>
+     *         <p>
+     *         When you are using the <code>UpdateVocabulary</code> operation, there are two jobs running at the same
+     *         time. Resend the second request later.
      * @sample AmazonTranscribe.UpdateVocabulary
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/UpdateVocabulary" target="_top">AWS
      *      API Documentation</a>

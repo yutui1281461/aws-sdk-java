@@ -98,11 +98,15 @@ public class ContainerInstanceJsonUnmarshaller implements Unmarshaller<Container
                 }
                 if (context.testExpression("registeredAt", targetDepth)) {
                     context.nextToken();
-                    containerInstance.setRegisteredAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    containerInstance.setRegisteredAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("attachments", targetDepth)) {
                     context.nextToken();
                     containerInstance.setAttachments(new ListUnmarshaller<Attachment>(AttachmentJsonUnmarshaller.getInstance()).unmarshall(context));
+                }
+                if (context.testExpression("tags", targetDepth)) {
+                    context.nextToken();
+                    containerInstance.setTags(new ListUnmarshaller<Tag>(TagJsonUnmarshaller.getInstance()).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

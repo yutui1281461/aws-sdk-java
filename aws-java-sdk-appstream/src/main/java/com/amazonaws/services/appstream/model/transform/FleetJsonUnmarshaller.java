@@ -68,6 +68,10 @@ public class FleetJsonUnmarshaller implements Unmarshaller<Fleet, JsonUnmarshall
                     context.nextToken();
                     fleet.setImageName(context.getUnmarshaller(String.class).unmarshall(context));
                 }
+                if (context.testExpression("ImageArn", targetDepth)) {
+                    context.nextToken();
+                    fleet.setImageArn(context.getUnmarshaller(String.class).unmarshall(context));
+                }
                 if (context.testExpression("InstanceType", targetDepth)) {
                     context.nextToken();
                     fleet.setInstanceType(context.getUnmarshaller(String.class).unmarshall(context));
@@ -98,7 +102,7 @@ public class FleetJsonUnmarshaller implements Unmarshaller<Fleet, JsonUnmarshall
                 }
                 if (context.testExpression("CreatedTime", targetDepth)) {
                     context.nextToken();
-                    fleet.setCreatedTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    fleet.setCreatedTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("FleetErrors", targetDepth)) {
                     context.nextToken();

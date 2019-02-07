@@ -41,7 +41,7 @@ public class Placement implements Serializable, Cloneable {
     private String affinity;
     /**
      * <p>
-     * The name of the placement group the instance is in (for cluster compute instances).
+     * The name of the placement group the instance is in.
      * </p>
      */
     private String groupName;
@@ -173,11 +173,11 @@ public class Placement implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The name of the placement group the instance is in (for cluster compute instances).
+     * The name of the placement group the instance is in.
      * </p>
      * 
      * @param groupName
-     *        The name of the placement group the instance is in (for cluster compute instances).
+     *        The name of the placement group the instance is in.
      */
 
     public void setGroupName(String groupName) {
@@ -186,10 +186,10 @@ public class Placement implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The name of the placement group the instance is in (for cluster compute instances).
+     * The name of the placement group the instance is in.
      * </p>
      * 
-     * @return The name of the placement group the instance is in (for cluster compute instances).
+     * @return The name of the placement group the instance is in.
      */
 
     public String getGroupName() {
@@ -198,11 +198,11 @@ public class Placement implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The name of the placement group the instance is in (for cluster compute instances).
+     * The name of the placement group the instance is in.
      * </p>
      * 
      * @param groupName
-     *        The name of the placement group the instance is in (for cluster compute instances).
+     *        The name of the placement group the instance is in.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -391,7 +391,8 @@ public class Placement implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

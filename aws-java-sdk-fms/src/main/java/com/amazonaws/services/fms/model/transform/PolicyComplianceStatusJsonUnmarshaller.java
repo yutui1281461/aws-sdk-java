@@ -71,7 +71,12 @@ public class PolicyComplianceStatusJsonUnmarshaller implements Unmarshaller<Poli
                 }
                 if (context.testExpression("LastUpdated", targetDepth)) {
                     context.nextToken();
-                    policyComplianceStatus.setLastUpdated(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    policyComplianceStatus.setLastUpdated(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                }
+                if (context.testExpression("IssueInfoMap", targetDepth)) {
+                    context.nextToken();
+                    policyComplianceStatus.setIssueInfoMap(new MapUnmarshaller<String, String>(context.getUnmarshaller(String.class), context
+                            .getUnmarshaller(String.class)).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

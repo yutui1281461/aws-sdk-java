@@ -54,11 +54,11 @@ public class CertificateAuthorityJsonUnmarshaller implements Unmarshaller<Certif
                 }
                 if (context.testExpression("CreatedAt", targetDepth)) {
                     context.nextToken();
-                    certificateAuthority.setCreatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    certificateAuthority.setCreatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("LastStateChangeAt", targetDepth)) {
                     context.nextToken();
-                    certificateAuthority.setLastStateChangeAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    certificateAuthority.setLastStateChangeAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("Type", targetDepth)) {
                     context.nextToken();
@@ -74,11 +74,11 @@ public class CertificateAuthorityJsonUnmarshaller implements Unmarshaller<Certif
                 }
                 if (context.testExpression("NotBefore", targetDepth)) {
                     context.nextToken();
-                    certificateAuthority.setNotBefore(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    certificateAuthority.setNotBefore(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("NotAfter", targetDepth)) {
                     context.nextToken();
-                    certificateAuthority.setNotAfter(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    certificateAuthority.setNotAfter(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("FailureReason", targetDepth)) {
                     context.nextToken();
@@ -92,6 +92,10 @@ public class CertificateAuthorityJsonUnmarshaller implements Unmarshaller<Certif
                 if (context.testExpression("RevocationConfiguration", targetDepth)) {
                     context.nextToken();
                     certificateAuthority.setRevocationConfiguration(RevocationConfigurationJsonUnmarshaller.getInstance().unmarshall(context));
+                }
+                if (context.testExpression("RestorableUntil", targetDepth)) {
+                    context.nextToken();
+                    certificateAuthority.setRestorableUntil(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

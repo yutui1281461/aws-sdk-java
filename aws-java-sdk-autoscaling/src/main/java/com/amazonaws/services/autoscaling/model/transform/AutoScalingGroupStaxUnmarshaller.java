@@ -65,6 +65,11 @@ public class AutoScalingGroupStaxUnmarshaller implements Unmarshaller<AutoScalin
                     continue;
                 }
 
+                if (context.testExpression("MixedInstancesPolicy", targetDepth)) {
+                    autoScalingGroup.setMixedInstancesPolicy(MixedInstancesPolicyStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
                 if (context.testExpression("MinSize", targetDepth)) {
                     autoScalingGroup.setMinSize(IntegerStaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
@@ -136,7 +141,7 @@ public class AutoScalingGroupStaxUnmarshaller implements Unmarshaller<AutoScalin
                 }
 
                 if (context.testExpression("CreatedTime", targetDepth)) {
-                    autoScalingGroup.setCreatedTime(DateStaxUnmarshaller.getInstance().unmarshall(context));
+                    autoScalingGroup.setCreatedTime(DateStaxUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
                     continue;
                 }
 

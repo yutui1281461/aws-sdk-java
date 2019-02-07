@@ -30,7 +30,7 @@ public class ContinuousBackupsDescription implements Serializable, Cloneable, St
 
     /**
      * <p>
-     * <code>ContinuousBackupsStatus</code> can be one of the following states : ENABLED, DISABLED
+     * <code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED
      * </p>
      */
     private String continuousBackupsStatus;
@@ -43,11 +43,11 @@ public class ContinuousBackupsDescription implements Serializable, Cloneable, St
 
     /**
      * <p>
-     * <code>ContinuousBackupsStatus</code> can be one of the following states : ENABLED, DISABLED
+     * <code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED
      * </p>
      * 
      * @param continuousBackupsStatus
-     *        <code>ContinuousBackupsStatus</code> can be one of the following states : ENABLED, DISABLED
+     *        <code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED
      * @see ContinuousBackupsStatus
      */
 
@@ -57,10 +57,10 @@ public class ContinuousBackupsDescription implements Serializable, Cloneable, St
 
     /**
      * <p>
-     * <code>ContinuousBackupsStatus</code> can be one of the following states : ENABLED, DISABLED
+     * <code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED
      * </p>
      * 
-     * @return <code>ContinuousBackupsStatus</code> can be one of the following states : ENABLED, DISABLED
+     * @return <code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED
      * @see ContinuousBackupsStatus
      */
 
@@ -70,11 +70,11 @@ public class ContinuousBackupsDescription implements Serializable, Cloneable, St
 
     /**
      * <p>
-     * <code>ContinuousBackupsStatus</code> can be one of the following states : ENABLED, DISABLED
+     * <code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED
      * </p>
      * 
      * @param continuousBackupsStatus
-     *        <code>ContinuousBackupsStatus</code> can be one of the following states : ENABLED, DISABLED
+     *        <code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ContinuousBackupsStatus
      */
@@ -86,11 +86,11 @@ public class ContinuousBackupsDescription implements Serializable, Cloneable, St
 
     /**
      * <p>
-     * <code>ContinuousBackupsStatus</code> can be one of the following states : ENABLED, DISABLED
+     * <code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED
      * </p>
      * 
      * @param continuousBackupsStatus
-     *        <code>ContinuousBackupsStatus</code> can be one of the following states : ENABLED, DISABLED
+     *        <code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ContinuousBackupsStatus
      */
@@ -141,7 +141,8 @@ public class ContinuousBackupsDescription implements Serializable, Cloneable, St
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

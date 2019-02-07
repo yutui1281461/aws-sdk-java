@@ -19,7 +19,8 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Provides a summary of information about a transcription job.
+ * Provides a summary of information about a transcription job. Note that en-AU, en-UK, and fr-CA languages are in
+ * preview and are only available to whitelisted customers.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/TranscriptionJobSummary" target="_top">AWS
@@ -30,19 +31,19 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * The name assigned to the transcription job when it was created.
+     * The name of the transcription job.
      * </p>
      */
     private String transcriptionJobName;
     /**
      * <p>
-     * Timestamp of the date and time that the job was created.
+     * A timestamp that shows when the job was created.
      * </p>
      */
     private java.util.Date creationTime;
     /**
      * <p>
-     * Timestamp of the date and time that the job completed.
+     * A timestamp that shows when the job was completed.
      * </p>
      */
     private java.util.Date completionTime;
@@ -61,19 +62,33 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
     private String transcriptionJobStatus;
     /**
      * <p>
-     * If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field contains a description of the
-     * error.
+     * If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, a description of the error.
      * </p>
      */
     private String failureReason;
+    /**
+     * <p>
+     * Indicates the location of the output of the transcription job.
+     * </p>
+     * <p>
+     * If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket specified in the
+     * <code>outputBucketName</code> field when the transcription job was started with the
+     * <code>StartTranscriptionJob</code> operation.
+     * </p>
+     * <p>
+     * If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can be retrieved
+     * using the URI in the <code>GetTranscriptionJob</code> response's <code>TranscriptFileUri</code> field.
+     * </p>
+     */
+    private String outputLocationType;
 
     /**
      * <p>
-     * The name assigned to the transcription job when it was created.
+     * The name of the transcription job.
      * </p>
      * 
      * @param transcriptionJobName
-     *        The name assigned to the transcription job when it was created.
+     *        The name of the transcription job.
      */
 
     public void setTranscriptionJobName(String transcriptionJobName) {
@@ -82,10 +97,10 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * The name assigned to the transcription job when it was created.
+     * The name of the transcription job.
      * </p>
      * 
-     * @return The name assigned to the transcription job when it was created.
+     * @return The name of the transcription job.
      */
 
     public String getTranscriptionJobName() {
@@ -94,11 +109,11 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * The name assigned to the transcription job when it was created.
+     * The name of the transcription job.
      * </p>
      * 
      * @param transcriptionJobName
-     *        The name assigned to the transcription job when it was created.
+     *        The name of the transcription job.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -109,11 +124,11 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * Timestamp of the date and time that the job was created.
+     * A timestamp that shows when the job was created.
      * </p>
      * 
      * @param creationTime
-     *        Timestamp of the date and time that the job was created.
+     *        A timestamp that shows when the job was created.
      */
 
     public void setCreationTime(java.util.Date creationTime) {
@@ -122,10 +137,10 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * Timestamp of the date and time that the job was created.
+     * A timestamp that shows when the job was created.
      * </p>
      * 
-     * @return Timestamp of the date and time that the job was created.
+     * @return A timestamp that shows when the job was created.
      */
 
     public java.util.Date getCreationTime() {
@@ -134,11 +149,11 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * Timestamp of the date and time that the job was created.
+     * A timestamp that shows when the job was created.
      * </p>
      * 
      * @param creationTime
-     *        Timestamp of the date and time that the job was created.
+     *        A timestamp that shows when the job was created.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -149,11 +164,11 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * Timestamp of the date and time that the job completed.
+     * A timestamp that shows when the job was completed.
      * </p>
      * 
      * @param completionTime
-     *        Timestamp of the date and time that the job completed.
+     *        A timestamp that shows when the job was completed.
      */
 
     public void setCompletionTime(java.util.Date completionTime) {
@@ -162,10 +177,10 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * Timestamp of the date and time that the job completed.
+     * A timestamp that shows when the job was completed.
      * </p>
      * 
-     * @return Timestamp of the date and time that the job completed.
+     * @return A timestamp that shows when the job was completed.
      */
 
     public java.util.Date getCompletionTime() {
@@ -174,11 +189,11 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * Timestamp of the date and time that the job completed.
+     * A timestamp that shows when the job was completed.
      * </p>
      * 
      * @param completionTime
-     *        Timestamp of the date and time that the job completed.
+     *        A timestamp that shows when the job was completed.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -315,13 +330,11 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field contains a description of the
-     * error.
+     * If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, a description of the error.
      * </p>
      * 
      * @param failureReason
-     *        If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field contains a description
-     *        of the error.
+     *        If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, a description of the error.
      */
 
     public void setFailureReason(String failureReason) {
@@ -330,12 +343,10 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field contains a description of the
-     * error.
+     * If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, a description of the error.
      * </p>
      * 
-     * @return If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field contains a
-     *         description of the error.
+     * @return If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, a description of the error.
      */
 
     public String getFailureReason() {
@@ -344,13 +355,11 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field contains a description of the
-     * error.
+     * If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, a description of the error.
      * </p>
      * 
      * @param failureReason
-     *        If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field contains a description
-     *        of the error.
+     *        If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, a description of the error.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -360,7 +369,139 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * Indicates the location of the output of the transcription job.
+     * </p>
+     * <p>
+     * If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket specified in the
+     * <code>outputBucketName</code> field when the transcription job was started with the
+     * <code>StartTranscriptionJob</code> operation.
+     * </p>
+     * <p>
+     * If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can be retrieved
+     * using the URI in the <code>GetTranscriptionJob</code> response's <code>TranscriptFileUri</code> field.
+     * </p>
+     * 
+     * @param outputLocationType
+     *        Indicates the location of the output of the transcription job.</p>
+     *        <p>
+     *        If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket specified in the
+     *        <code>outputBucketName</code> field when the transcription job was started with the
+     *        <code>StartTranscriptionJob</code> operation.
+     *        </p>
+     *        <p>
+     *        If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can be
+     *        retrieved using the URI in the <code>GetTranscriptionJob</code> response's <code>TranscriptFileUri</code>
+     *        field.
+     * @see OutputLocationType
+     */
+
+    public void setOutputLocationType(String outputLocationType) {
+        this.outputLocationType = outputLocationType;
+    }
+
+    /**
+     * <p>
+     * Indicates the location of the output of the transcription job.
+     * </p>
+     * <p>
+     * If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket specified in the
+     * <code>outputBucketName</code> field when the transcription job was started with the
+     * <code>StartTranscriptionJob</code> operation.
+     * </p>
+     * <p>
+     * If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can be retrieved
+     * using the URI in the <code>GetTranscriptionJob</code> response's <code>TranscriptFileUri</code> field.
+     * </p>
+     * 
+     * @return Indicates the location of the output of the transcription job.</p>
+     *         <p>
+     *         If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket specified in the
+     *         <code>outputBucketName</code> field when the transcription job was started with the
+     *         <code>StartTranscriptionJob</code> operation.
+     *         </p>
+     *         <p>
+     *         If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can be
+     *         retrieved using the URI in the <code>GetTranscriptionJob</code> response's <code>TranscriptFileUri</code>
+     *         field.
+     * @see OutputLocationType
+     */
+
+    public String getOutputLocationType() {
+        return this.outputLocationType;
+    }
+
+    /**
+     * <p>
+     * Indicates the location of the output of the transcription job.
+     * </p>
+     * <p>
+     * If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket specified in the
+     * <code>outputBucketName</code> field when the transcription job was started with the
+     * <code>StartTranscriptionJob</code> operation.
+     * </p>
+     * <p>
+     * If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can be retrieved
+     * using the URI in the <code>GetTranscriptionJob</code> response's <code>TranscriptFileUri</code> field.
+     * </p>
+     * 
+     * @param outputLocationType
+     *        Indicates the location of the output of the transcription job.</p>
+     *        <p>
+     *        If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket specified in the
+     *        <code>outputBucketName</code> field when the transcription job was started with the
+     *        <code>StartTranscriptionJob</code> operation.
+     *        </p>
+     *        <p>
+     *        If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can be
+     *        retrieved using the URI in the <code>GetTranscriptionJob</code> response's <code>TranscriptFileUri</code>
+     *        field.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see OutputLocationType
+     */
+
+    public TranscriptionJobSummary withOutputLocationType(String outputLocationType) {
+        setOutputLocationType(outputLocationType);
+        return this;
+    }
+
+    /**
+     * <p>
+     * Indicates the location of the output of the transcription job.
+     * </p>
+     * <p>
+     * If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket specified in the
+     * <code>outputBucketName</code> field when the transcription job was started with the
+     * <code>StartTranscriptionJob</code> operation.
+     * </p>
+     * <p>
+     * If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can be retrieved
+     * using the URI in the <code>GetTranscriptionJob</code> response's <code>TranscriptFileUri</code> field.
+     * </p>
+     * 
+     * @param outputLocationType
+     *        Indicates the location of the output of the transcription job.</p>
+     *        <p>
+     *        If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket specified in the
+     *        <code>outputBucketName</code> field when the transcription job was started with the
+     *        <code>StartTranscriptionJob</code> operation.
+     *        </p>
+     *        <p>
+     *        If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can be
+     *        retrieved using the URI in the <code>GetTranscriptionJob</code> response's <code>TranscriptFileUri</code>
+     *        field.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see OutputLocationType
+     */
+
+    public TranscriptionJobSummary withOutputLocationType(OutputLocationType outputLocationType) {
+        this.outputLocationType = outputLocationType.toString();
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -381,7 +522,9 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
         if (getTranscriptionJobStatus() != null)
             sb.append("TranscriptionJobStatus: ").append(getTranscriptionJobStatus()).append(",");
         if (getFailureReason() != null)
-            sb.append("FailureReason: ").append(getFailureReason());
+            sb.append("FailureReason: ").append(getFailureReason()).append(",");
+        if (getOutputLocationType() != null)
+            sb.append("OutputLocationType: ").append(getOutputLocationType());
         sb.append("}");
         return sb.toString();
     }
@@ -420,6 +563,10 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
             return false;
         if (other.getFailureReason() != null && other.getFailureReason().equals(this.getFailureReason()) == false)
             return false;
+        if (other.getOutputLocationType() == null ^ this.getOutputLocationType() == null)
+            return false;
+        if (other.getOutputLocationType() != null && other.getOutputLocationType().equals(this.getOutputLocationType()) == false)
+            return false;
         return true;
     }
 
@@ -434,6 +581,7 @@ public class TranscriptionJobSummary implements Serializable, Cloneable, Structu
         hashCode = prime * hashCode + ((getLanguageCode() == null) ? 0 : getLanguageCode().hashCode());
         hashCode = prime * hashCode + ((getTranscriptionJobStatus() == null) ? 0 : getTranscriptionJobStatus().hashCode());
         hashCode = prime * hashCode + ((getFailureReason() == null) ? 0 : getFailureReason().hashCode());
+        hashCode = prime * hashCode + ((getOutputLocationType() == null) ? 0 : getOutputLocationType().hashCode());
         return hashCode;
     }
 

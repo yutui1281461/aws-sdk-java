@@ -68,6 +68,10 @@ public class PullRequestTargetJsonUnmarshaller implements Unmarshaller<PullReque
                     context.nextToken();
                     pullRequestTarget.setSourceCommit(context.getUnmarshaller(String.class).unmarshall(context));
                 }
+                if (context.testExpression("mergeBase", targetDepth)) {
+                    context.nextToken();
+                    pullRequestTarget.setMergeBase(context.getUnmarshaller(String.class).unmarshall(context));
+                }
                 if (context.testExpression("mergeMetadata", targetDepth)) {
                     context.nextToken();
                     pullRequestTarget.setMergeMetadata(MergeMetadataJsonUnmarshaller.getInstance().unmarshall(context));

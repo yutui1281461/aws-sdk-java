@@ -35,8 +35,9 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
      */
     private String afdSignaling;
     /**
-     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. For MS Smooth outputs, bitrates must be unique
-     * when rounded down to the nearest multiple of 1000.
+     * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS
+     * Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest
+     * multiple of 1000.
      */
     private Integer bitrate;
     /** Percentage of the buffer that should initially be filled (HRD buffer model). */
@@ -88,7 +89,11 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
      * for certain content.
      */
     private String lookAheadRateControl;
-    /** Maximum bitrate in bits/second (for VBR mode only). */
+    /**
+     * For QVBR: See the tooltip for Quality level
+     * 
+     * For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+     */
     private Integer maxBitrate;
     /**
      * Only meaningful if sceneChangeDetect is set to enabled. Enforces separation between repeated (cadence) I-frames
@@ -116,11 +121,34 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     private Integer parNumerator;
     /** H.264 Profile. */
     private String profile;
-    /** Rate control mode. */
+    /**
+     * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for
+     * the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended
+     * values are: - Primary screen: Quality level: 8 to 10. Max bitrate: 4M - PC or tablet: Quality level: 7. Max
+     * bitrate: 1.5M to 3M - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+     */
+    private Integer qvbrQualityLevel;
+    /**
+     * Rate control mode.
+     * 
+     * QVBR: Quality will match the specified quality level except when it is constrained by the maximum bitrate.
+     * Recommended if you or your viewers pay for bandwidth.
+     * 
+     * VBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR if you want to
+     * maintain a specific average bitrate over the duration of the channel.
+     * 
+     * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute your assets to devices
+     * that cannot handle variable bitrates.
+     */
     private String rateControlMode;
     /** Sets the scan type of the output to progressive or top-field-first interlaced. */
     private String scanType;
-    /** Scene change detection. Inserts I-frames on scene changes when enabled. */
+    /**
+     * Scene change detection.
+     * 
+     * - On: inserts I-frames when scene change is detected. - Off: does not force an I-frame when scene change is
+     * detected.
+     */
     private String sceneChangeDetect;
     /**
      * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive
@@ -261,12 +289,14 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. For MS Smooth outputs, bitrates must be unique
-     * when rounded down to the nearest multiple of 1000.
+     * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS
+     * Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest
+     * multiple of 1000.
      * 
      * @param bitrate
-     *        Average bitrate in bits/second. Required for VBR, CBR, and ABR. For MS Smooth outputs, bitrates must be
-     *        unique when rounded down to the nearest multiple of 1000.
+     *        Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In
+     *        an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the
+     *        nearest multiple of 1000.
      */
 
     public void setBitrate(Integer bitrate) {
@@ -274,11 +304,13 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. For MS Smooth outputs, bitrates must be unique
-     * when rounded down to the nearest multiple of 1000.
+     * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS
+     * Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest
+     * multiple of 1000.
      * 
-     * @return Average bitrate in bits/second. Required for VBR, CBR, and ABR. For MS Smooth outputs, bitrates must be
-     *         unique when rounded down to the nearest multiple of 1000.
+     * @return Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In
+     *         an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the
+     *         nearest multiple of 1000.
      */
 
     public Integer getBitrate() {
@@ -286,12 +318,14 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. For MS Smooth outputs, bitrates must be unique
-     * when rounded down to the nearest multiple of 1000.
+     * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS
+     * Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest
+     * multiple of 1000.
      * 
      * @param bitrate
-     *        Average bitrate in bits/second. Required for VBR, CBR, and ABR. For MS Smooth outputs, bitrates must be
-     *        unique when rounded down to the nearest multiple of 1000.
+     *        Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In
+     *        an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the
+     *        nearest multiple of 1000.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1057,10 +1091,14 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Maximum bitrate in bits/second (for VBR mode only).
+     * For QVBR: See the tooltip for Quality level
+     * 
+     * For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
      * 
      * @param maxBitrate
-     *        Maximum bitrate in bits/second (for VBR mode only).
+     *        For QVBR: See the tooltip for Quality level
+     * 
+     *        For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
      */
 
     public void setMaxBitrate(Integer maxBitrate) {
@@ -1068,9 +1106,13 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Maximum bitrate in bits/second (for VBR mode only).
+     * For QVBR: See the tooltip for Quality level
      * 
-     * @return Maximum bitrate in bits/second (for VBR mode only).
+     * For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+     * 
+     * @return For QVBR: See the tooltip for Quality level
+     * 
+     *         For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
      */
 
     public Integer getMaxBitrate() {
@@ -1078,10 +1120,14 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Maximum bitrate in bits/second (for VBR mode only).
+     * For QVBR: See the tooltip for Quality level
+     * 
+     * For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
      * 
      * @param maxBitrate
-     *        Maximum bitrate in bits/second (for VBR mode only).
+     *        For QVBR: See the tooltip for Quality level
+     * 
+     *        For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1383,10 +1429,80 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
+     * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for
+     * the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended
+     * values are: - Primary screen: Quality level: 8 to 10. Max bitrate: 4M - PC or tablet: Quality level: 7. Max
+     * bitrate: 1.5M to 3M - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+     * 
+     * @param qvbrQualityLevel
+     *        Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set
+     *        values for the QVBR quality level field and Max bitrate field that suit your most important viewing
+     *        devices. Recommended values are: - Primary screen: Quality level: 8 to 10. Max bitrate: 4M - PC or tablet:
+     *        Quality level: 7. Max bitrate: 1.5M to 3M - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+     */
+
+    public void setQvbrQualityLevel(Integer qvbrQualityLevel) {
+        this.qvbrQualityLevel = qvbrQualityLevel;
+    }
+
+    /**
+     * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for
+     * the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended
+     * values are: - Primary screen: Quality level: 8 to 10. Max bitrate: 4M - PC or tablet: Quality level: 7. Max
+     * bitrate: 1.5M to 3M - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+     * 
+     * @return Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set
+     *         values for the QVBR quality level field and Max bitrate field that suit your most important viewing
+     *         devices. Recommended values are: - Primary screen: Quality level: 8 to 10. Max bitrate: 4M - PC or
+     *         tablet: Quality level: 7. Max bitrate: 1.5M to 3M - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+     */
+
+    public Integer getQvbrQualityLevel() {
+        return this.qvbrQualityLevel;
+    }
+
+    /**
+     * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for
+     * the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended
+     * values are: - Primary screen: Quality level: 8 to 10. Max bitrate: 4M - PC or tablet: Quality level: 7. Max
+     * bitrate: 1.5M to 3M - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+     * 
+     * @param qvbrQualityLevel
+     *        Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set
+     *        values for the QVBR quality level field and Max bitrate field that suit your most important viewing
+     *        devices. Recommended values are: - Primary screen: Quality level: 8 to 10. Max bitrate: 4M - PC or tablet:
+     *        Quality level: 7. Max bitrate: 1.5M to 3M - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public H264Settings withQvbrQualityLevel(Integer qvbrQualityLevel) {
+        setQvbrQualityLevel(qvbrQualityLevel);
+        return this;
+    }
+
+    /**
      * Rate control mode.
+     * 
+     * QVBR: Quality will match the specified quality level except when it is constrained by the maximum bitrate.
+     * Recommended if you or your viewers pay for bandwidth.
+     * 
+     * VBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR if you want to
+     * maintain a specific average bitrate over the duration of the channel.
+     * 
+     * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute your assets to devices
+     * that cannot handle variable bitrates.
      * 
      * @param rateControlMode
      *        Rate control mode.
+     * 
+     *        QVBR: Quality will match the specified quality level except when it is constrained by the maximum bitrate.
+     *        Recommended if you or your viewers pay for bandwidth.
+     * 
+     *        VBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR if you want
+     *        to maintain a specific average bitrate over the duration of the channel.
+     * 
+     *        CBR: Quality varies, depending on the video complexity. Recommended only if you distribute your assets to
+     *        devices that cannot handle variable bitrates.
      * @see H264RateControlMode
      */
 
@@ -1397,7 +1513,25 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     /**
      * Rate control mode.
      * 
+     * QVBR: Quality will match the specified quality level except when it is constrained by the maximum bitrate.
+     * Recommended if you or your viewers pay for bandwidth.
+     * 
+     * VBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR if you want to
+     * maintain a specific average bitrate over the duration of the channel.
+     * 
+     * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute your assets to devices
+     * that cannot handle variable bitrates.
+     * 
      * @return Rate control mode.
+     * 
+     *         QVBR: Quality will match the specified quality level except when it is constrained by the maximum
+     *         bitrate. Recommended if you or your viewers pay for bandwidth.
+     * 
+     *         VBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR if you want
+     *         to maintain a specific average bitrate over the duration of the channel.
+     * 
+     *         CBR: Quality varies, depending on the video complexity. Recommended only if you distribute your assets to
+     *         devices that cannot handle variable bitrates.
      * @see H264RateControlMode
      */
 
@@ -1408,8 +1542,26 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     /**
      * Rate control mode.
      * 
+     * QVBR: Quality will match the specified quality level except when it is constrained by the maximum bitrate.
+     * Recommended if you or your viewers pay for bandwidth.
+     * 
+     * VBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR if you want to
+     * maintain a specific average bitrate over the duration of the channel.
+     * 
+     * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute your assets to devices
+     * that cannot handle variable bitrates.
+     * 
      * @param rateControlMode
      *        Rate control mode.
+     * 
+     *        QVBR: Quality will match the specified quality level except when it is constrained by the maximum bitrate.
+     *        Recommended if you or your viewers pay for bandwidth.
+     * 
+     *        VBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR if you want
+     *        to maintain a specific average bitrate over the duration of the channel.
+     * 
+     *        CBR: Quality varies, depending on the video complexity. Recommended only if you distribute your assets to
+     *        devices that cannot handle variable bitrates.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H264RateControlMode
      */
@@ -1422,8 +1574,26 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     /**
      * Rate control mode.
      * 
+     * QVBR: Quality will match the specified quality level except when it is constrained by the maximum bitrate.
+     * Recommended if you or your viewers pay for bandwidth.
+     * 
+     * VBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR if you want to
+     * maintain a specific average bitrate over the duration of the channel.
+     * 
+     * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute your assets to devices
+     * that cannot handle variable bitrates.
+     * 
      * @param rateControlMode
      *        Rate control mode.
+     * 
+     *        QVBR: Quality will match the specified quality level except when it is constrained by the maximum bitrate.
+     *        Recommended if you or your viewers pay for bandwidth.
+     * 
+     *        VBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR if you want
+     *        to maintain a specific average bitrate over the duration of the channel.
+     * 
+     *        CBR: Quality varies, depending on the video complexity. Recommended only if you distribute your assets to
+     *        devices that cannot handle variable bitrates.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H264RateControlMode
      */
@@ -1485,10 +1655,16 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Scene change detection. Inserts I-frames on scene changes when enabled.
+     * Scene change detection.
+     * 
+     * - On: inserts I-frames when scene change is detected. - Off: does not force an I-frame when scene change is
+     * detected.
      * 
      * @param sceneChangeDetect
-     *        Scene change detection. Inserts I-frames on scene changes when enabled.
+     *        Scene change detection.
+     * 
+     *        - On: inserts I-frames when scene change is detected. - Off: does not force an I-frame when scene change
+     *        is detected.
      * @see H264SceneChangeDetect
      */
 
@@ -1497,9 +1673,15 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Scene change detection. Inserts I-frames on scene changes when enabled.
+     * Scene change detection.
      * 
-     * @return Scene change detection. Inserts I-frames on scene changes when enabled.
+     * - On: inserts I-frames when scene change is detected. - Off: does not force an I-frame when scene change is
+     * detected.
+     * 
+     * @return Scene change detection.
+     * 
+     *         - On: inserts I-frames when scene change is detected. - Off: does not force an I-frame when scene change
+     *         is detected.
      * @see H264SceneChangeDetect
      */
 
@@ -1508,10 +1690,16 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Scene change detection. Inserts I-frames on scene changes when enabled.
+     * Scene change detection.
+     * 
+     * - On: inserts I-frames when scene change is detected. - Off: does not force an I-frame when scene change is
+     * detected.
      * 
      * @param sceneChangeDetect
-     *        Scene change detection. Inserts I-frames on scene changes when enabled.
+     *        Scene change detection.
+     * 
+     *        - On: inserts I-frames when scene change is detected. - Off: does not force an I-frame when scene change
+     *        is detected.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H264SceneChangeDetect
      */
@@ -1522,10 +1710,16 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Scene change detection. Inserts I-frames on scene changes when enabled.
+     * Scene change detection.
+     * 
+     * - On: inserts I-frames when scene change is detected. - Off: does not force an I-frame when scene change is
+     * detected.
      * 
      * @param sceneChangeDetect
-     *        Scene change detection. Inserts I-frames on scene changes when enabled.
+     *        Scene change detection.
+     * 
+     *        - On: inserts I-frames when scene change is detected. - Off: does not force an I-frame when scene change
+     *        is detected.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see H264SceneChangeDetect
      */
@@ -1840,7 +2034,8 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1902,6 +2097,8 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
             sb.append("ParNumerator: ").append(getParNumerator()).append(",");
         if (getProfile() != null)
             sb.append("Profile: ").append(getProfile()).append(",");
+        if (getQvbrQualityLevel() != null)
+            sb.append("QvbrQualityLevel: ").append(getQvbrQualityLevel()).append(",");
         if (getRateControlMode() != null)
             sb.append("RateControlMode: ").append(getRateControlMode()).append(",");
         if (getScanType() != null)
@@ -2038,6 +2235,10 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getProfile() != null && other.getProfile().equals(this.getProfile()) == false)
             return false;
+        if (other.getQvbrQualityLevel() == null ^ this.getQvbrQualityLevel() == null)
+            return false;
+        if (other.getQvbrQualityLevel() != null && other.getQvbrQualityLevel().equals(this.getQvbrQualityLevel()) == false)
+            return false;
         if (other.getRateControlMode() == null ^ this.getRateControlMode() == null)
             return false;
         if (other.getRateControlMode() != null && other.getRateControlMode().equals(this.getRateControlMode()) == false)
@@ -2108,6 +2309,7 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getParDenominator() == null) ? 0 : getParDenominator().hashCode());
         hashCode = prime * hashCode + ((getParNumerator() == null) ? 0 : getParNumerator().hashCode());
         hashCode = prime * hashCode + ((getProfile() == null) ? 0 : getProfile().hashCode());
+        hashCode = prime * hashCode + ((getQvbrQualityLevel() == null) ? 0 : getQvbrQualityLevel().hashCode());
         hashCode = prime * hashCode + ((getRateControlMode() == null) ? 0 : getRateControlMode().hashCode());
         hashCode = prime * hashCode + ((getScanType() == null) ? 0 : getScanType().hashCode());
         hashCode = prime * hashCode + ((getSceneChangeDetect() == null) ? 0 : getSceneChangeDetect().hashCode());

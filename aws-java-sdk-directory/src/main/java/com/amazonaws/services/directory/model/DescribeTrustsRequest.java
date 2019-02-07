@@ -19,7 +19,7 @@ import com.amazonaws.AmazonWebServiceRequest;
 
 /**
  * <p>
- * Describes the trust relationships for a particular Microsoft AD in the AWS cloud. If no input parameters are are
+ * Describes the trust relationships for a particular AWS Managed Microsoft AD directory. If no input parameters are are
  * provided, such as directory ID or trust ID, this request describes all the trust relationships.
  * </p>
  * 
@@ -287,7 +287,8 @@ public class DescribeTrustsRequest extends com.amazonaws.AmazonWebServiceRequest
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

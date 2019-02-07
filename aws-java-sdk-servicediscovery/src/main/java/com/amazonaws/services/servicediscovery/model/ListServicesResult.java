@@ -37,7 +37,7 @@ public class ListServicesResult extends com.amazonaws.AmazonWebServiceResult<com
      * </p>
      * <note>
      * <p>
-     * Route 53 gets <code>MaxResults</code> services and then filters them based on the specified criteria. It's
+     * AWS Cloud Map gets <code>MaxResults</code> services and then filters them based on the specified criteria. It's
      * possible that no services in the first <code>MaxResults</code> services matched the specified criteria but that
      * subsequent groups of <code>MaxResults</code> services do contain services that match the criteria.
      * </p>
@@ -130,7 +130,7 @@ public class ListServicesResult extends com.amazonaws.AmazonWebServiceResult<com
      * </p>
      * <note>
      * <p>
-     * Route 53 gets <code>MaxResults</code> services and then filters them based on the specified criteria. It's
+     * AWS Cloud Map gets <code>MaxResults</code> services and then filters them based on the specified criteria. It's
      * possible that no services in the first <code>MaxResults</code> services matched the specified criteria but that
      * subsequent groups of <code>MaxResults</code> services do contain services that match the criteria.
      * </p>
@@ -141,9 +141,10 @@ public class ListServicesResult extends com.amazonaws.AmazonWebServiceResult<com
      *        the next group of results. Specify the value of <code>NextToken</code> from the previous response in the
      *        next request.</p> <note>
      *        <p>
-     *        Route 53 gets <code>MaxResults</code> services and then filters them based on the specified criteria. It's
-     *        possible that no services in the first <code>MaxResults</code> services matched the specified criteria but
-     *        that subsequent groups of <code>MaxResults</code> services do contain services that match the criteria.
+     *        AWS Cloud Map gets <code>MaxResults</code> services and then filters them based on the specified criteria.
+     *        It's possible that no services in the first <code>MaxResults</code> services matched the specified
+     *        criteria but that subsequent groups of <code>MaxResults</code> services do contain services that match the
+     *        criteria.
      *        </p>
      */
 
@@ -158,7 +159,7 @@ public class ListServicesResult extends com.amazonaws.AmazonWebServiceResult<com
      * </p>
      * <note>
      * <p>
-     * Route 53 gets <code>MaxResults</code> services and then filters them based on the specified criteria. It's
+     * AWS Cloud Map gets <code>MaxResults</code> services and then filters them based on the specified criteria. It's
      * possible that no services in the first <code>MaxResults</code> services matched the specified criteria but that
      * subsequent groups of <code>MaxResults</code> services do contain services that match the criteria.
      * </p>
@@ -168,10 +169,10 @@ public class ListServicesResult extends com.amazonaws.AmazonWebServiceResult<com
      *         the next group of results. Specify the value of <code>NextToken</code> from the previous response in the
      *         next request.</p> <note>
      *         <p>
-     *         Route 53 gets <code>MaxResults</code> services and then filters them based on the specified criteria.
-     *         It's possible that no services in the first <code>MaxResults</code> services matched the specified
-     *         criteria but that subsequent groups of <code>MaxResults</code> services do contain services that match
-     *         the criteria.
+     *         AWS Cloud Map gets <code>MaxResults</code> services and then filters them based on the specified
+     *         criteria. It's possible that no services in the first <code>MaxResults</code> services matched the
+     *         specified criteria but that subsequent groups of <code>MaxResults</code> services do contain services
+     *         that match the criteria.
      *         </p>
      */
 
@@ -186,7 +187,7 @@ public class ListServicesResult extends com.amazonaws.AmazonWebServiceResult<com
      * </p>
      * <note>
      * <p>
-     * Route 53 gets <code>MaxResults</code> services and then filters them based on the specified criteria. It's
+     * AWS Cloud Map gets <code>MaxResults</code> services and then filters them based on the specified criteria. It's
      * possible that no services in the first <code>MaxResults</code> services matched the specified criteria but that
      * subsequent groups of <code>MaxResults</code> services do contain services that match the criteria.
      * </p>
@@ -197,9 +198,10 @@ public class ListServicesResult extends com.amazonaws.AmazonWebServiceResult<com
      *        the next group of results. Specify the value of <code>NextToken</code> from the previous response in the
      *        next request.</p> <note>
      *        <p>
-     *        Route 53 gets <code>MaxResults</code> services and then filters them based on the specified criteria. It's
-     *        possible that no services in the first <code>MaxResults</code> services matched the specified criteria but
-     *        that subsequent groups of <code>MaxResults</code> services do contain services that match the criteria.
+     *        AWS Cloud Map gets <code>MaxResults</code> services and then filters them based on the specified criteria.
+     *        It's possible that no services in the first <code>MaxResults</code> services matched the specified
+     *        criteria but that subsequent groups of <code>MaxResults</code> services do contain services that match the
+     *        criteria.
      *        </p>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -210,7 +212,8 @@ public class ListServicesResult extends com.amazonaws.AmazonWebServiceResult<com
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

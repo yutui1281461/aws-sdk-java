@@ -30,7 +30,7 @@ public class LastDeploymentInfo implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The deployment ID.
+     * The unique ID of a deployment.
      * </p>
      */
     private String deploymentId;
@@ -55,11 +55,11 @@ public class LastDeploymentInfo implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The deployment ID.
+     * The unique ID of a deployment.
      * </p>
      * 
      * @param deploymentId
-     *        The deployment ID.
+     *        The unique ID of a deployment.
      */
 
     public void setDeploymentId(String deploymentId) {
@@ -68,10 +68,10 @@ public class LastDeploymentInfo implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The deployment ID.
+     * The unique ID of a deployment.
      * </p>
      * 
-     * @return The deployment ID.
+     * @return The unique ID of a deployment.
      */
 
     public String getDeploymentId() {
@@ -80,11 +80,11 @@ public class LastDeploymentInfo implements Serializable, Cloneable, StructuredPo
 
     /**
      * <p>
-     * The deployment ID.
+     * The unique ID of a deployment.
      * </p>
      * 
      * @param deploymentId
-     *        The deployment ID.
+     *        The unique ID of a deployment.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -247,7 +247,8 @@ public class LastDeploymentInfo implements Serializable, Cloneable, StructuredPo
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

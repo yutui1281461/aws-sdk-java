@@ -48,9 +48,11 @@ public class StorediSCSIVolumeMarshaller {
     private static final MarshallingInfo<StructuredPojo> VOLUMEISCSIATTRIBUTES_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("VolumeiSCSIAttributes").build();
     private static final MarshallingInfo<java.util.Date> CREATEDDATE_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
-            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CreatedDate").build();
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CreatedDate").timestampFormat("unixTimestamp").build();
     private static final MarshallingInfo<Long> VOLUMEUSEDINBYTES_BINDING = MarshallingInfo.builder(MarshallingType.LONG)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("VolumeUsedInBytes").build();
+    private static final MarshallingInfo<String> KMSKEY_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
+            .marshallLocationName("KMSKey").build();
 
     private static final StorediSCSIVolumeMarshaller instance = new StorediSCSIVolumeMarshaller();
 
@@ -80,6 +82,7 @@ public class StorediSCSIVolumeMarshaller {
             protocolMarshaller.marshall(storediSCSIVolume.getVolumeiSCSIAttributes(), VOLUMEISCSIATTRIBUTES_BINDING);
             protocolMarshaller.marshall(storediSCSIVolume.getCreatedDate(), CREATEDDATE_BINDING);
             protocolMarshaller.marshall(storediSCSIVolume.getVolumeUsedInBytes(), VOLUMEUSEDINBYTES_BINDING);
+            protocolMarshaller.marshall(storediSCSIVolume.getKMSKey(), KMSKEY_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

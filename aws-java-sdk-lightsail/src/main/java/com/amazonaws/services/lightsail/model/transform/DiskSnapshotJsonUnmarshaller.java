@@ -62,7 +62,7 @@ public class DiskSnapshotJsonUnmarshaller implements Unmarshaller<DiskSnapshot, 
                 }
                 if (context.testExpression("createdAt", targetDepth)) {
                     context.nextToken();
-                    diskSnapshot.setCreatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    diskSnapshot.setCreatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("location", targetDepth)) {
                     context.nextToken();
@@ -71,6 +71,10 @@ public class DiskSnapshotJsonUnmarshaller implements Unmarshaller<DiskSnapshot, 
                 if (context.testExpression("resourceType", targetDepth)) {
                     context.nextToken();
                     diskSnapshot.setResourceType(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("tags", targetDepth)) {
+                    context.nextToken();
+                    diskSnapshot.setTags(new ListUnmarshaller<Tag>(TagJsonUnmarshaller.getInstance()).unmarshall(context));
                 }
                 if (context.testExpression("sizeInGb", targetDepth)) {
                     context.nextToken();

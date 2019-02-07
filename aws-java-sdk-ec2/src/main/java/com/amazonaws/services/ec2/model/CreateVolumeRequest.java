@@ -48,8 +48,11 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
     /**
      * <p>
      * The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB.
-     * Range is 100 to 32000 IOPS for volumes in most regions. For exceptions, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>.
+     * Range is 100 to 64,000IOPS for volumes in most regions. Maximum IOPS of 64,000 is guaranteed only on <a
+     * href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other instance
+     * families guarantee performance up to 32,000 IOPS. For more information, see <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
+     * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
      * This parameter is valid only for Provisioned IOPS SSD (io1) volumes.
@@ -103,9 +106,9 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
      * The size of the volume, in GiBs.
      * </p>
      * <p>
-     * Constraints: 1-16384 for <code>gp2</code>, 4-16384 for <code>io1</code>, 500-16384 for <code>st1</code>,
-     * 500-16384 for <code>sc1</code>, and 1-1024 for <code>standard</code>. If you specify a snapshot, the volume size
-     * must be equal to or larger than the snapshot size.
+     * Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for <code>st1</code>,
+     * 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a snapshot, the volume
+     * size must be equal to or larger than the snapshot size.
      * </p>
      * <p>
      * Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the
@@ -153,8 +156,8 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
      * @param size
      *        The size of the volume, in GiBs.</p>
      *        <p>
-     *        Constraints: 1-16384 for <code>gp2</code>, 4-16384 for <code>io1</code>, 500-16384 for <code>st1</code>,
-     *        500-16384 for <code>sc1</code>, and 1-1024 for <code>standard</code>. If you specify a snapshot, the
+     *        Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for <code>st1</code>
+     *        , 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a snapshot, the
      *        volume size must be equal to or larger than the snapshot size.
      *        </p>
      *        <p>
@@ -329,8 +332,11 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
     /**
      * <p>
      * The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB.
-     * Range is 100 to 32000 IOPS for volumes in most regions. For exceptions, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>.
+     * Range is 100 to 64,000IOPS for volumes in most regions. Maximum IOPS of 64,000 is guaranteed only on <a
+     * href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other instance
+     * families guarantee performance up to 32,000 IOPS. For more information, see <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
+     * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
      * This parameter is valid only for Provisioned IOPS SSD (io1) volumes.
@@ -338,9 +344,11 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
      * 
      * @param iops
      *        The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50
-     *        IOPS/GiB. Range is 100 to 32000 IOPS for volumes in most regions. For exceptions, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
-     *        Types</a>.</p>
+     *        IOPS/GiB. Range is 100 to 64,000IOPS for volumes in most regions. Maximum IOPS of 64,000 is guaranteed
+     *        only on <a href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     *        instances</a>. Other instance families guarantee performance up to 32,000 IOPS. For more information, see
+     *        <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
+     *        Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      *        <p>
      *        This parameter is valid only for Provisioned IOPS SSD (io1) volumes.
      */
@@ -352,17 +360,22 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
     /**
      * <p>
      * The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB.
-     * Range is 100 to 32000 IOPS for volumes in most regions. For exceptions, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>.
+     * Range is 100 to 64,000IOPS for volumes in most regions. Maximum IOPS of 64,000 is guaranteed only on <a
+     * href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other instance
+     * families guarantee performance up to 32,000 IOPS. For more information, see <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
+     * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
      * This parameter is valid only for Provisioned IOPS SSD (io1) volumes.
      * </p>
      * 
      * @return The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50
-     *         IOPS/GiB. Range is 100 to 32000 IOPS for volumes in most regions. For exceptions, see <a
-     *         href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
-     *         Types</a>.</p>
+     *         IOPS/GiB. Range is 100 to 64,000IOPS for volumes in most regions. Maximum IOPS of 64,000 is guaranteed
+     *         only on <a href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     *         instances</a>. Other instance families guarantee performance up to 32,000 IOPS. For more information, see
+     *         <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
+     *         Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      *         <p>
      *         This parameter is valid only for Provisioned IOPS SSD (io1) volumes.
      */
@@ -374,8 +387,11 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
     /**
      * <p>
      * The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB.
-     * Range is 100 to 32000 IOPS for volumes in most regions. For exceptions, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>.
+     * Range is 100 to 64,000IOPS for volumes in most regions. Maximum IOPS of 64,000 is guaranteed only on <a
+     * href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other instance
+     * families guarantee performance up to 32,000 IOPS. For more information, see <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
+     * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
      * This parameter is valid only for Provisioned IOPS SSD (io1) volumes.
@@ -383,9 +399,11 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
      * 
      * @param iops
      *        The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50
-     *        IOPS/GiB. Range is 100 to 32000 IOPS for volumes in most regions. For exceptions, see <a
-     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
-     *        Types</a>.</p>
+     *        IOPS/GiB. Range is 100 to 64,000IOPS for volumes in most regions. Maximum IOPS of 64,000 is guaranteed
+     *        only on <a href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     *        instances</a>. Other instance families guarantee performance up to 32,000 IOPS. For more information, see
+     *        <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume
+     *        Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      *        <p>
      *        This parameter is valid only for Provisioned IOPS SSD (io1) volumes.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -655,9 +673,9 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
      * The size of the volume, in GiBs.
      * </p>
      * <p>
-     * Constraints: 1-16384 for <code>gp2</code>, 4-16384 for <code>io1</code>, 500-16384 for <code>st1</code>,
-     * 500-16384 for <code>sc1</code>, and 1-1024 for <code>standard</code>. If you specify a snapshot, the volume size
-     * must be equal to or larger than the snapshot size.
+     * Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for <code>st1</code>,
+     * 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a snapshot, the volume
+     * size must be equal to or larger than the snapshot size.
      * </p>
      * <p>
      * Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the
@@ -667,8 +685,8 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
      * @param size
      *        The size of the volume, in GiBs.</p>
      *        <p>
-     *        Constraints: 1-16384 for <code>gp2</code>, 4-16384 for <code>io1</code>, 500-16384 for <code>st1</code>,
-     *        500-16384 for <code>sc1</code>, and 1-1024 for <code>standard</code>. If you specify a snapshot, the
+     *        Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for <code>st1</code>
+     *        , 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a snapshot, the
      *        volume size must be equal to or larger than the snapshot size.
      *        </p>
      *        <p>
@@ -685,9 +703,9 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
      * The size of the volume, in GiBs.
      * </p>
      * <p>
-     * Constraints: 1-16384 for <code>gp2</code>, 4-16384 for <code>io1</code>, 500-16384 for <code>st1</code>,
-     * 500-16384 for <code>sc1</code>, and 1-1024 for <code>standard</code>. If you specify a snapshot, the volume size
-     * must be equal to or larger than the snapshot size.
+     * Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for <code>st1</code>,
+     * 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a snapshot, the volume
+     * size must be equal to or larger than the snapshot size.
      * </p>
      * <p>
      * Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the
@@ -696,9 +714,9 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
      * 
      * @return The size of the volume, in GiBs.</p>
      *         <p>
-     *         Constraints: 1-16384 for <code>gp2</code>, 4-16384 for <code>io1</code>, 500-16384 for <code>st1</code>,
-     *         500-16384 for <code>sc1</code>, and 1-1024 for <code>standard</code>. If you specify a snapshot, the
-     *         volume size must be equal to or larger than the snapshot size.
+     *         Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for
+     *         <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify
+     *         a snapshot, the volume size must be equal to or larger than the snapshot size.
      *         </p>
      *         <p>
      *         Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is
@@ -714,9 +732,9 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
      * The size of the volume, in GiBs.
      * </p>
      * <p>
-     * Constraints: 1-16384 for <code>gp2</code>, 4-16384 for <code>io1</code>, 500-16384 for <code>st1</code>,
-     * 500-16384 for <code>sc1</code>, and 1-1024 for <code>standard</code>. If you specify a snapshot, the volume size
-     * must be equal to or larger than the snapshot size.
+     * Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for <code>st1</code>,
+     * 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a snapshot, the volume
+     * size must be equal to or larger than the snapshot size.
      * </p>
      * <p>
      * Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the
@@ -726,8 +744,8 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
      * @param size
      *        The size of the volume, in GiBs.</p>
      *        <p>
-     *        Constraints: 1-16384 for <code>gp2</code>, 4-16384 for <code>io1</code>, 500-16384 for <code>st1</code>,
-     *        500-16384 for <code>sc1</code>, and 1-1024 for <code>standard</code>. If you specify a snapshot, the
+     *        Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for <code>st1</code>
+     *        , 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a snapshot, the
      *        volume size must be equal to or larger than the snapshot size.
      *        </p>
      *        <p>
@@ -1009,7 +1027,8 @@ public class CreateVolumeRequest extends AmazonWebServiceRequest implements Seri
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

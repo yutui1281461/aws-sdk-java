@@ -37,6 +37,20 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
     private String trainingJobArn;
     /**
      * <p>
+     * The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was launched by a
+     * hyperparameter tuning job.
+     * </p>
+     */
+    private String tuningJobArn;
+    /**
+     * <p>
+     * The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the transform or
+     * training job.
+     * </p>
+     */
+    private String labelingJobArn;
+    /**
+     * <p>
      * Information about the Amazon S3 location that is configured for storing model artifacts.
      * </p>
      */
@@ -46,47 +60,148 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
      * The status of the training job.
      * </p>
      * <p>
-     * For the <code>InProgress</code> status, Amazon SageMaker can return these secondary statuses:
+     * Amazon SageMaker provides the following training job statuses:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * Starting - Preparing for training.
+     * <code>InProgress</code> - The training is in progress.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Downloading - Optional stage for algorithms that support File training input mode. It indicates data is being
-     * downloaded to ML storage volumes.
+     * <code>Completed</code> - The training job has completed.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Training - Training is in progress.
+     * <code>Failed</code> - The training job has failed. To see the reason for the failure, see the
+     * <code>FailureReason</code> field in the response to a <code>DescribeTrainingJobResponse</code> call.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Uploading - Training is complete and model upload is in progress.
+     * <code>Stopping</code> - The training job is stopping.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Stopped</code> - The training job has stopped.
      * </p>
      * </li>
      * </ul>
      * <p>
-     * For the <code>Stopped</code> training status, Amazon SageMaker can return these secondary statuses:
+     * For more detailed information, see <code>SecondaryStatus</code>.
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * MaxRuntimeExceeded - Job stopped as a result of maximum allowed runtime exceeded.
-     * </p>
-     * </li>
-     * </ul>
      */
     private String trainingJobStatus;
     /**
      * <p>
-     * Provides granular information about the system state. For more information, see <code>TrainingJobStatus</code>.
+     * Provides detailed information about the state of the training job. For detailed information on the secondary
+     * status of the training job, see <code>StatusMessage</code> under <a>SecondaryStatusTransition</a>.
      * </p>
+     * <p>
+     * Amazon SageMaker provides primary statuses and secondary statuses that apply to each of them:
+     * </p>
+     * <dl>
+     * <dt>InProgress</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Starting</code> - Starting the training job.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Downloading</code> - An optional stage for algorithms that support <code>File</code> training input mode.
+     * It indicates that data is being downloaded to the ML storage volumes.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Training</code> - Training is in progress.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Uploading</code> - Training is complete and the model artifacts are being uploaded to the S3 location.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Completed</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Completed</code> - The training job has completed.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Failed</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Failed</code> - The training job has failed. The reason for the failure is returned in the
+     * <code>FailureReason</code> field of <code>DescribeTrainingJobResponse</code>.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Stopped</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>MaxRuntimeExceeded</code> - The job stopped because it exceeded the maximum allowed runtime.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Stopped</code> - The training job has stopped.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Stopping</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Stopping</code> - Stopping the training job.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * </dl>
+     * <important>
+     * <p>
+     * Valid values for <code>SecondaryStatus</code> are subject to change.
+     * </p>
+     * </important>
+     * <p>
+     * We no longer support the following secondary statuses:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>LaunchingMLInstances</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>PreparingTrainingStack</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>DownloadingTrainingImage</code>
+     * </p>
+     * </li>
+     * </ul>
      */
     private String secondaryStatus;
     /**
@@ -134,7 +249,9 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
     private ResourceConfig resourceConfig;
     /**
      * <p>
-     * A object that specifies the VPC that this training job has access to. For more information, see <a>train-vpc</a>.
+     * A <a>VpcConfig</a> object that specifies the VPC that this training job has access to. For more information, see
+     * <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
+     * Virtual Private Cloud</a>.
      * </p>
      */
     private VpcConfig vpcConfig;
@@ -152,13 +269,19 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
     private java.util.Date creationTime;
     /**
      * <p>
-     * A timestamp that indicates when training started.
+     * Indicates the time when the training job starts on training instances. You are billed for the time interval
+     * between this time and the value of <code>TrainingEndTime</code>. The start time in CloudWatch Logs might be later
+     * than this time. The difference is due to the time it takes to download the training data and to the size of the
+     * training container.
      * </p>
      */
     private java.util.Date trainingStartTime;
     /**
      * <p>
-     * A timestamp that indicates when model training ended.
+     * Indicates the time when the training job ends on training instances. You are billed for the time interval between
+     * the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs, this is the time
+     * after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job
+     * failure.
      * </p>
      */
     private java.util.Date trainingEndTime;
@@ -168,6 +291,33 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
      * </p>
      */
     private java.util.Date lastModifiedTime;
+    /**
+     * <p>
+     * A history of all of the secondary statuses that the training job has transitioned through.
+     * </p>
+     */
+    private java.util.List<SecondaryStatusTransition> secondaryStatusTransitions;
+    /**
+     * <p>
+     * A collection of <code>MetricData</code> objects that specify the names, values, and dates and times that the
+     * training algorithm emitted to Amazon CloudWatch.
+     * </p>
+     */
+    private java.util.List<MetricData> finalMetricDataList;
+    /**
+     * <p>
+     * If <code>True</code>, inbound or outbound network calls can be made, except for calls between peers within a
+     * training cluster for distributed training. If network isolation is used for training jobs that are configured to
+     * use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through the specifed VPC, but
+     * the training container does not have network access.
+     * </p>
+     * <note>
+     * <p>
+     * The Semantic Segmentation built-in algorithm does not support network isolation.
+     * </p>
+     * </note>
+     */
+    private Boolean enableNetworkIsolation;
 
     /**
      * <p>
@@ -251,6 +401,98 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
+     * The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was launched by a
+     * hyperparameter tuning job.
+     * </p>
+     * 
+     * @param tuningJobArn
+     *        The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was
+     *        launched by a hyperparameter tuning job.
+     */
+
+    public void setTuningJobArn(String tuningJobArn) {
+        this.tuningJobArn = tuningJobArn;
+    }
+
+    /**
+     * <p>
+     * The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was launched by a
+     * hyperparameter tuning job.
+     * </p>
+     * 
+     * @return The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was
+     *         launched by a hyperparameter tuning job.
+     */
+
+    public String getTuningJobArn() {
+        return this.tuningJobArn;
+    }
+
+    /**
+     * <p>
+     * The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was launched by a
+     * hyperparameter tuning job.
+     * </p>
+     * 
+     * @param tuningJobArn
+     *        The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was
+     *        launched by a hyperparameter tuning job.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeTrainingJobResult withTuningJobArn(String tuningJobArn) {
+        setTuningJobArn(tuningJobArn);
+        return this;
+    }
+
+    /**
+     * <p>
+     * The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the transform or
+     * training job.
+     * </p>
+     * 
+     * @param labelingJobArn
+     *        The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the
+     *        transform or training job.
+     */
+
+    public void setLabelingJobArn(String labelingJobArn) {
+        this.labelingJobArn = labelingJobArn;
+    }
+
+    /**
+     * <p>
+     * The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the transform or
+     * training job.
+     * </p>
+     * 
+     * @return The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the
+     *         transform or training job.
+     */
+
+    public String getLabelingJobArn() {
+        return this.labelingJobArn;
+    }
+
+    /**
+     * <p>
+     * The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the transform or
+     * training job.
+     * </p>
+     * 
+     * @param labelingJobArn
+     *        The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the
+     *        transform or training job.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeTrainingJobResult withLabelingJobArn(String labelingJobArn) {
+        setLabelingJobArn(labelingJobArn);
+        return this;
+    }
+
+    /**
+     * <p>
      * Information about the Amazon S3 location that is configured for storing model artifacts.
      * </p>
      * 
@@ -294,79 +536,75 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
      * The status of the training job.
      * </p>
      * <p>
-     * For the <code>InProgress</code> status, Amazon SageMaker can return these secondary statuses:
+     * Amazon SageMaker provides the following training job statuses:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * Starting - Preparing for training.
+     * <code>InProgress</code> - The training is in progress.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Downloading - Optional stage for algorithms that support File training input mode. It indicates data is being
-     * downloaded to ML storage volumes.
+     * <code>Completed</code> - The training job has completed.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Training - Training is in progress.
+     * <code>Failed</code> - The training job has failed. To see the reason for the failure, see the
+     * <code>FailureReason</code> field in the response to a <code>DescribeTrainingJobResponse</code> call.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Uploading - Training is complete and model upload is in progress.
+     * <code>Stopping</code> - The training job is stopping.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Stopped</code> - The training job has stopped.
      * </p>
      * </li>
      * </ul>
      * <p>
-     * For the <code>Stopped</code> training status, Amazon SageMaker can return these secondary statuses:
+     * For more detailed information, see <code>SecondaryStatus</code>.
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * MaxRuntimeExceeded - Job stopped as a result of maximum allowed runtime exceeded.
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param trainingJobStatus
-     *        The status of the training job. </p>
+     *        The status of the training job.</p>
      *        <p>
-     *        For the <code>InProgress</code> status, Amazon SageMaker can return these secondary statuses:
+     *        Amazon SageMaker provides the following training job statuses:
      *        </p>
      *        <ul>
      *        <li>
      *        <p>
-     *        Starting - Preparing for training.
+     *        <code>InProgress</code> - The training is in progress.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        Downloading - Optional stage for algorithms that support File training input mode. It indicates data is
-     *        being downloaded to ML storage volumes.
+     *        <code>Completed</code> - The training job has completed.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        Training - Training is in progress.
+     *        <code>Failed</code> - The training job has failed. To see the reason for the failure, see the
+     *        <code>FailureReason</code> field in the response to a <code>DescribeTrainingJobResponse</code> call.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        Uploading - Training is complete and model upload is in progress.
+     *        <code>Stopping</code> - The training job is stopping.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Stopped</code> - The training job has stopped.
      *        </p>
      *        </li>
      *        </ul>
      *        <p>
-     *        For the <code>Stopped</code> training status, Amazon SageMaker can return these secondary statuses:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        MaxRuntimeExceeded - Job stopped as a result of maximum allowed runtime exceeded.
-     *        </p>
-     *        </li>
+     *        For more detailed information, see <code>SecondaryStatus</code>.
      * @see TrainingJobStatus
      */
 
@@ -379,78 +617,74 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
      * The status of the training job.
      * </p>
      * <p>
-     * For the <code>InProgress</code> status, Amazon SageMaker can return these secondary statuses:
+     * Amazon SageMaker provides the following training job statuses:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * Starting - Preparing for training.
+     * <code>InProgress</code> - The training is in progress.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Downloading - Optional stage for algorithms that support File training input mode. It indicates data is being
-     * downloaded to ML storage volumes.
+     * <code>Completed</code> - The training job has completed.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Training - Training is in progress.
+     * <code>Failed</code> - The training job has failed. To see the reason for the failure, see the
+     * <code>FailureReason</code> field in the response to a <code>DescribeTrainingJobResponse</code> call.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Uploading - Training is complete and model upload is in progress.
+     * <code>Stopping</code> - The training job is stopping.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Stopped</code> - The training job has stopped.
      * </p>
      * </li>
      * </ul>
      * <p>
-     * For the <code>Stopped</code> training status, Amazon SageMaker can return these secondary statuses:
+     * For more detailed information, see <code>SecondaryStatus</code>.
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * MaxRuntimeExceeded - Job stopped as a result of maximum allowed runtime exceeded.
-     * </p>
-     * </li>
-     * </ul>
      * 
-     * @return The status of the training job. </p>
+     * @return The status of the training job.</p>
      *         <p>
-     *         For the <code>InProgress</code> status, Amazon SageMaker can return these secondary statuses:
+     *         Amazon SageMaker provides the following training job statuses:
      *         </p>
      *         <ul>
      *         <li>
      *         <p>
-     *         Starting - Preparing for training.
+     *         <code>InProgress</code> - The training is in progress.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         Downloading - Optional stage for algorithms that support File training input mode. It indicates data is
-     *         being downloaded to ML storage volumes.
+     *         <code>Completed</code> - The training job has completed.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         Training - Training is in progress.
+     *         <code>Failed</code> - The training job has failed. To see the reason for the failure, see the
+     *         <code>FailureReason</code> field in the response to a <code>DescribeTrainingJobResponse</code> call.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         Uploading - Training is complete and model upload is in progress.
+     *         <code>Stopping</code> - The training job is stopping.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>Stopped</code> - The training job has stopped.
      *         </p>
      *         </li>
      *         </ul>
      *         <p>
-     *         For the <code>Stopped</code> training status, Amazon SageMaker can return these secondary statuses:
-     *         </p>
-     *         <ul>
-     *         <li>
-     *         <p>
-     *         MaxRuntimeExceeded - Job stopped as a result of maximum allowed runtime exceeded.
-     *         </p>
-     *         </li>
+     *         For more detailed information, see <code>SecondaryStatus</code>.
      * @see TrainingJobStatus
      */
 
@@ -463,79 +697,75 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
      * The status of the training job.
      * </p>
      * <p>
-     * For the <code>InProgress</code> status, Amazon SageMaker can return these secondary statuses:
+     * Amazon SageMaker provides the following training job statuses:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * Starting - Preparing for training.
+     * <code>InProgress</code> - The training is in progress.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Downloading - Optional stage for algorithms that support File training input mode. It indicates data is being
-     * downloaded to ML storage volumes.
+     * <code>Completed</code> - The training job has completed.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Training - Training is in progress.
+     * <code>Failed</code> - The training job has failed. To see the reason for the failure, see the
+     * <code>FailureReason</code> field in the response to a <code>DescribeTrainingJobResponse</code> call.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Uploading - Training is complete and model upload is in progress.
+     * <code>Stopping</code> - The training job is stopping.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Stopped</code> - The training job has stopped.
      * </p>
      * </li>
      * </ul>
      * <p>
-     * For the <code>Stopped</code> training status, Amazon SageMaker can return these secondary statuses:
+     * For more detailed information, see <code>SecondaryStatus</code>.
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * MaxRuntimeExceeded - Job stopped as a result of maximum allowed runtime exceeded.
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param trainingJobStatus
-     *        The status of the training job. </p>
+     *        The status of the training job.</p>
      *        <p>
-     *        For the <code>InProgress</code> status, Amazon SageMaker can return these secondary statuses:
+     *        Amazon SageMaker provides the following training job statuses:
      *        </p>
      *        <ul>
      *        <li>
      *        <p>
-     *        Starting - Preparing for training.
+     *        <code>InProgress</code> - The training is in progress.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        Downloading - Optional stage for algorithms that support File training input mode. It indicates data is
-     *        being downloaded to ML storage volumes.
+     *        <code>Completed</code> - The training job has completed.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        Training - Training is in progress.
+     *        <code>Failed</code> - The training job has failed. To see the reason for the failure, see the
+     *        <code>FailureReason</code> field in the response to a <code>DescribeTrainingJobResponse</code> call.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        Uploading - Training is complete and model upload is in progress.
+     *        <code>Stopping</code> - The training job is stopping.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Stopped</code> - The training job has stopped.
      *        </p>
      *        </li>
      *        </ul>
      *        <p>
-     *        For the <code>Stopped</code> training status, Amazon SageMaker can return these secondary statuses:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        MaxRuntimeExceeded - Job stopped as a result of maximum allowed runtime exceeded.
-     *        </p>
-     *        </li>
+     *        For more detailed information, see <code>SecondaryStatus</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see TrainingJobStatus
      */
@@ -550,79 +780,75 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
      * The status of the training job.
      * </p>
      * <p>
-     * For the <code>InProgress</code> status, Amazon SageMaker can return these secondary statuses:
+     * Amazon SageMaker provides the following training job statuses:
      * </p>
      * <ul>
      * <li>
      * <p>
-     * Starting - Preparing for training.
+     * <code>InProgress</code> - The training is in progress.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Downloading - Optional stage for algorithms that support File training input mode. It indicates data is being
-     * downloaded to ML storage volumes.
+     * <code>Completed</code> - The training job has completed.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Training - Training is in progress.
+     * <code>Failed</code> - The training job has failed. To see the reason for the failure, see the
+     * <code>FailureReason</code> field in the response to a <code>DescribeTrainingJobResponse</code> call.
      * </p>
      * </li>
      * <li>
      * <p>
-     * Uploading - Training is complete and model upload is in progress.
+     * <code>Stopping</code> - The training job is stopping.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Stopped</code> - The training job has stopped.
      * </p>
      * </li>
      * </ul>
      * <p>
-     * For the <code>Stopped</code> training status, Amazon SageMaker can return these secondary statuses:
+     * For more detailed information, see <code>SecondaryStatus</code>.
      * </p>
-     * <ul>
-     * <li>
-     * <p>
-     * MaxRuntimeExceeded - Job stopped as a result of maximum allowed runtime exceeded.
-     * </p>
-     * </li>
-     * </ul>
      * 
      * @param trainingJobStatus
-     *        The status of the training job. </p>
+     *        The status of the training job.</p>
      *        <p>
-     *        For the <code>InProgress</code> status, Amazon SageMaker can return these secondary statuses:
+     *        Amazon SageMaker provides the following training job statuses:
      *        </p>
      *        <ul>
      *        <li>
      *        <p>
-     *        Starting - Preparing for training.
+     *        <code>InProgress</code> - The training is in progress.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        Downloading - Optional stage for algorithms that support File training input mode. It indicates data is
-     *        being downloaded to ML storage volumes.
+     *        <code>Completed</code> - The training job has completed.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        Training - Training is in progress.
+     *        <code>Failed</code> - The training job has failed. To see the reason for the failure, see the
+     *        <code>FailureReason</code> field in the response to a <code>DescribeTrainingJobResponse</code> call.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        Uploading - Training is complete and model upload is in progress.
+     *        <code>Stopping</code> - The training job is stopping.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Stopped</code> - The training job has stopped.
      *        </p>
      *        </li>
      *        </ul>
      *        <p>
-     *        For the <code>Stopped</code> training status, Amazon SageMaker can return these secondary statuses:
-     *        </p>
-     *        <ul>
-     *        <li>
-     *        <p>
-     *        MaxRuntimeExceeded - Job stopped as a result of maximum allowed runtime exceeded.
-     *        </p>
-     *        </li>
+     *        For more detailed information, see <code>SecondaryStatus</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see TrainingJobStatus
      */
@@ -634,12 +860,218 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * Provides granular information about the system state. For more information, see <code>TrainingJobStatus</code>.
+     * Provides detailed information about the state of the training job. For detailed information on the secondary
+     * status of the training job, see <code>StatusMessage</code> under <a>SecondaryStatusTransition</a>.
      * </p>
+     * <p>
+     * Amazon SageMaker provides primary statuses and secondary statuses that apply to each of them:
+     * </p>
+     * <dl>
+     * <dt>InProgress</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Starting</code> - Starting the training job.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Downloading</code> - An optional stage for algorithms that support <code>File</code> training input mode.
+     * It indicates that data is being downloaded to the ML storage volumes.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Training</code> - Training is in progress.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Uploading</code> - Training is complete and the model artifacts are being uploaded to the S3 location.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Completed</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Completed</code> - The training job has completed.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Failed</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Failed</code> - The training job has failed. The reason for the failure is returned in the
+     * <code>FailureReason</code> field of <code>DescribeTrainingJobResponse</code>.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Stopped</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>MaxRuntimeExceeded</code> - The job stopped because it exceeded the maximum allowed runtime.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Stopped</code> - The training job has stopped.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Stopping</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Stopping</code> - Stopping the training job.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * </dl>
+     * <important>
+     * <p>
+     * Valid values for <code>SecondaryStatus</code> are subject to change.
+     * </p>
+     * </important>
+     * <p>
+     * We no longer support the following secondary statuses:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>LaunchingMLInstances</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>PreparingTrainingStack</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>DownloadingTrainingImage</code>
+     * </p>
+     * </li>
+     * </ul>
      * 
      * @param secondaryStatus
-     *        Provides granular information about the system state. For more information, see
-     *        <code>TrainingJobStatus</code>.
+     *        Provides detailed information about the state of the training job. For detailed information on the
+     *        secondary status of the training job, see <code>StatusMessage</code> under
+     *        <a>SecondaryStatusTransition</a>.</p>
+     *        <p>
+     *        Amazon SageMaker provides primary statuses and secondary statuses that apply to each of them:
+     *        </p>
+     *        <dl>
+     *        <dt>InProgress</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Starting</code> - Starting the training job.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Downloading</code> - An optional stage for algorithms that support <code>File</code> training input
+     *        mode. It indicates that data is being downloaded to the ML storage volumes.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Training</code> - Training is in progress.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Uploading</code> - Training is complete and the model artifacts are being uploaded to the S3
+     *        location.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        <dt>Completed</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Completed</code> - The training job has completed.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        <dt>Failed</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Failed</code> - The training job has failed. The reason for the failure is returned in the
+     *        <code>FailureReason</code> field of <code>DescribeTrainingJobResponse</code>.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        <dt>Stopped</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>MaxRuntimeExceeded</code> - The job stopped because it exceeded the maximum allowed runtime.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Stopped</code> - The training job has stopped.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        <dt>Stopping</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Stopping</code> - Stopping the training job.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        </dl>
+     *        <important>
+     *        <p>
+     *        Valid values for <code>SecondaryStatus</code> are subject to change.
+     *        </p>
+     *        </important>
+     *        <p>
+     *        We no longer support the following secondary statuses:
+     *        </p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>LaunchingMLInstances</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>PreparingTrainingStack</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>DownloadingTrainingImage</code>
+     *        </p>
+     *        </li>
      * @see SecondaryStatus
      */
 
@@ -649,11 +1081,217 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * Provides granular information about the system state. For more information, see <code>TrainingJobStatus</code>.
+     * Provides detailed information about the state of the training job. For detailed information on the secondary
+     * status of the training job, see <code>StatusMessage</code> under <a>SecondaryStatusTransition</a>.
      * </p>
+     * <p>
+     * Amazon SageMaker provides primary statuses and secondary statuses that apply to each of them:
+     * </p>
+     * <dl>
+     * <dt>InProgress</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Starting</code> - Starting the training job.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Downloading</code> - An optional stage for algorithms that support <code>File</code> training input mode.
+     * It indicates that data is being downloaded to the ML storage volumes.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Training</code> - Training is in progress.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Uploading</code> - Training is complete and the model artifacts are being uploaded to the S3 location.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Completed</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Completed</code> - The training job has completed.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Failed</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Failed</code> - The training job has failed. The reason for the failure is returned in the
+     * <code>FailureReason</code> field of <code>DescribeTrainingJobResponse</code>.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Stopped</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>MaxRuntimeExceeded</code> - The job stopped because it exceeded the maximum allowed runtime.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Stopped</code> - The training job has stopped.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Stopping</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Stopping</code> - Stopping the training job.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * </dl>
+     * <important>
+     * <p>
+     * Valid values for <code>SecondaryStatus</code> are subject to change.
+     * </p>
+     * </important>
+     * <p>
+     * We no longer support the following secondary statuses:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>LaunchingMLInstances</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>PreparingTrainingStack</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>DownloadingTrainingImage</code>
+     * </p>
+     * </li>
+     * </ul>
      * 
-     * @return Provides granular information about the system state. For more information, see
-     *         <code>TrainingJobStatus</code>.
+     * @return Provides detailed information about the state of the training job. For detailed information on the
+     *         secondary status of the training job, see <code>StatusMessage</code> under
+     *         <a>SecondaryStatusTransition</a>.</p>
+     *         <p>
+     *         Amazon SageMaker provides primary statuses and secondary statuses that apply to each of them:
+     *         </p>
+     *         <dl>
+     *         <dt>InProgress</dt>
+     *         <dd>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         <code>Starting</code> - Starting the training job.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>Downloading</code> - An optional stage for algorithms that support <code>File</code> training input
+     *         mode. It indicates that data is being downloaded to the ML storage volumes.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>Training</code> - Training is in progress.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>Uploading</code> - Training is complete and the model artifacts are being uploaded to the S3
+     *         location.
+     *         </p>
+     *         </li>
+     *         </ul>
+     *         </dd>
+     *         <dt>Completed</dt>
+     *         <dd>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         <code>Completed</code> - The training job has completed.
+     *         </p>
+     *         </li>
+     *         </ul>
+     *         </dd>
+     *         <dt>Failed</dt>
+     *         <dd>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         <code>Failed</code> - The training job has failed. The reason for the failure is returned in the
+     *         <code>FailureReason</code> field of <code>DescribeTrainingJobResponse</code>.
+     *         </p>
+     *         </li>
+     *         </ul>
+     *         </dd>
+     *         <dt>Stopped</dt>
+     *         <dd>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         <code>MaxRuntimeExceeded</code> - The job stopped because it exceeded the maximum allowed runtime.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>Stopped</code> - The training job has stopped.
+     *         </p>
+     *         </li>
+     *         </ul>
+     *         </dd>
+     *         <dt>Stopping</dt>
+     *         <dd>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         <code>Stopping</code> - Stopping the training job.
+     *         </p>
+     *         </li>
+     *         </ul>
+     *         </dd>
+     *         </dl>
+     *         <important>
+     *         <p>
+     *         Valid values for <code>SecondaryStatus</code> are subject to change.
+     *         </p>
+     *         </important>
+     *         <p>
+     *         We no longer support the following secondary statuses:
+     *         </p>
+     *         <ul>
+     *         <li>
+     *         <p>
+     *         <code>LaunchingMLInstances</code>
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>PreparingTrainingStack</code>
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>DownloadingTrainingImage</code>
+     *         </p>
+     *         </li>
      * @see SecondaryStatus
      */
 
@@ -663,12 +1301,218 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * Provides granular information about the system state. For more information, see <code>TrainingJobStatus</code>.
+     * Provides detailed information about the state of the training job. For detailed information on the secondary
+     * status of the training job, see <code>StatusMessage</code> under <a>SecondaryStatusTransition</a>.
      * </p>
+     * <p>
+     * Amazon SageMaker provides primary statuses and secondary statuses that apply to each of them:
+     * </p>
+     * <dl>
+     * <dt>InProgress</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Starting</code> - Starting the training job.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Downloading</code> - An optional stage for algorithms that support <code>File</code> training input mode.
+     * It indicates that data is being downloaded to the ML storage volumes.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Training</code> - Training is in progress.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Uploading</code> - Training is complete and the model artifacts are being uploaded to the S3 location.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Completed</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Completed</code> - The training job has completed.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Failed</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Failed</code> - The training job has failed. The reason for the failure is returned in the
+     * <code>FailureReason</code> field of <code>DescribeTrainingJobResponse</code>.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Stopped</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>MaxRuntimeExceeded</code> - The job stopped because it exceeded the maximum allowed runtime.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Stopped</code> - The training job has stopped.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Stopping</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Stopping</code> - Stopping the training job.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * </dl>
+     * <important>
+     * <p>
+     * Valid values for <code>SecondaryStatus</code> are subject to change.
+     * </p>
+     * </important>
+     * <p>
+     * We no longer support the following secondary statuses:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>LaunchingMLInstances</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>PreparingTrainingStack</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>DownloadingTrainingImage</code>
+     * </p>
+     * </li>
+     * </ul>
      * 
      * @param secondaryStatus
-     *        Provides granular information about the system state. For more information, see
-     *        <code>TrainingJobStatus</code>.
+     *        Provides detailed information about the state of the training job. For detailed information on the
+     *        secondary status of the training job, see <code>StatusMessage</code> under
+     *        <a>SecondaryStatusTransition</a>.</p>
+     *        <p>
+     *        Amazon SageMaker provides primary statuses and secondary statuses that apply to each of them:
+     *        </p>
+     *        <dl>
+     *        <dt>InProgress</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Starting</code> - Starting the training job.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Downloading</code> - An optional stage for algorithms that support <code>File</code> training input
+     *        mode. It indicates that data is being downloaded to the ML storage volumes.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Training</code> - Training is in progress.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Uploading</code> - Training is complete and the model artifacts are being uploaded to the S3
+     *        location.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        <dt>Completed</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Completed</code> - The training job has completed.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        <dt>Failed</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Failed</code> - The training job has failed. The reason for the failure is returned in the
+     *        <code>FailureReason</code> field of <code>DescribeTrainingJobResponse</code>.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        <dt>Stopped</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>MaxRuntimeExceeded</code> - The job stopped because it exceeded the maximum allowed runtime.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Stopped</code> - The training job has stopped.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        <dt>Stopping</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Stopping</code> - Stopping the training job.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        </dl>
+     *        <important>
+     *        <p>
+     *        Valid values for <code>SecondaryStatus</code> are subject to change.
+     *        </p>
+     *        </important>
+     *        <p>
+     *        We no longer support the following secondary statuses:
+     *        </p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>LaunchingMLInstances</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>PreparingTrainingStack</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>DownloadingTrainingImage</code>
+     *        </p>
+     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see SecondaryStatus
      */
@@ -680,12 +1524,218 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * Provides granular information about the system state. For more information, see <code>TrainingJobStatus</code>.
+     * Provides detailed information about the state of the training job. For detailed information on the secondary
+     * status of the training job, see <code>StatusMessage</code> under <a>SecondaryStatusTransition</a>.
      * </p>
+     * <p>
+     * Amazon SageMaker provides primary statuses and secondary statuses that apply to each of them:
+     * </p>
+     * <dl>
+     * <dt>InProgress</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Starting</code> - Starting the training job.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Downloading</code> - An optional stage for algorithms that support <code>File</code> training input mode.
+     * It indicates that data is being downloaded to the ML storage volumes.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Training</code> - Training is in progress.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Uploading</code> - Training is complete and the model artifacts are being uploaded to the S3 location.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Completed</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Completed</code> - The training job has completed.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Failed</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Failed</code> - The training job has failed. The reason for the failure is returned in the
+     * <code>FailureReason</code> field of <code>DescribeTrainingJobResponse</code>.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Stopped</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>MaxRuntimeExceeded</code> - The job stopped because it exceeded the maximum allowed runtime.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>Stopped</code> - The training job has stopped.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * <dt>Stopping</dt>
+     * <dd>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>Stopping</code> - Stopping the training job.
+     * </p>
+     * </li>
+     * </ul>
+     * </dd>
+     * </dl>
+     * <important>
+     * <p>
+     * Valid values for <code>SecondaryStatus</code> are subject to change.
+     * </p>
+     * </important>
+     * <p>
+     * We no longer support the following secondary statuses:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * <code>LaunchingMLInstances</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>PreparingTrainingStack</code>
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>DownloadingTrainingImage</code>
+     * </p>
+     * </li>
+     * </ul>
      * 
      * @param secondaryStatus
-     *        Provides granular information about the system state. For more information, see
-     *        <code>TrainingJobStatus</code>.
+     *        Provides detailed information about the state of the training job. For detailed information on the
+     *        secondary status of the training job, see <code>StatusMessage</code> under
+     *        <a>SecondaryStatusTransition</a>.</p>
+     *        <p>
+     *        Amazon SageMaker provides primary statuses and secondary statuses that apply to each of them:
+     *        </p>
+     *        <dl>
+     *        <dt>InProgress</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Starting</code> - Starting the training job.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Downloading</code> - An optional stage for algorithms that support <code>File</code> training input
+     *        mode. It indicates that data is being downloaded to the ML storage volumes.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Training</code> - Training is in progress.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Uploading</code> - Training is complete and the model artifacts are being uploaded to the S3
+     *        location.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        <dt>Completed</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Completed</code> - The training job has completed.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        <dt>Failed</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Failed</code> - The training job has failed. The reason for the failure is returned in the
+     *        <code>FailureReason</code> field of <code>DescribeTrainingJobResponse</code>.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        <dt>Stopped</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>MaxRuntimeExceeded</code> - The job stopped because it exceeded the maximum allowed runtime.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>Stopped</code> - The training job has stopped.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        <dt>Stopping</dt>
+     *        <dd>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>Stopping</code> - Stopping the training job.
+     *        </p>
+     *        </li>
+     *        </ul>
+     *        </dd>
+     *        </dl>
+     *        <important>
+     *        <p>
+     *        Valid values for <code>SecondaryStatus</code> are subject to change.
+     *        </p>
+     *        </important>
+     *        <p>
+     *        We no longer support the following secondary statuses:
+     *        </p>
+     *        <ul>
+     *        <li>
+     *        <p>
+     *        <code>LaunchingMLInstances</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>PreparingTrainingStack</code>
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>DownloadingTrainingImage</code>
+     *        </p>
+     *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see SecondaryStatus
      */
@@ -1034,12 +2084,15 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * A object that specifies the VPC that this training job has access to. For more information, see <a>train-vpc</a>.
+     * A <a>VpcConfig</a> object that specifies the VPC that this training job has access to. For more information, see
+     * <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
+     * Virtual Private Cloud</a>.
      * </p>
      * 
      * @param vpcConfig
-     *        A object that specifies the VPC that this training job has access to. For more information, see
-     *        <a>train-vpc</a>.
+     *        A <a>VpcConfig</a> object that specifies the VPC that this training job has access to. For more
+     *        information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training
+     *        Jobs by Using an Amazon Virtual Private Cloud</a>.
      */
 
     public void setVpcConfig(VpcConfig vpcConfig) {
@@ -1048,11 +2101,14 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * A object that specifies the VPC that this training job has access to. For more information, see <a>train-vpc</a>.
+     * A <a>VpcConfig</a> object that specifies the VPC that this training job has access to. For more information, see
+     * <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
+     * Virtual Private Cloud</a>.
      * </p>
      * 
-     * @return A object that specifies the VPC that this training job has access to. For more information, see
-     *         <a>train-vpc</a>.
+     * @return A <a>VpcConfig</a> object that specifies the VPC that this training job has access to. For more
+     *         information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training
+     *         Jobs by Using an Amazon Virtual Private Cloud</a>.
      */
 
     public VpcConfig getVpcConfig() {
@@ -1061,12 +2117,15 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * A object that specifies the VPC that this training job has access to. For more information, see <a>train-vpc</a>.
+     * A <a>VpcConfig</a> object that specifies the VPC that this training job has access to. For more information, see
+     * <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
+     * Virtual Private Cloud</a>.
      * </p>
      * 
      * @param vpcConfig
-     *        A object that specifies the VPC that this training job has access to. For more information, see
-     *        <a>train-vpc</a>.
+     *        A <a>VpcConfig</a> object that specifies the VPC that this training job has access to. For more
+     *        information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training
+     *        Jobs by Using an Amazon Virtual Private Cloud</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1157,11 +2216,17 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * A timestamp that indicates when training started.
+     * Indicates the time when the training job starts on training instances. You are billed for the time interval
+     * between this time and the value of <code>TrainingEndTime</code>. The start time in CloudWatch Logs might be later
+     * than this time. The difference is due to the time it takes to download the training data and to the size of the
+     * training container.
      * </p>
      * 
      * @param trainingStartTime
-     *        A timestamp that indicates when training started.
+     *        Indicates the time when the training job starts on training instances. You are billed for the time
+     *        interval between this time and the value of <code>TrainingEndTime</code>. The start time in CloudWatch
+     *        Logs might be later than this time. The difference is due to the time it takes to download the training
+     *        data and to the size of the training container.
      */
 
     public void setTrainingStartTime(java.util.Date trainingStartTime) {
@@ -1170,10 +2235,16 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * A timestamp that indicates when training started.
+     * Indicates the time when the training job starts on training instances. You are billed for the time interval
+     * between this time and the value of <code>TrainingEndTime</code>. The start time in CloudWatch Logs might be later
+     * than this time. The difference is due to the time it takes to download the training data and to the size of the
+     * training container.
      * </p>
      * 
-     * @return A timestamp that indicates when training started.
+     * @return Indicates the time when the training job starts on training instances. You are billed for the time
+     *         interval between this time and the value of <code>TrainingEndTime</code>. The start time in CloudWatch
+     *         Logs might be later than this time. The difference is due to the time it takes to download the training
+     *         data and to the size of the training container.
      */
 
     public java.util.Date getTrainingStartTime() {
@@ -1182,11 +2253,17 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * A timestamp that indicates when training started.
+     * Indicates the time when the training job starts on training instances. You are billed for the time interval
+     * between this time and the value of <code>TrainingEndTime</code>. The start time in CloudWatch Logs might be later
+     * than this time. The difference is due to the time it takes to download the training data and to the size of the
+     * training container.
      * </p>
      * 
      * @param trainingStartTime
-     *        A timestamp that indicates when training started.
+     *        Indicates the time when the training job starts on training instances. You are billed for the time
+     *        interval between this time and the value of <code>TrainingEndTime</code>. The start time in CloudWatch
+     *        Logs might be later than this time. The difference is due to the time it takes to download the training
+     *        data and to the size of the training container.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1197,11 +2274,17 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * A timestamp that indicates when model training ended.
+     * Indicates the time when the training job ends on training instances. You are billed for the time interval between
+     * the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs, this is the time
+     * after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job
+     * failure.
      * </p>
      * 
      * @param trainingEndTime
-     *        A timestamp that indicates when model training ended.
+     *        Indicates the time when the training job ends on training instances. You are billed for the time interval
+     *        between the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs,
+     *        this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon
+     *        SageMaker detects a job failure.
      */
 
     public void setTrainingEndTime(java.util.Date trainingEndTime) {
@@ -1210,10 +2293,16 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * A timestamp that indicates when model training ended.
+     * Indicates the time when the training job ends on training instances. You are billed for the time interval between
+     * the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs, this is the time
+     * after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job
+     * failure.
      * </p>
      * 
-     * @return A timestamp that indicates when model training ended.
+     * @return Indicates the time when the training job ends on training instances. You are billed for the time interval
+     *         between the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs,
+     *         this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon
+     *         SageMaker detects a job failure.
      */
 
     public java.util.Date getTrainingEndTime() {
@@ -1222,11 +2311,17 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * A timestamp that indicates when model training ended.
+     * Indicates the time when the training job ends on training instances. You are billed for the time interval between
+     * the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs, this is the time
+     * after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job
+     * failure.
      * </p>
      * 
      * @param trainingEndTime
-     *        A timestamp that indicates when model training ended.
+     *        Indicates the time when the training job ends on training instances. You are billed for the time interval
+     *        between the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs,
+     *        this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon
+     *        SageMaker detects a job failure.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1276,7 +2371,264 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * A history of all of the secondary statuses that the training job has transitioned through.
+     * </p>
+     * 
+     * @return A history of all of the secondary statuses that the training job has transitioned through.
+     */
+
+    public java.util.List<SecondaryStatusTransition> getSecondaryStatusTransitions() {
+        return secondaryStatusTransitions;
+    }
+
+    /**
+     * <p>
+     * A history of all of the secondary statuses that the training job has transitioned through.
+     * </p>
+     * 
+     * @param secondaryStatusTransitions
+     *        A history of all of the secondary statuses that the training job has transitioned through.
+     */
+
+    public void setSecondaryStatusTransitions(java.util.Collection<SecondaryStatusTransition> secondaryStatusTransitions) {
+        if (secondaryStatusTransitions == null) {
+            this.secondaryStatusTransitions = null;
+            return;
+        }
+
+        this.secondaryStatusTransitions = new java.util.ArrayList<SecondaryStatusTransition>(secondaryStatusTransitions);
+    }
+
+    /**
+     * <p>
+     * A history of all of the secondary statuses that the training job has transitioned through.
+     * </p>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setSecondaryStatusTransitions(java.util.Collection)} or
+     * {@link #withSecondaryStatusTransitions(java.util.Collection)} if you want to override the existing values.
+     * </p>
+     * 
+     * @param secondaryStatusTransitions
+     *        A history of all of the secondary statuses that the training job has transitioned through.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeTrainingJobResult withSecondaryStatusTransitions(SecondaryStatusTransition... secondaryStatusTransitions) {
+        if (this.secondaryStatusTransitions == null) {
+            setSecondaryStatusTransitions(new java.util.ArrayList<SecondaryStatusTransition>(secondaryStatusTransitions.length));
+        }
+        for (SecondaryStatusTransition ele : secondaryStatusTransitions) {
+            this.secondaryStatusTransitions.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * A history of all of the secondary statuses that the training job has transitioned through.
+     * </p>
+     * 
+     * @param secondaryStatusTransitions
+     *        A history of all of the secondary statuses that the training job has transitioned through.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeTrainingJobResult withSecondaryStatusTransitions(java.util.Collection<SecondaryStatusTransition> secondaryStatusTransitions) {
+        setSecondaryStatusTransitions(secondaryStatusTransitions);
+        return this;
+    }
+
+    /**
+     * <p>
+     * A collection of <code>MetricData</code> objects that specify the names, values, and dates and times that the
+     * training algorithm emitted to Amazon CloudWatch.
+     * </p>
+     * 
+     * @return A collection of <code>MetricData</code> objects that specify the names, values, and dates and times that
+     *         the training algorithm emitted to Amazon CloudWatch.
+     */
+
+    public java.util.List<MetricData> getFinalMetricDataList() {
+        return finalMetricDataList;
+    }
+
+    /**
+     * <p>
+     * A collection of <code>MetricData</code> objects that specify the names, values, and dates and times that the
+     * training algorithm emitted to Amazon CloudWatch.
+     * </p>
+     * 
+     * @param finalMetricDataList
+     *        A collection of <code>MetricData</code> objects that specify the names, values, and dates and times that
+     *        the training algorithm emitted to Amazon CloudWatch.
+     */
+
+    public void setFinalMetricDataList(java.util.Collection<MetricData> finalMetricDataList) {
+        if (finalMetricDataList == null) {
+            this.finalMetricDataList = null;
+            return;
+        }
+
+        this.finalMetricDataList = new java.util.ArrayList<MetricData>(finalMetricDataList);
+    }
+
+    /**
+     * <p>
+     * A collection of <code>MetricData</code> objects that specify the names, values, and dates and times that the
+     * training algorithm emitted to Amazon CloudWatch.
+     * </p>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setFinalMetricDataList(java.util.Collection)} or {@link #withFinalMetricDataList(java.util.Collection)}
+     * if you want to override the existing values.
+     * </p>
+     * 
+     * @param finalMetricDataList
+     *        A collection of <code>MetricData</code> objects that specify the names, values, and dates and times that
+     *        the training algorithm emitted to Amazon CloudWatch.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeTrainingJobResult withFinalMetricDataList(MetricData... finalMetricDataList) {
+        if (this.finalMetricDataList == null) {
+            setFinalMetricDataList(new java.util.ArrayList<MetricData>(finalMetricDataList.length));
+        }
+        for (MetricData ele : finalMetricDataList) {
+            this.finalMetricDataList.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * A collection of <code>MetricData</code> objects that specify the names, values, and dates and times that the
+     * training algorithm emitted to Amazon CloudWatch.
+     * </p>
+     * 
+     * @param finalMetricDataList
+     *        A collection of <code>MetricData</code> objects that specify the names, values, and dates and times that
+     *        the training algorithm emitted to Amazon CloudWatch.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeTrainingJobResult withFinalMetricDataList(java.util.Collection<MetricData> finalMetricDataList) {
+        setFinalMetricDataList(finalMetricDataList);
+        return this;
+    }
+
+    /**
+     * <p>
+     * If <code>True</code>, inbound or outbound network calls can be made, except for calls between peers within a
+     * training cluster for distributed training. If network isolation is used for training jobs that are configured to
+     * use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through the specifed VPC, but
+     * the training container does not have network access.
+     * </p>
+     * <note>
+     * <p>
+     * The Semantic Segmentation built-in algorithm does not support network isolation.
+     * </p>
+     * </note>
+     * 
+     * @param enableNetworkIsolation
+     *        If <code>True</code>, inbound or outbound network calls can be made, except for calls between peers within
+     *        a training cluster for distributed training. If network isolation is used for training jobs that are
+     *        configured to use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through
+     *        the specifed VPC, but the training container does not have network access.</p> <note>
+     *        <p>
+     *        The Semantic Segmentation built-in algorithm does not support network isolation.
+     *        </p>
+     */
+
+    public void setEnableNetworkIsolation(Boolean enableNetworkIsolation) {
+        this.enableNetworkIsolation = enableNetworkIsolation;
+    }
+
+    /**
+     * <p>
+     * If <code>True</code>, inbound or outbound network calls can be made, except for calls between peers within a
+     * training cluster for distributed training. If network isolation is used for training jobs that are configured to
+     * use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through the specifed VPC, but
+     * the training container does not have network access.
+     * </p>
+     * <note>
+     * <p>
+     * The Semantic Segmentation built-in algorithm does not support network isolation.
+     * </p>
+     * </note>
+     * 
+     * @return If <code>True</code>, inbound or outbound network calls can be made, except for calls between peers
+     *         within a training cluster for distributed training. If network isolation is used for training jobs that
+     *         are configured to use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts
+     *         through the specifed VPC, but the training container does not have network access.</p> <note>
+     *         <p>
+     *         The Semantic Segmentation built-in algorithm does not support network isolation.
+     *         </p>
+     */
+
+    public Boolean getEnableNetworkIsolation() {
+        return this.enableNetworkIsolation;
+    }
+
+    /**
+     * <p>
+     * If <code>True</code>, inbound or outbound network calls can be made, except for calls between peers within a
+     * training cluster for distributed training. If network isolation is used for training jobs that are configured to
+     * use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through the specifed VPC, but
+     * the training container does not have network access.
+     * </p>
+     * <note>
+     * <p>
+     * The Semantic Segmentation built-in algorithm does not support network isolation.
+     * </p>
+     * </note>
+     * 
+     * @param enableNetworkIsolation
+     *        If <code>True</code>, inbound or outbound network calls can be made, except for calls between peers within
+     *        a training cluster for distributed training. If network isolation is used for training jobs that are
+     *        configured to use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through
+     *        the specifed VPC, but the training container does not have network access.</p> <note>
+     *        <p>
+     *        The Semantic Segmentation built-in algorithm does not support network isolation.
+     *        </p>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeTrainingJobResult withEnableNetworkIsolation(Boolean enableNetworkIsolation) {
+        setEnableNetworkIsolation(enableNetworkIsolation);
+        return this;
+    }
+
+    /**
+     * <p>
+     * If <code>True</code>, inbound or outbound network calls can be made, except for calls between peers within a
+     * training cluster for distributed training. If network isolation is used for training jobs that are configured to
+     * use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through the specifed VPC, but
+     * the training container does not have network access.
+     * </p>
+     * <note>
+     * <p>
+     * The Semantic Segmentation built-in algorithm does not support network isolation.
+     * </p>
+     * </note>
+     * 
+     * @return If <code>True</code>, inbound or outbound network calls can be made, except for calls between peers
+     *         within a training cluster for distributed training. If network isolation is used for training jobs that
+     *         are configured to use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts
+     *         through the specifed VPC, but the training container does not have network access.</p> <note>
+     *         <p>
+     *         The Semantic Segmentation built-in algorithm does not support network isolation.
+     *         </p>
+     */
+
+    public Boolean isEnableNetworkIsolation() {
+        return this.enableNetworkIsolation;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1290,6 +2642,10 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
             sb.append("TrainingJobName: ").append(getTrainingJobName()).append(",");
         if (getTrainingJobArn() != null)
             sb.append("TrainingJobArn: ").append(getTrainingJobArn()).append(",");
+        if (getTuningJobArn() != null)
+            sb.append("TuningJobArn: ").append(getTuningJobArn()).append(",");
+        if (getLabelingJobArn() != null)
+            sb.append("LabelingJobArn: ").append(getLabelingJobArn()).append(",");
         if (getModelArtifacts() != null)
             sb.append("ModelArtifacts: ").append(getModelArtifacts()).append(",");
         if (getTrainingJobStatus() != null)
@@ -1321,7 +2677,13 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
         if (getTrainingEndTime() != null)
             sb.append("TrainingEndTime: ").append(getTrainingEndTime()).append(",");
         if (getLastModifiedTime() != null)
-            sb.append("LastModifiedTime: ").append(getLastModifiedTime());
+            sb.append("LastModifiedTime: ").append(getLastModifiedTime()).append(",");
+        if (getSecondaryStatusTransitions() != null)
+            sb.append("SecondaryStatusTransitions: ").append(getSecondaryStatusTransitions()).append(",");
+        if (getFinalMetricDataList() != null)
+            sb.append("FinalMetricDataList: ").append(getFinalMetricDataList()).append(",");
+        if (getEnableNetworkIsolation() != null)
+            sb.append("EnableNetworkIsolation: ").append(getEnableNetworkIsolation());
         sb.append("}");
         return sb.toString();
     }
@@ -1343,6 +2705,14 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
         if (other.getTrainingJobArn() == null ^ this.getTrainingJobArn() == null)
             return false;
         if (other.getTrainingJobArn() != null && other.getTrainingJobArn().equals(this.getTrainingJobArn()) == false)
+            return false;
+        if (other.getTuningJobArn() == null ^ this.getTuningJobArn() == null)
+            return false;
+        if (other.getTuningJobArn() != null && other.getTuningJobArn().equals(this.getTuningJobArn()) == false)
+            return false;
+        if (other.getLabelingJobArn() == null ^ this.getLabelingJobArn() == null)
+            return false;
+        if (other.getLabelingJobArn() != null && other.getLabelingJobArn().equals(this.getLabelingJobArn()) == false)
             return false;
         if (other.getModelArtifacts() == null ^ this.getModelArtifacts() == null)
             return false;
@@ -1408,6 +2778,18 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
             return false;
         if (other.getLastModifiedTime() != null && other.getLastModifiedTime().equals(this.getLastModifiedTime()) == false)
             return false;
+        if (other.getSecondaryStatusTransitions() == null ^ this.getSecondaryStatusTransitions() == null)
+            return false;
+        if (other.getSecondaryStatusTransitions() != null && other.getSecondaryStatusTransitions().equals(this.getSecondaryStatusTransitions()) == false)
+            return false;
+        if (other.getFinalMetricDataList() == null ^ this.getFinalMetricDataList() == null)
+            return false;
+        if (other.getFinalMetricDataList() != null && other.getFinalMetricDataList().equals(this.getFinalMetricDataList()) == false)
+            return false;
+        if (other.getEnableNetworkIsolation() == null ^ this.getEnableNetworkIsolation() == null)
+            return false;
+        if (other.getEnableNetworkIsolation() != null && other.getEnableNetworkIsolation().equals(this.getEnableNetworkIsolation()) == false)
+            return false;
         return true;
     }
 
@@ -1418,6 +2800,8 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
 
         hashCode = prime * hashCode + ((getTrainingJobName() == null) ? 0 : getTrainingJobName().hashCode());
         hashCode = prime * hashCode + ((getTrainingJobArn() == null) ? 0 : getTrainingJobArn().hashCode());
+        hashCode = prime * hashCode + ((getTuningJobArn() == null) ? 0 : getTuningJobArn().hashCode());
+        hashCode = prime * hashCode + ((getLabelingJobArn() == null) ? 0 : getLabelingJobArn().hashCode());
         hashCode = prime * hashCode + ((getModelArtifacts() == null) ? 0 : getModelArtifacts().hashCode());
         hashCode = prime * hashCode + ((getTrainingJobStatus() == null) ? 0 : getTrainingJobStatus().hashCode());
         hashCode = prime * hashCode + ((getSecondaryStatus() == null) ? 0 : getSecondaryStatus().hashCode());
@@ -1434,6 +2818,9 @@ public class DescribeTrainingJobResult extends com.amazonaws.AmazonWebServiceRes
         hashCode = prime * hashCode + ((getTrainingStartTime() == null) ? 0 : getTrainingStartTime().hashCode());
         hashCode = prime * hashCode + ((getTrainingEndTime() == null) ? 0 : getTrainingEndTime().hashCode());
         hashCode = prime * hashCode + ((getLastModifiedTime() == null) ? 0 : getLastModifiedTime().hashCode());
+        hashCode = prime * hashCode + ((getSecondaryStatusTransitions() == null) ? 0 : getSecondaryStatusTransitions().hashCode());
+        hashCode = prime * hashCode + ((getFinalMetricDataList() == null) ? 0 : getFinalMetricDataList().hashCode());
+        hashCode = prime * hashCode + ((getEnableNetworkIsolation() == null) ? 0 : getEnableNetworkIsolation().hashCode());
         return hashCode;
     }
 

@@ -104,10 +104,23 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
     private Integer allocatedCapacity;
     /**
      * <p>
-     * The job timeout in minutes. The default is 2880 minutes (48 hours).
+     * The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated
+     * and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
      * </p>
      */
     private Integer timeout;
+    /**
+     * <p>
+     * Specifies configuration properties of a job notification.
+     * </p>
+     */
+    private NotificationProperty notificationProperty;
+    /**
+     * <p>
+     * The name of the SecurityConfiguration structure to be used with this job.
+     * </p>
+     */
+    private String securityConfiguration;
 
     /**
      * <p>
@@ -631,11 +644,13 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
 
     /**
      * <p>
-     * The job timeout in minutes. The default is 2880 minutes (48 hours).
+     * The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated
+     * and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
      * </p>
      * 
      * @param timeout
-     *        The job timeout in minutes. The default is 2880 minutes (48 hours).
+     *        The job timeout in minutes. This is the maximum time that a job run can consume resources before it is
+     *        terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
      */
 
     public void setTimeout(Integer timeout) {
@@ -644,10 +659,12 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
 
     /**
      * <p>
-     * The job timeout in minutes. The default is 2880 minutes (48 hours).
+     * The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated
+     * and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
      * </p>
      * 
-     * @return The job timeout in minutes. The default is 2880 minutes (48 hours).
+     * @return The job timeout in minutes. This is the maximum time that a job run can consume resources before it is
+     *         terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
      */
 
     public Integer getTimeout() {
@@ -656,11 +673,13 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
 
     /**
      * <p>
-     * The job timeout in minutes. The default is 2880 minutes (48 hours).
+     * The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated
+     * and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
      * </p>
      * 
      * @param timeout
-     *        The job timeout in minutes. The default is 2880 minutes (48 hours).
+     *        The job timeout in minutes. This is the maximum time that a job run can consume resources before it is
+     *        terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -670,7 +689,88 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * Specifies configuration properties of a job notification.
+     * </p>
+     * 
+     * @param notificationProperty
+     *        Specifies configuration properties of a job notification.
+     */
+
+    public void setNotificationProperty(NotificationProperty notificationProperty) {
+        this.notificationProperty = notificationProperty;
+    }
+
+    /**
+     * <p>
+     * Specifies configuration properties of a job notification.
+     * </p>
+     * 
+     * @return Specifies configuration properties of a job notification.
+     */
+
+    public NotificationProperty getNotificationProperty() {
+        return this.notificationProperty;
+    }
+
+    /**
+     * <p>
+     * Specifies configuration properties of a job notification.
+     * </p>
+     * 
+     * @param notificationProperty
+     *        Specifies configuration properties of a job notification.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateJobRequest withNotificationProperty(NotificationProperty notificationProperty) {
+        setNotificationProperty(notificationProperty);
+        return this;
+    }
+
+    /**
+     * <p>
+     * The name of the SecurityConfiguration structure to be used with this job.
+     * </p>
+     * 
+     * @param securityConfiguration
+     *        The name of the SecurityConfiguration structure to be used with this job.
+     */
+
+    public void setSecurityConfiguration(String securityConfiguration) {
+        this.securityConfiguration = securityConfiguration;
+    }
+
+    /**
+     * <p>
+     * The name of the SecurityConfiguration structure to be used with this job.
+     * </p>
+     * 
+     * @return The name of the SecurityConfiguration structure to be used with this job.
+     */
+
+    public String getSecurityConfiguration() {
+        return this.securityConfiguration;
+    }
+
+    /**
+     * <p>
+     * The name of the SecurityConfiguration structure to be used with this job.
+     * </p>
+     * 
+     * @param securityConfiguration
+     *        The name of the SecurityConfiguration structure to be used with this job.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateJobRequest withSecurityConfiguration(String securityConfiguration) {
+        setSecurityConfiguration(securityConfiguration);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -701,7 +801,11 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
         if (getAllocatedCapacity() != null)
             sb.append("AllocatedCapacity: ").append(getAllocatedCapacity()).append(",");
         if (getTimeout() != null)
-            sb.append("Timeout: ").append(getTimeout());
+            sb.append("Timeout: ").append(getTimeout()).append(",");
+        if (getNotificationProperty() != null)
+            sb.append("NotificationProperty: ").append(getNotificationProperty()).append(",");
+        if (getSecurityConfiguration() != null)
+            sb.append("SecurityConfiguration: ").append(getSecurityConfiguration());
         sb.append("}");
         return sb.toString();
     }
@@ -760,6 +864,14 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
             return false;
         if (other.getTimeout() != null && other.getTimeout().equals(this.getTimeout()) == false)
             return false;
+        if (other.getNotificationProperty() == null ^ this.getNotificationProperty() == null)
+            return false;
+        if (other.getNotificationProperty() != null && other.getNotificationProperty().equals(this.getNotificationProperty()) == false)
+            return false;
+        if (other.getSecurityConfiguration() == null ^ this.getSecurityConfiguration() == null)
+            return false;
+        if (other.getSecurityConfiguration() != null && other.getSecurityConfiguration().equals(this.getSecurityConfiguration()) == false)
+            return false;
         return true;
     }
 
@@ -779,6 +891,8 @@ public class CreateJobRequest extends com.amazonaws.AmazonWebServiceRequest impl
         hashCode = prime * hashCode + ((getMaxRetries() == null) ? 0 : getMaxRetries().hashCode());
         hashCode = prime * hashCode + ((getAllocatedCapacity() == null) ? 0 : getAllocatedCapacity().hashCode());
         hashCode = prime * hashCode + ((getTimeout() == null) ? 0 : getTimeout().hashCode());
+        hashCode = prime * hashCode + ((getNotificationProperty() == null) ? 0 : getNotificationProperty().hashCode());
+        hashCode = prime * hashCode + ((getSecurityConfiguration() == null) ? 0 : getSecurityConfiguration().hashCode());
         return hashCode;
     }
 

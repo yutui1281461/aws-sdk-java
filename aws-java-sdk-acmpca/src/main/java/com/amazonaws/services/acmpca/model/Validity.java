@@ -21,7 +21,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * <p>
  * Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA
  * itself, is valid in days, months, or years. You can issue a certificate by calling the <a>IssueCertificate</a>
- * function.
+ * operation.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/Validity" target="_top">AWS API
@@ -143,7 +143,8 @@ public class Validity implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

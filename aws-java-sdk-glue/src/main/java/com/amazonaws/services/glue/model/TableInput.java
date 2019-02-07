@@ -96,7 +96,7 @@ public class TableInput implements Serializable, Cloneable, StructuredPojo {
     private String tableType;
     /**
      * <p>
-     * Properties associated with this table, as a list of key-value pairs.
+     * These key-value pairs define properties associated with the table.
      * </p>
      */
     private java.util.Map<String, String> parameters;
@@ -574,10 +574,10 @@ public class TableInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Properties associated with this table, as a list of key-value pairs.
+     * These key-value pairs define properties associated with the table.
      * </p>
      * 
-     * @return Properties associated with this table, as a list of key-value pairs.
+     * @return These key-value pairs define properties associated with the table.
      */
 
     public java.util.Map<String, String> getParameters() {
@@ -586,11 +586,11 @@ public class TableInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Properties associated with this table, as a list of key-value pairs.
+     * These key-value pairs define properties associated with the table.
      * </p>
      * 
      * @param parameters
-     *        Properties associated with this table, as a list of key-value pairs.
+     *        These key-value pairs define properties associated with the table.
      */
 
     public void setParameters(java.util.Map<String, String> parameters) {
@@ -599,11 +599,11 @@ public class TableInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Properties associated with this table, as a list of key-value pairs.
+     * These key-value pairs define properties associated with the table.
      * </p>
      * 
      * @param parameters
-     *        Properties associated with this table, as a list of key-value pairs.
+     *        These key-value pairs define properties associated with the table.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -634,7 +634,8 @@ public class TableInput implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

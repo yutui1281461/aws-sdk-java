@@ -58,9 +58,10 @@ public interface AWSLambda {
      * this client's {@link ClientConfiguration} will be used, which by default is HTTPS.
      * <p>
      * For more information on using AWS regions with the AWS SDK for Java, and a complete list of all available
-     * endpoints for all AWS services, see: <a
-     * href="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912">
-     * http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912</a>
+     * endpoints for all AWS services, see: <a href=
+     * "https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-choose-endpoint"
+     * > https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-
+     * choose-endpoint</a>
      * <p>
      * <b>This method is not threadsafe. An endpoint should be configured when the client is created and before any
      * service requests are made. Changing it afterwards creates inevitable race conditions for any service requests in
@@ -101,20 +102,56 @@ public interface AWSLambda {
 
     /**
      * <p>
+     * Adds permissions to the resource-based policy of a version of a function layer. Use this action to grant layer
+     * usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all
+     * accounts in an organization.
+     * </p>
+     * <p>
+     * To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you specified when you
+     * added it.
+     * </p>
+     * 
+     * @param addLayerVersionPermissionRequest
+     * @return Result of the AddLayerVersionPermission operation returned by the service.
+     * @throws ServiceException
+     *         The AWS Lambda service encountered an internal error.
+     * @throws ResourceNotFoundException
+     *         The resource (for example, a Lambda function or access policy statement) specified in the request does
+     *         not exist.
+     * @throws ResourceConflictException
+     *         The resource already exists.
+     * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
+     * @throws InvalidParameterValueException
+     *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
+     *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
+     *         AWS Lambda is unable to assume you will get this exception.
+     * @throws PolicyLengthExceededException
+     *         Lambda function access policy is limited to 20 KB.
+     * @throws PreconditionFailedException
+     *         The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the
+     *         <code>GetFunction</code> or the <code>GetAlias</code> API to retrieve the latest RevisionId for your
+     *         resource.
+     * @sample AWSLambda.AddLayerVersionPermission
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/AddLayerVersionPermission"
+     *      target="_top">AWS API Documentation</a>
+     */
+    AddLayerVersionPermissionResult addLayerVersionPermission(AddLayerVersionPermissionRequest addLayerVersionPermissionRequest);
+
+    /**
+     * <p>
      * Adds a permission to the resource policy associated with the specified AWS Lambda function. You use resource
-     * policies to grant permissions to event sources that use <i>push</i> model. In a <i>push</i> model, event sources
-     * (such as Amazon S3 and custom applications) invoke your Lambda function. Each permission you add to the resource
-     * policy allows an event source, permission to invoke the Lambda function.
+     * policies to grant permissions to event sources that use the <i>push</i> model. In a <i>push</i> model, event
+     * sources (such as Amazon S3 and custom applications) invoke your Lambda function. Each permission you add to the
+     * resource policy allows an event source permission to invoke the Lambda function.
      * </p>
      * <p>
-     * For information about the push model, see <a
-     * href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">Lambda Functions</a>.
-     * </p>
-     * <p>
-     * If you are using versioning, the permissions you add are specific to the Lambda function version or alias you
-     * specify in the <code>AddPermission</code> request via the <code>Qualifier</code> parameter. For more information
-     * about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda
-     * Function Versioning and Aliases</a>.
+     * Permissions apply to the Amazon Resource Name (ARN) used to invoke the function, which can be unqualified (the
+     * unpublished version of the function), or include a version or alias. If a client uses a version or alias to
+     * invoke a function, use the <code>Qualifier</code> parameter to apply permissions to that ARN. For more
+     * information about versioning, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and
+     * Aliases</a>.
      * </p>
      * <p>
      * This operation requires permission for the <code>lambda:AddPermission</code> action.
@@ -136,6 +173,7 @@ public interface AWSLambda {
      * @throws PolicyLengthExceededException
      *         Lambda function access policy is limited to 20 KB.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws PreconditionFailedException
      *         The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the
      *         <code>GetFunction</code> or the <code>GetAlias</code> API to retrieve the latest RevisionId for your
@@ -169,6 +207,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @sample AWSLambda.CreateAlias
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/CreateAlias" target="_top">AWS API
      *      Documentation</a>
@@ -177,29 +216,29 @@ public interface AWSLambda {
 
     /**
      * <p>
-     * Identifies a stream as an event source for a Lambda function. It can be either an Amazon Kinesis stream or an
-     * Amazon DynamoDB stream. AWS Lambda invokes the specified function when records are posted to the stream.
+     * Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source
+     * and triggers the function.
      * </p>
      * <p>
-     * This association between a stream source and a Lambda function is called the event source mapping.
+     * For details about each event source type, see the following topics.
      * </p>
+     * <ul>
+     * <li>
      * <p>
-     * You provide mapping information (for example, which stream to read from and which Lambda function to invoke) in
-     * the request body.
+     * <a href="http://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS Lambda with Amazon Kinesis</a>
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be associated with multiple AWS Lambda
-     * functions. A given Lambda function can be associated with multiple AWS event sources.
+     * <a href="http://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda with Amazon SQS</a>
      * </p>
+     * </li>
+     * <li>
      * <p>
-     * If you are using versioning, you can specify a specific function version or an alias via the function name
-     * parameter. For more information about versioning, see <a
-     * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and
-     * Aliases</a>.
+     * <a href="http://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon DynamoDB</a>
      * </p>
-     * <p>
-     * This operation requires permission for the <code>lambda:CreateEventSourceMapping</code> action.
-     * </p>
+     * </li>
+     * </ul>
      * 
      * @param createEventSourceMappingRequest
      * @return Result of the CreateEventSourceMapping operation returned by the service.
@@ -212,6 +251,7 @@ public interface AWSLambda {
      * @throws ResourceConflictException
      *         The resource already exists.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws ResourceNotFoundException
      *         The resource (for example, a Lambda function or access policy statement) specified in the request does
      *         not exist.
@@ -223,15 +263,8 @@ public interface AWSLambda {
 
     /**
      * <p>
-     * Creates a new Lambda function. The function metadata is created from the request parameters, and the code for the
-     * function is provided by a .zip file in the request body. If the function name already exists, the operation will
-     * fail. Note that the function name is case-sensitive.
-     * </p>
-     * <p>
-     * If you are using versioning, you can also publish a version of the Lambda function you are creating using the
-     * <code>Publish</code> parameter. For more information about versioning, see <a
-     * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and
-     * Aliases</a>.
+     * Creates a new Lambda function. The function configuration is created from the request parameters, and the code
+     * for the function is provided by a .zip file. The function name is case-sensitive.
      * </p>
      * <p>
      * This operation requires permission for the <code>lambda:CreateFunction</code> action.
@@ -251,6 +284,7 @@ public interface AWSLambda {
      * @throws ResourceConflictException
      *         The resource already exists.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws CodeStorageExceededException
      *         You have exceeded your maximum total code size per account. <a
      *         href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">Limits</a>
@@ -278,6 +312,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @sample AWSLambda.DeleteAlias
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeleteAlias" target="_top">AWS API
      *      Documentation</a>
@@ -286,11 +321,7 @@ public interface AWSLambda {
 
     /**
      * <p>
-     * Removes an event source mapping. This means AWS Lambda will no longer invoke the function for events in the
-     * associated source.
-     * </p>
-     * <p>
-     * This operation requires permission for the <code>lambda:DeleteEventSourceMapping</code> action.
+     * Deletes an event source mapping.
      * </p>
      * 
      * @param deleteEventSourceMappingRequest
@@ -305,6 +336,10 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
+     * @throws ResourceInUseException
+     *         The operation conflicts with the resource's availability. For example, you attempted to update an
+     *         EventSoure Mapping in CREATING, or tried to delete a EventSoure mapping currently in the UPDATING state.
      * @sample AWSLambda.DeleteEventSourceMapping
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeleteEventSourceMapping"
      *      target="_top">AWS API Documentation</a>
@@ -313,19 +348,8 @@ public interface AWSLambda {
 
     /**
      * <p>
-     * Deletes the specified Lambda function code and configuration.
-     * </p>
-     * <p>
-     * If you are using the versioning feature and you don't specify a function version in your
-     * <code>DeleteFunction</code> request, AWS Lambda will delete the function, including all its versions, and any
-     * aliases pointing to the function versions. To delete a specific function version, you must provide the function
-     * version via the <code>Qualifier</code> parameter. For information about function versioning, see <a
-     * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and
-     * Aliases</a>.
-     * </p>
-     * <p>
-     * When you delete a function the associated resource policy is also deleted. You will need to delete the event
-     * source mappings explicitly.
+     * Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter.
+     * Otherwise, all versions and aliases are deleted. Event source mappings are not deleted.
      * </p>
      * <p>
      * This operation requires permission for the <code>lambda:DeleteFunction</code> action.
@@ -339,6 +363,7 @@ public interface AWSLambda {
      *         The resource (for example, a Lambda function or access policy statement) specified in the request does
      *         not exist.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws InvalidParameterValueException
      *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
@@ -353,7 +378,8 @@ public interface AWSLambda {
 
     /**
      * <p>
-     * Removes concurrent execution limits from this function. For more information, see <a>concurrent-executions</a>.
+     * Removes concurrent execution limits from this function. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing Concurrency</a>.
      * </p>
      * 
      * @param deleteFunctionConcurrencyRequest
@@ -364,6 +390,7 @@ public interface AWSLambda {
      *         The resource (for example, a Lambda function or access policy statement) specified in the request does
      *         not exist.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws InvalidParameterValueException
      *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
@@ -376,17 +403,32 @@ public interface AWSLambda {
 
     /**
      * <p>
-     * Returns a customer's account settings.
+     * Deletes a version of a function layer. Deleted versions can no longer be viewed or added to functions. However, a
+     * copy of the version remains in Lambda until no functions refer to it.
      * </p>
+     * 
+     * @param deleteLayerVersionRequest
+     * @return Result of the DeleteLayerVersion operation returned by the service.
+     * @throws ServiceException
+     *         The AWS Lambda service encountered an internal error.
+     * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
+     * @sample AWSLambda.DeleteLayerVersion
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeleteLayerVersion" target="_top">AWS API
+     *      Documentation</a>
+     */
+    DeleteLayerVersionResult deleteLayerVersion(DeleteLayerVersionRequest deleteLayerVersionRequest);
+
+    /**
      * <p>
-     * You can use this operation to retrieve Lambda limits information, such as code size and concurrency limits. For
-     * more information about limits, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">AWS Lambda
-     * Limits</a>. You can also retrieve resource usage statistics, such as code storage usage and function count.
+     * Retrieves details about your account's <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in a region.
      * </p>
      * 
      * @param getAccountSettingsRequest
      * @return Result of the GetAccountSettings operation returned by the service.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws ServiceException
      *         The AWS Lambda service encountered an internal error.
      * @sample AWSLambda.GetAccountSettings
@@ -417,6 +459,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @sample AWSLambda.GetAlias
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetAlias" target="_top">AWS API
      *      Documentation</a>
@@ -425,10 +468,7 @@ public interface AWSLambda {
 
     /**
      * <p>
-     * Returns configuration information for the specified event source mapping (see <a>CreateEventSourceMapping</a>).
-     * </p>
-     * <p>
-     * This operation requires permission for the <code>lambda:GetEventSourceMapping</code> action.
+     * Returns details about an event source mapping.
      * </p>
      * 
      * @param getEventSourceMappingRequest
@@ -443,6 +483,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @sample AWSLambda.GetEventSourceMapping
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetEventSourceMapping" target="_top">AWS
      *      API Documentation</a>
@@ -457,9 +498,8 @@ public interface AWSLambda {
      * function.
      * </p>
      * <p>
-     * Using the optional <code>Qualifier</code> parameter, you can specify a specific function version for which you
-     * want this information. If you don't specify this parameter, the API uses unqualified function ARN which return
-     * information about the <code>$LATEST</code> version of the Lambda function. For more information, see <a
+     * Use the <code>Qualifier</code> parameter to retrieve a published version of the function. Otherwise, returns the
+     * unpublished version (<code>$LATEST</code>). For more information, see <a
      * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and
      * Aliases</a>.
      * </p>
@@ -475,6 +515,7 @@ public interface AWSLambda {
      *         The resource (for example, a Lambda function or access policy statement) specified in the request does
      *         not exist.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws InvalidParameterValueException
      *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
@@ -510,6 +551,7 @@ public interface AWSLambda {
      *         The resource (for example, a Lambda function or access policy statement) specified in the request does
      *         not exist.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws InvalidParameterValueException
      *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
@@ -522,17 +564,59 @@ public interface AWSLambda {
 
     /**
      * <p>
+     * Returns information about a version of a function layer, with a link to download the layer archive that's valid
+     * for 10 minutes.
+     * </p>
+     * 
+     * @param getLayerVersionRequest
+     * @return Result of the GetLayerVersion operation returned by the service.
+     * @throws ServiceException
+     *         The AWS Lambda service encountered an internal error.
+     * @throws InvalidParameterValueException
+     *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
+     *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
+     *         AWS Lambda is unable to assume you will get this exception.
+     * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
+     * @throws ResourceNotFoundException
+     *         The resource (for example, a Lambda function or access policy statement) specified in the request does
+     *         not exist.
+     * @sample AWSLambda.GetLayerVersion
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetLayerVersion" target="_top">AWS API
+     *      Documentation</a>
+     */
+    GetLayerVersionResult getLayerVersion(GetLayerVersionRequest getLayerVersionRequest);
+
+    /**
+     * <p>
+     * Returns the permission policy for a layer version. For more information, see <a>AddLayerVersionPermission</a>.
+     * </p>
+     * 
+     * @param getLayerVersionPolicyRequest
+     * @return Result of the GetLayerVersionPolicy operation returned by the service.
+     * @throws ServiceException
+     *         The AWS Lambda service encountered an internal error.
+     * @throws ResourceNotFoundException
+     *         The resource (for example, a Lambda function or access policy statement) specified in the request does
+     *         not exist.
+     * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
+     * @throws InvalidParameterValueException
+     *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
+     *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
+     *         AWS Lambda is unable to assume you will get this exception.
+     * @sample AWSLambda.GetLayerVersionPolicy
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetLayerVersionPolicy" target="_top">AWS
+     *      API Documentation</a>
+     */
+    GetLayerVersionPolicyResult getLayerVersionPolicy(GetLayerVersionPolicyRequest getLayerVersionPolicyRequest);
+
+    /**
+     * <p>
      * Returns the resource policy associated with the specified Lambda function.
      * </p>
      * <p>
-     * If you are using the versioning feature, you can get the resource policy associated with the specific Lambda
-     * function version or alias by specifying the version or alias name using the <code>Qualifier</code> parameter. For
-     * more information about versioning, see <a
-     * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and
-     * Aliases</a>.
-     * </p>
-     * <p>
-     * You need permission for the <code>lambda:GetPolicy action.</code>
+     * This action requires permission for the <code>lambda:GetPolicy action.</code>
      * </p>
      * 
      * @param getPolicyRequest
@@ -543,6 +627,7 @@ public interface AWSLambda {
      *         The resource (for example, a Lambda function or access policy statement) specified in the request does
      *         not exist.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws InvalidParameterValueException
      *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
@@ -555,23 +640,28 @@ public interface AWSLambda {
 
     /**
      * <p>
-     * Invokes a specific Lambda function. For an example, see <a
+     * Invokes a Lambda function. For an example, see <a
      * href="http://docs.aws.amazon.com/lambda/latest/dg/with-dynamodb-create-function.html#with-dbb-invoke-manually"
      * >Create the Lambda Function and Test It Manually</a>.
      * </p>
      * <p>
-     * If you are using the versioning feature, you can invoke the specific function version by providing function
-     * version or alias name that is pointing to the function version using the <code>Qualifier</code> parameter in the
-     * request. If you don't provide the <code>Qualifier</code> parameter, the <code>$LATEST</code> version of the
-     * Lambda function is invoked. Invocations occur at least once in response to an event and functions must be
-     * idempotent to handle this. For information about the versioning feature, see <a
-     * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and
-     * Aliases</a>.
+     * Specify just a function name to invoke the latest version of the function. To invoke a published version, use the
+     * <code>Qualifier</code> parameter to specify a <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version or alias</a>.
+     * </p>
+     * <p>
+     * If you use the <code>RequestResponse</code> (synchronous) invocation option, the function will be invoked only
+     * once. If you use the <code>Event</code> (asynchronous) invocation option, the function will be invoked at least
+     * once in response to an event and the function must be idempotent to handle this.
+     * </p>
+     * <p>
+     * For functions with a long timeout, your client may be disconnected during synchronous invocation while it waits
+     * for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long
+     * connections with timeout or keep-alive settings.
      * </p>
      * <p>
      * This operation requires permission for the <code>lambda:InvokeFunction</code> action.
      * </p>
-     * <note>
      * <p>
      * The <code>TooManyRequestsException</code> noted below will return the following:
      * <code>ConcurrentInvocationLimitExceeded</code> will be returned if you have no functions with reserved
@@ -579,7 +669,6 @@ public interface AWSLambda {
      * the account's unreserved concurrency limit. <code>ReservedFunctionConcurrentInvocationLimitExceeded</code> will
      * be returned when a function with reserved concurrency exceeds its configured concurrency limit.
      * </p>
-     * </note>
      * 
      * @param invokeRequest
      * @return Result of the Invoke operation returned by the service.
@@ -596,6 +685,7 @@ public interface AWSLambda {
      * @throws UnsupportedMediaTypeException
      *         The content type of the <code>Invoke</code> request body is not JSON.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws InvalidParameterValueException
      *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
@@ -612,12 +702,13 @@ public interface AWSLambda {
      *         AWS Lambda was throttled by Amazon EC2 during Lambda function initialization using the execution role
      *         provided for the Lambda function.
      * @throws EC2AccessDeniedException
+     *         Need additional permissions to configure VPC settings.
      * @throws InvalidSubnetIDException
      *         The Subnet ID provided in the Lambda function VPC configuration is invalid.
      * @throws InvalidSecurityGroupIDException
      *         The Security Group ID provided in the Lambda function VPC configuration is invalid.
      * @throws InvalidZipFileException
-     *         AWS Lambda could not unzip the function zip file.
+     *         AWS Lambda could not unzip the deployment package.
      * @throws KMSDisabledException
      *         Lambda was unable to decrypt the environment variables because the KMS key used is disabled. Check the
      *         Lambda function's KMS key settings.
@@ -641,7 +732,7 @@ public interface AWSLambda {
     /**
      * <important>
      * <p>
-     * This API is deprecated. We recommend you use <code>Invoke</code> API (see <a>Invoke</a>).
+     * For asynchronous function invocation, use <a>Invoke</a>.
      * </p>
      * </important>
      * <p>
@@ -692,6 +783,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @sample AWSLambda.ListAliases
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListAliases" target="_top">AWS API
      *      Documentation</a>
@@ -700,21 +792,8 @@ public interface AWSLambda {
 
     /**
      * <p>
-     * Returns a list of event source mappings you created using the <code>CreateEventSourceMapping</code> (see
-     * <a>CreateEventSourceMapping</a>).
-     * </p>
-     * <p>
-     * For each mapping, the API returns configuration information. You can optionally specify filters to retrieve
-     * specific event source mappings.
-     * </p>
-     * <p>
-     * If you are using the versioning feature, you can get list of event source mappings for a specific Lambda function
-     * version or an alias as described in the <code>FunctionName</code> parameter. For information about the versioning
-     * feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function
-     * Versioning and Aliases</a>.
-     * </p>
-     * <p>
-     * This operation requires permission for the <code>lambda:ListEventSourceMappings</code> action.
+     * Lists event source mappings. Specify an <code>EventSourceArn</code> to only show event source mappings for a
+     * single event source.
      * </p>
      * 
      * @param listEventSourceMappingsRequest
@@ -729,6 +808,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @sample AWSLambda.ListEventSourceMappings
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListEventSourceMappings" target="_top">AWS
      *      API Documentation</a>
@@ -762,6 +842,7 @@ public interface AWSLambda {
      * @throws ServiceException
      *         The AWS Lambda service encountered an internal error.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws InvalidParameterValueException
      *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
@@ -778,6 +859,55 @@ public interface AWSLambda {
      * @see #listFunctions(ListFunctionsRequest)
      */
     ListFunctionsResult listFunctions();
+
+    /**
+     * <p>
+     * Lists the versions of a function layer. Versions that have been deleted aren't listed. Specify a <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only
+     * versions that indicate that they're compatible with that runtime.
+     * </p>
+     * 
+     * @param listLayerVersionsRequest
+     * @return Result of the ListLayerVersions operation returned by the service.
+     * @throws ServiceException
+     *         The AWS Lambda service encountered an internal error.
+     * @throws InvalidParameterValueException
+     *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
+     *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
+     *         AWS Lambda is unable to assume you will get this exception.
+     * @throws ResourceNotFoundException
+     *         The resource (for example, a Lambda function or access policy statement) specified in the request does
+     *         not exist.
+     * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
+     * @sample AWSLambda.ListLayerVersions
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListLayerVersions" target="_top">AWS API
+     *      Documentation</a>
+     */
+    ListLayerVersionsResult listLayerVersions(ListLayerVersionsRequest listLayerVersionsRequest);
+
+    /**
+     * <p>
+     * Lists function layers and shows information about the latest version of each. Specify a <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only
+     * layers that indicate that they're compatible with that runtime.
+     * </p>
+     * 
+     * @param listLayersRequest
+     * @return Result of the ListLayers operation returned by the service.
+     * @throws ServiceException
+     *         The AWS Lambda service encountered an internal error.
+     * @throws InvalidParameterValueException
+     *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
+     *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
+     *         AWS Lambda is unable to assume you will get this exception.
+     * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
+     * @sample AWSLambda.ListLayers
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListLayers" target="_top">AWS API
+     *      Documentation</a>
+     */
+    ListLayersResult listLayers(ListLayersRequest listLayersRequest);
 
     /**
      * <p>
@@ -798,6 +928,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @sample AWSLambda.ListTags
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListTags" target="_top">AWS API
      *      Documentation</a>
@@ -806,7 +937,7 @@ public interface AWSLambda {
 
     /**
      * <p>
-     * List all versions of a function. For information about the versioning feature, see <a
+     * Lists all versions of a function. For information about versioning, see <a
      * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and
      * Aliases</a>.
      * </p>
@@ -823,11 +954,43 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @sample AWSLambda.ListVersionsByFunction
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListVersionsByFunction" target="_top">AWS
      *      API Documentation</a>
      */
     ListVersionsByFunctionResult listVersionsByFunction(ListVersionsByFunctionRequest listVersionsByFunctionRequest);
+
+    /**
+     * <p>
+     * Creates a function layer from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same
+     * version name, a new version is created.
+     * </p>
+     * <p>
+     * Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.
+     * </p>
+     * 
+     * @param publishLayerVersionRequest
+     * @return Result of the PublishLayerVersion operation returned by the service.
+     * @throws ServiceException
+     *         The AWS Lambda service encountered an internal error.
+     * @throws ResourceNotFoundException
+     *         The resource (for example, a Lambda function or access policy statement) specified in the request does
+     *         not exist.
+     * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
+     * @throws InvalidParameterValueException
+     *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
+     *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
+     *         AWS Lambda is unable to assume you will get this exception.
+     * @throws CodeStorageExceededException
+     *         You have exceeded your maximum total code size per account. <a
+     *         href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">Limits</a>
+     * @sample AWSLambda.PublishLayerVersion
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/PublishLayerVersion" target="_top">AWS API
+     *      Documentation</a>
+     */
+    PublishLayerVersionResult publishLayerVersion(PublishLayerVersionRequest publishLayerVersionRequest);
 
     /**
      * <p>
@@ -850,6 +1013,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws CodeStorageExceededException
      *         You have exceeded your maximum total code size per account. <a
      *         href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">Limits</a>
@@ -868,8 +1032,8 @@ public interface AWSLambda {
      * Sets a limit on the number of concurrent executions available to this function. It is a subset of your account's
      * total concurrent execution limit per region. Note that Lambda automatically reserves a buffer of 100 concurrent
      * executions for functions without any reserved concurrency limit. This means if your account limit is 1000, you
-     * have a total of 900 available to allocate to individual functions. For more information, see
-     * <a>concurrent-executions</a>.
+     * have a total of 900 available to allocate to individual functions. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing Concurrency</a>.
      * </p>
      * 
      * @param putFunctionConcurrencyRequest
@@ -884,6 +1048,7 @@ public interface AWSLambda {
      *         The resource (for example, a Lambda function or access policy statement) specified in the request does
      *         not exist.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @sample AWSLambda.PutFunctionConcurrency
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/PutFunctionConcurrency" target="_top">AWS
      *      API Documentation</a>
@@ -892,17 +1057,46 @@ public interface AWSLambda {
 
     /**
      * <p>
-     * You can remove individual permissions from an resource policy associated with a Lambda function by providing a
-     * statement ID that you provided when you added the permission.
+     * Removes a statement from the permissions policy for a layer version. For more information, see
+     * <a>AddLayerVersionPermission</a>.
+     * </p>
+     * 
+     * @param removeLayerVersionPermissionRequest
+     * @return Result of the RemoveLayerVersionPermission operation returned by the service.
+     * @throws ServiceException
+     *         The AWS Lambda service encountered an internal error.
+     * @throws ResourceNotFoundException
+     *         The resource (for example, a Lambda function or access policy statement) specified in the request does
+     *         not exist.
+     * @throws InvalidParameterValueException
+     *         One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda
+     *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
+     *         AWS Lambda is unable to assume you will get this exception.
+     * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
+     * @throws PreconditionFailedException
+     *         The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the
+     *         <code>GetFunction</code> or the <code>GetAlias</code> API to retrieve the latest RevisionId for your
+     *         resource.
+     * @sample AWSLambda.RemoveLayerVersionPermission
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/RemoveLayerVersionPermission"
+     *      target="_top">AWS API Documentation</a>
+     */
+    RemoveLayerVersionPermissionResult removeLayerVersionPermission(RemoveLayerVersionPermissionRequest removeLayerVersionPermissionRequest);
+
+    /**
+     * <p>
+     * Removes permissions from a function. You can remove individual permissions from an resource policy associated
+     * with a Lambda function by providing a statement ID that you provided when you added the permission. When you
+     * remove permissions, disable the event source mapping or trigger configuration first to avoid errors.
      * </p>
      * <p>
-     * If you are using versioning, the permissions you remove are specific to the Lambda function version or alias you
-     * specify in the <code>AddPermission</code> request via the <code>Qualifier</code> parameter. For more information
-     * about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda
-     * Function Versioning and Aliases</a>.
-     * </p>
-     * <p>
-     * Note that removal of a permission will cause an active event source to lose permission to the function.
+     * Permissions apply to the Amazon Resource Name (ARN) used to invoke the function, which can be unqualified (the
+     * unpublished version of the function), or include a version or alias. If a client uses a version or alias to
+     * invoke a function, use the <code>Qualifier</code> parameter to apply permissions to that ARN. For more
+     * information about versioning, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and
+     * Aliases</a>.
      * </p>
      * <p>
      * You need permission for the <code>lambda:RemovePermission</code> action.
@@ -920,6 +1114,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws PreconditionFailedException
      *         The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the
      *         <code>GetFunction</code> or the <code>GetAlias</code> API to retrieve the latest RevisionId for your
@@ -950,6 +1145,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @sample AWSLambda.TagResource
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/TagResource" target="_top">AWS API
      *      Documentation</a>
@@ -975,6 +1171,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @sample AWSLambda.UntagResource
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/UntagResource" target="_top">AWS API
      *      Documentation</a>
@@ -1003,6 +1200,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws PreconditionFailedException
      *         The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the
      *         <code>GetFunction</code> or the <code>GetAlias</code> API to retrieve the latest RevisionId for your
@@ -1015,23 +1213,8 @@ public interface AWSLambda {
 
     /**
      * <p>
-     * You can update an event source mapping. This is useful if you want to change the parameters of the existing
-     * mapping without losing your position in the stream. You can change which function will receive the stream
-     * records, but to change the stream itself, you must create a new mapping.
-     * </p>
-     * <p>
-     * If you are using the versioning feature, you can update the event source mapping to map to a specific Lambda
-     * function version or alias as described in the <code>FunctionName</code> parameter. For information about the
-     * versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda
-     * Function Versioning and Aliases</a>.
-     * </p>
-     * <p>
-     * If you disable the event source mapping, AWS Lambda stops polling. If you enable again, it will resume polling
-     * from the time it had stopped polling, so you don't lose processing of any records. However, if you delete event
-     * source mapping and create it again, it will reset.
-     * </p>
-     * <p>
-     * This operation requires permission for the <code>lambda:UpdateEventSourceMapping</code> action.
+     * Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and
+     * resume later from the same location.
      * </p>
      * 
      * @param updateEventSourceMappingRequest
@@ -1046,8 +1229,12 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws ResourceConflictException
      *         The resource already exists.
+     * @throws ResourceInUseException
+     *         The operation conflicts with the resource's availability. For example, you attempted to update an
+     *         EventSoure Mapping in CREATING, or tried to delete a EventSoure mapping currently in the UPDATING state.
      * @sample AWSLambda.UpdateEventSourceMapping
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/UpdateEventSourceMapping"
      *      target="_top">AWS API Documentation</a>
@@ -1081,6 +1268,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws CodeStorageExceededException
      *         You have exceeded your maximum total code size per account. <a
      *         href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">Limits</a>
@@ -1122,6 +1310,7 @@ public interface AWSLambda {
      *         to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that
      *         AWS Lambda is unable to assume you will get this exception.
      * @throws TooManyRequestsException
+     *         Request throughput limit exceeded
      * @throws ResourceConflictException
      *         The resource already exists.
      * @throws PreconditionFailedException

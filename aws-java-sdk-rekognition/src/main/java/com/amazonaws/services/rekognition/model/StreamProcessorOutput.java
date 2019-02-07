@@ -19,8 +19,9 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Information about the Amazon Kinesis Data Streams stream to which a Rekognition Video stream processor streams the
- * results of a video analysis. For more information, see .
+ * Information about the Amazon Kinesis Data Streams stream to which a Amazon Rekognition Video stream processor streams
+ * the results of a video analysis. For more information, see CreateStreamProcessor in the Amazon Rekognition Developer
+ * Guide.
  * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -81,7 +82,8 @@ public class StreamProcessorOutput implements Serializable, Cloneable, Structure
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

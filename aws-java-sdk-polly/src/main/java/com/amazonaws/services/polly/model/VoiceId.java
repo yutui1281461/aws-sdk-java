@@ -46,6 +46,7 @@ public enum VoiceId {
     Penelope("Penelope"),
     Chantal("Chantal"),
     Celine("Celine"),
+    Lea("Lea"),
     Mathieu("Mathieu"),
     Dora("Dora"),
     Karl("Karl"),
@@ -71,7 +72,11 @@ public enum VoiceId {
     Vicki("Vicki"),
     Takumi("Takumi"),
     Seoyeon("Seoyeon"),
-    Aditi("Aditi");
+    Aditi("Aditi"),
+    Zhiyu("Zhiyu"),
+    Bianca("Bianca"),
+    Lucia("Lucia"),
+    Mia("Mia");
 
     private String value;
 

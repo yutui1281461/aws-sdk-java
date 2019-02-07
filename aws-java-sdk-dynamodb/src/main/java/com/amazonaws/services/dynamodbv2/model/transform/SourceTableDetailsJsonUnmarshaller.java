@@ -70,7 +70,7 @@ public class SourceTableDetailsJsonUnmarshaller implements Unmarshaller<SourceTa
                 }
                 if (context.testExpression("TableCreationDateTime", targetDepth)) {
                     context.nextToken();
-                    sourceTableDetails.setTableCreationDateTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    sourceTableDetails.setTableCreationDateTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("ProvisionedThroughput", targetDepth)) {
                     context.nextToken();
@@ -79,6 +79,10 @@ public class SourceTableDetailsJsonUnmarshaller implements Unmarshaller<SourceTa
                 if (context.testExpression("ItemCount", targetDepth)) {
                     context.nextToken();
                     sourceTableDetails.setItemCount(context.getUnmarshaller(Long.class).unmarshall(context));
+                }
+                if (context.testExpression("BillingMode", targetDepth)) {
+                    context.nextToken();
+                    sourceTableDetails.setBillingMode(context.getUnmarshaller(String.class).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

@@ -62,7 +62,7 @@ public class KeyPairJsonUnmarshaller implements Unmarshaller<KeyPair, JsonUnmars
                 }
                 if (context.testExpression("createdAt", targetDepth)) {
                     context.nextToken();
-                    keyPair.setCreatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    keyPair.setCreatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("location", targetDepth)) {
                     context.nextToken();
@@ -71,6 +71,10 @@ public class KeyPairJsonUnmarshaller implements Unmarshaller<KeyPair, JsonUnmars
                 if (context.testExpression("resourceType", targetDepth)) {
                     context.nextToken();
                     keyPair.setResourceType(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("tags", targetDepth)) {
+                    context.nextToken();
+                    keyPair.setTags(new ListUnmarshaller<Tag>(TagJsonUnmarshaller.getInstance()).unmarshall(context));
                 }
                 if (context.testExpression("fingerprint", targetDepth)) {
                     context.nextToken();

@@ -14,9 +14,9 @@
  */
 package com.amazonaws.util;
 
+import com.amazonaws.internal.SdkThreadLocalsRegistry;
 import java.io.IOException;
 import java.io.InputStream;
-
 import javax.xml.stream.XMLInputFactory;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.InputSource;
@@ -29,12 +29,13 @@ public class XmlUtils {
     /**
      * Shared factory for creating XML event readers
      */
-    private static final ThreadLocal<XMLInputFactory> xmlInputFactory = new ThreadLocal<XMLInputFactory>() {
-        @Override
-        protected XMLInputFactory initialValue() {
-            return createXmlInputFactory();
-        }
-    };
+    private static final ThreadLocal<XMLInputFactory> xmlInputFactory = SdkThreadLocalsRegistry.register(
+            new ThreadLocal<XMLInputFactory>() {
+                @Override
+                protected XMLInputFactory initialValue() {
+                    return createXmlInputFactory();
+                }
+            });
 
     public static XMLReader parse(InputStream in, ContentHandler handler)
         throws SAXException, IOException {

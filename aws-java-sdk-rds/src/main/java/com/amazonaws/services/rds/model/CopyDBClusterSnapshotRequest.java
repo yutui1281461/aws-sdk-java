@@ -50,8 +50,9 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * <li>
      * <p>
      * If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot ARN. For
-     * more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-     * Copying a DB Snapshot or DB Cluster Snapshot</a>.
+     * more information, go to <a href=
+     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
+     * > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
      * </p>
      * </li>
      * </ul>
@@ -81,7 +82,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * </li>
      * <li>
      * <p>
-     * Cannot end with a hyphen or contain two consecutive hyphens.
+     * Can't end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -197,8 +198,9 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * <li>
      * <p>
      * If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot ARN. For
-     * more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-     * Copying a DB Snapshot or DB Cluster Snapshot</a>.
+     * more information, go to <a href=
+     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
+     * > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
      * </p>
      * </li>
      * </ul>
@@ -228,9 +230,9 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      *        <li>
      *        <p>
      *        If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot
-     *        ARN. For more information, go to <a
-     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html"> Copying a DB Snapshot
-     *        or DB Cluster Snapshot</a>.
+     *        ARN. For more information, go to <a href=
+     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
+     *        > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
      *        </p>
      *        </li>
      *        </ul>
@@ -266,8 +268,9 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * <li>
      * <p>
      * If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot ARN. For
-     * more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-     * Copying a DB Snapshot or DB Cluster Snapshot</a>.
+     * more information, go to <a href=
+     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
+     * > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
      * </p>
      * </li>
      * </ul>
@@ -296,9 +299,9 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      *         <li>
      *         <p>
      *         If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot
-     *         ARN. For more information, go to <a
-     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html"> Copying a DB
-     *         Snapshot or DB Cluster Snapshot</a>.
+     *         ARN. For more information, go to <a href=
+     *         "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
+     *         > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
      *         </p>
      *         </li>
      *         </ul>
@@ -334,8 +337,9 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * <li>
      * <p>
      * If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot ARN. For
-     * more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-     * Copying a DB Snapshot or DB Cluster Snapshot</a>.
+     * more information, go to <a href=
+     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
+     * > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
      * </p>
      * </li>
      * </ul>
@@ -365,9 +369,9 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      *        <li>
      *        <p>
      *        If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot
-     *        ARN. For more information, go to <a
-     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html"> Copying a DB Snapshot
-     *        or DB Cluster Snapshot</a>.
+     *        ARN. For more information, go to <a href=
+     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions"
+     *        > Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
      *        </p>
      *        </li>
      *        </ul>
@@ -402,7 +406,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * </li>
      * <li>
      * <p>
-     * Cannot end with a hyphen or contain two consecutive hyphens.
+     * Can't end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -429,7 +433,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      *        </li>
      *        <li>
      *        <p>
-     *        Cannot end with a hyphen or contain two consecutive hyphens.
+     *        Can't end with a hyphen or contain two consecutive hyphens.
      *        </p>
      *        </li>
      *        </ul>
@@ -462,7 +466,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * </li>
      * <li>
      * <p>
-     * Cannot end with a hyphen or contain two consecutive hyphens.
+     * Can't end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -488,7 +492,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      *         </li>
      *         <li>
      *         <p>
-     *         Cannot end with a hyphen or contain two consecutive hyphens.
+     *         Can't end with a hyphen or contain two consecutive hyphens.
      *         </p>
      *         </li>
      *         </ul>
@@ -521,7 +525,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      * </li>
      * <li>
      * <p>
-     * Cannot end with a hyphen or contain two consecutive hyphens.
+     * Can't end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -548,7 +552,7 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
      *        </li>
      *        <li>
      *        <p>
-     *        Cannot end with a hyphen or contain two consecutive hyphens.
+     *        Can't end with a hyphen or contain two consecutive hyphens.
      *        </p>
      *        </li>
      *        </ul>
@@ -1146,7 +1150,8 @@ public class CopyDBClusterSnapshotRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -38,7 +38,9 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * fails and the notebook instance is not created or started.
  * </p>
  * <p>
- * For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.
+ * For information about notebook instance lifestyle configurations, see <a
+ * href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional) Customize a
+ * Notebook Instance</a>.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/NotebookInstanceLifecycleHook"
@@ -95,7 +97,8 @@ public class NotebookInstanceLifecycleHook implements Serializable, Cloneable, S
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

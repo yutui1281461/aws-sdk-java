@@ -27,7 +27,7 @@ public class UpdateRulesOfIpGroupRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The ID of the group.
+     * The identifier of the group.
      * </p>
      */
     private String groupId;
@@ -40,11 +40,11 @@ public class UpdateRulesOfIpGroupRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The ID of the group.
+     * The identifier of the group.
      * </p>
      * 
      * @param groupId
-     *        The ID of the group.
+     *        The identifier of the group.
      */
 
     public void setGroupId(String groupId) {
@@ -53,10 +53,10 @@ public class UpdateRulesOfIpGroupRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The ID of the group.
+     * The identifier of the group.
      * </p>
      * 
-     * @return The ID of the group.
+     * @return The identifier of the group.
      */
 
     public String getGroupId() {
@@ -65,11 +65,11 @@ public class UpdateRulesOfIpGroupRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The ID of the group.
+     * The identifier of the group.
      * </p>
      * 
      * @param groupId
-     *        The ID of the group.
+     *        The identifier of the group.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -152,7 +152,8 @@ public class UpdateRulesOfIpGroupRequest extends com.amazonaws.AmazonWebServiceR
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

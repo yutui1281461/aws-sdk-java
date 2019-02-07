@@ -85,12 +85,17 @@ public class Volume implements Serializable, Cloneable {
      * The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this
      * represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this
      * represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for
-     * bursting. For more information on General Purpose SSD baseline performance, I/O credits, and bursting, see <a
+     * bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see <a
      * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
      * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
-     * Constraint: Range is 100-32000 IOPS for io1 volumes and 100-10000 IOPS for <code>gp2</code> volumes.
+     * Constraints: Range is 100-10,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for <code>io1</code>
+     * volumes in most regions. Maximum <code>io1</code>IOPS of 64,000 is guaranteed only on <a
+     * href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other instance
+     * families guarantee performance up to 32,000 IOPS. For more information, see <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
+     * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
      * Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests
@@ -562,12 +567,17 @@ public class Volume implements Serializable, Cloneable {
      * The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this
      * represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this
      * represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for
-     * bursting. For more information on General Purpose SSD baseline performance, I/O credits, and bursting, see <a
+     * bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see <a
      * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
      * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
-     * Constraint: Range is 100-32000 IOPS for io1 volumes and 100-10000 IOPS for <code>gp2</code> volumes.
+     * Constraints: Range is 100-10,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for <code>io1</code>
+     * volumes in most regions. Maximum <code>io1</code>IOPS of 64,000 is guaranteed only on <a
+     * href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other instance
+     * families guarantee performance up to 32,000 IOPS. For more information, see <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
+     * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
      * Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests
@@ -578,11 +588,16 @@ public class Volume implements Serializable, Cloneable {
      *        The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes,
      *        this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes,
      *        this represents the baseline performance of the volume and the rate at which the volume accumulates I/O
-     *        credits for bursting. For more information on General Purpose SSD baseline performance, I/O credits, and
-     *        bursting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS
-     *        Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     *        credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits,
+     *        and bursting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+     *        EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      *        <p>
-     *        Constraint: Range is 100-32000 IOPS for io1 volumes and 100-10000 IOPS for <code>gp2</code> volumes.
+     *        Constraints: Range is 100-10,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for
+     *        <code>io1</code> volumes in most regions. Maximum <code>io1</code>IOPS of 64,000 is guaranteed only on <a
+     *        href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other
+     *        instance families guarantee performance up to 32,000 IOPS. For more information, see <a
+     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>
+     *        in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      *        </p>
      *        <p>
      *        Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in
@@ -598,12 +613,17 @@ public class Volume implements Serializable, Cloneable {
      * The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this
      * represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this
      * represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for
-     * bursting. For more information on General Purpose SSD baseline performance, I/O credits, and bursting, see <a
+     * bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see <a
      * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
      * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
-     * Constraint: Range is 100-32000 IOPS for io1 volumes and 100-10000 IOPS for <code>gp2</code> volumes.
+     * Constraints: Range is 100-10,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for <code>io1</code>
+     * volumes in most regions. Maximum <code>io1</code>IOPS of 64,000 is guaranteed only on <a
+     * href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other instance
+     * families guarantee performance up to 32,000 IOPS. For more information, see <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
+     * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
      * Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests
@@ -613,12 +633,17 @@ public class Volume implements Serializable, Cloneable {
      * @return The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD
      *         volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD
      *         volumes, this represents the baseline performance of the volume and the rate at which the volume
-     *         accumulates I/O credits for bursting. For more information on General Purpose SSD baseline performance,
-     *         I/O credits, and bursting, see <a
+     *         accumulates I/O credits for bursting. For more information about General Purpose SSD baseline
+     *         performance, I/O credits, and bursting, see <a
      *         href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>
      *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      *         <p>
-     *         Constraint: Range is 100-32000 IOPS for io1 volumes and 100-10000 IOPS for <code>gp2</code> volumes.
+     *         Constraints: Range is 100-10,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for
+     *         <code>io1</code> volumes in most regions. Maximum <code>io1</code>IOPS of 64,000 is guaranteed only on <a
+     *         href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other
+     *         instance families guarantee performance up to 32,000 IOPS. For more information, see <a
+     *         href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>
+     *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      *         </p>
      *         <p>
      *         Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in
@@ -635,12 +660,17 @@ public class Volume implements Serializable, Cloneable {
      * The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this
      * represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this
      * represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for
-     * bursting. For more information on General Purpose SSD baseline performance, I/O credits, and bursting, see <a
+     * bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see <a
      * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
      * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
-     * Constraint: Range is 100-32000 IOPS for io1 volumes and 100-10000 IOPS for <code>gp2</code> volumes.
+     * Constraints: Range is 100-10,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for <code>io1</code>
+     * volumes in most regions. Maximum <code>io1</code>IOPS of 64,000 is guaranteed only on <a
+     * href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other instance
+     * families guarantee performance up to 32,000 IOPS. For more information, see <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
+     * <i>Amazon Elastic Compute Cloud User Guide</i>.
      * </p>
      * <p>
      * Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests
@@ -651,11 +681,16 @@ public class Volume implements Serializable, Cloneable {
      *        The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes,
      *        this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes,
      *        this represents the baseline performance of the volume and the rate at which the volume accumulates I/O
-     *        credits for bursting. For more information on General Purpose SSD baseline performance, I/O credits, and
-     *        bursting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS
-     *        Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     *        credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits,
+     *        and bursting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+     *        EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      *        <p>
-     *        Constraint: Range is 100-32000 IOPS for io1 volumes and 100-10000 IOPS for <code>gp2</code> volumes.
+     *        Constraints: Range is 100-10,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for
+     *        <code>io1</code> volumes in most regions. Maximum <code>io1</code>IOPS of 64,000 is guaranteed only on <a
+     *        href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other
+     *        instance families guarantee performance up to 32,000 IOPS. For more information, see <a
+     *        href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a>
+     *        in the <i>Amazon Elastic Compute Cloud User Guide</i>.
      *        </p>
      *        <p>
      *        Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in
@@ -835,7 +870,8 @@ public class Volume implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -15,6 +15,7 @@ package com.amazonaws.services.stepfunctions;
 import javax.annotation.Generated;
 
 import com.amazonaws.ClientConfigurationFactory;
+
 import com.amazonaws.annotation.NotThreadSafe;
 import com.amazonaws.client.builder.AwsSyncClientBuilder;
 import com.amazonaws.client.AwsSyncClientParams;
@@ -27,7 +28,7 @@ import com.amazonaws.client.AwsSyncClientParams;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public final class AWSStepFunctionsClientBuilder extends AwsSyncClientBuilder<AWSStepFunctionsClientBuilder, AWSStepFunctions> {
 
-    private static final ClientConfigurationFactory CLIENT_CONFIG_FACTORY = new ClientConfigurationFactory();
+    private static final ClientConfigurationFactory CLIENT_CONFIG_FACTORY = new com.amazonaws.services.stepfunctions.AWSStepFunctionsClientConfigurationFactory();
 
     /**
      * @return Create new instance of builder with all defaults set.

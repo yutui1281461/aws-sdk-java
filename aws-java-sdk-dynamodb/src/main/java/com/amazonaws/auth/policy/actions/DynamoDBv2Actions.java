@@ -45,6 +45,8 @@ public enum DynamoDBv2Actions implements Action {
     DescribeBackup("dynamodb:DescribeBackup"),
     /** Action for the DescribeContinuousBackups operation. */
     DescribeContinuousBackups("dynamodb:DescribeContinuousBackups"),
+    /** Action for the DescribeEndpoints operation. */
+    DescribeEndpoints("dynamodb:DescribeEndpoints"),
     /** Action for the DescribeGlobalTable operation. */
     DescribeGlobalTable("dynamodb:DescribeGlobalTable"),
     /** Action for the DescribeGlobalTableSettings operation. */
@@ -77,6 +79,10 @@ public enum DynamoDBv2Actions implements Action {
     Scan("dynamodb:Scan"),
     /** Action for the TagResource operation. */
     TagResource("dynamodb:TagResource"),
+    /** Action for the TransactGetItems operation. */
+    TransactGetItems("dynamodb:TransactGetItems"),
+    /** Action for the TransactWriteItems operation. */
+    TransactWriteItems("dynamodb:TransactWriteItems"),
     /** Action for the UntagResource operation. */
     UntagResource("dynamodb:UntagResource"),
     /** Action for the UpdateContinuousBackups operation. */

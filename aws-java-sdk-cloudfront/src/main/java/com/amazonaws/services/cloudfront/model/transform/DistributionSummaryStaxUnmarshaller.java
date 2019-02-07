@@ -59,7 +59,7 @@ public class DistributionSummaryStaxUnmarshaller implements Unmarshaller<Distrib
                 }
 
                 if (context.testExpression("LastModifiedTime", targetDepth)) {
-                    distributionSummary.setLastModifiedTime(DateStaxUnmarshaller.getInstance().unmarshall(context));
+                    distributionSummary.setLastModifiedTime(DateStaxUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
                     continue;
                 }
 
@@ -75,6 +75,11 @@ public class DistributionSummaryStaxUnmarshaller implements Unmarshaller<Distrib
 
                 if (context.testExpression("Origins", targetDepth)) {
                     distributionSummary.setOrigins(OriginsStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("OriginGroups", targetDepth)) {
+                    distributionSummary.setOriginGroups(OriginGroupsStaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
                 }
 

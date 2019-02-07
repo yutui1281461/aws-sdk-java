@@ -56,7 +56,7 @@ public class SnapshotStaxUnmarshaller implements Unmarshaller<Snapshot, StaxUnma
                 }
 
                 if (context.testExpression("SnapshotCreateTime", targetDepth)) {
-                    snapshot.setSnapshotCreateTime(DateStaxUnmarshaller.getInstance().unmarshall(context));
+                    snapshot.setSnapshotCreateTime(DateStaxUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
                     continue;
                 }
 
@@ -76,7 +76,7 @@ public class SnapshotStaxUnmarshaller implements Unmarshaller<Snapshot, StaxUnma
                 }
 
                 if (context.testExpression("ClusterCreateTime", targetDepth)) {
-                    snapshot.setClusterCreateTime(DateStaxUnmarshaller.getInstance().unmarshall(context));
+                    snapshot.setClusterCreateTime(DateStaxUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
                     continue;
                 }
 
@@ -202,6 +202,26 @@ public class SnapshotStaxUnmarshaller implements Unmarshaller<Snapshot, StaxUnma
 
                 if (context.testExpression("EnhancedVpcRouting", targetDepth)) {
                     snapshot.setEnhancedVpcRouting(BooleanStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("MaintenanceTrackName", targetDepth)) {
+                    snapshot.setMaintenanceTrackName(StringStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("ManualSnapshotRetentionPeriod", targetDepth)) {
+                    snapshot.setManualSnapshotRetentionPeriod(IntegerStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("ManualSnapshotRemainingDays", targetDepth)) {
+                    snapshot.setManualSnapshotRemainingDays(IntegerStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("SnapshotRetentionStartTime", targetDepth)) {
+                    snapshot.setSnapshotRetentionStartTime(DateStaxUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
                     continue;
                 }
             } else if (xmlEvent.isEndElement()) {

@@ -35,7 +35,8 @@ public interface AmazonTranscribeAsync extends AmazonTranscribe {
     /**
      * <p>
      * Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an
-     * audio file.
+     * audio file. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available.
+     * In the console, the vocabulary section will be greyed-out and SDK will return error message.
      * </p>
      * 
      * @param createVocabularyRequest
@@ -49,7 +50,8 @@ public interface AmazonTranscribeAsync extends AmazonTranscribe {
     /**
      * <p>
      * Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an
-     * audio file.
+     * audio file. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available.
+     * In the console, the vocabulary section will be greyed-out and SDK will return error message.
      * </p>
      * 
      * @param createVocabularyRequest
@@ -64,6 +66,39 @@ public interface AmazonTranscribeAsync extends AmazonTranscribe {
      */
     java.util.concurrent.Future<CreateVocabularyResult> createVocabularyAsync(CreateVocabularyRequest createVocabularyRequest,
             com.amazonaws.handlers.AsyncHandler<CreateVocabularyRequest, CreateVocabularyResult> asyncHandler);
+
+    /**
+     * <p>
+     * Deletes a previously submitted transcription job along with any other generated results such as the
+     * transcription, models, and so on.
+     * </p>
+     * 
+     * @param deleteTranscriptionJobRequest
+     * @return A Java Future containing the result of the DeleteTranscriptionJob operation returned by the service.
+     * @sample AmazonTranscribeAsync.DeleteTranscriptionJob
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/DeleteTranscriptionJob"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<DeleteTranscriptionJobResult> deleteTranscriptionJobAsync(DeleteTranscriptionJobRequest deleteTranscriptionJobRequest);
+
+    /**
+     * <p>
+     * Deletes a previously submitted transcription job along with any other generated results such as the
+     * transcription, models, and so on.
+     * </p>
+     * 
+     * @param deleteTranscriptionJobRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the DeleteTranscriptionJob operation returned by the service.
+     * @sample AmazonTranscribeAsyncHandler.DeleteTranscriptionJob
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/DeleteTranscriptionJob"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<DeleteTranscriptionJobResult> deleteTranscriptionJobAsync(DeleteTranscriptionJobRequest deleteTranscriptionJobRequest,
+            com.amazonaws.handlers.AsyncHandler<DeleteTranscriptionJobRequest, DeleteTranscriptionJobResult> asyncHandler);
 
     /**
      * <p>
@@ -133,7 +168,9 @@ public interface AmazonTranscribeAsync extends AmazonTranscribe {
 
     /**
      * <p>
-     * Gets information about a vocabulary.
+     * Gets information about a vocabulary. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in
+     * preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error
+     * message.
      * </p>
      * 
      * @param getVocabularyRequest
@@ -146,7 +183,9 @@ public interface AmazonTranscribeAsync extends AmazonTranscribe {
 
     /**
      * <p>
-     * Gets information about a vocabulary.
+     * Gets information about a vocabulary. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in
+     * preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error
+     * message.
      * </p>
      * 
      * @param getVocabularyRequest
@@ -228,7 +267,8 @@ public interface AmazonTranscribeAsync extends AmazonTranscribe {
 
     /**
      * <p>
-     * Starts an asynchronous job to transcribe speech to text.
+     * Starts an asynchronous job to transcribe speech to text. Note that en-AU, en-UK, and fr-CA languages are in
+     * preview and are only available to whitelisted customers.
      * </p>
      * 
      * @param startTranscriptionJobRequest
@@ -241,7 +281,8 @@ public interface AmazonTranscribeAsync extends AmazonTranscribe {
 
     /**
      * <p>
-     * Starts an asynchronous job to transcribe speech to text.
+     * Starts an asynchronous job to transcribe speech to text. Note that en-AU, en-UK, and fr-CA languages are in
+     * preview and are only available to whitelisted customers.
      * </p>
      * 
      * @param startTranscriptionJobRequest
@@ -259,7 +300,10 @@ public interface AmazonTranscribeAsync extends AmazonTranscribe {
 
     /**
      * <p>
-     * Updates an existing vocabulary with new values.
+     * Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the
+     * existing information with the values that you provide in the request. Note that vocabularies for en-AU, en-UK,
+     * and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be
+     * greyed-out and SDK will return error message.
      * </p>
      * 
      * @param updateVocabularyRequest
@@ -272,7 +316,10 @@ public interface AmazonTranscribeAsync extends AmazonTranscribe {
 
     /**
      * <p>
-     * Updates an existing vocabulary with new values.
+     * Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the
+     * existing information with the values that you provide in the request. Note that vocabularies for en-AU, en-UK,
+     * and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be
+     * greyed-out and SDK will return error message.
      * </p>
      * 
      * @param updateVocabularyRequest

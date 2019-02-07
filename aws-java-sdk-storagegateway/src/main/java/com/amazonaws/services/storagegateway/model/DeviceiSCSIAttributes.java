@@ -30,7 +30,7 @@ public class DeviceiSCSIAttributes implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or
+     * Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or
      * media changer target.
      * </p>
      */
@@ -56,12 +56,12 @@ public class DeviceiSCSIAttributes implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or
+     * Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or
      * media changer target.
      * </p>
      * 
      * @param targetARN
-     *        Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI qualified name(iqn) of a tape drive
+     *        Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive
      *        or media changer target.
      */
 
@@ -71,12 +71,12 @@ public class DeviceiSCSIAttributes implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or
+     * Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or
      * media changer target.
      * </p>
      * 
-     * @return Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI qualified name(iqn) of a tape drive
-     *         or media changer target.
+     * @return Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape
+     *         drive or media changer target.
      */
 
     public String getTargetARN() {
@@ -85,12 +85,12 @@ public class DeviceiSCSIAttributes implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or
+     * Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or
      * media changer target.
      * </p>
      * 
      * @param targetARN
-     *        Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI qualified name(iqn) of a tape drive
+     *        Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive
      *        or media changer target.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -233,7 +233,8 @@ public class DeviceiSCSIAttributes implements Serializable, Cloneable, Structure
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

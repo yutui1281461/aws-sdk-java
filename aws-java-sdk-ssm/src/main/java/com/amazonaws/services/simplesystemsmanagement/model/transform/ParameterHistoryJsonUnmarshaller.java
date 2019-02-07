@@ -62,7 +62,7 @@ public class ParameterHistoryJsonUnmarshaller implements Unmarshaller<ParameterH
                 }
                 if (context.testExpression("LastModifiedDate", targetDepth)) {
                     context.nextToken();
-                    parameterHistory.setLastModifiedDate(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    parameterHistory.setLastModifiedDate(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("LastModifiedUser", targetDepth)) {
                     context.nextToken();
@@ -83,6 +83,10 @@ public class ParameterHistoryJsonUnmarshaller implements Unmarshaller<ParameterH
                 if (context.testExpression("Version", targetDepth)) {
                     context.nextToken();
                     parameterHistory.setVersion(context.getUnmarshaller(Long.class).unmarshall(context));
+                }
+                if (context.testExpression("Labels", targetDepth)) {
+                    context.nextToken();
+                    parameterHistory.setLabels(new ListUnmarshaller<String>(context.getUnmarshaller(String.class)).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

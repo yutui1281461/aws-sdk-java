@@ -33,8 +33,13 @@ import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
  * <fullname>Amazon EC2 Auto Scaling</fullname>
  * <p>
  * Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined
- * policies, schedules, and health checks. Use this service in conjunction with the AWS Auto Scaling, Amazon CloudWatch,
- * and Elastic Load Balancing services.
+ * policies, schedules, and health checks. Use this service with AWS Auto Scaling, Amazon CloudWatch, and Elastic Load
+ * Balancing.
+ * </p>
+ * <p>
+ * For more information, see the <a
+ * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon EC2 Auto
+ * Scaling User Guide</a>.
  * </p>
  */
 @ThreadSafe
@@ -367,6 +372,74 @@ public class AmazonAutoScalingAsyncClient extends AmazonAutoScalingClient implem
             com.amazonaws.handlers.AsyncHandler<AttachLoadBalancersRequest, AttachLoadBalancersResult> asyncHandler) {
 
         return attachLoadBalancersAsync(new AttachLoadBalancersRequest(), asyncHandler);
+    }
+
+    @Override
+    public java.util.concurrent.Future<BatchDeleteScheduledActionResult> batchDeleteScheduledActionAsync(BatchDeleteScheduledActionRequest request) {
+
+        return batchDeleteScheduledActionAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<BatchDeleteScheduledActionResult> batchDeleteScheduledActionAsync(final BatchDeleteScheduledActionRequest request,
+            final com.amazonaws.handlers.AsyncHandler<BatchDeleteScheduledActionRequest, BatchDeleteScheduledActionResult> asyncHandler) {
+        final BatchDeleteScheduledActionRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<BatchDeleteScheduledActionResult>() {
+            @Override
+            public BatchDeleteScheduledActionResult call() throws Exception {
+                BatchDeleteScheduledActionResult result = null;
+
+                try {
+                    result = executeBatchDeleteScheduledAction(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<BatchPutScheduledUpdateGroupActionResult> batchPutScheduledUpdateGroupActionAsync(
+            BatchPutScheduledUpdateGroupActionRequest request) {
+
+        return batchPutScheduledUpdateGroupActionAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<BatchPutScheduledUpdateGroupActionResult> batchPutScheduledUpdateGroupActionAsync(
+            final BatchPutScheduledUpdateGroupActionRequest request,
+            final com.amazonaws.handlers.AsyncHandler<BatchPutScheduledUpdateGroupActionRequest, BatchPutScheduledUpdateGroupActionResult> asyncHandler) {
+        final BatchPutScheduledUpdateGroupActionRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<BatchPutScheduledUpdateGroupActionResult>() {
+            @Override
+            public BatchPutScheduledUpdateGroupActionResult call() throws Exception {
+                BatchPutScheduledUpdateGroupActionResult result = null;
+
+                try {
+                    result = executeBatchPutScheduledUpdateGroupAction(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
     }
 
     @Override

@@ -78,11 +78,11 @@ public class CertificateDescriptionJsonUnmarshaller implements Unmarshaller<Cert
                 }
                 if (context.testExpression("creationDate", targetDepth)) {
                     context.nextToken();
-                    certificateDescription.setCreationDate(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    certificateDescription.setCreationDate(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("lastModifiedDate", targetDepth)) {
                     context.nextToken();
-                    certificateDescription.setLastModifiedDate(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    certificateDescription.setLastModifiedDate(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("customerVersion", targetDepth)) {
                     context.nextToken();
@@ -95,6 +95,10 @@ public class CertificateDescriptionJsonUnmarshaller implements Unmarshaller<Cert
                 if (context.testExpression("generationId", targetDepth)) {
                     context.nextToken();
                     certificateDescription.setGenerationId(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("validity", targetDepth)) {
+                    context.nextToken();
+                    certificateDescription.setValidity(CertificateValidityJsonUnmarshaller.getInstance().unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

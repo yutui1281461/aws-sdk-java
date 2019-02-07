@@ -59,6 +59,8 @@ public class DBClusterRole implements Serializable, Cloneable {
      */
     private String status;
 
+    private String featureName;
+
     /**
      * <p>
      * The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
@@ -257,7 +259,34 @@ public class DBClusterRole implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * @param featureName
+     */
+
+    public void setFeatureName(String featureName) {
+        this.featureName = featureName;
+    }
+
+    /**
+     * @return
+     */
+
+    public String getFeatureName() {
+        return this.featureName;
+    }
+
+    /**
+     * @param featureName
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DBClusterRole withFeatureName(String featureName) {
+        setFeatureName(featureName);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -270,7 +299,9 @@ public class DBClusterRole implements Serializable, Cloneable {
         if (getRoleArn() != null)
             sb.append("RoleArn: ").append(getRoleArn()).append(",");
         if (getStatus() != null)
-            sb.append("Status: ").append(getStatus());
+            sb.append("Status: ").append(getStatus()).append(",");
+        if (getFeatureName() != null)
+            sb.append("FeatureName: ").append(getFeatureName());
         sb.append("}");
         return sb.toString();
     }
@@ -293,6 +324,10 @@ public class DBClusterRole implements Serializable, Cloneable {
             return false;
         if (other.getStatus() != null && other.getStatus().equals(this.getStatus()) == false)
             return false;
+        if (other.getFeatureName() == null ^ this.getFeatureName() == null)
+            return false;
+        if (other.getFeatureName() != null && other.getFeatureName().equals(this.getFeatureName()) == false)
+            return false;
         return true;
     }
 
@@ -303,6 +338,7 @@ public class DBClusterRole implements Serializable, Cloneable {
 
         hashCode = prime * hashCode + ((getRoleArn() == null) ? 0 : getRoleArn().hashCode());
         hashCode = prime * hashCode + ((getStatus() == null) ? 0 : getStatus().hashCode());
+        hashCode = prime * hashCode + ((getFeatureName() == null) ? 0 : getFeatureName().hashCode());
         return hashCode;
     }
 

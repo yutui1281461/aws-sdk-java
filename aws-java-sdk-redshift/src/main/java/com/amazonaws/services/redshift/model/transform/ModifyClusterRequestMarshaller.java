@@ -98,6 +98,10 @@ public class ModifyClusterRequestMarshaller implements Marshaller<Request<Modify
             request.addParameter("AutomatedSnapshotRetentionPeriod", StringUtils.fromInteger(modifyClusterRequest.getAutomatedSnapshotRetentionPeriod()));
         }
 
+        if (modifyClusterRequest.getManualSnapshotRetentionPeriod() != null) {
+            request.addParameter("ManualSnapshotRetentionPeriod", StringUtils.fromInteger(modifyClusterRequest.getManualSnapshotRetentionPeriod()));
+        }
+
         if (modifyClusterRequest.getPreferredMaintenanceWindow() != null) {
             request.addParameter("PreferredMaintenanceWindow", StringUtils.fromString(modifyClusterRequest.getPreferredMaintenanceWindow()));
         }
@@ -132,6 +136,18 @@ public class ModifyClusterRequestMarshaller implements Marshaller<Request<Modify
 
         if (modifyClusterRequest.getEnhancedVpcRouting() != null) {
             request.addParameter("EnhancedVpcRouting", StringUtils.fromBoolean(modifyClusterRequest.getEnhancedVpcRouting()));
+        }
+
+        if (modifyClusterRequest.getMaintenanceTrackName() != null) {
+            request.addParameter("MaintenanceTrackName", StringUtils.fromString(modifyClusterRequest.getMaintenanceTrackName()));
+        }
+
+        if (modifyClusterRequest.getEncrypted() != null) {
+            request.addParameter("Encrypted", StringUtils.fromBoolean(modifyClusterRequest.getEncrypted()));
+        }
+
+        if (modifyClusterRequest.getKmsKeyId() != null) {
+            request.addParameter("KmsKeyId", StringUtils.fromString(modifyClusterRequest.getKmsKeyId()));
         }
 
         return request;

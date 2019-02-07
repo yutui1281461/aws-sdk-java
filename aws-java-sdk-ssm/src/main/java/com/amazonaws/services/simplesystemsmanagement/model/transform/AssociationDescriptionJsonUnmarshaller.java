@@ -62,11 +62,11 @@ public class AssociationDescriptionJsonUnmarshaller implements Unmarshaller<Asso
                 }
                 if (context.testExpression("Date", targetDepth)) {
                     context.nextToken();
-                    associationDescription.setDate(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    associationDescription.setDate(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("LastUpdateAssociationDate", targetDepth)) {
                     context.nextToken();
-                    associationDescription.setLastUpdateAssociationDate(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    associationDescription.setLastUpdateAssociationDate(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("Status", targetDepth)) {
                     context.nextToken();
@@ -103,15 +103,27 @@ public class AssociationDescriptionJsonUnmarshaller implements Unmarshaller<Asso
                 }
                 if (context.testExpression("LastExecutionDate", targetDepth)) {
                     context.nextToken();
-                    associationDescription.setLastExecutionDate(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    associationDescription.setLastExecutionDate(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("LastSuccessfulExecutionDate", targetDepth)) {
                     context.nextToken();
-                    associationDescription.setLastSuccessfulExecutionDate(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    associationDescription.setLastSuccessfulExecutionDate(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("AssociationName", targetDepth)) {
                     context.nextToken();
                     associationDescription.setAssociationName(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("MaxErrors", targetDepth)) {
+                    context.nextToken();
+                    associationDescription.setMaxErrors(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("MaxConcurrency", targetDepth)) {
+                    context.nextToken();
+                    associationDescription.setMaxConcurrency(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("ComplianceSeverity", targetDepth)) {
+                    context.nextToken();
+                    associationDescription.setComplianceSeverity(context.getUnmarshaller(String.class).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

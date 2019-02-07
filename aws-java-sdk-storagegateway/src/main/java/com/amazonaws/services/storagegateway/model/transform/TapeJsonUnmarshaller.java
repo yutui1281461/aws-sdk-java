@@ -58,7 +58,7 @@ public class TapeJsonUnmarshaller implements Unmarshaller<Tape, JsonUnmarshaller
                 }
                 if (context.testExpression("TapeCreatedDate", targetDepth)) {
                     context.nextToken();
-                    tape.setTapeCreatedDate(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    tape.setTapeCreatedDate(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("TapeSizeInBytes", targetDepth)) {
                     context.nextToken();
@@ -79,6 +79,10 @@ public class TapeJsonUnmarshaller implements Unmarshaller<Tape, JsonUnmarshaller
                 if (context.testExpression("TapeUsedInBytes", targetDepth)) {
                     context.nextToken();
                     tape.setTapeUsedInBytes(context.getUnmarshaller(Long.class).unmarshall(context));
+                }
+                if (context.testExpression("KMSKey", targetDepth)) {
+                    context.nextToken();
+                    tape.setKMSKey(context.getUnmarshaller(String.class).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

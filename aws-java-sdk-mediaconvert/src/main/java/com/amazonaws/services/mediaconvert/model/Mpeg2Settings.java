@@ -28,8 +28,7 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
 
     private String adaptiveQuantization;
     /**
-     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m.
-     * Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when
+     * Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when
      * rounded down to the nearest multiple of 1000.
      */
     private Integer bitrate;
@@ -37,6 +36,13 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     private String codecLevel;
 
     private String codecProfile;
+    /**
+     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
+     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
+     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
+     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     */
+    private String dynamicSubGop;
 
     private String framerateControl;
 
@@ -57,19 +63,13 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     private String gopSizeUnits;
     /** Percentage of the buffer that should initially be filled (HRD buffer model). */
     private Integer hrdBufferInitialFillPercentage;
-    /**
-     * Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be
-     * entered as 500000 or 0.5m.
-     */
+    /** Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000. */
     private Integer hrdBufferSize;
 
     private String interlaceMode;
 
     private String intraDcPrecision;
-    /**
-     * Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred
-     * kilobits can be entered as 500000 or 0.5m.
-     */
+    /** Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. */
     private Integer maxBitrate;
     /**
      * Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a
@@ -147,13 +147,11 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m.
-     * Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when
+     * Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when
      * rounded down to the nearest multiple of 1000.
      * 
      * @param bitrate
-     *        Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or
-     *        5m. Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique
+     *        Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique
      *        when rounded down to the nearest multiple of 1000.
      */
 
@@ -162,13 +160,11 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m.
-     * Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when
+     * Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when
      * rounded down to the nearest multiple of 1000.
      * 
-     * @return Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000
-     *         or 5m. Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be
-     *         unique when rounded down to the nearest multiple of 1000.
+     * @return Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique
+     *         when rounded down to the nearest multiple of 1000.
      */
 
     public Integer getBitrate() {
@@ -176,13 +172,11 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m.
-     * Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when
+     * Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when
      * rounded down to the nearest multiple of 1000.
      * 
      * @param bitrate
-     *        Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or
-     *        5m. Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique
+     *        Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique
      *        when rounded down to the nearest multiple of 1000.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -269,6 +263,81 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
 
     public Mpeg2Settings withCodecProfile(Mpeg2CodecProfile codecProfile) {
         this.codecProfile = codecProfile.toString();
+        return this;
+    }
+
+    /**
+     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
+     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
+     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
+     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * 
+     * @param dynamicSubGop
+     *        Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service
+     *        to use fewer B-frames (which infer information based on other frames) for high-motion portions of the
+     *        video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value
+     *        you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * @see Mpeg2DynamicSubGop
+     */
+
+    public void setDynamicSubGop(String dynamicSubGop) {
+        this.dynamicSubGop = dynamicSubGop;
+    }
+
+    /**
+     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
+     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
+     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
+     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * 
+     * @return Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service
+     *         to use fewer B-frames (which infer information based on other frames) for high-motion portions of the
+     *         video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value
+     *         you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * @see Mpeg2DynamicSubGop
+     */
+
+    public String getDynamicSubGop() {
+        return this.dynamicSubGop;
+    }
+
+    /**
+     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
+     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
+     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
+     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * 
+     * @param dynamicSubGop
+     *        Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service
+     *        to use fewer B-frames (which infer information based on other frames) for high-motion portions of the
+     *        video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value
+     *        you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see Mpeg2DynamicSubGop
+     */
+
+    public Mpeg2Settings withDynamicSubGop(String dynamicSubGop) {
+        setDynamicSubGop(dynamicSubGop);
+        return this;
+    }
+
+    /**
+     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
+     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
+     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
+     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * 
+     * @param dynamicSubGop
+     *        Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service
+     *        to use fewer B-frames (which infer information based on other frames) for high-motion portions of the
+     *        video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value
+     *        you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see Mpeg2DynamicSubGop
+     */
+
+    public Mpeg2Settings withDynamicSubGop(Mpeg2DynamicSubGop dynamicSubGop) {
+        this.dynamicSubGop = dynamicSubGop.toString();
         return this;
     }
 
@@ -575,12 +644,10 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be
-     * entered as 500000 or 0.5m.
+     * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
      * 
      * @param hrdBufferSize
-     *        Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits
-     *        can be entered as 500000 or 0.5m.
+     *        Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
      */
 
     public void setHrdBufferSize(Integer hrdBufferSize) {
@@ -588,11 +655,9 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be
-     * entered as 500000 or 0.5m.
+     * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
      * 
-     * @return Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits
-     *         can be entered as 500000 or 0.5m.
+     * @return Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
      */
 
     public Integer getHrdBufferSize() {
@@ -600,12 +665,10 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be
-     * entered as 500000 or 0.5m.
+     * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
      * 
      * @param hrdBufferSize
-     *        Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits
-     *        can be entered as 500000 or 0.5m.
+     *        Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -695,12 +758,10 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred
-     * kilobits can be entered as 500000 or 0.5m.
+     * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000.
      * 
      * @param maxBitrate
-     *        Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five
-     *        hundred kilobits can be entered as 500000 or 0.5m.
+     *        Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000.
      */
 
     public void setMaxBitrate(Integer maxBitrate) {
@@ -708,11 +769,9 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred
-     * kilobits can be entered as 500000 or 0.5m.
+     * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000.
      * 
-     * @return Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five
-     *         hundred kilobits can be entered as 500000 or 0.5m.
+     * @return Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000.
      */
 
     public Integer getMaxBitrate() {
@@ -720,12 +779,10 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred
-     * kilobits can be entered as 500000 or 0.5m.
+     * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000.
      * 
      * @param maxBitrate
-     *        Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five
-     *        hundred kilobits can be entered as 500000 or 0.5m.
+     *        Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1289,7 +1346,8 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1307,6 +1365,8 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
             sb.append("CodecLevel: ").append(getCodecLevel()).append(",");
         if (getCodecProfile() != null)
             sb.append("CodecProfile: ").append(getCodecProfile()).append(",");
+        if (getDynamicSubGop() != null)
+            sb.append("DynamicSubGop: ").append(getDynamicSubGop()).append(",");
         if (getFramerateControl() != null)
             sb.append("FramerateControl: ").append(getFramerateControl()).append(",");
         if (getFramerateConversionAlgorithm() != null)
@@ -1388,6 +1448,10 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
         if (other.getCodecProfile() == null ^ this.getCodecProfile() == null)
             return false;
         if (other.getCodecProfile() != null && other.getCodecProfile().equals(this.getCodecProfile()) == false)
+            return false;
+        if (other.getDynamicSubGop() == null ^ this.getDynamicSubGop() == null)
+            return false;
+        if (other.getDynamicSubGop() != null && other.getDynamicSubGop().equals(this.getDynamicSubGop()) == false)
             return false;
         if (other.getFramerateControl() == null ^ this.getFramerateControl() == null)
             return false;
@@ -1507,6 +1571,7 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getBitrate() == null) ? 0 : getBitrate().hashCode());
         hashCode = prime * hashCode + ((getCodecLevel() == null) ? 0 : getCodecLevel().hashCode());
         hashCode = prime * hashCode + ((getCodecProfile() == null) ? 0 : getCodecProfile().hashCode());
+        hashCode = prime * hashCode + ((getDynamicSubGop() == null) ? 0 : getDynamicSubGop().hashCode());
         hashCode = prime * hashCode + ((getFramerateControl() == null) ? 0 : getFramerateControl().hashCode());
         hashCode = prime * hashCode + ((getFramerateConversionAlgorithm() == null) ? 0 : getFramerateConversionAlgorithm().hashCode());
         hashCode = prime * hashCode + ((getFramerateDenominator() == null) ? 0 : getFramerateDenominator().hashCode());

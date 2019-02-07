@@ -114,15 +114,23 @@ public class DevEndpointJsonUnmarshaller implements Unmarshaller<DevEndpoint, Js
                 }
                 if (context.testExpression("CreatedTimestamp", targetDepth)) {
                     context.nextToken();
-                    devEndpoint.setCreatedTimestamp(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    devEndpoint.setCreatedTimestamp(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("LastModifiedTimestamp", targetDepth)) {
                     context.nextToken();
-                    devEndpoint.setLastModifiedTimestamp(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    devEndpoint.setLastModifiedTimestamp(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("PublicKey", targetDepth)) {
                     context.nextToken();
                     devEndpoint.setPublicKey(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("PublicKeys", targetDepth)) {
+                    context.nextToken();
+                    devEndpoint.setPublicKeys(new ListUnmarshaller<String>(context.getUnmarshaller(String.class)).unmarshall(context));
+                }
+                if (context.testExpression("SecurityConfiguration", targetDepth)) {
+                    context.nextToken();
+                    devEndpoint.setSecurityConfiguration(context.getUnmarshaller(String.class).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

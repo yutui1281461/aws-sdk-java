@@ -28,8 +28,7 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
 
     private String adaptiveQuantization;
     /**
-     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m.
-     * Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when
+     * Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when
      * rounded down to the nearest multiple of 1000.
      */
     private Integer bitrate;
@@ -37,6 +36,13 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     private String codecLevel;
 
     private String codecProfile;
+    /**
+     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
+     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
+     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
+     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     */
+    private String dynamicSubGop;
 
     private String entropyEncoding;
 
@@ -70,16 +76,13 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     private String gopSizeUnits;
     /** Percentage of the buffer that should initially be filled (HRD buffer model). */
     private Integer hrdBufferInitialFillPercentage;
-    /**
-     * Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be
-     * entered as 500000 or 0.5m.
-     */
+    /** Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000. */
     private Integer hrdBufferSize;
 
     private String interlaceMode;
     /**
-     * Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred
-     * kilobits can be entered as 500000 or 0.5m.
+     * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate
+     * control mode is QVBR.
      */
     private Integer maxBitrate;
     /**
@@ -105,6 +108,12 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     private Integer parNumerator;
 
     private String qualityTuningLevel;
+    /**
+     * Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate control
+     * mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate
+     * control mode.
+     */
+    private H264QvbrSettings qvbrSettings;
 
     private String rateControlMode;
 
@@ -172,13 +181,11 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m.
-     * Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when
+     * Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when
      * rounded down to the nearest multiple of 1000.
      * 
      * @param bitrate
-     *        Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or
-     *        5m. Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique
+     *        Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique
      *        when rounded down to the nearest multiple of 1000.
      */
 
@@ -187,13 +194,11 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m.
-     * Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when
+     * Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when
      * rounded down to the nearest multiple of 1000.
      * 
-     * @return Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000
-     *         or 5m. Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be
-     *         unique when rounded down to the nearest multiple of 1000.
+     * @return Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique
+     *         when rounded down to the nearest multiple of 1000.
      */
 
     public Integer getBitrate() {
@@ -201,13 +206,11 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or 5m.
-     * Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique when
+     * Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when
      * rounded down to the nearest multiple of 1000.
      * 
      * @param bitrate
-     *        Average bitrate in bits/second. Required for VBR, CBR, and ABR. Five megabits can be entered as 5000000 or
-     *        5m. Five hundred kilobits can be entered as 500000 or 0.5m. For MS Smooth outputs, bitrates must be unique
+     *        Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique
      *        when rounded down to the nearest multiple of 1000.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -294,6 +297,81 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
 
     public H264Settings withCodecProfile(H264CodecProfile codecProfile) {
         this.codecProfile = codecProfile.toString();
+        return this;
+    }
+
+    /**
+     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
+     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
+     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
+     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * 
+     * @param dynamicSubGop
+     *        Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service
+     *        to use fewer B-frames (which infer information based on other frames) for high-motion portions of the
+     *        video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value
+     *        you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * @see H264DynamicSubGop
+     */
+
+    public void setDynamicSubGop(String dynamicSubGop) {
+        this.dynamicSubGop = dynamicSubGop;
+    }
+
+    /**
+     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
+     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
+     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
+     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * 
+     * @return Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service
+     *         to use fewer B-frames (which infer information based on other frames) for high-motion portions of the
+     *         video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value
+     *         you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * @see H264DynamicSubGop
+     */
+
+    public String getDynamicSubGop() {
+        return this.dynamicSubGop;
+    }
+
+    /**
+     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
+     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
+     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
+     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * 
+     * @param dynamicSubGop
+     *        Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service
+     *        to use fewer B-frames (which infer information based on other frames) for high-motion portions of the
+     *        video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value
+     *        you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see H264DynamicSubGop
+     */
+
+    public H264Settings withDynamicSubGop(String dynamicSubGop) {
+        setDynamicSubGop(dynamicSubGop);
+        return this;
+    }
+
+    /**
+     * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use
+     * fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more
+     * B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the
+     * setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * 
+     * @param dynamicSubGop
+     *        Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service
+     *        to use fewer B-frames (which infer information based on other frames) for high-motion portions of the
+     *        video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value
+     *        you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see H264DynamicSubGop
+     */
+
+    public H264Settings withDynamicSubGop(H264DynamicSubGop dynamicSubGop) {
+        this.dynamicSubGop = dynamicSubGop.toString();
         return this;
     }
 
@@ -781,12 +859,10 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be
-     * entered as 500000 or 0.5m.
+     * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
      * 
      * @param hrdBufferSize
-     *        Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits
-     *        can be entered as 500000 or 0.5m.
+     *        Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
      */
 
     public void setHrdBufferSize(Integer hrdBufferSize) {
@@ -794,11 +870,9 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be
-     * entered as 500000 or 0.5m.
+     * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
      * 
-     * @return Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits
-     *         can be entered as 500000 or 0.5m.
+     * @return Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
      */
 
     public Integer getHrdBufferSize() {
@@ -806,12 +880,10 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits can be
-     * entered as 500000 or 0.5m.
+     * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
      * 
      * @param hrdBufferSize
-     *        Size of buffer (HRD buffer model). Five megabits can be entered as 5000000 or 5m. Five hundred kilobits
-     *        can be entered as 500000 or 0.5m.
+     *        Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -861,12 +933,12 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred
-     * kilobits can be entered as 500000 or 0.5m.
+     * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate
+     * control mode is QVBR.
      * 
      * @param maxBitrate
-     *        Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five
-     *        hundred kilobits can be entered as 500000 or 0.5m.
+     *        Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate
+     *        control mode is QVBR.
      */
 
     public void setMaxBitrate(Integer maxBitrate) {
@@ -874,11 +946,11 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred
-     * kilobits can be entered as 500000 or 0.5m.
+     * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate
+     * control mode is QVBR.
      * 
-     * @return Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five
-     *         hundred kilobits can be entered as 500000 or 0.5m.
+     * @return Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when
+     *         Rate control mode is QVBR.
      */
 
     public Integer getMaxBitrate() {
@@ -886,12 +958,12 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five hundred
-     * kilobits can be entered as 500000 or 0.5m.
+     * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate
+     * control mode is QVBR.
      * 
      * @param maxBitrate
-     *        Maximum bitrate in bits/second (for VBR mode only). Five megabits can be entered as 5000000 or 5m. Five
-     *        hundred kilobits can be entered as 500000 or 0.5m.
+     *        Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate
+     *        control mode is QVBR.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -1177,6 +1249,52 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
 
     public H264Settings withQualityTuningLevel(H264QualityTuningLevel qualityTuningLevel) {
         this.qualityTuningLevel = qualityTuningLevel.toString();
+        return this;
+    }
+
+    /**
+     * Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate control
+     * mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate
+     * control mode.
+     * 
+     * @param qvbrSettings
+     *        Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate
+     *        control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you
+     *        don't define Rate control mode.
+     */
+
+    public void setQvbrSettings(H264QvbrSettings qvbrSettings) {
+        this.qvbrSettings = qvbrSettings;
+    }
+
+    /**
+     * Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate control
+     * mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate
+     * control mode.
+     * 
+     * @return Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate
+     *         control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you
+     *         don't define Rate control mode.
+     */
+
+    public H264QvbrSettings getQvbrSettings() {
+        return this.qvbrSettings;
+    }
+
+    /**
+     * Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate control
+     * mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate
+     * control mode.
+     * 
+     * @param qvbrSettings
+     *        Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate
+     *        control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you
+     *        don't define Rate control mode.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public H264Settings withQvbrSettings(H264QvbrSettings qvbrSettings) {
+        setQvbrSettings(qvbrSettings);
         return this;
     }
 
@@ -1615,7 +1733,8 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -1633,6 +1752,8 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
             sb.append("CodecLevel: ").append(getCodecLevel()).append(",");
         if (getCodecProfile() != null)
             sb.append("CodecProfile: ").append(getCodecProfile()).append(",");
+        if (getDynamicSubGop() != null)
+            sb.append("DynamicSubGop: ").append(getDynamicSubGop()).append(",");
         if (getEntropyEncoding() != null)
             sb.append("EntropyEncoding: ").append(getEntropyEncoding()).append(",");
         if (getFieldEncoding() != null)
@@ -1677,6 +1798,8 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
             sb.append("ParNumerator: ").append(getParNumerator()).append(",");
         if (getQualityTuningLevel() != null)
             sb.append("QualityTuningLevel: ").append(getQualityTuningLevel()).append(",");
+        if (getQvbrSettings() != null)
+            sb.append("QvbrSettings: ").append(getQvbrSettings()).append(",");
         if (getRateControlMode() != null)
             sb.append("RateControlMode: ").append(getRateControlMode()).append(",");
         if (getRepeatPps() != null)
@@ -1728,6 +1851,10 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
         if (other.getCodecProfile() == null ^ this.getCodecProfile() == null)
             return false;
         if (other.getCodecProfile() != null && other.getCodecProfile().equals(this.getCodecProfile()) == false)
+            return false;
+        if (other.getDynamicSubGop() == null ^ this.getDynamicSubGop() == null)
+            return false;
+        if (other.getDynamicSubGop() != null && other.getDynamicSubGop().equals(this.getDynamicSubGop()) == false)
             return false;
         if (other.getEntropyEncoding() == null ^ this.getEntropyEncoding() == null)
             return false;
@@ -1819,6 +1946,10 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getQualityTuningLevel() != null && other.getQualityTuningLevel().equals(this.getQualityTuningLevel()) == false)
             return false;
+        if (other.getQvbrSettings() == null ^ this.getQvbrSettings() == null)
+            return false;
+        if (other.getQvbrSettings() != null && other.getQvbrSettings().equals(this.getQvbrSettings()) == false)
+            return false;
         if (other.getRateControlMode() == null ^ this.getRateControlMode() == null)
             return false;
         if (other.getRateControlMode() != null && other.getRateControlMode().equals(this.getRateControlMode()) == false)
@@ -1875,6 +2006,7 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getBitrate() == null) ? 0 : getBitrate().hashCode());
         hashCode = prime * hashCode + ((getCodecLevel() == null) ? 0 : getCodecLevel().hashCode());
         hashCode = prime * hashCode + ((getCodecProfile() == null) ? 0 : getCodecProfile().hashCode());
+        hashCode = prime * hashCode + ((getDynamicSubGop() == null) ? 0 : getDynamicSubGop().hashCode());
         hashCode = prime * hashCode + ((getEntropyEncoding() == null) ? 0 : getEntropyEncoding().hashCode());
         hashCode = prime * hashCode + ((getFieldEncoding() == null) ? 0 : getFieldEncoding().hashCode());
         hashCode = prime * hashCode + ((getFlickerAdaptiveQuantization() == null) ? 0 : getFlickerAdaptiveQuantization().hashCode());
@@ -1897,6 +2029,7 @@ public class H264Settings implements Serializable, Cloneable, StructuredPojo {
         hashCode = prime * hashCode + ((getParDenominator() == null) ? 0 : getParDenominator().hashCode());
         hashCode = prime * hashCode + ((getParNumerator() == null) ? 0 : getParNumerator().hashCode());
         hashCode = prime * hashCode + ((getQualityTuningLevel() == null) ? 0 : getQualityTuningLevel().hashCode());
+        hashCode = prime * hashCode + ((getQvbrSettings() == null) ? 0 : getQvbrSettings().hashCode());
         hashCode = prime * hashCode + ((getRateControlMode() == null) ? 0 : getRateControlMode().hashCode());
         hashCode = prime * hashCode + ((getRepeatPps() == null) ? 0 : getRepeatPps().hashCode());
         hashCode = prime * hashCode + ((getSceneChangeDetect() == null) ? 0 : getSceneChangeDetect().hashCode());

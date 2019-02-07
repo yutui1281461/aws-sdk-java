@@ -17,7 +17,8 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * This data type is used as a response element in the following actions:
+ * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as
+ * a response element in the following actions:
  * </p>
  * <ul>
  * <li>
@@ -36,6 +37,9 @@ import javax.annotation.Generated;
  * </p>
  * </li>
  * </ul>
+ * <p>
+ * For the data structure that represents Amazon Aurora DB cluster endpoints, see <a>DBClusterEndpoint</a>.
+ * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/Endpoint" target="_top">AWS API Documentation</a>
  */
@@ -182,7 +186,8 @@ public class Endpoint implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

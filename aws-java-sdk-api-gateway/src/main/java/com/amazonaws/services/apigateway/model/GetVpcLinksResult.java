@@ -20,9 +20,9 @@ import javax.annotation.Generated;
  * The collection of VPC links under the caller's account in a region.
  * </p>
  * <div class="seeAlso"> <a
- * href="http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-private-integration.html"
+ * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-private-integration.html"
  * >Getting Started with Private Integrations</a>, <a
- * href="http://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-private-integration.html">Set up Private
+ * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-private-integration.html">Set up Private
  * Integrations</a> </div>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -133,7 +133,8 @@ public class GetVpcLinksResult extends com.amazonaws.AmazonWebServiceResult<com.
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -39,6 +39,12 @@ public class ProjectArtifactsMarshaller {
             .marshallLocationName("name").build();
     private static final MarshallingInfo<String> PACKAGING_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("packaging").build();
+    private static final MarshallingInfo<Boolean> OVERRIDEARTIFACTNAME_BINDING = MarshallingInfo.builder(MarshallingType.BOOLEAN)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("overrideArtifactName").build();
+    private static final MarshallingInfo<Boolean> ENCRYPTIONDISABLED_BINDING = MarshallingInfo.builder(MarshallingType.BOOLEAN)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("encryptionDisabled").build();
+    private static final MarshallingInfo<String> ARTIFACTIDENTIFIER_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("artifactIdentifier").build();
 
     private static final ProjectArtifactsMarshaller instance = new ProjectArtifactsMarshaller();
 
@@ -62,6 +68,9 @@ public class ProjectArtifactsMarshaller {
             protocolMarshaller.marshall(projectArtifacts.getNamespaceType(), NAMESPACETYPE_BINDING);
             protocolMarshaller.marshall(projectArtifacts.getName(), NAME_BINDING);
             protocolMarshaller.marshall(projectArtifacts.getPackaging(), PACKAGING_BINDING);
+            protocolMarshaller.marshall(projectArtifacts.getOverrideArtifactName(), OVERRIDEARTIFACTNAME_BINDING);
+            protocolMarshaller.marshall(projectArtifacts.getEncryptionDisabled(), ENCRYPTIONDISABLED_BINDING);
+            protocolMarshaller.marshall(projectArtifacts.getArtifactIdentifier(), ARTIFACTIDENTIFIER_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

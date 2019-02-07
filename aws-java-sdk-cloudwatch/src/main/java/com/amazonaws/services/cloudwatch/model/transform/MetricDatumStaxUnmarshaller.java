@@ -61,7 +61,7 @@ public class MetricDatumStaxUnmarshaller implements Unmarshaller<MetricDatum, St
                 }
 
                 if (context.testExpression("Timestamp", targetDepth)) {
-                    metricDatum.setTimestamp(DateStaxUnmarshaller.getInstance().unmarshall(context));
+                    metricDatum.setTimestamp(DateStaxUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
                     continue;
                 }
 
@@ -72,6 +72,26 @@ public class MetricDatumStaxUnmarshaller implements Unmarshaller<MetricDatum, St
 
                 if (context.testExpression("StatisticValues", targetDepth)) {
                     metricDatum.setStatisticValues(StatisticSetStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("Values", targetDepth)) {
+                    metricDatum.withValues(new ArrayList<Double>());
+                    continue;
+                }
+
+                if (context.testExpression("Values/member", targetDepth)) {
+                    metricDatum.withValues(DoubleStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("Counts", targetDepth)) {
+                    metricDatum.withCounts(new ArrayList<Double>());
+                    continue;
+                }
+
+                if (context.testExpression("Counts/member", targetDepth)) {
+                    metricDatum.withCounts(DoubleStaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
                 }
 

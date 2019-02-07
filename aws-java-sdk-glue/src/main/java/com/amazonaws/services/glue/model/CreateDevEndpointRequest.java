@@ -51,10 +51,25 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
     private String subnetId;
     /**
      * <p>
-     * The public key to use for authentication.
+     * The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
+     * compatibility, as the recommended attribute to use is public keys.
      * </p>
      */
     private String publicKey;
+    /**
+     * <p>
+     * A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is preferred
+     * over a single public key because the public keys allow you to have a different private key per client.
+     * </p>
+     * <note>
+     * <p>
+     * If you previously created an endpoint with a public key, you must remove that key to be able to set a list of
+     * public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
+     * <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.
+     * </p>
+     * </note>
+     */
+    private java.util.List<String> publicKeys;
     /**
      * <p>
      * The number of AWS Glue Data Processing Units (DPUs) to allocate to this DevEndpoint.
@@ -79,6 +94,12 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
      * </p>
      */
     private String extraJarsS3Path;
+    /**
+     * <p>
+     * The name of the SecurityConfiguration structure to be used with this DevEndpoint.
+     * </p>
+     */
+    private String securityConfiguration;
 
     /**
      * <p>
@@ -272,11 +293,13 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * The public key to use for authentication.
+     * The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
+     * compatibility, as the recommended attribute to use is public keys.
      * </p>
      * 
      * @param publicKey
-     *        The public key to use for authentication.
+     *        The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
+     *        compatibility, as the recommended attribute to use is public keys.
      */
 
     public void setPublicKey(String publicKey) {
@@ -285,10 +308,12 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * The public key to use for authentication.
+     * The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
+     * compatibility, as the recommended attribute to use is public keys.
      * </p>
      * 
-     * @return The public key to use for authentication.
+     * @return The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
+     *         compatibility, as the recommended attribute to use is public keys.
      */
 
     public String getPublicKey() {
@@ -297,16 +322,152 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
 
     /**
      * <p>
-     * The public key to use for authentication.
+     * The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
+     * compatibility, as the recommended attribute to use is public keys.
      * </p>
      * 
      * @param publicKey
-     *        The public key to use for authentication.
+     *        The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward
+     *        compatibility, as the recommended attribute to use is public keys.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
     public CreateDevEndpointRequest withPublicKey(String publicKey) {
         setPublicKey(publicKey);
+        return this;
+    }
+
+    /**
+     * <p>
+     * A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is preferred
+     * over a single public key because the public keys allow you to have a different private key per client.
+     * </p>
+     * <note>
+     * <p>
+     * If you previously created an endpoint with a public key, you must remove that key to be able to set a list of
+     * public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
+     * <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.
+     * </p>
+     * </note>
+     * 
+     * @return A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is
+     *         preferred over a single public key because the public keys allow you to have a different private key per
+     *         client.</p> <note>
+     *         <p>
+     *         If you previously created an endpoint with a public key, you must remove that key to be able to set a
+     *         list of public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
+     *         <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code>
+     *         attribute.
+     *         </p>
+     */
+
+    public java.util.List<String> getPublicKeys() {
+        return publicKeys;
+    }
+
+    /**
+     * <p>
+     * A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is preferred
+     * over a single public key because the public keys allow you to have a different private key per client.
+     * </p>
+     * <note>
+     * <p>
+     * If you previously created an endpoint with a public key, you must remove that key to be able to set a list of
+     * public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
+     * <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.
+     * </p>
+     * </note>
+     * 
+     * @param publicKeys
+     *        A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is
+     *        preferred over a single public key because the public keys allow you to have a different private key per
+     *        client.</p> <note>
+     *        <p>
+     *        If you previously created an endpoint with a public key, you must remove that key to be able to set a list
+     *        of public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
+     *        <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code>
+     *        attribute.
+     *        </p>
+     */
+
+    public void setPublicKeys(java.util.Collection<String> publicKeys) {
+        if (publicKeys == null) {
+            this.publicKeys = null;
+            return;
+        }
+
+        this.publicKeys = new java.util.ArrayList<String>(publicKeys);
+    }
+
+    /**
+     * <p>
+     * A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is preferred
+     * over a single public key because the public keys allow you to have a different private key per client.
+     * </p>
+     * <note>
+     * <p>
+     * If you previously created an endpoint with a public key, you must remove that key to be able to set a list of
+     * public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
+     * <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.
+     * </p>
+     * </note>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setPublicKeys(java.util.Collection)} or {@link #withPublicKeys(java.util.Collection)} if you want to
+     * override the existing values.
+     * </p>
+     * 
+     * @param publicKeys
+     *        A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is
+     *        preferred over a single public key because the public keys allow you to have a different private key per
+     *        client.</p> <note>
+     *        <p>
+     *        If you previously created an endpoint with a public key, you must remove that key to be able to set a list
+     *        of public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
+     *        <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code>
+     *        attribute.
+     *        </p>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateDevEndpointRequest withPublicKeys(String... publicKeys) {
+        if (this.publicKeys == null) {
+            setPublicKeys(new java.util.ArrayList<String>(publicKeys.length));
+        }
+        for (String ele : publicKeys) {
+            this.publicKeys.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is preferred
+     * over a single public key because the public keys allow you to have a different private key per client.
+     * </p>
+     * <note>
+     * <p>
+     * If you previously created an endpoint with a public key, you must remove that key to be able to set a list of
+     * public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
+     * <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.
+     * </p>
+     * </note>
+     * 
+     * @param publicKeys
+     *        A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is
+     *        preferred over a single public key because the public keys allow you to have a different private key per
+     *        client.</p> <note>
+     *        <p>
+     *        If you previously created an endpoint with a public key, you must remove that key to be able to set a list
+     *        of public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the
+     *        <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code>
+     *        attribute.
+     *        </p>
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateDevEndpointRequest withPublicKeys(java.util.Collection<String> publicKeys) {
+        setPublicKeys(publicKeys);
         return this;
     }
 
@@ -464,7 +625,48 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The name of the SecurityConfiguration structure to be used with this DevEndpoint.
+     * </p>
+     * 
+     * @param securityConfiguration
+     *        The name of the SecurityConfiguration structure to be used with this DevEndpoint.
+     */
+
+    public void setSecurityConfiguration(String securityConfiguration) {
+        this.securityConfiguration = securityConfiguration;
+    }
+
+    /**
+     * <p>
+     * The name of the SecurityConfiguration structure to be used with this DevEndpoint.
+     * </p>
+     * 
+     * @return The name of the SecurityConfiguration structure to be used with this DevEndpoint.
+     */
+
+    public String getSecurityConfiguration() {
+        return this.securityConfiguration;
+    }
+
+    /**
+     * <p>
+     * The name of the SecurityConfiguration structure to be used with this DevEndpoint.
+     * </p>
+     * 
+     * @param securityConfiguration
+     *        The name of the SecurityConfiguration structure to be used with this DevEndpoint.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateDevEndpointRequest withSecurityConfiguration(String securityConfiguration) {
+        setSecurityConfiguration(securityConfiguration);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -484,12 +686,16 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
             sb.append("SubnetId: ").append(getSubnetId()).append(",");
         if (getPublicKey() != null)
             sb.append("PublicKey: ").append(getPublicKey()).append(",");
+        if (getPublicKeys() != null)
+            sb.append("PublicKeys: ").append(getPublicKeys()).append(",");
         if (getNumberOfNodes() != null)
             sb.append("NumberOfNodes: ").append(getNumberOfNodes()).append(",");
         if (getExtraPythonLibsS3Path() != null)
             sb.append("ExtraPythonLibsS3Path: ").append(getExtraPythonLibsS3Path()).append(",");
         if (getExtraJarsS3Path() != null)
-            sb.append("ExtraJarsS3Path: ").append(getExtraJarsS3Path());
+            sb.append("ExtraJarsS3Path: ").append(getExtraJarsS3Path()).append(",");
+        if (getSecurityConfiguration() != null)
+            sb.append("SecurityConfiguration: ").append(getSecurityConfiguration());
         sb.append("}");
         return sb.toString();
     }
@@ -524,6 +730,10 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
             return false;
         if (other.getPublicKey() != null && other.getPublicKey().equals(this.getPublicKey()) == false)
             return false;
+        if (other.getPublicKeys() == null ^ this.getPublicKeys() == null)
+            return false;
+        if (other.getPublicKeys() != null && other.getPublicKeys().equals(this.getPublicKeys()) == false)
+            return false;
         if (other.getNumberOfNodes() == null ^ this.getNumberOfNodes() == null)
             return false;
         if (other.getNumberOfNodes() != null && other.getNumberOfNodes().equals(this.getNumberOfNodes()) == false)
@@ -535,6 +745,10 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
         if (other.getExtraJarsS3Path() == null ^ this.getExtraJarsS3Path() == null)
             return false;
         if (other.getExtraJarsS3Path() != null && other.getExtraJarsS3Path().equals(this.getExtraJarsS3Path()) == false)
+            return false;
+        if (other.getSecurityConfiguration() == null ^ this.getSecurityConfiguration() == null)
+            return false;
+        if (other.getSecurityConfiguration() != null && other.getSecurityConfiguration().equals(this.getSecurityConfiguration()) == false)
             return false;
         return true;
     }
@@ -549,9 +763,11 @@ public class CreateDevEndpointRequest extends com.amazonaws.AmazonWebServiceRequ
         hashCode = prime * hashCode + ((getSecurityGroupIds() == null) ? 0 : getSecurityGroupIds().hashCode());
         hashCode = prime * hashCode + ((getSubnetId() == null) ? 0 : getSubnetId().hashCode());
         hashCode = prime * hashCode + ((getPublicKey() == null) ? 0 : getPublicKey().hashCode());
+        hashCode = prime * hashCode + ((getPublicKeys() == null) ? 0 : getPublicKeys().hashCode());
         hashCode = prime * hashCode + ((getNumberOfNodes() == null) ? 0 : getNumberOfNodes().hashCode());
         hashCode = prime * hashCode + ((getExtraPythonLibsS3Path() == null) ? 0 : getExtraPythonLibsS3Path().hashCode());
         hashCode = prime * hashCode + ((getExtraJarsS3Path() == null) ? 0 : getExtraJarsS3Path().hashCode());
+        hashCode = prime * hashCode + ((getSecurityConfiguration() == null) ? 0 : getSecurityConfiguration().hashCode());
         return hashCode;
     }
 

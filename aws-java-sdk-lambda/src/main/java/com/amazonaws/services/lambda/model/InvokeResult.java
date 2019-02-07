@@ -67,7 +67,9 @@ public class InvokeResult extends com.amazonaws.AmazonWebServiceResult<com.amazo
     /**
      * <p>
      * The function version that has been executed. This value is returned only if the invocation type is
-     * <code>RequestResponse</code>. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
+     * <code>RequestResponse</code>. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">Traffic Shifting
+     * Using Aliases</a>.
      * </p>
      */
     private String executedVersion;
@@ -344,12 +346,16 @@ public class InvokeResult extends com.amazonaws.AmazonWebServiceResult<com.amazo
     /**
      * <p>
      * The function version that has been executed. This value is returned only if the invocation type is
-     * <code>RequestResponse</code>. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
+     * <code>RequestResponse</code>. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">Traffic Shifting
+     * Using Aliases</a>.
      * </p>
      * 
      * @param executedVersion
      *        The function version that has been executed. This value is returned only if the invocation type is
-     *        <code>RequestResponse</code>. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
+     *        <code>RequestResponse</code>. For more information, see <a
+     *        href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">Traffic
+     *        Shifting Using Aliases</a>.
      */
 
     public void setExecutedVersion(String executedVersion) {
@@ -359,11 +365,15 @@ public class InvokeResult extends com.amazonaws.AmazonWebServiceResult<com.amazo
     /**
      * <p>
      * The function version that has been executed. This value is returned only if the invocation type is
-     * <code>RequestResponse</code>. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
+     * <code>RequestResponse</code>. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">Traffic Shifting
+     * Using Aliases</a>.
      * </p>
      * 
      * @return The function version that has been executed. This value is returned only if the invocation type is
-     *         <code>RequestResponse</code>. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
+     *         <code>RequestResponse</code>. For more information, see <a
+     *         href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">Traffic
+     *         Shifting Using Aliases</a>.
      */
 
     public String getExecutedVersion() {
@@ -373,12 +383,16 @@ public class InvokeResult extends com.amazonaws.AmazonWebServiceResult<com.amazo
     /**
      * <p>
      * The function version that has been executed. This value is returned only if the invocation type is
-     * <code>RequestResponse</code>. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
+     * <code>RequestResponse</code>. For more information, see <a
+     * href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">Traffic Shifting
+     * Using Aliases</a>.
      * </p>
      * 
      * @param executedVersion
      *        The function version that has been executed. This value is returned only if the invocation type is
-     *        <code>RequestResponse</code>. For more information, see <a>lambda-traffic-shifting-using-aliases</a>.
+     *        <code>RequestResponse</code>. For more information, see <a
+     *        href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">Traffic
+     *        Shifting Using Aliases</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -388,7 +402,8 @@ public class InvokeResult extends com.amazonaws.AmazonWebServiceResult<com.amazo
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -405,7 +420,7 @@ public class InvokeResult extends com.amazonaws.AmazonWebServiceResult<com.amazo
         if (getLogResult() != null)
             sb.append("LogResult: ").append(getLogResult()).append(",");
         if (getPayload() != null)
-            sb.append("Payload: ").append(getPayload()).append(",");
+            sb.append("Payload: ").append("***Sensitive Data Redacted***").append(",");
         if (getExecutedVersion() != null)
             sb.append("ExecutedVersion: ").append(getExecutedVersion());
         sb.append("}");
