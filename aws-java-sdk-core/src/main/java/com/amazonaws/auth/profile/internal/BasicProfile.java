@@ -101,15 +101,7 @@ public class BasicProfile {
         return getPropertyValue(ProfileKeyConstants.ENDPOINT_DISCOVERY);
     }
 
-    public String getCredentialProcess() {
-        return getPropertyValue(ProfileKeyConstants.CREDENTIAL_PROCESS);
-    }
-
     public boolean isRoleBasedProfile() {
         return getRoleArn() != null;
-    }
-
-    public boolean isProcessBasedProfile() {
-        return getCredentialProcess() != null;
     }
 }

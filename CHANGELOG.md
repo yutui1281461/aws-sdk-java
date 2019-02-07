@@ -1,3 +1,89 @@
+# __1.11.472__ __2018-12-18__
+## __AWS Elastic Beanstalk__
+  - ### Features
+    - This release adds a new resource that Elastic Beanstalk will soon support, EC2 launch template, to environment resource descriptions.
+
+## __AWS Global Accelerator__
+  - ### Features
+    - Documentation updates for Ubiquity
+
+## __Amazon Elastic Compute Cloud__
+  - ### Features
+    - Client VPN, is a client-based VPN service. With Client VPN, you can securely access resources in AWS as well as access resources in on-premises from any location using OpenVPN based devices. With Client VPN, you can set network based firewall rules that can restrict access to networks based on Active Directory groups.
+
+## __Amazon S3__
+  - ### Features
+    - Optimize S3 TransferManager parallel download performance by making parts writing to the destination file directly in parallel.
+
+## __AmazonApiGatewayManagementApi__
+  - ### Features
+    - This is the initial SDK release for the Amazon API Gateway Management API, which allows you to directly manage runtime aspects of your APIs. This release makes it easy to send data directly to clients connected to your WebSocket-based APIs.
+
+## __AmazonApiGatewayV2__
+  - ### Features
+    - This is the initial SDK release for the Amazon API Gateway v2 APIs. This SDK will allow you to manage and configure APIs in Amazon API Gateway; this first release provides the capabilities that allow you to programmatically setup and manage WebSocket APIs end to end. 
+
+# __1.11.471__ __2018-12-17__
+## __Amazon EC2 Container Registry__
+  - ### Features
+    - This release adds support for ECR repository tagging.
+
+## __Amazon QuickSight__
+  - ### Features
+    - Amazon QuickSight's RegisterUser API now generates a user invitation URL when registering a user with the QuickSight identity type. This URL can then be used by the registered QuickSight user to complete the user registration process. This release also corrects some HTTP return status codes.
+
+# __1.11.470__ __2018-12-14__
+## __AWS CloudFormation__
+  - ### Features
+    - Documentation updates for cloudformation
+
+## __Alexa For Business__
+  - ### Features
+    - Released new APIs for managing private skill access to Enrolled Users.  These API's are the equivalent of the A4B console for Private Skills checkbox "Available for Users".
+
+## __Amazon Redshift__
+  - ### Features
+    - Documentation updates for Amazon Redshift
+
+# __1.11.469__ __2018-12-13__
+## __AWS Organizations__
+  - ### Features
+    - Documentation updates for AWS Organizations
+
+## __Amazon Pinpoint Email Service__
+  - ### Features
+    - This release adds new operations for the Amazon Pinpoint Deliverability Dashboard. You can use the Deliverability Dashboard to view response and inbox placement metrics for the domains that you use to send email. You can also perform tests on individual email messages to determine how often your messages are delivered to the inbox on several major email providers.
+
+# __1.11.468__ __2018-12-12__
+## __AWS Glue__
+  - ### Features
+    - API Update for Glue: this update enables encryption of password inside connection objects stored in AWS Glue Data Catalog using DataCatalogEncryptionSettings.  In addition, a new "HidePassword" flag is added to GetConnection and GetConnections to return connections without passwords.
+
+## __Amazon Elastic Container Service for Kubernetes__
+  - ### Features
+    - Added support for updating kubernetes version of Amazon EKS clusters.
+
+## __Amazon Route 53__
+  - ### Features
+    - You can now specify a new region, eu-north-1 (in Stockholm, Sweden), as a region for latency-based or geoproximity routing.
+
+## __Amazon SageMaker Service__
+  - ### Features
+    - Amazon SageMaker Automatic Model Tuning now supports early stopping of training jobs. With early stopping, training jobs that are unlikely to generate good models will be automatically stopped during a Hyperparameter Tuning Job.
+
+# __1.11.467__ __2018-12-11__
+## __AWS Elemental MediaStore__
+  - ### Features
+    - This release adds Delete Object Lifecycling to AWS MediaStore Containers.
+
+## __Amazon Connect Service__
+  - ### Features
+    - This update adds the GetContactAttributes operation to retrieve the attributes associated with a contact.
+
+## __Amazon EC2 Container Service__
+  - ### Features
+    - Documentation updates for Amazon ECS.
+
 # __1.11.466__ __2018-12-07__
 ## __AWS Identity and Access Management__
   - ### Features
