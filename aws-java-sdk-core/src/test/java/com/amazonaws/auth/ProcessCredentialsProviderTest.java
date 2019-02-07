@@ -101,6 +101,19 @@ public class ProcessCredentialsProviderTest {
                                   .isEqual(credentialsProvider.getCredentialExpirationTime()));
     }
 
+    @Test
+    public void expirationBufferOverrideIsApplied() {
+        ProcessCredentialsProvider credentialsProvider =
+                ProcessCredentialsProvider.builder()
+                                          .withCommand(scriptLocation + " SESSION_CREDENTIALS")
+                                          .withCredentialExpirationBuffer(10, TimeUnit.SECONDS)
+                                          .build();
+        credentialsProvider.getCredentials();
+
+        Assert.assertTrue(DateTime.parse("2018-12-11T17:46:28Z").minusSeconds(10)
+                                  .isEqual(credentialsProvider.getCredentialExpirationTime()));
+    }
+
     @Test(expected = IllegalStateException.class)
     public void processOutputLimitIsEnforced() {
         ProcessCredentialsProvider.builder()

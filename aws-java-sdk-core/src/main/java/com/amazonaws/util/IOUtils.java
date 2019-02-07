@@ -123,11 +123,11 @@ public enum IOUtils {
         long count = 0;
         int n = 0;
         while ((n = in.read(buf)) > -1) {
+            out.write(buf, 0, n);
+            count += n;
             if (count >= readLimit) {
                 throw new IOException("Read limit exceeded: " + readLimit);
             }
-            out.write(buf, 0, n);
-            count += n;
         }
         return count;
     }

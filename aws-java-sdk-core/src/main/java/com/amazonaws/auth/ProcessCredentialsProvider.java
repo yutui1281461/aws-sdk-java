@@ -179,7 +179,7 @@ public final class ProcessCredentialsProvider implements AWSCredentialsProvider 
 
         if (expiration != null) {
             DateTime credentialExpiration = new DateTime(DateUtils.parseISO8601Date(expiration));
-            credentialExpiration.minus(expirationBufferUnit.toMillis(expirationBufferValue));
+            credentialExpiration = credentialExpiration.minus(expirationBufferUnit.toMillis(expirationBufferValue));
             return credentialExpiration;
         } else {
             return DateTime.now().plusYears(9999);
