@@ -15,7 +15,6 @@
 package com.amazonaws.auth.profile.internal;
 
 import com.amazonaws.annotation.SdkInternalApi;
-import com.amazonaws.auth.ProcessCredentialsProvider;
 
 /**
  * Keys the Java SDK uses in the CLI credentials and config files.
@@ -67,11 +66,4 @@ public class ProfileKeyConstants {
      * Endpoint discovery setting when creating clients
      */
     public static final String ENDPOINT_DISCOVERY = "aws_enable_endpoint_discovery";
-
-    /**
-     * An external process that should be invoked to load credentials.
-     *
-     * @see ProcessCredentialsProvider
-     */
-    public static final String CREDENTIAL_PROCESS = "credential_process";
 }
