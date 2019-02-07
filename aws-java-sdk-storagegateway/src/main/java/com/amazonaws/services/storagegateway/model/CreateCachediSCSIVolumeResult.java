@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,7 +31,7 @@ public class CreateCachediSCSIVolumeResult extends com.amazonaws.AmazonWebServic
     private String volumeARN;
     /**
      * <p>
-     * he Amazon Resource Name (ARN) of the volume target that includes the iSCSI name that initiators can use to
+     * The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to
      * connect to the target.
      * </p>
      */
@@ -79,13 +79,13 @@ public class CreateCachediSCSIVolumeResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * he Amazon Resource Name (ARN) of the volume target that includes the iSCSI name that initiators can use to
+     * The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to
      * connect to the target.
      * </p>
      * 
      * @param targetARN
-     *        he Amazon Resource Name (ARN) of the volume target that includes the iSCSI name that initiators can use to
-     *        connect to the target.
+     *        The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use
+     *        to connect to the target.
      */
 
     public void setTargetARN(String targetARN) {
@@ -94,12 +94,12 @@ public class CreateCachediSCSIVolumeResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * he Amazon Resource Name (ARN) of the volume target that includes the iSCSI name that initiators can use to
+     * The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to
      * connect to the target.
      * </p>
      * 
-     * @return he Amazon Resource Name (ARN) of the volume target that includes the iSCSI name that initiators can use
-     *         to connect to the target.
+     * @return The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can
+     *         use to connect to the target.
      */
 
     public String getTargetARN() {
@@ -108,13 +108,13 @@ public class CreateCachediSCSIVolumeResult extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * he Amazon Resource Name (ARN) of the volume target that includes the iSCSI name that initiators can use to
+     * The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to
      * connect to the target.
      * </p>
      * 
      * @param targetARN
-     *        he Amazon Resource Name (ARN) of the volume target that includes the iSCSI name that initiators can use to
-     *        connect to the target.
+     *        The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use
+     *        to connect to the target.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

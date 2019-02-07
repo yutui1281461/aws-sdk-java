@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -42,7 +42,7 @@ public class ModelPackageSummary implements Serializable, Cloneable, StructuredP
     private String modelPackageArn;
     /**
      * <p>
-     * A brief statement describing the model package.
+     * A brief description of the model package.
      * </p>
      */
     private String modelPackageDescription;
@@ -141,11 +141,11 @@ public class ModelPackageSummary implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * A brief statement describing the model package.
+     * A brief description of the model package.
      * </p>
      * 
      * @param modelPackageDescription
-     *        A brief statement describing the model package.
+     *        A brief description of the model package.
      */
 
     public void setModelPackageDescription(String modelPackageDescription) {
@@ -154,10 +154,10 @@ public class ModelPackageSummary implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * A brief statement describing the model package.
+     * A brief description of the model package.
      * </p>
      * 
-     * @return A brief statement describing the model package.
+     * @return A brief description of the model package.
      */
 
     public String getModelPackageDescription() {
@@ -166,11 +166,11 @@ public class ModelPackageSummary implements Serializable, Cloneable, StructuredP
 
     /**
      * <p>
-     * A brief statement describing the model package.
+     * A brief description of the model package.
      * </p>
      * 
      * @param modelPackageDescription
-     *        A brief statement describing the model package.
+     *        A brief description of the model package.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

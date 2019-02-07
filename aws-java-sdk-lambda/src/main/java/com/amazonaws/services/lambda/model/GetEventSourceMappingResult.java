@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -52,7 +52,7 @@ public class GetEventSourceMappingResult extends com.amazonaws.AmazonWebServiceR
     private String functionArn;
     /**
      * <p>
-     * The date that the event source mapping was last updated, in Unix time seconds.
+     * The date that the event source mapping was last updated.
      * </p>
      */
     private java.util.Date lastModified;
@@ -239,11 +239,11 @@ public class GetEventSourceMappingResult extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The date that the event source mapping was last updated, in Unix time seconds.
+     * The date that the event source mapping was last updated.
      * </p>
      * 
      * @param lastModified
-     *        The date that the event source mapping was last updated, in Unix time seconds.
+     *        The date that the event source mapping was last updated.
      */
 
     public void setLastModified(java.util.Date lastModified) {
@@ -252,10 +252,10 @@ public class GetEventSourceMappingResult extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The date that the event source mapping was last updated, in Unix time seconds.
+     * The date that the event source mapping was last updated.
      * </p>
      * 
-     * @return The date that the event source mapping was last updated, in Unix time seconds.
+     * @return The date that the event source mapping was last updated.
      */
 
     public java.util.Date getLastModified() {
@@ -264,11 +264,11 @@ public class GetEventSourceMappingResult extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The date that the event source mapping was last updated, in Unix time seconds.
+     * The date that the event source mapping was last updated.
      * </p>
      * 
      * @param lastModified
-     *        The date that the event source mapping was last updated, in Unix time seconds.
+     *        The date that the event source mapping was last updated.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

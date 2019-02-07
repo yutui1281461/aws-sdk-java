@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -44,10 +44,6 @@ public class ScheduleRunRequest extends com.amazonaws.AmazonWebServiceRequest im
      * <p>
      * The ARN of the device pool for the run to be scheduled.
      * </p>
-     * <p>
-     * Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are required in
-     * a request.
-     * </p>
      */
     private String devicePoolArn;
     /**
@@ -56,8 +52,8 @@ public class ScheduleRunRequest extends com.amazonaws.AmazonWebServiceRequest im
      * devices to be included in the run.
      * </p>
      * <p>
-     * Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are required in
-     * a request.
+     * Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> is required in a
+     * request.
      * </p>
      */
     private DeviceSelectionConfiguration deviceSelectionConfiguration;
@@ -170,16 +166,9 @@ public class ScheduleRunRequest extends com.amazonaws.AmazonWebServiceRequest im
      * <p>
      * The ARN of the device pool for the run to be scheduled.
      * </p>
-     * <p>
-     * Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are required in
-     * a request.
-     * </p>
      * 
      * @param devicePoolArn
-     *        The ARN of the device pool for the run to be scheduled.</p>
-     *        <p>
-     *        Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are
-     *        required in a request.
+     *        The ARN of the device pool for the run to be scheduled.
      */
 
     public void setDevicePoolArn(String devicePoolArn) {
@@ -190,15 +179,8 @@ public class ScheduleRunRequest extends com.amazonaws.AmazonWebServiceRequest im
      * <p>
      * The ARN of the device pool for the run to be scheduled.
      * </p>
-     * <p>
-     * Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are required in
-     * a request.
-     * </p>
      * 
-     * @return The ARN of the device pool for the run to be scheduled.</p>
-     *         <p>
-     *         Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are
-     *         required in a request.
+     * @return The ARN of the device pool for the run to be scheduled.
      */
 
     public String getDevicePoolArn() {
@@ -209,16 +191,9 @@ public class ScheduleRunRequest extends com.amazonaws.AmazonWebServiceRequest im
      * <p>
      * The ARN of the device pool for the run to be scheduled.
      * </p>
-     * <p>
-     * Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are required in
-     * a request.
-     * </p>
      * 
      * @param devicePoolArn
-     *        The ARN of the device pool for the run to be scheduled.</p>
-     *        <p>
-     *        Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are
-     *        required in a request.
+     *        The ARN of the device pool for the run to be scheduled.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -233,15 +208,15 @@ public class ScheduleRunRequest extends com.amazonaws.AmazonWebServiceRequest im
      * devices to be included in the run.
      * </p>
      * <p>
-     * Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are required in
-     * a request.
+     * Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> is required in a
+     * request.
      * </p>
      * 
      * @param deviceSelectionConfiguration
      *        The filter criteria used to dynamically select a set of devices for a test run, as well as the maximum
      *        number of devices to be included in the run.</p>
      *        <p>
-     *        Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are
+     *        Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> is
      *        required in a request.
      */
 
@@ -255,14 +230,14 @@ public class ScheduleRunRequest extends com.amazonaws.AmazonWebServiceRequest im
      * devices to be included in the run.
      * </p>
      * <p>
-     * Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are required in
-     * a request.
+     * Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> is required in a
+     * request.
      * </p>
      * 
      * @return The filter criteria used to dynamically select a set of devices for a test run, as well as the maximum
      *         number of devices to be included in the run.</p>
      *         <p>
-     *         Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are
+     *         Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> is
      *         required in a request.
      */
 
@@ -276,15 +251,15 @@ public class ScheduleRunRequest extends com.amazonaws.AmazonWebServiceRequest im
      * devices to be included in the run.
      * </p>
      * <p>
-     * Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are required in
-     * a request.
+     * Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> is required in a
+     * request.
      * </p>
      * 
      * @param deviceSelectionConfiguration
      *        The filter criteria used to dynamically select a set of devices for a test run, as well as the maximum
      *        number of devices to be included in the run.</p>
      *        <p>
-     *        Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> are
+     *        Either <b> <code>devicePoolArn</code> </b> or <b> <code>deviceSelectionConfiguration</code> </b> is
      *        required in a request.
      * @return Returns a reference to this object so that method calls can be chained together.
      */

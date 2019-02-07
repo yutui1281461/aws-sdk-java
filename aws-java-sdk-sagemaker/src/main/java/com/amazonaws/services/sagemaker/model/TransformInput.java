@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,8 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Describes the location of the channel data, meaning the S3 location of the input data that the model can consume.
+     * Describes the location of the channel data, which is, the S3 location of the input data that the model can
+     * consume.
      * </p>
      */
     private TransformDataSource dataSource;
@@ -43,21 +44,20 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
     private String contentType;
     /**
      * <p>
-     * Compressing data helps save on storage space. If your transform data is compressed, specify the compression type.
-     * Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is
-     * <code>None</code>.
+     * If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses
+     * the data for the transform job accordingly. The default value is <code>None</code>.
      * </p>
      */
     private String compressionType;
     /**
      * <p>
-     * The method to use to split the transform job's data into smaller batches. The default value is <code>None</code>.
-     * If you don't want to split the data, specify <code>None</code>. If you want to split records on a newline
-     * character boundary, specify <code>Line</code>. To split records according to the RecordIO format, specify
-     * <code>RecordIO</code>.
+     * The method to use to split the transform job's data into smaller batches. If you don't want to split the data,
+     * specify <code>None</code>. If you want to split records on a newline character boundary, specify
+     * <code>Line</code>. To split records according to the RecordIO format, specify <code>RecordIO</code>. The default
+     * value is <code>None</code>.
      * </p>
      * <p>
-     * Amazon SageMaker will send maximum number of records per batch in each request up to the MaxPayloadInMB limit.
+     * Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB limit.
      * For more information, see <a href="http://mxnet.io/architecture/note_data_loading.html#data-format">RecordIO data
      * format</a>.
      * </p>
@@ -72,11 +72,12 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Describes the location of the channel data, meaning the S3 location of the input data that the model can consume.
+     * Describes the location of the channel data, which is, the S3 location of the input data that the model can
+     * consume.
      * </p>
      * 
      * @param dataSource
-     *        Describes the location of the channel data, meaning the S3 location of the input data that the model can
+     *        Describes the location of the channel data, which is, the S3 location of the input data that the model can
      *        consume.
      */
 
@@ -86,11 +87,12 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Describes the location of the channel data, meaning the S3 location of the input data that the model can consume.
+     * Describes the location of the channel data, which is, the S3 location of the input data that the model can
+     * consume.
      * </p>
      * 
-     * @return Describes the location of the channel data, meaning the S3 location of the input data that the model can
-     *         consume.
+     * @return Describes the location of the channel data, which is, the S3 location of the input data that the model
+     *         can consume.
      */
 
     public TransformDataSource getDataSource() {
@@ -99,11 +101,12 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Describes the location of the channel data, meaning the S3 location of the input data that the model can consume.
+     * Describes the location of the channel data, which is, the S3 location of the input data that the model can
+     * consume.
      * </p>
      * 
      * @param dataSource
-     *        Describes the location of the channel data, meaning the S3 location of the input data that the model can
+     *        Describes the location of the channel data, which is, the S3 location of the input data that the model can
      *        consume.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -161,15 +164,13 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Compressing data helps save on storage space. If your transform data is compressed, specify the compression type.
-     * Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is
-     * <code>None</code>.
+     * If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses
+     * the data for the transform job accordingly. The default value is <code>None</code>.
      * </p>
      * 
      * @param compressionType
-     *        Compressing data helps save on storage space. If your transform data is compressed, specify the
-     *        compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly.
-     *        The default value is <code>None</code>.
+     *        If your transform data is compressed, specify the compression type. Amazon SageMaker automatically
+     *        decompresses the data for the transform job accordingly. The default value is <code>None</code>.
      * @see CompressionType
      */
 
@@ -179,14 +180,12 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Compressing data helps save on storage space. If your transform data is compressed, specify the compression type.
-     * Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is
-     * <code>None</code>.
+     * If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses
+     * the data for the transform job accordingly. The default value is <code>None</code>.
      * </p>
      * 
-     * @return Compressing data helps save on storage space. If your transform data is compressed, specify the
-     *         compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly.
-     *         The default value is <code>None</code>.
+     * @return If your transform data is compressed, specify the compression type. Amazon SageMaker automatically
+     *         decompresses the data for the transform job accordingly. The default value is <code>None</code>.
      * @see CompressionType
      */
 
@@ -196,15 +195,13 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Compressing data helps save on storage space. If your transform data is compressed, specify the compression type.
-     * Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is
-     * <code>None</code>.
+     * If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses
+     * the data for the transform job accordingly. The default value is <code>None</code>.
      * </p>
      * 
      * @param compressionType
-     *        Compressing data helps save on storage space. If your transform data is compressed, specify the
-     *        compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly.
-     *        The default value is <code>None</code>.
+     *        If your transform data is compressed, specify the compression type. Amazon SageMaker automatically
+     *        decompresses the data for the transform job accordingly. The default value is <code>None</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see CompressionType
      */
@@ -216,15 +213,13 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * Compressing data helps save on storage space. If your transform data is compressed, specify the compression type.
-     * Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is
-     * <code>None</code>.
+     * If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses
+     * the data for the transform job accordingly. The default value is <code>None</code>.
      * </p>
      * 
      * @param compressionType
-     *        Compressing data helps save on storage space. If your transform data is compressed, specify the
-     *        compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly.
-     *        The default value is <code>None</code>.
+     *        If your transform data is compressed, specify the compression type. Amazon SageMaker automatically
+     *        decompresses the data for the transform job accordingly. The default value is <code>None</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see CompressionType
      */
@@ -236,13 +231,13 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The method to use to split the transform job's data into smaller batches. The default value is <code>None</code>.
-     * If you don't want to split the data, specify <code>None</code>. If you want to split records on a newline
-     * character boundary, specify <code>Line</code>. To split records according to the RecordIO format, specify
-     * <code>RecordIO</code>.
+     * The method to use to split the transform job's data into smaller batches. If you don't want to split the data,
+     * specify <code>None</code>. If you want to split records on a newline character boundary, specify
+     * <code>Line</code>. To split records according to the RecordIO format, specify <code>RecordIO</code>. The default
+     * value is <code>None</code>.
      * </p>
      * <p>
-     * Amazon SageMaker will send maximum number of records per batch in each request up to the MaxPayloadInMB limit.
+     * Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB limit.
      * For more information, see <a href="http://mxnet.io/architecture/note_data_loading.html#data-format">RecordIO data
      * format</a>.
      * </p>
@@ -254,12 +249,12 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
      * </note>
      * 
      * @param splitType
-     *        The method to use to split the transform job's data into smaller batches. The default value is
-     *        <code>None</code>. If you don't want to split the data, specify <code>None</code>. If you want to split
-     *        records on a newline character boundary, specify <code>Line</code>. To split records according to the
-     *        RecordIO format, specify <code>RecordIO</code>.</p>
+     *        The method to use to split the transform job's data into smaller batches. If you don't want to split the
+     *        data, specify <code>None</code>. If you want to split records on a newline character boundary, specify
+     *        <code>Line</code>. To split records according to the RecordIO format, specify <code>RecordIO</code>. The
+     *        default value is <code>None</code>. </p>
      *        <p>
-     *        Amazon SageMaker will send maximum number of records per batch in each request up to the MaxPayloadInMB
+     *        Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB
      *        limit. For more information, see <a
      *        href="http://mxnet.io/architecture/note_data_loading.html#data-format">RecordIO data format</a>.
      *        </p>
@@ -277,13 +272,13 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The method to use to split the transform job's data into smaller batches. The default value is <code>None</code>.
-     * If you don't want to split the data, specify <code>None</code>. If you want to split records on a newline
-     * character boundary, specify <code>Line</code>. To split records according to the RecordIO format, specify
-     * <code>RecordIO</code>.
+     * The method to use to split the transform job's data into smaller batches. If you don't want to split the data,
+     * specify <code>None</code>. If you want to split records on a newline character boundary, specify
+     * <code>Line</code>. To split records according to the RecordIO format, specify <code>RecordIO</code>. The default
+     * value is <code>None</code>.
      * </p>
      * <p>
-     * Amazon SageMaker will send maximum number of records per batch in each request up to the MaxPayloadInMB limit.
+     * Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB limit.
      * For more information, see <a href="http://mxnet.io/architecture/note_data_loading.html#data-format">RecordIO data
      * format</a>.
      * </p>
@@ -294,12 +289,12 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
      * </p>
      * </note>
      * 
-     * @return The method to use to split the transform job's data into smaller batches. The default value is
-     *         <code>None</code>. If you don't want to split the data, specify <code>None</code>. If you want to split
-     *         records on a newline character boundary, specify <code>Line</code>. To split records according to the
-     *         RecordIO format, specify <code>RecordIO</code>.</p>
+     * @return The method to use to split the transform job's data into smaller batches. If you don't want to split the
+     *         data, specify <code>None</code>. If you want to split records on a newline character boundary, specify
+     *         <code>Line</code>. To split records according to the RecordIO format, specify <code>RecordIO</code>. The
+     *         default value is <code>None</code>. </p>
      *         <p>
-     *         Amazon SageMaker will send maximum number of records per batch in each request up to the MaxPayloadInMB
+     *         Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB
      *         limit. For more information, see <a
      *         href="http://mxnet.io/architecture/note_data_loading.html#data-format">RecordIO data format</a>.
      *         </p>
@@ -317,13 +312,13 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The method to use to split the transform job's data into smaller batches. The default value is <code>None</code>.
-     * If you don't want to split the data, specify <code>None</code>. If you want to split records on a newline
-     * character boundary, specify <code>Line</code>. To split records according to the RecordIO format, specify
-     * <code>RecordIO</code>.
+     * The method to use to split the transform job's data into smaller batches. If you don't want to split the data,
+     * specify <code>None</code>. If you want to split records on a newline character boundary, specify
+     * <code>Line</code>. To split records according to the RecordIO format, specify <code>RecordIO</code>. The default
+     * value is <code>None</code>.
      * </p>
      * <p>
-     * Amazon SageMaker will send maximum number of records per batch in each request up to the MaxPayloadInMB limit.
+     * Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB limit.
      * For more information, see <a href="http://mxnet.io/architecture/note_data_loading.html#data-format">RecordIO data
      * format</a>.
      * </p>
@@ -335,12 +330,12 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
      * </note>
      * 
      * @param splitType
-     *        The method to use to split the transform job's data into smaller batches. The default value is
-     *        <code>None</code>. If you don't want to split the data, specify <code>None</code>. If you want to split
-     *        records on a newline character boundary, specify <code>Line</code>. To split records according to the
-     *        RecordIO format, specify <code>RecordIO</code>.</p>
+     *        The method to use to split the transform job's data into smaller batches. If you don't want to split the
+     *        data, specify <code>None</code>. If you want to split records on a newline character boundary, specify
+     *        <code>Line</code>. To split records according to the RecordIO format, specify <code>RecordIO</code>. The
+     *        default value is <code>None</code>. </p>
      *        <p>
-     *        Amazon SageMaker will send maximum number of records per batch in each request up to the MaxPayloadInMB
+     *        Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB
      *        limit. For more information, see <a
      *        href="http://mxnet.io/architecture/note_data_loading.html#data-format">RecordIO data format</a>.
      *        </p>
@@ -360,13 +355,13 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The method to use to split the transform job's data into smaller batches. The default value is <code>None</code>.
-     * If you don't want to split the data, specify <code>None</code>. If you want to split records on a newline
-     * character boundary, specify <code>Line</code>. To split records according to the RecordIO format, specify
-     * <code>RecordIO</code>.
+     * The method to use to split the transform job's data into smaller batches. If you don't want to split the data,
+     * specify <code>None</code>. If you want to split records on a newline character boundary, specify
+     * <code>Line</code>. To split records according to the RecordIO format, specify <code>RecordIO</code>. The default
+     * value is <code>None</code>.
      * </p>
      * <p>
-     * Amazon SageMaker will send maximum number of records per batch in each request up to the MaxPayloadInMB limit.
+     * Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB limit.
      * For more information, see <a href="http://mxnet.io/architecture/note_data_loading.html#data-format">RecordIO data
      * format</a>.
      * </p>
@@ -378,12 +373,12 @@ public class TransformInput implements Serializable, Cloneable, StructuredPojo {
      * </note>
      * 
      * @param splitType
-     *        The method to use to split the transform job's data into smaller batches. The default value is
-     *        <code>None</code>. If you don't want to split the data, specify <code>None</code>. If you want to split
-     *        records on a newline character boundary, specify <code>Line</code>. To split records according to the
-     *        RecordIO format, specify <code>RecordIO</code>.</p>
+     *        The method to use to split the transform job's data into smaller batches. If you don't want to split the
+     *        data, specify <code>None</code>. If you want to split records on a newline character boundary, specify
+     *        <code>Line</code>. To split records according to the RecordIO format, specify <code>RecordIO</code>. The
+     *        default value is <code>None</code>. </p>
      *        <p>
-     *        Amazon SageMaker will send maximum number of records per batch in each request up to the MaxPayloadInMB
+     *        Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB
      *        limit. For more information, see <a
      *        href="http://mxnet.io/architecture/note_data_loading.html#data-format">RecordIO data format</a>.
      *        </p>

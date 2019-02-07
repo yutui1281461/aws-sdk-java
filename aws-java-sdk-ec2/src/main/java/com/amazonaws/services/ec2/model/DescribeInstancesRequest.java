@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -370,6 +370,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * <li>
      * <p>
      * <code>placement-group-name</code> - The name of the placement group for the instance.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>placement-partition-number</code> - The partition in which the instance is located.
      * </p>
      * </li>
      * <li>
@@ -869,6 +874,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * </li>
      * <li>
      * <p>
+     * <code>placement-partition-number</code> - The partition in which the instance is located.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>platform</code> - The platform. Use <code>windows</code> if you have Windows instances; otherwise, leave
      * blank.
      * </p>
@@ -1336,6 +1346,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      *         <li>
      *         <p>
      *         <code>placement-group-name</code> - The name of the placement group for the instance.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>placement-partition-number</code> - The partition in which the instance is located.
      *         </p>
      *         </li>
      *         <li>
@@ -1821,6 +1836,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * </li>
      * <li>
      * <p>
+     * <code>placement-partition-number</code> - The partition in which the instance is located.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>platform</code> - The platform. Use <code>windows</code> if you have Windows instances; otherwise, leave
      * blank.
      * </p>
@@ -2289,6 +2309,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      *        <li>
      *        <p>
      *        <code>placement-group-name</code> - The name of the placement group for the instance.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>placement-partition-number</code> - The partition in which the instance is located.
      *        </p>
      *        </li>
      *        <li>
@@ -2775,6 +2800,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * </li>
      * <li>
      * <p>
+     * <code>placement-partition-number</code> - The partition in which the instance is located.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>platform</code> - The platform. Use <code>windows</code> if you have Windows instances; otherwise, leave
      * blank.
      * </p>
@@ -3248,6 +3278,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      *        <li>
      *        <p>
      *        <code>placement-group-name</code> - The name of the placement group for the instance.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>placement-partition-number</code> - The partition in which the instance is located.
      *        </p>
      *        </li>
      *        <li>
@@ -3736,6 +3771,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      * </li>
      * <li>
      * <p>
+     * <code>placement-partition-number</code> - The partition in which the instance is located.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
      * <code>platform</code> - The platform. Use <code>windows</code> if you have Windows instances; otherwise, leave
      * blank.
      * </p>
@@ -4204,6 +4244,11 @@ public class DescribeInstancesRequest extends AmazonWebServiceRequest implements
      *        <li>
      *        <p>
      *        <code>placement-group-name</code> - The name of the placement group for the instance.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>placement-partition-number</code> - The partition in which the instance is located.
      *        </p>
      *        </li>
      *        <li>

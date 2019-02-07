@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,18 +27,18 @@ public class DescribeCodeRepositoryRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The name of the git repository to describe.
+     * The name of the Git repository to describe.
      * </p>
      */
     private String codeRepositoryName;
 
     /**
      * <p>
-     * The name of the git repository to describe.
+     * The name of the Git repository to describe.
      * </p>
      * 
      * @param codeRepositoryName
-     *        The name of the git repository to describe.
+     *        The name of the Git repository to describe.
      */
 
     public void setCodeRepositoryName(String codeRepositoryName) {
@@ -47,10 +47,10 @@ public class DescribeCodeRepositoryRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The name of the git repository to describe.
+     * The name of the Git repository to describe.
      * </p>
      * 
-     * @return The name of the git repository to describe.
+     * @return The name of the Git repository to describe.
      */
 
     public String getCodeRepositoryName() {
@@ -59,11 +59,11 @@ public class DescribeCodeRepositoryRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The name of the git repository to describe.
+     * The name of the Git repository to describe.
      * </p>
      * 
      * @param codeRepositoryName
-     *        The name of the git repository to describe.
+     *        The name of the Git repository to describe.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -48,9 +48,9 @@ public class AWSDatabaseMigrationServiceWaiters {
      * in the waiters specification, and then polls until it determines whether the resource entered the desired state
      * or not, where polling criteria is bound by either default polling strategy or custom polling strategy.
      */
-    public Waiter<TestConnectionRequest> testConnectionSucceeds() {
+    public Waiter<DescribeConnectionsRequest> testConnectionSucceeds() {
 
-        return new WaiterBuilder<TestConnectionRequest, TestConnectionResult>().withSdkFunction(new TestConnectionFunction(client))
+        return new WaiterBuilder<DescribeConnectionsRequest, DescribeConnectionsResult>().withSdkFunction(new DescribeConnectionsFunction(client))
                 .withAcceptors(new TestConnectionSucceeds.IsSuccessfulMatcher(), new TestConnectionSucceeds.IsFailedMatcher())
                 .withDefaultPollingStrategy(new PollingStrategy(new MaxAttemptsRetryStrategy(60), new FixedDelayStrategy(5)))
                 .withExecutorService(executorService).build();

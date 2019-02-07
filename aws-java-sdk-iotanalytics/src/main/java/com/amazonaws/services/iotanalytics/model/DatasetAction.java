@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * A "DatasetAction" object specifying the query that creates the data set content.
+ * A "DatasetAction" object that specifies how data set contents are automatically created.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/DatasetAction" target="_top">AWS API
@@ -36,7 +36,7 @@ public class DatasetAction implements Serializable, Cloneable, StructuredPojo {
     private String actionName;
     /**
      * <p>
-     * An "SqlQueryDatasetAction" object that contains the SQL query to modify the message.
+     * An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
      * </p>
      */
     private SqlQueryDatasetAction queryAction;
@@ -90,11 +90,11 @@ public class DatasetAction implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * An "SqlQueryDatasetAction" object that contains the SQL query to modify the message.
+     * An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
      * </p>
      * 
      * @param queryAction
-     *        An "SqlQueryDatasetAction" object that contains the SQL query to modify the message.
+     *        An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
      */
 
     public void setQueryAction(SqlQueryDatasetAction queryAction) {
@@ -103,10 +103,10 @@ public class DatasetAction implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * An "SqlQueryDatasetAction" object that contains the SQL query to modify the message.
+     * An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
      * </p>
      * 
-     * @return An "SqlQueryDatasetAction" object that contains the SQL query to modify the message.
+     * @return An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
      */
 
     public SqlQueryDatasetAction getQueryAction() {
@@ -115,11 +115,11 @@ public class DatasetAction implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * An "SqlQueryDatasetAction" object that contains the SQL query to modify the message.
+     * An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
      * </p>
      * 
      * @param queryAction
-     *        An "SqlQueryDatasetAction" object that contains the SQL query to modify the message.
+     *        An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

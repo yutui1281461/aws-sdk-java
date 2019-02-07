@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -68,9 +68,7 @@ public enum InstanceType {
     R5Xlarge("r5.xlarge"),
     R52xlarge("r5.2xlarge"),
     R54xlarge("r5.4xlarge"),
-    R58xlarge("r5.8xlarge"),
     R512xlarge("r5.12xlarge"),
-    R516xlarge("r5.16xlarge"),
     R524xlarge("r5.24xlarge"),
     R5Metal("r5.metal"),
     R5aLarge("r5a.large"),
@@ -83,9 +81,7 @@ public enum InstanceType {
     R5dXlarge("r5d.xlarge"),
     R5d2xlarge("r5d.2xlarge"),
     R5d4xlarge("r5d.4xlarge"),
-    R5d8xlarge("r5d.8xlarge"),
     R5d12xlarge("r5d.12xlarge"),
-    R5d16xlarge("r5d.16xlarge"),
     R5d24xlarge("r5d.24xlarge"),
     R5dMetal("r5d.metal"),
     X116xlarge("x1.16xlarge"),

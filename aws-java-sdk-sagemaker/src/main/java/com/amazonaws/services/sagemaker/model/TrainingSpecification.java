@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,7 @@ public class TrainingSpecification implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * The Amazon Amazon ECR registry path of the Docker image that contains the training algorithm.
+     * The Amazon ECR registry path of the Docker image that contains the training algorithm.
      * </p>
      */
     private String trainingImage;
@@ -74,7 +74,7 @@ public class TrainingSpecification implements Serializable, Cloneable, Structure
     private java.util.List<ChannelSpecification> trainingChannels;
     /**
      * <p>
-     * A list of the metrics that the alogorithm emits that can be used as the objective metric in a hyperparameter
+     * A list of the metrics that the algorithm emits that can be used as the objective metric in a hyperparameter
      * tuning job.
      * </p>
      */
@@ -82,11 +82,11 @@ public class TrainingSpecification implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * The Amazon Amazon ECR registry path of the Docker image that contains the training algorithm.
+     * The Amazon ECR registry path of the Docker image that contains the training algorithm.
      * </p>
      * 
      * @param trainingImage
-     *        The Amazon Amazon ECR registry path of the Docker image that contains the training algorithm.
+     *        The Amazon ECR registry path of the Docker image that contains the training algorithm.
      */
 
     public void setTrainingImage(String trainingImage) {
@@ -95,10 +95,10 @@ public class TrainingSpecification implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * The Amazon Amazon ECR registry path of the Docker image that contains the training algorithm.
+     * The Amazon ECR registry path of the Docker image that contains the training algorithm.
      * </p>
      * 
-     * @return The Amazon Amazon ECR registry path of the Docker image that contains the training algorithm.
+     * @return The Amazon ECR registry path of the Docker image that contains the training algorithm.
      */
 
     public String getTrainingImage() {
@@ -107,11 +107,11 @@ public class TrainingSpecification implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * The Amazon Amazon ECR registry path of the Docker image that contains the training algorithm.
+     * The Amazon ECR registry path of the Docker image that contains the training algorithm.
      * </p>
      * 
      * @param trainingImage
-     *        The Amazon Amazon ECR registry path of the Docker image that contains the training algorithm.
+     *        The Amazon ECR registry path of the Docker image that contains the training algorithm.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -546,11 +546,11 @@ public class TrainingSpecification implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * A list of the metrics that the alogorithm emits that can be used as the objective metric in a hyperparameter
+     * A list of the metrics that the algorithm emits that can be used as the objective metric in a hyperparameter
      * tuning job.
      * </p>
      * 
-     * @return A list of the metrics that the alogorithm emits that can be used as the objective metric in a
+     * @return A list of the metrics that the algorithm emits that can be used as the objective metric in a
      *         hyperparameter tuning job.
      */
 
@@ -560,12 +560,12 @@ public class TrainingSpecification implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * A list of the metrics that the alogorithm emits that can be used as the objective metric in a hyperparameter
+     * A list of the metrics that the algorithm emits that can be used as the objective metric in a hyperparameter
      * tuning job.
      * </p>
      * 
      * @param supportedTuningJobObjectiveMetrics
-     *        A list of the metrics that the alogorithm emits that can be used as the objective metric in a
+     *        A list of the metrics that the algorithm emits that can be used as the objective metric in a
      *        hyperparameter tuning job.
      */
 
@@ -580,7 +580,7 @@ public class TrainingSpecification implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * A list of the metrics that the alogorithm emits that can be used as the objective metric in a hyperparameter
+     * A list of the metrics that the algorithm emits that can be used as the objective metric in a hyperparameter
      * tuning job.
      * </p>
      * <p>
@@ -591,7 +591,7 @@ public class TrainingSpecification implements Serializable, Cloneable, Structure
      * </p>
      * 
      * @param supportedTuningJobObjectiveMetrics
-     *        A list of the metrics that the alogorithm emits that can be used as the objective metric in a
+     *        A list of the metrics that the algorithm emits that can be used as the objective metric in a
      *        hyperparameter tuning job.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -608,12 +608,12 @@ public class TrainingSpecification implements Serializable, Cloneable, Structure
 
     /**
      * <p>
-     * A list of the metrics that the alogorithm emits that can be used as the objective metric in a hyperparameter
+     * A list of the metrics that the algorithm emits that can be used as the objective metric in a hyperparameter
      * tuning job.
      * </p>
      * 
      * @param supportedTuningJobObjectiveMetrics
-     *        A list of the metrics that the alogorithm emits that can be used as the objective metric in a
+     *        A list of the metrics that the algorithm emits that can be used as the objective metric in a
      *        hyperparameter tuning job.
      * @return Returns a reference to this object so that method calls can be chained together.
      */

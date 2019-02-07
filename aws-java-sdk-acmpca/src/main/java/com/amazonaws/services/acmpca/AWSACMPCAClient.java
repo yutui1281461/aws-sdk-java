@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,6 +40,7 @@ import com.amazonaws.client.AwsSyncClientParams;
 import com.amazonaws.client.builder.AdvancedConfig;
 
 import com.amazonaws.services.acmpca.AWSACMPCAClientBuilder;
+import com.amazonaws.services.acmpca.waiters.AWSACMPCAWaiters;
 
 import com.amazonaws.AmazonServiceException;
 
@@ -76,10 +77,16 @@ import com.amazonaws.services.acmpca.model.transform.*;
  * specify a bucket policy that grants ACM PCA write permission.
  * </p>
  * <p>
- * You can also call the <a>CreateCertificateAuthorityAuditReport</a> to create an optional audit report that lists
- * every time the CA private key is used. The private key is used for signing when the <b>IssueCertificate</b> or
- * <b>RevokeCertificate</b> operation is called.
+ * You can also call the <a>CreateCertificateAuthorityAuditReport</a> to create an optional audit report, which
+ * enumerates all of the issued, valid, expired, and revoked certificates from the CA.
  * </p>
+ * <note>
+ * <p>
+ * Each ACM PCA API operation has a throttling limit which determines the number of times the operation can be called
+ * per second. For more information, see <a href="acm-pca/latest/userguide/PcaLimits.html#PcaLimits-api">API Rate Limits
+ * in ACM PCA</a> in the ACM PCA user guide.
+ * </p>
+ * </note>
  */
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -92,6 +99,8 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
 
     /** Default signing name for the service. */
     private static final String DEFAULT_SIGNING_NAME = "acm-pca";
+
+    private volatile AWSACMPCAWaiters waiters;
 
     /** Client configuration factory providing ClientConfigurations tailored to this client */
     protected static final ClientConfigurationFactory configFactory = new ClientConfigurationFactory();
@@ -217,6 +226,8 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * @throws InvalidPolicyException
      *         The S3 bucket policy is not valid. The policy must give ACM PCA rights to read from and write to the
      *         bucket and find the bucket location.
+     * @throws InvalidTagException
+     *         The tag associated with the CA is not valid. The invalid argument is contained in the message field.
      * @throws LimitExceededException
      *         An ACM PCA limit has been exceeded. See the exception message returned to determine the limit that was
      *         exceeded.
@@ -287,7 +298,7 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * @throws InvalidArgsException
      *         One or more of the specified arguments was not valid.
      * @throws InvalidStateException
-     *         The private CA is in a state during which a report cannot be generated.
+     *         The private CA is in a state during which a report or certificate cannot be generated.
      * @sample AWSACMPCA.CreateCertificateAuthorityAuditReport
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/CreateCertificateAuthorityAuditReport"
      *      target="_top">AWS API Documentation</a>
@@ -366,7 +377,7 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * @throws InvalidArnException
      *         The requested Amazon Resource Name (ARN) does not refer to an existing resource.
      * @throws InvalidStateException
-     *         The private CA is in a state during which a report cannot be generated.
+     *         The private CA is in a state during which a report or certificate cannot be generated.
      * @sample AWSACMPCA.DeleteCertificateAuthority
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/DeleteCertificateAuthority"
      *      target="_top">AWS API Documentation</a>
@@ -454,9 +465,8 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * </li>
      * <li>
      * <p>
-     * <code>DELETED</code> - Your private CA is within the restoration period, after which it will be permanently
-     * deleted. The length of time remaining in the CA's restoration period will also be included in this operation's
-     * output.
+     * <code>DELETED</code> - Your private CA is within the restoration period, after which it is permanently deleted.
+     * The length of time remaining in the CA's restoration period is also included in this operation's output.
      * </p>
      * </li>
      * </ul>
@@ -598,7 +608,7 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * @throws InvalidArnException
      *         The requested Amazon Resource Name (ARN) does not refer to an existing resource.
      * @throws InvalidStateException
-     *         The private CA is in a state during which a report cannot be generated.
+     *         The private CA is in a state during which a report or certificate cannot be generated.
      * @sample AWSACMPCA.GetCertificate
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/GetCertificate" target="_top">AWS API
      *      Documentation</a>
@@ -656,7 +666,7 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * @throws ResourceNotFoundException
      *         A resource such as a private CA, S3 bucket, certificate, or audit report cannot be found.
      * @throws InvalidStateException
-     *         The private CA is in a state during which a report cannot be generated.
+     *         The private CA is in a state during which a report or certificate cannot be generated.
      * @throws InvalidArnException
      *         The requested Amazon Resource Name (ARN) does not refer to an existing resource.
      * @sample AWSACMPCA.GetCertificateAuthorityCertificate
@@ -727,7 +737,7 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * @throws InvalidArnException
      *         The requested Amazon Resource Name (ARN) does not refer to an existing resource.
      * @throws InvalidStateException
-     *         The private CA is in a state during which a report cannot be generated.
+     *         The private CA is in a state during which a report or certificate cannot be generated.
      * @sample AWSACMPCA.GetCertificateAuthorityCsr
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/GetCertificateAuthorityCsr"
      *      target="_top">AWS API Documentation</a>
@@ -812,7 +822,7 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * @throws InvalidArnException
      *         The requested Amazon Resource Name (ARN) does not refer to an existing resource.
      * @throws InvalidStateException
-     *         The private CA is in a state during which a report cannot be generated.
+     *         The private CA is in a state during which a report or certificate cannot be generated.
      * @throws MalformedCertificateException
      *         One or more fields in the certificate are invalid.
      * @throws CertificateMismatchException
@@ -887,7 +897,7 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * @throws ResourceNotFoundException
      *         A resource such as a private CA, S3 bucket, certificate, or audit report cannot be found.
      * @throws InvalidStateException
-     *         The private CA is in a state during which a report cannot be generated.
+     *         The private CA is in a state during which a report or certificate cannot be generated.
      * @throws InvalidArnException
      *         The requested Amazon Resource Name (ARN) does not refer to an existing resource.
      * @throws InvalidArgsException
@@ -1075,7 +1085,7 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * @throws ResourceNotFoundException
      *         A resource such as a private CA, S3 bucket, certificate, or audit report cannot be found.
      * @throws InvalidStateException
-     *         The private CA is in a state during which a report cannot be generated.
+     *         The private CA is in a state during which a report or certificate cannot be generated.
      * @throws InvalidArnException
      *         The requested Amazon Resource Name (ARN) does not refer to an existing resource.
      * @sample AWSACMPCA.RestoreCertificateAuthority
@@ -1141,7 +1151,10 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * @throws InvalidArnException
      *         The requested Amazon Resource Name (ARN) does not refer to an existing resource.
      * @throws InvalidStateException
-     *         The private CA is in a state during which a report cannot be generated.
+     *         The private CA is in a state during which a report or certificate cannot be generated.
+     * @throws LimitExceededException
+     *         An ACM PCA limit has been exceeded. See the exception message returned to determine the limit that was
+     *         exceeded.
      * @throws ResourceNotFoundException
      *         A resource such as a private CA, S3 bucket, certificate, or audit report cannot be found.
      * @throws RequestAlreadyProcessedException
@@ -1213,7 +1226,7 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * @throws InvalidArnException
      *         The requested Amazon Resource Name (ARN) does not refer to an existing resource.
      * @throws InvalidStateException
-     *         The private CA is in a state during which a report cannot be generated.
+     *         The private CA is in a state during which a report or certificate cannot be generated.
      * @throws InvalidTagException
      *         The tag associated with the CA is not valid. The invalid argument is contained in the message field.
      * @throws TooManyTagsException
@@ -1281,7 +1294,7 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * @throws InvalidArnException
      *         The requested Amazon Resource Name (ARN) does not refer to an existing resource.
      * @throws InvalidStateException
-     *         The private CA is in a state during which a report cannot be generated.
+     *         The private CA is in a state during which a report or certificate cannot be generated.
      * @throws InvalidTagException
      *         The tag associated with the CA is not valid. The invalid argument is contained in the message field.
      * @sample AWSACMPCA.UntagCertificateAuthority
@@ -1349,7 +1362,7 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
      * @throws InvalidArnException
      *         The requested Amazon Resource Name (ARN) does not refer to an existing resource.
      * @throws InvalidStateException
-     *         The private CA is in a state during which a report cannot be generated.
+     *         The private CA is in a state during which a report or certificate cannot be generated.
      * @throws InvalidPolicyException
      *         The S3 bucket policy is not valid. The policy must give ACM PCA rights to read from and write to the
      *         bucket and find the bucket location.
@@ -1474,6 +1487,26 @@ public class AWSACMPCAClient extends AmazonWebServiceClient implements AWSACMPCA
     @com.amazonaws.annotation.SdkInternalApi
     static com.amazonaws.protocol.json.SdkJsonProtocolFactory getProtocolFactory() {
         return protocolFactory;
+    }
+
+    @Override
+    public AWSACMPCAWaiters waiters() {
+        if (waiters == null) {
+            synchronized (this) {
+                if (waiters == null) {
+                    waiters = new AWSACMPCAWaiters(this);
+                }
+            }
+        }
+        return waiters;
+    }
+
+    @Override
+    public void shutdown() {
+        super.shutdown();
+        if (waiters != null) {
+            waiters.shutdown();
+        }
     }
 
 }

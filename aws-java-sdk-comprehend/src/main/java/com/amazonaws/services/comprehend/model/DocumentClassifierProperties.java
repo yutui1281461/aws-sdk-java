@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -42,7 +42,7 @@ public class DocumentClassifierProperties implements Serializable, Cloneable, St
     private String languageCode;
     /**
      * <p>
-     * The status of the document classifier. The the status is <code>TRAINED</code> the classifier is ready to use. If
+     * The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to use. If
      * the status is <code>FAILED</code> you can see additional information about why the classifier wasn't trained in
      * the <code>Message</code> field.
      * </p>
@@ -203,13 +203,13 @@ public class DocumentClassifierProperties implements Serializable, Cloneable, St
 
     /**
      * <p>
-     * The status of the document classifier. The the status is <code>TRAINED</code> the classifier is ready to use. If
+     * The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to use. If
      * the status is <code>FAILED</code> you can see additional information about why the classifier wasn't trained in
      * the <code>Message</code> field.
      * </p>
      * 
      * @param status
-     *        The status of the document classifier. The the status is <code>TRAINED</code> the classifier is ready to
+     *        The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to
      *        use. If the status is <code>FAILED</code> you can see additional information about why the classifier
      *        wasn't trained in the <code>Message</code> field.
      * @see ModelStatus
@@ -221,12 +221,12 @@ public class DocumentClassifierProperties implements Serializable, Cloneable, St
 
     /**
      * <p>
-     * The status of the document classifier. The the status is <code>TRAINED</code> the classifier is ready to use. If
+     * The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to use. If
      * the status is <code>FAILED</code> you can see additional information about why the classifier wasn't trained in
      * the <code>Message</code> field.
      * </p>
      * 
-     * @return The status of the document classifier. The the status is <code>TRAINED</code> the classifier is ready to
+     * @return The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to
      *         use. If the status is <code>FAILED</code> you can see additional information about why the classifier
      *         wasn't trained in the <code>Message</code> field.
      * @see ModelStatus
@@ -238,13 +238,13 @@ public class DocumentClassifierProperties implements Serializable, Cloneable, St
 
     /**
      * <p>
-     * The status of the document classifier. The the status is <code>TRAINED</code> the classifier is ready to use. If
+     * The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to use. If
      * the status is <code>FAILED</code> you can see additional information about why the classifier wasn't trained in
      * the <code>Message</code> field.
      * </p>
      * 
      * @param status
-     *        The status of the document classifier. The the status is <code>TRAINED</code> the classifier is ready to
+     *        The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to
      *        use. If the status is <code>FAILED</code> you can see additional information about why the classifier
      *        wasn't trained in the <code>Message</code> field.
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -258,13 +258,13 @@ public class DocumentClassifierProperties implements Serializable, Cloneable, St
 
     /**
      * <p>
-     * The status of the document classifier. The the status is <code>TRAINED</code> the classifier is ready to use. If
+     * The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to use. If
      * the status is <code>FAILED</code> you can see additional information about why the classifier wasn't trained in
      * the <code>Message</code> field.
      * </p>
      * 
      * @param status
-     *        The status of the document classifier. The the status is <code>TRAINED</code> the classifier is ready to
+     *        The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to
      *        use. If the status is <code>FAILED</code> you can see additional information about why the classifier
      *        wasn't trained in the <code>Message</code> field.
      * @return Returns a reference to this object so that method calls can be chained together.

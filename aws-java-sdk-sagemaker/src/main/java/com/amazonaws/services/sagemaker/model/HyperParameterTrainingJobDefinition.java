@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -36,8 +36,8 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
     private java.util.Map<String, String> staticHyperParameters;
     /**
      * <p>
-     * The <a>HyperParameterAlgorithmSpecification</a> object that specifies the algorithm to use for the training jobs
-     * that the tuning job launches.
+     * The <a>HyperParameterAlgorithmSpecification</a> object that specifies the resource algorithm to use for the
+     * training jobs that the tuning job launches.
      * </p>
      */
     private HyperParameterAlgorithmSpecification algorithmSpecification;
@@ -102,7 +102,7 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
      * Isolates the training container. No inbound or outbound network calls can be made, except for calls between peers
      * within a training cluster for distributed training. If network isolation is used for training jobs that are
      * configured to use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through the
-     * specifed VPC, but the training container does not have network access.
+     * specified VPC, but the training container does not have network access.
      * </p>
      * <note>
      * <p>
@@ -111,6 +111,14 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
      * </note>
      */
     private Boolean enableNetworkIsolation;
+    /**
+     * <p>
+     * To encrypt all communications between ML compute instances in distributed training, specify <code>True</code>.
+     * Encryption provides greater security for distributed training, but training take longer because of the additional
+     * communications between ML compute instances.
+     * </p>
+     */
+    private Boolean enableInterContainerTrafficEncryption;
 
     /**
      * <p>
@@ -175,13 +183,13 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
 
     /**
      * <p>
-     * The <a>HyperParameterAlgorithmSpecification</a> object that specifies the algorithm to use for the training jobs
-     * that the tuning job launches.
+     * The <a>HyperParameterAlgorithmSpecification</a> object that specifies the resource algorithm to use for the
+     * training jobs that the tuning job launches.
      * </p>
      * 
      * @param algorithmSpecification
-     *        The <a>HyperParameterAlgorithmSpecification</a> object that specifies the algorithm to use for the
-     *        training jobs that the tuning job launches.
+     *        The <a>HyperParameterAlgorithmSpecification</a> object that specifies the resource algorithm to use for
+     *        the training jobs that the tuning job launches.
      */
 
     public void setAlgorithmSpecification(HyperParameterAlgorithmSpecification algorithmSpecification) {
@@ -190,12 +198,12 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
 
     /**
      * <p>
-     * The <a>HyperParameterAlgorithmSpecification</a> object that specifies the algorithm to use for the training jobs
-     * that the tuning job launches.
+     * The <a>HyperParameterAlgorithmSpecification</a> object that specifies the resource algorithm to use for the
+     * training jobs that the tuning job launches.
      * </p>
      * 
-     * @return The <a>HyperParameterAlgorithmSpecification</a> object that specifies the algorithm to use for the
-     *         training jobs that the tuning job launches.
+     * @return The <a>HyperParameterAlgorithmSpecification</a> object that specifies the resource algorithm to use for
+     *         the training jobs that the tuning job launches.
      */
 
     public HyperParameterAlgorithmSpecification getAlgorithmSpecification() {
@@ -204,13 +212,13 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
 
     /**
      * <p>
-     * The <a>HyperParameterAlgorithmSpecification</a> object that specifies the algorithm to use for the training jobs
-     * that the tuning job launches.
+     * The <a>HyperParameterAlgorithmSpecification</a> object that specifies the resource algorithm to use for the
+     * training jobs that the tuning job launches.
      * </p>
      * 
      * @param algorithmSpecification
-     *        The <a>HyperParameterAlgorithmSpecification</a> object that specifies the algorithm to use for the
-     *        training jobs that the tuning job launches.
+     *        The <a>HyperParameterAlgorithmSpecification</a> object that specifies the resource algorithm to use for
+     *        the training jobs that the tuning job launches.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -618,7 +626,7 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
      * Isolates the training container. No inbound or outbound network calls can be made, except for calls between peers
      * within a training cluster for distributed training. If network isolation is used for training jobs that are
      * configured to use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through the
-     * specifed VPC, but the training container does not have network access.
+     * specified VPC, but the training container does not have network access.
      * </p>
      * <note>
      * <p>
@@ -630,7 +638,7 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
      *        Isolates the training container. No inbound or outbound network calls can be made, except for calls
      *        between peers within a training cluster for distributed training. If network isolation is used for
      *        training jobs that are configured to use a VPC, Amazon SageMaker downloads and uploads customer data and
-     *        model artifacts through the specifed VPC, but the training container does not have network access.</p>
+     *        model artifacts through the specified VPC, but the training container does not have network access.</p>
      *        <note>
      *        <p>
      *        The Semantic Segmentation built-in algorithm does not support network isolation.
@@ -646,7 +654,7 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
      * Isolates the training container. No inbound or outbound network calls can be made, except for calls between peers
      * within a training cluster for distributed training. If network isolation is used for training jobs that are
      * configured to use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through the
-     * specifed VPC, but the training container does not have network access.
+     * specified VPC, but the training container does not have network access.
      * </p>
      * <note>
      * <p>
@@ -657,7 +665,7 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
      * @return Isolates the training container. No inbound or outbound network calls can be made, except for calls
      *         between peers within a training cluster for distributed training. If network isolation is used for
      *         training jobs that are configured to use a VPC, Amazon SageMaker downloads and uploads customer data and
-     *         model artifacts through the specifed VPC, but the training container does not have network access.</p>
+     *         model artifacts through the specified VPC, but the training container does not have network access.</p>
      *         <note>
      *         <p>
      *         The Semantic Segmentation built-in algorithm does not support network isolation.
@@ -673,7 +681,7 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
      * Isolates the training container. No inbound or outbound network calls can be made, except for calls between peers
      * within a training cluster for distributed training. If network isolation is used for training jobs that are
      * configured to use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through the
-     * specifed VPC, but the training container does not have network access.
+     * specified VPC, but the training container does not have network access.
      * </p>
      * <note>
      * <p>
@@ -685,7 +693,7 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
      *        Isolates the training container. No inbound or outbound network calls can be made, except for calls
      *        between peers within a training cluster for distributed training. If network isolation is used for
      *        training jobs that are configured to use a VPC, Amazon SageMaker downloads and uploads customer data and
-     *        model artifacts through the specifed VPC, but the training container does not have network access.</p>
+     *        model artifacts through the specified VPC, but the training container does not have network access.</p>
      *        <note>
      *        <p>
      *        The Semantic Segmentation built-in algorithm does not support network isolation.
@@ -703,7 +711,7 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
      * Isolates the training container. No inbound or outbound network calls can be made, except for calls between peers
      * within a training cluster for distributed training. If network isolation is used for training jobs that are
      * configured to use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through the
-     * specifed VPC, but the training container does not have network access.
+     * specified VPC, but the training container does not have network access.
      * </p>
      * <note>
      * <p>
@@ -714,7 +722,7 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
      * @return Isolates the training container. No inbound or outbound network calls can be made, except for calls
      *         between peers within a training cluster for distributed training. If network isolation is used for
      *         training jobs that are configured to use a VPC, Amazon SageMaker downloads and uploads customer data and
-     *         model artifacts through the specifed VPC, but the training container does not have network access.</p>
+     *         model artifacts through the specified VPC, but the training container does not have network access.</p>
      *         <note>
      *         <p>
      *         The Semantic Segmentation built-in algorithm does not support network isolation.
@@ -723,6 +731,74 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
 
     public Boolean isEnableNetworkIsolation() {
         return this.enableNetworkIsolation;
+    }
+
+    /**
+     * <p>
+     * To encrypt all communications between ML compute instances in distributed training, specify <code>True</code>.
+     * Encryption provides greater security for distributed training, but training take longer because of the additional
+     * communications between ML compute instances.
+     * </p>
+     * 
+     * @param enableInterContainerTrafficEncryption
+     *        To encrypt all communications between ML compute instances in distributed training, specify
+     *        <code>True</code>. Encryption provides greater security for distributed training, but training take longer
+     *        because of the additional communications between ML compute instances.
+     */
+
+    public void setEnableInterContainerTrafficEncryption(Boolean enableInterContainerTrafficEncryption) {
+        this.enableInterContainerTrafficEncryption = enableInterContainerTrafficEncryption;
+    }
+
+    /**
+     * <p>
+     * To encrypt all communications between ML compute instances in distributed training, specify <code>True</code>.
+     * Encryption provides greater security for distributed training, but training take longer because of the additional
+     * communications between ML compute instances.
+     * </p>
+     * 
+     * @return To encrypt all communications between ML compute instances in distributed training, specify
+     *         <code>True</code>. Encryption provides greater security for distributed training, but training take
+     *         longer because of the additional communications between ML compute instances.
+     */
+
+    public Boolean getEnableInterContainerTrafficEncryption() {
+        return this.enableInterContainerTrafficEncryption;
+    }
+
+    /**
+     * <p>
+     * To encrypt all communications between ML compute instances in distributed training, specify <code>True</code>.
+     * Encryption provides greater security for distributed training, but training take longer because of the additional
+     * communications between ML compute instances.
+     * </p>
+     * 
+     * @param enableInterContainerTrafficEncryption
+     *        To encrypt all communications between ML compute instances in distributed training, specify
+     *        <code>True</code>. Encryption provides greater security for distributed training, but training take longer
+     *        because of the additional communications between ML compute instances.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public HyperParameterTrainingJobDefinition withEnableInterContainerTrafficEncryption(Boolean enableInterContainerTrafficEncryption) {
+        setEnableInterContainerTrafficEncryption(enableInterContainerTrafficEncryption);
+        return this;
+    }
+
+    /**
+     * <p>
+     * To encrypt all communications between ML compute instances in distributed training, specify <code>True</code>.
+     * Encryption provides greater security for distributed training, but training take longer because of the additional
+     * communications between ML compute instances.
+     * </p>
+     * 
+     * @return To encrypt all communications between ML compute instances in distributed training, specify
+     *         <code>True</code>. Encryption provides greater security for distributed training, but training take
+     *         longer because of the additional communications between ML compute instances.
+     */
+
+    public Boolean isEnableInterContainerTrafficEncryption() {
+        return this.enableInterContainerTrafficEncryption;
     }
 
     /**
@@ -754,7 +830,9 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
         if (getStoppingCondition() != null)
             sb.append("StoppingCondition: ").append(getStoppingCondition()).append(",");
         if (getEnableNetworkIsolation() != null)
-            sb.append("EnableNetworkIsolation: ").append(getEnableNetworkIsolation());
+            sb.append("EnableNetworkIsolation: ").append(getEnableNetworkIsolation()).append(",");
+        if (getEnableInterContainerTrafficEncryption() != null)
+            sb.append("EnableInterContainerTrafficEncryption: ").append(getEnableInterContainerTrafficEncryption());
         sb.append("}");
         return sb.toString();
     }
@@ -805,6 +883,11 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
             return false;
         if (other.getEnableNetworkIsolation() != null && other.getEnableNetworkIsolation().equals(this.getEnableNetworkIsolation()) == false)
             return false;
+        if (other.getEnableInterContainerTrafficEncryption() == null ^ this.getEnableInterContainerTrafficEncryption() == null)
+            return false;
+        if (other.getEnableInterContainerTrafficEncryption() != null
+                && other.getEnableInterContainerTrafficEncryption().equals(this.getEnableInterContainerTrafficEncryption()) == false)
+            return false;
         return true;
     }
 
@@ -822,6 +905,7 @@ public class HyperParameterTrainingJobDefinition implements Serializable, Clonea
         hashCode = prime * hashCode + ((getResourceConfig() == null) ? 0 : getResourceConfig().hashCode());
         hashCode = prime * hashCode + ((getStoppingCondition() == null) ? 0 : getStoppingCondition().hashCode());
         hashCode = prime * hashCode + ((getEnableNetworkIsolation() == null) ? 0 : getEnableNetworkIsolation().hashCode());
+        hashCode = prime * hashCode + ((getEnableInterContainerTrafficEncryption() == null) ? 0 : getEnableInterContainerTrafficEncryption().hashCode());
         return hashCode;
     }
 

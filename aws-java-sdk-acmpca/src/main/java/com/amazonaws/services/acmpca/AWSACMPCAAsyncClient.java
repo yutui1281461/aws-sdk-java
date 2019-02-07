@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -51,10 +51,16 @@ import java.util.concurrent.ExecutorService;
  * specify a bucket policy that grants ACM PCA write permission.
  * </p>
  * <p>
- * You can also call the <a>CreateCertificateAuthorityAuditReport</a> to create an optional audit report that lists
- * every time the CA private key is used. The private key is used for signing when the <b>IssueCertificate</b> or
- * <b>RevokeCertificate</b> operation is called.
+ * You can also call the <a>CreateCertificateAuthorityAuditReport</a> to create an optional audit report, which
+ * enumerates all of the issued, valid, expired, and revoked certificates from the CA.
  * </p>
+ * <note>
+ * <p>
+ * Each ACM PCA API operation has a throttling limit which determines the number of times the operation can be called
+ * per second. For more information, see <a href="acm-pca/latest/userguide/PcaLimits.html#PcaLimits-api">API Rate Limits
+ * in ACM PCA</a> in the ACM PCA user guide.
+ * </p>
+ * </note>
  */
 @ThreadSafe
 @Generated("com.amazonaws:aws-java-sdk-code-generator")

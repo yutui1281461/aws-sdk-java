@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Specifies configuration details for a git repository in your AWS account.
+ * Specifies configuration details for a Git repository in your AWS account.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/GitConfig" target="_top">AWS API
@@ -30,13 +30,13 @@ public class GitConfig implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The URL where the git repository is located.
+     * The URL where the Git repository is located.
      * </p>
      */
     private String repositoryUrl;
     /**
      * <p>
-     * The default brach for the git repository.
+     * The default branch for the Git repository.
      * </p>
      */
     private String branch;
@@ -54,11 +54,11 @@ public class GitConfig implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The URL where the git repository is located.
+     * The URL where the Git repository is located.
      * </p>
      * 
      * @param repositoryUrl
-     *        The URL where the git repository is located.
+     *        The URL where the Git repository is located.
      */
 
     public void setRepositoryUrl(String repositoryUrl) {
@@ -67,10 +67,10 @@ public class GitConfig implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The URL where the git repository is located.
+     * The URL where the Git repository is located.
      * </p>
      * 
-     * @return The URL where the git repository is located.
+     * @return The URL where the Git repository is located.
      */
 
     public String getRepositoryUrl() {
@@ -79,11 +79,11 @@ public class GitConfig implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The URL where the git repository is located.
+     * The URL where the Git repository is located.
      * </p>
      * 
      * @param repositoryUrl
-     *        The URL where the git repository is located.
+     *        The URL where the Git repository is located.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -94,11 +94,11 @@ public class GitConfig implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The default brach for the git repository.
+     * The default branch for the Git repository.
      * </p>
      * 
      * @param branch
-     *        The default brach for the git repository.
+     *        The default branch for the Git repository.
      */
 
     public void setBranch(String branch) {
@@ -107,10 +107,10 @@ public class GitConfig implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The default brach for the git repository.
+     * The default branch for the Git repository.
      * </p>
      * 
-     * @return The default brach for the git repository.
+     * @return The default branch for the Git repository.
      */
 
     public String getBranch() {
@@ -119,11 +119,11 @@ public class GitConfig implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The default brach for the git repository.
+     * The default branch for the Git repository.
      * </p>
      * 
      * @param branch
-     *        The default brach for the git repository.
+     *        The default branch for the Git repository.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

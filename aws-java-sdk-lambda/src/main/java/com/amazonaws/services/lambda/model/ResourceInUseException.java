@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -16,8 +16,8 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * The operation conflicts with the resource's availability. For example, you attempted to update an EventSoure Mapping
- * in CREATING, or tried to delete a EventSoure mapping currently in the UPDATING state.
+ * The operation conflicts with the resource's availability. For example, you attempted to update an EventSource Mapping
+ * in CREATING, or tried to delete a EventSource mapping currently in the UPDATING state.
  * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")

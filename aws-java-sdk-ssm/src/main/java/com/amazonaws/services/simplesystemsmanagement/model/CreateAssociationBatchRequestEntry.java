@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -46,6 +46,13 @@ public class CreateAssociationBatchRequestEntry implements Serializable, Cloneab
      * </p>
      */
     private java.util.Map<String, java.util.List<String>> parameters;
+    /**
+     * <p>
+     * Specify the target for the association. This target is required for associations that use an Automation document
+     * and target resources by using rate controls.
+     * </p>
+     */
+    private String automationTargetParameterName;
     /**
      * <p>
      * The document version.
@@ -250,6 +257,52 @@ public class CreateAssociationBatchRequestEntry implements Serializable, Cloneab
 
     public CreateAssociationBatchRequestEntry clearParametersEntries() {
         this.parameters = null;
+        return this;
+    }
+
+    /**
+     * <p>
+     * Specify the target for the association. This target is required for associations that use an Automation document
+     * and target resources by using rate controls.
+     * </p>
+     * 
+     * @param automationTargetParameterName
+     *        Specify the target for the association. This target is required for associations that use an Automation
+     *        document and target resources by using rate controls.
+     */
+
+    public void setAutomationTargetParameterName(String automationTargetParameterName) {
+        this.automationTargetParameterName = automationTargetParameterName;
+    }
+
+    /**
+     * <p>
+     * Specify the target for the association. This target is required for associations that use an Automation document
+     * and target resources by using rate controls.
+     * </p>
+     * 
+     * @return Specify the target for the association. This target is required for associations that use an Automation
+     *         document and target resources by using rate controls.
+     */
+
+    public String getAutomationTargetParameterName() {
+        return this.automationTargetParameterName;
+    }
+
+    /**
+     * <p>
+     * Specify the target for the association. This target is required for associations that use an Automation document
+     * and target resources by using rate controls.
+     * </p>
+     * 
+     * @param automationTargetParameterName
+     *        Specify the target for the association. This target is required for associations that use an Automation
+     *        document and target resources by using rate controls.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CreateAssociationBatchRequestEntry withAutomationTargetParameterName(String automationTargetParameterName) {
+        setAutomationTargetParameterName(automationTargetParameterName);
         return this;
     }
 
@@ -739,6 +792,8 @@ public class CreateAssociationBatchRequestEntry implements Serializable, Cloneab
             sb.append("InstanceId: ").append(getInstanceId()).append(",");
         if (getParameters() != null)
             sb.append("Parameters: ").append(getParameters()).append(",");
+        if (getAutomationTargetParameterName() != null)
+            sb.append("AutomationTargetParameterName: ").append(getAutomationTargetParameterName()).append(",");
         if (getDocumentVersion() != null)
             sb.append("DocumentVersion: ").append(getDocumentVersion()).append(",");
         if (getTargets() != null)
@@ -780,6 +835,11 @@ public class CreateAssociationBatchRequestEntry implements Serializable, Cloneab
         if (other.getParameters() == null ^ this.getParameters() == null)
             return false;
         if (other.getParameters() != null && other.getParameters().equals(this.getParameters()) == false)
+            return false;
+        if (other.getAutomationTargetParameterName() == null ^ this.getAutomationTargetParameterName() == null)
+            return false;
+        if (other.getAutomationTargetParameterName() != null
+                && other.getAutomationTargetParameterName().equals(this.getAutomationTargetParameterName()) == false)
             return false;
         if (other.getDocumentVersion() == null ^ this.getDocumentVersion() == null)
             return false;
@@ -824,6 +884,7 @@ public class CreateAssociationBatchRequestEntry implements Serializable, Cloneab
         hashCode = prime * hashCode + ((getName() == null) ? 0 : getName().hashCode());
         hashCode = prime * hashCode + ((getInstanceId() == null) ? 0 : getInstanceId().hashCode());
         hashCode = prime * hashCode + ((getParameters() == null) ? 0 : getParameters().hashCode());
+        hashCode = prime * hashCode + ((getAutomationTargetParameterName() == null) ? 0 : getAutomationTargetParameterName().hashCode());
         hashCode = prime * hashCode + ((getDocumentVersion() == null) ? 0 : getDocumentVersion().hashCode());
         hashCode = prime * hashCode + ((getTargets() == null) ? 0 : getTargets().hashCode());
         hashCode = prime * hashCode + ((getScheduleExpression() == null) ? 0 : getScheduleExpression().hashCode());

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -553,6 +553,32 @@ public class AbstractAmazonComprehendAsync extends AbstractAmazonComprehend impl
     @Override
     public java.util.concurrent.Future<StopSentimentDetectionJobResult> stopSentimentDetectionJobAsync(StopSentimentDetectionJobRequest request,
             com.amazonaws.handlers.AsyncHandler<StopSentimentDetectionJobRequest, StopSentimentDetectionJobResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public java.util.concurrent.Future<StopTrainingDocumentClassifierResult> stopTrainingDocumentClassifierAsync(StopTrainingDocumentClassifierRequest request) {
+
+        return stopTrainingDocumentClassifierAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<StopTrainingDocumentClassifierResult> stopTrainingDocumentClassifierAsync(StopTrainingDocumentClassifierRequest request,
+            com.amazonaws.handlers.AsyncHandler<StopTrainingDocumentClassifierRequest, StopTrainingDocumentClassifierResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public java.util.concurrent.Future<StopTrainingEntityRecognizerResult> stopTrainingEntityRecognizerAsync(StopTrainingEntityRecognizerRequest request) {
+
+        return stopTrainingEntityRecognizerAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<StopTrainingEntityRecognizerResult> stopTrainingEntityRecognizerAsync(StopTrainingEntityRecognizerRequest request,
+            com.amazonaws.handlers.AsyncHandler<StopTrainingEntityRecognizerRequest, StopTrainingEntityRecognizerResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,6 +27,8 @@ public enum RDSActions implements Action {
 
     /** Action for the AddRoleToDBCluster operation. */
     AddRoleToDBCluster("rds:AddRoleToDBCluster"),
+    /** Action for the AddRoleToDBInstance operation. */
+    AddRoleToDBInstance("rds:AddRoleToDBInstance"),
     /** Action for the AddSourceIdentifierToSubscription operation. */
     AddSourceIdentifierToSubscription("rds:AddSourceIdentifierToSubscription"),
     /** Action for the AddTagsToResource operation. */
@@ -209,6 +211,8 @@ public enum RDSActions implements Action {
     RemoveFromGlobalCluster("rds:RemoveFromGlobalCluster"),
     /** Action for the RemoveRoleFromDBCluster operation. */
     RemoveRoleFromDBCluster("rds:RemoveRoleFromDBCluster"),
+    /** Action for the RemoveRoleFromDBInstance operation. */
+    RemoveRoleFromDBInstance("rds:RemoveRoleFromDBInstance"),
     /** Action for the RemoveSourceIdentifierFromSubscription operation. */
     RemoveSourceIdentifierFromSubscription("rds:RemoveSourceIdentifierFromSubscription"),
     /** Action for the RemoveTagsFromResource operation. */

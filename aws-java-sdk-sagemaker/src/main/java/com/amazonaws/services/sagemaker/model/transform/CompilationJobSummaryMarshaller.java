@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,6 +33,8 @@ public class CompilationJobSummaryMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CompilationJobArn").build();
     private static final MarshallingInfo<java.util.Date> CREATIONTIME_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CreationTime").timestampFormat("unixTimestamp").build();
+    private static final MarshallingInfo<java.util.Date> COMPILATIONSTARTTIME_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CompilationStartTime").timestampFormat("unixTimestamp").build();
     private static final MarshallingInfo<java.util.Date> COMPILATIONENDTIME_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("CompilationEndTime").timestampFormat("unixTimestamp").build();
     private static final MarshallingInfo<String> COMPILATIONTARGETDEVICE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
@@ -61,6 +63,7 @@ public class CompilationJobSummaryMarshaller {
             protocolMarshaller.marshall(compilationJobSummary.getCompilationJobName(), COMPILATIONJOBNAME_BINDING);
             protocolMarshaller.marshall(compilationJobSummary.getCompilationJobArn(), COMPILATIONJOBARN_BINDING);
             protocolMarshaller.marshall(compilationJobSummary.getCreationTime(), CREATIONTIME_BINDING);
+            protocolMarshaller.marshall(compilationJobSummary.getCompilationStartTime(), COMPILATIONSTARTTIME_BINDING);
             protocolMarshaller.marshall(compilationJobSummary.getCompilationEndTime(), COMPILATIONENDTIME_BINDING);
             protocolMarshaller.marshall(compilationJobSummary.getCompilationTargetDevice(), COMPILATIONTARGETDEVICE_BINDING);
             protocolMarshaller.marshall(compilationJobSummary.getLastModifiedTime(), LASTMODIFIEDTIME_BINDING);

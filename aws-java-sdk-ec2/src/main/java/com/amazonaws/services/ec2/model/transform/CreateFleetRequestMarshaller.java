@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -63,6 +63,10 @@ public class CreateFleetRequestMarshaller implements Marshaller<Request<CreateFl
                 request.addParameter("SpotOptions.SingleInstanceType", StringUtils.fromBoolean(spotOptions.getSingleInstanceType()));
             }
 
+            if (spotOptions.getSingleAvailabilityZone() != null) {
+                request.addParameter("SpotOptions.SingleAvailabilityZone", StringUtils.fromBoolean(spotOptions.getSingleAvailabilityZone()));
+            }
+
             if (spotOptions.getMinTargetCapacity() != null) {
                 request.addParameter("SpotOptions.MinTargetCapacity", StringUtils.fromInteger(spotOptions.getMinTargetCapacity()));
             }
@@ -77,6 +81,10 @@ public class CreateFleetRequestMarshaller implements Marshaller<Request<CreateFl
 
             if (onDemandOptions.getSingleInstanceType() != null) {
                 request.addParameter("OnDemandOptions.SingleInstanceType", StringUtils.fromBoolean(onDemandOptions.getSingleInstanceType()));
+            }
+
+            if (onDemandOptions.getSingleAvailabilityZone() != null) {
+                request.addParameter("OnDemandOptions.SingleAvailabilityZone", StringUtils.fromBoolean(onDemandOptions.getSingleAvailabilityZone()));
             }
 
             if (onDemandOptions.getMinTargetCapacity() != null) {
@@ -168,6 +176,11 @@ public class CreateFleetRequestMarshaller implements Marshaller<Request<CreateFl
                             if (placement.getGroupName() != null) {
                                 request.addParameter("LaunchTemplateConfigs." + launchTemplateConfigsListIndex + ".Overrides." + overridesListIndex
                                         + ".Placement.GroupName", StringUtils.fromString(placement.getGroupName()));
+                            }
+
+                            if (placement.getPartitionNumber() != null) {
+                                request.addParameter("LaunchTemplateConfigs." + launchTemplateConfigsListIndex + ".Overrides." + overridesListIndex
+                                        + ".Placement.PartitionNumber", StringUtils.fromInteger(placement.getPartitionNumber()));
                             }
 
                             if (placement.getHostId() != null) {

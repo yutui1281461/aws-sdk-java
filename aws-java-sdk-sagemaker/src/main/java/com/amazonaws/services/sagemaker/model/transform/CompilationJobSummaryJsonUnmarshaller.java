@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -59,6 +59,10 @@ public class CompilationJobSummaryJsonUnmarshaller implements Unmarshaller<Compi
                 if (context.testExpression("CreationTime", targetDepth)) {
                     context.nextToken();
                     compilationJobSummary.setCreationTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
+                }
+                if (context.testExpression("CompilationStartTime", targetDepth)) {
+                    context.nextToken();
+                    compilationJobSummary.setCompilationStartTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("CompilationEndTime", targetDepth)) {
                     context.nextToken();

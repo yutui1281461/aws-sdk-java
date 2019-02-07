@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -236,7 +236,7 @@ public class Service implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging Your Amazon ECS
+     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
      * Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      * </p>
      */
@@ -1982,13 +1982,13 @@ public class Service implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging Your Amazon ECS
+     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
      * Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      * </p>
      * 
      * @param enableECSManagedTags
      *        Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information,
-     *        see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging Your
+     *        see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your
      *        Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      */
 
@@ -1999,12 +1999,12 @@ public class Service implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging Your Amazon ECS
+     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
      * Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      * </p>
      * 
      * @return Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information,
-     *         see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging Your
+     *         see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your
      *         Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      */
 
@@ -2015,13 +2015,13 @@ public class Service implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging Your Amazon ECS
+     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
      * Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      * </p>
      * 
      * @param enableECSManagedTags
      *        Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information,
-     *        see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging Your
+     *        see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your
      *        Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -2034,12 +2034,12 @@ public class Service implements Serializable, Cloneable, StructuredPojo {
     /**
      * <p>
      * Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging Your Amazon ECS
+     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
      * Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      * </p>
      * 
      * @return Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information,
-     *         see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging Your
+     *         see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your
      *         Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
      */
 

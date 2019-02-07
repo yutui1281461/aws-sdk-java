@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,7 +33,7 @@ public class ListResourcesForWebACLRequest extends com.amazonaws.AmazonWebServic
     private String webACLId;
     /**
      * <p>
-     * The type of resource to list, either and application load balancer or Amazon API Gateway.
+     * The type of resource to list, either an application load balancer or Amazon API Gateway.
      * </p>
      */
     private String resourceType;
@@ -80,11 +80,11 @@ public class ListResourcesForWebACLRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The type of resource to list, either and application load balancer or Amazon API Gateway.
+     * The type of resource to list, either an application load balancer or Amazon API Gateway.
      * </p>
      * 
      * @param resourceType
-     *        The type of resource to list, either and application load balancer or Amazon API Gateway.
+     *        The type of resource to list, either an application load balancer or Amazon API Gateway.
      * @see ResourceType
      */
 
@@ -94,10 +94,10 @@ public class ListResourcesForWebACLRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The type of resource to list, either and application load balancer or Amazon API Gateway.
+     * The type of resource to list, either an application load balancer or Amazon API Gateway.
      * </p>
      * 
-     * @return The type of resource to list, either and application load balancer or Amazon API Gateway.
+     * @return The type of resource to list, either an application load balancer or Amazon API Gateway.
      * @see ResourceType
      */
 
@@ -107,11 +107,11 @@ public class ListResourcesForWebACLRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The type of resource to list, either and application load balancer or Amazon API Gateway.
+     * The type of resource to list, either an application load balancer or Amazon API Gateway.
      * </p>
      * 
      * @param resourceType
-     *        The type of resource to list, either and application load balancer or Amazon API Gateway.
+     *        The type of resource to list, either an application load balancer or Amazon API Gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ResourceType
      */
@@ -123,11 +123,11 @@ public class ListResourcesForWebACLRequest extends com.amazonaws.AmazonWebServic
 
     /**
      * <p>
-     * The type of resource to list, either and application load balancer or Amazon API Gateway.
+     * The type of resource to list, either an application load balancer or Amazon API Gateway.
      * </p>
      * 
      * @param resourceType
-     *        The type of resource to list, either and application load balancer or Amazon API Gateway.
+     *        The type of resource to list, either an application load balancer or Amazon API Gateway.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see ResourceType
      */

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -57,7 +57,7 @@ public class DeleteAliasRequest extends com.amazonaws.AmazonWebServiceRequest im
     private String functionName;
     /**
      * <p>
-     * Name of the alias to delete.
+     * The name of the alias.
      * </p>
      */
     private String name;
@@ -245,11 +245,11 @@ public class DeleteAliasRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * Name of the alias to delete.
+     * The name of the alias.
      * </p>
      * 
      * @param name
-     *        Name of the alias to delete.
+     *        The name of the alias.
      */
 
     public void setName(String name) {
@@ -258,10 +258,10 @@ public class DeleteAliasRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * Name of the alias to delete.
+     * The name of the alias.
      * </p>
      * 
-     * @return Name of the alias to delete.
+     * @return The name of the alias.
      */
 
     public String getName() {
@@ -270,11 +270,11 @@ public class DeleteAliasRequest extends com.amazonaws.AmazonWebServiceRequest im
 
     /**
      * <p>
-     * Name of the alias to delete.
+     * The name of the alias.
      * </p>
      * 
      * @param name
-     *        Name of the alias to delete.
+     *        The name of the alias.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

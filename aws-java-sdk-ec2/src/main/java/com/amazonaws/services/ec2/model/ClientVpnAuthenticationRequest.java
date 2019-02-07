@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -19,7 +19,7 @@ import javax.annotation.Generated;
  * <p>
  * Describes the authentication method to be used by a Client VPN endpoint. Client VPN supports Active Directory and
  * mutual authentication. For more information, see <a
- * href="vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Athentication</a> in the
+ * href="vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a> in the
  * <i>AWS Client VPN Admin Guide</i>.
  * </p>
  * 

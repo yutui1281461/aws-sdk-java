@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -44,7 +44,7 @@ public interface AmazonPinpointSMSVoice {
      * destinations to it.
      * 
      * @param createConfigurationSetRequest
-     *        CreateConfigurationSetRequest
+     *        A request to create a new configuration set.
      * @return Result of the CreateConfigurationSet operation returned by the service.
      * @throws TooManyRequestsException
      *         TooManyRequestsException
@@ -66,7 +66,7 @@ public interface AmazonPinpointSMSVoice {
      * Create a new event destination in a configuration set.
      * 
      * @param createConfigurationSetEventDestinationRequest
-     *        CreateConfigurationSetEventDestinationRequest
+     *        Create a new event destination in a configuration set.
      * @return Result of the CreateConfigurationSetEventDestination operation returned by the service.
      * @throws BadRequestException
      *         BadRequestException
@@ -149,6 +149,23 @@ public interface AmazonPinpointSMSVoice {
      */
     GetConfigurationSetEventDestinationsResult getConfigurationSetEventDestinations(
             GetConfigurationSetEventDestinationsRequest getConfigurationSetEventDestinationsRequest);
+
+    /**
+     * List all of the configuration sets associated with your Amazon Pinpoint account in the current region.
+     * 
+     * @param listConfigurationSetsRequest
+     * @return Result of the ListConfigurationSets operation returned by the service.
+     * @throws TooManyRequestsException
+     *         TooManyRequestsException
+     * @throws BadRequestException
+     *         BadRequestException
+     * @throws InternalServiceErrorException
+     *         InternalServiceErrorException
+     * @sample AmazonPinpointSMSVoice.ListConfigurationSets
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-sms-voice-2018-09-05/ListConfigurationSets"
+     *      target="_top">AWS API Documentation</a>
+     */
+    ListConfigurationSetsResult listConfigurationSets(ListConfigurationSetsRequest listConfigurationSetsRequest);
 
     /**
      * Create a new voice message and send it to a recipient's phone number.

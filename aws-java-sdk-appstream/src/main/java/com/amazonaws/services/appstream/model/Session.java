@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,7 @@ public class Session implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The ID of the streaming session.
+     * The identifier of the streaming session.
      * </p>
      */
     private String id;
@@ -74,11 +74,11 @@ public class Session implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The ID of the streaming session.
+     * The identifier of the streaming session.
      * </p>
      * 
      * @param id
-     *        The ID of the streaming session.
+     *        The identifier of the streaming session.
      */
 
     public void setId(String id) {
@@ -87,10 +87,10 @@ public class Session implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The ID of the streaming session.
+     * The identifier of the streaming session.
      * </p>
      * 
-     * @return The ID of the streaming session.
+     * @return The identifier of the streaming session.
      */
 
     public String getId() {
@@ -99,11 +99,11 @@ public class Session implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The ID of the streaming session.
+     * The identifier of the streaming session.
      * </p>
      * 
      * @param id
-     *        The ID of the streaming session.
+     *        The identifier of the streaming session.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

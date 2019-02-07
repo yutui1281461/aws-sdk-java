@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,7 @@ public class ModelPackageValidationSpecification implements Serializable, Clonea
 
     /**
      * <p>
-     * The IAM roles to be used for the validation of a model package.
+     * The IAM roles to be used for the validation of the model package.
      * </p>
      */
     private String validationRole;
@@ -44,11 +44,11 @@ public class ModelPackageValidationSpecification implements Serializable, Clonea
 
     /**
      * <p>
-     * The IAM roles to be used for the validation of a model package.
+     * The IAM roles to be used for the validation of the model package.
      * </p>
      * 
      * @param validationRole
-     *        The IAM roles to be used for the validation of a model package.
+     *        The IAM roles to be used for the validation of the model package.
      */
 
     public void setValidationRole(String validationRole) {
@@ -57,10 +57,10 @@ public class ModelPackageValidationSpecification implements Serializable, Clonea
 
     /**
      * <p>
-     * The IAM roles to be used for the validation of a model package.
+     * The IAM roles to be used for the validation of the model package.
      * </p>
      * 
-     * @return The IAM roles to be used for the validation of a model package.
+     * @return The IAM roles to be used for the validation of the model package.
      */
 
     public String getValidationRole() {
@@ -69,11 +69,11 @@ public class ModelPackageValidationSpecification implements Serializable, Clonea
 
     /**
      * <p>
-     * The IAM roles to be used for the validation of a model package.
+     * The IAM roles to be used for the validation of the model package.
      * </p>
      * 
      * @param validationRole
-     *        The IAM roles to be used for the validation of a model package.
+     *        The IAM roles to be used for the validation of the model package.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
