@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -20,7 +20,6 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 /**
  * <p>
  * Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation.
- * Note that en-AU, en-UK, and fr-CA languages are in preview and are only available to whitelisted customers.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/TranscriptionJob" target="_top">AWS API

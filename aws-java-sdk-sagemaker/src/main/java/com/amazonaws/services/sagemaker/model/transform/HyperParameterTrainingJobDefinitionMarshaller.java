@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -47,6 +47,8 @@ public class HyperParameterTrainingJobDefinitionMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("StoppingCondition").build();
     private static final MarshallingInfo<Boolean> ENABLENETWORKISOLATION_BINDING = MarshallingInfo.builder(MarshallingType.BOOLEAN)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("EnableNetworkIsolation").build();
+    private static final MarshallingInfo<Boolean> ENABLEINTERCONTAINERTRAFFICENCRYPTION_BINDING = MarshallingInfo.builder(MarshallingType.BOOLEAN)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("EnableInterContainerTrafficEncryption").build();
 
     private static final HyperParameterTrainingJobDefinitionMarshaller instance = new HyperParameterTrainingJobDefinitionMarshaller();
 
@@ -73,6 +75,8 @@ public class HyperParameterTrainingJobDefinitionMarshaller {
             protocolMarshaller.marshall(hyperParameterTrainingJobDefinition.getResourceConfig(), RESOURCECONFIG_BINDING);
             protocolMarshaller.marshall(hyperParameterTrainingJobDefinition.getStoppingCondition(), STOPPINGCONDITION_BINDING);
             protocolMarshaller.marshall(hyperParameterTrainingJobDefinition.getEnableNetworkIsolation(), ENABLENETWORKISOLATION_BINDING);
+            protocolMarshaller.marshall(hyperParameterTrainingJobDefinition.getEnableInterContainerTrafficEncryption(),
+                    ENABLEINTERCONTAINERTRAFFICENCRYPTION_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

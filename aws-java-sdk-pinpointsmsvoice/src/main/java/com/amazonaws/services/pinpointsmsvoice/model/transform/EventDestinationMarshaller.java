@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -38,6 +38,8 @@ public class EventDestinationMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("MatchingEventTypes").build();
     private static final MarshallingInfo<String> NAME_BINDING = MarshallingInfo.builder(MarshallingType.STRING).marshallLocation(MarshallLocation.PAYLOAD)
             .marshallLocationName("Name").build();
+    private static final MarshallingInfo<StructuredPojo> SNSDESTINATION_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("SnsDestination").build();
 
     private static final EventDestinationMarshaller instance = new EventDestinationMarshaller();
 
@@ -60,6 +62,7 @@ public class EventDestinationMarshaller {
             protocolMarshaller.marshall(eventDestination.getKinesisFirehoseDestination(), KINESISFIREHOSEDESTINATION_BINDING);
             protocolMarshaller.marshall(eventDestination.getMatchingEventTypes(), MATCHINGEVENTTYPES_BINDING);
             protocolMarshaller.marshall(eventDestination.getName(), NAME_BINDING);
+            protocolMarshaller.marshall(eventDestination.getSnsDestination(), SNSDESTINATION_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

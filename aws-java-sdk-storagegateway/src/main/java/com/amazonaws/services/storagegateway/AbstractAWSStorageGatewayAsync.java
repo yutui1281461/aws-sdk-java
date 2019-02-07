@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -88,6 +88,19 @@ public class AbstractAWSStorageGatewayAsync extends AbstractAWSStorageGateway im
     @Override
     public java.util.concurrent.Future<AddWorkingStorageResult> addWorkingStorageAsync(AddWorkingStorageRequest request,
             com.amazonaws.handlers.AsyncHandler<AddWorkingStorageRequest, AddWorkingStorageResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public java.util.concurrent.Future<AttachVolumeResult> attachVolumeAsync(AttachVolumeRequest request) {
+
+        return attachVolumeAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<AttachVolumeResult> attachVolumeAsync(AttachVolumeRequest request,
+            com.amazonaws.handlers.AsyncHandler<AttachVolumeRequest, AttachVolumeResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }
@@ -568,6 +581,19 @@ public class AbstractAWSStorageGatewayAsync extends AbstractAWSStorageGateway im
     @Override
     public java.util.concurrent.Future<DescribeWorkingStorageResult> describeWorkingStorageAsync(DescribeWorkingStorageRequest request,
             com.amazonaws.handlers.AsyncHandler<DescribeWorkingStorageRequest, DescribeWorkingStorageResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public java.util.concurrent.Future<DetachVolumeResult> detachVolumeAsync(DetachVolumeRequest request) {
+
+        return detachVolumeAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DetachVolumeResult> detachVolumeAsync(DetachVolumeRequest request,
+            com.amazonaws.handlers.AsyncHandler<DetachVolumeRequest, DetachVolumeResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }

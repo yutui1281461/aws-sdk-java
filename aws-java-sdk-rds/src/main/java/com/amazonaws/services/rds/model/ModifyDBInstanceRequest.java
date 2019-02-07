@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -734,6 +734,10 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
      * instance.
+     * </p>
+     * <p>
+     * A change to the <code>CloudwatchLogsExportConfiguration</code> parameter is always applied to the DB instance
+     * immediately. Therefore, the <code>ApplyImmediately</code> parameter has no effect.
      * </p>
      */
     private CloudwatchLogsExportConfiguration cloudwatchLogsExportConfiguration;
@@ -5463,10 +5467,17 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
      * instance.
      * </p>
+     * <p>
+     * A change to the <code>CloudwatchLogsExportConfiguration</code> parameter is always applied to the DB instance
+     * immediately. Therefore, the <code>ApplyImmediately</code> parameter has no effect.
+     * </p>
      * 
      * @param cloudwatchLogsExportConfiguration
      *        The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
-     *        instance.
+     *        instance.</p>
+     *        <p>
+     *        A change to the <code>CloudwatchLogsExportConfiguration</code> parameter is always applied to the DB
+     *        instance immediately. Therefore, the <code>ApplyImmediately</code> parameter has no effect.
      */
 
     public void setCloudwatchLogsExportConfiguration(CloudwatchLogsExportConfiguration cloudwatchLogsExportConfiguration) {
@@ -5478,9 +5489,16 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
      * instance.
      * </p>
+     * <p>
+     * A change to the <code>CloudwatchLogsExportConfiguration</code> parameter is always applied to the DB instance
+     * immediately. Therefore, the <code>ApplyImmediately</code> parameter has no effect.
+     * </p>
      * 
      * @return The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
-     *         instance.
+     *         instance.</p>
+     *         <p>
+     *         A change to the <code>CloudwatchLogsExportConfiguration</code> parameter is always applied to the DB
+     *         instance immediately. Therefore, the <code>ApplyImmediately</code> parameter has no effect.
      */
 
     public CloudwatchLogsExportConfiguration getCloudwatchLogsExportConfiguration() {
@@ -5492,10 +5510,17 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
      * instance.
      * </p>
+     * <p>
+     * A change to the <code>CloudwatchLogsExportConfiguration</code> parameter is always applied to the DB instance
+     * immediately. Therefore, the <code>ApplyImmediately</code> parameter has no effect.
+     * </p>
      * 
      * @param cloudwatchLogsExportConfiguration
      *        The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
-     *        instance.
+     *        instance.</p>
+     *        <p>
+     *        A change to the <code>CloudwatchLogsExportConfiguration</code> parameter is always applied to the DB
+     *        instance immediately. Therefore, the <code>ApplyImmediately</code> parameter has no effect.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

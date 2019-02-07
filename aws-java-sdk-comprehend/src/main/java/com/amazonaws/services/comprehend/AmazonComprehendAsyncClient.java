@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -1383,6 +1383,73 @@ public class AmazonComprehendAsyncClient extends AmazonComprehendClient implemen
 
                 try {
                     result = executeStopSentimentDetectionJob(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<StopTrainingDocumentClassifierResult> stopTrainingDocumentClassifierAsync(StopTrainingDocumentClassifierRequest request) {
+
+        return stopTrainingDocumentClassifierAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<StopTrainingDocumentClassifierResult> stopTrainingDocumentClassifierAsync(
+            final StopTrainingDocumentClassifierRequest request,
+            final com.amazonaws.handlers.AsyncHandler<StopTrainingDocumentClassifierRequest, StopTrainingDocumentClassifierResult> asyncHandler) {
+        final StopTrainingDocumentClassifierRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<StopTrainingDocumentClassifierResult>() {
+            @Override
+            public StopTrainingDocumentClassifierResult call() throws Exception {
+                StopTrainingDocumentClassifierResult result = null;
+
+                try {
+                    result = executeStopTrainingDocumentClassifier(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<StopTrainingEntityRecognizerResult> stopTrainingEntityRecognizerAsync(StopTrainingEntityRecognizerRequest request) {
+
+        return stopTrainingEntityRecognizerAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<StopTrainingEntityRecognizerResult> stopTrainingEntityRecognizerAsync(final StopTrainingEntityRecognizerRequest request,
+            final com.amazonaws.handlers.AsyncHandler<StopTrainingEntityRecognizerRequest, StopTrainingEntityRecognizerResult> asyncHandler) {
+        final StopTrainingEntityRecognizerRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<StopTrainingEntityRecognizerResult>() {
+            @Override
+            public StopTrainingEntityRecognizerResult call() throws Exception {
+                StopTrainingEntityRecognizerResult result = null;
+
+                try {
+                    result = executeStopTrainingEntityRecognizer(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);

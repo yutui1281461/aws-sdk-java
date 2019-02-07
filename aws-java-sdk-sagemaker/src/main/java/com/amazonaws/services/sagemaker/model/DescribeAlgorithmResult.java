@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -31,7 +31,7 @@ public class DescribeAlgorithmResult extends com.amazonaws.AmazonWebServiceResul
     private String algorithmName;
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the algorithm.&gt;
+     * The Amazon Resource Name (ARN) of the algorithm.
      * </p>
      */
     private String algorithmArn;
@@ -85,7 +85,7 @@ public class DescribeAlgorithmResult extends com.amazonaws.AmazonWebServiceResul
     private String productId;
     /**
      * <p>
-     * Whether the algorithm is certified to be listed in AWS Marektplace.
+     * Whether the algorithm is certified to be listed in AWS Marketplace.
      * </p>
      */
     private Boolean certifyForMarketplace;
@@ -132,11 +132,11 @@ public class DescribeAlgorithmResult extends com.amazonaws.AmazonWebServiceResul
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the algorithm.&gt;
+     * The Amazon Resource Name (ARN) of the algorithm.
      * </p>
      * 
      * @param algorithmArn
-     *        The Amazon Resource Name (ARN) of the algorithm.&gt;
+     *        The Amazon Resource Name (ARN) of the algorithm.
      */
 
     public void setAlgorithmArn(String algorithmArn) {
@@ -145,10 +145,10 @@ public class DescribeAlgorithmResult extends com.amazonaws.AmazonWebServiceResul
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the algorithm.&gt;
+     * The Amazon Resource Name (ARN) of the algorithm.
      * </p>
      * 
-     * @return The Amazon Resource Name (ARN) of the algorithm.&gt;
+     * @return The Amazon Resource Name (ARN) of the algorithm.
      */
 
     public String getAlgorithmArn() {
@@ -157,11 +157,11 @@ public class DescribeAlgorithmResult extends com.amazonaws.AmazonWebServiceResul
 
     /**
      * <p>
-     * The Amazon Resource Name (ARN) of the algorithm.&gt;
+     * The Amazon Resource Name (ARN) of the algorithm.
      * </p>
      * 
      * @param algorithmArn
-     *        The Amazon Resource Name (ARN) of the algorithm.&gt;
+     *        The Amazon Resource Name (ARN) of the algorithm.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -514,11 +514,11 @@ public class DescribeAlgorithmResult extends com.amazonaws.AmazonWebServiceResul
 
     /**
      * <p>
-     * Whether the algorithm is certified to be listed in AWS Marektplace.
+     * Whether the algorithm is certified to be listed in AWS Marketplace.
      * </p>
      * 
      * @param certifyForMarketplace
-     *        Whether the algorithm is certified to be listed in AWS Marektplace.
+     *        Whether the algorithm is certified to be listed in AWS Marketplace.
      */
 
     public void setCertifyForMarketplace(Boolean certifyForMarketplace) {
@@ -527,10 +527,10 @@ public class DescribeAlgorithmResult extends com.amazonaws.AmazonWebServiceResul
 
     /**
      * <p>
-     * Whether the algorithm is certified to be listed in AWS Marektplace.
+     * Whether the algorithm is certified to be listed in AWS Marketplace.
      * </p>
      * 
-     * @return Whether the algorithm is certified to be listed in AWS Marektplace.
+     * @return Whether the algorithm is certified to be listed in AWS Marketplace.
      */
 
     public Boolean getCertifyForMarketplace() {
@@ -539,11 +539,11 @@ public class DescribeAlgorithmResult extends com.amazonaws.AmazonWebServiceResul
 
     /**
      * <p>
-     * Whether the algorithm is certified to be listed in AWS Marektplace.
+     * Whether the algorithm is certified to be listed in AWS Marketplace.
      * </p>
      * 
      * @param certifyForMarketplace
-     *        Whether the algorithm is certified to be listed in AWS Marektplace.
+     *        Whether the algorithm is certified to be listed in AWS Marketplace.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -554,10 +554,10 @@ public class DescribeAlgorithmResult extends com.amazonaws.AmazonWebServiceResul
 
     /**
      * <p>
-     * Whether the algorithm is certified to be listed in AWS Marektplace.
+     * Whether the algorithm is certified to be listed in AWS Marketplace.
      * </p>
      * 
-     * @return Whether the algorithm is certified to be listed in AWS Marektplace.
+     * @return Whether the algorithm is certified to be listed in AWS Marketplace.
      */
 
     public Boolean isCertifyForMarketplace() {

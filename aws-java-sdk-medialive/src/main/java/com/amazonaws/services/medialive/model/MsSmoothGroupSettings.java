@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -80,10 +80,7 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
      * segment, or exceeding filecacheDuration.
      */
     private Integer restartDelay;
-    /**
-     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
-     * streams.
-     */
+    /** useInputSegmentation has been deprecated. The configured segment size is always used. */
     private String segmentationMode;
     /** Number of milliseconds to delay the output from the second pipeline. */
     private Integer sendDelayMs;
@@ -715,12 +712,10 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
-     * streams.
+     * useInputSegmentation has been deprecated. The configured segment size is always used.
      * 
      * @param segmentationMode
-     *        When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from
-     *        the input streams.
+     *        useInputSegmentation has been deprecated. The configured segment size is always used.
      * @see SmoothGroupSegmentationMode
      */
 
@@ -729,11 +724,9 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
-     * streams.
+     * useInputSegmentation has been deprecated. The configured segment size is always used.
      * 
-     * @return When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from
-     *         the input streams.
+     * @return useInputSegmentation has been deprecated. The configured segment size is always used.
      * @see SmoothGroupSegmentationMode
      */
 
@@ -742,12 +735,10 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
-     * streams.
+     * useInputSegmentation has been deprecated. The configured segment size is always used.
      * 
      * @param segmentationMode
-     *        When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from
-     *        the input streams.
+     *        useInputSegmentation has been deprecated. The configured segment size is always used.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see SmoothGroupSegmentationMode
      */
@@ -758,12 +749,10 @@ public class MsSmoothGroupSettings implements Serializable, Cloneable, Structure
     }
 
     /**
-     * When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from the input
-     * streams.
+     * useInputSegmentation has been deprecated. The configured segment size is always used.
      * 
      * @param segmentationMode
-     *        When set to useInputSegmentation, the output segment or fragment points are set by the RAI markers from
-     *        the input streams.
+     *        useInputSegmentation has been deprecated. The configured segment size is always used.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see SmoothGroupSegmentationMode
      */

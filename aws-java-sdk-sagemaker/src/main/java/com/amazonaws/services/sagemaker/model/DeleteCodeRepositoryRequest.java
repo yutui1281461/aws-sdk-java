@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,18 +27,18 @@ public class DeleteCodeRepositoryRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The name of the git repository to delete.
+     * The name of the Git repository to delete.
      * </p>
      */
     private String codeRepositoryName;
 
     /**
      * <p>
-     * The name of the git repository to delete.
+     * The name of the Git repository to delete.
      * </p>
      * 
      * @param codeRepositoryName
-     *        The name of the git repository to delete.
+     *        The name of the Git repository to delete.
      */
 
     public void setCodeRepositoryName(String codeRepositoryName) {
@@ -47,10 +47,10 @@ public class DeleteCodeRepositoryRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The name of the git repository to delete.
+     * The name of the Git repository to delete.
      * </p>
      * 
-     * @return The name of the git repository to delete.
+     * @return The name of the Git repository to delete.
      */
 
     public String getCodeRepositoryName() {
@@ -59,11 +59,11 @@ public class DeleteCodeRepositoryRequest extends com.amazonaws.AmazonWebServiceR
 
     /**
      * <p>
-     * The name of the git repository to delete.
+     * The name of the Git repository to delete.
      * </p>
      * 
      * @param codeRepositoryName
-     *        The name of the git repository to delete.
+     *        The name of the Git repository to delete.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

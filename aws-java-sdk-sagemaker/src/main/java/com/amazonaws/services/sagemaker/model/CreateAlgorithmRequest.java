@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,8 +27,7 @@ public class CreateAlgorithmRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * The name of the algorithm. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and -
-     * (hyphen).
+     * The name of the algorithm.
      * </p>
      */
     private String algorithmName;
@@ -115,20 +114,18 @@ public class CreateAlgorithmRequest extends com.amazonaws.AmazonWebServiceReques
     private AlgorithmValidationSpecification validationSpecification;
     /**
      * <p>
-     * Whether to certify the algorithm so that it can be listed in AWS Marektplace.
+     * Whether to certify the algorithm so that it can be listed in AWS Marketplace.
      * </p>
      */
     private Boolean certifyForMarketplace;
 
     /**
      * <p>
-     * The name of the algorithm. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and -
-     * (hyphen).
+     * The name of the algorithm.
      * </p>
      * 
      * @param algorithmName
-     *        The name of the algorithm. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and
-     *        - (hyphen).
+     *        The name of the algorithm.
      */
 
     public void setAlgorithmName(String algorithmName) {
@@ -137,12 +134,10 @@ public class CreateAlgorithmRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * The name of the algorithm. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and -
-     * (hyphen).
+     * The name of the algorithm.
      * </p>
      * 
-     * @return The name of the algorithm. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and
-     *         - (hyphen).
+     * @return The name of the algorithm.
      */
 
     public String getAlgorithmName() {
@@ -151,13 +146,11 @@ public class CreateAlgorithmRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * The name of the algorithm. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and -
-     * (hyphen).
+     * The name of the algorithm.
      * </p>
      * 
      * @param algorithmName
-     *        The name of the algorithm. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and
-     *        - (hyphen).
+     *        The name of the algorithm.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -668,11 +661,11 @@ public class CreateAlgorithmRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * Whether to certify the algorithm so that it can be listed in AWS Marektplace.
+     * Whether to certify the algorithm so that it can be listed in AWS Marketplace.
      * </p>
      * 
      * @param certifyForMarketplace
-     *        Whether to certify the algorithm so that it can be listed in AWS Marektplace.
+     *        Whether to certify the algorithm so that it can be listed in AWS Marketplace.
      */
 
     public void setCertifyForMarketplace(Boolean certifyForMarketplace) {
@@ -681,10 +674,10 @@ public class CreateAlgorithmRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * Whether to certify the algorithm so that it can be listed in AWS Marektplace.
+     * Whether to certify the algorithm so that it can be listed in AWS Marketplace.
      * </p>
      * 
-     * @return Whether to certify the algorithm so that it can be listed in AWS Marektplace.
+     * @return Whether to certify the algorithm so that it can be listed in AWS Marketplace.
      */
 
     public Boolean getCertifyForMarketplace() {
@@ -693,11 +686,11 @@ public class CreateAlgorithmRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * Whether to certify the algorithm so that it can be listed in AWS Marektplace.
+     * Whether to certify the algorithm so that it can be listed in AWS Marketplace.
      * </p>
      * 
      * @param certifyForMarketplace
-     *        Whether to certify the algorithm so that it can be listed in AWS Marektplace.
+     *        Whether to certify the algorithm so that it can be listed in AWS Marketplace.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -708,10 +701,10 @@ public class CreateAlgorithmRequest extends com.amazonaws.AmazonWebServiceReques
 
     /**
      * <p>
-     * Whether to certify the algorithm so that it can be listed in AWS Marektplace.
+     * Whether to certify the algorithm so that it can be listed in AWS Marketplace.
      * </p>
      * 
-     * @return Whether to certify the algorithm so that it can be listed in AWS Marektplace.
+     * @return Whether to certify the algorithm so that it can be listed in AWS Marketplace.
      */
 
     public Boolean isCertifyForMarketplace() {

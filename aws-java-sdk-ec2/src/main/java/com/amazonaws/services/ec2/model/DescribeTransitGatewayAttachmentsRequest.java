@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -39,23 +39,23 @@ public class DescribeTransitGatewayAttachmentsRequest extends AmazonWebServiceRe
      * <ul>
      * <li>
      * <p>
-     * <code>association-id</code> - The ID of the association.
+     * <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>association-route-table-id</code> - The ID of the route table for the transit gateway.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>associate-state</code> - The state of the association (<code>associating</code> | <code>associated</code> |
-     * <code>disassociating</code>).
+     * <code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code>
+     * | <code>disassociating</code>).
      * </p>
      * </li>
      * <li>
      * <p>
      * <code>resource-id</code> - The ID of the resource.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>resource-owner</code> - The ID of the AWS account that owns the resource.
      * </p>
      * </li>
      * <li>
@@ -182,23 +182,23 @@ public class DescribeTransitGatewayAttachmentsRequest extends AmazonWebServiceRe
      * <ul>
      * <li>
      * <p>
-     * <code>association-id</code> - The ID of the association.
+     * <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>association-route-table-id</code> - The ID of the route table for the transit gateway.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>associate-state</code> - The state of the association (<code>associating</code> | <code>associated</code> |
-     * <code>disassociating</code>).
+     * <code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code>
+     * | <code>disassociating</code>).
      * </p>
      * </li>
      * <li>
      * <p>
      * <code>resource-id</code> - The ID of the resource.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>resource-owner</code> - The ID of the AWS account that owns the resource.
      * </p>
      * </li>
      * <li>
@@ -234,23 +234,24 @@ public class DescribeTransitGatewayAttachmentsRequest extends AmazonWebServiceRe
      *         <ul>
      *         <li>
      *         <p>
-     *         <code>association-id</code> - The ID of the association.
+     *         <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit
+     *         gateway.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         <code>association-route-table-id</code> - The ID of the route table for the transit gateway.
-     *         </p>
-     *         </li>
-     *         <li>
-     *         <p>
-     *         <code>associate-state</code> - The state of the association (<code>associating</code> |
+     *         <code>association.state</code> - The state of the association (<code>associating</code> |
      *         <code>associated</code> | <code>disassociating</code>).
      *         </p>
      *         </li>
      *         <li>
      *         <p>
      *         <code>resource-id</code> - The ID of the resource.
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>resource-owner</code> - The ID of the AWS account that owns the resource.
      *         </p>
      *         </li>
      *         <li>
@@ -296,23 +297,23 @@ public class DescribeTransitGatewayAttachmentsRequest extends AmazonWebServiceRe
      * <ul>
      * <li>
      * <p>
-     * <code>association-id</code> - The ID of the association.
+     * <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>association-route-table-id</code> - The ID of the route table for the transit gateway.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>associate-state</code> - The state of the association (<code>associating</code> | <code>associated</code> |
-     * <code>disassociating</code>).
+     * <code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code>
+     * | <code>disassociating</code>).
      * </p>
      * </li>
      * <li>
      * <p>
      * <code>resource-id</code> - The ID of the resource.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>resource-owner</code> - The ID of the AWS account that owns the resource.
      * </p>
      * </li>
      * <li>
@@ -349,23 +350,24 @@ public class DescribeTransitGatewayAttachmentsRequest extends AmazonWebServiceRe
      *        <ul>
      *        <li>
      *        <p>
-     *        <code>association-id</code> - The ID of the association.
+     *        <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit
+     *        gateway.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>association-route-table-id</code> - The ID of the route table for the transit gateway.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>associate-state</code> - The state of the association (<code>associating</code> |
+     *        <code>association.state</code> - The state of the association (<code>associating</code> |
      *        <code>associated</code> | <code>disassociating</code>).
      *        </p>
      *        </li>
      *        <li>
      *        <p>
      *        <code>resource-id</code> - The ID of the resource.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>resource-owner</code> - The ID of the AWS account that owns the resource.
      *        </p>
      *        </li>
      *        <li>
@@ -413,23 +415,23 @@ public class DescribeTransitGatewayAttachmentsRequest extends AmazonWebServiceRe
      * <ul>
      * <li>
      * <p>
-     * <code>association-id</code> - The ID of the association.
+     * <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>association-route-table-id</code> - The ID of the route table for the transit gateway.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>associate-state</code> - The state of the association (<code>associating</code> | <code>associated</code> |
-     * <code>disassociating</code>).
+     * <code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code>
+     * | <code>disassociating</code>).
      * </p>
      * </li>
      * <li>
      * <p>
      * <code>resource-id</code> - The ID of the resource.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>resource-owner</code> - The ID of the AWS account that owns the resource.
      * </p>
      * </li>
      * <li>
@@ -471,23 +473,24 @@ public class DescribeTransitGatewayAttachmentsRequest extends AmazonWebServiceRe
      *        <ul>
      *        <li>
      *        <p>
-     *        <code>association-id</code> - The ID of the association.
+     *        <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit
+     *        gateway.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>association-route-table-id</code> - The ID of the route table for the transit gateway.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>associate-state</code> - The state of the association (<code>associating</code> |
+     *        <code>association.state</code> - The state of the association (<code>associating</code> |
      *        <code>associated</code> | <code>disassociating</code>).
      *        </p>
      *        </li>
      *        <li>
      *        <p>
      *        <code>resource-id</code> - The ID of the resource.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>resource-owner</code> - The ID of the AWS account that owns the resource.
      *        </p>
      *        </li>
      *        <li>
@@ -537,23 +540,23 @@ public class DescribeTransitGatewayAttachmentsRequest extends AmazonWebServiceRe
      * <ul>
      * <li>
      * <p>
-     * <code>association-id</code> - The ID of the association.
+     * <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>association-route-table-id</code> - The ID of the route table for the transit gateway.
-     * </p>
-     * </li>
-     * <li>
-     * <p>
-     * <code>associate-state</code> - The state of the association (<code>associating</code> | <code>associated</code> |
-     * <code>disassociating</code>).
+     * <code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code>
+     * | <code>disassociating</code>).
      * </p>
      * </li>
      * <li>
      * <p>
      * <code>resource-id</code> - The ID of the resource.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>resource-owner</code> - The ID of the AWS account that owns the resource.
      * </p>
      * </li>
      * <li>
@@ -590,23 +593,24 @@ public class DescribeTransitGatewayAttachmentsRequest extends AmazonWebServiceRe
      *        <ul>
      *        <li>
      *        <p>
-     *        <code>association-id</code> - The ID of the association.
+     *        <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit
+     *        gateway.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>association-route-table-id</code> - The ID of the route table for the transit gateway.
-     *        </p>
-     *        </li>
-     *        <li>
-     *        <p>
-     *        <code>associate-state</code> - The state of the association (<code>associating</code> |
+     *        <code>association.state</code> - The state of the association (<code>associating</code> |
      *        <code>associated</code> | <code>disassociating</code>).
      *        </p>
      *        </li>
      *        <li>
      *        <p>
      *        <code>resource-id</code> - The ID of the resource.
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>resource-owner</code> - The ID of the AWS account that owns the resource.
      *        </p>
      *        </li>
      *        <li>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -52,6 +52,8 @@ public class HlsGroupSettingsMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("encryptionType").build();
     private static final MarshallingInfo<StructuredPojo> HLSCDNSETTINGS_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("hlsCdnSettings").build();
+    private static final MarshallingInfo<String> IFRAMEONLYPLAYLISTS_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("iFrameOnlyPlaylists").build();
     private static final MarshallingInfo<Integer> INDEXNSEGMENTS_BINDING = MarshallingInfo.builder(MarshallingType.INTEGER)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("indexNSegments").build();
     private static final MarshallingInfo<String> INPUTLOSSACTION_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
@@ -129,6 +131,7 @@ public class HlsGroupSettingsMarshaller {
             protocolMarshaller.marshall(hlsGroupSettings.getDirectoryStructure(), DIRECTORYSTRUCTURE_BINDING);
             protocolMarshaller.marshall(hlsGroupSettings.getEncryptionType(), ENCRYPTIONTYPE_BINDING);
             protocolMarshaller.marshall(hlsGroupSettings.getHlsCdnSettings(), HLSCDNSETTINGS_BINDING);
+            protocolMarshaller.marshall(hlsGroupSettings.getIFrameOnlyPlaylists(), IFRAMEONLYPLAYLISTS_BINDING);
             protocolMarshaller.marshall(hlsGroupSettings.getIndexNSegments(), INDEXNSEGMENTS_BINDING);
             protocolMarshaller.marshall(hlsGroupSettings.getInputLossAction(), INPUTLOSSACTION_BINDING);
             protocolMarshaller.marshall(hlsGroupSettings.getIvInManifest(), IVINMANIFEST_BINDING);

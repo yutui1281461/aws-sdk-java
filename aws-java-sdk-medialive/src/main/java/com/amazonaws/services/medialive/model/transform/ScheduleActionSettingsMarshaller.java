@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,6 +27,8 @@ import com.amazonaws.annotation.SdkInternalApi;
 @SdkInternalApi
 public class ScheduleActionSettingsMarshaller {
 
+    private static final MarshallingInfo<StructuredPojo> HLSTIMEDMETADATASETTINGS_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("hlsTimedMetadataSettings").build();
     private static final MarshallingInfo<StructuredPojo> INPUTSWITCHSETTINGS_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("inputSwitchSettings").build();
     private static final MarshallingInfo<StructuredPojo> SCTE35RETURNTONETWORKSETTINGS_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
@@ -56,6 +58,7 @@ public class ScheduleActionSettingsMarshaller {
         }
 
         try {
+            protocolMarshaller.marshall(scheduleActionSettings.getHlsTimedMetadataSettings(), HLSTIMEDMETADATASETTINGS_BINDING);
             protocolMarshaller.marshall(scheduleActionSettings.getInputSwitchSettings(), INPUTSWITCHSETTINGS_BINDING);
             protocolMarshaller.marshall(scheduleActionSettings.getScte35ReturnToNetworkSettings(), SCTE35RETURNTONETWORKSETTINGS_BINDING);
             protocolMarshaller.marshall(scheduleActionSettings.getScte35SpliceInsertSettings(), SCTE35SPLICEINSERTSETTINGS_BINDING);

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -39,7 +39,7 @@ public class CreateStreamingURLRequest extends com.amazonaws.AmazonWebServiceReq
     private String fleetName;
     /**
      * <p>
-     * The ID of the user.
+     * The identifier of the user.
      * </p>
      */
     private String userId;
@@ -148,11 +148,11 @@ public class CreateStreamingURLRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The ID of the user.
+     * The identifier of the user.
      * </p>
      * 
      * @param userId
-     *        The ID of the user.
+     *        The identifier of the user.
      */
 
     public void setUserId(String userId) {
@@ -161,10 +161,10 @@ public class CreateStreamingURLRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The ID of the user.
+     * The identifier of the user.
      * </p>
      * 
-     * @return The ID of the user.
+     * @return The identifier of the user.
      */
 
     public String getUserId() {
@@ -173,11 +173,11 @@ public class CreateStreamingURLRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The ID of the user.
+     * The identifier of the user.
      * </p>
      * 
      * @param userId
-     *        The ID of the user.
+     *        The identifier of the user.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

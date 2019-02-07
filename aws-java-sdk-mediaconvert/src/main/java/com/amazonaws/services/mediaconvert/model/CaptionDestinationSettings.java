@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -32,6 +32,8 @@ public class CaptionDestinationSettings implements Serializable, Cloneable, Stru
     private String destinationType;
 
     private DvbSubDestinationSettings dvbSubDestinationSettings;
+
+    private EmbeddedDestinationSettings embeddedDestinationSettings;
 
     private SccDestinationSettings sccDestinationSettings;
 
@@ -132,6 +134,32 @@ public class CaptionDestinationSettings implements Serializable, Cloneable, Stru
     }
 
     /**
+     * @param embeddedDestinationSettings
+     */
+
+    public void setEmbeddedDestinationSettings(EmbeddedDestinationSettings embeddedDestinationSettings) {
+        this.embeddedDestinationSettings = embeddedDestinationSettings;
+    }
+
+    /**
+     * @return
+     */
+
+    public EmbeddedDestinationSettings getEmbeddedDestinationSettings() {
+        return this.embeddedDestinationSettings;
+    }
+
+    /**
+     * @param embeddedDestinationSettings
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CaptionDestinationSettings withEmbeddedDestinationSettings(EmbeddedDestinationSettings embeddedDestinationSettings) {
+        setEmbeddedDestinationSettings(embeddedDestinationSettings);
+        return this;
+    }
+
+    /**
      * @param sccDestinationSettings
      */
 
@@ -227,6 +255,8 @@ public class CaptionDestinationSettings implements Serializable, Cloneable, Stru
             sb.append("DestinationType: ").append(getDestinationType()).append(",");
         if (getDvbSubDestinationSettings() != null)
             sb.append("DvbSubDestinationSettings: ").append(getDvbSubDestinationSettings()).append(",");
+        if (getEmbeddedDestinationSettings() != null)
+            sb.append("EmbeddedDestinationSettings: ").append(getEmbeddedDestinationSettings()).append(",");
         if (getSccDestinationSettings() != null)
             sb.append("SccDestinationSettings: ").append(getSccDestinationSettings()).append(",");
         if (getTeletextDestinationSettings() != null)
@@ -259,6 +289,10 @@ public class CaptionDestinationSettings implements Serializable, Cloneable, Stru
             return false;
         if (other.getDvbSubDestinationSettings() != null && other.getDvbSubDestinationSettings().equals(this.getDvbSubDestinationSettings()) == false)
             return false;
+        if (other.getEmbeddedDestinationSettings() == null ^ this.getEmbeddedDestinationSettings() == null)
+            return false;
+        if (other.getEmbeddedDestinationSettings() != null && other.getEmbeddedDestinationSettings().equals(this.getEmbeddedDestinationSettings()) == false)
+            return false;
         if (other.getSccDestinationSettings() == null ^ this.getSccDestinationSettings() == null)
             return false;
         if (other.getSccDestinationSettings() != null && other.getSccDestinationSettings().equals(this.getSccDestinationSettings()) == false)
@@ -282,6 +316,7 @@ public class CaptionDestinationSettings implements Serializable, Cloneable, Stru
         hashCode = prime * hashCode + ((getBurninDestinationSettings() == null) ? 0 : getBurninDestinationSettings().hashCode());
         hashCode = prime * hashCode + ((getDestinationType() == null) ? 0 : getDestinationType().hashCode());
         hashCode = prime * hashCode + ((getDvbSubDestinationSettings() == null) ? 0 : getDvbSubDestinationSettings().hashCode());
+        hashCode = prime * hashCode + ((getEmbeddedDestinationSettings() == null) ? 0 : getEmbeddedDestinationSettings().hashCode());
         hashCode = prime * hashCode + ((getSccDestinationSettings() == null) ? 0 : getSccDestinationSettings().hashCode());
         hashCode = prime * hashCode + ((getTeletextDestinationSettings() == null) ? 0 : getTeletextDestinationSettings().hashCode());
         hashCode = prime * hashCode + ((getTtmlDestinationSettings() == null) ? 0 : getTtmlDestinationSettings().hashCode());

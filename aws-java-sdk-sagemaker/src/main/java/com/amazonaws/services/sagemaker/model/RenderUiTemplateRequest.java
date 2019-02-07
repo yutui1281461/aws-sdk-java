@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -27,7 +27,7 @@ public class RenderUiTemplateRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A <code>Tempate</code>object containing the worker UI template to render.
+     * A <code>Template</code> object containing the worker UI template to render.
      * </p>
      */
     private UiTemplate uiTemplate;
@@ -46,11 +46,11 @@ public class RenderUiTemplateRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A <code>Tempate</code>object containing the worker UI template to render.
+     * A <code>Template</code> object containing the worker UI template to render.
      * </p>
      * 
      * @param uiTemplate
-     *        A <code>Tempate</code>object containing the worker UI template to render.
+     *        A <code>Template</code> object containing the worker UI template to render.
      */
 
     public void setUiTemplate(UiTemplate uiTemplate) {
@@ -59,10 +59,10 @@ public class RenderUiTemplateRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A <code>Tempate</code>object containing the worker UI template to render.
+     * A <code>Template</code> object containing the worker UI template to render.
      * </p>
      * 
-     * @return A <code>Tempate</code>object containing the worker UI template to render.
+     * @return A <code>Template</code> object containing the worker UI template to render.
      */
 
     public UiTemplate getUiTemplate() {
@@ -71,11 +71,11 @@ public class RenderUiTemplateRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
-     * A <code>Tempate</code>object containing the worker UI template to render.
+     * A <code>Template</code> object containing the worker UI template to render.
      * </p>
      * 
      * @param uiTemplate
-     *        A <code>Tempate</code>object containing the worker UI template to render.
+     *        A <code>Template</code> object containing the worker UI template to render.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

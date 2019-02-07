@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2011-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -26,8 +26,10 @@ import com.amazonaws.services.polly.AmazonPolly;
 import com.amazonaws.services.polly.model.SynthesizeSpeechRequest;
 import java.net.URI;
 import java.net.URL;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Date;
-import org.joda.time.DateTime;
 
 /**
  * Presigning extensions methods for {@link AmazonPolly}.
@@ -106,9 +108,9 @@ public final class AmazonPollyPresigners {
     }
 
     private Date getDefaultExpirationDate() {
-        return new DateTime(clock.currentTimeMillis())
-                .plusMinutes(SYNTHESIZE_SPEECH_DEFAULT_EXPIRATION_MINUTES)
-                .toDate();
+        Instant instant = Instant.ofEpochMilli(clock.currentTimeMillis());
+        ZonedDateTime dateTime = ZonedDateTime.ofInstant(instant, ZoneId.systemDefault()).plusMinutes(SYNTHESIZE_SPEECH_DEFAULT_EXPIRATION_MINUTES);
+        return Date.from(dateTime.toInstant());
     }
 
 }

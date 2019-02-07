@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2011-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import static org.junit.Assert.fail;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import org.joda.time.DateTime;
+import com.amazonaws.util.DateUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -90,7 +90,7 @@ public class ContainerCredentialsProviderTest {
         Assert.assertEquals(ACCESS_KEY_ID, credentials.getAWSAccessKeyId());
         Assert.assertEquals(SECRET_ACCESS_KEY, credentials.getAWSSecretKey());
         Assert.assertEquals(TOKEN, credentials.getSessionToken());
-        Assert.assertEquals(new DateTime(EXPIRATION_DATE).toDate(), containerCredentialsProvider.getCredentialsExpiration());
+        Assert.assertEquals(DateUtils.parseISO8601Date(EXPIRATION_DATE), containerCredentialsProvider.getCredentialsExpiration());
     }
 
     /**

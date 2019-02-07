@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -40,6 +40,11 @@ public class AbstractAmazonRDS implements AmazonRDS {
 
     @Override
     public AddRoleToDBClusterResult addRoleToDBCluster(AddRoleToDBClusterRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public AddRoleToDBInstanceResult addRoleToDBInstance(AddRoleToDBInstanceRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 
@@ -595,6 +600,11 @@ public class AbstractAmazonRDS implements AmazonRDS {
 
     @Override
     public RemoveRoleFromDBClusterResult removeRoleFromDBCluster(RemoveRoleFromDBClusterRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public RemoveRoleFromDBInstanceResult removeRoleFromDBInstance(RemoveRoleFromDBInstanceRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,24 +30,24 @@ public class TaskStartedEventDetails implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * The action of the connected service called by a task state.
+     * The action of the resource called by a task state.
      * </p>
      */
     private String resourceType;
     /**
      * <p>
-     * The service name of the connected service in a task state.
+     * The service name of the resource in a task state.
      * </p>
      */
     private String resource;
 
     /**
      * <p>
-     * The action of the connected service called by a task state.
+     * The action of the resource called by a task state.
      * </p>
      * 
      * @param resourceType
-     *        The action of the connected service called by a task state.
+     *        The action of the resource called by a task state.
      */
 
     public void setResourceType(String resourceType) {
@@ -56,10 +56,10 @@ public class TaskStartedEventDetails implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * The action of the connected service called by a task state.
+     * The action of the resource called by a task state.
      * </p>
      * 
-     * @return The action of the connected service called by a task state.
+     * @return The action of the resource called by a task state.
      */
 
     public String getResourceType() {
@@ -68,11 +68,11 @@ public class TaskStartedEventDetails implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * The action of the connected service called by a task state.
+     * The action of the resource called by a task state.
      * </p>
      * 
      * @param resourceType
-     *        The action of the connected service called by a task state.
+     *        The action of the resource called by a task state.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -83,11 +83,11 @@ public class TaskStartedEventDetails implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * The service name of the connected service in a task state.
+     * The service name of the resource in a task state.
      * </p>
      * 
      * @param resource
-     *        The service name of the connected service in a task state.
+     *        The service name of the resource in a task state.
      */
 
     public void setResource(String resource) {
@@ -96,10 +96,10 @@ public class TaskStartedEventDetails implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * The service name of the connected service in a task state.
+     * The service name of the resource in a task state.
      * </p>
      * 
-     * @return The service name of the connected service in a task state.
+     * @return The service name of the resource in a task state.
      */
 
     public String getResource() {
@@ -108,11 +108,11 @@ public class TaskStartedEventDetails implements Serializable, Cloneable, Structu
 
     /**
      * <p>
-     * The service name of the connected service in a task state.
+     * The service name of the resource in a task state.
      * </p>
      * 
      * @param resource
-     *        The service name of the connected service in a task state.
+     *        The service name of the resource in a task state.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

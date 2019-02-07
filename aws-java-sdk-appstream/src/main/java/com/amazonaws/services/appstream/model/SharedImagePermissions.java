@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -30,7 +30,7 @@ public class SharedImagePermissions implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * The 12-digit ID of the AWS account with which the image is shared.
+     * The 12-digit identifier of the AWS account with which the image is shared.
      * </p>
      */
     private String sharedAccountId;
@@ -43,11 +43,11 @@ public class SharedImagePermissions implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * The 12-digit ID of the AWS account with which the image is shared.
+     * The 12-digit identifier of the AWS account with which the image is shared.
      * </p>
      * 
      * @param sharedAccountId
-     *        The 12-digit ID of the AWS account with which the image is shared.
+     *        The 12-digit identifier of the AWS account with which the image is shared.
      */
 
     public void setSharedAccountId(String sharedAccountId) {
@@ -56,10 +56,10 @@ public class SharedImagePermissions implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * The 12-digit ID of the AWS account with which the image is shared.
+     * The 12-digit identifier of the AWS account with which the image is shared.
      * </p>
      * 
-     * @return The 12-digit ID of the AWS account with which the image is shared.
+     * @return The 12-digit identifier of the AWS account with which the image is shared.
      */
 
     public String getSharedAccountId() {
@@ -68,11 +68,11 @@ public class SharedImagePermissions implements Serializable, Cloneable, Structur
 
     /**
      * <p>
-     * The 12-digit ID of the AWS account with which the image is shared.
+     * The 12-digit identifier of the AWS account with which the image is shared.
      * </p>
      * 
      * @param sharedAccountId
-     *        The 12-digit ID of the AWS account with which the image is shared.
+     *        The 12-digit identifier of the AWS account with which the image is shared.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

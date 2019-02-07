@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -62,7 +62,7 @@ public class Disk implements Serializable, Cloneable, StructuredPojo {
     private String diskAllocationType;
     /**
      * <p>
-     * The iSCSI Qualified Name (IQN) that is defined for a disk. This field is not included in the response if the
+     * The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in the response if the
      * local disk is not defined as an iSCSI target. The format of this field is
      * <i>targetIqn::LUNNumber::region-volumeId</i>.
      * </p>
@@ -299,13 +299,13 @@ public class Disk implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The iSCSI Qualified Name (IQN) that is defined for a disk. This field is not included in the response if the
+     * The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in the response if the
      * local disk is not defined as an iSCSI target. The format of this field is
      * <i>targetIqn::LUNNumber::region-volumeId</i>.
      * </p>
      * 
      * @param diskAllocationResource
-     *        The iSCSI Qualified Name (IQN) that is defined for a disk. This field is not included in the response if
+     *        The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in the response if
      *        the local disk is not defined as an iSCSI target. The format of this field is
      *        <i>targetIqn::LUNNumber::region-volumeId</i>.
      */
@@ -316,12 +316,12 @@ public class Disk implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The iSCSI Qualified Name (IQN) that is defined for a disk. This field is not included in the response if the
+     * The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in the response if the
      * local disk is not defined as an iSCSI target. The format of this field is
      * <i>targetIqn::LUNNumber::region-volumeId</i>.
      * </p>
      * 
-     * @return The iSCSI Qualified Name (IQN) that is defined for a disk. This field is not included in the response if
+     * @return The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in the response if
      *         the local disk is not defined as an iSCSI target. The format of this field is
      *         <i>targetIqn::LUNNumber::region-volumeId</i>.
      */
@@ -332,13 +332,13 @@ public class Disk implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The iSCSI Qualified Name (IQN) that is defined for a disk. This field is not included in the response if the
+     * The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in the response if the
      * local disk is not defined as an iSCSI target. The format of this field is
      * <i>targetIqn::LUNNumber::region-volumeId</i>.
      * </p>
      * 
      * @param diskAllocationResource
-     *        The iSCSI Qualified Name (IQN) that is defined for a disk. This field is not included in the response if
+     *        The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in the response if
      *        the local disk is not defined as an iSCSI target. The format of this field is
      *        <i>targetIqn::LUNNumber::region-volumeId</i>.
      * @return Returns a reference to this object so that method calls can be chained together.

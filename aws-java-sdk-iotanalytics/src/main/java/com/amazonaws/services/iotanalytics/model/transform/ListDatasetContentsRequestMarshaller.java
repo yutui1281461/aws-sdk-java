@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -33,6 +33,10 @@ public class ListDatasetContentsRequestMarshaller {
             .marshallLocation(MarshallLocation.QUERY_PARAM).marshallLocationName("nextToken").build();
     private static final MarshallingInfo<Integer> MAXRESULTS_BINDING = MarshallingInfo.builder(MarshallingType.INTEGER)
             .marshallLocation(MarshallLocation.QUERY_PARAM).marshallLocationName("maxResults").build();
+    private static final MarshallingInfo<java.util.Date> SCHEDULEDONORAFTER_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
+            .marshallLocation(MarshallLocation.QUERY_PARAM).marshallLocationName("scheduledOnOrAfter").timestampFormat("iso8601").build();
+    private static final MarshallingInfo<java.util.Date> SCHEDULEDBEFORE_BINDING = MarshallingInfo.builder(MarshallingType.DATE)
+            .marshallLocation(MarshallLocation.QUERY_PARAM).marshallLocationName("scheduledBefore").timestampFormat("iso8601").build();
 
     private static final ListDatasetContentsRequestMarshaller instance = new ListDatasetContentsRequestMarshaller();
 
@@ -53,6 +57,8 @@ public class ListDatasetContentsRequestMarshaller {
             protocolMarshaller.marshall(listDatasetContentsRequest.getDatasetName(), DATASETNAME_BINDING);
             protocolMarshaller.marshall(listDatasetContentsRequest.getNextToken(), NEXTTOKEN_BINDING);
             protocolMarshaller.marshall(listDatasetContentsRequest.getMaxResults(), MAXRESULTS_BINDING);
+            protocolMarshaller.marshall(listDatasetContentsRequest.getScheduledOnOrAfter(), SCHEDULEDONORAFTER_BINDING);
+            protocolMarshaller.marshall(listDatasetContentsRequest.getScheduledBefore(), SCHEDULEDBEFORE_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

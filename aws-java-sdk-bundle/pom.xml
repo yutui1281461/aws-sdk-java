@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.amazonaws</groupId>
         <artifactId>aws-java-sdk-pom</artifactId>
-        <version>1.11.473-SNAPSHOT</version>
+        <version>1.11.491-SNAPSHOT</version>
     </parent>
     <groupId>com.amazonaws</groupId>
     <artifactId>aws-java-sdk-bundle</artifactId>
@@ -24,7 +24,7 @@
         <artifactId>aws-java-sdk</artifactId>
         <groupId>com.amazonaws</groupId>
         <optional>false</optional>
-        <version>1.11.473-SNAPSHOT</version>
+        <version>1.11.491-SNAPSHOT</version>
     </dependency>
 </dependencies>
 
@@ -49,10 +49,6 @@
                         </includes>
                     </artifactSet>
                     <relocations>
-                        <relocation>
-                            <pattern>org.joda</pattern>
-                            <shadedPattern>com.amazonaws.thirdparty.joda</shadedPattern>
-                        </relocation>
                         <relocation>
                             <pattern>com.fasterxml.jackson</pattern>
                             <shadedPattern>com.amazonaws.thirdparty.jackson</shadedPattern>

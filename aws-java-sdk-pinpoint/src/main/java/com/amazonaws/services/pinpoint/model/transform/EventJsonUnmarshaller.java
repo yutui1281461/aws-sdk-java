@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -48,6 +48,18 @@ public class EventJsonUnmarshaller implements Unmarshaller<Event, JsonUnmarshall
                 break;
 
             if (token == FIELD_NAME || token == START_OBJECT) {
+                if (context.testExpression("AppPackageName", targetDepth)) {
+                    context.nextToken();
+                    event.setAppPackageName(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("AppTitle", targetDepth)) {
+                    context.nextToken();
+                    event.setAppTitle(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("AppVersionCode", targetDepth)) {
+                    context.nextToken();
+                    event.setAppVersionCode(context.getUnmarshaller(String.class).unmarshall(context));
+                }
                 if (context.testExpression("Attributes", targetDepth)) {
                     context.nextToken();
                     event.setAttributes(new MapUnmarshaller<String, String>(context.getUnmarshaller(String.class), context.getUnmarshaller(String.class))
@@ -65,6 +77,10 @@ public class EventJsonUnmarshaller implements Unmarshaller<Event, JsonUnmarshall
                     context.nextToken();
                     event.setMetrics(new MapUnmarshaller<String, Double>(context.getUnmarshaller(String.class), context.getUnmarshaller(Double.class))
                             .unmarshall(context));
+                }
+                if (context.testExpression("SdkName", targetDepth)) {
+                    context.nextToken();
+                    event.setSdkName(context.getUnmarshaller(String.class).unmarshall(context));
                 }
                 if (context.testExpression("Session", targetDepth)) {
                     context.nextToken();

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -1060,8 +1060,8 @@ public interface AWSLogs {
 
     /**
      * <p>
-     * Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group to query, the query
-     * string to use, and the time to query.
+     * Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to
+     * query, and the query string to use.
      * </p>
      * <p>
      * For more information, see <a

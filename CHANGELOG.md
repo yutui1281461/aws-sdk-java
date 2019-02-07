@@ -1,3 +1,245 @@
+# __1.11.490__ __2019-01-25__
+## __AWS CodeCommit__
+  - ### Features
+    - The PutFile API will now throw new exception FilePathConflictsWithSubmodulePathException when a submodule exists at the input file path; PutFile API will also throw FolderContentSizeLimitExceededException when the total size of any folder on the path exceeds the limit as a result of the operation.
+
+## __AWS Device Farm__
+  - ### Features
+    - Introduces a new rule in Device Pools - "Availability". Customers can now ensure they pick devices that are available (i.e., not being used by other customers).
+
+## __AWS Elemental MediaLive__
+  - ### Features
+    - This release adds support for Frame Capture output groups and for I-frame only manifests (playlists) in HLS output groups.
+
+## __AWS MediaConnect__
+  - ### Features
+    - This release adds support for tagging, untagging, and listing tags for existing AWS Elemental MediaConnect resources.
+
+# __1.11.489__ __2019-01-24__
+## __AWS CodeBuild__
+  - ### Features
+    - This release adds support for cross-account ECR images and private registry authentication. 
+
+## __AWS SDK for Java__
+  - ### Features
+    - Added support for 'credential_process' profile attribute: https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#sourcing-credentials-from-external-processes
+
+## __Amazon CloudWatch Logs__
+  - ### Features
+    - Documentation updates for CloudWatch Logs
+
+## __Amazon EC2 Container Registry__
+  - ### Features
+    - Amazon ECR updated the default endpoint URL to support AWS Private Link.
+
+## __Amazon Pinpoint SMS and Voice Service__
+  - ### Features
+    - Added the ListConfigurationSets operation, which returns a list of the configuration sets that are associated with your account.
+
+## __Amazon Relational Database Service__
+  - ### Features
+    - The Amazon RDS API allows you to add or remove Identity and Access Management (IAM) role associated with a specific feature name with an RDS database instance. This helps with capabilities such as invoking Lambda functions from within a trigger in the database, load data from Amazon S3 and so on
+
+## __Elastic Load Balancing__
+  - ### Features
+    - Elastic Load Balancing now supports TLS termination on Network Load Balancers. With this launch, you can offload the decryption/encryption of TLS traffic from your application servers to the Network Load Balancer. This enables you to run your backend servers optimally and keep your workloads secure. Additionally, Network Load Balancers preserve the source IP of the clients to the back-end applications, while terminating TLS on the load balancer.  When TLS is enabled on an NLB, Access Logs can be enabled for the load balancer, and log entries will be emitted for all TLS connections.
+
+# __1.11.488__ __2019-01-23__
+## __AWS Certificate Manager Private Certificate Authority__
+  - ### Features
+    - Added TagOnCreate parameter to the CreateCertificateAuthority operation, updated the Tag regex pattern to align with AWS tagging APIs, and added RevokeCertificate limit.
+
+## __Amazon WorkLink__
+  - ### Features
+    - This is the initial SDK release for Amazon WorkLink. Amazon WorkLink is a fully managed, cloud-based service that enables secure, one-click access to internal websites and web apps from mobile phones. With Amazon WorkLink, employees can access internal websites as seamlessly as they access any other website. IT administrators can manage users, devices, and domains by enforcing their own security and access policies via the AWS Console or the AWS SDK.
+
+## __AmazonApiGatewayManagementApi__
+  - ### Features
+    - Fixes a typo in the 'max' constraint.
+
+# __1.11.487__ __2019-01-21__
+## __AWS Application Discovery Service__
+  - ### Features
+    - The Application Discovery Service's import APIs allow you to import information about your on-premises servers and applications into ADS so that you can track the status of your migrations through the Migration Hub console.
+
+## __AWS Database Migration Service__
+  - ### Features
+    - Update for DMS TestConnectionSucceeds waiter
+
+## __Amazon AppStream__
+  - ### Features
+    - This API update includes support for tagging Stack, Fleet, and ImageBuilder resources at creation time.
+
+## __Amazon Simple Systems Manager (SSM)__
+  - ### Features
+    - AWS Systems Manager State Manager now supports configuration management of all AWS resources through integration with Automation. 
+
+## __Firewall Management Service__
+  - ### Features
+    - This release provides support for cleaning up web ACLs during Firewall Management policy deletion. You can now enable the DeleteAllPolicyResources flag and it will delete all system-generated web ACLs.
+
+# __1.11.486__ __2019-01-18__
+## __AWS Glue__
+  - ### Features
+    - AllocatedCapacity field is being deprecated and replaced with MaxCapacity field
+
+## __Amazon Elastic Compute Cloud__
+  - ### Features
+    - Adjust EC2's available instance types.
+
+# __1.11.485__ __2019-01-17__
+## __AWS Lambda__
+  - ### Features
+    - Documentation updates for AWS Lambda
+
+## __Amazon Lightsail__
+  - ### Features
+    - This release adds functionality to the CreateDiskSnapshot API that allows users to snapshot instance root volumes. It also adds various documentation updates.
+
+## __Amazon Pinpoint__
+  - ### Features
+    - This release updates the PutEvents operation. AppPackageName, AppTitle, AppVersionCode, SdkName fields will now be accepted as a part of the event when submitting events.
+
+## __Amazon Rekognition__
+  - ### Features
+    - GetLabelDetection now returns bounding box information for common objects and a hierarchical taxonomy of detected labels. The version of the model used for video label detection is also returned. DetectModerationLabels now returns the version of the model used for detecting unsafe content.
+
+# __1.11.484__ __2019-01-16__
+## __AWS Backup__
+  - ### Features
+    - AWS Backup is a unified backup service designed to protect AWS services and their associated data. AWS Backup simplifies the creation, migration, restoration, and deletion of backups, while also providing reporting and auditing
+
+## __AWS Cost Explorer Service__
+  - ### Features
+    - Removed Tags from the list of GroupBy dimensions available for GetReservationCoverage.
+
+## __Amazon DynamoDB__
+  - ### Features
+    - Amazon DynamoDB now integrates with AWS Backup, a centralized backup service that makes it easy for customers to configure and audit the AWS resources they want to backup, automate backup scheduling, set retention policies, and monitor all recent backup and restore activity. AWS Backup provides a fully managed, policy-based backup solution, simplifying your backup management, and helping you meet your business and regulatory backup compliance requirements. For more information, see the Amazon DynamoDB Developer Guide.
+
+# __1.11.483__ __2019-01-14__
+## __AWS Elemental MediaConvert__
+  - ### Features
+    - IMF decode from a Composition Playlist for IMF specializations App [#2](https://github.com/aws/aws-sdk-java/issues/2) and App [#2](https://github.com/aws/aws-sdk-java/issues/2)e; up to 99 input clippings; caption channel selection for MXF; and updated rate control for CBR jobs. Added support for acceleration in preview
+
+## __AWS Storage Gateway__
+  - ### Features
+    - JoinDomain API supports two more  parameters: organizational unit(OU) and domain controllers.  Two new APIs are introduced: DetachVolume and AttachVolume.
+
+# __1.11.482__ __2019-01-11__
+## __AWS RDS DataService__
+  - ### Features
+    - Documentation updates for RDS Data API.
+
+## __Amazon Elastic MapReduce__
+  - ### Features
+    - Documentation updates for Amazon EMR
+
+# __1.11.481__ __2019-01-10__
+## __AWS CodeDeploy__
+  - ### Features
+    - Documentation updates for codedeploy
+
+## __AWS IoT__
+  - ### Features
+    - This release adds tagging support for rules of AWS IoT Rules Engine. Tags enable you to categorize your rules in different ways, for example, by purpose, owner, or environment. For more information about tagging, see AWS Tagging Strategies (https://aws.amazon.com/answers/account-management/aws-tagging-strategies/). For technical documentation, look for the tagging operations in the AWS IoT Core API reference or User Guide (https://docs.aws.amazon.com/iot/latest/developerguide/tagging-iot.html).
+
+## __Amazon Elastic Compute Cloud__
+  - ### Features
+    - EC2 Spot: a) CreateFleet support for Single AvailabilityZone requests and b) support for paginated DescribeSpotInstanceRequests.
+
+## __Amazon SageMaker Service__
+  - ### Features
+    - SageMaker Training Jobs now support Inter-Container traffic encryption.
+
+# __1.11.480__ __2019-01-09__
+## __Amazon DocumentDB with MongoDB compatibility__
+  - ### Features
+    - Amazon DocumentDB (with MongoDB compatibility) is a fast, reliable, and fully-managed database service. Amazon DocumentDB makes it easy for developers to set up, run, and scale MongoDB-compatible databases in the cloud.
+
+## __Amazon Redshift__
+  - ### Features
+    - DescribeSnapshotSchedules returns a list of snapshot schedules. With this release, this API will have a list of clusters and number of clusters associated with the schedule.
+
+# __1.11.479__ __2019-01-07__
+## __AWS App Mesh__
+  - ### Features
+    - AWS App Mesh now supports active health checks. You can specify TCP or HTTP health checks with custom thresholds and intervals on your VirtualNode definitions. See the AWS App Mesh HealthCheckPolicy documentation for more information.
+
+# __1.11.478__ __2019-01-04__
+## __AWS Device Farm__
+  - ### Features
+    - "This release provides support for running Appium Node.js and Appium Ruby tests on AWS Device Farm.
+
+## __Amazon EC2 Container Service__
+  - ### Features
+    - Documentation updates for Amazon ECS tagging feature.
+
+# __1.11.477__ __2019-01-03__
+## __AWS IoT Analytics__
+  - ### Features
+    - ListDatasetContents now has a filter to limit results by date scheduled.
+
+# __1.11.476__ __2019-01-02__
+## __AWS OpsWorks for Chef Automate__
+  - ### Features
+    - Documentation updates for opsworkscm
+
+# __1.11.475__ __2018-12-21__
+## __AWS Certificate Manager Private Certificate Authority__
+  - ### Features
+    - This release marks the introduction of waiters in ACM PCA, which allow you to control the progression of your code based on the presence or state of certain resources. Waiters can be implemented in the DescribeCertificateAuthorityAuditReport, GetCertificate, and GetCertificateAuthorityCsr API operations.
+
+## __AWS Step Functions__
+  - ### Features
+    - This release adds support for cost allocation tagging. You can now create, delete, and list tags for AWS Step Functions activity and state machine resources. For more information about tagging, see AWS Tagging Strategies.
+
+## __Amazon DynamoDB__
+  - ### Features
+    - Added provisionedThroughPut exception on the request level for transaction APIs.
+
+## __Amazon Pinpoint SMS and Voice Service__
+  - ### Features
+    - Configuration sets can now use Amazon SNS as an event destination.
+
+# __1.11.474__ __2018-12-20__
+## __AWS Elemental MediaLive__
+  - ### Features
+    - This release provides support for ID3 tags and video quality setting for subgop_length.
+
+## __Amazon Cognito Identity Provider__
+  - ### Features
+    - Amazon Cognito now has API support for updating the Secure Sockets Layer (SSL) certificate for the custom domain for your user pool.
+
+## __Amazon Comprehend__
+  - ### Features
+    - This SDK release adds functionality to stop training Custom Document Classifier or Custom Entity Recognizer in Amazon Comprehend.
+
+## __Amazon Kinesis Firehose__
+  - ### Features
+    - Support for specifying customized s3 keys and supplying a separate prefix for failed-records
+
+## __Amazon Transcribe Service__
+  - ### Features
+    - With this release, Amazon Transcribe now supports transcriptions from audio sources in Italian (it-IT).
+
+# __1.11.473__ __2018-12-19__
+## __AWS WAF__
+  - ### Features
+    - This release adds rule-level control for rule group. If a rule group contains a rule that blocks legitimate traffic, previously you had to override the entire rule group to COUNT in order to allow the traffic. You can now use the UpdateWebACL API to exclude specific rules within a rule group. Excluding rules changes the action for the individual rules to COUNT. Excluded rules will be recorded in the new "excludedRules" attribute of the WAF logs.
+
+## __AWS WAF Regional__
+  - ### Features
+    - This release adds rule-level control for rule group. If a rule group contains a rule that blocks legitimate traffic, previously you had to override the entire rule group to COUNT in order to allow the traffic. You can now use the UpdateWebACL API to exclude specific rules within a rule group. Excluding rules changes the action for the individual rules to COUNT. Excluded rules will be recorded in the new "excludedRules" attribute of the WAF logs.
+
+## __Amazon Elastic Compute Cloud__
+  - ### Features
+    - This release adds support for specifying partition as a strategy for EC2 Placement Groups. This new strategy allows one to launch instances into partitions that do not share certain underlying hardware between partitions, to assist with building and deploying highly available replicated applications. 
+
+## __Amazon SageMaker Service__
+  - ### Features
+    - Batch Transform Jobs now supports TFRecord as a Split Type. ListCompilationJobs API action now supports SortOrder and SortBy inputs.
+
 # __1.11.472__ __2018-12-18__
 ## __AWS Elastic Beanstalk__
   - ### Features

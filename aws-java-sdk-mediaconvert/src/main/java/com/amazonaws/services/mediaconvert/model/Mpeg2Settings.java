@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -47,9 +47,9 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     private String framerateControl;
 
     private String framerateConversionAlgorithm;
-    /** Framerate denominator. */
+    /** Frame rate denominator. */
     private Integer framerateDenominator;
-    /** Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps. */
+    /** Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps. */
     private Integer framerateNumerator;
     /**
      * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining
@@ -422,10 +422,10 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Framerate denominator.
+     * Frame rate denominator.
      * 
      * @param framerateDenominator
-     *        Framerate denominator.
+     *        Frame rate denominator.
      */
 
     public void setFramerateDenominator(Integer framerateDenominator) {
@@ -433,9 +433,9 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Framerate denominator.
+     * Frame rate denominator.
      * 
-     * @return Framerate denominator.
+     * @return Frame rate denominator.
      */
 
     public Integer getFramerateDenominator() {
@@ -443,10 +443,10 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Framerate denominator.
+     * Frame rate denominator.
      * 
      * @param framerateDenominator
-     *        Framerate denominator.
+     *        Frame rate denominator.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -456,10 +456,10 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     * Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      * 
      * @param framerateNumerator
-     *        Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     *        Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      */
 
     public void setFramerateNumerator(Integer framerateNumerator) {
@@ -467,9 +467,9 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     * Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      * 
-     * @return Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     * @return Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      */
 
     public Integer getFramerateNumerator() {
@@ -477,10 +477,10 @@ public class Mpeg2Settings implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     * Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      * 
      * @param framerateNumerator
-     *        Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+     *        Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 

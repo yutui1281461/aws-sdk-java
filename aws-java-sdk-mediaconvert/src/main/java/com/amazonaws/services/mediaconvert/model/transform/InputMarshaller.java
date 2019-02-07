@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2014-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
  * the License. A copy of the License is located at
@@ -55,6 +55,8 @@ public class InputMarshaller {
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("programNumber").build();
     private static final MarshallingInfo<String> PSICONTROL_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("psiControl").build();
+    private static final MarshallingInfo<List> SUPPLEMENTALIMPS_BINDING = MarshallingInfo.builder(MarshallingType.LIST)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("supplementalImps").build();
     private static final MarshallingInfo<String> TIMECODESOURCE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("timecodeSource").build();
     private static final MarshallingInfo<StructuredPojo> VIDEOSELECTOR_BINDING = MarshallingInfo.builder(MarshallingType.STRUCTURED)
@@ -89,6 +91,7 @@ public class InputMarshaller {
             protocolMarshaller.marshall(input.getInputClippings(), INPUTCLIPPINGS_BINDING);
             protocolMarshaller.marshall(input.getProgramNumber(), PROGRAMNUMBER_BINDING);
             protocolMarshaller.marshall(input.getPsiControl(), PSICONTROL_BINDING);
+            protocolMarshaller.marshall(input.getSupplementalImps(), SUPPLEMENTALIMPS_BINDING);
             protocolMarshaller.marshall(input.getTimecodeSource(), TIMECODESOURCE_BINDING);
             protocolMarshaller.marshall(input.getVideoSelector(), VIDEOSELECTOR_BINDING);
         } catch (Exception e) {
