@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  * Represents a collection of <a>Authorizer</a> resources.
  * </p>
  * <div class="seeAlso"> <a
- * href="http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable custom
+ * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable custom
  * authorization</a> </div>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -131,7 +131,8 @@ public class GetAuthorizersResult extends com.amazonaws.AmazonWebServiceResult<c
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

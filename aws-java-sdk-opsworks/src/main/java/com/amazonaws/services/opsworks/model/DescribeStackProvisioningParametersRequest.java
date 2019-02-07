@@ -27,18 +27,18 @@ public class DescribeStackProvisioningParametersRequest extends com.amazonaws.Am
 
     /**
      * <p>
-     * The stack ID
+     * The stack ID.
      * </p>
      */
     private String stackId;
 
     /**
      * <p>
-     * The stack ID
+     * The stack ID.
      * </p>
      * 
      * @param stackId
-     *        The stack ID
+     *        The stack ID.
      */
 
     public void setStackId(String stackId) {
@@ -47,10 +47,10 @@ public class DescribeStackProvisioningParametersRequest extends com.amazonaws.Am
 
     /**
      * <p>
-     * The stack ID
+     * The stack ID.
      * </p>
      * 
-     * @return The stack ID
+     * @return The stack ID.
      */
 
     public String getStackId() {
@@ -59,11 +59,11 @@ public class DescribeStackProvisioningParametersRequest extends com.amazonaws.Am
 
     /**
      * <p>
-     * The stack ID
+     * The stack ID.
      * </p>
      * 
      * @param stackId
-     *        The stack ID
+     *        The stack ID.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -73,7 +73,8 @@ public class DescribeStackProvisioningParametersRequest extends com.amazonaws.Am
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

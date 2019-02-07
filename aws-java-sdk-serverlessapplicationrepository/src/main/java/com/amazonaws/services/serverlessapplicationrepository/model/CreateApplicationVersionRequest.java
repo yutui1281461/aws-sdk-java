@@ -27,7 +27,7 @@ public class CreateApplicationVersionRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The ID of the application to get.
+     * The Amazon Resource Name (ARN) of the application.
      * </p>
      */
     private String applicationId;
@@ -58,11 +58,11 @@ public class CreateApplicationVersionRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The ID of the application to get.
+     * The Amazon Resource Name (ARN) of the application.
      * </p>
      * 
      * @param applicationId
-     *        The ID of the application to get.
+     *        The Amazon Resource Name (ARN) of the application.
      */
 
     public void setApplicationId(String applicationId) {
@@ -71,10 +71,10 @@ public class CreateApplicationVersionRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The ID of the application to get.
+     * The Amazon Resource Name (ARN) of the application.
      * </p>
      * 
-     * @return The ID of the application to get.
+     * @return The Amazon Resource Name (ARN) of the application.
      */
 
     public String getApplicationId() {
@@ -83,11 +83,11 @@ public class CreateApplicationVersionRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The ID of the application to get.
+     * The Amazon Resource Name (ARN) of the application.
      * </p>
      * 
      * @param applicationId
-     *        The ID of the application to get.
+     *        The Amazon Resource Name (ARN) of the application.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -257,7 +257,8 @@ public class CreateApplicationVersionRequest extends com.amazonaws.AmazonWebServ
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

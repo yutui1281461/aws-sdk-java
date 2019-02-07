@@ -88,6 +88,10 @@ public class LagJsonUnmarshaller implements Unmarshaller<Lag, JsonUnmarshallerCo
                     context.nextToken();
                     lag.setAwsDevice(context.getUnmarshaller(String.class).unmarshall(context));
                 }
+                if (context.testExpression("awsDeviceV2", targetDepth)) {
+                    context.nextToken();
+                    lag.setAwsDeviceV2(context.getUnmarshaller(String.class).unmarshall(context));
+                }
                 if (context.testExpression("connections", targetDepth)) {
                     context.nextToken();
                     lag.setConnections(new ListUnmarshaller<Connection>(ConnectionJsonUnmarshaller.getInstance()).unmarshall(context));
@@ -95,6 +99,14 @@ public class LagJsonUnmarshaller implements Unmarshaller<Lag, JsonUnmarshallerCo
                 if (context.testExpression("allowsHostedConnections", targetDepth)) {
                     context.nextToken();
                     lag.setAllowsHostedConnections(context.getUnmarshaller(Boolean.class).unmarshall(context));
+                }
+                if (context.testExpression("jumboFrameCapable", targetDepth)) {
+                    context.nextToken();
+                    lag.setJumboFrameCapable(context.getUnmarshaller(Boolean.class).unmarshall(context));
+                }
+                if (context.testExpression("hasLogicalRedundancy", targetDepth)) {
+                    context.nextToken();
+                    lag.setHasLogicalRedundancy(context.getUnmarshaller(String.class).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

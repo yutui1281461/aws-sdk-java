@@ -50,15 +50,15 @@ public class TimingJsonUnmarshaller implements Unmarshaller<Timing, JsonUnmarsha
             if (token == FIELD_NAME || token == START_OBJECT) {
                 if (context.testExpression("finishTime", targetDepth)) {
                     context.nextToken();
-                    timing.setFinishTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    timing.setFinishTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("startTime", targetDepth)) {
                     context.nextToken();
-                    timing.setStartTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    timing.setStartTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("submitTime", targetDepth)) {
                     context.nextToken();
-                    timing.setSubmitTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    timing.setSubmitTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

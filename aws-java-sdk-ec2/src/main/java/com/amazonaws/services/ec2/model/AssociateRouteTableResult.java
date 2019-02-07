@@ -18,27 +18,25 @@ import javax.annotation.Generated;
 import com.amazonaws.AmazonWebServiceResult;
 
 /**
- * <p>
- * Contains the output of AssociateRouteTable.
- * </p>
+ * 
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class AssociateRouteTableResult extends com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata> implements Serializable, Cloneable {
 
     /**
      * <p>
-     * The route table association ID (needed to disassociate the route table).
+     * The route table association ID. This ID is required for disassociating the route table.
      * </p>
      */
     private String associationId;
 
     /**
      * <p>
-     * The route table association ID (needed to disassociate the route table).
+     * The route table association ID. This ID is required for disassociating the route table.
      * </p>
      * 
      * @param associationId
-     *        The route table association ID (needed to disassociate the route table).
+     *        The route table association ID. This ID is required for disassociating the route table.
      */
 
     public void setAssociationId(String associationId) {
@@ -47,10 +45,10 @@ public class AssociateRouteTableResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * The route table association ID (needed to disassociate the route table).
+     * The route table association ID. This ID is required for disassociating the route table.
      * </p>
      * 
-     * @return The route table association ID (needed to disassociate the route table).
+     * @return The route table association ID. This ID is required for disassociating the route table.
      */
 
     public String getAssociationId() {
@@ -59,11 +57,11 @@ public class AssociateRouteTableResult extends com.amazonaws.AmazonWebServiceRes
 
     /**
      * <p>
-     * The route table association ID (needed to disassociate the route table).
+     * The route table association ID. This ID is required for disassociating the route table.
      * </p>
      * 
      * @param associationId
-     *        The route table association ID (needed to disassociate the route table).
+     *        The route table association ID. This ID is required for disassociating the route table.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -73,7 +71,8 @@ public class AssociateRouteTableResult extends com.amazonaws.AmazonWebServiceRes
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

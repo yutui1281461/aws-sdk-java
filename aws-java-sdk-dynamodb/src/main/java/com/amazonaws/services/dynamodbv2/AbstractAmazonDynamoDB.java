@@ -126,6 +126,11 @@ public class AbstractAmazonDynamoDB implements AmazonDynamoDB {
     }
 
     @Override
+    public DescribeEndpointsResult describeEndpoints(DescribeEndpointsRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public DescribeGlobalTableResult describeGlobalTable(DescribeGlobalTableRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
@@ -262,6 +267,16 @@ public class AbstractAmazonDynamoDB implements AmazonDynamoDB {
 
     @Override
     public TagResourceResult tagResource(TagResourceRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public TransactGetItemsResult transactGetItems(TransactGetItemsRequest request) {
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public TransactWriteItemsResult transactWriteItems(TransactWriteItemsRequest request) {
         throw new java.lang.UnsupportedOperationException();
     }
 

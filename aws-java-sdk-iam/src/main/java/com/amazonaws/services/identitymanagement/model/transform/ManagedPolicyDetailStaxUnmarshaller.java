@@ -75,6 +75,11 @@ public class ManagedPolicyDetailStaxUnmarshaller implements Unmarshaller<Managed
                     continue;
                 }
 
+                if (context.testExpression("PermissionsBoundaryUsageCount", targetDepth)) {
+                    managedPolicyDetail.setPermissionsBoundaryUsageCount(IntegerStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
                 if (context.testExpression("IsAttachable", targetDepth)) {
                     managedPolicyDetail.setIsAttachable(BooleanStaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
@@ -86,12 +91,12 @@ public class ManagedPolicyDetailStaxUnmarshaller implements Unmarshaller<Managed
                 }
 
                 if (context.testExpression("CreateDate", targetDepth)) {
-                    managedPolicyDetail.setCreateDate(DateStaxUnmarshaller.getInstance().unmarshall(context));
+                    managedPolicyDetail.setCreateDate(DateStaxUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
                     continue;
                 }
 
                 if (context.testExpression("UpdateDate", targetDepth)) {
-                    managedPolicyDetail.setUpdateDate(DateStaxUnmarshaller.getInstance().unmarshall(context));
+                    managedPolicyDetail.setUpdateDate(DateStaxUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
                     continue;
                 }
 

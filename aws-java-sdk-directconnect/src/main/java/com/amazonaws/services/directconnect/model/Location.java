@@ -19,7 +19,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * An AWS Direct Connect location where connections and interconnects can be requested.
+ * Information about an AWS Direct Connect location.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/Location" target="_top">AWS API
@@ -30,25 +30,30 @@ public class Location implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The code used to indicate the AWS Direct Connect location.
+     * The code for the location.
      * </p>
      */
     private String locationCode;
     /**
      * <p>
-     * The name of the AWS Direct Connect location. The name includes the colocation partner name and the physical site
-     * of the lit building.
+     * The name of the location. This includes the name of the colocation partner and the physical site of the building.
      * </p>
      */
     private String locationName;
+    /**
+     * <p>
+     * The AWS Region for the location.
+     * </p>
+     */
+    private String region;
 
     /**
      * <p>
-     * The code used to indicate the AWS Direct Connect location.
+     * The code for the location.
      * </p>
      * 
      * @param locationCode
-     *        The code used to indicate the AWS Direct Connect location.
+     *        The code for the location.
      */
 
     public void setLocationCode(String locationCode) {
@@ -57,10 +62,10 @@ public class Location implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The code used to indicate the AWS Direct Connect location.
+     * The code for the location.
      * </p>
      * 
-     * @return The code used to indicate the AWS Direct Connect location.
+     * @return The code for the location.
      */
 
     public String getLocationCode() {
@@ -69,11 +74,11 @@ public class Location implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The code used to indicate the AWS Direct Connect location.
+     * The code for the location.
      * </p>
      * 
      * @param locationCode
-     *        The code used to indicate the AWS Direct Connect location.
+     *        The code for the location.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -84,13 +89,12 @@ public class Location implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The name of the AWS Direct Connect location. The name includes the colocation partner name and the physical site
-     * of the lit building.
+     * The name of the location. This includes the name of the colocation partner and the physical site of the building.
      * </p>
      * 
      * @param locationName
-     *        The name of the AWS Direct Connect location. The name includes the colocation partner name and the
-     *        physical site of the lit building.
+     *        The name of the location. This includes the name of the colocation partner and the physical site of the
+     *        building.
      */
 
     public void setLocationName(String locationName) {
@@ -99,12 +103,11 @@ public class Location implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The name of the AWS Direct Connect location. The name includes the colocation partner name and the physical site
-     * of the lit building.
+     * The name of the location. This includes the name of the colocation partner and the physical site of the building.
      * </p>
      * 
-     * @return The name of the AWS Direct Connect location. The name includes the colocation partner name and the
-     *         physical site of the lit building.
+     * @return The name of the location. This includes the name of the colocation partner and the physical site of the
+     *         building.
      */
 
     public String getLocationName() {
@@ -113,13 +116,12 @@ public class Location implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The name of the AWS Direct Connect location. The name includes the colocation partner name and the physical site
-     * of the lit building.
+     * The name of the location. This includes the name of the colocation partner and the physical site of the building.
      * </p>
      * 
      * @param locationName
-     *        The name of the AWS Direct Connect location. The name includes the colocation partner name and the
-     *        physical site of the lit building.
+     *        The name of the location. This includes the name of the colocation partner and the physical site of the
+     *        building.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -129,7 +131,48 @@ public class Location implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The AWS Region for the location.
+     * </p>
+     * 
+     * @param region
+     *        The AWS Region for the location.
+     */
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    /**
+     * <p>
+     * The AWS Region for the location.
+     * </p>
+     * 
+     * @return The AWS Region for the location.
+     */
+
+    public String getRegion() {
+        return this.region;
+    }
+
+    /**
+     * <p>
+     * The AWS Region for the location.
+     * </p>
+     * 
+     * @param region
+     *        The AWS Region for the location.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public Location withRegion(String region) {
+        setRegion(region);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -142,7 +185,9 @@ public class Location implements Serializable, Cloneable, StructuredPojo {
         if (getLocationCode() != null)
             sb.append("LocationCode: ").append(getLocationCode()).append(",");
         if (getLocationName() != null)
-            sb.append("LocationName: ").append(getLocationName());
+            sb.append("LocationName: ").append(getLocationName()).append(",");
+        if (getRegion() != null)
+            sb.append("Region: ").append(getRegion());
         sb.append("}");
         return sb.toString();
     }
@@ -165,6 +210,10 @@ public class Location implements Serializable, Cloneable, StructuredPojo {
             return false;
         if (other.getLocationName() != null && other.getLocationName().equals(this.getLocationName()) == false)
             return false;
+        if (other.getRegion() == null ^ this.getRegion() == null)
+            return false;
+        if (other.getRegion() != null && other.getRegion().equals(this.getRegion()) == false)
+            return false;
         return true;
     }
 
@@ -175,6 +224,7 @@ public class Location implements Serializable, Cloneable, StructuredPojo {
 
         hashCode = prime * hashCode + ((getLocationCode() == null) ? 0 : getLocationCode().hashCode());
         hashCode = prime * hashCode + ((getLocationName() == null) ? 0 : getLocationName().hashCode());
+        hashCode = prime * hashCode + ((getRegion() == null) ? 0 : getRegion().hashCode());
         return hashCode;
     }
 

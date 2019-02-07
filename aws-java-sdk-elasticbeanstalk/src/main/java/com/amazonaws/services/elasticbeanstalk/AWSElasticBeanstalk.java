@@ -68,9 +68,10 @@ public interface AWSElasticBeanstalk {
      * default protocol from this client's {@link ClientConfiguration} will be used, which by default is HTTPS.
      * <p>
      * For more information on using AWS regions with the AWS SDK for Java, and a complete list of all available
-     * endpoints for all AWS services, see: <a
-     * href="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912">
-     * http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912</a>
+     * endpoints for all AWS services, see: <a href=
+     * "https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-choose-endpoint"
+     * > https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-
+     * choose-endpoint</a>
      * <p>
      * <b>This method is not threadsafe. An endpoint should be configured when the client is created and before any
      * service requests are made. Changing it afterwards creates inevitable race conditions for any service requests in
@@ -271,6 +272,10 @@ public interface AWSElasticBeanstalk {
      * <p>
      * Creates a configuration template. Templates are associated with a specific application and are used to deploy
      * different versions of the application with the same configuration settings.
+     * </p>
+     * <p>
+     * Templates aren't associated with any environment. The <code>EnvironmentName</code> response element is always
+     * <code>null</code>.
      * </p>
      * <p>
      * Related Topics
@@ -739,7 +744,7 @@ public interface AWSElasticBeanstalk {
 
     /**
      * <p>
-     * Retrives detailed information about the health of instances in your AWS Elastic Beanstalk. This operation
+     * Retrieves detailed information about the health of instances in your AWS Elastic Beanstalk. This operation
      * requires <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced health
      * reporting</a>.
      * </p>

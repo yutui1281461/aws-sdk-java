@@ -26,6 +26,9 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class CaptionDescriptionPreset implements Serializable, Cloneable, StructuredPojo {
 
+    /** Indicates the language of the caption output track, using the ISO 639-2 or ISO 639-3 three-letter language code */
+    private String customLanguageCode;
+
     private CaptionDestinationSettings destinationSettings;
     /** Indicates the language of the caption output track. */
     private String languageCode;
@@ -34,6 +37,43 @@ public class CaptionDescriptionPreset implements Serializable, Cloneable, Struct
      * characters, spaces, and underscore are legal.
      */
     private String languageDescription;
+
+    /**
+     * Indicates the language of the caption output track, using the ISO 639-2 or ISO 639-3 three-letter language code
+     * 
+     * @param customLanguageCode
+     *        Indicates the language of the caption output track, using the ISO 639-2 or ISO 639-3 three-letter language
+     *        code
+     */
+
+    public void setCustomLanguageCode(String customLanguageCode) {
+        this.customLanguageCode = customLanguageCode;
+    }
+
+    /**
+     * Indicates the language of the caption output track, using the ISO 639-2 or ISO 639-3 three-letter language code
+     * 
+     * @return Indicates the language of the caption output track, using the ISO 639-2 or ISO 639-3 three-letter
+     *         language code
+     */
+
+    public String getCustomLanguageCode() {
+        return this.customLanguageCode;
+    }
+
+    /**
+     * Indicates the language of the caption output track, using the ISO 639-2 or ISO 639-3 three-letter language code
+     * 
+     * @param customLanguageCode
+     *        Indicates the language of the caption output track, using the ISO 639-2 or ISO 639-3 three-letter language
+     *        code
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public CaptionDescriptionPreset withCustomLanguageCode(String customLanguageCode) {
+        setCustomLanguageCode(customLanguageCode);
+        return this;
+    }
 
     /**
      * @param destinationSettings
@@ -153,7 +193,8 @@ public class CaptionDescriptionPreset implements Serializable, Cloneable, Struct
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -163,6 +204,8 @@ public class CaptionDescriptionPreset implements Serializable, Cloneable, Struct
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
+        if (getCustomLanguageCode() != null)
+            sb.append("CustomLanguageCode: ").append(getCustomLanguageCode()).append(",");
         if (getDestinationSettings() != null)
             sb.append("DestinationSettings: ").append(getDestinationSettings()).append(",");
         if (getLanguageCode() != null)
@@ -183,6 +226,10 @@ public class CaptionDescriptionPreset implements Serializable, Cloneable, Struct
         if (obj instanceof CaptionDescriptionPreset == false)
             return false;
         CaptionDescriptionPreset other = (CaptionDescriptionPreset) obj;
+        if (other.getCustomLanguageCode() == null ^ this.getCustomLanguageCode() == null)
+            return false;
+        if (other.getCustomLanguageCode() != null && other.getCustomLanguageCode().equals(this.getCustomLanguageCode()) == false)
+            return false;
         if (other.getDestinationSettings() == null ^ this.getDestinationSettings() == null)
             return false;
         if (other.getDestinationSettings() != null && other.getDestinationSettings().equals(this.getDestinationSettings()) == false)
@@ -203,6 +250,7 @@ public class CaptionDescriptionPreset implements Serializable, Cloneable, Struct
         final int prime = 31;
         int hashCode = 1;
 
+        hashCode = prime * hashCode + ((getCustomLanguageCode() == null) ? 0 : getCustomLanguageCode().hashCode());
         hashCode = prime * hashCode + ((getDestinationSettings() == null) ? 0 : getDestinationSettings().hashCode());
         hashCode = prime * hashCode + ((getLanguageCode() == null) ? 0 : getLanguageCode().hashCode());
         hashCode = prime * hashCode + ((getLanguageDescription() == null) ? 0 : getLanguageDescription().hashCode());

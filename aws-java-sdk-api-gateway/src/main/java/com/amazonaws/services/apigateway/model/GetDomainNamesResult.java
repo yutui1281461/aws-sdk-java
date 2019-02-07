@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  * Represents a collection of <a>DomainName</a> resources.
  * </p>
  * <div class="seeAlso"> <a
- * href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Client-Side
+ * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Client-Side
  * Certificate</a> </div>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -131,7 +131,8 @@ public class GetDomainNamesResult extends com.amazonaws.AmazonWebServiceResult<c
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

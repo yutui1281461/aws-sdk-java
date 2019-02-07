@@ -107,7 +107,9 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
      * Returns the name of a notebook instance lifecycle configuration.
      * </p>
      * <p>
-     * For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.
+     * For information about notebook instance lifestyle configurations, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
+     * Customize a Notebook Instance</a>
      * </p>
      */
     private String notebookInstanceLifecycleConfigName;
@@ -118,10 +120,48 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
      * and endpoint services</i>.
      * </p>
      * <p>
-     * For more information, see <a>appendix-notebook-and-internet-access</a>.
+     * For more information, see <a href=
+     * "http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access"
+     * >Notebook Instances Are Internet-Enabled by Default</a>.
      * </p>
      */
     private String directInternetAccess;
+    /**
+     * <p>
+     * The size, in GB, of the ML storage volume attached to the notebook instance.
+     * </p>
+     */
+    private Integer volumeSizeInGB;
+    /**
+     * <p>
+     * A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently only one EI
+     * instance type can be associated with a notebook instance. For more information, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.
+     * </p>
+     */
+    private java.util.List<String> acceleratorTypes;
+    /**
+     * <p>
+     * The git repository associated with the notebook instance as its default code repository. This can be either the
+     * name of a git repository stored as a resource in your account, or the URL of a git repository in <a
+     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any other git
+     * repository. When you open a notebook instance, it opens in the directory that contains this repository. For more
+     * information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+     * Repositories with Amazon SageMaker Notebook Instances</a>.
+     * </p>
+     */
+    private String defaultCodeRepository;
+    /**
+     * <p>
+     * An array of up to 3 git repositories associated with the notebook instance. These can be either the names of git
+     * repositories stored as resources in your account, or the URL of git repositories in <a
+     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any other git
+     * repository. These repositories are cloned at the same level as the default repository of your notebook instance.
+     * For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
+     * Git Repositories with Amazon SageMaker Notebook Instances</a>.
+     * </p>
+     */
+    private java.util.List<String> additionalCodeRepositories;
 
     /**
      * <p>
@@ -722,13 +762,17 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
      * Returns the name of a notebook instance lifecycle configuration.
      * </p>
      * <p>
-     * For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.
+     * For information about notebook instance lifestyle configurations, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
+     * Customize a Notebook Instance</a>
      * </p>
      * 
      * @param notebookInstanceLifecycleConfigName
      *        Returns the name of a notebook instance lifecycle configuration.</p>
      *        <p>
-     *        For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.
+     *        For information about notebook instance lifestyle configurations, see <a
+     *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
+     *        Customize a Notebook Instance</a>
      */
 
     public void setNotebookInstanceLifecycleConfigName(String notebookInstanceLifecycleConfigName) {
@@ -740,12 +784,16 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
      * Returns the name of a notebook instance lifecycle configuration.
      * </p>
      * <p>
-     * For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.
+     * For information about notebook instance lifestyle configurations, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
+     * Customize a Notebook Instance</a>
      * </p>
      * 
      * @return Returns the name of a notebook instance lifecycle configuration.</p>
      *         <p>
-     *         For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.
+     *         For information about notebook instance lifestyle configurations, see <a
+     *         href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
+     *         Customize a Notebook Instance</a>
      */
 
     public String getNotebookInstanceLifecycleConfigName() {
@@ -757,13 +805,17 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
      * Returns the name of a notebook instance lifecycle configuration.
      * </p>
      * <p>
-     * For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.
+     * For information about notebook instance lifestyle configurations, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
+     * Customize a Notebook Instance</a>
      * </p>
      * 
      * @param notebookInstanceLifecycleConfigName
      *        Returns the name of a notebook instance lifecycle configuration.</p>
      *        <p>
-     *        For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.
+     *        For information about notebook instance lifestyle configurations, see <a
+     *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
+     *        Customize a Notebook Instance</a>
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -779,7 +831,9 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
      * and endpoint services</i>.
      * </p>
      * <p>
-     * For more information, see <a>appendix-notebook-and-internet-access</a>.
+     * For more information, see <a href=
+     * "http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access"
+     * >Notebook Instances Are Internet-Enabled by Default</a>.
      * </p>
      * 
      * @param directInternetAccess
@@ -787,7 +841,9 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
      *        to <i>Disabled, he notebook instance does not have internet access, and cannot connect to Amazon SageMaker
      *        training and endpoint services</i>.</p>
      *        <p>
-     *        For more information, see <a>appendix-notebook-and-internet-access</a>.
+     *        For more information, see <a href=
+     *        "http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access"
+     *        >Notebook Instances Are Internet-Enabled by Default</a>.
      * @see DirectInternetAccess
      */
 
@@ -802,14 +858,18 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
      * and endpoint services</i>.
      * </p>
      * <p>
-     * For more information, see <a>appendix-notebook-and-internet-access</a>.
+     * For more information, see <a href=
+     * "http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access"
+     * >Notebook Instances Are Internet-Enabled by Default</a>.
      * </p>
      * 
      * @return Describes whether Amazon SageMaker provides internet access to the notebook instance. If this value is
      *         set to <i>Disabled, he notebook instance does not have internet access, and cannot connect to Amazon
      *         SageMaker training and endpoint services</i>.</p>
      *         <p>
-     *         For more information, see <a>appendix-notebook-and-internet-access</a>.
+     *         For more information, see <a href=
+     *         "http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access"
+     *         >Notebook Instances Are Internet-Enabled by Default</a>.
      * @see DirectInternetAccess
      */
 
@@ -824,7 +884,9 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
      * and endpoint services</i>.
      * </p>
      * <p>
-     * For more information, see <a>appendix-notebook-and-internet-access</a>.
+     * For more information, see <a href=
+     * "http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access"
+     * >Notebook Instances Are Internet-Enabled by Default</a>.
      * </p>
      * 
      * @param directInternetAccess
@@ -832,7 +894,9 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
      *        to <i>Disabled, he notebook instance does not have internet access, and cannot connect to Amazon SageMaker
      *        training and endpoint services</i>.</p>
      *        <p>
-     *        For more information, see <a>appendix-notebook-and-internet-access</a>.
+     *        For more information, see <a href=
+     *        "http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access"
+     *        >Notebook Instances Are Internet-Enabled by Default</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DirectInternetAccess
      */
@@ -849,7 +913,9 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
      * and endpoint services</i>.
      * </p>
      * <p>
-     * For more information, see <a>appendix-notebook-and-internet-access</a>.
+     * For more information, see <a href=
+     * "http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access"
+     * >Notebook Instances Are Internet-Enabled by Default</a>.
      * </p>
      * 
      * @param directInternetAccess
@@ -857,7 +923,9 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
      *        to <i>Disabled, he notebook instance does not have internet access, and cannot connect to Amazon SageMaker
      *        training and endpoint services</i>.</p>
      *        <p>
-     *        For more information, see <a>appendix-notebook-and-internet-access</a>.
+     *        For more information, see <a href=
+     *        "http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access"
+     *        >Notebook Instances Are Internet-Enabled by Default</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see DirectInternetAccess
      */
@@ -868,7 +936,358 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The size, in GB, of the ML storage volume attached to the notebook instance.
+     * </p>
+     * 
+     * @param volumeSizeInGB
+     *        The size, in GB, of the ML storage volume attached to the notebook instance.
+     */
+
+    public void setVolumeSizeInGB(Integer volumeSizeInGB) {
+        this.volumeSizeInGB = volumeSizeInGB;
+    }
+
+    /**
+     * <p>
+     * The size, in GB, of the ML storage volume attached to the notebook instance.
+     * </p>
+     * 
+     * @return The size, in GB, of the ML storage volume attached to the notebook instance.
+     */
+
+    public Integer getVolumeSizeInGB() {
+        return this.volumeSizeInGB;
+    }
+
+    /**
+     * <p>
+     * The size, in GB, of the ML storage volume attached to the notebook instance.
+     * </p>
+     * 
+     * @param volumeSizeInGB
+     *        The size, in GB, of the ML storage volume attached to the notebook instance.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeNotebookInstanceResult withVolumeSizeInGB(Integer volumeSizeInGB) {
+        setVolumeSizeInGB(volumeSizeInGB);
+        return this;
+    }
+
+    /**
+     * <p>
+     * A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently only one EI
+     * instance type can be associated with a notebook instance. For more information, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.
+     * </p>
+     * 
+     * @return A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently
+     *         only one EI instance type can be associated with a notebook instance. For more information, see <a
+     *         href="http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
+     *         SageMaker</a>.
+     * @see NotebookInstanceAcceleratorType
+     */
+
+    public java.util.List<String> getAcceleratorTypes() {
+        return acceleratorTypes;
+    }
+
+    /**
+     * <p>
+     * A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently only one EI
+     * instance type can be associated with a notebook instance. For more information, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.
+     * </p>
+     * 
+     * @param acceleratorTypes
+     *        A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently only
+     *        one EI instance type can be associated with a notebook instance. For more information, see <a
+     *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
+     *        SageMaker</a>.
+     * @see NotebookInstanceAcceleratorType
+     */
+
+    public void setAcceleratorTypes(java.util.Collection<String> acceleratorTypes) {
+        if (acceleratorTypes == null) {
+            this.acceleratorTypes = null;
+            return;
+        }
+
+        this.acceleratorTypes = new java.util.ArrayList<String>(acceleratorTypes);
+    }
+
+    /**
+     * <p>
+     * A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently only one EI
+     * instance type can be associated with a notebook instance. For more information, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.
+     * </p>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setAcceleratorTypes(java.util.Collection)} or {@link #withAcceleratorTypes(java.util.Collection)} if you
+     * want to override the existing values.
+     * </p>
+     * 
+     * @param acceleratorTypes
+     *        A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently only
+     *        one EI instance type can be associated with a notebook instance. For more information, see <a
+     *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
+     *        SageMaker</a>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see NotebookInstanceAcceleratorType
+     */
+
+    public DescribeNotebookInstanceResult withAcceleratorTypes(String... acceleratorTypes) {
+        if (this.acceleratorTypes == null) {
+            setAcceleratorTypes(new java.util.ArrayList<String>(acceleratorTypes.length));
+        }
+        for (String ele : acceleratorTypes) {
+            this.acceleratorTypes.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently only one EI
+     * instance type can be associated with a notebook instance. For more information, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.
+     * </p>
+     * 
+     * @param acceleratorTypes
+     *        A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently only
+     *        one EI instance type can be associated with a notebook instance. For more information, see <a
+     *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
+     *        SageMaker</a>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see NotebookInstanceAcceleratorType
+     */
+
+    public DescribeNotebookInstanceResult withAcceleratorTypes(java.util.Collection<String> acceleratorTypes) {
+        setAcceleratorTypes(acceleratorTypes);
+        return this;
+    }
+
+    /**
+     * <p>
+     * A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently only one EI
+     * instance type can be associated with a notebook instance. For more information, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.
+     * </p>
+     * 
+     * @param acceleratorTypes
+     *        A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently only
+     *        one EI instance type can be associated with a notebook instance. For more information, see <a
+     *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
+     *        SageMaker</a>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see NotebookInstanceAcceleratorType
+     */
+
+    public DescribeNotebookInstanceResult withAcceleratorTypes(NotebookInstanceAcceleratorType... acceleratorTypes) {
+        java.util.ArrayList<String> acceleratorTypesCopy = new java.util.ArrayList<String>(acceleratorTypes.length);
+        for (NotebookInstanceAcceleratorType value : acceleratorTypes) {
+            acceleratorTypesCopy.add(value.toString());
+        }
+        if (getAcceleratorTypes() == null) {
+            setAcceleratorTypes(acceleratorTypesCopy);
+        } else {
+            getAcceleratorTypes().addAll(acceleratorTypesCopy);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * The git repository associated with the notebook instance as its default code repository. This can be either the
+     * name of a git repository stored as a resource in your account, or the URL of a git repository in <a
+     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any other git
+     * repository. When you open a notebook instance, it opens in the directory that contains this repository. For more
+     * information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+     * Repositories with Amazon SageMaker Notebook Instances</a>.
+     * </p>
+     * 
+     * @param defaultCodeRepository
+     *        The git repository associated with the notebook instance as its default code repository. This can be
+     *        either the name of a git repository stored as a resource in your account, or the URL of a git repository
+     *        in <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in
+     *        any other git repository. When you open a notebook instance, it opens in the directory that contains this
+     *        repository. For more information, see <a
+     *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with
+     *        Amazon SageMaker Notebook Instances</a>.
+     */
+
+    public void setDefaultCodeRepository(String defaultCodeRepository) {
+        this.defaultCodeRepository = defaultCodeRepository;
+    }
+
+    /**
+     * <p>
+     * The git repository associated with the notebook instance as its default code repository. This can be either the
+     * name of a git repository stored as a resource in your account, or the URL of a git repository in <a
+     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any other git
+     * repository. When you open a notebook instance, it opens in the directory that contains this repository. For more
+     * information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+     * Repositories with Amazon SageMaker Notebook Instances</a>.
+     * </p>
+     * 
+     * @return The git repository associated with the notebook instance as its default code repository. This can be
+     *         either the name of a git repository stored as a resource in your account, or the URL of a git repository
+     *         in <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in
+     *         any other git repository. When you open a notebook instance, it opens in the directory that contains this
+     *         repository. For more information, see <a
+     *         href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with
+     *         Amazon SageMaker Notebook Instances</a>.
+     */
+
+    public String getDefaultCodeRepository() {
+        return this.defaultCodeRepository;
+    }
+
+    /**
+     * <p>
+     * The git repository associated with the notebook instance as its default code repository. This can be either the
+     * name of a git repository stored as a resource in your account, or the URL of a git repository in <a
+     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any other git
+     * repository. When you open a notebook instance, it opens in the directory that contains this repository. For more
+     * information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+     * Repositories with Amazon SageMaker Notebook Instances</a>.
+     * </p>
+     * 
+     * @param defaultCodeRepository
+     *        The git repository associated with the notebook instance as its default code repository. This can be
+     *        either the name of a git repository stored as a resource in your account, or the URL of a git repository
+     *        in <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in
+     *        any other git repository. When you open a notebook instance, it opens in the directory that contains this
+     *        repository. For more information, see <a
+     *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with
+     *        Amazon SageMaker Notebook Instances</a>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeNotebookInstanceResult withDefaultCodeRepository(String defaultCodeRepository) {
+        setDefaultCodeRepository(defaultCodeRepository);
+        return this;
+    }
+
+    /**
+     * <p>
+     * An array of up to 3 git repositories associated with the notebook instance. These can be either the names of git
+     * repositories stored as resources in your account, or the URL of git repositories in <a
+     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any other git
+     * repository. These repositories are cloned at the same level as the default repository of your notebook instance.
+     * For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
+     * Git Repositories with Amazon SageMaker Notebook Instances</a>.
+     * </p>
+     * 
+     * @return An array of up to 3 git repositories associated with the notebook instance. These can be either the names
+     *         of git repositories stored as resources in your account, or the URL of git repositories in <a
+     *         href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+     *         other git repository. These repositories are cloned at the same level as the default repository of your
+     *         notebook instance. For more information, see <a
+     *         href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with
+     *         Amazon SageMaker Notebook Instances</a>.
+     */
+
+    public java.util.List<String> getAdditionalCodeRepositories() {
+        return additionalCodeRepositories;
+    }
+
+    /**
+     * <p>
+     * An array of up to 3 git repositories associated with the notebook instance. These can be either the names of git
+     * repositories stored as resources in your account, or the URL of git repositories in <a
+     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any other git
+     * repository. These repositories are cloned at the same level as the default repository of your notebook instance.
+     * For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
+     * Git Repositories with Amazon SageMaker Notebook Instances</a>.
+     * </p>
+     * 
+     * @param additionalCodeRepositories
+     *        An array of up to 3 git repositories associated with the notebook instance. These can be either the names
+     *        of git repositories stored as resources in your account, or the URL of git repositories in <a
+     *        href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+     *        other git repository. These repositories are cloned at the same level as the default repository of your
+     *        notebook instance. For more information, see <a
+     *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with
+     *        Amazon SageMaker Notebook Instances</a>.
+     */
+
+    public void setAdditionalCodeRepositories(java.util.Collection<String> additionalCodeRepositories) {
+        if (additionalCodeRepositories == null) {
+            this.additionalCodeRepositories = null;
+            return;
+        }
+
+        this.additionalCodeRepositories = new java.util.ArrayList<String>(additionalCodeRepositories);
+    }
+
+    /**
+     * <p>
+     * An array of up to 3 git repositories associated with the notebook instance. These can be either the names of git
+     * repositories stored as resources in your account, or the URL of git repositories in <a
+     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any other git
+     * repository. These repositories are cloned at the same level as the default repository of your notebook instance.
+     * For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
+     * Git Repositories with Amazon SageMaker Notebook Instances</a>.
+     * </p>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setAdditionalCodeRepositories(java.util.Collection)} or
+     * {@link #withAdditionalCodeRepositories(java.util.Collection)} if you want to override the existing values.
+     * </p>
+     * 
+     * @param additionalCodeRepositories
+     *        An array of up to 3 git repositories associated with the notebook instance. These can be either the names
+     *        of git repositories stored as resources in your account, or the URL of git repositories in <a
+     *        href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+     *        other git repository. These repositories are cloned at the same level as the default repository of your
+     *        notebook instance. For more information, see <a
+     *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with
+     *        Amazon SageMaker Notebook Instances</a>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeNotebookInstanceResult withAdditionalCodeRepositories(String... additionalCodeRepositories) {
+        if (this.additionalCodeRepositories == null) {
+            setAdditionalCodeRepositories(new java.util.ArrayList<String>(additionalCodeRepositories.length));
+        }
+        for (String ele : additionalCodeRepositories) {
+            this.additionalCodeRepositories.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * An array of up to 3 git repositories associated with the notebook instance. These can be either the names of git
+     * repositories stored as resources in your account, or the URL of git repositories in <a
+     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any other git
+     * repository. These repositories are cloned at the same level as the default repository of your notebook instance.
+     * For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
+     * Git Repositories with Amazon SageMaker Notebook Instances</a>.
+     * </p>
+     * 
+     * @param additionalCodeRepositories
+     *        An array of up to 3 git repositories associated with the notebook instance. These can be either the names
+     *        of git repositories stored as resources in your account, or the URL of git repositories in <a
+     *        href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+     *        other git repository. These repositories are cloned at the same level as the default repository of your
+     *        notebook instance. For more information, see <a
+     *        href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with
+     *        Amazon SageMaker Notebook Instances</a>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public DescribeNotebookInstanceResult withAdditionalCodeRepositories(java.util.Collection<String> additionalCodeRepositories) {
+        setAdditionalCodeRepositories(additionalCodeRepositories);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -907,7 +1326,15 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
         if (getNotebookInstanceLifecycleConfigName() != null)
             sb.append("NotebookInstanceLifecycleConfigName: ").append(getNotebookInstanceLifecycleConfigName()).append(",");
         if (getDirectInternetAccess() != null)
-            sb.append("DirectInternetAccess: ").append(getDirectInternetAccess());
+            sb.append("DirectInternetAccess: ").append(getDirectInternetAccess()).append(",");
+        if (getVolumeSizeInGB() != null)
+            sb.append("VolumeSizeInGB: ").append(getVolumeSizeInGB()).append(",");
+        if (getAcceleratorTypes() != null)
+            sb.append("AcceleratorTypes: ").append(getAcceleratorTypes()).append(",");
+        if (getDefaultCodeRepository() != null)
+            sb.append("DefaultCodeRepository: ").append(getDefaultCodeRepository()).append(",");
+        if (getAdditionalCodeRepositories() != null)
+            sb.append("AdditionalCodeRepositories: ").append(getAdditionalCodeRepositories());
         sb.append("}");
         return sb.toString();
     }
@@ -983,6 +1410,22 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
             return false;
         if (other.getDirectInternetAccess() != null && other.getDirectInternetAccess().equals(this.getDirectInternetAccess()) == false)
             return false;
+        if (other.getVolumeSizeInGB() == null ^ this.getVolumeSizeInGB() == null)
+            return false;
+        if (other.getVolumeSizeInGB() != null && other.getVolumeSizeInGB().equals(this.getVolumeSizeInGB()) == false)
+            return false;
+        if (other.getAcceleratorTypes() == null ^ this.getAcceleratorTypes() == null)
+            return false;
+        if (other.getAcceleratorTypes() != null && other.getAcceleratorTypes().equals(this.getAcceleratorTypes()) == false)
+            return false;
+        if (other.getDefaultCodeRepository() == null ^ this.getDefaultCodeRepository() == null)
+            return false;
+        if (other.getDefaultCodeRepository() != null && other.getDefaultCodeRepository().equals(this.getDefaultCodeRepository()) == false)
+            return false;
+        if (other.getAdditionalCodeRepositories() == null ^ this.getAdditionalCodeRepositories() == null)
+            return false;
+        if (other.getAdditionalCodeRepositories() != null && other.getAdditionalCodeRepositories().equals(this.getAdditionalCodeRepositories()) == false)
+            return false;
         return true;
     }
 
@@ -1006,6 +1449,10 @@ public class DescribeNotebookInstanceResult extends com.amazonaws.AmazonWebServi
         hashCode = prime * hashCode + ((getCreationTime() == null) ? 0 : getCreationTime().hashCode());
         hashCode = prime * hashCode + ((getNotebookInstanceLifecycleConfigName() == null) ? 0 : getNotebookInstanceLifecycleConfigName().hashCode());
         hashCode = prime * hashCode + ((getDirectInternetAccess() == null) ? 0 : getDirectInternetAccess().hashCode());
+        hashCode = prime * hashCode + ((getVolumeSizeInGB() == null) ? 0 : getVolumeSizeInGB().hashCode());
+        hashCode = prime * hashCode + ((getAcceleratorTypes() == null) ? 0 : getAcceleratorTypes().hashCode());
+        hashCode = prime * hashCode + ((getDefaultCodeRepository() == null) ? 0 : getDefaultCodeRepository().hashCode());
+        hashCode = prime * hashCode + ((getAdditionalCodeRepositories() == null) ? 0 : getAdditionalCodeRepositories().hashCode());
         return hashCode;
     }
 

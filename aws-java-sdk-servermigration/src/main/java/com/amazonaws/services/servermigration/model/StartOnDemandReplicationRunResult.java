@@ -23,10 +23,20 @@ import javax.annotation.Generated;
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class StartOnDemandReplicationRunResult extends com.amazonaws.AmazonWebServiceResult<com.amazonaws.ResponseMetadata> implements Serializable, Cloneable {
 
+    /**
+     * <p>
+     * The identifier of the replication run.
+     * </p>
+     */
     private String replicationRunId;
 
     /**
+     * <p>
+     * The identifier of the replication run.
+     * </p>
+     * 
      * @param replicationRunId
+     *        The identifier of the replication run.
      */
 
     public void setReplicationRunId(String replicationRunId) {
@@ -34,7 +44,11 @@ public class StartOnDemandReplicationRunResult extends com.amazonaws.AmazonWebSe
     }
 
     /**
-     * @return
+     * <p>
+     * The identifier of the replication run.
+     * </p>
+     * 
+     * @return The identifier of the replication run.
      */
 
     public String getReplicationRunId() {
@@ -42,7 +56,12 @@ public class StartOnDemandReplicationRunResult extends com.amazonaws.AmazonWebSe
     }
 
     /**
+     * <p>
+     * The identifier of the replication run.
+     * </p>
+     * 
      * @param replicationRunId
+     *        The identifier of the replication run.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -52,7 +71,8 @@ public class StartOnDemandReplicationRunResult extends com.amazonaws.AmazonWebSe
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

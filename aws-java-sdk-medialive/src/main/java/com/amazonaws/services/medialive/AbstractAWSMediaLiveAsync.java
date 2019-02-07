@@ -28,6 +28,19 @@ public class AbstractAWSMediaLiveAsync extends AbstractAWSMediaLive implements A
     }
 
     @Override
+    public java.util.concurrent.Future<BatchUpdateScheduleResult> batchUpdateScheduleAsync(BatchUpdateScheduleRequest request) {
+
+        return batchUpdateScheduleAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<BatchUpdateScheduleResult> batchUpdateScheduleAsync(BatchUpdateScheduleRequest request,
+            com.amazonaws.handlers.AsyncHandler<BatchUpdateScheduleRequest, BatchUpdateScheduleResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public java.util.concurrent.Future<CreateChannelResult> createChannelAsync(CreateChannelRequest request) {
 
         return createChannelAsync(request, null);
@@ -106,6 +119,19 @@ public class AbstractAWSMediaLiveAsync extends AbstractAWSMediaLive implements A
     }
 
     @Override
+    public java.util.concurrent.Future<DeleteReservationResult> deleteReservationAsync(DeleteReservationRequest request) {
+
+        return deleteReservationAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DeleteReservationResult> deleteReservationAsync(DeleteReservationRequest request,
+            com.amazonaws.handlers.AsyncHandler<DeleteReservationRequest, DeleteReservationResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public java.util.concurrent.Future<DescribeChannelResult> describeChannelAsync(DescribeChannelRequest request) {
 
         return describeChannelAsync(request, null);
@@ -145,6 +171,45 @@ public class AbstractAWSMediaLiveAsync extends AbstractAWSMediaLive implements A
     }
 
     @Override
+    public java.util.concurrent.Future<DescribeOfferingResult> describeOfferingAsync(DescribeOfferingRequest request) {
+
+        return describeOfferingAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DescribeOfferingResult> describeOfferingAsync(DescribeOfferingRequest request,
+            com.amazonaws.handlers.AsyncHandler<DescribeOfferingRequest, DescribeOfferingResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public java.util.concurrent.Future<DescribeReservationResult> describeReservationAsync(DescribeReservationRequest request) {
+
+        return describeReservationAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DescribeReservationResult> describeReservationAsync(DescribeReservationRequest request,
+            com.amazonaws.handlers.AsyncHandler<DescribeReservationRequest, DescribeReservationResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public java.util.concurrent.Future<DescribeScheduleResult> describeScheduleAsync(DescribeScheduleRequest request) {
+
+        return describeScheduleAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DescribeScheduleResult> describeScheduleAsync(DescribeScheduleRequest request,
+            com.amazonaws.handlers.AsyncHandler<DescribeScheduleRequest, DescribeScheduleResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public java.util.concurrent.Future<ListChannelsResult> listChannelsAsync(ListChannelsRequest request) {
 
         return listChannelsAsync(request, null);
@@ -179,6 +244,45 @@ public class AbstractAWSMediaLiveAsync extends AbstractAWSMediaLive implements A
     @Override
     public java.util.concurrent.Future<ListInputsResult> listInputsAsync(ListInputsRequest request,
             com.amazonaws.handlers.AsyncHandler<ListInputsRequest, ListInputsResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public java.util.concurrent.Future<ListOfferingsResult> listOfferingsAsync(ListOfferingsRequest request) {
+
+        return listOfferingsAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<ListOfferingsResult> listOfferingsAsync(ListOfferingsRequest request,
+            com.amazonaws.handlers.AsyncHandler<ListOfferingsRequest, ListOfferingsResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public java.util.concurrent.Future<ListReservationsResult> listReservationsAsync(ListReservationsRequest request) {
+
+        return listReservationsAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<ListReservationsResult> listReservationsAsync(ListReservationsRequest request,
+            com.amazonaws.handlers.AsyncHandler<ListReservationsRequest, ListReservationsResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public java.util.concurrent.Future<PurchaseOfferingResult> purchaseOfferingAsync(PurchaseOfferingRequest request) {
+
+        return purchaseOfferingAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<PurchaseOfferingResult> purchaseOfferingAsync(PurchaseOfferingRequest request,
+            com.amazonaws.handlers.AsyncHandler<PurchaseOfferingRequest, PurchaseOfferingResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }

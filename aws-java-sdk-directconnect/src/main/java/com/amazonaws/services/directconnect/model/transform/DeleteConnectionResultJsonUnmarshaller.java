@@ -86,7 +86,7 @@ public class DeleteConnectionResultJsonUnmarshaller implements Unmarshaller<Dele
                 }
                 if (context.testExpression("loaIssueTime", targetDepth)) {
                     context.nextToken();
-                    deleteConnectionResult.setLoaIssueTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    deleteConnectionResult.setLoaIssueTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("lagId", targetDepth)) {
                     context.nextToken();
@@ -95,6 +95,18 @@ public class DeleteConnectionResultJsonUnmarshaller implements Unmarshaller<Dele
                 if (context.testExpression("awsDevice", targetDepth)) {
                     context.nextToken();
                     deleteConnectionResult.setAwsDevice(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("jumboFrameCapable", targetDepth)) {
+                    context.nextToken();
+                    deleteConnectionResult.setJumboFrameCapable(context.getUnmarshaller(Boolean.class).unmarshall(context));
+                }
+                if (context.testExpression("awsDeviceV2", targetDepth)) {
+                    context.nextToken();
+                    deleteConnectionResult.setAwsDeviceV2(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("hasLogicalRedundancy", targetDepth)) {
+                    context.nextToken();
+                    deleteConnectionResult.setHasLogicalRedundancy(context.getUnmarshaller(String.class).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

@@ -19,7 +19,12 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 
 /**
  * <p>
- * Describes a filter for a specific list of instances.
+ * Describes a filter for a specific list of instances. You can filter instances information by using tags. You specify
+ * tags by using a key-value mapping.
+ * </p>
+ * <p>
+ * Use this action instead of the <a>DescribeInstanceInformationRequest$InstanceInformationFilterList</a> method. The
+ * <code>InstanceInformationFilterList</code> method is a legacy method and does not support tags.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/InstanceInformationFilter" target="_top">AWS API
@@ -188,7 +193,8 @@ public class InstanceInformationFilter implements Serializable, Cloneable, Struc
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

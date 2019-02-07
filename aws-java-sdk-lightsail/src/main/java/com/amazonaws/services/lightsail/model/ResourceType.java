@@ -29,7 +29,11 @@ public enum ResourceType {
     LoadBalancer("LoadBalancer"),
     LoadBalancerTlsCertificate("LoadBalancerTlsCertificate"),
     Disk("Disk"),
-    DiskSnapshot("DiskSnapshot");
+    DiskSnapshot("DiskSnapshot"),
+    RelationalDatabase("RelationalDatabase"),
+    RelationalDatabaseSnapshot("RelationalDatabaseSnapshot"),
+    ExportSnapshotRecord("ExportSnapshotRecord"),
+    CloudFormationStackRecord("CloudFormationStackRecord");
 
     private String value;
 

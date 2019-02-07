@@ -16,7 +16,7 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * The request exceeds the limit of 10 tags for the resource.
+ * You have exceeded the number of tags allowed.
  * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")

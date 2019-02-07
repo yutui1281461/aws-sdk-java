@@ -52,9 +52,13 @@ public class JobJsonUnmarshaller implements Unmarshaller<Job, JsonUnmarshallerCo
                     context.nextToken();
                     job.setArn(context.getUnmarshaller(String.class).unmarshall(context));
                 }
+                if (context.testExpression("billingTagsSource", targetDepth)) {
+                    context.nextToken();
+                    job.setBillingTagsSource(context.getUnmarshaller(String.class).unmarshall(context));
+                }
                 if (context.testExpression("createdAt", targetDepth)) {
                     context.nextToken();
-                    job.setCreatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    job.setCreatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("errorCode", targetDepth)) {
                     context.nextToken();

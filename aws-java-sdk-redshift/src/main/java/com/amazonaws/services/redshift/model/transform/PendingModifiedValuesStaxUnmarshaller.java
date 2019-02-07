@@ -87,6 +87,16 @@ public class PendingModifiedValuesStaxUnmarshaller implements Unmarshaller<Pendi
                     pendingModifiedValues.setEnhancedVpcRouting(BooleanStaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
                 }
+
+                if (context.testExpression("MaintenanceTrackName", targetDepth)) {
+                    pendingModifiedValues.setMaintenanceTrackName(StringStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("EncryptionType", targetDepth)) {
+                    pendingModifiedValues.setEncryptionType(StringStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
             } else if (xmlEvent.isEndElement()) {
                 if (context.getCurrentDepth() < originalDepth) {
                     return pendingModifiedValues;

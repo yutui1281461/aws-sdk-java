@@ -16,9 +16,9 @@ import javax.annotation.Generated;
 
 /**
  * <p>
- * Your request didn't pass one or more validation tests. For example, a name already exists when createing a resource
- * or a name may not exist when getting a transcription job or custom vocabulary. See the exception <code>Message</code>
- * field for more information.
+ * Your request didn't pass one or more validation tests. For example, if the transcription you're trying to delete
+ * doesn't exist or if it is in a non-terminal state (for example, it's "in progress"). See the exception
+ * <code>Message</code> field for more information.
  * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")

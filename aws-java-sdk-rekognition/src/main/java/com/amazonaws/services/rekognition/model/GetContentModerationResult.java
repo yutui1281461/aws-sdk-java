@@ -45,8 +45,8 @@ public class GetContentModerationResult extends com.amazonaws.AmazonWebServiceRe
     private java.util.List<ContentModerationDetection> moderationLabels;
     /**
      * <p>
-     * If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to
-     * retrieve the next set of moderation labels.
+     * If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
+     * request to retrieve the next set of moderation labels.
      * </p>
      */
     private String nextToken;
@@ -268,13 +268,13 @@ public class GetContentModerationResult extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to
-     * retrieve the next set of moderation labels.
+     * If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
+     * request to retrieve the next set of moderation labels.
      * </p>
      * 
      * @param nextToken
-     *        If the response is truncated, Rekognition Video returns this token that you can use in the subsequent
-     *        request to retrieve the next set of moderation labels.
+     *        If the response is truncated, Amazon Rekognition Video returns this token that you can use in the
+     *        subsequent request to retrieve the next set of moderation labels.
      */
 
     public void setNextToken(String nextToken) {
@@ -283,12 +283,12 @@ public class GetContentModerationResult extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to
-     * retrieve the next set of moderation labels.
+     * If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
+     * request to retrieve the next set of moderation labels.
      * </p>
      * 
-     * @return If the response is truncated, Rekognition Video returns this token that you can use in the subsequent
-     *         request to retrieve the next set of moderation labels.
+     * @return If the response is truncated, Amazon Rekognition Video returns this token that you can use in the
+     *         subsequent request to retrieve the next set of moderation labels.
      */
 
     public String getNextToken() {
@@ -297,13 +297,13 @@ public class GetContentModerationResult extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to
-     * retrieve the next set of moderation labels.
+     * If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
+     * request to retrieve the next set of moderation labels.
      * </p>
      * 
      * @param nextToken
-     *        If the response is truncated, Rekognition Video returns this token that you can use in the subsequent
-     *        request to retrieve the next set of moderation labels.
+     *        If the response is truncated, Amazon Rekognition Video returns this token that you can use in the
+     *        subsequent request to retrieve the next set of moderation labels.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -313,7 +313,8 @@ public class GetContentModerationResult extends com.amazonaws.AmazonWebServiceRe
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

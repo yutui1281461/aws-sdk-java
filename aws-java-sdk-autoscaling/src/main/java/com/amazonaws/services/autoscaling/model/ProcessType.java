@@ -21,8 +21,8 @@ import javax.annotation.Generated;
  * </p>
  * <p>
  * For more information, see <a
- * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html#process-types">Auto
- * Scaling Processes</a> in the <i>Auto Scaling User Guide</i>.
+ * href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Scaling
+ * Processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/ProcessType" target="_top">AWS API
@@ -370,7 +370,8 @@ public class ProcessType implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

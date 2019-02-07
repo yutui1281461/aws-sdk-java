@@ -27,7 +27,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * </p>
  * <p>
  * For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more
- * information, see <a>manage-access-resource-policies</a>.
+ * information, see Resource-Based Policies in the Amazon Rekognition Developer Guide.
  * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -173,7 +173,8 @@ public class S3Object implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

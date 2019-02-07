@@ -64,7 +64,7 @@ public class UpdateProvisionedProductRequest extends com.amazonaws.AmazonWebServ
     private String provisionedProductId;
     /**
      * <p>
-     * The identifier of the provisioned product.
+     * The identifier of the product.
      * </p>
      */
     private String productId;
@@ -87,6 +87,12 @@ public class UpdateProvisionedProductRequest extends com.amazonaws.AmazonWebServ
      * </p>
      */
     private java.util.List<UpdateProvisioningParameter> provisioningParameters;
+    /**
+     * <p>
+     * An object that contains information about the provisioning preferences for a stack set.
+     * </p>
+     */
+    private UpdateProvisioningPreferences provisioningPreferences;
     /**
      * <p>
      * The idempotency token that uniquely identifies the provisioning update request.
@@ -327,11 +333,11 @@ public class UpdateProvisionedProductRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The identifier of the provisioned product.
+     * The identifier of the product.
      * </p>
      * 
      * @param productId
-     *        The identifier of the provisioned product.
+     *        The identifier of the product.
      */
 
     public void setProductId(String productId) {
@@ -340,10 +346,10 @@ public class UpdateProvisionedProductRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The identifier of the provisioned product.
+     * The identifier of the product.
      * </p>
      * 
-     * @return The identifier of the provisioned product.
+     * @return The identifier of the product.
      */
 
     public String getProductId() {
@@ -352,11 +358,11 @@ public class UpdateProvisionedProductRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
-     * The identifier of the provisioned product.
+     * The identifier of the product.
      * </p>
      * 
      * @param productId
-     *        The identifier of the provisioned product.
+     *        The identifier of the product.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -523,6 +529,46 @@ public class UpdateProvisionedProductRequest extends com.amazonaws.AmazonWebServ
 
     /**
      * <p>
+     * An object that contains information about the provisioning preferences for a stack set.
+     * </p>
+     * 
+     * @param provisioningPreferences
+     *        An object that contains information about the provisioning preferences for a stack set.
+     */
+
+    public void setProvisioningPreferences(UpdateProvisioningPreferences provisioningPreferences) {
+        this.provisioningPreferences = provisioningPreferences;
+    }
+
+    /**
+     * <p>
+     * An object that contains information about the provisioning preferences for a stack set.
+     * </p>
+     * 
+     * @return An object that contains information about the provisioning preferences for a stack set.
+     */
+
+    public UpdateProvisioningPreferences getProvisioningPreferences() {
+        return this.provisioningPreferences;
+    }
+
+    /**
+     * <p>
+     * An object that contains information about the provisioning preferences for a stack set.
+     * </p>
+     * 
+     * @param provisioningPreferences
+     *        An object that contains information about the provisioning preferences for a stack set.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public UpdateProvisionedProductRequest withProvisioningPreferences(UpdateProvisioningPreferences provisioningPreferences) {
+        setProvisioningPreferences(provisioningPreferences);
+        return this;
+    }
+
+    /**
+     * <p>
      * The idempotency token that uniquely identifies the provisioning update request.
      * </p>
      * 
@@ -562,7 +608,8 @@ public class UpdateProvisionedProductRequest extends com.amazonaws.AmazonWebServ
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -586,6 +633,8 @@ public class UpdateProvisionedProductRequest extends com.amazonaws.AmazonWebServ
             sb.append("PathId: ").append(getPathId()).append(",");
         if (getProvisioningParameters() != null)
             sb.append("ProvisioningParameters: ").append(getProvisioningParameters()).append(",");
+        if (getProvisioningPreferences() != null)
+            sb.append("ProvisioningPreferences: ").append(getProvisioningPreferences()).append(",");
         if (getUpdateToken() != null)
             sb.append("UpdateToken: ").append(getUpdateToken());
         sb.append("}");
@@ -630,6 +679,10 @@ public class UpdateProvisionedProductRequest extends com.amazonaws.AmazonWebServ
             return false;
         if (other.getProvisioningParameters() != null && other.getProvisioningParameters().equals(this.getProvisioningParameters()) == false)
             return false;
+        if (other.getProvisioningPreferences() == null ^ this.getProvisioningPreferences() == null)
+            return false;
+        if (other.getProvisioningPreferences() != null && other.getProvisioningPreferences().equals(this.getProvisioningPreferences()) == false)
+            return false;
         if (other.getUpdateToken() == null ^ this.getUpdateToken() == null)
             return false;
         if (other.getUpdateToken() != null && other.getUpdateToken().equals(this.getUpdateToken()) == false)
@@ -649,6 +702,7 @@ public class UpdateProvisionedProductRequest extends com.amazonaws.AmazonWebServ
         hashCode = prime * hashCode + ((getProvisioningArtifactId() == null) ? 0 : getProvisioningArtifactId().hashCode());
         hashCode = prime * hashCode + ((getPathId() == null) ? 0 : getPathId().hashCode());
         hashCode = prime * hashCode + ((getProvisioningParameters() == null) ? 0 : getProvisioningParameters().hashCode());
+        hashCode = prime * hashCode + ((getProvisioningPreferences() == null) ? 0 : getProvisioningPreferences().hashCode());
         hashCode = prime * hashCode + ((getUpdateToken() == null) ? 0 : getUpdateToken().hashCode());
         return hashCode;
     }

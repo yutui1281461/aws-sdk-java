@@ -25,6 +25,8 @@ public class GetDetectorResult extends com.amazonaws.AmazonWebServiceResult<com.
 
     private String createdAt;
 
+    private String findingPublishingFrequency;
+
     private String serviceRole;
 
     private String status;
@@ -54,6 +56,46 @@ public class GetDetectorResult extends com.amazonaws.AmazonWebServiceResult<com.
 
     public GetDetectorResult withCreatedAt(String createdAt) {
         setCreatedAt(createdAt);
+        return this;
+    }
+
+    /**
+     * @param findingPublishingFrequency
+     * @see FindingPublishingFrequency
+     */
+
+    public void setFindingPublishingFrequency(String findingPublishingFrequency) {
+        this.findingPublishingFrequency = findingPublishingFrequency;
+    }
+
+    /**
+     * @return
+     * @see FindingPublishingFrequency
+     */
+
+    public String getFindingPublishingFrequency() {
+        return this.findingPublishingFrequency;
+    }
+
+    /**
+     * @param findingPublishingFrequency
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see FindingPublishingFrequency
+     */
+
+    public GetDetectorResult withFindingPublishingFrequency(String findingPublishingFrequency) {
+        setFindingPublishingFrequency(findingPublishingFrequency);
+        return this;
+    }
+
+    /**
+     * @param findingPublishingFrequency
+     * @return Returns a reference to this object so that method calls can be chained together.
+     * @see FindingPublishingFrequency
+     */
+
+    public GetDetectorResult withFindingPublishingFrequency(FindingPublishingFrequency findingPublishingFrequency) {
+        this.findingPublishingFrequency = findingPublishingFrequency.toString();
         return this;
     }
 
@@ -150,7 +192,8 @@ public class GetDetectorResult extends com.amazonaws.AmazonWebServiceResult<com.
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -162,6 +205,8 @@ public class GetDetectorResult extends com.amazonaws.AmazonWebServiceResult<com.
         sb.append("{");
         if (getCreatedAt() != null)
             sb.append("CreatedAt: ").append(getCreatedAt()).append(",");
+        if (getFindingPublishingFrequency() != null)
+            sb.append("FindingPublishingFrequency: ").append(getFindingPublishingFrequency()).append(",");
         if (getServiceRole() != null)
             sb.append("ServiceRole: ").append(getServiceRole()).append(",");
         if (getStatus() != null)
@@ -186,6 +231,10 @@ public class GetDetectorResult extends com.amazonaws.AmazonWebServiceResult<com.
             return false;
         if (other.getCreatedAt() != null && other.getCreatedAt().equals(this.getCreatedAt()) == false)
             return false;
+        if (other.getFindingPublishingFrequency() == null ^ this.getFindingPublishingFrequency() == null)
+            return false;
+        if (other.getFindingPublishingFrequency() != null && other.getFindingPublishingFrequency().equals(this.getFindingPublishingFrequency()) == false)
+            return false;
         if (other.getServiceRole() == null ^ this.getServiceRole() == null)
             return false;
         if (other.getServiceRole() != null && other.getServiceRole().equals(this.getServiceRole()) == false)
@@ -207,6 +256,7 @@ public class GetDetectorResult extends com.amazonaws.AmazonWebServiceResult<com.
         int hashCode = 1;
 
         hashCode = prime * hashCode + ((getCreatedAt() == null) ? 0 : getCreatedAt().hashCode());
+        hashCode = prime * hashCode + ((getFindingPublishingFrequency() == null) ? 0 : getFindingPublishingFrequency().hashCode());
         hashCode = prime * hashCode + ((getServiceRole() == null) ? 0 : getServiceRole().hashCode());
         hashCode = prime * hashCode + ((getStatus() == null) ? 0 : getStatus().hashCode());
         hashCode = prime * hashCode + ((getUpdatedAt() == null) ? 0 : getUpdatedAt().hashCode());

@@ -25,7 +25,8 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * </p>
  * <p>
  * An array of <code>Point</code> objects, <code>Polygon</code>, is returned by . <code>Polygon</code> represents a
- * fine-grained polygon around detected text. For more information, see .
+ * fine-grained polygon around detected text. For more information, see Geometry in the Amazon Rekognition Developer
+ * Guide.
  * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -125,7 +126,8 @@ public class Point implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

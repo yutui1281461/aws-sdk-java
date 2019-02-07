@@ -107,12 +107,25 @@ public enum IOUtils {
      *
      * @throws IOException if there is any IO exception during read or write.
      */
-    public static long copy(InputStream in, OutputStream out)
+    public static long copy(InputStream in, OutputStream out) throws IOException {
+        return copy(in, out, Long.MAX_VALUE);
+    }
+
+    /**
+     * Copies all bytes from the given input stream to the given output stream.
+     * Caller is responsible for closing the streams.
+     *
+     * @throws IOException if there is any IO exception during read or write or the read limit is exceeded.
+     */
+    public static long copy(InputStream in, OutputStream out, long readLimit)
             throws IOException {
         byte[] buf = new byte[BUFFER_SIZE];
         long count = 0;
         int n = 0;
         while ((n = in.read(buf)) > -1) {
+            if (count >= readLimit) {
+                throw new IOException("Read limit exceeded: " + readLimit);
+            }
             out.write(buf, 0, n);
             count += n;
         }

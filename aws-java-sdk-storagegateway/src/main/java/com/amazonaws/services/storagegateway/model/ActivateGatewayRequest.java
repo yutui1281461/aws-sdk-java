@@ -112,7 +112,7 @@ public class ActivateGatewayRequest extends com.amazonaws.AmazonWebServiceReques
     /**
      * <p>
      * A value that defines the type of gateway to activate. The type specified is critical to all later functions of
-     * the gateway and cannot be changed after activation. The default value is <code>STORED</code>.
+     * the gateway and cannot be changed after activation. The default value is <code>CACHED</code>.
      * </p>
      * <p>
      * Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
@@ -419,7 +419,7 @@ public class ActivateGatewayRequest extends com.amazonaws.AmazonWebServiceReques
     /**
      * <p>
      * A value that defines the type of gateway to activate. The type specified is critical to all later functions of
-     * the gateway and cannot be changed after activation. The default value is <code>STORED</code>.
+     * the gateway and cannot be changed after activation. The default value is <code>CACHED</code>.
      * </p>
      * <p>
      * Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
@@ -427,7 +427,7 @@ public class ActivateGatewayRequest extends com.amazonaws.AmazonWebServiceReques
      * 
      * @param gatewayType
      *        A value that defines the type of gateway to activate. The type specified is critical to all later
-     *        functions of the gateway and cannot be changed after activation. The default value is <code>STORED</code>.
+     *        functions of the gateway and cannot be changed after activation. The default value is <code>CACHED</code>.
      *        </p>
      *        <p>
      *        Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
@@ -440,14 +440,14 @@ public class ActivateGatewayRequest extends com.amazonaws.AmazonWebServiceReques
     /**
      * <p>
      * A value that defines the type of gateway to activate. The type specified is critical to all later functions of
-     * the gateway and cannot be changed after activation. The default value is <code>STORED</code>.
+     * the gateway and cannot be changed after activation. The default value is <code>CACHED</code>.
      * </p>
      * <p>
      * Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
      * </p>
      * 
      * @return A value that defines the type of gateway to activate. The type specified is critical to all later
-     *         functions of the gateway and cannot be changed after activation. The default value is <code>STORED</code>
+     *         functions of the gateway and cannot be changed after activation. The default value is <code>CACHED</code>
      *         . </p>
      *         <p>
      *         Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
@@ -460,7 +460,7 @@ public class ActivateGatewayRequest extends com.amazonaws.AmazonWebServiceReques
     /**
      * <p>
      * A value that defines the type of gateway to activate. The type specified is critical to all later functions of
-     * the gateway and cannot be changed after activation. The default value is <code>STORED</code>.
+     * the gateway and cannot be changed after activation. The default value is <code>CACHED</code>.
      * </p>
      * <p>
      * Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
@@ -468,7 +468,7 @@ public class ActivateGatewayRequest extends com.amazonaws.AmazonWebServiceReques
      * 
      * @param gatewayType
      *        A value that defines the type of gateway to activate. The type specified is critical to all later
-     *        functions of the gateway and cannot be changed after activation. The default value is <code>STORED</code>.
+     *        functions of the gateway and cannot be changed after activation. The default value is <code>CACHED</code>.
      *        </p>
      *        <p>
      *        Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
@@ -591,7 +591,8 @@ public class ActivateGatewayRequest extends com.amazonaws.AmazonWebServiceReques
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

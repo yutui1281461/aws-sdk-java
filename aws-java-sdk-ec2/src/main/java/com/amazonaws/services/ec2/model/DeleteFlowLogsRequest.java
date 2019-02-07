@@ -20,9 +20,7 @@ import com.amazonaws.Request;
 import com.amazonaws.services.ec2.model.transform.DeleteFlowLogsRequestMarshaller;
 
 /**
- * <p>
- * Contains the parameters for DeleteFlowLogs.
- * </p>
+ * 
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class DeleteFlowLogsRequest extends AmazonWebServiceRequest implements Serializable, Cloneable, DryRunSupportedRequest<DeleteFlowLogsRequest> {
@@ -119,7 +117,8 @@ public class DeleteFlowLogsRequest extends AmazonWebServiceRequest implements Se
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

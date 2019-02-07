@@ -32,7 +32,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * template.
  * </p>
  * </div> <div class="seeAlso"> <a>Method</a>, <a>MethodResponse</a>, <a
- * href="http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Models and Mappings</a>
+ * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Models and Mappings</a>
  * </div>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -298,7 +298,8 @@ public class Model implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -31,7 +31,7 @@ public class InputLogEvent implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC.
+     * The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      * </p>
      */
     private Long timestamp;
@@ -44,11 +44,11 @@ public class InputLogEvent implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC.
+     * The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      * </p>
      * 
      * @param timestamp
-     *        The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC.
+     *        The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      */
 
     public void setTimestamp(Long timestamp) {
@@ -57,10 +57,10 @@ public class InputLogEvent implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC.
+     * The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      * </p>
      * 
-     * @return The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC.
+     * @return The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      */
 
     public Long getTimestamp() {
@@ -69,11 +69,11 @@ public class InputLogEvent implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC.
+     * The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      * </p>
      * 
      * @param timestamp
-     *        The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC.
+     *        The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -123,7 +123,8 @@ public class InputLogEvent implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

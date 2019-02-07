@@ -52,9 +52,18 @@ public class AlgorithmSpecificationJsonUnmarshaller implements Unmarshaller<Algo
                     context.nextToken();
                     algorithmSpecification.setTrainingImage(context.getUnmarshaller(String.class).unmarshall(context));
                 }
+                if (context.testExpression("AlgorithmName", targetDepth)) {
+                    context.nextToken();
+                    algorithmSpecification.setAlgorithmName(context.getUnmarshaller(String.class).unmarshall(context));
+                }
                 if (context.testExpression("TrainingInputMode", targetDepth)) {
                     context.nextToken();
                     algorithmSpecification.setTrainingInputMode(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("MetricDefinitions", targetDepth)) {
+                    context.nextToken();
+                    algorithmSpecification.setMetricDefinitions(new ListUnmarshaller<MetricDefinition>(MetricDefinitionJsonUnmarshaller.getInstance())
+                            .unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

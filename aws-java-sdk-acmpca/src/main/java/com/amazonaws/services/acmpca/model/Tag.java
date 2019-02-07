@@ -21,7 +21,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
  * <p>
  * Tags are labels that you can use to identify and organize your private CAs. Each tag consists of a key and an
  * optional value. You can associate up to 50 tags with a private CA. To add one or more tags to a private CA, call the
- * <a>TagCertificateAuthority</a> function. To remove a tag, call the <a>UntagCertificateAuthority</a> function.
+ * <a>TagCertificateAuthority</a> operation. To remove a tag, call the <a>UntagCertificateAuthority</a> operation.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/Tag" target="_top">AWS API Documentation</a>
@@ -123,7 +123,8 @@ public class Tag implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -62,7 +62,7 @@ public class LoadBalancerJsonUnmarshaller implements Unmarshaller<LoadBalancer, 
                 }
                 if (context.testExpression("createdAt", targetDepth)) {
                     context.nextToken();
-                    loadBalancer.setCreatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    loadBalancer.setCreatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("location", targetDepth)) {
                     context.nextToken();
@@ -71,6 +71,10 @@ public class LoadBalancerJsonUnmarshaller implements Unmarshaller<LoadBalancer, 
                 if (context.testExpression("resourceType", targetDepth)) {
                     context.nextToken();
                     loadBalancer.setResourceType(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("tags", targetDepth)) {
+                    context.nextToken();
+                    loadBalancer.setTags(new ListUnmarshaller<Tag>(TagJsonUnmarshaller.getInstance()).unmarshall(context));
                 }
                 if (context.testExpression("dnsName", targetDepth)) {
                     context.nextToken();

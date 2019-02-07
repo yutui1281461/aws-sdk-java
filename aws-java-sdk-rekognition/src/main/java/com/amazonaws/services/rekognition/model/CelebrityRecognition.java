@@ -20,7 +20,7 @@ import com.amazonaws.protocol.ProtocolMarshaller;
 /**
  * <p>
  * Information about a detected celebrity and the time the celebrity was detected in a stored video. For more
- * information, see .
+ * information, see GetCelebrityRecognition in the Amazon Rekognition Developer Guide.
  * </p>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -120,7 +120,8 @@ public class CelebrityRecognition implements Serializable, Cloneable, Structured
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -56,9 +56,17 @@ public class EventJsonUnmarshaller implements Unmarshaller<Event, JsonUnmarshall
                     context.nextToken();
                     event.setEventName(context.getUnmarshaller(String.class).unmarshall(context));
                 }
+                if (context.testExpression("ReadOnly", targetDepth)) {
+                    context.nextToken();
+                    event.setReadOnly(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("AccessKeyId", targetDepth)) {
+                    context.nextToken();
+                    event.setAccessKeyId(context.getUnmarshaller(String.class).unmarshall(context));
+                }
                 if (context.testExpression("EventTime", targetDepth)) {
                     context.nextToken();
-                    event.setEventTime(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    event.setEventTime(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("EventSource", targetDepth)) {
                     context.nextToken();

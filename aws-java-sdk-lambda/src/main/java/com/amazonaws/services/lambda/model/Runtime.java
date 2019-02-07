@@ -27,10 +27,14 @@ public enum Runtime {
     Java8("java8"),
     Python27("python2.7"),
     Python36("python3.6"),
+    Python37("python3.7"),
     Dotnetcore10("dotnetcore1.0"),
     Dotnetcore20("dotnetcore2.0"),
+    Dotnetcore21("dotnetcore2.1"),
     Nodejs43Edge("nodejs4.3-edge"),
-    Go1X("go1.x");
+    Go1X("go1.x"),
+    Ruby25("ruby2.5"),
+    Provided("provided");
 
     private String value;
 

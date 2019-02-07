@@ -49,7 +49,7 @@ public class Predicate implements Serializable, Cloneable, StructuredPojo {
     private Boolean negated;
     /**
      * <p>
-     * The type of predicate in a <code>Rule</code>, such as <code>ByteMatchSet</code> or <code>IPSet</code>.
+     * The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.
      * </p>
      */
     private String type;
@@ -195,11 +195,11 @@ public class Predicate implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The type of predicate in a <code>Rule</code>, such as <code>ByteMatchSet</code> or <code>IPSet</code>.
+     * The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.
      * </p>
      * 
      * @param type
-     *        The type of predicate in a <code>Rule</code>, such as <code>ByteMatchSet</code> or <code>IPSet</code>.
+     *        The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.
      * @see PredicateType
      */
 
@@ -209,10 +209,10 @@ public class Predicate implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The type of predicate in a <code>Rule</code>, such as <code>ByteMatchSet</code> or <code>IPSet</code>.
+     * The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.
      * </p>
      * 
-     * @return The type of predicate in a <code>Rule</code>, such as <code>ByteMatchSet</code> or <code>IPSet</code>.
+     * @return The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.
      * @see PredicateType
      */
 
@@ -222,11 +222,11 @@ public class Predicate implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The type of predicate in a <code>Rule</code>, such as <code>ByteMatchSet</code> or <code>IPSet</code>.
+     * The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.
      * </p>
      * 
      * @param type
-     *        The type of predicate in a <code>Rule</code>, such as <code>ByteMatchSet</code> or <code>IPSet</code>.
+     *        The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see PredicateType
      */
@@ -238,11 +238,11 @@ public class Predicate implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The type of predicate in a <code>Rule</code>, such as <code>ByteMatchSet</code> or <code>IPSet</code>.
+     * The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.
      * </p>
      * 
      * @param type
-     *        The type of predicate in a <code>Rule</code>, such as <code>ByteMatchSet</code> or <code>IPSet</code>.
+     *        The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.
      * @see PredicateType
      */
 
@@ -252,11 +252,11 @@ public class Predicate implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The type of predicate in a <code>Rule</code>, such as <code>ByteMatchSet</code> or <code>IPSet</code>.
+     * The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.
      * </p>
      * 
      * @param type
-     *        The type of predicate in a <code>Rule</code>, such as <code>ByteMatchSet</code> or <code>IPSet</code>.
+     *        The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see PredicateType
      */
@@ -316,7 +316,8 @@ public class Predicate implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

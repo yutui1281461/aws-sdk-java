@@ -98,6 +98,14 @@ public class BatchReadSuccessfulResponseJsonUnmarshaller implements Unmarshaller
                     batchReadSuccessfulResponse
                             .setListIncomingTypedLinks(BatchListIncomingTypedLinksResponseJsonUnmarshaller.getInstance().unmarshall(context));
                 }
+                if (context.testExpression("GetLinkAttributes", targetDepth)) {
+                    context.nextToken();
+                    batchReadSuccessfulResponse.setGetLinkAttributes(BatchGetLinkAttributesResponseJsonUnmarshaller.getInstance().unmarshall(context));
+                }
+                if (context.testExpression("ListObjectParents", targetDepth)) {
+                    context.nextToken();
+                    batchReadSuccessfulResponse.setListObjectParents(BatchListObjectParentsResponseJsonUnmarshaller.getInstance().unmarshall(context));
+                }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {
                     if (context.getCurrentDepth() <= originalDepth)

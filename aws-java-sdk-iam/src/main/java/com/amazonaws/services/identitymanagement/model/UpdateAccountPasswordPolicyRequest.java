@@ -39,7 +39,7 @@ public class UpdateAccountPasswordPolicyRequest extends com.amazonaws.AmazonWebS
      * Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:
      * </p>
      * <p>
-     * ! @ # $ % ^ &amp;amp; * ( ) _ + - = [ ] { } | '
+     * ! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | '
      * </p>
      * <p>
      * If you do not specify a value for this parameter, then the operation uses the default value of <code>false</code>
@@ -186,7 +186,7 @@ public class UpdateAccountPasswordPolicyRequest extends com.amazonaws.AmazonWebS
      * Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:
      * </p>
      * <p>
-     * ! @ # $ % ^ &amp;amp; * ( ) _ + - = [ ] { } | '
+     * ! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | '
      * </p>
      * <p>
      * If you do not specify a value for this parameter, then the operation uses the default value of <code>false</code>
@@ -197,7 +197,7 @@ public class UpdateAccountPasswordPolicyRequest extends com.amazonaws.AmazonWebS
      *        Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric
      *        characters:</p>
      *        <p>
-     *        ! @ # $ % ^ &amp;amp; * ( ) _ + - = [ ] { } | '
+     *        ! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | '
      *        </p>
      *        <p>
      *        If you do not specify a value for this parameter, then the operation uses the default value of
@@ -213,7 +213,7 @@ public class UpdateAccountPasswordPolicyRequest extends com.amazonaws.AmazonWebS
      * Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:
      * </p>
      * <p>
-     * ! @ # $ % ^ &amp;amp; * ( ) _ + - = [ ] { } | '
+     * ! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | '
      * </p>
      * <p>
      * If you do not specify a value for this parameter, then the operation uses the default value of <code>false</code>
@@ -223,7 +223,7 @@ public class UpdateAccountPasswordPolicyRequest extends com.amazonaws.AmazonWebS
      * @return Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric
      *         characters:</p>
      *         <p>
-     *         ! @ # $ % ^ &amp;amp; * ( ) _ + - = [ ] { } | '
+     *         ! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | '
      *         </p>
      *         <p>
      *         If you do not specify a value for this parameter, then the operation uses the default value of
@@ -239,7 +239,7 @@ public class UpdateAccountPasswordPolicyRequest extends com.amazonaws.AmazonWebS
      * Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:
      * </p>
      * <p>
-     * ! @ # $ % ^ &amp;amp; * ( ) _ + - = [ ] { } | '
+     * ! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | '
      * </p>
      * <p>
      * If you do not specify a value for this parameter, then the operation uses the default value of <code>false</code>
@@ -250,7 +250,7 @@ public class UpdateAccountPasswordPolicyRequest extends com.amazonaws.AmazonWebS
      *        Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric
      *        characters:</p>
      *        <p>
-     *        ! @ # $ % ^ &amp;amp; * ( ) _ + - = [ ] { } | '
+     *        ! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | '
      *        </p>
      *        <p>
      *        If you do not specify a value for this parameter, then the operation uses the default value of
@@ -268,7 +268,7 @@ public class UpdateAccountPasswordPolicyRequest extends com.amazonaws.AmazonWebS
      * Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:
      * </p>
      * <p>
-     * ! @ # $ % ^ &amp;amp; * ( ) _ + - = [ ] { } | '
+     * ! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | '
      * </p>
      * <p>
      * If you do not specify a value for this parameter, then the operation uses the default value of <code>false</code>
@@ -278,7 +278,7 @@ public class UpdateAccountPasswordPolicyRequest extends com.amazonaws.AmazonWebS
      * @return Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric
      *         characters:</p>
      *         <p>
-     *         ! @ # $ % ^ &amp;amp; * ( ) _ + - = [ ] { } | '
+     *         ! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | '
      *         </p>
      *         <p>
      *         If you do not specify a value for this parameter, then the operation uses the default value of
@@ -864,7 +864,8 @@ public class UpdateAccountPasswordPolicyRequest extends com.amazonaws.AmazonWebS
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

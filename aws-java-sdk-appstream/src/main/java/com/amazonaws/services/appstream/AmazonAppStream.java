@@ -53,9 +53,10 @@ public interface AmazonAppStream {
      * from this client's {@link ClientConfiguration} will be used, which by default is HTTPS.
      * <p>
      * For more information on using AWS regions with the AWS SDK for Java, and a complete list of all available
-     * endpoints for all AWS services, see: <a
-     * href="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912">
-     * http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3912</a>
+     * endpoints for all AWS services, see: <a href=
+     * "https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-choose-endpoint"
+     * > https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html#region-selection-
+     * choose-endpoint</a>
      * <p>
      * <b>This method is not threadsafe. An endpoint should be configured when the client is created and before any
      * service requests are made. Changing it afterwards creates inevitable race conditions for any service requests in
@@ -123,6 +124,35 @@ public interface AmazonAppStream {
 
     /**
      * <p>
+     * Associates the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with
+     * fleets that are joined to an Active Directory domain.
+     * </p>
+     * 
+     * @param batchAssociateUserStackRequest
+     * @return Result of the BatchAssociateUserStack operation returned by the service.
+     * @throws OperationNotPermittedException
+     *         The attempted operation is not permitted.
+     * @sample AmazonAppStream.BatchAssociateUserStack
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/BatchAssociateUserStack"
+     *      target="_top">AWS API Documentation</a>
+     */
+    BatchAssociateUserStackResult batchAssociateUserStack(BatchAssociateUserStackRequest batchAssociateUserStackRequest);
+
+    /**
+     * <p>
+     * Disassociates the specified users from the specified stacks.
+     * </p>
+     * 
+     * @param batchDisassociateUserStackRequest
+     * @return Result of the BatchDisassociateUserStack operation returned by the service.
+     * @sample AmazonAppStream.BatchDisassociateUserStack
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/BatchDisassociateUserStack"
+     *      target="_top">AWS API Documentation</a>
+     */
+    BatchDisassociateUserStackResult batchDisassociateUserStack(BatchDisassociateUserStackRequest batchDisassociateUserStackRequest);
+
+    /**
+     * <p>
      * Copies the image within the same region or to a new region within the same AWS account. Note that any tags you
      * added to the image will not be copied.
      * </p>
@@ -150,7 +180,8 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Creates a directory configuration.
+     * Creates a Directory Config object in AppStream 2.0. This object includes the information required to join
+     * streaming instances to an Active Directory domain.
      * </p>
      * 
      * @param createDirectoryConfigRequest
@@ -170,7 +201,7 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Creates a fleet.
+     * Creates a fleet. A fleet consists of streaming instances that run a specified image.
      * </p>
      * 
      * @param createFleetRequest
@@ -194,6 +225,8 @@ public interface AmazonAppStream {
      *         Indicates an incorrect combination of parameters, or a missing parameter.
      * @throws IncompatibleImageException
      *         The image does not support storage connectors.
+     * @throws OperationNotPermittedException
+     *         The attempted operation is not permitted.
      * @sample AmazonAppStream.CreateFleet
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/CreateFleet" target="_top">AWS API
      *      Documentation</a>
@@ -202,7 +235,7 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Creates an image builder.
+     * Creates an image builder. An image builder is a virtual machine that is used to create an image.
      * </p>
      * <p>
      * The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.
@@ -229,6 +262,8 @@ public interface AmazonAppStream {
      *         Indicates an incorrect combination of parameters, or a missing parameter.
      * @throws IncompatibleImageException
      *         The image does not support storage connectors.
+     * @throws OperationNotPermittedException
+     *         The attempted operation is not permitted.
      * @sample AmazonAppStream.CreateImageBuilder
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/CreateImageBuilder" target="_top">AWS
      *      API Documentation</a>
@@ -254,7 +289,8 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Creates a stack.
+     * Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access
+     * policies, and storage configurations.
      * </p>
      * 
      * @param createStackRequest
@@ -282,7 +318,8 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Creates a URL to start a streaming session for the specified user.
+     * Creates a temporary URL to start an AppStream 2.0 streaming session for the specified user. A streaming URL
+     * enables application streaming to be tested without user setup.
      * </p>
      * 
      * @param createStreamingURLRequest
@@ -303,7 +340,32 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Deletes the specified directory configuration.
+     * Creates a new user in the user pool.
+     * </p>
+     * 
+     * @param createUserRequest
+     * @return Result of the CreateUser operation returned by the service.
+     * @throws ResourceAlreadyExistsException
+     *         The specified resource already exists.
+     * @throws InvalidAccountStatusException
+     *         The resource cannot be created because your AWS account is suspended. For assistance, contact AWS
+     *         Support.
+     * @throws InvalidParameterCombinationException
+     *         Indicates an incorrect combination of parameters, or a missing parameter.
+     * @throws LimitExceededException
+     *         The requested limit exceeds the permitted limit for an account.
+     * @throws OperationNotPermittedException
+     *         The attempted operation is not permitted.
+     * @sample AmazonAppStream.CreateUser
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/CreateUser" target="_top">AWS API
+     *      Documentation</a>
+     */
+    CreateUserResult createUser(CreateUserRequest createUserRequest);
+
+    /**
+     * <p>
+     * Deletes the specified Directory Config object from AppStream 2.0. This object includes the information required
+     * to join streaming instances to an Active Directory domain.
      * </p>
      * 
      * @param deleteDirectoryConfigRequest
@@ -339,8 +401,8 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Deletes the specified image. You cannot delete an image that is currently in use. After you delete an image, you
-     * cannot provision new capacity using the image.
+     * Deletes the specified image. You cannot delete an image when it is in use. After you delete an image, you cannot
+     * provision new capacity using the image.
      * </p>
      * 
      * @param deleteImageRequest
@@ -380,8 +442,27 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Deletes the specified stack. After this operation completes, the environment can no longer be activated and any
-     * reservations made for the stack are released.
+     * Deletes permissions for the specified private image. After you delete permissions for an image, AWS accounts to
+     * which you previously granted these permissions can no longer use the image.
+     * </p>
+     * 
+     * @param deleteImagePermissionsRequest
+     * @return Result of the DeleteImagePermissions operation returned by the service.
+     * @throws ResourceNotAvailableException
+     *         The specified resource exists and is not in use, but isn't available.
+     * @throws ResourceNotFoundException
+     *         The specified resource was not found.
+     * @sample AmazonAppStream.DeleteImagePermissions
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/DeleteImagePermissions"
+     *      target="_top">AWS API Documentation</a>
+     */
+    DeleteImagePermissionsResult deleteImagePermissions(DeleteImagePermissionsRequest deleteImagePermissionsRequest);
+
+    /**
+     * <p>
+     * Deletes the specified stack. After the stack is deleted, the application streaming environment provided by the
+     * stack is no longer available to users. Also, any reservations made for application streaming sessions for the
+     * stack are released.
      * </p>
      * 
      * @param deleteStackRequest
@@ -400,8 +481,28 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Describes the specified directory configurations. Note that although the response syntax in this topic includes
-     * the account password, this password is not returned in the actual response.
+     * Deletes a user from the user pool.
+     * </p>
+     * 
+     * @param deleteUserRequest
+     * @return Result of the DeleteUser operation returned by the service.
+     * @throws ResourceNotFoundException
+     *         The specified resource was not found.
+     * @sample AmazonAppStream.DeleteUser
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/DeleteUser" target="_top">AWS API
+     *      Documentation</a>
+     */
+    DeleteUserResult deleteUser(DeleteUserRequest deleteUserRequest);
+
+    /**
+     * <p>
+     * Retrieves a list that describes one or more specified Directory Config objects for AppStream 2.0, if the names
+     * for these objects are provided. Otherwise, all Directory Config objects in the account are described. These
+     * objects include the information required to join streaming instances to an Active Directory domain.
+     * </p>
+     * <p>
+     * Although the response syntax in this topic includes the account password, this password is not returned in the
+     * actual response.
      * </p>
      * 
      * @param describeDirectoryConfigsRequest
@@ -416,7 +517,8 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Describes the specified fleets or all fleets in the account.
+     * Retrieves a list that describes one or more specified fleets, if the fleet names are provided. Otherwise, all
+     * fleets in the account are described.
      * </p>
      * 
      * @param describeFleetsRequest
@@ -431,7 +533,8 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Describes the specified image builders or all image builders in the account.
+     * Retrieves a list that describes one or more specified image builders, if the image builder names are provided.
+     * Otherwise, all image builders in the account are described.
      * </p>
      * 
      * @param describeImageBuildersRequest
@@ -446,11 +549,29 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Describes the specified images or all images in the account.
+     * Retrieves a list that describes the permissions for shared AWS account IDs on a private image that you own.
+     * </p>
+     * 
+     * @param describeImagePermissionsRequest
+     * @return Result of the DescribeImagePermissions operation returned by the service.
+     * @throws ResourceNotFoundException
+     *         The specified resource was not found.
+     * @sample AmazonAppStream.DescribeImagePermissions
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/DescribeImagePermissions"
+     *      target="_top">AWS API Documentation</a>
+     */
+    DescribeImagePermissionsResult describeImagePermissions(DescribeImagePermissionsRequest describeImagePermissionsRequest);
+
+    /**
+     * <p>
+     * Retrieves a list that describes one or more specified images, if the image names or image ARNs are provided.
+     * Otherwise, all images in the account are described.
      * </p>
      * 
      * @param describeImagesRequest
      * @return Result of the DescribeImages operation returned by the service.
+     * @throws InvalidParameterCombinationException
+     *         Indicates an incorrect combination of parameters, or a missing parameter.
      * @throws ResourceNotFoundException
      *         The specified resource was not found.
      * @sample AmazonAppStream.DescribeImages
@@ -461,9 +582,9 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Describes the streaming sessions for the specified stack and fleet. If a user ID is provided, only the streaming
-     * sessions for only that user are returned. If an authentication type is not provided, the default is to
-     * authenticate users using a streaming URL.
+     * Retrieves a list that describes the streaming sessions for a specified stack and fleet. If a user ID is provided
+     * for the stack and fleet, only streaming sessions for that user are described. If an authentication type is not
+     * provided, the default is to authenticate users using a streaming URL.
      * </p>
      * 
      * @param describeSessionsRequest
@@ -478,7 +599,8 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Describes the specified stacks or all stacks in the account.
+     * Retrieves a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all
+     * stacks in the account are described.
      * </p>
      * 
      * @param describeStacksRequest
@@ -490,6 +612,68 @@ public interface AmazonAppStream {
      *      Documentation</a>
      */
     DescribeStacksResult describeStacks(DescribeStacksRequest describeStacksRequest);
+
+    /**
+     * <p>
+     * Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the
+     * following:
+     * </p>
+     * <ul>
+     * <li>
+     * <p>
+     * The stack name
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * The user name (email address of the user associated with the stack) and the authentication type for the user
+     * </p>
+     * </li>
+     * </ul>
+     * 
+     * @param describeUserStackAssociationsRequest
+     * @return Result of the DescribeUserStackAssociations operation returned by the service.
+     * @throws InvalidParameterCombinationException
+     *         Indicates an incorrect combination of parameters, or a missing parameter.
+     * @sample AmazonAppStream.DescribeUserStackAssociations
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/DescribeUserStackAssociations"
+     *      target="_top">AWS API Documentation</a>
+     */
+    DescribeUserStackAssociationsResult describeUserStackAssociations(DescribeUserStackAssociationsRequest describeUserStackAssociationsRequest);
+
+    /**
+     * <p>
+     * Retrieves a list that describes one or more specified users in the user pool, if user names are provided.
+     * Otherwise, all users in the user pool are described.
+     * </p>
+     * 
+     * @param describeUsersRequest
+     * @return Result of the DescribeUsers operation returned by the service.
+     * @throws ResourceNotFoundException
+     *         The specified resource was not found.
+     * @throws InvalidParameterCombinationException
+     *         Indicates an incorrect combination of parameters, or a missing parameter.
+     * @sample AmazonAppStream.DescribeUsers
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/DescribeUsers" target="_top">AWS API
+     *      Documentation</a>
+     */
+    DescribeUsersResult describeUsers(DescribeUsersRequest describeUsersRequest);
+
+    /**
+     * <p>
+     * Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled.
+     * This action does not delete the user.
+     * </p>
+     * 
+     * @param disableUserRequest
+     * @return Result of the DisableUser operation returned by the service.
+     * @throws ResourceNotFoundException
+     *         The specified resource was not found.
+     * @sample AmazonAppStream.DisableUser
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/DisableUser" target="_top">AWS API
+     *      Documentation</a>
+     */
+    DisableUserResult disableUser(DisableUserRequest disableUserRequest);
 
     /**
      * <p>
@@ -512,7 +696,26 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Stops the specified streaming session.
+     * Enables a user in the user pool. After being enabled, users can sign in to AppStream 2.0 and open applications
+     * from the stacks to which they are assigned.
+     * </p>
+     * 
+     * @param enableUserRequest
+     * @return Result of the EnableUser operation returned by the service.
+     * @throws ResourceNotFoundException
+     *         The specified resource was not found.
+     * @throws InvalidAccountStatusException
+     *         The resource cannot be created because your AWS account is suspended. For assistance, contact AWS
+     *         Support.
+     * @sample AmazonAppStream.EnableUser
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/EnableUser" target="_top">AWS API
+     *      Documentation</a>
+     */
+    EnableUserResult enableUser(EnableUserRequest enableUserRequest);
+
+    /**
+     * <p>
+     * Immediately stops the specified streaming session.
      * </p>
      * 
      * @param expireSessionRequest
@@ -525,7 +728,7 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Lists the fleets associated with the specified stack.
+     * Retrieves the name of the fleet that is associated with the specified stack.
      * </p>
      * 
      * @param listAssociatedFleetsRequest
@@ -538,7 +741,7 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Lists the stacks associated with the specified fleet.
+     * Retrieves the name of the stack with which the specified fleet is associated.
      * </p>
      * 
      * @param listAssociatedStacksRequest
@@ -551,8 +754,8 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Lists the tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images,
-     * fleets, and stacks.
+     * Retrieves a list of all tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders,
+     * images, fleets, and stacks.
      * </p>
      * <p>
      * For more information about tags, see <a
@@ -690,7 +893,7 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Disassociates the specified tags from the specified AppStream 2.0 resource.
+     * Disassociates one or more specified tags from the specified AppStream 2.0 resource.
      * </p>
      * <p>
      * To list the current tags for your resources, use <a>ListTagsForResource</a>.
@@ -713,7 +916,8 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Updates the specified directory configuration.
+     * Updates the specified Directory Config object in AppStream 2.0. This object includes the information required to
+     * join streaming instances to an Active Directory domain.
      * </p>
      * 
      * @param updateDirectoryConfigRequest
@@ -772,7 +976,26 @@ public interface AmazonAppStream {
 
     /**
      * <p>
-     * Updates the specified stack.
+     * Adds or updates permissions for the specified private image.
+     * </p>
+     * 
+     * @param updateImagePermissionsRequest
+     * @return Result of the UpdateImagePermissions operation returned by the service.
+     * @throws ResourceNotFoundException
+     *         The specified resource was not found.
+     * @throws ResourceNotAvailableException
+     *         The specified resource exists and is not in use, but isn't available.
+     * @throws LimitExceededException
+     *         The requested limit exceeds the permitted limit for an account.
+     * @sample AmazonAppStream.UpdateImagePermissions
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/UpdateImagePermissions"
+     *      target="_top">AWS API Documentation</a>
+     */
+    UpdateImagePermissionsResult updateImagePermissions(UpdateImagePermissionsRequest updateImagePermissionsRequest);
+
+    /**
+     * <p>
+     * Updates the specified fields for the specified stack.
      * </p>
      * 
      * @param updateStackRequest
@@ -792,6 +1015,8 @@ public interface AmazonAppStream {
      *         Support.
      * @throws IncompatibleImageException
      *         The image does not support storage connectors.
+     * @throws OperationNotPermittedException
+     *         The attempted operation is not permitted.
      * @sample AmazonAppStream.UpdateStack
      * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/UpdateStack" target="_top">AWS API
      *      Documentation</a>

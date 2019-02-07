@@ -114,6 +114,10 @@ public class CreateClusterRequestMarshaller implements Marshaller<Request<Create
             request.addParameter("AutomatedSnapshotRetentionPeriod", StringUtils.fromInteger(createClusterRequest.getAutomatedSnapshotRetentionPeriod()));
         }
 
+        if (createClusterRequest.getManualSnapshotRetentionPeriod() != null) {
+            request.addParameter("ManualSnapshotRetentionPeriod", StringUtils.fromInteger(createClusterRequest.getManualSnapshotRetentionPeriod()));
+        }
+
         if (createClusterRequest.getPort() != null) {
             request.addParameter("Port", StringUtils.fromInteger(createClusterRequest.getPort()));
         }
@@ -190,6 +194,14 @@ public class CreateClusterRequestMarshaller implements Marshaller<Request<Create
                 }
                 iamRolesListIndex++;
             }
+        }
+
+        if (createClusterRequest.getMaintenanceTrackName() != null) {
+            request.addParameter("MaintenanceTrackName", StringUtils.fromString(createClusterRequest.getMaintenanceTrackName()));
+        }
+
+        if (createClusterRequest.getSnapshotScheduleIdentifier() != null) {
+            request.addParameter("SnapshotScheduleIdentifier", StringUtils.fromString(createClusterRequest.getSnapshotScheduleIdentifier()));
         }
 
         return request;

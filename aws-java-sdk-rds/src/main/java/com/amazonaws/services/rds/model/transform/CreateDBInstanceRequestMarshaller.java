@@ -239,6 +239,10 @@ public class CreateDBInstanceRequestMarshaller implements Marshaller<Request<Cre
             request.addParameter("PerformanceInsightsKMSKeyId", StringUtils.fromString(createDBInstanceRequest.getPerformanceInsightsKMSKeyId()));
         }
 
+        if (createDBInstanceRequest.getPerformanceInsightsRetentionPeriod() != null) {
+            request.addParameter("PerformanceInsightsRetentionPeriod", StringUtils.fromInteger(createDBInstanceRequest.getPerformanceInsightsRetentionPeriod()));
+        }
+
         if (!createDBInstanceRequest.getEnableCloudwatchLogsExports().isEmpty()
                 || !((com.amazonaws.internal.SdkInternalList<String>) createDBInstanceRequest.getEnableCloudwatchLogsExports()).isAutoConstruct()) {
             com.amazonaws.internal.SdkInternalList<String> enableCloudwatchLogsExportsList = (com.amazonaws.internal.SdkInternalList<String>) createDBInstanceRequest
@@ -252,6 +256,31 @@ public class CreateDBInstanceRequestMarshaller implements Marshaller<Request<Cre
                 }
                 enableCloudwatchLogsExportsListIndex++;
             }
+        }
+
+        if (!createDBInstanceRequest.getProcessorFeatures().isEmpty()
+                || !((com.amazonaws.internal.SdkInternalList<ProcessorFeature>) createDBInstanceRequest.getProcessorFeatures()).isAutoConstruct()) {
+            com.amazonaws.internal.SdkInternalList<ProcessorFeature> processorFeaturesList = (com.amazonaws.internal.SdkInternalList<ProcessorFeature>) createDBInstanceRequest
+                    .getProcessorFeatures();
+            int processorFeaturesListIndex = 1;
+
+            for (ProcessorFeature processorFeaturesListValue : processorFeaturesList) {
+
+                if (processorFeaturesListValue.getName() != null) {
+                    request.addParameter("ProcessorFeatures.ProcessorFeature." + processorFeaturesListIndex + ".Name",
+                            StringUtils.fromString(processorFeaturesListValue.getName()));
+                }
+
+                if (processorFeaturesListValue.getValue() != null) {
+                    request.addParameter("ProcessorFeatures.ProcessorFeature." + processorFeaturesListIndex + ".Value",
+                            StringUtils.fromString(processorFeaturesListValue.getValue()));
+                }
+                processorFeaturesListIndex++;
+            }
+        }
+
+        if (createDBInstanceRequest.getDeletionProtection() != null) {
+            request.addParameter("DeletionProtection", StringUtils.fromBoolean(createDBInstanceRequest.getDeletionProtection()));
         }
 
         return request;

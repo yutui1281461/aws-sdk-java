@@ -66,7 +66,7 @@ public class RoleDetailStaxUnmarshaller implements Unmarshaller<RoleDetail, Stax
                 }
 
                 if (context.testExpression("CreateDate", targetDepth)) {
-                    roleDetail.setCreateDate(DateStaxUnmarshaller.getInstance().unmarshall(context));
+                    roleDetail.setCreateDate(DateStaxUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
                     continue;
                 }
 
@@ -102,6 +102,21 @@ public class RoleDetailStaxUnmarshaller implements Unmarshaller<RoleDetail, Stax
 
                 if (context.testExpression("AttachedManagedPolicies/member", targetDepth)) {
                     roleDetail.withAttachedManagedPolicies(AttachedPolicyStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("PermissionsBoundary", targetDepth)) {
+                    roleDetail.setPermissionsBoundary(AttachedPermissionsBoundaryStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("Tags", targetDepth)) {
+                    roleDetail.withTags(new ArrayList<Tag>());
+                    continue;
+                }
+
+                if (context.testExpression("Tags/member", targetDepth)) {
+                    roleDetail.withTags(TagStaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
                 }
 

@@ -27,7 +27,7 @@ public class UpdateDirectoryConfigRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The name of the directory configuration.
+     * The name of the Directory Config object.
      * </p>
      */
     private String directoryName;
@@ -46,11 +46,11 @@ public class UpdateDirectoryConfigRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The name of the directory configuration.
+     * The name of the Directory Config object.
      * </p>
      * 
      * @param directoryName
-     *        The name of the directory configuration.
+     *        The name of the Directory Config object.
      */
 
     public void setDirectoryName(String directoryName) {
@@ -59,10 +59,10 @@ public class UpdateDirectoryConfigRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The name of the directory configuration.
+     * The name of the Directory Config object.
      * </p>
      * 
-     * @return The name of the directory configuration.
+     * @return The name of the Directory Config object.
      */
 
     public String getDirectoryName() {
@@ -71,11 +71,11 @@ public class UpdateDirectoryConfigRequest extends com.amazonaws.AmazonWebService
 
     /**
      * <p>
-     * The name of the directory configuration.
+     * The name of the Directory Config object.
      * </p>
      * 
      * @param directoryName
-     *        The name of the directory configuration.
+     *        The name of the Directory Config object.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -196,7 +196,8 @@ public class UpdateDirectoryConfigRequest extends com.amazonaws.AmazonWebService
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

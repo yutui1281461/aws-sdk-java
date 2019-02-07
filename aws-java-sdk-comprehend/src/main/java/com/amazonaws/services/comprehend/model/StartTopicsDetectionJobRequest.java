@@ -33,14 +33,19 @@ public class StartTopicsDetectionJobRequest extends com.amazonaws.AmazonWebServi
     private InputDataConfig inputDataConfig;
     /**
      * <p>
-     * Specifies where to send the output files.
+     * Specifies where to send the output files. The output is a compressed archive with two files,
+     * <code>topic-terms.csv</code> that lists the terms associated with each topic, and <code>doc-topics.csv</code>
+     * that lists the documents associated with each topic
      * </p>
      */
     private OutputDataConfig outputDataConfig;
     /**
      * <p>
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend
-     * read access to your input data.
+     * read access to your input data. For more information, see <a href=
+     * "https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions"
+     * >https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions<
+     * /a>.
      * </p>
      */
     private String dataAccessRoleArn;
@@ -105,11 +110,15 @@ public class StartTopicsDetectionJobRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * Specifies where to send the output files.
+     * Specifies where to send the output files. The output is a compressed archive with two files,
+     * <code>topic-terms.csv</code> that lists the terms associated with each topic, and <code>doc-topics.csv</code>
+     * that lists the documents associated with each topic
      * </p>
      * 
      * @param outputDataConfig
-     *        Specifies where to send the output files.
+     *        Specifies where to send the output files. The output is a compressed archive with two files,
+     *        <code>topic-terms.csv</code> that lists the terms associated with each topic, and
+     *        <code>doc-topics.csv</code> that lists the documents associated with each topic
      */
 
     public void setOutputDataConfig(OutputDataConfig outputDataConfig) {
@@ -118,10 +127,14 @@ public class StartTopicsDetectionJobRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * Specifies where to send the output files.
+     * Specifies where to send the output files. The output is a compressed archive with two files,
+     * <code>topic-terms.csv</code> that lists the terms associated with each topic, and <code>doc-topics.csv</code>
+     * that lists the documents associated with each topic
      * </p>
      * 
-     * @return Specifies where to send the output files.
+     * @return Specifies where to send the output files. The output is a compressed archive with two files,
+     *         <code>topic-terms.csv</code> that lists the terms associated with each topic, and
+     *         <code>doc-topics.csv</code> that lists the documents associated with each topic
      */
 
     public OutputDataConfig getOutputDataConfig() {
@@ -130,11 +143,15 @@ public class StartTopicsDetectionJobRequest extends com.amazonaws.AmazonWebServi
 
     /**
      * <p>
-     * Specifies where to send the output files.
+     * Specifies where to send the output files. The output is a compressed archive with two files,
+     * <code>topic-terms.csv</code> that lists the terms associated with each topic, and <code>doc-topics.csv</code>
+     * that lists the documents associated with each topic
      * </p>
      * 
      * @param outputDataConfig
-     *        Specifies where to send the output files.
+     *        Specifies where to send the output files. The output is a compressed archive with two files,
+     *        <code>topic-terms.csv</code> that lists the terms associated with each topic, and
+     *        <code>doc-topics.csv</code> that lists the documents associated with each topic
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -146,12 +163,18 @@ public class StartTopicsDetectionJobRequest extends com.amazonaws.AmazonWebServi
     /**
      * <p>
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend
-     * read access to your input data.
+     * read access to your input data. For more information, see <a href=
+     * "https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions"
+     * >https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions<
+     * /a>.
      * </p>
      * 
      * @param dataAccessRoleArn
      *        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon
-     *        Comprehend read access to your input data.
+     *        Comprehend read access to your input data. For more information, see <a href=
+     *        "https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions"
+     *        >https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-
+     *        permissions</a>.
      */
 
     public void setDataAccessRoleArn(String dataAccessRoleArn) {
@@ -161,11 +184,17 @@ public class StartTopicsDetectionJobRequest extends com.amazonaws.AmazonWebServi
     /**
      * <p>
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend
-     * read access to your input data.
+     * read access to your input data. For more information, see <a href=
+     * "https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions"
+     * >https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions<
+     * /a>.
      * </p>
      * 
      * @return The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon
-     *         Comprehend read access to your input data.
+     *         Comprehend read access to your input data. For more information, see <a href=
+     *         "https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions"
+     *         >https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-
+     *         permissions</a>.
      */
 
     public String getDataAccessRoleArn() {
@@ -175,12 +204,18 @@ public class StartTopicsDetectionJobRequest extends com.amazonaws.AmazonWebServi
     /**
      * <p>
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend
-     * read access to your input data.
+     * read access to your input data. For more information, see <a href=
+     * "https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions"
+     * >https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions<
+     * /a>.
      * </p>
      * 
      * @param dataAccessRoleArn
      *        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon
-     *        Comprehend read access to your input data.
+     *        Comprehend read access to your input data. For more information, see <a href=
+     *        "https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions"
+     *        >https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-
+     *        permissions</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -313,7 +348,8 @@ public class StartTopicsDetectionJobRequest extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

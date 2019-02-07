@@ -64,6 +64,10 @@ public class CreateTargetGroupRequestMarshaller implements Marshaller<Request<Cr
             request.addParameter("HealthCheckPort", StringUtils.fromString(createTargetGroupRequest.getHealthCheckPort()));
         }
 
+        if (createTargetGroupRequest.getHealthCheckEnabled() != null) {
+            request.addParameter("HealthCheckEnabled", StringUtils.fromBoolean(createTargetGroupRequest.getHealthCheckEnabled()));
+        }
+
         if (createTargetGroupRequest.getHealthCheckPath() != null) {
             request.addParameter("HealthCheckPath", StringUtils.fromString(createTargetGroupRequest.getHealthCheckPath()));
         }
@@ -84,11 +88,13 @@ public class CreateTargetGroupRequestMarshaller implements Marshaller<Request<Cr
             request.addParameter("UnhealthyThresholdCount", StringUtils.fromInteger(createTargetGroupRequest.getUnhealthyThresholdCount()));
         }
 
-        Matcher matcher = createTargetGroupRequest.getMatcher();
-        if (matcher != null) {
+        {
+            Matcher matcher = createTargetGroupRequest.getMatcher();
+            if (matcher != null) {
 
-            if (matcher.getHttpCode() != null) {
-                request.addParameter("Matcher.HttpCode", StringUtils.fromString(matcher.getHttpCode()));
+                if (matcher.getHttpCode() != null) {
+                    request.addParameter("Matcher.HttpCode", StringUtils.fromString(matcher.getHttpCode()));
+                }
             }
         }
 

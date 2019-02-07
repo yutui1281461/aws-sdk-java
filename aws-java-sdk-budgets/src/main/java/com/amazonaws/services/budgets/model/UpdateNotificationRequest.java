@@ -39,7 +39,7 @@ public class UpdateNotificationRequest extends com.amazonaws.AmazonWebServiceReq
     private String budgetName;
     /**
      * <p>
-     * The previous notification associated with a budget.
+     * The previous notification that is associated with a budget.
      * </p>
      */
     private Notification oldNotification;
@@ -132,11 +132,11 @@ public class UpdateNotificationRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The previous notification associated with a budget.
+     * The previous notification that is associated with a budget.
      * </p>
      * 
      * @param oldNotification
-     *        The previous notification associated with a budget.
+     *        The previous notification that is associated with a budget.
      */
 
     public void setOldNotification(Notification oldNotification) {
@@ -145,10 +145,10 @@ public class UpdateNotificationRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The previous notification associated with a budget.
+     * The previous notification that is associated with a budget.
      * </p>
      * 
-     * @return The previous notification associated with a budget.
+     * @return The previous notification that is associated with a budget.
      */
 
     public Notification getOldNotification() {
@@ -157,11 +157,11 @@ public class UpdateNotificationRequest extends com.amazonaws.AmazonWebServiceReq
 
     /**
      * <p>
-     * The previous notification associated with a budget.
+     * The previous notification that is associated with a budget.
      * </p>
      * 
      * @param oldNotification
-     *        The previous notification associated with a budget.
+     *        The previous notification that is associated with a budget.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -211,7 +211,8 @@ public class UpdateNotificationRequest extends com.amazonaws.AmazonWebServiceReq
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -43,7 +43,7 @@ public class SerDeInfo implements Serializable, Cloneable, StructuredPojo {
     private String serializationLibrary;
     /**
      * <p>
-     * A list of initialization parameters for the SerDe, in key-value form.
+     * These key-value pairs define initialization parameters for the SerDe.
      * </p>
      */
     private java.util.Map<String, String> parameters;
@@ -136,10 +136,10 @@ public class SerDeInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A list of initialization parameters for the SerDe, in key-value form.
+     * These key-value pairs define initialization parameters for the SerDe.
      * </p>
      * 
-     * @return A list of initialization parameters for the SerDe, in key-value form.
+     * @return These key-value pairs define initialization parameters for the SerDe.
      */
 
     public java.util.Map<String, String> getParameters() {
@@ -148,11 +148,11 @@ public class SerDeInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A list of initialization parameters for the SerDe, in key-value form.
+     * These key-value pairs define initialization parameters for the SerDe.
      * </p>
      * 
      * @param parameters
-     *        A list of initialization parameters for the SerDe, in key-value form.
+     *        These key-value pairs define initialization parameters for the SerDe.
      */
 
     public void setParameters(java.util.Map<String, String> parameters) {
@@ -161,11 +161,11 @@ public class SerDeInfo implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * A list of initialization parameters for the SerDe, in key-value form.
+     * These key-value pairs define initialization parameters for the SerDe.
      * </p>
      * 
      * @param parameters
-     *        A list of initialization parameters for the SerDe, in key-value form.
+     *        These key-value pairs define initialization parameters for the SerDe.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -196,7 +196,8 @@ public class SerDeInfo implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

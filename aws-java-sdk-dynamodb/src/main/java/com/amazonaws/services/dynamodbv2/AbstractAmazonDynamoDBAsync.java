@@ -324,6 +324,19 @@ public class AbstractAmazonDynamoDBAsync extends AbstractAmazonDynamoDB implemen
     }
 
     @Override
+    public java.util.concurrent.Future<DescribeEndpointsResult> describeEndpointsAsync(DescribeEndpointsRequest request) {
+
+        return describeEndpointsAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DescribeEndpointsResult> describeEndpointsAsync(DescribeEndpointsRequest request,
+            com.amazonaws.handlers.AsyncHandler<DescribeEndpointsRequest, DescribeEndpointsResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
     public java.util.concurrent.Future<DescribeGlobalTableResult> describeGlobalTableAsync(DescribeGlobalTableRequest request) {
 
         return describeGlobalTableAsync(request, null);
@@ -801,6 +814,32 @@ public class AbstractAmazonDynamoDBAsync extends AbstractAmazonDynamoDB implemen
     @Override
     public java.util.concurrent.Future<TagResourceResult> tagResourceAsync(TagResourceRequest request,
             com.amazonaws.handlers.AsyncHandler<TagResourceRequest, TagResourceResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public java.util.concurrent.Future<TransactGetItemsResult> transactGetItemsAsync(TransactGetItemsRequest request) {
+
+        return transactGetItemsAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<TransactGetItemsResult> transactGetItemsAsync(TransactGetItemsRequest request,
+            com.amazonaws.handlers.AsyncHandler<TransactGetItemsRequest, TransactGetItemsResult> asyncHandler) {
+
+        throw new java.lang.UnsupportedOperationException();
+    }
+
+    @Override
+    public java.util.concurrent.Future<TransactWriteItemsResult> transactWriteItemsAsync(TransactWriteItemsRequest request) {
+
+        return transactWriteItemsAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<TransactWriteItemsResult> transactWriteItemsAsync(TransactWriteItemsRequest request,
+            com.amazonaws.handlers.AsyncHandler<TransactWriteItemsRequest, TransactWriteItemsResult> asyncHandler) {
 
         throw new java.lang.UnsupportedOperationException();
     }

@@ -30,18 +30,18 @@ public class StartRequest implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The ID of the WorkSpace.
+     * The identifier of the WorkSpace.
      * </p>
      */
     private String workspaceId;
 
     /**
      * <p>
-     * The ID of the WorkSpace.
+     * The identifier of the WorkSpace.
      * </p>
      * 
      * @param workspaceId
-     *        The ID of the WorkSpace.
+     *        The identifier of the WorkSpace.
      */
 
     public void setWorkspaceId(String workspaceId) {
@@ -50,10 +50,10 @@ public class StartRequest implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The ID of the WorkSpace.
+     * The identifier of the WorkSpace.
      * </p>
      * 
-     * @return The ID of the WorkSpace.
+     * @return The identifier of the WorkSpace.
      */
 
     public String getWorkspaceId() {
@@ -62,11 +62,11 @@ public class StartRequest implements Serializable, Cloneable, StructuredPojo {
 
     /**
      * <p>
-     * The ID of the WorkSpace.
+     * The identifier of the WorkSpace.
      * </p>
      * 
      * @param workspaceId
-     *        The ID of the WorkSpace.
+     *        The identifier of the WorkSpace.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -76,7 +76,8 @@ public class StartRequest implements Serializable, Cloneable, StructuredPojo {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

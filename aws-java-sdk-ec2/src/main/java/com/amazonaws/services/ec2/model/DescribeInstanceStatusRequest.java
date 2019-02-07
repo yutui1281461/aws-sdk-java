@@ -20,9 +20,7 @@ import com.amazonaws.Request;
 import com.amazonaws.services.ec2.model.transform.DescribeInstanceStatusRequestMarshaller;
 
 /**
- * <p>
- * Contains the parameters for DescribeInstanceStatus.
- * </p>
+ * 
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class DescribeInstanceStatusRequest extends AmazonWebServiceRequest implements Serializable, Cloneable,
@@ -65,8 +63,8 @@ public class DescribeInstanceStatusRequest extends AmazonWebServiceRequest imple
      * <li>
      * <p>
      * <code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned integer. The high byte
-     * is an opaque internal value and should be ignored. The low byte is set based on the state represented. The valid
-     * values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
+     * is used for internal purposes and should be ignored. The low byte is set based on the state represented. The
+     * valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
      * </p>
      * </li>
      * <li>
@@ -177,8 +175,8 @@ public class DescribeInstanceStatusRequest extends AmazonWebServiceRequest imple
      * <li>
      * <p>
      * <code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned integer. The high byte
-     * is an opaque internal value and should be ignored. The low byte is set based on the state represented. The valid
-     * values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
+     * is used for internal purposes and should be ignored. The low byte is set based on the state represented. The
+     * valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
      * </p>
      * </li>
      * <li>
@@ -248,7 +246,7 @@ public class DescribeInstanceStatusRequest extends AmazonWebServiceRequest imple
      *         <li>
      *         <p>
      *         <code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned integer. The
-     *         high byte is an opaque internal value and should be ignored. The low byte is set based on the state
+     *         high byte is used for internal purposes and should be ignored. The low byte is set based on the state
      *         represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
      *         (stopping), and 80 (stopped).
      *         </p>
@@ -332,8 +330,8 @@ public class DescribeInstanceStatusRequest extends AmazonWebServiceRequest imple
      * <li>
      * <p>
      * <code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned integer. The high byte
-     * is an opaque internal value and should be ignored. The low byte is set based on the state represented. The valid
-     * values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
+     * is used for internal purposes and should be ignored. The low byte is set based on the state represented. The
+     * valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
      * </p>
      * </li>
      * <li>
@@ -404,7 +402,7 @@ public class DescribeInstanceStatusRequest extends AmazonWebServiceRequest imple
      *        <li>
      *        <p>
      *        <code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned integer. The high
-     *        byte is an opaque internal value and should be ignored. The low byte is set based on the state
+     *        byte is used for internal purposes and should be ignored. The low byte is set based on the state
      *        represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
      *        (stopping), and 80 (stopped).
      *        </p>
@@ -490,8 +488,8 @@ public class DescribeInstanceStatusRequest extends AmazonWebServiceRequest imple
      * <li>
      * <p>
      * <code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned integer. The high byte
-     * is an opaque internal value and should be ignored. The low byte is set based on the state represented. The valid
-     * values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
+     * is used for internal purposes and should be ignored. The low byte is set based on the state represented. The
+     * valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
      * </p>
      * </li>
      * <li>
@@ -567,7 +565,7 @@ public class DescribeInstanceStatusRequest extends AmazonWebServiceRequest imple
      *        <li>
      *        <p>
      *        <code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned integer. The high
-     *        byte is an opaque internal value and should be ignored. The low byte is set based on the state
+     *        byte is used for internal purposes and should be ignored. The low byte is set based on the state
      *        represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
      *        (stopping), and 80 (stopped).
      *        </p>
@@ -655,8 +653,8 @@ public class DescribeInstanceStatusRequest extends AmazonWebServiceRequest imple
      * <li>
      * <p>
      * <code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned integer. The high byte
-     * is an opaque internal value and should be ignored. The low byte is set based on the state represented. The valid
-     * values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
+     * is used for internal purposes and should be ignored. The low byte is set based on the state represented. The
+     * valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
      * </p>
      * </li>
      * <li>
@@ -727,7 +725,7 @@ public class DescribeInstanceStatusRequest extends AmazonWebServiceRequest imple
      *        <li>
      *        <p>
      *        <code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned integer. The high
-     *        byte is an opaque internal value and should be ignored. The low byte is set based on the state
+     *        byte is used for internal purposes and should be ignored. The low byte is set based on the state
      *        represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64
      *        (stopping), and 80 (stopped).
      *        </p>
@@ -1074,7 +1072,8 @@ public class DescribeInstanceStatusRequest extends AmazonWebServiceRequest imple
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

@@ -18,8 +18,8 @@ import javax.annotation.Generated;
 /**
  * <p>
  * For more information, see <a
- * href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html"
- * >Responses</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
+ * href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-responses.html">Interpreting
+ * Responses</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
  * </p>
  * 
  * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/sqs-2012-11-05/GetQueueUrl" target="_top">AWS API
@@ -76,7 +76,8 @@ public class GetQueueUrlResult extends com.amazonaws.AmazonWebServiceResult<com.
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

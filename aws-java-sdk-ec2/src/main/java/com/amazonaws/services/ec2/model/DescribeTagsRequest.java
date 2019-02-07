@@ -20,9 +20,7 @@ import com.amazonaws.Request;
 import com.amazonaws.services.ec2.model.transform.DescribeTagsRequestMarshaller;
 
 /**
- * <p>
- * Contains the parameters for DescribeTags.
- * </p>
+ * 
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public class DescribeTagsRequest extends AmazonWebServiceRequest implements Serializable, Cloneable, DryRunSupportedRequest<DescribeTagsRequest> {
@@ -39,18 +37,24 @@ public class DescribeTagsRequest extends AmazonWebServiceRequest implements Seri
      * </li>
      * <li>
      * <p>
-     * <code>resource-id</code> - The resource ID.
+     * <code>resource-id</code> - The ID of the resource.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dhcp-options</code> |
-     * <code>elastic-ip</code> | <code>fpga-image</code> | <code>image</code> | <code>instance</code> |
-     * <code>internet-gateway</code> | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code>
-     * | <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code> |
-     * <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code> |
-     * <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> |
-     * <code>vpn-gateway</code>).
+     * <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code> |
+     * <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> |
+     * <code>image</code> | <code>instance</code> | <code>internet-gateway</code> | <code>launch-template</code> |
+     * <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> |
+     * <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code>
+     * | <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> |
+     * <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify "tag:Owner" for the
+     * filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".
      * </p>
      * </li>
      * <li>
@@ -96,18 +100,25 @@ public class DescribeTagsRequest extends AmazonWebServiceRequest implements Seri
      *        </li>
      *        <li>
      *        <p>
-     *        <code>resource-id</code> - The resource ID.
+     *        <code>resource-id</code> - The ID of the resource.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dhcp-options</code>
-     *        | <code>elastic-ip</code> | <code>fpga-image</code> | <code>image</code> | <code>instance</code> |
-     *        <code>internet-gateway</code> | <code>launch-template</code> | <code>natgateway</code> |
-     *        <code>network-acl</code> | <code>network-interface</code> | <code>reserved-instances</code> |
-     *        <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> |
-     *        <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> |
-     *        <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     *        <code>resource-type</code> - The resource type (<code>customer-gateway</code> |
+     *        <code>dedicated-host</code> | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> |
+     *        <code>fpga-image</code> | <code>image</code> | <code>instance</code> | <code>internet-gateway</code> |
+     *        <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code> |
+     *        <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code> |
+     *        <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> |
+     *        <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> |
+     *        <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify "tag:Owner" for
+     *        the filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".
      *        </p>
      *        </li>
      *        <li>
@@ -132,18 +143,24 @@ public class DescribeTagsRequest extends AmazonWebServiceRequest implements Seri
      * </li>
      * <li>
      * <p>
-     * <code>resource-id</code> - The resource ID.
+     * <code>resource-id</code> - The ID of the resource.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dhcp-options</code> |
-     * <code>elastic-ip</code> | <code>fpga-image</code> | <code>image</code> | <code>instance</code> |
-     * <code>internet-gateway</code> | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code>
-     * | <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code> |
-     * <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code> |
-     * <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> |
-     * <code>vpn-gateway</code>).
+     * <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code> |
+     * <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> |
+     * <code>image</code> | <code>instance</code> | <code>internet-gateway</code> | <code>launch-template</code> |
+     * <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> |
+     * <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code>
+     * | <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> |
+     * <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify "tag:Owner" for the
+     * filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".
      * </p>
      * </li>
      * <li>
@@ -162,18 +179,25 @@ public class DescribeTagsRequest extends AmazonWebServiceRequest implements Seri
      *         </li>
      *         <li>
      *         <p>
-     *         <code>resource-id</code> - The resource ID.
+     *         <code>resource-id</code> - The ID of the resource.
      *         </p>
      *         </li>
      *         <li>
      *         <p>
-     *         <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dhcp-options</code>
-     *         | <code>elastic-ip</code> | <code>fpga-image</code> | <code>image</code> | <code>instance</code> |
-     *         <code>internet-gateway</code> | <code>launch-template</code> | <code>natgateway</code> |
-     *         <code>network-acl</code> | <code>network-interface</code> | <code>reserved-instances</code> |
-     *         <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> |
-     *         <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> |
-     *         <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     *         <code>resource-type</code> - The resource type (<code>customer-gateway</code> |
+     *         <code>dedicated-host</code> | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> |
+     *         <code>fpga-image</code> | <code>image</code> | <code>instance</code> | <code>internet-gateway</code> |
+     *         <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code> |
+     *         <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code> |
+     *         <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> |
+     *         <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> |
+     *         <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     *         </p>
+     *         </li>
+     *         <li>
+     *         <p>
+     *         <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify "tag:Owner" for
+     *         the filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".
      *         </p>
      *         </li>
      *         <li>
@@ -202,18 +226,24 @@ public class DescribeTagsRequest extends AmazonWebServiceRequest implements Seri
      * </li>
      * <li>
      * <p>
-     * <code>resource-id</code> - The resource ID.
+     * <code>resource-id</code> - The ID of the resource.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dhcp-options</code> |
-     * <code>elastic-ip</code> | <code>fpga-image</code> | <code>image</code> | <code>instance</code> |
-     * <code>internet-gateway</code> | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code>
-     * | <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code> |
-     * <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code> |
-     * <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> |
-     * <code>vpn-gateway</code>).
+     * <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code> |
+     * <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> |
+     * <code>image</code> | <code>instance</code> | <code>internet-gateway</code> | <code>launch-template</code> |
+     * <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> |
+     * <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code>
+     * | <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> |
+     * <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify "tag:Owner" for the
+     * filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".
      * </p>
      * </li>
      * <li>
@@ -233,18 +263,25 @@ public class DescribeTagsRequest extends AmazonWebServiceRequest implements Seri
      *        </li>
      *        <li>
      *        <p>
-     *        <code>resource-id</code> - The resource ID.
+     *        <code>resource-id</code> - The ID of the resource.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dhcp-options</code>
-     *        | <code>elastic-ip</code> | <code>fpga-image</code> | <code>image</code> | <code>instance</code> |
-     *        <code>internet-gateway</code> | <code>launch-template</code> | <code>natgateway</code> |
-     *        <code>network-acl</code> | <code>network-interface</code> | <code>reserved-instances</code> |
-     *        <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> |
-     *        <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> |
-     *        <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     *        <code>resource-type</code> - The resource type (<code>customer-gateway</code> |
+     *        <code>dedicated-host</code> | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> |
+     *        <code>fpga-image</code> | <code>image</code> | <code>instance</code> | <code>internet-gateway</code> |
+     *        <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code> |
+     *        <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code> |
+     *        <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> |
+     *        <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> |
+     *        <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify "tag:Owner" for
+     *        the filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".
      *        </p>
      *        </li>
      *        <li>
@@ -275,18 +312,24 @@ public class DescribeTagsRequest extends AmazonWebServiceRequest implements Seri
      * </li>
      * <li>
      * <p>
-     * <code>resource-id</code> - The resource ID.
+     * <code>resource-id</code> - The ID of the resource.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dhcp-options</code> |
-     * <code>elastic-ip</code> | <code>fpga-image</code> | <code>image</code> | <code>instance</code> |
-     * <code>internet-gateway</code> | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code>
-     * | <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code> |
-     * <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code> |
-     * <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> |
-     * <code>vpn-gateway</code>).
+     * <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code> |
+     * <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> |
+     * <code>image</code> | <code>instance</code> | <code>internet-gateway</code> | <code>launch-template</code> |
+     * <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> |
+     * <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code>
+     * | <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> |
+     * <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify "tag:Owner" for the
+     * filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".
      * </p>
      * </li>
      * <li>
@@ -311,18 +354,25 @@ public class DescribeTagsRequest extends AmazonWebServiceRequest implements Seri
      *        </li>
      *        <li>
      *        <p>
-     *        <code>resource-id</code> - The resource ID.
+     *        <code>resource-id</code> - The ID of the resource.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dhcp-options</code>
-     *        | <code>elastic-ip</code> | <code>fpga-image</code> | <code>image</code> | <code>instance</code> |
-     *        <code>internet-gateway</code> | <code>launch-template</code> | <code>natgateway</code> |
-     *        <code>network-acl</code> | <code>network-interface</code> | <code>reserved-instances</code> |
-     *        <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> |
-     *        <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> |
-     *        <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     *        <code>resource-type</code> - The resource type (<code>customer-gateway</code> |
+     *        <code>dedicated-host</code> | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> |
+     *        <code>fpga-image</code> | <code>image</code> | <code>instance</code> | <code>internet-gateway</code> |
+     *        <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code> |
+     *        <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code> |
+     *        <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> |
+     *        <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> |
+     *        <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify "tag:Owner" for
+     *        the filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".
      *        </p>
      *        </li>
      *        <li>
@@ -355,18 +405,24 @@ public class DescribeTagsRequest extends AmazonWebServiceRequest implements Seri
      * </li>
      * <li>
      * <p>
-     * <code>resource-id</code> - The resource ID.
+     * <code>resource-id</code> - The ID of the resource.
      * </p>
      * </li>
      * <li>
      * <p>
-     * <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dhcp-options</code> |
-     * <code>elastic-ip</code> | <code>fpga-image</code> | <code>image</code> | <code>instance</code> |
-     * <code>internet-gateway</code> | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code>
-     * | <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code> |
-     * <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code> |
-     * <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> |
-     * <code>vpn-gateway</code>).
+     * <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code> |
+     * <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> |
+     * <code>image</code> | <code>instance</code> | <code>internet-gateway</code> | <code>launch-template</code> |
+     * <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> |
+     * <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code>
+     * | <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> |
+     * <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify "tag:Owner" for the
+     * filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".
      * </p>
      * </li>
      * <li>
@@ -386,18 +442,25 @@ public class DescribeTagsRequest extends AmazonWebServiceRequest implements Seri
      *        </li>
      *        <li>
      *        <p>
-     *        <code>resource-id</code> - The resource ID.
+     *        <code>resource-id</code> - The ID of the resource.
      *        </p>
      *        </li>
      *        <li>
      *        <p>
-     *        <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dhcp-options</code>
-     *        | <code>elastic-ip</code> | <code>fpga-image</code> | <code>image</code> | <code>instance</code> |
-     *        <code>internet-gateway</code> | <code>launch-template</code> | <code>natgateway</code> |
-     *        <code>network-acl</code> | <code>network-interface</code> | <code>reserved-instances</code> |
-     *        <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> |
-     *        <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> |
-     *        <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     *        <code>resource-type</code> - The resource type (<code>customer-gateway</code> |
+     *        <code>dedicated-host</code> | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> |
+     *        <code>fpga-image</code> | <code>image</code> | <code>instance</code> | <code>internet-gateway</code> |
+     *        <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code> |
+     *        <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code> |
+     *        <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> |
+     *        <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> |
+     *        <code>vpn-connection</code> | <code>vpn-gateway</code>).
+     *        </p>
+     *        </li>
+     *        <li>
+     *        <p>
+     *        <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify "tag:Owner" for
+     *        the filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".
      *        </p>
      *        </li>
      *        <li>
@@ -511,7 +574,8 @@ public class DescribeTagsRequest extends AmazonWebServiceRequest implements Seri
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

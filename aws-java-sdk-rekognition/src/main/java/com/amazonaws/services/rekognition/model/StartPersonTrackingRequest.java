@@ -36,8 +36,8 @@ public class StartPersonTrackingRequest extends com.amazonaws.AmazonWebServiceRe
     private String clientRequestToken;
     /**
      * <p>
-     * The Amazon SNS topic ARN you want Rekognition Video to publish the completion status of the people detection
-     * operation to.
+     * The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people
+     * detection operation to.
      * </p>
      */
     private NotificationChannel notificationChannel;
@@ -143,12 +143,12 @@ public class StartPersonTrackingRequest extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * The Amazon SNS topic ARN you want Rekognition Video to publish the completion status of the people detection
-     * operation to.
+     * The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people
+     * detection operation to.
      * </p>
      * 
      * @param notificationChannel
-     *        The Amazon SNS topic ARN you want Rekognition Video to publish the completion status of the people
+     *        The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people
      *        detection operation to.
      */
 
@@ -158,11 +158,11 @@ public class StartPersonTrackingRequest extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * The Amazon SNS topic ARN you want Rekognition Video to publish the completion status of the people detection
-     * operation to.
+     * The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people
+     * detection operation to.
      * </p>
      * 
-     * @return The Amazon SNS topic ARN you want Rekognition Video to publish the completion status of the people
+     * @return The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people
      *         detection operation to.
      */
 
@@ -172,12 +172,12 @@ public class StartPersonTrackingRequest extends com.amazonaws.AmazonWebServiceRe
 
     /**
      * <p>
-     * The Amazon SNS topic ARN you want Rekognition Video to publish the completion status of the people detection
-     * operation to.
+     * The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people
+     * detection operation to.
      * </p>
      * 
      * @param notificationChannel
-     *        The Amazon SNS topic ARN you want Rekognition Video to publish the completion status of the people
+     *        The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people
      *        detection operation to.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
@@ -234,7 +234,8 @@ public class StartPersonTrackingRequest extends com.amazonaws.AmazonWebServiceRe
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

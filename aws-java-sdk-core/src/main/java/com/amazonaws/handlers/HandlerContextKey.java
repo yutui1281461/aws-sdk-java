@@ -15,6 +15,7 @@
 package com.amazonaws.handlers;
 
 import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.client.builder.AdvancedConfig;
 
 /**
  * A type safe key used for setting and retrieving context in a {@link
@@ -53,6 +54,21 @@ public class HandlerContextKey<T> {
      * The region used to sign the request.
      */
     public static final HandlerContextKey<String> SIGNING_REGION = new HandlerContextKey<String>("SigningRegion");
+
+    /**
+     * The name of the operation for the request.
+     */
+    public static final HandlerContextKey<String> OPERATION_NAME = new HandlerContextKey<String>("OperationName");
+
+    /**
+     * The unique identifier for a service to which the request is being sent.
+     */
+    public static final HandlerContextKey<String> SERVICE_ID = new HandlerContextKey<String>("ServiceId");
+
+    /**
+     * Advanced client configuration. Contents will be service specific.
+     */
+    public static final HandlerContextKey<AdvancedConfig> ADVANCED_CONFIG = new HandlerContextKey<AdvancedConfig>("AdvancedConfig");
 
     private final String name;
 

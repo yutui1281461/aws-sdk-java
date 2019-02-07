@@ -61,7 +61,7 @@ public class ReservedCacheNodeStaxUnmarshaller implements Unmarshaller<ReservedC
                 }
 
                 if (context.testExpression("StartTime", targetDepth)) {
-                    reservedCacheNode.setStartTime(DateStaxUnmarshaller.getInstance().unmarshall(context));
+                    reservedCacheNode.setStartTime(DateStaxUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
                     continue;
                 }
 
@@ -110,6 +110,10 @@ public class ReservedCacheNodeStaxUnmarshaller implements Unmarshaller<ReservedC
                     continue;
                 }
 
+                if (context.testExpression("ReservationARN", targetDepth)) {
+                    reservedCacheNode.setReservationARN(StringStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
             } else if (xmlEvent.isEndElement()) {
                 if (context.getCurrentDepth() < originalDepth) {
                     return reservedCacheNode;

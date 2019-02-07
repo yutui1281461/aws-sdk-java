@@ -177,6 +177,7 @@ public class RequestXmlFactory {
                 addIfNotNull(xml, "RecordDelimiter", csvInput.getRecordDelimiterAsString());
                 addIfNotNull(xml, "FieldDelimiter", csvInput.getFieldDelimiterAsString());
                 addIfNotNull(xml, "QuoteCharacter", csvInput.getQuoteCharacterAsString());
+                addIfNotNull(xml, "AllowQuotedRecordDelimiter", csvInput.getAllowQuotedRecordDelimiter());
                 xml.end();
             }
 
@@ -184,6 +185,11 @@ public class RequestXmlFactory {
                 xml.start("JSON");
                 JSONInput jsonInput = inputSerialization.getJson();
                 addIfNotNull(xml, "Type", jsonInput.getType());
+                xml.end();
+            }
+
+            if (inputSerialization.getParquet() != null) {
+                xml.start("Parquet");
                 xml.end();
             }
 

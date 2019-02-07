@@ -62,7 +62,7 @@ public class InstanceSnapshotJsonUnmarshaller implements Unmarshaller<InstanceSn
                 }
                 if (context.testExpression("createdAt", targetDepth)) {
                     context.nextToken();
-                    instanceSnapshot.setCreatedAt(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    instanceSnapshot.setCreatedAt(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
                 if (context.testExpression("location", targetDepth)) {
                     context.nextToken();
@@ -71,6 +71,10 @@ public class InstanceSnapshotJsonUnmarshaller implements Unmarshaller<InstanceSn
                 if (context.testExpression("resourceType", targetDepth)) {
                     context.nextToken();
                     instanceSnapshot.setResourceType(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("tags", targetDepth)) {
+                    context.nextToken();
+                    instanceSnapshot.setTags(new ListUnmarshaller<Tag>(TagJsonUnmarshaller.getInstance()).unmarshall(context));
                 }
                 if (context.testExpression("state", targetDepth)) {
                     context.nextToken();

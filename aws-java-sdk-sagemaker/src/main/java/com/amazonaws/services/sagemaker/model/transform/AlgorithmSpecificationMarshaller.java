@@ -12,6 +12,7 @@
  */
 package com.amazonaws.services.sagemaker.model.transform;
 
+import java.util.List;
 import javax.annotation.Generated;
 
 import com.amazonaws.SdkClientException;
@@ -29,8 +30,12 @@ public class AlgorithmSpecificationMarshaller {
 
     private static final MarshallingInfo<String> TRAININGIMAGE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("TrainingImage").build();
+    private static final MarshallingInfo<String> ALGORITHMNAME_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("AlgorithmName").build();
     private static final MarshallingInfo<String> TRAININGINPUTMODE_BINDING = MarshallingInfo.builder(MarshallingType.STRING)
             .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("TrainingInputMode").build();
+    private static final MarshallingInfo<List> METRICDEFINITIONS_BINDING = MarshallingInfo.builder(MarshallingType.LIST)
+            .marshallLocation(MarshallLocation.PAYLOAD).marshallLocationName("MetricDefinitions").build();
 
     private static final AlgorithmSpecificationMarshaller instance = new AlgorithmSpecificationMarshaller();
 
@@ -49,7 +54,9 @@ public class AlgorithmSpecificationMarshaller {
 
         try {
             protocolMarshaller.marshall(algorithmSpecification.getTrainingImage(), TRAININGIMAGE_BINDING);
+            protocolMarshaller.marshall(algorithmSpecification.getAlgorithmName(), ALGORITHMNAME_BINDING);
             protocolMarshaller.marshall(algorithmSpecification.getTrainingInputMode(), TRAININGINPUTMODE_BINDING);
+            protocolMarshaller.marshall(algorithmSpecification.getMetricDefinitions(), METRICDEFINITIONS_BINDING);
         } catch (Exception e) {
             throw new SdkClientException("Unable to marshall request to JSON: " + e.getMessage(), e);
         }

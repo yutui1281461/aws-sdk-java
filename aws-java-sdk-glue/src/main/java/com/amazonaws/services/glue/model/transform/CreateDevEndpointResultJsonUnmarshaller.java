@@ -100,9 +100,13 @@ public class CreateDevEndpointResultJsonUnmarshaller implements Unmarshaller<Cre
                     context.nextToken();
                     createDevEndpointResult.setFailureReason(context.getUnmarshaller(String.class).unmarshall(context));
                 }
+                if (context.testExpression("SecurityConfiguration", targetDepth)) {
+                    context.nextToken();
+                    createDevEndpointResult.setSecurityConfiguration(context.getUnmarshaller(String.class).unmarshall(context));
+                }
                 if (context.testExpression("CreatedTimestamp", targetDepth)) {
                     context.nextToken();
-                    createDevEndpointResult.setCreatedTimestamp(context.getUnmarshaller(java.util.Date.class).unmarshall(context));
+                    createDevEndpointResult.setCreatedTimestamp(DateJsonUnmarshallerFactory.getInstance("unixTimestamp").unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

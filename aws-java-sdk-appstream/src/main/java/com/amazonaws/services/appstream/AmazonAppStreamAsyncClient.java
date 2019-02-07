@@ -280,6 +280,72 @@ public class AmazonAppStreamAsyncClient extends AmazonAppStreamClient implements
     }
 
     @Override
+    public java.util.concurrent.Future<BatchAssociateUserStackResult> batchAssociateUserStackAsync(BatchAssociateUserStackRequest request) {
+
+        return batchAssociateUserStackAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<BatchAssociateUserStackResult> batchAssociateUserStackAsync(final BatchAssociateUserStackRequest request,
+            final com.amazonaws.handlers.AsyncHandler<BatchAssociateUserStackRequest, BatchAssociateUserStackResult> asyncHandler) {
+        final BatchAssociateUserStackRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<BatchAssociateUserStackResult>() {
+            @Override
+            public BatchAssociateUserStackResult call() throws Exception {
+                BatchAssociateUserStackResult result = null;
+
+                try {
+                    result = executeBatchAssociateUserStack(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<BatchDisassociateUserStackResult> batchDisassociateUserStackAsync(BatchDisassociateUserStackRequest request) {
+
+        return batchDisassociateUserStackAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<BatchDisassociateUserStackResult> batchDisassociateUserStackAsync(final BatchDisassociateUserStackRequest request,
+            final com.amazonaws.handlers.AsyncHandler<BatchDisassociateUserStackRequest, BatchDisassociateUserStackResult> asyncHandler) {
+        final BatchDisassociateUserStackRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<BatchDisassociateUserStackResult>() {
+            @Override
+            public BatchDisassociateUserStackResult call() throws Exception {
+                BatchDisassociateUserStackResult result = null;
+
+                try {
+                    result = executeBatchDisassociateUserStack(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
     public java.util.concurrent.Future<CopyImageResult> copyImageAsync(CopyImageRequest request) {
 
         return copyImageAsync(request, null);
@@ -512,6 +578,39 @@ public class AmazonAppStreamAsyncClient extends AmazonAppStreamClient implements
     }
 
     @Override
+    public java.util.concurrent.Future<CreateUserResult> createUserAsync(CreateUserRequest request) {
+
+        return createUserAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<CreateUserResult> createUserAsync(final CreateUserRequest request,
+            final com.amazonaws.handlers.AsyncHandler<CreateUserRequest, CreateUserResult> asyncHandler) {
+        final CreateUserRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<CreateUserResult>() {
+            @Override
+            public CreateUserResult call() throws Exception {
+                CreateUserResult result = null;
+
+                try {
+                    result = executeCreateUser(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
     public java.util.concurrent.Future<DeleteDirectoryConfigResult> deleteDirectoryConfigAsync(DeleteDirectoryConfigRequest request) {
 
         return deleteDirectoryConfigAsync(request, null);
@@ -644,6 +743,39 @@ public class AmazonAppStreamAsyncClient extends AmazonAppStreamClient implements
     }
 
     @Override
+    public java.util.concurrent.Future<DeleteImagePermissionsResult> deleteImagePermissionsAsync(DeleteImagePermissionsRequest request) {
+
+        return deleteImagePermissionsAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DeleteImagePermissionsResult> deleteImagePermissionsAsync(final DeleteImagePermissionsRequest request,
+            final com.amazonaws.handlers.AsyncHandler<DeleteImagePermissionsRequest, DeleteImagePermissionsResult> asyncHandler) {
+        final DeleteImagePermissionsRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<DeleteImagePermissionsResult>() {
+            @Override
+            public DeleteImagePermissionsResult call() throws Exception {
+                DeleteImagePermissionsResult result = null;
+
+                try {
+                    result = executeDeleteImagePermissions(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
     public java.util.concurrent.Future<DeleteStackResult> deleteStackAsync(DeleteStackRequest request) {
 
         return deleteStackAsync(request, null);
@@ -661,6 +793,39 @@ public class AmazonAppStreamAsyncClient extends AmazonAppStreamClient implements
 
                 try {
                     result = executeDeleteStack(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<DeleteUserResult> deleteUserAsync(DeleteUserRequest request) {
+
+        return deleteUserAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DeleteUserResult> deleteUserAsync(final DeleteUserRequest request,
+            final com.amazonaws.handlers.AsyncHandler<DeleteUserRequest, DeleteUserResult> asyncHandler) {
+        final DeleteUserRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<DeleteUserResult>() {
+            @Override
+            public DeleteUserResult call() throws Exception {
+                DeleteUserResult result = null;
+
+                try {
+                    result = executeDeleteUser(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);
@@ -776,6 +941,39 @@ public class AmazonAppStreamAsyncClient extends AmazonAppStreamClient implements
     }
 
     @Override
+    public java.util.concurrent.Future<DescribeImagePermissionsResult> describeImagePermissionsAsync(DescribeImagePermissionsRequest request) {
+
+        return describeImagePermissionsAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DescribeImagePermissionsResult> describeImagePermissionsAsync(final DescribeImagePermissionsRequest request,
+            final com.amazonaws.handlers.AsyncHandler<DescribeImagePermissionsRequest, DescribeImagePermissionsResult> asyncHandler) {
+        final DescribeImagePermissionsRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<DescribeImagePermissionsResult>() {
+            @Override
+            public DescribeImagePermissionsResult call() throws Exception {
+                DescribeImagePermissionsResult result = null;
+
+                try {
+                    result = executeDescribeImagePermissions(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
     public java.util.concurrent.Future<DescribeImagesResult> describeImagesAsync(DescribeImagesRequest request) {
 
         return describeImagesAsync(request, null);
@@ -875,6 +1073,106 @@ public class AmazonAppStreamAsyncClient extends AmazonAppStreamClient implements
     }
 
     @Override
+    public java.util.concurrent.Future<DescribeUserStackAssociationsResult> describeUserStackAssociationsAsync(DescribeUserStackAssociationsRequest request) {
+
+        return describeUserStackAssociationsAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DescribeUserStackAssociationsResult> describeUserStackAssociationsAsync(
+            final DescribeUserStackAssociationsRequest request,
+            final com.amazonaws.handlers.AsyncHandler<DescribeUserStackAssociationsRequest, DescribeUserStackAssociationsResult> asyncHandler) {
+        final DescribeUserStackAssociationsRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<DescribeUserStackAssociationsResult>() {
+            @Override
+            public DescribeUserStackAssociationsResult call() throws Exception {
+                DescribeUserStackAssociationsResult result = null;
+
+                try {
+                    result = executeDescribeUserStackAssociations(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<DescribeUsersResult> describeUsersAsync(DescribeUsersRequest request) {
+
+        return describeUsersAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DescribeUsersResult> describeUsersAsync(final DescribeUsersRequest request,
+            final com.amazonaws.handlers.AsyncHandler<DescribeUsersRequest, DescribeUsersResult> asyncHandler) {
+        final DescribeUsersRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<DescribeUsersResult>() {
+            @Override
+            public DescribeUsersResult call() throws Exception {
+                DescribeUsersResult result = null;
+
+                try {
+                    result = executeDescribeUsers(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<DisableUserResult> disableUserAsync(DisableUserRequest request) {
+
+        return disableUserAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<DisableUserResult> disableUserAsync(final DisableUserRequest request,
+            final com.amazonaws.handlers.AsyncHandler<DisableUserRequest, DisableUserResult> asyncHandler) {
+        final DisableUserRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<DisableUserResult>() {
+            @Override
+            public DisableUserResult call() throws Exception {
+                DisableUserResult result = null;
+
+                try {
+                    result = executeDisableUser(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
     public java.util.concurrent.Future<DisassociateFleetResult> disassociateFleetAsync(DisassociateFleetRequest request) {
 
         return disassociateFleetAsync(request, null);
@@ -892,6 +1190,39 @@ public class AmazonAppStreamAsyncClient extends AmazonAppStreamClient implements
 
                 try {
                     result = executeDisassociateFleet(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<EnableUserResult> enableUserAsync(EnableUserRequest request) {
+
+        return enableUserAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<EnableUserResult> enableUserAsync(final EnableUserRequest request,
+            final com.amazonaws.handlers.AsyncHandler<EnableUserRequest, EnableUserResult> asyncHandler) {
+        final EnableUserRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<EnableUserResult>() {
+            @Override
+            public EnableUserResult call() throws Exception {
+                EnableUserResult result = null;
+
+                try {
+                    result = executeEnableUser(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);
@@ -1288,6 +1619,39 @@ public class AmazonAppStreamAsyncClient extends AmazonAppStreamClient implements
 
                 try {
                     result = executeUpdateFleet(finalRequest);
+                } catch (Exception ex) {
+                    if (asyncHandler != null) {
+                        asyncHandler.onError(ex);
+                    }
+                    throw ex;
+                }
+
+                if (asyncHandler != null) {
+                    asyncHandler.onSuccess(finalRequest, result);
+                }
+                return result;
+            }
+        });
+    }
+
+    @Override
+    public java.util.concurrent.Future<UpdateImagePermissionsResult> updateImagePermissionsAsync(UpdateImagePermissionsRequest request) {
+
+        return updateImagePermissionsAsync(request, null);
+    }
+
+    @Override
+    public java.util.concurrent.Future<UpdateImagePermissionsResult> updateImagePermissionsAsync(final UpdateImagePermissionsRequest request,
+            final com.amazonaws.handlers.AsyncHandler<UpdateImagePermissionsRequest, UpdateImagePermissionsResult> asyncHandler) {
+        final UpdateImagePermissionsRequest finalRequest = beforeClientExecution(request);
+
+        return executorService.submit(new java.util.concurrent.Callable<UpdateImagePermissionsResult>() {
+            @Override
+            public UpdateImagePermissionsResult call() throws Exception {
+                UpdateImagePermissionsResult result = null;
+
+                try {
+                    result = executeUpdateImagePermissions(finalRequest);
                 } catch (Exception ex) {
                     if (asyncHandler != null) {
                         asyncHandler.onError(ex);

@@ -52,6 +52,10 @@ public class DescribeConfigurationResultJsonUnmarshaller implements Unmarshaller
                     context.nextToken();
                     describeConfigurationResult.setArn(context.getUnmarshaller(String.class).unmarshall(context));
                 }
+                if (context.testExpression("created", targetDepth)) {
+                    context.nextToken();
+                    describeConfigurationResult.setCreated(DateJsonUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
+                }
                 if (context.testExpression("description", targetDepth)) {
                     context.nextToken();
                     describeConfigurationResult.setDescription(context.getUnmarshaller(String.class).unmarshall(context));
@@ -75,6 +79,11 @@ public class DescribeConfigurationResultJsonUnmarshaller implements Unmarshaller
                 if (context.testExpression("name", targetDepth)) {
                     context.nextToken();
                     describeConfigurationResult.setName(context.getUnmarshaller(String.class).unmarshall(context));
+                }
+                if (context.testExpression("tags", targetDepth)) {
+                    context.nextToken();
+                    describeConfigurationResult.setTags(new MapUnmarshaller<String, String>(context.getUnmarshaller(String.class), context
+                            .getUnmarshaller(String.class)).unmarshall(context));
                 }
             } else if (token == END_ARRAY || token == END_OBJECT) {
                 if (context.getLastParsedParentElement() == null || context.getLastParsedParentElement().equals(currentParentElement)) {

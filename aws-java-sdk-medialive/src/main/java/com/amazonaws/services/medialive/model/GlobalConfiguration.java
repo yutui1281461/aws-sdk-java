@@ -29,11 +29,10 @@ public class GlobalConfiguration implements Serializable, Cloneable, StructuredP
     /** Value to set the initial audio gain for the Live Event. */
     private Integer initialAudioGain;
     /**
-     * Indicates the action to take when an input completes (e.g. end-of-file.) Options include immediately switching to
-     * the next sequential input (via "switchInput"), switching to the next input and looping back to the first input
-     * when last input ends (via "switchAndLoopInputs") or not switching inputs and instead transcoding black / color /
-     * slate images per the "Input Loss Behavior" configuration until an activateInput REST command is received (via
-     * "none").
+     * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is
+     * configured the encoder will restart at the beginning of the first input. When "none" is configured the encoder
+     * will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior"
+     * configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
      */
     private String inputEndAction;
     /** Settings for system actions when input is lost. */
@@ -85,18 +84,17 @@ public class GlobalConfiguration implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Indicates the action to take when an input completes (e.g. end-of-file.) Options include immediately switching to
-     * the next sequential input (via "switchInput"), switching to the next input and looping back to the first input
-     * when last input ends (via "switchAndLoopInputs") or not switching inputs and instead transcoding black / color /
-     * slate images per the "Input Loss Behavior" configuration until an activateInput REST command is received (via
-     * "none").
+     * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is
+     * configured the encoder will restart at the beginning of the first input. When "none" is configured the encoder
+     * will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior"
+     * configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
      * 
      * @param inputEndAction
-     *        Indicates the action to take when an input completes (e.g. end-of-file.) Options include immediately
-     *        switching to the next sequential input (via "switchInput"), switching to the next input and looping back
-     *        to the first input when last input ends (via "switchAndLoopInputs") or not switching inputs and instead
-     *        transcoding black / color / slate images per the "Input Loss Behavior" configuration until an
-     *        activateInput REST command is received (via "none").
+     *        Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs
+     *        is configured the encoder will restart at the beginning of the first input. When "none" is configured the
+     *        encoder will transcode either black, a solid color, or a user specified slate images per the
+     *        "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the
+     *        Channel Schedule API).
      * @see GlobalConfigurationInputEndAction
      */
 
@@ -105,17 +103,16 @@ public class GlobalConfiguration implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Indicates the action to take when an input completes (e.g. end-of-file.) Options include immediately switching to
-     * the next sequential input (via "switchInput"), switching to the next input and looping back to the first input
-     * when last input ends (via "switchAndLoopInputs") or not switching inputs and instead transcoding black / color /
-     * slate images per the "Input Loss Behavior" configuration until an activateInput REST command is received (via
-     * "none").
+     * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is
+     * configured the encoder will restart at the beginning of the first input. When "none" is configured the encoder
+     * will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior"
+     * configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
      * 
-     * @return Indicates the action to take when an input completes (e.g. end-of-file.) Options include immediately
-     *         switching to the next sequential input (via "switchInput"), switching to the next input and looping back
-     *         to the first input when last input ends (via "switchAndLoopInputs") or not switching inputs and instead
-     *         transcoding black / color / slate images per the "Input Loss Behavior" configuration until an
-     *         activateInput REST command is received (via "none").
+     * @return Indicates the action to take when the current input completes (e.g. end-of-file). When
+     *         switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When
+     *         "none" is configured the encoder will transcode either black, a solid color, or a user specified slate
+     *         images per the "Input Loss Behavior" configuration until the next input switch occurs (which is
+     *         controlled through the Channel Schedule API).
      * @see GlobalConfigurationInputEndAction
      */
 
@@ -124,18 +121,17 @@ public class GlobalConfiguration implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Indicates the action to take when an input completes (e.g. end-of-file.) Options include immediately switching to
-     * the next sequential input (via "switchInput"), switching to the next input and looping back to the first input
-     * when last input ends (via "switchAndLoopInputs") or not switching inputs and instead transcoding black / color /
-     * slate images per the "Input Loss Behavior" configuration until an activateInput REST command is received (via
-     * "none").
+     * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is
+     * configured the encoder will restart at the beginning of the first input. When "none" is configured the encoder
+     * will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior"
+     * configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
      * 
      * @param inputEndAction
-     *        Indicates the action to take when an input completes (e.g. end-of-file.) Options include immediately
-     *        switching to the next sequential input (via "switchInput"), switching to the next input and looping back
-     *        to the first input when last input ends (via "switchAndLoopInputs") or not switching inputs and instead
-     *        transcoding black / color / slate images per the "Input Loss Behavior" configuration until an
-     *        activateInput REST command is received (via "none").
+     *        Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs
+     *        is configured the encoder will restart at the beginning of the first input. When "none" is configured the
+     *        encoder will transcode either black, a solid color, or a user specified slate images per the
+     *        "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the
+     *        Channel Schedule API).
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see GlobalConfigurationInputEndAction
      */
@@ -146,18 +142,17 @@ public class GlobalConfiguration implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Indicates the action to take when an input completes (e.g. end-of-file.) Options include immediately switching to
-     * the next sequential input (via "switchInput"), switching to the next input and looping back to the first input
-     * when last input ends (via "switchAndLoopInputs") or not switching inputs and instead transcoding black / color /
-     * slate images per the "Input Loss Behavior" configuration until an activateInput REST command is received (via
-     * "none").
+     * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is
+     * configured the encoder will restart at the beginning of the first input. When "none" is configured the encoder
+     * will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior"
+     * configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
      * 
      * @param inputEndAction
-     *        Indicates the action to take when an input completes (e.g. end-of-file.) Options include immediately
-     *        switching to the next sequential input (via "switchInput"), switching to the next input and looping back
-     *        to the first input when last input ends (via "switchAndLoopInputs") or not switching inputs and instead
-     *        transcoding black / color / slate images per the "Input Loss Behavior" configuration until an
-     *        activateInput REST command is received (via "none").
+     *        Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs
+     *        is configured the encoder will restart at the beginning of the first input. When "none" is configured the
+     *        encoder will transcode either black, a solid color, or a user specified slate images per the
+     *        "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the
+     *        Channel Schedule API).
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see GlobalConfigurationInputEndAction
      */
@@ -328,7 +323,8 @@ public class GlobalConfiguration implements Serializable, Cloneable, StructuredP
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

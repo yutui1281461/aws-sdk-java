@@ -249,6 +249,18 @@ public class DateUtils {
         }
     }
 
+    public static Date parseUnixTimestampInMillis(String dateString) {
+        if (dateString == null)
+            return null;
+        try {
+            BigDecimal dateValue = new BigDecimal(dateString);
+            return new Date(dateValue.longValue());
+        } catch (NumberFormatException nfe) {
+            throw new SdkClientException("Unable to parse date : "
+                                         + dateString, nfe);
+        }
+    }
+
     /**
      * Formats the give date object into an AWS Service format.
      */
@@ -258,6 +270,16 @@ public class DateUtils {
         BigDecimal dateValue = BigDecimal.valueOf(date.getTime());
         return dateValue.scaleByPowerOfTen(0 - AWS_DATE_MILLI_SECOND_PRECISION)
                 .toPlainString();
+    }
+
+    /**
+     * Formats the give date object into unit timestamp in milli seconds.
+     */
+    public static String formatUnixTimestampInMills(Date date) {
+        if (date == null)
+            return null;
+        BigDecimal dateValue = BigDecimal.valueOf(date.getTime());
+        return dateValue.toPlainString();
     }
 
     public static Date cloneDate(Date date) {

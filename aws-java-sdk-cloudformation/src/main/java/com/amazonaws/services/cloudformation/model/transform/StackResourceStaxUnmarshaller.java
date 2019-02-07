@@ -69,7 +69,7 @@ public class StackResourceStaxUnmarshaller implements Unmarshaller<StackResource
                 }
 
                 if (context.testExpression("Timestamp", targetDepth)) {
-                    stackResource.setTimestamp(DateStaxUnmarshaller.getInstance().unmarshall(context));
+                    stackResource.setTimestamp(DateStaxUnmarshallerFactory.getInstance("iso8601").unmarshall(context));
                     continue;
                 }
 
@@ -85,6 +85,11 @@ public class StackResourceStaxUnmarshaller implements Unmarshaller<StackResource
 
                 if (context.testExpression("Description", targetDepth)) {
                     stackResource.setDescription(StringStaxUnmarshaller.getInstance().unmarshall(context));
+                    continue;
+                }
+
+                if (context.testExpression("DriftInformation", targetDepth)) {
+                    stackResource.setDriftInformation(StackResourceDriftInformationStaxUnmarshaller.getInstance().unmarshall(context));
                     continue;
                 }
             } else if (xmlEvent.isEndElement()) {

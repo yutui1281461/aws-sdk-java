@@ -15,21 +15,7 @@ package com.amazonaws.services.directconnect.model;
 import javax.annotation.Generated;
 
 /**
- * <p>
- * The Up/Down state of the BGP peer.
- * </p>
- * <ul>
- * <li>
- * <p>
- * <b>Up</b>: The BGP peer is established.
- * </p>
- * </li>
- * <li>
- * <p>
- * <b>Down</b>: The BGP peer is down.
- * </p>
- * </li>
- * </ul>
+ * 
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
 public enum BGPStatus {

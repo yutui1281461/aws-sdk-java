@@ -28,6 +28,8 @@ import com.amazonaws.services.opsworkscm.model.*;
  * <fullname>AWS OpsWorks CM</fullname>
  * <p>
  * AWS OpsWorks for configuration management (CM) is a service that runs and manages configuration management servers.
+ * You can use AWS OpsWorks CM to create and manage AWS OpsWorks for Chef Automate and AWS OpsWorks for Puppet
+ * Enterprise servers, and add or remove nodes for the servers to manage.
  * </p>
  * <p>
  * <b>Glossary of terms</b>
@@ -84,7 +86,37 @@ import com.amazonaws.services.opsworkscm.model.*;
  * </li>
  * <li>
  * <p>
+ * opsworks-cm.us-east-2.amazonaws.com
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * opsworks-cm.us-west-1.amazonaws.com
+ * </p>
+ * </li>
+ * <li>
+ * <p>
  * opsworks-cm.us-west-2.amazonaws.com
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * opsworks-cm.ap-northeast-1.amazonaws.com
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * opsworks-cm.ap-southeast-1.amazonaws.com
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * opsworks-cm.ap-southeast-2.amazonaws.com
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * opsworks-cm.eu-central-1.amazonaws.com
  * </p>
  * </li>
  * <li>
@@ -691,6 +723,59 @@ public interface AWSOpsWorksCMAsync extends AWSOpsWorksCM {
      */
     java.util.concurrent.Future<DisassociateNodeResult> disassociateNodeAsync(DisassociateNodeRequest disassociateNodeRequest,
             com.amazonaws.handlers.AsyncHandler<DisassociateNodeRequest, DisassociateNodeResult> asyncHandler);
+
+    /**
+     * <p>
+     * Exports a specified server engine attribute as a base64-encoded string. For example, you can export user data
+     * that you can use in EC2 to associate nodes with a server.
+     * </p>
+     * <p>
+     * This operation is synchronous.
+     * </p>
+     * <p>
+     * A <code>ValidationException</code> is raised when parameters of the request are not valid. A
+     * <code>ResourceNotFoundException</code> is thrown when the server does not exist. An
+     * <code>InvalidStateException</code> is thrown when the server is in any of the following states: CREATING,
+     * TERMINATED, FAILED or DELETING.
+     * </p>
+     * 
+     * @param exportServerEngineAttributeRequest
+     * @return A Java Future containing the result of the ExportServerEngineAttribute operation returned by the service.
+     * @sample AWSOpsWorksCMAsync.ExportServerEngineAttribute
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/opsworkscm-2016-11-01/ExportServerEngineAttribute"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<ExportServerEngineAttributeResult> exportServerEngineAttributeAsync(
+            ExportServerEngineAttributeRequest exportServerEngineAttributeRequest);
+
+    /**
+     * <p>
+     * Exports a specified server engine attribute as a base64-encoded string. For example, you can export user data
+     * that you can use in EC2 to associate nodes with a server.
+     * </p>
+     * <p>
+     * This operation is synchronous.
+     * </p>
+     * <p>
+     * A <code>ValidationException</code> is raised when parameters of the request are not valid. A
+     * <code>ResourceNotFoundException</code> is thrown when the server does not exist. An
+     * <code>InvalidStateException</code> is thrown when the server is in any of the following states: CREATING,
+     * TERMINATED, FAILED or DELETING.
+     * </p>
+     * 
+     * @param exportServerEngineAttributeRequest
+     * @param asyncHandler
+     *        Asynchronous callback handler for events in the lifecycle of the request. Users can provide an
+     *        implementation of the callback methods in this interface to receive notification of successful or
+     *        unsuccessful completion of the operation.
+     * @return A Java Future containing the result of the ExportServerEngineAttribute operation returned by the service.
+     * @sample AWSOpsWorksCMAsyncHandler.ExportServerEngineAttribute
+     * @see <a href="http://docs.aws.amazon.com/goto/WebAPI/opsworkscm-2016-11-01/ExportServerEngineAttribute"
+     *      target="_top">AWS API Documentation</a>
+     */
+    java.util.concurrent.Future<ExportServerEngineAttributeResult> exportServerEngineAttributeAsync(
+            ExportServerEngineAttributeRequest exportServerEngineAttributeRequest,
+            com.amazonaws.handlers.AsyncHandler<ExportServerEngineAttributeRequest, ExportServerEngineAttributeResult> asyncHandler);
 
     /**
      * <p>

@@ -24,7 +24,7 @@ import javax.annotation.Generated;
  * Use the <a>DocumentationVersions</a> to manage documentation snapshots associated with various API stages.
  * </p>
  * </div> <div class="seeAlso"> <a
- * href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an
+ * href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an
  * API</a>, <a>DocumentationPart</a>, <a>DocumentationVersion</a> </div>
  */
 @Generated("com.amazonaws:aws-java-sdk-code-generator")
@@ -135,7 +135,8 @@ public class GetDocumentationVersionsResult extends com.amazonaws.AmazonWebServi
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *

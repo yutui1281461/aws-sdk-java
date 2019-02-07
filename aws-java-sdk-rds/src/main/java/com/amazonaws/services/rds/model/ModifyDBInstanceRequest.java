@@ -62,7 +62,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance
      * classes, and availability for your engine, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a>
-     * in the Amazon RDS User Guide.
+     * in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * If you modify the DB instance class, an outage occurs during the change. The change is applied during the next
@@ -79,7 +79,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB instance into a VPC.
      * For more information, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC"
-     * >Updating the VPC for a DB Instance</a>.
+     * >Updating the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * Changing the subnet group causes an outage during the change. The change is applied during the next maintenance
@@ -144,9 +144,9 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * maintenance window. Some parameter changes can cause an outage and are applied on the next call to
      * <a>RebootDBInstance</a>, or the next failure reboot. Review the table of parameters in <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying a DB
-     * Instance and Using the Apply Immediately Parameter</a> to see the impact that setting
-     * <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified parameter and to
-     * determine when the changes are applied.
+     * Instance and Using the Apply Immediately Parameter</a> in the <i>Amazon RDS User Guide.</i> to see the impact
+     * that setting <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified
+     * parameter and to determine when the changes are applied.
      * </p>
      * <p>
      * Default: <code>false</code>
@@ -259,7 +259,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6
+     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6 or later
      * </p>
      * </li>
      * <li>
@@ -269,7 +269,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Cannot be set to 0 if the DB instance is a source to Read Replicas
+     * Can't be set to 0 if the DB instance is a source to Read Replicas
      * </p>
      * </li>
      * </ul>
@@ -358,7 +358,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * default for that DB parameter group family.
      * </p>
      * <p>
-     * For a list of valid engine versions, see <a>CreateDBInstance</a>.
+     * For information about valid engine versions, see <a>CreateDBInstance</a>, or call
+     * <a>DescribeDBEngineVersions</a>.
      * </p>
      */
     private String engineVersion;
@@ -461,7 +462,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Cannot end with a hyphen or contain two consecutive hyphens.
+     * Can't end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -641,7 +642,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role, go
      * to <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-     * create an IAM role for Amazon RDS Enhanced Monitoring</a>.
+     * create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
@@ -659,8 +660,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure
      * of the existing primary instance. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance">
-     * Fault Tolerance for an Aurora DB Cluster</a>.
+     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance"
+     * > Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
      * </p>
      * <p>
      * Default: 1
@@ -709,6 +710,11 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * True to enable Performance Insights for the DB instance, and otherwise false.
      * </p>
+     * <p>
+     * For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance
+     * Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
+     * </p>
      */
     private Boolean enablePerformanceInsights;
     /**
@@ -720,11 +726,38 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
     private String performanceInsightsKMSKeyId;
     /**
      * <p>
+     * The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+     * </p>
+     */
+    private Integer performanceInsightsRetentionPeriod;
+    /**
+     * <p>
      * The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
-     * instance or DB cluster.
+     * instance.
      * </p>
      */
     private CloudwatchLogsExportConfiguration cloudwatchLogsExportConfiguration;
+    /**
+     * <p>
+     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+     * </p>
+     */
+    private com.amazonaws.internal.SdkInternalList<ProcessorFeature> processorFeatures;
+    /**
+     * <p>
+     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
+     * </p>
+     */
+    private Boolean useDefaultProcessorFeatures;
+    /**
+     * <p>
+     * Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is
+     * set to true. For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
+     * Instance</a>.
+     * </p>
+     */
+    private Boolean deletionProtection;
 
     /**
      * Default constructor for ModifyDBInstanceRequest object. Callers should use the setter or fluent setter (with...)
@@ -941,7 +974,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance
      * classes, and availability for your engine, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a>
-     * in the Amazon RDS User Guide.
+     * in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * If you modify the DB instance class, an outage occurs during the change. The change is applied during the next
@@ -956,7 +989,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        instance classes are available in all AWS Regions, or for all database engines. For the full list of DB
      *        instance classes, and availability for your engine, see <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance
-     *        Class</a> in the Amazon RDS User Guide. </p>
+     *        Class</a> in the <i>Amazon RDS User Guide.</i> </p>
      *        <p>
      *        If you modify the DB instance class, an outage occurs during the change. The change is applied during the
      *        next maintenance window, unless <code>ApplyImmediately</code> is specified as <code>true</code> for this
@@ -976,7 +1009,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance
      * classes, and availability for your engine, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a>
-     * in the Amazon RDS User Guide.
+     * in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * If you modify the DB instance class, an outage occurs during the change. The change is applied during the next
@@ -990,7 +1023,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         instance classes are available in all AWS Regions, or for all database engines. For the full list of DB
      *         instance classes, and availability for your engine, see <a
      *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance
-     *         Class</a> in the Amazon RDS User Guide. </p>
+     *         Class</a> in the <i>Amazon RDS User Guide.</i> </p>
      *         <p>
      *         If you modify the DB instance class, an outage occurs during the change. The change is applied during the
      *         next maintenance window, unless <code>ApplyImmediately</code> is specified as <code>true</code> for this
@@ -1010,7 +1043,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance
      * classes, and availability for your engine, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a>
-     * in the Amazon RDS User Guide.
+     * in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * If you modify the DB instance class, an outage occurs during the change. The change is applied during the next
@@ -1025,7 +1058,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        instance classes are available in all AWS Regions, or for all database engines. For the full list of DB
      *        instance classes, and availability for your engine, see <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance
-     *        Class</a> in the Amazon RDS User Guide. </p>
+     *        Class</a> in the <i>Amazon RDS User Guide.</i> </p>
      *        <p>
      *        If you modify the DB instance class, an outage occurs during the change. The change is applied during the
      *        next maintenance window, unless <code>ApplyImmediately</code> is specified as <code>true</code> for this
@@ -1047,7 +1080,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB instance into a VPC.
      * For more information, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC"
-     * >Updating the VPC for a DB Instance</a>.
+     * >Updating the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * Changing the subnet group causes an outage during the change. The change is applied during the next maintenance
@@ -1065,7 +1098,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        different VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB
      *        instance into a VPC. For more information, see <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC"
-     *        >Updating the VPC for a DB Instance</a>. </p>
+     *        >Updating the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i> </p>
      *        <p>
      *        Changing the subnet group causes an outage during the change. The change is applied during the next
      *        maintenance window, unless you specify <code>true</code> for the <code>ApplyImmediately</code> parameter.
@@ -1087,7 +1120,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB instance into a VPC.
      * For more information, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC"
-     * >Updating the VPC for a DB Instance</a>.
+     * >Updating the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * Changing the subnet group causes an outage during the change. The change is applied during the next maintenance
@@ -1104,7 +1137,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         different VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB
      *         instance into a VPC. For more information, see <a href=
      *         "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC"
-     *         >Updating the VPC for a DB Instance</a>. </p>
+     *         >Updating the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i> </p>
      *         <p>
      *         Changing the subnet group causes an outage during the change. The change is applied during the next
      *         maintenance window, unless you specify <code>true</code> for the <code>ApplyImmediately</code> parameter.
@@ -1126,7 +1159,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB instance into a VPC.
      * For more information, see <a href=
      * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC"
-     * >Updating the VPC for a DB Instance</a>.
+     * >Updating the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * Changing the subnet group causes an outage during the change. The change is applied during the next maintenance
@@ -1144,7 +1177,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        different VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB
      *        instance into a VPC. For more information, see <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC"
-     *        >Updating the VPC for a DB Instance</a>. </p>
+     *        >Updating the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i> </p>
      *        <p>
      *        Changing the subnet group causes an outage during the change. The change is applied during the next
      *        maintenance window, unless you specify <code>true</code> for the <code>ApplyImmediately</code> parameter.
@@ -1542,9 +1575,9 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * maintenance window. Some parameter changes can cause an outage and are applied on the next call to
      * <a>RebootDBInstance</a>, or the next failure reboot. Review the table of parameters in <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying a DB
-     * Instance and Using the Apply Immediately Parameter</a> to see the impact that setting
-     * <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified parameter and to
-     * determine when the changes are applied.
+     * Instance and Using the Apply Immediately Parameter</a> in the <i>Amazon RDS User Guide.</i> to see the impact
+     * that setting <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified
+     * parameter and to determine when the changes are applied.
      * </p>
      * <p>
      * Default: <code>false</code>
@@ -1559,9 +1592,9 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        maintenance window. Some parameter changes can cause an outage and are applied on the next call to
      *        <a>RebootDBInstance</a>, or the next failure reboot. Review the table of parameters in <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
-     *        a DB Instance and Using the Apply Immediately Parameter</a> to see the impact that setting
-     *        <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified parameter
-     *        and to determine when the changes are applied.
+     *        a DB Instance and Using the Apply Immediately Parameter</a> in the <i>Amazon RDS User Guide.</i> to see
+     *        the impact that setting <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for
+     *        each modified parameter and to determine when the changes are applied.
      *        </p>
      *        <p>
      *        Default: <code>false</code>
@@ -1581,9 +1614,9 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * maintenance window. Some parameter changes can cause an outage and are applied on the next call to
      * <a>RebootDBInstance</a>, or the next failure reboot. Review the table of parameters in <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying a DB
-     * Instance and Using the Apply Immediately Parameter</a> to see the impact that setting
-     * <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified parameter and to
-     * determine when the changes are applied.
+     * Instance and Using the Apply Immediately Parameter</a> in the <i>Amazon RDS User Guide.</i> to see the impact
+     * that setting <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified
+     * parameter and to determine when the changes are applied.
      * </p>
      * <p>
      * Default: <code>false</code>
@@ -1597,9 +1630,9 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         maintenance window. Some parameter changes can cause an outage and are applied on the next call to
      *         <a>RebootDBInstance</a>, or the next failure reboot. Review the table of parameters in <a
      *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
-     *         a DB Instance and Using the Apply Immediately Parameter</a> to see the impact that setting
-     *         <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified parameter
-     *         and to determine when the changes are applied.
+     *         a DB Instance and Using the Apply Immediately Parameter</a> in the <i>Amazon RDS User Guide.</i> to see
+     *         the impact that setting <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for
+     *         each modified parameter and to determine when the changes are applied.
      *         </p>
      *         <p>
      *         Default: <code>false</code>
@@ -1619,9 +1652,9 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * maintenance window. Some parameter changes can cause an outage and are applied on the next call to
      * <a>RebootDBInstance</a>, or the next failure reboot. Review the table of parameters in <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying a DB
-     * Instance and Using the Apply Immediately Parameter</a> to see the impact that setting
-     * <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified parameter and to
-     * determine when the changes are applied.
+     * Instance and Using the Apply Immediately Parameter</a> in the <i>Amazon RDS User Guide.</i> to see the impact
+     * that setting <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified
+     * parameter and to determine when the changes are applied.
      * </p>
      * <p>
      * Default: <code>false</code>
@@ -1636,9 +1669,9 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        maintenance window. Some parameter changes can cause an outage and are applied on the next call to
      *        <a>RebootDBInstance</a>, or the next failure reboot. Review the table of parameters in <a
      *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
-     *        a DB Instance and Using the Apply Immediately Parameter</a> to see the impact that setting
-     *        <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified parameter
-     *        and to determine when the changes are applied.
+     *        a DB Instance and Using the Apply Immediately Parameter</a> in the <i>Amazon RDS User Guide.</i> to see
+     *        the impact that setting <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for
+     *        each modified parameter and to determine when the changes are applied.
      *        </p>
      *        <p>
      *        Default: <code>false</code>
@@ -1660,9 +1693,9 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * maintenance window. Some parameter changes can cause an outage and are applied on the next call to
      * <a>RebootDBInstance</a>, or the next failure reboot. Review the table of parameters in <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying a DB
-     * Instance and Using the Apply Immediately Parameter</a> to see the impact that setting
-     * <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified parameter and to
-     * determine when the changes are applied.
+     * Instance and Using the Apply Immediately Parameter</a> in the <i>Amazon RDS User Guide.</i> to see the impact
+     * that setting <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified
+     * parameter and to determine when the changes are applied.
      * </p>
      * <p>
      * Default: <code>false</code>
@@ -1676,9 +1709,9 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         maintenance window. Some parameter changes can cause an outage and are applied on the next call to
      *         <a>RebootDBInstance</a>, or the next failure reboot. Review the table of parameters in <a
      *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
-     *         a DB Instance and Using the Apply Immediately Parameter</a> to see the impact that setting
-     *         <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for each modified parameter
-     *         and to determine when the changes are applied.
+     *         a DB Instance and Using the Apply Immediately Parameter</a> in the <i>Amazon RDS User Guide.</i> to see
+     *         the impact that setting <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has for
+     *         each modified parameter and to determine when the changes are applied.
      *         </p>
      *         <p>
      *         Default: <code>false</code>
@@ -2169,7 +2202,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6
+     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6 or later
      * </p>
      * </li>
      * <li>
@@ -2179,7 +2212,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Cannot be set to 0 if the DB instance is a source to Read Replicas
+     * Can't be set to 0 if the DB instance is a source to Read Replicas
      * </p>
      * </li>
      * </ul>
@@ -2215,7 +2248,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        </li>
      *        <li>
      *        <p>
-     *        Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6
+     *        Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6 or later
      *        </p>
      *        </li>
      *        <li>
@@ -2225,7 +2258,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        </li>
      *        <li>
      *        <p>
-     *        Cannot be set to 0 if the DB instance is a source to Read Replicas
+     *        Can't be set to 0 if the DB instance is a source to Read Replicas
      *        </p>
      *        </li>
      */
@@ -2266,7 +2299,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6
+     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6 or later
      * </p>
      * </li>
      * <li>
@@ -2276,7 +2309,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Cannot be set to 0 if the DB instance is a source to Read Replicas
+     * Can't be set to 0 if the DB instance is a source to Read Replicas
      * </p>
      * </li>
      * </ul>
@@ -2311,7 +2344,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         </li>
      *         <li>
      *         <p>
-     *         Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6
+     *         Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6 or later
      *         </p>
      *         </li>
      *         <li>
@@ -2321,7 +2354,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         </li>
      *         <li>
      *         <p>
-     *         Cannot be set to 0 if the DB instance is a source to Read Replicas
+     *         Can't be set to 0 if the DB instance is a source to Read Replicas
      *         </p>
      *         </li>
      */
@@ -2362,7 +2395,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6
+     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6 or later
      * </p>
      * </li>
      * <li>
@@ -2372,7 +2405,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Cannot be set to 0 if the DB instance is a source to Read Replicas
+     * Can't be set to 0 if the DB instance is a source to Read Replicas
      * </p>
      * </li>
      * </ul>
@@ -2408,7 +2441,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        </li>
      *        <li>
      *        <p>
-     *        Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6
+     *        Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6 or later
      *        </p>
      *        </li>
      *        <li>
@@ -2418,7 +2451,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        </li>
      *        <li>
      *        <p>
-     *        Cannot be set to 0 if the DB instance is a source to Read Replicas
+     *        Can't be set to 0 if the DB instance is a source to Read Replicas
      *        </p>
      *        </li>
      * @return Returns a reference to this object so that method calls can be chained together.
@@ -2889,7 +2922,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * default for that DB parameter group family.
      * </p>
      * <p>
-     * For a list of valid engine versions, see <a>CreateDBInstance</a>.
+     * For information about valid engine versions, see <a>CreateDBInstance</a>, or call
+     * <a>DescribeDBEngineVersions</a>.
      * </p>
      * 
      * @param engineVersion
@@ -2902,7 +2936,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        group can be the default for that DB parameter group family.
      *        </p>
      *        <p>
-     *        For a list of valid engine versions, see <a>CreateDBInstance</a>.
+     *        For information about valid engine versions, see <a>CreateDBInstance</a>, or call
+     *        <a>DescribeDBEngineVersions</a>.
      */
 
     public void setEngineVersion(String engineVersion) {
@@ -2921,7 +2956,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * default for that DB parameter group family.
      * </p>
      * <p>
-     * For a list of valid engine versions, see <a>CreateDBInstance</a>.
+     * For information about valid engine versions, see <a>CreateDBInstance</a>, or call
+     * <a>DescribeDBEngineVersions</a>.
      * </p>
      * 
      * @return The version number of the database engine to upgrade to. Changing this parameter results in an outage and
@@ -2933,7 +2969,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         group can be the default for that DB parameter group family.
      *         </p>
      *         <p>
-     *         For a list of valid engine versions, see <a>CreateDBInstance</a>.
+     *         For information about valid engine versions, see <a>CreateDBInstance</a>, or call
+     *         <a>DescribeDBEngineVersions</a>.
      */
 
     public String getEngineVersion() {
@@ -2952,7 +2989,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * default for that DB parameter group family.
      * </p>
      * <p>
-     * For a list of valid engine versions, see <a>CreateDBInstance</a>.
+     * For information about valid engine versions, see <a>CreateDBInstance</a>, or call
+     * <a>DescribeDBEngineVersions</a>.
      * </p>
      * 
      * @param engineVersion
@@ -2965,7 +3003,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        group can be the default for that DB parameter group family.
      *        </p>
      *        <p>
-     *        For a list of valid engine versions, see <a>CreateDBInstance</a>.
+     *        For information about valid engine versions, see <a>CreateDBInstance</a>, or call
+     *        <a>DescribeDBEngineVersions</a>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -3509,7 +3548,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Cannot end with a hyphen or contain two consecutive hyphens.
+     * Can't end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -3538,7 +3577,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        </li>
      *        <li>
      *        <p>
-     *        Cannot end with a hyphen or contain two consecutive hyphens.
+     *        Can't end with a hyphen or contain two consecutive hyphens.
      *        </p>
      *        </li>
      *        </ul>
@@ -3573,7 +3612,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Cannot end with a hyphen or contain two consecutive hyphens.
+     * Can't end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -3601,7 +3640,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         </li>
      *         <li>
      *         <p>
-     *         Cannot end with a hyphen or contain two consecutive hyphens.
+     *         Can't end with a hyphen or contain two consecutive hyphens.
      *         </p>
      *         </li>
      *         </ul>
@@ -3636,7 +3675,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * </li>
      * <li>
      * <p>
-     * Cannot end with a hyphen or contain two consecutive hyphens.
+     * Can't end with a hyphen or contain two consecutive hyphens.
      * </p>
      * </li>
      * </ul>
@@ -3665,7 +3704,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        </li>
      *        <li>
      *        <p>
-     *        Cannot end with a hyphen or contain two consecutive hyphens.
+     *        Can't end with a hyphen or contain two consecutive hyphens.
      *        </p>
      *        </li>
      *        </ul>
@@ -4755,7 +4794,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role, go
      * to <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-     * create an IAM role for Amazon RDS Enhanced Monitoring</a>.
+     * create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
@@ -4767,7 +4806,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring
      *        role, go to <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-     *        create an IAM role for Amazon RDS Enhanced Monitoring</a>.</p>
+     *        create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i> </p>
      *        <p>
      *        If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
      *        <code>MonitoringRoleArn</code> value.
@@ -4783,7 +4822,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role, go
      * to <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-     * create an IAM role for Amazon RDS Enhanced Monitoring</a>.
+     * create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
@@ -4794,7 +4833,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *         For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a
      *         monitoring role, go to <a href=
      *         "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole"
-     *         >To create an IAM role for Amazon RDS Enhanced Monitoring</a>.</p>
+     *         >To create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i> </p>
      *         <p>
      *         If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
      *         <code>MonitoringRoleArn</code> value.
@@ -4810,7 +4849,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role, go
      * to <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-     * create an IAM role for Amazon RDS Enhanced Monitoring</a>.
+     * create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
      * </p>
      * <p>
      * If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
@@ -4822,7 +4861,7 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      *        For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring
      *        role, go to <a href=
      *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-     *        create an IAM role for Amazon RDS Enhanced Monitoring</a>.</p>
+     *        create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i> </p>
      *        <p>
      *        If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
      *        <code>MonitoringRoleArn</code> value.
@@ -4878,8 +4917,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure
      * of the existing primary instance. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance">
-     * Fault Tolerance for an Aurora DB Cluster</a>.
+     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance"
+     * > Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
      * </p>
      * <p>
      * Default: 1
@@ -4891,8 +4930,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * @param promotionTier
      *        A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a
      *        failure of the existing primary instance. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance"
-     *        > Fault Tolerance for an Aurora DB Cluster</a>. </p>
+     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance"
+     *        > Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>. </p>
      *        <p>
      *        Default: 1
      *        </p>
@@ -4908,8 +4947,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure
      * of the existing primary instance. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance">
-     * Fault Tolerance for an Aurora DB Cluster</a>.
+     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance"
+     * > Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
      * </p>
      * <p>
      * Default: 1
@@ -4920,8 +4959,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * 
      * @return A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a
      *         failure of the existing primary instance. For more information, see <a href=
-     *         "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance"
-     *         > Fault Tolerance for an Aurora DB Cluster</a>. </p>
+     *         "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance"
+     *         > Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>. </p>
      *         <p>
      *         Default: 1
      *         </p>
@@ -4937,8 +4976,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure
      * of the existing primary instance. For more information, see <a href=
-     * "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance">
-     * Fault Tolerance for an Aurora DB Cluster</a>.
+     * "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance"
+     * > Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
      * </p>
      * <p>
      * Default: 1
@@ -4950,8 +4989,8 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * @param promotionTier
      *        A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a
      *        failure of the existing primary instance. For more information, see <a href=
-     *        "http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance"
-     *        > Fault Tolerance for an Aurora DB Cluster</a>. </p>
+     *        "http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance"
+     *        > Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>. </p>
      *        <p>
      *        Default: 1
      *        </p>
@@ -5249,9 +5288,18 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * True to enable Performance Insights for the DB instance, and otherwise false.
      * </p>
+     * <p>
+     * For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance
+     * Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
+     * </p>
      * 
      * @param enablePerformanceInsights
-     *        True to enable Performance Insights for the DB instance, and otherwise false.
+     *        True to enable Performance Insights for the DB instance, and otherwise false.</p>
+     *        <p>
+     *        For more information, see <a
+     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon
+     *        Performance Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
      */
 
     public void setEnablePerformanceInsights(Boolean enablePerformanceInsights) {
@@ -5262,8 +5310,17 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * True to enable Performance Insights for the DB instance, and otherwise false.
      * </p>
+     * <p>
+     * For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance
+     * Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
+     * </p>
      * 
-     * @return True to enable Performance Insights for the DB instance, and otherwise false.
+     * @return True to enable Performance Insights for the DB instance, and otherwise false.</p>
+     *         <p>
+     *         For more information, see <a
+     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon
+     *         Performance Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
      */
 
     public Boolean getEnablePerformanceInsights() {
@@ -5274,9 +5331,18 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * True to enable Performance Insights for the DB instance, and otherwise false.
      * </p>
+     * <p>
+     * For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance
+     * Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
+     * </p>
      * 
      * @param enablePerformanceInsights
-     *        True to enable Performance Insights for the DB instance, and otherwise false.
+     *        True to enable Performance Insights for the DB instance, and otherwise false.</p>
+     *        <p>
+     *        For more information, see <a
+     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon
+     *        Performance Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -5289,8 +5355,17 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
      * <p>
      * True to enable Performance Insights for the DB instance, and otherwise false.
      * </p>
+     * <p>
+     * For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance
+     * Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
+     * </p>
      * 
-     * @return True to enable Performance Insights for the DB instance, and otherwise false.
+     * @return True to enable Performance Insights for the DB instance, and otherwise false.</p>
+     *         <p>
+     *         For more information, see <a
+     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon
+     *         Performance Insights</a> in the <i>Amazon Relational Database Service User Guide</i>.
      */
 
     public Boolean isEnablePerformanceInsights() {
@@ -5345,13 +5420,53 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
 
     /**
      * <p>
+     * The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+     * </p>
+     * 
+     * @param performanceInsightsRetentionPeriod
+     *        The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+     */
+
+    public void setPerformanceInsightsRetentionPeriod(Integer performanceInsightsRetentionPeriod) {
+        this.performanceInsightsRetentionPeriod = performanceInsightsRetentionPeriod;
+    }
+
+    /**
+     * <p>
+     * The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+     * </p>
+     * 
+     * @return The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+     */
+
+    public Integer getPerformanceInsightsRetentionPeriod() {
+        return this.performanceInsightsRetentionPeriod;
+    }
+
+    /**
+     * <p>
+     * The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+     * </p>
+     * 
+     * @param performanceInsightsRetentionPeriod
+     *        The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ModifyDBInstanceRequest withPerformanceInsightsRetentionPeriod(Integer performanceInsightsRetentionPeriod) {
+        setPerformanceInsightsRetentionPeriod(performanceInsightsRetentionPeriod);
+        return this;
+    }
+
+    /**
+     * <p>
      * The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
-     * instance or DB cluster.
+     * instance.
      * </p>
      * 
      * @param cloudwatchLogsExportConfiguration
      *        The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
-     *        instance or DB cluster.
+     *        instance.
      */
 
     public void setCloudwatchLogsExportConfiguration(CloudwatchLogsExportConfiguration cloudwatchLogsExportConfiguration) {
@@ -5361,11 +5476,11 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
     /**
      * <p>
      * The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
-     * instance or DB cluster.
+     * instance.
      * </p>
      * 
      * @return The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
-     *         instance or DB cluster.
+     *         instance.
      */
 
     public CloudwatchLogsExportConfiguration getCloudwatchLogsExportConfiguration() {
@@ -5375,12 +5490,12 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
     /**
      * <p>
      * The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
-     * instance or DB cluster.
+     * instance.
      * </p>
      * 
      * @param cloudwatchLogsExportConfiguration
      *        The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB
-     *        instance or DB cluster.
+     *        instance.
      * @return Returns a reference to this object so that method calls can be chained together.
      */
 
@@ -5390,7 +5505,209 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+     * </p>
+     * 
+     * @return The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+     */
+
+    public java.util.List<ProcessorFeature> getProcessorFeatures() {
+        if (processorFeatures == null) {
+            processorFeatures = new com.amazonaws.internal.SdkInternalList<ProcessorFeature>();
+        }
+        return processorFeatures;
+    }
+
+    /**
+     * <p>
+     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+     * </p>
+     * 
+     * @param processorFeatures
+     *        The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+     */
+
+    public void setProcessorFeatures(java.util.Collection<ProcessorFeature> processorFeatures) {
+        if (processorFeatures == null) {
+            this.processorFeatures = null;
+            return;
+        }
+
+        this.processorFeatures = new com.amazonaws.internal.SdkInternalList<ProcessorFeature>(processorFeatures);
+    }
+
+    /**
+     * <p>
+     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+     * </p>
+     * <p>
+     * <b>NOTE:</b> This method appends the values to the existing list (if any). Use
+     * {@link #setProcessorFeatures(java.util.Collection)} or {@link #withProcessorFeatures(java.util.Collection)} if
+     * you want to override the existing values.
+     * </p>
+     * 
+     * @param processorFeatures
+     *        The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ModifyDBInstanceRequest withProcessorFeatures(ProcessorFeature... processorFeatures) {
+        if (this.processorFeatures == null) {
+            setProcessorFeatures(new com.amazonaws.internal.SdkInternalList<ProcessorFeature>(processorFeatures.length));
+        }
+        for (ProcessorFeature ele : processorFeatures) {
+            this.processorFeatures.add(ele);
+        }
+        return this;
+    }
+
+    /**
+     * <p>
+     * The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+     * </p>
+     * 
+     * @param processorFeatures
+     *        The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ModifyDBInstanceRequest withProcessorFeatures(java.util.Collection<ProcessorFeature> processorFeatures) {
+        setProcessorFeatures(processorFeatures);
+        return this;
+    }
+
+    /**
+     * <p>
+     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
+     * </p>
+     * 
+     * @param useDefaultProcessorFeatures
+     *        A value that specifies that the DB instance class of the DB instance uses its default processor features.
+     */
+
+    public void setUseDefaultProcessorFeatures(Boolean useDefaultProcessorFeatures) {
+        this.useDefaultProcessorFeatures = useDefaultProcessorFeatures;
+    }
+
+    /**
+     * <p>
+     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
+     * </p>
+     * 
+     * @return A value that specifies that the DB instance class of the DB instance uses its default processor features.
+     */
+
+    public Boolean getUseDefaultProcessorFeatures() {
+        return this.useDefaultProcessorFeatures;
+    }
+
+    /**
+     * <p>
+     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
+     * </p>
+     * 
+     * @param useDefaultProcessorFeatures
+     *        A value that specifies that the DB instance class of the DB instance uses its default processor features.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ModifyDBInstanceRequest withUseDefaultProcessorFeatures(Boolean useDefaultProcessorFeatures) {
+        setUseDefaultProcessorFeatures(useDefaultProcessorFeatures);
+        return this;
+    }
+
+    /**
+     * <p>
+     * A value that specifies that the DB instance class of the DB instance uses its default processor features.
+     * </p>
+     * 
+     * @return A value that specifies that the DB instance class of the DB instance uses its default processor features.
+     */
+
+    public Boolean isUseDefaultProcessorFeatures() {
+        return this.useDefaultProcessorFeatures;
+    }
+
+    /**
+     * <p>
+     * Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is
+     * set to true. For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
+     * Instance</a>.
+     * </p>
+     * 
+     * @param deletionProtection
+     *        Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this
+     *        value is set to true. For more information, see <a
+     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
+     *        Instance</a>.
+     */
+
+    public void setDeletionProtection(Boolean deletionProtection) {
+        this.deletionProtection = deletionProtection;
+    }
+
+    /**
+     * <p>
+     * Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is
+     * set to true. For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
+     * Instance</a>.
+     * </p>
+     * 
+     * @return Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this
+     *         value is set to true. For more information, see <a
+     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
+     *         Instance</a>.
+     */
+
+    public Boolean getDeletionProtection() {
+        return this.deletionProtection;
+    }
+
+    /**
+     * <p>
+     * Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is
+     * set to true. For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
+     * Instance</a>.
+     * </p>
+     * 
+     * @param deletionProtection
+     *        Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this
+     *        value is set to true. For more information, see <a
+     *        href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
+     *        Instance</a>.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public ModifyDBInstanceRequest withDeletionProtection(Boolean deletionProtection) {
+        setDeletionProtection(deletionProtection);
+        return this;
+    }
+
+    /**
+     * <p>
+     * Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is
+     * set to true. For more information, see <a
+     * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
+     * Instance</a>.
+     * </p>
+     * 
+     * @return Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this
+     *         value is set to true. For more information, see <a
+     *         href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"> Deleting a DB
+     *         Instance</a>.
+     */
+
+    public Boolean isDeletionProtection() {
+        return this.deletionProtection;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -5470,8 +5787,16 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
             sb.append("EnablePerformanceInsights: ").append(getEnablePerformanceInsights()).append(",");
         if (getPerformanceInsightsKMSKeyId() != null)
             sb.append("PerformanceInsightsKMSKeyId: ").append(getPerformanceInsightsKMSKeyId()).append(",");
+        if (getPerformanceInsightsRetentionPeriod() != null)
+            sb.append("PerformanceInsightsRetentionPeriod: ").append(getPerformanceInsightsRetentionPeriod()).append(",");
         if (getCloudwatchLogsExportConfiguration() != null)
-            sb.append("CloudwatchLogsExportConfiguration: ").append(getCloudwatchLogsExportConfiguration());
+            sb.append("CloudwatchLogsExportConfiguration: ").append(getCloudwatchLogsExportConfiguration()).append(",");
+        if (getProcessorFeatures() != null)
+            sb.append("ProcessorFeatures: ").append(getProcessorFeatures()).append(",");
+        if (getUseDefaultProcessorFeatures() != null)
+            sb.append("UseDefaultProcessorFeatures: ").append(getUseDefaultProcessorFeatures()).append(",");
+        if (getDeletionProtection() != null)
+            sb.append("DeletionProtection: ").append(getDeletionProtection());
         sb.append("}");
         return sb.toString();
     }
@@ -5627,10 +5952,27 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
             return false;
         if (other.getPerformanceInsightsKMSKeyId() != null && other.getPerformanceInsightsKMSKeyId().equals(this.getPerformanceInsightsKMSKeyId()) == false)
             return false;
+        if (other.getPerformanceInsightsRetentionPeriod() == null ^ this.getPerformanceInsightsRetentionPeriod() == null)
+            return false;
+        if (other.getPerformanceInsightsRetentionPeriod() != null
+                && other.getPerformanceInsightsRetentionPeriod().equals(this.getPerformanceInsightsRetentionPeriod()) == false)
+            return false;
         if (other.getCloudwatchLogsExportConfiguration() == null ^ this.getCloudwatchLogsExportConfiguration() == null)
             return false;
         if (other.getCloudwatchLogsExportConfiguration() != null
                 && other.getCloudwatchLogsExportConfiguration().equals(this.getCloudwatchLogsExportConfiguration()) == false)
+            return false;
+        if (other.getProcessorFeatures() == null ^ this.getProcessorFeatures() == null)
+            return false;
+        if (other.getProcessorFeatures() != null && other.getProcessorFeatures().equals(this.getProcessorFeatures()) == false)
+            return false;
+        if (other.getUseDefaultProcessorFeatures() == null ^ this.getUseDefaultProcessorFeatures() == null)
+            return false;
+        if (other.getUseDefaultProcessorFeatures() != null && other.getUseDefaultProcessorFeatures().equals(this.getUseDefaultProcessorFeatures()) == false)
+            return false;
+        if (other.getDeletionProtection() == null ^ this.getDeletionProtection() == null)
+            return false;
+        if (other.getDeletionProtection() != null && other.getDeletionProtection().equals(this.getDeletionProtection()) == false)
             return false;
         return true;
     }
@@ -5675,7 +6017,11 @@ public class ModifyDBInstanceRequest extends com.amazonaws.AmazonWebServiceReque
         hashCode = prime * hashCode + ((getEnableIAMDatabaseAuthentication() == null) ? 0 : getEnableIAMDatabaseAuthentication().hashCode());
         hashCode = prime * hashCode + ((getEnablePerformanceInsights() == null) ? 0 : getEnablePerformanceInsights().hashCode());
         hashCode = prime * hashCode + ((getPerformanceInsightsKMSKeyId() == null) ? 0 : getPerformanceInsightsKMSKeyId().hashCode());
+        hashCode = prime * hashCode + ((getPerformanceInsightsRetentionPeriod() == null) ? 0 : getPerformanceInsightsRetentionPeriod().hashCode());
         hashCode = prime * hashCode + ((getCloudwatchLogsExportConfiguration() == null) ? 0 : getCloudwatchLogsExportConfiguration().hashCode());
+        hashCode = prime * hashCode + ((getProcessorFeatures() == null) ? 0 : getProcessorFeatures().hashCode());
+        hashCode = prime * hashCode + ((getUseDefaultProcessorFeatures() == null) ? 0 : getUseDefaultProcessorFeatures().hashCode());
+        hashCode = prime * hashCode + ((getDeletionProtection() == null) ? 0 : getDeletionProtection().hashCode());
         return hashCode;
     }
 

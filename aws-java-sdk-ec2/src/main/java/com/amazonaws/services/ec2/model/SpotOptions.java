@@ -29,7 +29,7 @@ public class SpotOptions implements Serializable, Cloneable {
     /**
      * <p>
      * Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The
-     * default is <code>lowestPrice</code>.
+     * default is <code>lowest-price</code>.
      * </p>
      */
     private String allocationStrategy;
@@ -39,16 +39,37 @@ public class SpotOptions implements Serializable, Cloneable {
      * </p>
      */
     private String instanceInterruptionBehavior;
+    /**
+     * <p>
+     * The number of Spot pools across which to allocate your target Spot capacity. Valid only when
+     * <b>AllocationStrategy</b> is set to <code>lowestPrice</code>. EC2 Fleet selects the cheapest Spot pools and
+     * evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+     * </p>
+     */
+    private Integer instancePoolsToUseCount;
+    /**
+     * <p>
+     * Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+     * </p>
+     */
+    private Boolean singleInstanceType;
+    /**
+     * <p>
+     * The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the
+     * fleet launches no instances.
+     * </p>
+     */
+    private Integer minTargetCapacity;
 
     /**
      * <p>
      * Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The
-     * default is <code>lowestPrice</code>.
+     * default is <code>lowest-price</code>.
      * </p>
      * 
      * @param allocationStrategy
      *        Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request.
-     *        The default is <code>lowestPrice</code>.
+     *        The default is <code>lowest-price</code>.
      * @see SpotAllocationStrategy
      */
 
@@ -59,11 +80,11 @@ public class SpotOptions implements Serializable, Cloneable {
     /**
      * <p>
      * Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The
-     * default is <code>lowestPrice</code>.
+     * default is <code>lowest-price</code>.
      * </p>
      * 
      * @return Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request.
-     *         The default is <code>lowestPrice</code>.
+     *         The default is <code>lowest-price</code>.
      * @see SpotAllocationStrategy
      */
 
@@ -74,12 +95,12 @@ public class SpotOptions implements Serializable, Cloneable {
     /**
      * <p>
      * Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The
-     * default is <code>lowestPrice</code>.
+     * default is <code>lowest-price</code>.
      * </p>
      * 
      * @param allocationStrategy
      *        Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request.
-     *        The default is <code>lowestPrice</code>.
+     *        The default is <code>lowest-price</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see SpotAllocationStrategy
      */
@@ -92,12 +113,12 @@ public class SpotOptions implements Serializable, Cloneable {
     /**
      * <p>
      * Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The
-     * default is <code>lowestPrice</code>.
+     * default is <code>lowest-price</code>.
      * </p>
      * 
      * @param allocationStrategy
      *        Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request.
-     *        The default is <code>lowestPrice</code>.
+     *        The default is <code>lowest-price</code>.
      * @return Returns a reference to this object so that method calls can be chained together.
      * @see SpotAllocationStrategy
      */
@@ -167,7 +188,158 @@ public class SpotOptions implements Serializable, Cloneable {
     }
 
     /**
-     * Returns a string representation of this object; useful for testing and debugging.
+     * <p>
+     * The number of Spot pools across which to allocate your target Spot capacity. Valid only when
+     * <b>AllocationStrategy</b> is set to <code>lowestPrice</code>. EC2 Fleet selects the cheapest Spot pools and
+     * evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+     * </p>
+     * 
+     * @param instancePoolsToUseCount
+     *        The number of Spot pools across which to allocate your target Spot capacity. Valid only when
+     *        <b>AllocationStrategy</b> is set to <code>lowestPrice</code>. EC2 Fleet selects the cheapest Spot pools
+     *        and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+     */
+
+    public void setInstancePoolsToUseCount(Integer instancePoolsToUseCount) {
+        this.instancePoolsToUseCount = instancePoolsToUseCount;
+    }
+
+    /**
+     * <p>
+     * The number of Spot pools across which to allocate your target Spot capacity. Valid only when
+     * <b>AllocationStrategy</b> is set to <code>lowestPrice</code>. EC2 Fleet selects the cheapest Spot pools and
+     * evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+     * </p>
+     * 
+     * @return The number of Spot pools across which to allocate your target Spot capacity. Valid only when
+     *         <b>AllocationStrategy</b> is set to <code>lowestPrice</code>. EC2 Fleet selects the cheapest Spot pools
+     *         and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+     */
+
+    public Integer getInstancePoolsToUseCount() {
+        return this.instancePoolsToUseCount;
+    }
+
+    /**
+     * <p>
+     * The number of Spot pools across which to allocate your target Spot capacity. Valid only when
+     * <b>AllocationStrategy</b> is set to <code>lowestPrice</code>. EC2 Fleet selects the cheapest Spot pools and
+     * evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+     * </p>
+     * 
+     * @param instancePoolsToUseCount
+     *        The number of Spot pools across which to allocate your target Spot capacity. Valid only when
+     *        <b>AllocationStrategy</b> is set to <code>lowestPrice</code>. EC2 Fleet selects the cheapest Spot pools
+     *        and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public SpotOptions withInstancePoolsToUseCount(Integer instancePoolsToUseCount) {
+        setInstancePoolsToUseCount(instancePoolsToUseCount);
+        return this;
+    }
+
+    /**
+     * <p>
+     * Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+     * </p>
+     * 
+     * @param singleInstanceType
+     *        Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+     */
+
+    public void setSingleInstanceType(Boolean singleInstanceType) {
+        this.singleInstanceType = singleInstanceType;
+    }
+
+    /**
+     * <p>
+     * Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+     * </p>
+     * 
+     * @return Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+     */
+
+    public Boolean getSingleInstanceType() {
+        return this.singleInstanceType;
+    }
+
+    /**
+     * <p>
+     * Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+     * </p>
+     * 
+     * @param singleInstanceType
+     *        Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public SpotOptions withSingleInstanceType(Boolean singleInstanceType) {
+        setSingleInstanceType(singleInstanceType);
+        return this;
+    }
+
+    /**
+     * <p>
+     * Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+     * </p>
+     * 
+     * @return Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+     */
+
+    public Boolean isSingleInstanceType() {
+        return this.singleInstanceType;
+    }
+
+    /**
+     * <p>
+     * The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the
+     * fleet launches no instances.
+     * </p>
+     * 
+     * @param minTargetCapacity
+     *        The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not
+     *        reached, the fleet launches no instances.
+     */
+
+    public void setMinTargetCapacity(Integer minTargetCapacity) {
+        this.minTargetCapacity = minTargetCapacity;
+    }
+
+    /**
+     * <p>
+     * The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the
+     * fleet launches no instances.
+     * </p>
+     * 
+     * @return The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not
+     *         reached, the fleet launches no instances.
+     */
+
+    public Integer getMinTargetCapacity() {
+        return this.minTargetCapacity;
+    }
+
+    /**
+     * <p>
+     * The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the
+     * fleet launches no instances.
+     * </p>
+     * 
+     * @param minTargetCapacity
+     *        The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not
+     *        reached, the fleet launches no instances.
+     * @return Returns a reference to this object so that method calls can be chained together.
+     */
+
+    public SpotOptions withMinTargetCapacity(Integer minTargetCapacity) {
+        setMinTargetCapacity(minTargetCapacity);
+        return this;
+    }
+
+    /**
+     * Returns a string representation of this object. This is useful for testing and debugging. Sensitive data will be
+     * redacted from this string using a placeholder value.
      *
      * @return A string representation of this object.
      *
@@ -180,7 +352,13 @@ public class SpotOptions implements Serializable, Cloneable {
         if (getAllocationStrategy() != null)
             sb.append("AllocationStrategy: ").append(getAllocationStrategy()).append(",");
         if (getInstanceInterruptionBehavior() != null)
-            sb.append("InstanceInterruptionBehavior: ").append(getInstanceInterruptionBehavior());
+            sb.append("InstanceInterruptionBehavior: ").append(getInstanceInterruptionBehavior()).append(",");
+        if (getInstancePoolsToUseCount() != null)
+            sb.append("InstancePoolsToUseCount: ").append(getInstancePoolsToUseCount()).append(",");
+        if (getSingleInstanceType() != null)
+            sb.append("SingleInstanceType: ").append(getSingleInstanceType()).append(",");
+        if (getMinTargetCapacity() != null)
+            sb.append("MinTargetCapacity: ").append(getMinTargetCapacity());
         sb.append("}");
         return sb.toString();
     }
@@ -203,6 +381,18 @@ public class SpotOptions implements Serializable, Cloneable {
             return false;
         if (other.getInstanceInterruptionBehavior() != null && other.getInstanceInterruptionBehavior().equals(this.getInstanceInterruptionBehavior()) == false)
             return false;
+        if (other.getInstancePoolsToUseCount() == null ^ this.getInstancePoolsToUseCount() == null)
+            return false;
+        if (other.getInstancePoolsToUseCount() != null && other.getInstancePoolsToUseCount().equals(this.getInstancePoolsToUseCount()) == false)
+            return false;
+        if (other.getSingleInstanceType() == null ^ this.getSingleInstanceType() == null)
+            return false;
+        if (other.getSingleInstanceType() != null && other.getSingleInstanceType().equals(this.getSingleInstanceType()) == false)
+            return false;
+        if (other.getMinTargetCapacity() == null ^ this.getMinTargetCapacity() == null)
+            return false;
+        if (other.getMinTargetCapacity() != null && other.getMinTargetCapacity().equals(this.getMinTargetCapacity()) == false)
+            return false;
         return true;
     }
 
@@ -213,6 +403,9 @@ public class SpotOptions implements Serializable, Cloneable {
 
         hashCode = prime * hashCode + ((getAllocationStrategy() == null) ? 0 : getAllocationStrategy().hashCode());
         hashCode = prime * hashCode + ((getInstanceInterruptionBehavior() == null) ? 0 : getInstanceInterruptionBehavior().hashCode());
+        hashCode = prime * hashCode + ((getInstancePoolsToUseCount() == null) ? 0 : getInstancePoolsToUseCount().hashCode());
+        hashCode = prime * hashCode + ((getSingleInstanceType() == null) ? 0 : getSingleInstanceType().hashCode());
+        hashCode = prime * hashCode + ((getMinTargetCapacity() == null) ? 0 : getMinTargetCapacity().hashCode());
         return hashCode;
     }
 
